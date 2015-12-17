@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/rspec-html-matchers/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-06-22 18:04:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Rspecマッチャー rspec-html-matchersを試してみてる</title>
+          <link>http://blog.eiel.info/blog/2012/06/22/rspec-html-matchers/</link>
+          <pubDate>Fri, 22 Jun 2012 18:04:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/06/22/rspec-html-matchers/</guid>
+          <description>&lt;p&gt;Ruby on Railsで ViewやHelperの Specを書く際に利用するマッチャーに良いのがないか探してます。現在のRspecはcontainぐらいしかないので、細かくチェックしたい場合は若干使いづらいです。というわけで、&lt;a href=&#34;https://github.com/kucaahbe/rspec-html-matchers&#34;&gt;rspec-html-matchers&lt;/a&gt;を試しています。&lt;/p&gt;
+
+&lt;p&gt;以前は &lt;a href=&#34;https://github.com/dcuddeback/rspec-tag_matchers&#34;&gt;rspec-tag_matchers&lt;/a&gt; を使用していたのですが、出力がちょっとイマイチでした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;www.ruby-toolbox.com&#34;&gt;Ruby Tools&lt;/a&gt;でざらざらと探した結果、&lt;a href=&#34;https://github.com/kucaahbe/rspec-html-matchers&#34;&gt;rspec-html-matchers&lt;/a&gt;を試してみることにしました。&lt;/p&gt;
+
+&lt;p&gt;Form用のマッチャーがいろいろあったり、内部に存在するタグをチェックしたりできるのが嬉しいですね。capybaraの&lt;code&gt;have_css&lt;/code&gt;はsubject側で find(selector)しておく必要があるので、ややめんどくさいです。&lt;/p&gt;
+
+&lt;p&gt;いまのところの不満点は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Hashで渡していくのがちょっと格好悪い&lt;/li&gt;
+&lt;li&gt;正規表現での属性チェックができなかった&lt;/li&gt;
+&lt;li&gt;暗黙的なsubjectを使用する場合、ブロックがあると不具合がでる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;3番目なんですが、have_tag マッチャーにブロックを渡し場合 shouldメソッドのレシーバをかかないと、ブロック内へと処理が流れないようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;subject { render }
+it do
+  should have_tag(&amp;quot;a&amp;quot;) do
+    # このブロック処理が走らない
+    with_tag(&amp;quot;b&amp;quot;)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のように書いてしまうと &lt;code&gt;with_tag(&amp;quot;b&amp;quot;)&lt;/code&gt; の部分が動作しません。3行目を明示的に &lt;code&gt;subject.should&lt;/code&gt;とすると動いてくれました。rspecの問題なのか、rspec-html-matchersの問題なのか切りわけが難しいのでとりあえず、我慢することにしました。
+ブロックを渡さない場合は大丈夫です。&lt;/p&gt;
+
+&lt;p&gt;他は良好に使えています。
+View Specの良い例が欲しいです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

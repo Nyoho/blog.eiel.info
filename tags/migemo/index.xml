@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/migemo/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-01-09 02:12:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>cmigemoがインストールできない - openlab.ring.gr.jp が死んでるっぽい</title>
+          <link>http://blog.eiel.info/blog/2014/01/09/cannot-install-cmigemo/</link>
+          <pubDate>Thu, 09 Jan 2014 02:12:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/01/09/cannot-install-cmigemo/</guid>
+          <description>
+
+&lt;p&gt;Twitter に書いてもあまり反応がないので、blogにでも書いとくとなんとかなるかもしれないのでかいておくことにする。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://openlab.ring.gr.jp/&#34;&gt;http://openlab.ring.gr.jp/&lt;/a&gt; が死んでるっぽくて &lt;code&gt;$ brew install cmigemo&lt;/code&gt; が失敗してしまう。
+もしかして ddskk とかも一部インストールできない状態なんだろうか…。ミラーとかないんだろうか。&lt;/p&gt;
+
+&lt;h3 id=&#34;詳細:959c100b7ffd6cb9740587ce9205a645&#34;&gt;詳細&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ brew install cmigemo
+==&amp;gt; Downloading http://cmigemo.googlecode.com/files/cmigemo-default-src-20110227
+Already downloaded: /Library/Caches/Homebrew/cmigemo-20110227.zip
+==&amp;gt; Patching
+patching file src/wordbuf.c
+==&amp;gt; chmod +x ./configure
+==&amp;gt; ./configure --prefix=/usr/local/Cellar/cmigemo/20110227
+==&amp;gt; make osx
+==&amp;gt; make osx-dict
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (56) Recv failure: Connection reset by peer
+make[2]: *** [SKK-JISYO.L] Error 56
+make[1]: *** [dictionary] Error 2
+make: *** [osx-dict] Error 2
+
+READ THIS: https://github.com/Homebrew/homebrew/wiki/troubleshooting
+
+These open issues may also help:
+    https://github.com/Homebrew/homebrew/pull/7005
+    https://github.com/Homebrew/homebrew/pull/15343
+    https://github.com/Homebrew/homebrew/issues/10898
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となる。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ brew edit cmigemo&lt;/code&gt; で formula がひらける&lt;/p&gt;
+
+&lt;p&gt;make osx-dict に失敗してる&lt;/p&gt;
+
+&lt;p&gt;一時ファイルどっかにないんだろうか。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ find /usr/local -name cmigemo\*
+/usr/local/bin/cmigemo
+/usr/local/Library/Formula/cmigemo.rb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;特にみつからず。もしや &lt;code&gt;/tmp/&lt;/code&gt; 以下なんだろうか…と後でおもった。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ wget http://cmigemo.googlecode.com/files/cmigemo-default-src-20110227.zip
+$ zip -u cmigemo-default-src-20110227.zip
+$ cd cmigemo-default-src
+$ chmod +x ./configure
+$ ./configure
+$ make osx
+$ make osx-dict
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;curl -O &lt;a href=&#34;http://openlab.ring.gr.jp/skk/dic/SKK-JISYO.L.gz&#34;&gt;http://openlab.ring.gr.jp/skk/dic/SKK-JISYO.L.gz&lt;/a&gt;
+が失敗してることがわかった。&lt;/p&gt;
+
+&lt;p&gt;この辺の上手い調べ方とか知りたい。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

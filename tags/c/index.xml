@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/c/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-01-11 23:54:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>C&#43;&#43;勉強会in広島でオープンセミナー2014@広島の告知を兼ねたLTしてきた</title>
+          <link>http://blog.eiel.info/blog/2014/01/11/cpp-hiroshima/</link>
+          <pubDate>Sat, 11 Jan 2014 23:54:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/01/11/cpp-hiroshima/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://partake.in/events/5ddde1fe-88b7-4541-9f37-02cf4fa0284c&#34;&gt;C++勉強会in広島&lt;/a&gt;に参加してLTしてきました。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;767eb2105c40013147cb72318cd7c772&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;テスト駆動開発が&lt;a href=&#34;http://osh-2014.github.io/&#34;&gt;オープンセミナー2014@広島&lt;/a&gt;のテーマのひとつなので、C++ のテスティングフレームワークである CppUTest を試しすことで告知するという手法をとりました。&lt;/p&gt;
+
+&lt;p&gt;C++は大学生のころ勉強していたようなそうでもないような、&lt;a href=&#34;https://www.amazon.co.jp/dp/4621066064?tag=eiel-22&amp;amp;camp=1027&amp;amp;creative=7407&amp;amp;linkCode=as4&amp;amp;creativeASIN=4621066064&amp;amp;adid=1AD3439TTKC9VEHCJTFN&amp;amp;&#34;&gt;More Effective C++ &lt;/a&gt;ぐらいは読んだかなぁ。
+そういえば丸善出版で再販されるそうですね。よかったよかった。&lt;/p&gt;
+
+&lt;p&gt;冷静に考えると C++ で書いたプログラムをビルドするのに Makefile を書いたのは、はじめてな気がしたり、clang++ をコマンドから使うのがはじめてだったり、LT をしようとすることでいろいろ勉強になるなぁ、と感じました。
+勉強会があるので、そのために勉強するのも良い方法だと思います。&lt;/p&gt;
+
+&lt;p&gt;「まとめ」が「まとめ」じゃないって言われたので、今度から「いろいろ試した結果、最終的な結論」とかにしたいと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/cpphiroshima-1&#34;&gt;実際に動作確認するのに使用したソースコードは GitHub に置いています。&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;src/test_runner.cpp&lt;/code&gt; がテストを実行する部分です。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;src/factorial_test.cpp&lt;/code&gt; がテストコードです。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;src/factorial.hpp&lt;/code&gt; が階乗求めるプログラムの実装部分です。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;make を実行するとビルドしてテストを実行するようにしています。&lt;/p&gt;
+
+&lt;p&gt;そういえば test というディレクトリを最初つくっていて、 make test した時に test ディレクトリがあるせいでうまく動かなかったりしました。
+一般的にはどうするんだろうか。&lt;/p&gt;
+
+&lt;h3 id=&#34;その他の発表:e79cd93b9ba3ea90bf0a61ed0d721705&#34;&gt;その他の発表&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/PG_nonen/&#34;&gt;南山まさかず氏&lt;/a&gt; の Template Meta Programming なんかは全く知らない世界でした。
+シンタックスを気にしなきゃ、純粋関数型プログラミングと見なせるようだったので、がんばれば使えそうな気がしてきております。
+ちょっとぐらいサンプルコードを書いてみたいと思いますが、コンパイルエラーの解読がきっとつらいんだろうなぁ、と想像してます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/masakazuminamiyama/cin-29888053&#34;&gt;スライドはここにあるらしい&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/uchan_nos&#34;&gt;uchan_nos&lt;/a&gt;さんのC++でできる!OSの自作入門は、知ってる範囲のこともあったりそうでないところもあったりでおもしろかったです。
+プログラム書いてたらOSの仕組みやらブートシーケンスはやっぱり知りたくなりますよね。&lt;/p&gt;
+
+&lt;p&gt;「フリースタンディング環境」という言葉は初めて知ったので、いろんな言語のそのあたりの状況もちょっと気になっております。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/uchan_nos/cppos&#34;&gt;スライドはここにあるらしい&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;その他、全体の雰囲気は&lt;a href=&#34;http://togetter.com/li/614849&#34;&gt;Togetterのまとめ&lt;/a&gt;をみるほうがわかりやすいかもしれない。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

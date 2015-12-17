@@ -1,0 +1,30 @@
+#profile a {
+    color: white;
+}
+
+.adsbygoogle {
+    margin: 30px 0;
+}
+
+.post-content {
+    padding-top: 20px;
+    border-top: solid 1px #999;
+}
+
+.post-content img {
+    width: 100%;
+}
+div .hatena-bookmark-widget {
+    width: 90%;
+    max-width: 360px;
+    margin: 5%;
+    display: inline-block;
+}
+
+.post-single {
+    margin-top: 60px;
+}
+
+.sidebar-wrapper {
+    margin-top: 40px;
+}

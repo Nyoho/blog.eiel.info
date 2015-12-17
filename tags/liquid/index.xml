@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/liquid/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-06-19 21:32:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Jekyll を使ったGithub Pages で関数呼び出し的なことをする</title>
+          <link>http://blog.eiel.info/blog/2013/06/19/jekyll-on-function/</link>
+          <pubDate>Wed, 19 Jun 2013 21:32:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/06/19/jekyll-on-function/</guid>
+          <description>
+
+&lt;p&gt;この記事は &lt;a href=&#34;http://great-h.github.io/events/event-005.html&#34;&gt;すごい広島 #005&lt;/a&gt; で試したことです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://pages.github.com/&#34;&gt;Github Pages&lt;/a&gt; で Jekyll を使う場合は機能拡張などすることが基本的にできません。&lt;/p&gt;
+
+&lt;p&gt;関数のように汎用のHTMLを作成して、引数で動作を変えるようなことがしたい。
+本来ではあれば &lt;a href=&#34;http://liquidmarkup.org/&#34;&gt;Liquid&lt;/a&gt; のカスタムタグなどが使えるのですが、&lt;a href=&#34;http://jekyllrb.com/&#34;&gt;jekyll&lt;/a&gt; が safe モードで動いているので、カスタムタグを作成することができません。&lt;/p&gt;
+
+&lt;p&gt;しかし、 liquid の &lt;code&gt;includeタグ&lt;/code&gt; を利用することでそれっぽいことができます。&lt;/p&gt;
+
+&lt;p&gt;流れは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;あらかじめ変数をセットしておく&lt;/li&gt;
+&lt;li&gt;include を使う
+
+&lt;ul&gt;
+&lt;li&gt;セットしておいた変数で分岐したり、表示内容として利用する&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;となります。&lt;/p&gt;
+
+&lt;h1 id=&#34;変数:79fe50412cbb3e59f64ffd395b234641&#34;&gt;変数&lt;/h1&gt;
+
+&lt;p&gt;変数をセットするには FrontFormatter を利用するか、liquidの &lt;code&gt;assignタグ&lt;/code&gt; か &lt;code&gt;caputerタグ&lt;/code&gt;を利用することになります。&lt;/p&gt;
+
+&lt;h2 id=&#34;frontformatterを使う:79fe50412cbb3e59f64ffd395b234641&#34;&gt;FrontFormatterを使う&lt;/h2&gt;
+
+&lt;p&gt;FrontFormatter は ページの先頭に書く yaml の部分です。&lt;/p&gt;
+
+&lt;p&gt;例:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;title:  &amp;quot;すごい広島 #5&amp;quot;
+date:   2013-06-19 19:00:00
+place: tullys
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;page.place&lt;/code&gt; という変数を追加して &lt;code&gt;tullys&lt;/code&gt; という文字列をセットできます。&lt;/p&gt;
+
+&lt;h2 id=&#34;assign-を使う:79fe50412cbb3e59f64ffd395b234641&#34;&gt;assign を使う&lt;/h2&gt;
+
+&lt;p&gt;Liquid の assign タグを利用して&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ % assign place = tullys % }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;place&lt;/code&gt; という変数を追加して &lt;code&gt;tullys&lt;/code&gt; という文字列をセットできます。
+FrontFormatter には page のメンバになっていましたが、こちらは直接参照できます。&lt;/p&gt;
+
+&lt;h2 id=&#34;capture-を使う:79fe50412cbb3e59f64ffd395b234641&#34;&gt;capture を使う&lt;/h2&gt;
+
+&lt;p&gt;capture を用いると長い文字列を変数にセットするのに便利です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ % capture place % }
+tullys
+{ % endcapture % }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これも同様に place という変数を追加して &lt;code&gt;\ntullys\n&lt;/code&gt; という文字列をセットできます。(改行を含みます)&lt;/p&gt;
+
+&lt;h1 id=&#34;include-タグ:79fe50412cbb3e59f64ffd395b234641&#34;&gt;include タグ&lt;/h1&gt;
+
+&lt;p&gt;これは SSI の include のように外部のファイルを読込みして、その場に挿入できる liquid のタグです。
+同様の機能が PHP なんかにもありますね。&lt;/p&gt;
+
+&lt;p&gt;include するためのファイルは &lt;code&gt;_includes&lt;/code&gt; におくことになります。
+&lt;code&gt;PROJECT_ROOT/_includes/place/go&lt;/code&gt;というファイルを作成して、中身を作成します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;b&amp;gt;ある場所に行きます。&amp;lt;/b&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これをあるページで&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ % include place/go % }
+{ % include place/go % }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と記述すれば&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;b&amp;gt;ある場所に行きます。&amp;lt;/b&amp;gt;
+&amp;lt;b&amp;gt;ある場所に行きます。&amp;lt;/b&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、出力されます。&lt;/p&gt;
+
+&lt;h1 id=&#34;変数と-include-を組み合わせる:79fe50412cbb3e59f64ffd395b234641&#34;&gt;変数と include を組み合わせる&lt;/h1&gt;
+
+&lt;p&gt;includeを無理矢理関数のように利用してみます。&lt;/p&gt;
+
+&lt;p&gt;上記の &lt;code&gt;PROJECT_ROOT/_includes/go&lt;/code&gt; を以下のようにします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;b&amp;gt;{{ place }}に行きます。&amp;lt;/b&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そして、assign で値をセットしてから include します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ % assign place = &amp;quot;広島&amp;quot; % }
+{ % include place/go % }
+{ % include place/go % }
+{ % assign place = &amp;quot;日本&amp;quot; % }
+{ % include place/go % }
+{ % include place/go % }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;結果は以下のようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+&amp;lt;b&amp;gt;広島に行きます。&amp;lt;/b&amp;gt;
+&amp;lt;b&amp;gt;広島に行きます。&amp;lt;/b&amp;gt;
+
+&amp;lt;b&amp;gt;日本に行きます。&amp;lt;/b&amp;gt;
+&amp;lt;b&amp;gt;日本に行きます。&amp;lt;/b&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こうすることで繰返し項目を少しだけ DRY に記述できます。&lt;/p&gt;
+
+&lt;h1 id=&#34;注意点:79fe50412cbb3e59f64ffd395b234641&#34;&gt;注意点&lt;/h1&gt;
+
+&lt;p&gt;レイアウトで include する場合、ページから変数を設定するには、FrontFormmater を使用しないとうまくいきません。&lt;/p&gt;
+
+&lt;p&gt;レイアウト -&amp;gt; ページ内部 という順番で処理されるためです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;includeする&lt;/li&gt;
+&lt;li&gt;変数を設定する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という動作になるため、期待した動作になりません。&lt;/p&gt;
+
+&lt;p&gt;また、 include の引数に変数を使う方法はみつけることができませんでした。
+代わりに &lt;code&gt;caseタグ&lt;/code&gt; や &lt;code&gt;ifタグ&lt;/code&gt; で地道にがんばることになります。&lt;/p&gt;
+
+&lt;p&gt;Github  Pages を共同編集するわけではないなら、ローカルでHTMLを生成してから push するほうがいろいろ便利そうです。
+プログラマ的には slim なども利用できる &lt;a href=&#34;http://middlemanapp.com/&#34;&gt;Middleman&lt;/a&gt; などが注目を浴びていきそうですね。&lt;/p&gt;
+
+&lt;h1 id=&#34;参考文献:79fe50412cbb3e59f64ffd395b234641&#34;&gt;参考文献&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Shopify/liquid/wiki/Liquid-for-Designers&#34;&gt;Liquid for Designers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;関連記事:79fe50412cbb3e59f64ffd395b234641&#34;&gt;関連記事&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/18/jekyll-on-github/&#34;&gt;Github で Jekyll を使う時に調べたこと&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>広島Ruby勉強会 #30で Liquidの簡単な説明をした</title>
+          <link>http://blog.eiel.info/blog/2013/03/02/abc-liquid/</link>
+          <pubDate>Sat, 02 Mar 2013 21:04:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/03/02/abc-liquid/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://hiroshimarb.github.com/blog/2013/02/08/hiroshimarb-30/&#34;&gt;広島Ruby勉強会 #030&lt;/a&gt;で Jekyl の中で使用されている テンプレートエンジン Liquid のざっくりとした説明をする LT しました。&lt;/p&gt;
+
+&lt;p&gt;大したネタもないし、そんなに凝ったこともしてないですが、公開しておきます。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/16879154&#34; width=&#34;476&#34; height=&#34;400&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

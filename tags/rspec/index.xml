@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/rspec/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-12-27 18:05:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>zeus test で スペックを実行すると 2度実行されてしまう</title>
+          <link>http://blog.eiel.info/blog/2012/12/27/zeus-test-twice/</link>
+          <pubDate>Thu, 27 Dec 2012 18:05:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/12/27/zeus-test-twice/</guid>
+          <description>
+
+&lt;p&gt;&lt;code&gt;zeus test&lt;/code&gt; で spec を走らせるとなぜかスペックが2度実行されるようになっていた。
+&lt;code&gt;spec/spec_helper.rb&lt;/code&gt; 内の &lt;code&gt;require &#39;rspec/autorun&#39;&lt;/code&gt; を削除すると治るようです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;spork&lt;/code&gt; で実行してみたり、 &lt;code&gt;rake spec&lt;/code&gt; したりもしてみたけど、消したから起きている問題は今のところないです。&lt;/p&gt;
+
+&lt;h3 id=&#34;追記:f0c737f26f30e893e307678172ab107f&#34;&gt;追記&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;zeus rake spec&lt;/code&gt; したときに DB がリセットされてなくて上手く動いてないことがわかった。全件まわしたい場合は &lt;code&gt;rake spec&lt;/code&gt; を使用してたので気がつかなかった。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考:f0c737f26f30e893e307678172ab107f&#34;&gt;参考&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/burke/zeus/issues/180&#34;&gt;https://github.com/burke/zeus/issues/180&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Capybaraでtitleタグの内容が取得できなくなってしまった。</title>
+          <link>http://blog.eiel.info/blog/2012/11/16/capybara-title/</link>
+          <pubDate>Fri, 16 Nov 2012 11:07:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/16/capybara-title/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara&#34;&gt;Capybara&lt;/a&gt;を2.0にしたら動かなくなった &lt;a href=&#34;http://cukes.info/&#34;&gt;Cucumber&lt;/a&gt; の step がありました。titleタグ のtextをとる部分。visible でない要素のtextは取得できなくなったんでしょうか。
+コードを追う余裕がなかったので、Nokogiriで対処した。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;target = find(&amp;quot;title&amp;quot;).text
+expect(target).to eq(title)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;を&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;target = Nokogiri::HTML.parse(page.source).css(&amp;quot;title&amp;quot;).text
+expect(target).to eq(title)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;に書き換えました。&lt;/p&gt;
+
+&lt;p&gt;ちょっと無理矢理。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://cukes.info/&#34;&gt;Cucumber&lt;/a&gt;についてやりとりする仲間がいないので、titleタグのテキストの中身なんて確認しなくていいよ!とか、そういうい話ができないのが寂しいですね。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>「私はRSpecでテストをこんな感じで書いてる」に少し便乗してみる</title>
+          <link>http://blog.eiel.info/blog/2012/08/21/compose-rspec/</link>
+          <pubDate>Tue, 21 Aug 2012 19:51:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/08/21/compose-rspec/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://d.hatena.ne.jp/sinsoku/20120820/1345470914&#34;&gt;私はRSpecでテストをこんな感じで書いてる&lt;/a&gt;という良エントリがあったので少し便乗してみます。&lt;/p&gt;
+
+&lt;p&gt;まずは上記の記事を。&lt;/p&gt;
+
+&lt;p&gt;最終的なrspecについてですが、私の場合は以下のような感じにしてます。
+といっても、前回もかいたように試行錯誤の毎日です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;# -*- coding: utf-8 -*-
+require_relative &#39;user&#39;
+
+describe User do
+  describe &amp;quot;#admin?&amp;quot; do
+    subject { user.admin? }
+    let(:user) { User.new(role: role) }
+
+    context &amp;quot;管理者の場合&amp;quot; do
+      let(:role) { &#39;admin&#39; }
+
+      it { should be_true }
+    end
+
+    context &amp;quot;一般ユーザの場合&amp;quot; do
+      let(:role) { nil }
+
+      it { should_not be_true }
+    end
+  end
+
+  describe &amp;quot;#runnable_system?&amp;quot; do
+    subject { user.runnable_system? }
+    let(:user) { User.new(name: name) }
+
+    context &amp;quot;管理者がリンディさんの場合&amp;quot; do
+      let(:name) { &#39;Lindi&#39; }
+
+      before do
+        user.stub!(admin?: true)
+      end
+
+      it { should be_true }
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;diffもつけておきます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@@ -3,30 +3,34 @@
+ 
+ describe User do
+   describe &amp;quot;#admin?&amp;quot; do
++    subject { user.admin? }
++    let(:user) { User.new(role: role) }
++
+     context &amp;quot;管理者の場合&amp;quot; do
+-      before { @admin_user = User.new(role: &#39;admin&#39;) }
++      let(:role) { &#39;admin&#39; }
+ 
+-      subject { @admin_user }
+-      it { should be_admin }
++      it { should be_true }
+     end
+ 
+     context &amp;quot;一般ユーザの場合&amp;quot; do
+-      before { @user = User.new(role: nil) }
++      let(:role) { nil }
+ 
+-      subject { @user }
+-      it { should_not be_admin }
++      it { should_not be_true }
+     end
+   end
+ 
+   describe &amp;quot;#runnable_system?&amp;quot; do
++    subject { user.runnable_system? }
++    let(:user) { User.new(name: name) }
++
+     context &amp;quot;管理者がリンディさんの場合&amp;quot; do
++      let(:name) { &#39;Lindi&#39; }
++
+       before do
+-        @lindi = User.new(name: &#39;Lindi&#39;)
+-        @lindi.stub!(admin?: true)
++        user.stub!(admin?: true)
+       end
+ 
+-      subject { @lindi }
+-      it { should be_runnable_system }
++      it { should be_true }
+     end
+   end
+ end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とりあえず、便乗しやすいように 用意したuser.rbもつけておきます&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class User
+  def initialize(attributes)
+    @attributes = attributes
+  end
+
+  def admin?
+    @attributes[:role] == &#39;admin&#39;
+  end
+
+  def runnable_system?
+    self.admin? and @attributes[:name] == &#39;Lindi&#39;
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;rspecの実行結果。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;User
+  #admin?
+    管理者の場合
+      should be true
+    一般ユーザの場合
+      should not be true
+  #runnable_system?
+    管理者がリンディさんの場合
+      should be true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;違いとしては&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;subject&lt;/code&gt; はできるだけ &lt;code&gt;describe &#39;メソッド名&#39;&lt;/code&gt; の直後にかく&lt;/li&gt;
+&lt;li&gt;context によって変化する部分は &lt;code&gt;let&lt;/code&gt; で明確にする&lt;/li&gt;
+&lt;li&gt;インスタンス変数は使わず&lt;code&gt;let&lt;/code&gt;でなんとかする&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;let&lt;/code&gt;や&lt;code&gt;subject&lt;/code&gt;はネストが深い位置であれば上書きします。
+&lt;code&gt;let&lt;/code&gt;を使用した場合は呼ばれない場合、処理されないので少し注意が必要です。&lt;/p&gt;
+
+&lt;h2 id=&#34;subject-はできるだけ-describe-メソッド名-の直後にかく:cee89d4b0b8fabe59aa5cf16d4c13709&#34;&gt;&lt;code&gt;subject&lt;/code&gt; はできるだけ &lt;code&gt;describe &#39;メソッド名&#39;&lt;/code&gt; の直後にかく&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;describe &#39;メソッド名&lt;/code&gt;`内のブロックではテストするブロックが基本的に変化しないのでこの位置に極力かきたいです。
+また subjectなので上から読んだときに先に明確にしたいという意図です。&lt;/p&gt;
+
+&lt;h2 id=&#34;context-によって変化する部分は-let-で明確にする:cee89d4b0b8fabe59aa5cf16d4c13709&#34;&gt;context によって変化する部分は &lt;code&gt;let&lt;/code&gt; で明確にする&lt;/h2&gt;
+
+&lt;p&gt;contextの直前だけ切り出してみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;context &amp;quot;管理者の場合&amp;quot; do
+  let(:role) { &#39;admin&#39; }
+
+context &amp;quot;一般ユーザの場合&amp;quot; do
+  let(:role) { nil }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;roleの部分が変化しますよー。ってのがシンプルになります。&lt;/p&gt;
+
+&lt;h2 id=&#34;インスタンス変数は使わず-let-でなんとかする:cee89d4b0b8fabe59aa5cf16d4c13709&#34;&gt;インスタンス変数は使わず&lt;code&gt;let&lt;/code&gt;でなんとかする&lt;/h2&gt;
+
+&lt;p&gt;利点は自分でも整理できてません。とりあえず、今はそういう風にしてる程度です。&lt;/p&gt;
+
+&lt;h2 id=&#34;個人的になやんでること:cee89d4b0b8fabe59aa5cf16d4c13709&#34;&gt;個人的になやんでること&lt;/h2&gt;
+
+&lt;p&gt;日本語でcontextをかくとき 語尾に &lt;code&gt;の場合&lt;/code&gt; とか &lt;code&gt;のとき&lt;/code&gt; とかくことになるのですが、なんかこれがめんどくさいし。英語の場合は大抵先頭に &lt;code&gt;when&lt;/code&gt; ってかかれているようです。いっそここだけ英語にしようかなーとか悩んでます。&lt;/p&gt;
+
+&lt;h1 id=&#34;個人的に追加したいリンク:cee89d4b0b8fabe59aa5cf16d4c13709&#34;&gt;個人的に追加したいリンク&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.relishapp.com/rspec&#34;&gt;https://www.relishapp.com/rspec&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;公式サイトからもリンクがありますが、
+ここには cucumberによって生成されるHTMLがあります。
+Rdocより説明が詳しい部分がいろいろあります。&lt;/p&gt;
+
+&lt;h1 id=&#34;最近のrspecの日本語の話題すくなくね:cee89d4b0b8fabe59aa5cf16d4c13709&#34;&gt;最近のrspecの日本語の話題すくなくね？&lt;/h1&gt;
+
+&lt;p&gt;ということでみんないろいろ情報交換したいです。&lt;/p&gt;
+
+&lt;h1 id=&#34;ひとりごと:cee89d4b0b8fabe59aa5cf16d4c13709&#34;&gt;ひとりごと&lt;/h1&gt;
+
+&lt;p&gt;あー、トラックバックとばす、良い方法ないかなー。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;nou=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=666666&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=4798121932&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Railsでコントローラのスペックを試行錯誤中</title>
+          <link>http://blog.eiel.info/blog/2012/08/09/rspec-for-rails-controller/</link>
+          <pubDate>Thu, 09 Aug 2012 23:42:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/08/09/rspec-for-rails-controller/</guid>
+          <description>
+
+&lt;p&gt;Rspec書いてますか？最近なかなか荒れ気味ですが、僕はなんだかんだで嫌いじゃないです。
+コントローラのテストは何をすべきかなかなか難しいです。&lt;/p&gt;
+
+&lt;p&gt;こんな感じでどうかなーというのを一応紹介しておきます。&lt;/p&gt;
+
+&lt;h1 id=&#34;何をテストするか:12a8138a16f445e446aa7b1b9f6da6be&#34;&gt;何をテストするか&lt;/h1&gt;
+
+&lt;p&gt;基本的には rspec を走られせるとこのコントローラが何をするのかわかるようにすることです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;どのアクションがどのHTTPメソッドを受けるのか&lt;/li&gt;
+&lt;li&gt;どんな変数をビューに渡すのか&lt;/li&gt;
+&lt;li&gt;リダイレクトするのか、しないのか&lt;/li&gt;
+&lt;li&gt;どんなflashが設定されるのか&lt;/li&gt;
+&lt;li&gt;前提とする状況はなにか&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;といったあたりがわかるようにしています。&lt;/p&gt;
+
+&lt;h2 id=&#34;どのアクションがどのhttpメソッドを受けるのか:12a8138a16f445e446aa7b1b9f6da6be&#34;&gt;どのアクションがどのHTTPメソッドを受けるのか&lt;/h2&gt;
+
+&lt;p&gt;これは単純にdescribeにかくだけですが、コード上ではlet式を利用して request という変数にバインドしてちょっとだけ目立つようにしています。&lt;/p&gt;
+
+&lt;h2 id=&#34;どんな変数をビューに渡すのか:12a8138a16f445e446aa7b1b9f6da6be&#34;&gt;どんな変数をビューに渡すのか&lt;/h2&gt;
+
+&lt;p&gt;ビューに渡す値はインスタンス変数に入れますが、どの変数にどんな型の値が入るのかテストしています。
+ビューを先にかくことが多いのでその際にpendingにして追加していくとコントローラかくときにビューの確認をする必要がありません。
+あと、before_filterのようなものを利用しているの、その中で勝手にバインドするものがあるのでこれを明確にしてやったりします。&lt;/p&gt;
+
+&lt;h2 id=&#34;リダイレクトするのか-しないのか:12a8138a16f445e446aa7b1b9f6da6be&#34;&gt;リダイレクトするのか、しないのか&lt;/h2&gt;
+
+&lt;p&gt;対応するビューがあるのかないのか、うまくいくのどこの画面にいくのかが明確になるのでかいておきます。&lt;/p&gt;
+
+&lt;h2 id=&#34;どんなflashが設定されるのか:12a8138a16f445e446aa7b1b9f6da6be&#34;&gt;どんなflashが設定されるのか&lt;/h2&gt;
+
+&lt;p&gt;これは変数の場合とだいたい一緒です。ビューではなく cucumber でのテストとの橋渡しな感じもあります。私はcucumberでは成功したらこの値が出てるのか確認してます。&lt;/p&gt;
+
+&lt;h2 id=&#34;前提とする状況はなにか:12a8138a16f445e446aa7b1b9f6da6be&#34;&gt;前提とする状況はなにか&lt;/h2&gt;
+
+&lt;p&gt;ログインしている場合なのか、とかです。contextのブロックが増えるだけです。&lt;/p&gt;
+
+&lt;h1 id=&#34;それらを踏まえて上での雛形:12a8138a16f445e446aa7b1b9f6da6be&#34;&gt;それらを踏まえて上での雛形&lt;/h1&gt;
+
+&lt;p&gt;コメントは解説のために。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;describe HogeController do
+  subject { request }
+
+  describe &amp;quot;GET &#39;index&#39;&amp;quot; do
+    let(:request) { get :index, params }
+    let(:params) { { hoge: &amp;quot;mogumogu&amp;quot;} }
+
+    context &amp;quot;ログインしている時&amp;quot; do
+      include_context &amp;quot;ログイン&amp;quot;
+
+      # リダイレクトなどしない場合
+      it { should be_success }
+
+      context &amp;quot;リクエストした時&amp;quot; do
+        # これをやらないとこの先のブロックが1行な it でかけない
+        before(:each) { request }
+
+        # ビューへ渡す変数のの確認
+        describe &amp;quot;@hoge&amp;quot; do
+          subject { assigns :hoge }
+          it { should be_kind_of(Hoge) }
+        end
+
+        # flashの確認
+        describe &amp;quot;flash[:notice]&amp;quot; do
+          subject { flash[:notice] }
+          it { should eq(&amp;quot;hoge&amp;quot;) }
+        end
+      end
+    end
+
+    context &amp;quot;ログインしていない時&amp;quot; do
+      # リダイレクトする場合
+      it { should redirecto_to(&amp;quot;/hoge&amp;quot;) }
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;といった感じに書いてます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;describe &amp;quot;@hoge&amp;quot; do
+ subject { assigns :hoge }
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、かくのはめんどくさいので&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;describe_assigns :hoge do
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、かけるようにしてたりするのですが、それはまた別の話。&lt;/p&gt;
+
+&lt;p&gt;個人的にどうにかしたいのば be_success マッチャー。失敗した場合に falseとでちゃうだけなので、statusコードなどを出すとデバッグも楽になりそうです。&lt;/p&gt;
+
+&lt;p&gt;あとは be_kind_of も結構微妙な出力をするので悩み中。リストの時もなんとかしたいです。&lt;/p&gt;
+
+&lt;p&gt;あとは単体テストのようで、対応するビューがなかったりすると動かなかったりするのはなんとかしたいです。(なんとかなってた気がするんだけどなぁ。)&lt;/p&gt;
+
+&lt;p&gt;Railsのテストについて話し合う人が周りにいないので、誰かお話ししましょう。ヘルプミー。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Rspecマッチャー rspec-html-matchersを試してみてる</title>
+          <link>http://blog.eiel.info/blog/2012/06/22/rspec-html-matchers/</link>
+          <pubDate>Fri, 22 Jun 2012 18:04:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/06/22/rspec-html-matchers/</guid>
+          <description>&lt;p&gt;Ruby on Railsで ViewやHelperの Specを書く際に利用するマッチャーに良いのがないか探してます。現在のRspecはcontainぐらいしかないので、細かくチェックしたい場合は若干使いづらいです。というわけで、&lt;a href=&#34;https://github.com/kucaahbe/rspec-html-matchers&#34;&gt;rspec-html-matchers&lt;/a&gt;を試しています。&lt;/p&gt;
+
+&lt;p&gt;以前は &lt;a href=&#34;https://github.com/dcuddeback/rspec-tag_matchers&#34;&gt;rspec-tag_matchers&lt;/a&gt; を使用していたのですが、出力がちょっとイマイチでした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;www.ruby-toolbox.com&#34;&gt;Ruby Tools&lt;/a&gt;でざらざらと探した結果、&lt;a href=&#34;https://github.com/kucaahbe/rspec-html-matchers&#34;&gt;rspec-html-matchers&lt;/a&gt;を試してみることにしました。&lt;/p&gt;
+
+&lt;p&gt;Form用のマッチャーがいろいろあったり、内部に存在するタグをチェックしたりできるのが嬉しいですね。capybaraの&lt;code&gt;have_css&lt;/code&gt;はsubject側で find(selector)しておく必要があるので、ややめんどくさいです。&lt;/p&gt;
+
+&lt;p&gt;いまのところの不満点は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Hashで渡していくのがちょっと格好悪い&lt;/li&gt;
+&lt;li&gt;正規表現での属性チェックができなかった&lt;/li&gt;
+&lt;li&gt;暗黙的なsubjectを使用する場合、ブロックがあると不具合がでる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;3番目なんですが、have_tag マッチャーにブロックを渡し場合 shouldメソッドのレシーバをかかないと、ブロック内へと処理が流れないようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;subject { render }
+it do
+  should have_tag(&amp;quot;a&amp;quot;) do
+    # このブロック処理が走らない
+    with_tag(&amp;quot;b&amp;quot;)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のように書いてしまうと &lt;code&gt;with_tag(&amp;quot;b&amp;quot;)&lt;/code&gt; の部分が動作しません。3行目を明示的に &lt;code&gt;subject.should&lt;/code&gt;とすると動いてくれました。rspecの問題なのか、rspec-html-matchersの問題なのか切りわけが難しいのでとりあえず、我慢することにしました。
+ブロックを渡さない場合は大丈夫です。&lt;/p&gt;
+
+&lt;p&gt;他は良好に使えています。
+View Specの良い例が欲しいです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

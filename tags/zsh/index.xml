@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/zsh/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-07-17 21:04:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>シンプルなプロンプトを提供する zsh pure を試してみた</title>
+          <link>http://blog.eiel.info/blog/2013/07/17/zsh-pure/</link>
+          <pubDate>Wed, 17 Jul 2013 21:04:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/07/17/zsh-pure/</guid>
+          <description>
+
+&lt;p&gt;この記事は &lt;a href=&#34;http://great-h.github.io/events/event-009.html&#34;&gt;すごい広島 #9&lt;/a&gt; で行なったことです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/sindresorhus/pure&#34;&gt;Pure&lt;/a&gt; という シンプルなプロンプトを提供する zshスクリプト を導入してみました。&lt;/p&gt;
+
+&lt;p&gt;機能としては&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;バージョン管理システムのブランチを表示&lt;/li&gt;
+&lt;li&gt;git の管理下で、ワークツリーに変更がある場合は &lt;code&gt;*&lt;/code&gt; が表示される&lt;/li&gt;
+&lt;li&gt;実行の長いコマンドを実行した時に実行時間が表示される&lt;/li&gt;
+&lt;li&gt;デフォルトのユーザと違う場合は &lt;code&gt;ユーザ名@ホスト名&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;といった機能があります。&lt;/p&gt;
+
+&lt;p&gt;カレントパス と ブランチ名を表示している部分は print を使い出力していて、PROMPT は &lt;code&gt;&amp;gt;&lt;/code&gt; だけの表示となってます。
+そのため &lt;code&gt;Ctrl+l&lt;/code&gt; を入力すると非常にすっきりした画面になります。&lt;/p&gt;
+
+&lt;h1 id=&#34;設定方法:e8d749eee26e5f97e74e361cc90b92ff&#34;&gt;設定方法&lt;/h1&gt;
+
+&lt;p&gt;私は &lt;code&gt;~/zsh.d/&lt;/code&gt; に zsh のスクリプトを集めていますので、それを前提に書きます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://raw.github.com/sindresorhus/pure/master/prompt.zsh -O ~/.zsh.d/prompt.zsh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そして &lt;code&gt;~/.zshrc&lt;/code&gt; を編集します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# wget https://raw.github.com/sindresorhus/pure/master/prompt.zsh -O ~/.zsh.d/prompt.zsh
+local username=&#39;&#39;
+DEFAULT_USERNAME=&#39;eiel&#39;
+[ $USER != $DEFAULT_USERNAME ] &amp;amp;&amp;amp; local username=&#39;%n@%m &#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ダウンロードした &lt;code&gt;prompt.zsh&lt;/code&gt; をいじらなくて済むように、少しだけ細工しています。&lt;/p&gt;
+
+&lt;p&gt;DEFAULT_USERNAME には自分の ユーザ名を入れます。&lt;/p&gt;
+
+&lt;p&gt;導入するとこんな感じになりました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/pure-prompt.png&#34; alt=&#34;pure prompt&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;まとめ:e8d749eee26e5f97e74e361cc90b92ff&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;p&gt;バージョン管理の情報は PROMPT3 に表示していたのですが、コピペするとき邪魔になるので変えたかったので、試しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git submodule&lt;/code&gt; や &lt;code&gt;zsh のパッケージ管理システム&lt;/code&gt;を使って管理したいですが、今回は wget を使う方法をとりました。
+zsh のパッケージ管理システムってあるんだろうか。&lt;/p&gt;
+
+&lt;p&gt;特に プロンプトをいじっていない場合は、ここからカスタマイズしていくのも良いのではないでしょうか。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

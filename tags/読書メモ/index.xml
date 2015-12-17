@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-02-12 23:33:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>読書メモ 関数プログラミング入門 Haskellで学ぶ原理と技法 1.7 仕様</title>
+          <link>http://blog.eiel.info/blog/2013/02/12/intro-functional-1-dot-7/</link>
+          <pubDate>Tue, 12 Feb 2013 23:33:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/12/intro-functional-1-dot-7/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/427406896X/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=427406896X&amp;amp;linkCode=as2&amp;amp;tag=eiel-22&#34;&gt;関数プログラミング入門 Haskell で学ぶ原理と技法&lt;/a&gt; の読書メモです。引用もしていますし、感想なども混ぜています。&lt;/p&gt;
+
+&lt;p&gt;本節は&lt;strong&gt;仕様&lt;/strong&gt;についてです。&lt;/p&gt;
+
+&lt;p&gt;仕様と実装の関係について、語られます。
+仕様はやりたいこと、実装は実現方法。
+そんな感じのことがかかれています。&lt;/p&gt;
+
+&lt;p&gt;関数の仕様を表明し、そのやりかたとして引数と戻り値の組を用意する。
+単純な実装を行い、よりよい実装にしていく方法が良いとされてます。&lt;/p&gt;
+
+&lt;p&gt;すごくBDD感漂うRspec的な手法が勧められていますね。&lt;/p&gt;
+
+&lt;p&gt;この手法の難しい点は、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;仕様が利用者の要求とずれてしまうかも。&lt;/li&gt;
+&lt;li&gt;仕様を満たすための検証が膨大になりすぎて証明が大変&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ということです。非常に身に覚えがあります。&lt;/p&gt;
+
+&lt;h2 id=&#34;練習問題:e7079363f43b9581a2da49b8823b543f&#34;&gt;練習問題&lt;/h2&gt;
+
+&lt;p&gt;あまりおもしろくない解答をかきました。うーん。面白いの考えたい。&lt;/p&gt;
+
+&lt;h2 id=&#34;ついでに1章のまとめ:e7079363f43b9581a2da49b8823b543f&#34;&gt;ついでに1章のまとめ。&lt;/h2&gt;
+
+&lt;p&gt;一度、読書メモを本気でやってみようと思っていたのではじめてみましたが、思うよりもずっとずっと大変でしたが、関数プログラミングに対する基礎知識がグッと固いものになったと感じてます。&lt;/p&gt;
+
+&lt;p&gt;通し読みせずにやっているので、読み終わるのはいつになるのでしょうか。&lt;/p&gt;
+
+&lt;p&gt;これからもがんばってできる限り続けていきたいです。&lt;/p&gt;
+
+&lt;h2 id=&#34;関連:e7079363f43b9581a2da49b8823b543f&#34;&gt;関連&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/Introduction-to-Functional-Programming-using-Haskell/blob/master/1/index.org&#34;&gt;メモ用のリポジトリ 1章&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/Introduction-to-Functional-Programming-using-Haskell/blob/master/1/1.7.hs&#34;&gt;1.6の練習問題&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>読書メモ 関数プログラミング入門 Haskellで学ぶ原理と技法 1.6 仕様</title>
+          <link>http://blog.eiel.info/blog/2013/02/11/intro-functional-1-dot-6/</link>
+          <pubDate>Mon, 11 Feb 2013 16:11:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/11/intro-functional-1-dot-6/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/427406896X/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=427406896X&amp;amp;linkCode=as2&amp;amp;tag=eiel-22&#34;&gt;関数プログラミング入門 Haskell で学ぶ原理と技法&lt;/a&gt; の読書メモです。引用もしていますし、感想なども混ぜています。&lt;/p&gt;
+
+&lt;p&gt;本節は&lt;strong&gt;型&lt;/strong&gt;についてです。強い型付けがよくわからなくて悩みました。&lt;/p&gt;
+
+&lt;p&gt;内容は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;型の基本と強い型付け&lt;/li&gt;
+&lt;li&gt;多相型&lt;/li&gt;
+&lt;li&gt;型クラス&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;といった感じです&lt;/p&gt;
+
+&lt;h2 id=&#34;型の基本と強い型付け:af683e4c3eedf289586ccacebb20a44c&#34;&gt;型の基本と強い型付け&lt;/h2&gt;
+
+&lt;p&gt;値は型という集まりに分類することができて、様々な型があります。 &lt;code&gt;Int&lt;/code&gt;, &lt;code&gt;Float&lt;/code&gt;, &lt;code&gt;Integer&lt;/code&gt;,リスト…などなど。&lt;/p&gt;
+
+&lt;p&gt;既存の型を組合せて新しい型も作れます。 &lt;code&gt;(Int, Int)&lt;/code&gt;, &lt;code&gt;Int -&amp;gt; Int&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;型固有に演算があり、違う型に利用することは無意味です。意味がないので不当な式となります。&lt;/p&gt;
+
+&lt;p&gt;式であれば、必ず型があり、その型は式を構成する要素から推論できます。構成要素から型が決定できるので強い型付けになるようです。(ここがはっきりしなくて悩んだ)
+弱い型つけの場合は暗黙のキャストなどにより実行してみないとわからない部分があるようです。&lt;/p&gt;
+
+&lt;p&gt;強い型付けの利点は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;つづりミスや混乱した定義をコンパイル時点で発見できる&lt;/li&gt;
+&lt;li&gt;プログラムを書く際のルールになる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;だそうです。&lt;/p&gt;
+
+&lt;p&gt;引数や結果の型を考えることで型レベルの整合性を保ち、その中で値をやりくりするので、型の枠から外れることも防ぐことができて、明瞭なプログラム設計ができるようです。&lt;/p&gt;
+
+&lt;h2 id=&#34;多相型:af683e4c3eedf289586ccacebb20a44c&#34;&gt;多相型&lt;/h2&gt;
+
+&lt;p&gt;式の型は 構成要素から決定できますが、関数合成や和や積などは複数の型に対して利用できているように見えます。これは型変数を利用することでこのような定義ができます。&lt;/p&gt;
+
+&lt;p&gt;「それって強い型付けなの？」という疑問に教われるのですが、型変数を含んでいても型なので問題がないようです。
+曖昧であれば不正な式になるのだと思います。その場合は推論に任せず型指定をすることになります。&lt;/p&gt;
+
+&lt;p&gt;このように型変数を含む型を多相型と呼びます。&lt;/p&gt;
+
+&lt;p&gt;おまけで (-&amp;gt;) は 型演算子 だそうで、右結合だそうです。&lt;code&gt;Int -&amp;gt; Int&lt;/code&gt; は &lt;code&gt;-&amp;gt;&lt;/code&gt; で演算して新しい型を作るとも言えます。
+型式というものがありそうですが説明されてません。&lt;/p&gt;
+
+&lt;h2 id=&#34;型クラス:af683e4c3eedf289586ccacebb20a44c&#34;&gt;型クラス&lt;/h2&gt;
+
+&lt;p&gt;和や積をするつあめの &lt;code&gt;(+)&lt;/code&gt;, &lt;code&gt;(*)&lt;/code&gt; がありますがこれを型変数で定義するには一般的すぎます。数値であるようなものであれば扱えて欲しい。
+そのような似た型をまとめる型クラスという機能があります。型変数に制約をつけることができます。数値であるような型は Num クラスのインスタンスとなります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Num a =&amp;gt; a -&amp;gt; a -&amp;gt; a&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;とかいたとき&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;a がNumクラスのインスタンスであるという制約のもとで、 a -&amp;gt; a -&amp;gt; a&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;と、読みます。&lt;/p&gt;
+
+&lt;p&gt;数値以外の型クラスに 値が表示可能な型クラス(Show) 相等性検査可能な型クラス(Eq) 列挙可能な型(Enum) などなど様々なクラスがあります。(モナドとか)&lt;/p&gt;
+
+&lt;p&gt;ある型は複数の型クラスのインスタンスになれます。
+なんだかレイヤーがひとつ違う感じですね。&lt;/p&gt;
+
+&lt;h2 id=&#34;練習問題:af683e4c3eedf289586ccacebb20a44c&#34;&gt;練習問題&lt;/h2&gt;
+
+&lt;p&gt;lhs 形式を選択したのですが、あまり意味がありませんでした。
+lhs 形式は地の文がコメントになり &lt;code&gt;&amp;gt;&lt;/code&gt; ではじまる部分がHaskellのコードになります。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:af683e4c3eedf289586ccacebb20a44c&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;型システムへの理解不足で難しかったです。
+なんとなくで理解していたところだいぶすっきりすることができました。&lt;/p&gt;
+
+&lt;p&gt;型を意識することで、他のプログラミング言語を利用する場合にも明瞭な設計ができると思います。&lt;/p&gt;
+
+&lt;h2 id=&#34;関連:af683e4c3eedf289586ccacebb20a44c&#34;&gt;関連&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/Introduction-to-Functional-Programming-using-Haskell/blob/master/1/index.org&#34;&gt;メモ用のリポジトリ 1章&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/Introduction-to-Functional-Programming-using-Haskell/blob/master/1/1.6.lhs&#34;&gt;1.6の練習問題&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>読書メモ 関数プログラミング入門 Haskellで学ぶ原理と技法 1.5 定義</title>
+          <link>http://blog.eiel.info/blog/2013/01/24/intro-functional-1-dot-5/</link>
+          <pubDate>Thu, 24 Jan 2013 23:51:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/24/intro-functional-1-dot-5/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/427406896X/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=427406896X&amp;amp;linkCode=as2&amp;amp;tag=eiel-22&#34;&gt;関数プログラミング入門 Haskell で学ぶ原理と技法&lt;/a&gt; の読書メモです。&lt;/p&gt;
+
+&lt;p&gt;本節は&lt;strong&gt;定義&lt;/strong&gt;についてですが、前節につづき&lt;strong&gt;関数&lt;/strong&gt;ともいえそうです。&lt;/p&gt;
+
+&lt;p&gt;内容は
+* ガード付等式
+* 再帰定義
+* 局所定義
+です。&lt;/p&gt;
+
+&lt;p&gt;ガード式の前に関数だけじゃなく、他の値も定義できるという話がでてきますが、それ以上でもそれ以下でもないです。一般的なプログラミング言語なら定数ともいえそうです。&lt;/p&gt;
+
+&lt;p&gt;つづいて、ガード付等式です。&lt;code&gt;ガード 付等式&lt;/code&gt; か &lt;code&gt;ガード付 等式&lt;/code&gt;悩みましたがたぶん後者でしょう。
+まだ、登場していませんが、パターンマッチよりも細かいところで分岐させるのによく使います。数学のノートみたいに見えてよいです。一応例をだしておきます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;compare x y
+  | x &amp;gt; y  = LEFT
+  | x == y = EQUAL
+  | x &amp;lt; y  = RIGHT
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;LEFT、EQUAL RIGHTの定義をしていませんが、比較して大きいほうを返す関数です。よみやすいです。このように3パターン以上に分岐する場合は &lt;code&gt;if&lt;/code&gt; を使用するよりもよみやすくなります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;if&lt;/code&gt;を使うと&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;compare x y = if x &amp;gt; y then LEFT else
+                       if x == y then EQUAL else RIGHT
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;みたいな感じでしょう。&lt;/p&gt;
+
+&lt;h2 id=&#34;再帰定義:368c9568204ac0b705e48e5803b91b91&#34;&gt;再帰定義&lt;/h2&gt;
+
+&lt;p&gt;あまり文章での説明がなかったです。関数の中で自分の名前が使用できます。実際に手を動かして簡約してみると、再帰というものが存在して良いことが確認できると思います。
+ただし、&lt;strong&gt;終了条件&lt;/strong&gt;がなければ収束することなくどんどん大きくなります。&lt;/p&gt;
+
+&lt;h2 id=&#34;局所定義:368c9568204ac0b705e48e5803b91b91&#34;&gt;局所定義&lt;/h2&gt;
+
+&lt;p&gt;関数にローカルな定数や関数を定義できます。引数から値をとってきて別の関数に引数を適用しておいて使いますなどすると便利です。
+一時変数のように使えますが、当然再代入はできません。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;let&lt;/code&gt;が登場しませんでした。複雑さを回避したのでしょうか。&lt;/p&gt;
+
+&lt;h2 id=&#34;練習問題:368c9568204ac0b705e48e5803b91b91&#34;&gt;練習問題&lt;/h2&gt;
+
+&lt;p&gt;ひさしぶりに Haskellのコードをかかせてくれました。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:368c9568204ac0b705e48e5803b91b91&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;ガード付等式はここで登場で良いのかよくわからなかったですが、知っておくほうが便利です。それにしても、Haskellの表記は数学に近いようになってて楽しいですね。&lt;/p&gt;
+
+&lt;h2 id=&#34;関連:368c9568204ac0b705e48e5803b91b91&#34;&gt;関連&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/Introduction-to-Functional-Programming-using-Haskell/blob/master/1/index.org&#34;&gt;メモ用のリポジトリ 1章&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/Introduction-to-Functional-Programming-using-Haskell/blob/master/1/1.5.hs&#34;&gt;1.5の練習問題&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>読書メモ 関数プログラミング入門 Haskellで学ぶ原理と技法 1.4 関数</title>
+          <link>http://blog.eiel.info/blog/2013/01/22/intro-functional-1-dot-4/</link>
+          <pubDate>Tue, 22 Jan 2013 23:17:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/22/intro-functional-1-dot-4/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/427406896X/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=427406896X&amp;amp;linkCode=as2&amp;amp;tag=eiel-22&#34;&gt;関数プログラミング入門 Haskell で学ぶ原理と技法&lt;/a&gt; の読書メモです。&lt;/p&gt;
+
+&lt;p&gt;本節は &lt;strong&gt;関数&lt;/strong&gt; について。&lt;/p&gt;
+
+&lt;p&gt;要点は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;外延性&lt;/li&gt;
+&lt;li&gt;カリー化&lt;/li&gt;
+&lt;li&gt;演算子と関数&lt;/li&gt;
+&lt;li&gt;優先順位 結合順序&lt;/li&gt;
+&lt;li&gt;関数合成&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;です&lt;/p&gt;
+
+&lt;p&gt;まず関数は値として扱えますが、表示することはできません。引数を適用することで表示できる場合があります。
+また、関数は 引数の値 を戻り値 の型に変換する(対応をつける)役目をもちます。関数の型を示すには -&amp;gt; 演算子を使い 型A を受取り 型B を返す場合 &lt;code&gt;A -&amp;gt; B&lt;/code&gt; とかきます。&lt;/p&gt;
+
+&lt;p&gt;関数 と 関数に値を適用したものを混同しないように気をつけたほうがよいそうです。&lt;/p&gt;
+
+&lt;h2 id=&#34;外延性:6fdffeb2d4f0779613cf55b32efa20e3&#34;&gt;外延性&lt;/h2&gt;
+
+&lt;p&gt;関数が等しい場合は任意のxに対し以下が成立します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;f x = g x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;この方法は関数に値を適用した結果が一致するので 適用的証明 というそうです。また ポイントワイズスタイル ともいうそうです。このように f や g はブラックボックスですが、引数と結果で確認できるので&lt;strong&gt;外延性の原理&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;逆に定義から &lt;code&gt;f = g&lt;/code&gt; を示す場合はポイントフリースタイルというそうです。ただし、効率が違う場合があり、これは内包的性質というそうです。&lt;/p&gt;
+
+&lt;h2 id=&#34;カリー化:6fdffeb2d4f0779613cf55b32efa20e3&#34;&gt;カリー化&lt;/h2&gt;
+
+&lt;p&gt;単一の引数の関数の複数の引数に分解できます。こうすると関数に引数をひとつだけ適用すると新しい関数を作成することができます。結果が変わらないので括弧が減ったり、引数を変えるだけで様々な効果をもつ関数がつくれる利点があります。Arrow を使う場合は逆に アンカリー化をする場合もあります。&lt;/p&gt;
+
+&lt;h2 id=&#34;演算子と関数:6fdffeb2d4f0779613cf55b32efa20e3&#34;&gt;演算子と関数&lt;/h2&gt;
+
+&lt;p&gt;演算子も実質的には2引数の関数ですが中置することができます。Haskellでは 括弧で演算子を囲むことで通常の関数にもできますし、関数をバッククォートで囲むことで演算子のように利用できます。また、括弧で演算子を囲む場合は &lt;code&gt;(+1)&lt;/code&gt; のようにして あらかじめ引数を適用したりもできます。これをセクションというそうです。&lt;/p&gt;
+
+&lt;h2 id=&#34;優先順位-結合順序:6fdffeb2d4f0779613cf55b32efa20e3&#34;&gt;優先順位 結合順序&lt;/h2&gt;
+
+&lt;p&gt;これらのおかげで 括弧を省略することができます。
+これらの把握しておかないとHaskellのコードを読む際によくわからなくなるのでしっかりと慣れておいたほうが良いです。&lt;/p&gt;
+
+&lt;p&gt;関数は最優先で左結合です。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;f x y + z&lt;/code&gt; であれば &lt;code&gt;((f x) y) + z&lt;/code&gt; と等価です。&lt;/p&gt;
+
+&lt;p&gt;右結合か左結合か は演算子によって違いますが、どちらでも同じ結果になるものもあります。これを結合性というそうです。+ や * は結合性があります。&lt;/p&gt;
+
+&lt;h2 id=&#34;関数合成:6fdffeb2d4f0779613cf55b32efa20e3&#34;&gt;関数合成&lt;/h2&gt;
+
+&lt;p&gt;関数合成は関数と関数を演算できます。結合性です。
+ある関数の結果を別の関数の引数にできる場合に利用できます。
+&lt;code&gt;f (g x)&lt;/code&gt; が正しい場合 &lt;code&gt;(f . g) x&lt;/code&gt; とできます。ドットは関数合成をする演算子です。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:6fdffeb2d4f0779613cf55b32efa20e3&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;練習問題は今回もHaskell のコードはあまりかきませんでした。&lt;/p&gt;
+
+&lt;p&gt;優先順位や結合順序はいままでなんとなくでやってましたが、改めて整理できたのでかなり Haskell のコードがよみやすくなりました。早めに習得しておきたいですね。&lt;/p&gt;
+
+&lt;h2 id=&#34;関連:6fdffeb2d4f0779613cf55b32efa20e3&#34;&gt;関連&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/Introduction-to-Functional-Programming-using-Haskell/blob/master/1/index.org&#34;&gt;メモ用のリポジトリ 1章&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/Introduction-to-Functional-Programming-using-Haskell/blob/master/1/1.4.md&#34;&gt;1.4の練習問題&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>読書メモ 関数プログラミング入門 Haskellで学ぶ原理と技法 1.3 値</title>
+          <link>http://blog.eiel.info/blog/2013/01/15/intro-functional-1-dot-3/</link>
+          <pubDate>Tue, 15 Jan 2013 01:17:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/15/intro-functional-1-dot-3/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/427406896X/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=427406896X&amp;amp;linkCode=as2&amp;amp;tag=eiel-22&#34;&gt;関数プログラミング入門 Haskell で学ぶ原理と技法&lt;/a&gt; の読書メモです。&lt;/p&gt;
+
+&lt;p&gt;本節は &lt;strong&gt;値&lt;/strong&gt; について。&lt;/p&gt;
+
+&lt;p&gt;値と式の関係。値と正格関数、非正格関数。がメインです。&lt;/p&gt;
+
+&lt;p&gt;値は 式を用いて表現できます。値を表現する式はひとつだけではなく、複数存在し、評価機が出力する表現は &lt;strong&gt;標準表現&lt;/strong&gt; が利用されます。基本的には評価可能な式が表示されるということのようです。Rubyでいうと pメソッドの出力結果に近そうです。
+また、値を表示しようとすると停止しない可能性が存在します。このような状態になる関数を正格関数と呼びます。具体的にシンプルに定義されてるのでわかりやすいです。正格でない関数は非正格なりますが、これは遅延評価でないと定義できないそうです。&lt;/p&gt;
+
+&lt;p&gt;練習問題は正格と非正格について考える問題でした。&lt;/p&gt;
+
+&lt;h2 id=&#34;関連:203e25fa29b2dcca1df36333d28ffc0a&#34;&gt;関連&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/Introduction-to-Functional-Programming-using-Haskell/blob/master/1/index.org&#34;&gt;メモ用のリポジトリ 1章&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/Introduction-to-Functional-Programming-using-Haskell/blob/master/1/1.3.md&#34;&gt;1.3の練習問題&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>読書メモ 関数プログラミング入門 Haskellで学ぶ原理と技法 1.2 評価</title>
+          <link>http://blog.eiel.info/blog/2013/01/13/intro-functional-1-dot-2/</link>
+          <pubDate>Sun, 13 Jan 2013 21:47:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/13/intro-functional-1-dot-2/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/427406896X/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=427406896X&amp;amp;linkCode=as2&amp;amp;tag=eiel-22&#34;&gt;関数プログラミング入門 Haskell で学ぶ原理と技法&lt;/a&gt; の読書メモです。&lt;/p&gt;
+
+&lt;p&gt;本節は評価を中心に式の簡約化についての説明です。&lt;/p&gt;
+
+&lt;p&gt;正規形という形を目指して式を簡略化していきますが、関数プログラミングにおいては、どのような手順で簡約しても最終結果が一致するのが特徴です。&lt;/p&gt;
+
+&lt;p&gt;代入のような破壊的な操作が存在する世界では、順序が影響します。
+そこが命令型のプログラミングと違うところでしょう。そのため並列処理させるたべ順序に影響しないため、関数プログラミングが評価されてる部分だと思います。&lt;/p&gt;
+
+&lt;p&gt;話が脱線しましたが、簡約の手順には 1つだけでなく複数存在する可能性があります。そのためプログラミング言語によっては簡約の評価戦略が違うようです。
+あと、簡約の手順が違う場合、停止しない場合が存在することもあります。&lt;/p&gt;
+
+&lt;p&gt;練習問題は評価の順序、停止性について考えるような問題でした。&lt;/p&gt;
+
+&lt;h2 id=&#34;関連:5809e91198f962082c9b9e2f02a14bd0&#34;&gt;関連&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/Introduction-to-Functional-Programming-using-Haskell/blob/master/1/index.org&#34;&gt;メモ用のリポジトリ 1章&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/Introduction-to-Functional-Programming-using-Haskell/blob/master/1/1.2.md&#34;&gt;1.2の練習問題&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>読書メモ 関数プログラミング入門 Haskellで学ぶ原理と技法 1.1 セッションとスクリプト</title>
+          <link>http://blog.eiel.info/blog/2013/01/13/intro-functional-1-dot-1/</link>
+          <pubDate>Sun, 13 Jan 2013 18:46:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/13/intro-functional-1-dot-1/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/427406896X/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=427406896X&amp;amp;linkCode=as2&amp;amp;tag=eiel-22&#34;&gt;関数プログラミング入門 Haskell で学ぶ原理と技法&lt;/a&gt; の読書メモです。&lt;/p&gt;
+
+&lt;p&gt;本書は 2002年に出版された&lt;a href=&#34;http://www.amazon.co.jp/gp/product/0134843460/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=0134843460&amp;amp;linkCode=as2&amp;amp;tag=eiel-22&#34;&gt;Introduction to Functional Programming using Haskell&lt;/a&gt; の2版の翻訳です。
+いまになって日本語に訳されたということはそれなりの名著なのかなー。ということで、Haskellネタを書く機会があまりなかったので、読書メモを書いていこうと思います。&lt;/p&gt;
+
+&lt;p&gt;問題を解いてくのに最強の環境をつくろうぜ。と、意訳できる文章ではじまります。本節は Hugs を使用することを想定して セッション、スクリプトといった対話環境だからこそしっくりくる用語を中心に基本用語が解説されています。&lt;/p&gt;
+
+&lt;p&gt;スクリプトによって定義を追加していき環境を構築した上で &lt;strong&gt;式を評価&lt;/strong&gt; するというのが主軸なのかなあ、と思います。環境/文脈は束縛の集りであるというのは非常にシンプルで実際の文脈の小ささは関数プログラミングの特徴と言えるのではないかな、と思いました。&lt;/p&gt;
+
+&lt;p&gt;あとは、定義には関数の定義がかかれ、関数には 型シグネチャ をかけることぐらいかな。&lt;/p&gt;
+
+&lt;p&gt;練習問題が関数定義の練習と束縛済みの関数を再利用するのが目的な感じでした。&lt;/p&gt;
+
+&lt;h2 id=&#34;関連:b051e3dc2a6d3d92bfdd286396d33718&#34;&gt;関連&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/Introduction-to-Functional-Programming-using-Haskell/blob/master/1/index.org&#34;&gt;メモ用のリポジトリ 1章&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/Introduction-to-Functional-Programming-using-Haskell/blob/master/1/1.1.hs&#34;&gt;1.1の練習問題&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;iframe src=&#34;http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=427406896X&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

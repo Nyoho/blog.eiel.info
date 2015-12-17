@@ -1,0 +1,3706 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git がわからなくても Github を利用しよう | そんなこと覚えてない">
+<meta property="og:url" content="http://blog.eiel.info/blog/2013/02/06/how-to-use-github/">
+<meta property="og:description" content="みなさん Github を利用していますか？ 「Git がわからないから…」と、そんな理由で使わないのはもったいないです。 Webや開発に携わる人間であれば、例えプログラムを書かなくても、Github へアクセスする機会は増えているのではないでしょうか。 Webの人であれば jQueryのプラグインを探したり、サンプルコードが Github においてあったりすると思います。 しかし、いきなり使いこなすのは難しいので、まずは以下のことをはじめてみることをおすすめします。 アカウントを作る 知り合いや気になる人をフォローする 自分が利用しているリポジトリや気になるリポジトリにスターを付ける News Feed を読む 日本人がやってるネタリポジトリの Issues やPull Requestsに絡む Gitを利用しなければいけない機能はとりたててありません。(Pull Requestには突っ込まないで) アカウントを作る まず、アカウントがないと何もできません。作りましょう。 Githubのトップページに &ldquo;Sign up for free&rdquo; というボタンから作成することができます。 知り合いや気になる人をフォローする 友達や気になる人をフォローしましょう。相手がフォロー返しをしてこなくても気にすることはないです。News Feed を読む ための布石にすぎません。 フォローすると News Feed にフォローした人の活動が表示されるようになります。これを見るのが目的なので、自分が興味のある活動をしている人がおすすめです。 あまり活動的な人をフォローするとフィードがどんどん流れてしまうので、初心者にはおすすめできません。 フォローする相手がいない場合は、あまり活発でない リポジトリをウォッチするという手もあります。 フォローするには https//github.com/ユーザ名 にアクセスして、画面右上のほうに Followというボタンがあるのでそれをクリックします。 例えば、私をフォローしたい場合は、http://github.com/eiel にアクセスします。 自分が利用しているリポジトリや気になるリポジトリにスターを付ける スターというのは、お気に入り、ブックマーク、いいね!のような機能です。ソーシャルブックマークの効果を感じていれば、説明は不要だと思います。 スターをつけると、自分の活動に このリポジトリにスターをつけました と流れるので、あなたをフォローしている人が目にすることになります。 そうすると、そのリポジトリを見にいく人が増えますので、そのリポジトリがより活発になる可能性が高くなります。 応援したい!! と思えば、すかさず押してしまっても良いでしょう。 News Feed を読む ここが本記事の主旨です。 News Feed を読みましょう。 News Feed はログインした状態で、Githubのトップにアクセスすると閲覧できます。 友人もフォローしたし、スターをつけることを学びました。 友人がスターを付けたことがわかるはずです。">
+
+
+<meta property="og:site_name" content="そんなこと覚えてない">
+
+<title>
+    
+    Git がわからなくても Github を利用しよう | そんなこと覚えてない
+    
+</title>
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
+<link rel="stylesheet" href="http://blog.eiel.info/css/base.css">
+<link rel="stylesheet" href="http://blog.eiel.info/css/styles.css">
+<link rel="stylesheet" href="http://blog.eiel.info/css/custom.css">
+
+
+<link rel="shortcut icon" href="http://blog.eiel.info/assets/favicon.ico">
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.eiel.info/index.xml">
+
+
+
+<div class="wrap">
+    <div class="masthead">
+        <div class="container">
+            <h3 class="masthead-title">
+                <a href="http://blog.eiel.info" title="Home">そんなこと覚えてない</a>
+            </h3>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="container content">
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<article class="post post-single">
+    <span class="post-date">2013 2月6日 13:36</span>
+    <h1 class="post-title">Git がわからなくても Github を利用しよう</h1>
+
+    <div class="eyecatch">
+        
+        <img src="http://blog.eiel.info/images/nopicture.png" alt="no_picture">
+        
+    </div>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6107701565367276"
+         data-ad-slot="8772992744"
+         data-ad-format="auto"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <div class="post-content">
+        
+
+<p>みなさん <a href="https://github.com/">Github</a> を利用していますか？</p>
+
+<p>「Git がわからないから…」と、そんな理由で使わないのはもったいないです。</p>
+
+<p>Webや開発に携わる人間であれば、例えプログラムを書かなくても、Github へアクセスする機会は増えているのではないでしょうか。</p>
+
+<p>Webの人であれば jQueryのプラグインを探したり、サンプルコードが Github においてあったりすると思います。</p>
+
+<p>しかし、いきなり使いこなすのは難しいので、まずは以下のことをはじめてみることをおすすめします。</p>
+
+<ul>
+<li>アカウントを作る</li>
+<li>知り合いや気になる人をフォローする</li>
+<li>自分が利用しているリポジトリや気になるリポジトリにスターを付ける</li>
+<li>News Feed を読む</li>
+<li><strong>日本人がやってるネタリポジトリの Issues やPull Requestsに絡む</strong></li>
+</ul>
+
+<p>Gitを利用しなければいけない機能はとりたててありません。<small>(Pull Requestには突っ込まないで)</small></p>
+
+<h2 id="アカウントを作る:43d506de6b4a65e51ca9ab597ec3c938">アカウントを作る</h2>
+
+<p>まず、アカウントがないと何もできません。作りましょう。</p>
+
+<p><a href="https://github.com/">Githubのトップページ</a>に &ldquo;Sign up for free&rdquo; というボタンから作成することができます。</p>
+
+<h2 id="知り合いや気になる人をフォローする:43d506de6b4a65e51ca9ab597ec3c938">知り合いや気になる人をフォローする</h2>
+
+<p>友達や気になる人をフォローしましょう。相手がフォロー返しをしてこなくても気にすることはないです。<code>News Feed を読む</code> ための布石にすぎません。</p>
+
+<p>フォローすると News Feed にフォローした人の活動が表示されるようになります。これを見るのが目的なので、自分が興味のある活動をしている人がおすすめです。
+あまり活動的な人をフォローするとフィードがどんどん流れてしまうので、初心者にはおすすめできません。</p>
+
+<p>フォローする相手がいない場合は、あまり活発でない リポジトリをウォッチするという手もあります。</p>
+
+<p>フォローするには <code>https//github.com/ユーザ名</code> にアクセスして、画面右上のほうに Followというボタンがあるのでそれをクリックします。</p>
+
+<p><img src="/images/follow.png" alt="フォローする"/></p>
+
+<p>例えば、私をフォローしたい場合は、<a href="http://github.com/eiel">http://github.com/eiel</a> にアクセスします。</p>
+
+<h2 id="自分が利用しているリポジトリや気になるリポジトリにスターを付ける:43d506de6b4a65e51ca9ab597ec3c938">自分が利用しているリポジトリや気になるリポジトリにスターを付ける</h2>
+
+<p>スターというのは、<code>お気に入り</code>、<code>ブックマーク</code>、<code>いいね!</code>のような機能です。ソーシャルブックマークの効果を感じていれば、説明は不要だと思います。</p>
+
+<p>スターをつけると、自分の活動に <code>このリポジトリにスターをつけました</code> と流れるので、あなたをフォローしている人が目にすることになります。
+そうすると、そのリポジトリを見にいく人が増えますので、そのリポジトリがより活発になる可能性が高くなります。</p>
+
+<p><strong>応援したい!!</strong> と思えば、すかさず押してしまっても良いでしょう。</p>
+
+<h2 id="news-feed-を読む:43d506de6b4a65e51ca9ab597ec3c938">News Feed を読む</h2>
+
+<p>ここが本記事の主旨です。</p>
+
+<p><strong>News Feed を読みましょう。</strong></p>
+
+<p>News Feed はログインした状態で、<a href="https://github.com/">Githubのトップ</a>にアクセスすると閲覧できます。</p>
+
+<p>友人もフォローしたし、スターをつけることを学びました。
+友人がスターを付けたことがわかるはずです。
+そのときはどんなリポジトリなのか見にいきましょう。
+トレンドや面白いものが見つかるかもしれません。</p>
+
+<p>News Feed は RSSリーダでも読むことができます。</p>
+
+<p>画面右上にリンクがありますので、簡単にできると思います。URLにアクセストークンを含むので、<strong>Web上の RSSリーダで閲覧する場合は自己責任でお願いします。</strong>
+自分の活動が流れるわけではないのであまり気にすることでもないかもしれません。</p>
+
+<h2 id="日本人がやってるネタリポジトリの-issue-やpull-request-に絡む:43d506de6b4a65e51ca9ab597ec3c938"><strong>日本人がやってるネタリポジトリの Issue やPull Request に絡む</strong></h2>
+
+<p>上記の機能以外で挑戦してみて欲しいのは <code>Issue</code> や <code>Pull Request</code> という機能です。
+Github の中で特に魅力的な機能です。</p>
+
+<p>Isuueはバグを報告するところです。質問するためにも利用されていますし、TODOリストにも使います。</p>
+
+<p>Pull Request は<strong>「ここを修正したのだけど、取り込んでくれませんか？」</strong>と伝えるところです。
+Issueに上がってるものを修正したり、追加機能を思いついたときに利用します。</p>
+
+<p>これらの機能を試すには、いきなり英語の開発プロジェクトに行くにはハードルが高いです。挑戦してみたいなら遊びでやってるようなものが絡みやすいです</p>
+
+<p>私が関わるものであれば</p>
+
+<ul>
+<li><a href="https://github.com/hiroshimarb/hiroshimarb-gem">Hiroshimarb-gem</a></li>
+<li><a href="https://github.com/eiel/StudySessions">全国の勉強会を整理しよう</a></li>
+</ul>
+
+<p>などがあります。</p>
+
+<h2 id="まとめとか:43d506de6b4a65e51ca9ab597ec3c938">まとめとか</h2>
+
+<p>News Feed を見ているだけでも、いろんなことに挑戦したくなったり、もっと便利に使いたくなるようになります。
+Git 自体の勉強はその時にはじめていけばよいと思います。</p>
+
+<p>Git のコマンドラインインターフェイスもどんどん丁寧になっており、<small>英語さえ読めば</small>怖いこともありません。
+GUIツールもどんどん便利になっていますが、痒いところに届きにくいですので、余裕がある方はコマンドラインからの利用から入門をおすすめします。</p>
+
+<p>Githubは開発者のSNSともいえる場所です。一歩進んだ開発者をめざすには必見のサイトではないでしょうか。</p>
+
+<h2 id="関連:43d506de6b4a65e51ca9ab597ec3c938">関連</h2>
+
+<ul>
+<li><a href="http://blog.eiel.info/blog/2013/02/17/github-pages/">Github Pages について整理しておきます</a></li>
+<li><a href="/blog/2013/02/06/how-to-use-github/">Github の楽しみ方 </a></li>
+<li><a href="/blog/2013/11/21/github-notifications-is-not-spam/">GitHub からの通知が迷惑メールになった - 見ないリポジトリは unwatch しよう</a></li>
+</ul>
+
+<iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=eiel-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=477416366X" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+    </div>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6107701565367276"
+         data-ad-slot="8772992744"
+         data-ad-format="auto"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <aside>
+        <div class="post-share">
+            <h3>Share</h3>
+            <a id="share-fb" href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2fblog.eiel.info%2fblog%2f2013%2f02%2f06%2fhow-to-use-github%2f&t=Git%20%e3%81%8c%e3%82%8f%e3%81%8b%e3%82%89%e3%81%aa%e3%81%8f%e3%81%a6%e3%82%82%20Github%20%e3%82%92%e5%88%a9%e7%94%a8%e3%81%97%e3%82%88%e3%81%86" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="http://blog.eiel.info/images/sharebutton/facebook.png" alt="Facebook"/></a>
+            <a id="share-twitter" href="http://twitter.com/intent/tweet?url=http%3a%2f%2fblog.eiel.info%2fblog%2f2013%2f02%2f06%2fhow-to-use-github%2f&text=Git%20%e3%81%8c%e3%82%8f%e3%81%8b%e3%82%89%e3%81%aa%e3%81%8f%e3%81%a6%e3%82%82%20Github%20%e3%82%92%e5%88%a9%e7%94%a8%e3%81%97%e3%82%88%e3%81%86&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="http://blog.eiel.info/images/sharebutton/twitter.png" alt="Twitter"/></a>
+            <a id="share-googleplus" href="https://plus.google.com/share?url=http%3a%2f%2fblog.eiel.info%2fblog%2f2013%2f02%2f06%2fhow-to-use-github%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="http://blog.eiel.info/images/sharebutton/googleplus.png" alt="Google+"/></a>
+            <a id="share-hatena" href="http://b.hatena.ne.jp/add?mode=confirm&URL=http%3a%2f%2fblog.eiel.info%2fblog%2f2013%2f02%2f06%2fhow-to-use-github%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="http://blog.eiel.info/images/sharebutton/hatena.png" alt="Hatena"/></a>
+            <a id="share-pocket" href="http://getpocket.com/edit?url=http%3a%2f%2fblog.eiel.info%2fblog%2f2013%2f02%2f06%2fhow-to-use-github%2f&title=Git%20%e3%81%8c%e3%82%8f%e3%81%8b%e3%82%89%e3%81%aa%e3%81%8f%e3%81%a6%e3%82%82%20Github%20%e3%82%92%e5%88%a9%e7%94%a8%e3%81%97%e3%82%88%e3%81%86" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="http://blog.eiel.info/images/sharebutton/pocket.png" alt="Pocket"/></a>
+        </div>
+
+        
+        
+
+        
+        <div class="post-related">
+            <h3>Related Post</h3>
+            <ul class="post-tags">
+                
+                <li>
+                    <a href="http://blog.eiel.info/tags/github">
+                        <i class="fa fa-tags"></i>
+                        github
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://blog.eiel.info/tags/%E3%82%A8%E3%83%83%E3%82%BB%E3%82%A4">
+                        <i class="fa fa-tags"></i>
+                        エッセイ
+                    </a>
+                </li>
+                
+            </ul>
+
+            <ul>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a href="http://blog.eiel.info/blog/2015/02/19/github-for-commons/">GitHubに馴れると何ができるのか</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a href="http://blog.eiel.info/blog/2014/05/08/jekyll-on-github-devel-safe-false/">GitHub Pages で jekyll を使うなら safe: false で開発したほうが良いかもしれない</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a href="http://blog.eiel.info/blog/2014/02/18/github-push-from-travis/">Travis-CI でコミットして GitHub にプッシュする - 公開鍵認証を利用してみる</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a href="http://blog.eiel.info/blog/2014/02/08/i-need-a-girlfriend/">そういえば彼氏募集というネタリポジトリがありましたね。真似するならこんな感じかなぁ。</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a href="http://blog.eiel.info/blog/2014/01/22/exclude-vendor-on-jekyll/">Jekyll 使うときは exclude: vendor しとけって話らしい。</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a href="http://blog.eiel.info/blog/2013/10/03/billing-github/">GitHub に課金した</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a href="http://blog.eiel.info/blog/2013/08/13/github-pages-gem/">github-pages Gem というのが用意された - Github Page で使う gem のバージョンをあわせてくれる</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a href="http://blog.eiel.info/blog/2013/06/19/jekyll-on-function/">Jekyll を使ったGithub Pages で関数呼び出し的なことをする</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a href="http://blog.eiel.info/blog/2013/05/29/jekyll-preview/">Github Page で公開する サイトを ローカルで preview するのに使ってる方法</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a href="http://blog.eiel.info/blog/2013/05/13/how-to-enjoy-github/">Github の楽しみ方</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a href="http://blog.eiel.info/blog/2013/02/24/ruby-build-battle/">ruby-build の プルリクエスト バトル</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a href="http://blog.eiel.info/blog/2013/02/18/jekyll-on-github/">Github で Jekyll を使う時に調べたこと</a></li>
+                
+                
+                
+                
+                
+                <li><a href="http://blog.eiel.info/blog/2013/02/17/github-pages/">Github Pages について整理しておきます</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a href="http://blog.eiel.info/blog/2013/01/21/github-spam/">Github pages が反映されない？と思ったらスパム扱いされてるかも</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a href="http://blog.eiel.info/blog/2012/11/08/not-code-completion/">コード補完に便りにし過ぎてはいけない。</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul>
+        </div>
+        
+    </aside>
+
+    
+    <footer>
+        <div class="move">
+            <div class="prev">
+                
+                <a href="http://blog.eiel.info/blog/2013/02/07/date-magick-on-active-support/">
+                    <i class="fa fa-chevron-left"></i>
+                    Active Supportの日付演算ってなかなか不思議。
+                </a>
+                
+            </div>
+            <div class="next">
+                
+                <a href="http://blog.eiel.info/blog/2013/01/31/gdb-ruby-ext/">
+                    Rubyの拡張ライブラリをデバッグしてみた。
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+                
+            </div>
+        </div>
+
+        
+        
+        
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+ 
+var disqus_shortname = 'blogeiel'; 
+
+ 
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        
+        
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6107701565367276"
+         data-ad-slot="8772992744"
+         data-ad-format="auto"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+
+<script language="javascript" type="text/javascript" src="http://b.hatena.ne.jp/js/widget.js" charset="utf-8"></script>
+<script language="javascript" type="text/javascript">
+Hatena.BookmarkWidget.url   = "blog.eiel.info";
+Hatena.BookmarkWidget.title = "人気エントリー";
+Hatena.BookmarkWidget.sort  = "count";
+Hatena.BookmarkWidget.num   = 5;
+Hatena.BookmarkWidget.theme = "default";
+Hatena.BookmarkWidget.load();
+</script>
+
+<script language="javascript" type="text/javascript" src="http://b.hatena.ne.jp/js/widget.js" charset="utf-8"></script>
+<script language="javascript" type="text/javascript">
+Hatena.BookmarkWidget.url   = "blog.eiel.info";
+Hatena.BookmarkWidget.title = "新着エントリー";
+Hatena.BookmarkWidget.sort  = "hot";
+Hatena.BookmarkWidget.num   = 5;
+Hatena.BookmarkWidget.theme = "default";
+Hatena.BookmarkWidget.load();
+</script>
+    </footer>
+
+</article>
+
+
+    </div>
+</div>
+
+
+<aside class="sidebar-wrapper">
+    <div class="container">
+        
+        <div class="tags tag-cloud">
+            <h2>Tags</h2>
+            <ul class="post-tags">
+                
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/a8d">
+                        a8d
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ablog">
+                        ablog
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/acativerecord">
+                        acativerecord
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/actiondispatch">
+                        actiondispatch
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/actionpack">
+                        actionpack
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/actionview">
+                        actionview
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/actirerecord">
+                        actirerecord
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/active_model">
+                        active_model
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/active_support">
+                        active_support
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/activemodel">
+                        activemodel
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/activerecord">
+                        activerecord
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/activesupport">
+                        activesupport
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ajax">
+                        ajax
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/angularjs">
+                        angularjs
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/api">
+                        api
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/apt">
+                        apt
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/araxis">
+                        araxis
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/arel">
+                        arel
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/atom">
+                        atom
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/atom-editor">
+                        atom-editor
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/autolayout">
+                        autolayout
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/aws">
+                        aws
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/bash">
+                        bash
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/bdd">
+                        bdd
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/bot">
+                        bot
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/browserify">
+                        browserify
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/bundle">
+                        bundle
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/c">
+                        c
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/capistrano">
+                        capistrano
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/capybara">
+                        capybara
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/centos">
+                        centos
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/chatwork">
+                        chatwork
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/chef">
+                        chef
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ci">
+                        ci
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/cleditor">
+                        cleditor
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/cocoapods">
+                        cocoapods
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/codekata">
+                        codekata
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/color">
+                        color
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/css">
+                        css
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/cucumber">
+                        cucumber
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/dart">
+                        dart
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/database">
+                        database
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/debian">
+                        debian
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/debug">
+                        debug
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/deltawalker">
+                        deltawalker
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/devise">
+                        devise
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/devlove">
+                        devlove
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/docker">
+                        docker
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ediff">
+                        ediff
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/el-get">
+                        el-get
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/emacs">
+                        emacs
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/facebook">
+                        facebook
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/fizzbuzz">
+                        fizzbuzz
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/funtoo">
+                        funtoo
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gdb">
+                        gdb
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gentoo">
+                        gentoo
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gentoo-prefix">
+                        gentoo-prefix
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gherkin">
+                        gherkin
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/git">
+                        git
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/github">
+                        github
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gitolite">
+                        gitolite
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gitx">
+                        gitx
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gmail">
+                        gmail
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gpg">
+                        gpg
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/grub">
+                        grub
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gulp">
+                        gulp
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/hakyll">
+                        hakyll
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/haskell">
+                        haskell
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/helm">
+                        helm
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/heroku">
+                        heroku
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/hiroshima.rb">
+                        hiroshima.rb
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/html">
+                        html
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/html5">
+                        html5
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/hubot">
+                        hubot
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/hwebsys">
+                        hwebsys
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/i18n">
+                        i18n
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/iam">
+                        iam
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/idobata">
+                        idobata
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/inputmethod">
+                        inputmethod
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ios">
+                        ios
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ios24h">
+                        ios24h
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/javascript">
+                        javascript
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/jekyll">
+                        jekyll
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/jenkins">
+                        jenkins
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/kaleidoscope">
+                        kaleidoscope
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/linux">
+                        linux
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/liquid">
+                        liquid
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/lisp">
+                        lisp
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ltdd">
+                        ltdd
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/lt%E9%A7%86%E5%8B%95">
+                        lt駆動
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/lt%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA">
+                        lt駆動開発
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/mac">
+                        mac
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/magit">
+                        magit
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/markdown">
+                        markdown
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/materialdesign">
+                        materialdesign
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/microdata">
+                        microdata
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/migemo">
+                        migemo
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/monad">
+                        monad
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/nginx">
+                        nginx
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/nodejs">
+                        nodejs
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/npm">
+                        npm
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/objective-c">
+                        objective-c
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/opendiff">
+                        opendiff
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/osc">
+                        osc
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/osh">
+                        osh
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/osh2015">
+                        osh2015
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/output">
+                        output
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/p4merge">
+                        p4merge
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/packer">
+                        packer
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/pandoc">
+                        pandoc
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/phantomjs">
+                        phantomjs
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/poltergeist">
+                        poltergeist
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/polymer">
+                        polymer
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/postgis">
+                        postgis
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/postgres">
+                        postgres
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/postgresql">
+                        postgresql
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/pry">
+                        pry
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/python">
+                        python
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/qiita">
+                        qiita
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/rack">
+                        rack
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/rahaeljs">
+                        rahaeljs
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/rails">
+                        rails
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/rails3">
+                        rails3
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/rails4">
+                        rails4
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/railtie">
+                        railtie
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/rbenv">
+                        rbenv
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/redis">
+                        redis
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/redmine">
+                        redmine
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/review">
+                        review
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/route53">
+                        route53
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/rspec">
+                        rspec
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/rspec-html-matchers">
+                        rspec-html-matchers
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ruboty">
+                        ruboty
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ruby">
+                        ruby
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/s3">
+                        s3
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/sacala">
+                        sacala
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/scala">
+                        scala
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/scalaz">
+                        scalaz
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/selenium">
+                        selenium
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/sensu">
+                        sensu
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/sh">
+                        sh
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/sitespec">
+                        sitespec
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/skk">
+                        skk
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/slack">
+                        slack
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/slim">
+                        slim
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/state%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3">
+                        stateパターン
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/swift">
+                        swift
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/tdd">
+                        tdd
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/tkdiff">
+                        tkdiff
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/tmux">
+                        tmux
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/travis">
+                        travis
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/tumx">
+                        tumx
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/twilio">
+                        twilio
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/twitter">
+                        twitter
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/uitabbarcontroller">
+                        uitabbarcontroller
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/vagrant">
+                        vagrant
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/vim">
+                        vim
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/wercker">
+                        wercker
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/windows8">
+                        windows8
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/wisper">
+                        wisper
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/wtm">
+                        wtm
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/xcode">
+                        xcode
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/xml">
+                        xml
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/xxdiff">
+                        xxdiff
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/zeus">
+                        zeus
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/zsh">
+                        zsh
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%81%99%E3%81%94%E3%81%84%E5%90%88%E5%90%8C%E5%8B%89%E5%BC%B7%E4%BC%9A">
+                        すごい合同勉強会
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%81%99%E3%81%94%E3%81%84%E5%BA%83%E5%B3%B6">
+                        すごい広島
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88">
+                        イベント
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%A8%E3%83%83%E3%82%BB%E3%82%A4">
+                        エッセイ
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF">
+                        エディタ
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E5%8B%89%E5%BC%B7%E4%BC%9A">
+                        オンライン勉強会
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%82%BB%E3%83%9F%E3%83%8A%E3%83%BC">
+                        オープンセミナー
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AA%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0">
+                        コードリーディング
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%A0">
+                        スクラム
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E3%82%A2%E3%83%83%E3%83%97">
+                        スタートアップ
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89">
+                        スライド
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%83%8D%E3%82%BF">
+                        ネタ
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%83%92%E3%83%AD%E3%83%8F%E3%82%BF">
+                        ヒロハタ
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%83%A2%E3%83%8A%E3%83%89">
+                        モナド
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%E5%B1%8B">
+                        ラーメン屋
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%83%AA%E3%83%95%E3%82%A1%E3%82%AF%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0">
+                        リファクタリング
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9">
+                        リーンキャンバス
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E3%82%A2%E3%83%83%E3%83%97">
+                        リーンスタートアップ
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E4%BB%95%E4%BA%8B%E3%81%97%E3%82%8D">
+                        仕事しろ
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E4%BC%9D%E3%81%88%E3%82%8B">
+                        伝える
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E5%86%85%E5%8C%85%E8%A1%A8%E8%A8%98">
+                        内包表記
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E5%8B%89%E5%BC%B7%E4%BC%9A">
+                        勉強会
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E5%9C%B0%E5%9F%9F">
+                        地域
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E5%9E%8B%E3%82%AF%E3%83%A9%E3%82%B9">
+                        型クラス
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E5%B2%A1%E5%B1%B1">
+                        岡山
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E5%B2%A1%E5%B1%B1git%E5%8B%89%E5%BC%B7%E4%BC%9A">
+                        岡山git勉強会
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E5%BA%83%E5%B3%B6">
+                        広島
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E5%BA%83%E5%B3%B6ruby%E5%8B%89%E5%BC%B7%E4%BC%9A">
+                        広島ruby勉強会
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E6%83%85%E5%A0%B1%E6%95%B4%E7%90%86">
+                        情報整理
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E6%9B%B8%E8%A9%95">
+                        書評
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E6%A5%BD%E3%81%97%E3%81%84">
+                        楽しい
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E8%80%83%E3%81%88%E6%96%B9">
+                        考え方
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E8%89%B2">
+                        色
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2">
+                        読書メモ
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E9%96%A2%E6%95%B0%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80">
+                        関数プログラミング入門
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E9%9F%B3%E5%A3%B0%E7%B7%A8%E9%9B%86">
+                        音声編集
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        
+        
+        <div id="profile">
+            <div class="eyecatch">
+                <img id="photo" src="/images/nopicture.png" alt="profile">
+            </div>
+            <a href="http://eiel.info/">Website</a>
+            <div class="data">
+                
+                <a href="https://www.facebook.com/eielh" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                
+                
+                <a href="https://twitter.com/eileh" target="_blank"><i class="fa fa-twitter-square"></i></a>
+                
+                
+                <a href="https://github.com/eiel" target="_blank"><i class="fa fa-github-square"></i></a>
+                
+                <pre id="description">
+                </pre>
+                <ul id="urls" class="post-tags"></ul>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+<footer class="copy">
+    <p>&copy; 2015  Tomohiko Himura </p>
+    <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>, Theme <a href="https://github.com/dim0627/hugo_theme_aglaus" target="_blank">Aglaus</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
+</footer>
+
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script src="http://blog.eiel.info/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-34566858-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+<script>
+$(function() {
+    var url = "https://ja.gravatar.com/eiel.hal@gmail.com.json?callback=?";
+    $.getJSON(url)
+        .done(function(data) {
+            var entry = data.entry[0];
+            $("#photo").attr("src", entry.photos[0].value);
+            $("#username").html(entry.name.familyName + " " + entry.name.givenName);
+            $("#description").html(entry.aboutMe);
+            entry.urls.forEach(function(el){
+                $("#urls").append($("<li><a href='" + el.value + "'>" + el.title + "</a></li>"));
+            });
+            $("#profile").show();
+        });
+});
+</script>
+

@@ -1,0 +1,846 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E5%8B%89%E5%BC%B7%E4%BC%9A/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-11-26 19:46:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>LT駆動開発というゆるいIT勉強会を紹介する - ゆるい広島 Advent Calendar 2014</title>
+          <link>http://blog.eiel.info/blog/2014/11/26/yurui-ltdd/</link>
+          <pubDate>Wed, 26 Nov 2014 19:46:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/11/26/yurui-ltdd/</guid>
+          <description>
+
+&lt;p&gt;この記事は&lt;a href=&#34;http://www.adventar.org/calendars/334&#34;&gt;ゆるい広島 Advent Calendar 2014&lt;/a&gt;の1日目の記事です。このアドベントカレンダーは広島をテーマに好きなことを書いていいらしいアドベントカレンダーです。&lt;/p&gt;
+
+&lt;p&gt;広島には&lt;a href=&#34;http://ltdd.doorkeeper.jp/&#34;&gt;LT駆動開発&lt;/a&gt;というゆるめのIT勉強会があります。
+IT勉強会の形式には&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;セミナー形式&lt;/li&gt;
+&lt;li&gt;ハンズオン形式&lt;/li&gt;
+&lt;li&gt;アンカンファレンス形式&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などなどがありますが、LT駆動開発はセミナー形式になります。&lt;/p&gt;
+
+&lt;p&gt;LT駆動開発はライトニングトークと呼ばれる5分から10分程度の短いセッションで構成され、10人程度の発表があります。
+LTはライトニングトークの略で、「&lt;strong&gt;LTを毎月やるつもりで普段の開発(仕事)をしよう&lt;/strong&gt;」という勉強会になります。&lt;/p&gt;
+
+&lt;p&gt;セミナー形式は普通は参加対象者をしっかり定めて、スピーカーが参加者に価値のある情報を提供するのが一般的ですが、このLT駆動開発では、スピーカーになることに重点を置いています。
+そのため、参加対象者は曖昧となっています。&lt;/p&gt;
+
+&lt;p&gt;セミナー形式の勉強会で、聴衆はたいていの場合、内容のすべてを理解することはできません。
+そして、聞いたことを実践できる人はほとんどいないと思われます。
+しかし、&lt;strong&gt;スピーカーは喋ることを理解した上で伝える方法を準備してきているのです。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;スピーカーになるということは喋る内容をより理解できるということなのです。
+これを利用して、喋ることで学んだことをより理解を深めるのがLT駆動開発なのです。&lt;/p&gt;
+
+&lt;p&gt;スピーカーは参加対象者は自由に決めることができるし、喋る内容も自由に決めることができるし、発表者する時間ほ長くなければ自由に決めることができるというとても&lt;strong&gt;ゆるい&lt;/strong&gt;IT勉強会なのです。&lt;/p&gt;
+
+&lt;p&gt;ライトニングトークを行うイベントはたいてい時間制限がきっちりしていて、ドラが鳴らされて発表が打ち切りになりますが、このLT駆動開発ではぐだぐだに継続することができます。
+やはり&lt;strong&gt;ゆるい&lt;/strong&gt;ですね。&lt;/p&gt;
+
+&lt;p&gt;これまでのLT駆動開発の8回行われています。
+その中からいくつか公開されているスライドをゆるく紹介したいと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;これまでのlt駆動開発:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;これまでのLT駆動開発&lt;/h3&gt;
+
+&lt;p&gt;これまでのLT駆動開発のは&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki&#34;&gt;Wiki&lt;/a&gt;に整理されています。ここで紹介しないものはそっちからみてください。&lt;/p&gt;
+
+&lt;h4 id=&#34;ワイヤレスディスプレイをつかってみよう:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;ワイヤレスディスプレイをつかってみよう！&lt;/h4&gt;
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/34260183&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/yo.takata/20140405-ltdd02-widi&#34; title=&#34;ワイヤレスディスプレイをつかってみよう！&#34; target=&#34;_blank&#34;&gt;ワイヤレスディスプレイをつかってみよう！&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/yo.takata&#34; target=&#34;_blank&#34;&gt;Yoshitake Takata&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+無線で画面を飛ばせる。最近はおもしろいものがありますね。
+
+
+#### コーチングから学んだこと
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/39881805&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/yurikamimori/ss-39881805&#34; title=&#34;コーチングから学んだこと&#34; target=&#34;_blank&#34;&gt;コーチングから学んだこと&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/yurikamimori&#34; target=&#34;_blank&#34;&gt;Yuri Kamimori&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+おれたちのLT駆動はまだはじまったばかりだ。
+自分がどんなタイプなのか、一緒に仕事する人はどんなタイプなのか。
+
+#### LT駆動開発03　Web制作をカレー作りで例えてみる
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/34252680&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/kawakamihiroko/lt-03&#34; title=&#34;LT駆動開発03　Web制作をカレー作りで例えてみる&#34; target=&#34;_blank&#34;&gt;LT駆動開発03　Web制作をカレー作りで例えてみる&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/kawakamihiroko&#34; target=&#34;_blank&#34;&gt;Kawakami Hiroko&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+すべてはカレー作りに通ずる。
+
+#### 原典にあたったら英語も勉強できた話 〜 Git編 〜
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/39322224&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/YukinoriKitadai/osc-2014-hiroshima-reading-original-git-and-english&#34; title=&#34;原典にあたったら英語も勉強できた話 〜 Git編 〜&#34; target=&#34;_blank&#34;&gt;原典にあたったら英語も勉強できた話 〜 Git編 〜&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/YukinoriKitadai&#34; target=&#34;_blank&#34;&gt;Yukinori Kitadai&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+名作スライド #とは。
+
+#### Twitterのスパムアカウントを考察する
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/31794766&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/nemumu/2-31794766&#34; title=&#34;Twitterのスパムアカウントを考察する [LTDD 01]&#34; target=&#34;_blank&#34;&gt;Twitterのスパムアカウントを考察する [LTDD 01]&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/nemumu&#34; target=&#34;_blank&#34;&gt;nemumu&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+Twitterで大量のアカウントにつくるにはどうすればいいのだろうか。
+**実際にやってみた**
+
+#### 資格は役に立つか
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/35598571&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/tsudaa/ss-35598571&#34; title=&#34;資格は役に立つか &#34; target=&#34;_blank&#34;&gt;資格は役に立つか &lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/tsudaa&#34; target=&#34;_blank&#34;&gt;tsudaa&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+資格は役に立つか…ぶっちゃけてみましょう。
+
+
+#### ジョーク駆動開発2
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/36682978&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/nisyu/itpass-36682978&#34; title=&#34;Itpass&#34; target=&#34;_blank&#34;&gt;Itpass&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/nisyu&#34; target=&#34;_blank&#34;&gt;Takashi Akagi&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+伝説のジョーク駆動開発 第2章
+
+### LT駆動開発 02 一発ネタ
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-slide=&#34;11&#34; data-id=&#34;a473c2f09ef50131ed925eeea3b4da59&#34; data-ratio=&#34;1.6&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+君はこのネタをしっているか。
+
+
+#### 能年玲奈ちゃんのファンとして本気を出してみた
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/33155901&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/masakazuminamiyama/ss-33155901&#34; title=&#34;能年玲奈ちゃんのファンとして本気を出してみた&#34; target=&#34;_blank&#34;&gt;能年玲奈ちゃんのファンとして本気を出してみた&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/masakazuminamiyama&#34; target=&#34;_blank&#34;&gt;真一 北原&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+見せてもらおうか。ファンの本気とやらを。
+
+
+#### ITリテラシーの格差問題を考える
+
+&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/tSk63Sn3ZJU?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;動画で参加することだってできるんだぜ。&lt;/p&gt;
+
+&lt;h4 id=&#34;ひどいサービスの作り方:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;ひどいサービスの作り方&lt;/h4&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/38765905&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/ducky19999/ss-38765905&#34; title=&#34;ひどいサービスの作り方&#34; target=&#34;_blank&#34;&gt;ひどいサービスの作り方&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/ducky19999&#34; target=&#34;_blank&#34;&gt;Minoru Kawaguchi&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;反面教師。&lt;/p&gt;
+
+&lt;h4 id=&#34;5sのはなし:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;5sのはなし&lt;/h4&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/38912911&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/kakimomokuri/5-s-38912911&#34; title=&#34;5 sのはなし&#34; target=&#34;_blank&#34;&gt;5 sのはなし&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/kakimomokuri&#34; target=&#34;_blank&#34;&gt;Kakigi Katuyuki&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;そう。iPhone 5s ならね。&lt;/p&gt;
+
+&lt;h4 id=&#34;踏まれる可能性について:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;踏まれる可能性について&lt;/h4&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/38770495&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/mrtc0/ss-38770495&#34; title=&#34;踏まれる可能性について #LT駆動開発07&#34; target=&#34;_blank&#34;&gt;踏まれる可能性について #LT駆動開発07&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/mrtc0&#34; target=&#34;_blank&#34;&gt;mrtc0&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;別に踏まれたいわけではない。&lt;/p&gt;
+
+&lt;h4 id=&#34;morning-mail:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;morning mail&lt;/h4&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;5b283660fc2e0131c46b52d757e5bc8b&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;朝の習慣をはじめよう。&lt;/p&gt;
+
+&lt;h4 id=&#34;マネジメントという道具-v0-0-1:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;マネジメントという道具(v0.0.1)&lt;/h4&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/37606524&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/uzundk/toolof-management&#34; title=&#34;マネジメントという道具(v0.0.1)&#34; target=&#34;_blank&#34;&gt;マネジメントという道具(v0.0.1)&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/uzundk&#34; target=&#34;_blank&#34;&gt;uzundk&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;ぜんぜんゆるくない。ガチ。&lt;/p&gt;
+
+&lt;h4 id=&#34;オフィスチェアを買いました:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;オフィスチェアを買いました&lt;/h4&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;4ce27df0d07d01310fe546b5cb27a5ae&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;椅子は仕事の相棒です。&lt;/p&gt;
+
+&lt;h3 id=&#34;次回のlt駆動開発:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;次回のLT駆動開発&lt;/h3&gt;
+
+&lt;p&gt;どうでしょうか。ゆるい感じがしたでしょうか。&lt;/p&gt;
+
+&lt;p&gt;次回の&lt;a href=&#34;http://ltdd.doorkeeper.jp/events/17506&#34;&gt;LT駆動開発は12月7日9時から12時&lt;/a&gt;です。
+気軽に発表しにいってみてください。&lt;/p&gt;
+
+&lt;p&gt;明日のゆるい広島AdventCalendarは &lt;a href=&#34;https://twitter.com/takatayoshitake&#34;&gt;@takatayoshitake&lt;/a&gt; さんです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>GitHub戦闘力を提案してみた - 座駆動LT大会</title>
+          <link>http://blog.eiel.info/blog/2014/09/13/github-scouter/</link>
+          <pubDate>Sat, 13 Sep 2014 22:38:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/09/13/github-scouter/</guid>
+          <description>
+
+&lt;p&gt;座駆動LT大会で「戦闘力」というLTをしてきました。&lt;/p&gt;
+
+&lt;p&gt;座駆動LT大会とは、岡山にはRyouteiという素晴しいお店があり、そこの座スタジアムという部屋は非常にLTに適した場所です。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;大都会岡山が誇る最強の懇親会会場「Ryoutei 座・スタジアム」でLT大会を開催します！&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;というわけで、今回参加してきた時のスライドを紹介します。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;9f557cd01d560132ff4612198c64cd5d&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;戦闘力といえば、Vim戦闘力やEmacs戦闘力がありますが、GitHub戦闘力を適当に定義してみました。
+スターの数がGitHub戦闘力と言われているのもみかけましたが、折角なのでいろいろ考えてみました。&lt;/p&gt;
+
+&lt;p&gt;実は&lt;a href=&#34;http://www.ospn.jp/osc2014-hiroshima/&#34;&gt;オープンソースカンフェレンス2014広島&lt;/a&gt;のために制作しているものの中でGitHub APIを使用してつくっていたものがあり、そのノウハウで、そのついでに作成したのが今回の&lt;code&gt;github_scouter&lt;/code&gt;です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/github_scouter&#34;&gt;eiel/github_scouter · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;オープンソースカンファレンスは今週末の土曜日、2014年9月20日に予定されています。
+予約数があまり多くないらしいので、今後も継続して欲しいと考えている方は参加や告知を協力していただけると助かります。&lt;/p&gt;
+
+&lt;p&gt;ちなみに私は&lt;a href=&#34;https://www.ospn.jp/osc2014-hiroshima/modules/eguide/event.php?eid=7&#34;&gt;LT駆動開発ベストセッションズ&lt;/a&gt;でLTをする予定です。&lt;/p&gt;
+
+&lt;p&gt;閑話休題。
+今回はGitHub戦闘力を攻撃力、知力、すばやさの3種類に分けて戦闘力を定義しました。&lt;/p&gt;
+
+&lt;p&gt;攻撃力は所有リポジトリを元に算出しました。&lt;/p&gt;
+
+&lt;p&gt;知力はさまざまな言語を利用していると高くなるようにしました。&lt;/p&gt;
+
+&lt;p&gt;すばやさはOrganizationの情報を元にチーム力の高さとして算出しました。&lt;/p&gt;
+
+&lt;p&gt;と、非常にどうでもいい戦闘力ですが、みなさんも御自分の戦闘力を算出してみてはいかがでしょうか。
+また、APIの利用しすぎにご注意ください。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;ja&#34;&gt;&lt;p&gt;.&lt;a href=&#34;https://twitter.com/eielh&#34;&gt;@eielh&lt;/a&gt; 「わたしの戦闘力は168Gです」 &lt;a href=&#34;https://twitter.com/hashtag/zadrvnlt?src=hash&#34;&gt;#zadrvnlt&lt;/a&gt;&lt;/p&gt;&amp;mdash; (っ’ヮ’c) ＜ 君のほうがかわいいよ (@ryosms) &lt;a href=&#34;https://twitter.com/ryosms/status/510772214694572032&#34;&gt;2014, 9月 13&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+かけ算バージョンは表計算で出したので、コマンドを用意していません。
+0にならないように1を加えてからかけ算しています。&lt;/p&gt;
+
+&lt;p&gt;今後、計算式を定義しなおしてVersion2も検討したいと考えているのはまた別の話です。&lt;/p&gt;
+
+&lt;h1 id=&#34;追記:0769bc5dcffbc42073a9913880f78a40&#34;&gt;追記&lt;/h1&gt;
+
+&lt;p&gt;Gem化して欲しいって要望があったのでしておきました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gem install github_scouter
+$ github_scouter [GitHub ID]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で利用できます。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>すごい広島 一周年</title>
+          <link>http://blog.eiel.info/blog/2014/05/23/1st-anniversary-for-great-h/</link>
+          <pubDate>Fri, 23 May 2014 10:51:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/05/23/1st-anniversary-for-great-h/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;って勉強会というかミートアップが一年間、毎週休まず活動したらしい。「すごい」というか、めでたい。&lt;/p&gt;
+
+&lt;p&gt;概要&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;すごい広島とは何か&lt;/li&gt;
+&lt;li&gt;一年間活動してみて&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;すごい広島とは何か:745e88304fc7d7cf810bcaecdb73f8ae&#34;&gt;すごい広島とは何か&lt;/h3&gt;
+
+&lt;p&gt;すごい広島は、「ITエンジニアとか、情報系の学生とか、Web系デザイナが毎週どこかに集まっていればそれだけで面白いことになるはずだ」
+と考えた &lt;a href=&#34;https://twitter.com/Toro_kun&#34;&gt;@Toro_kun&lt;/a&gt; と &lt;a href=&#34;https://twitter.com/CentBoss&#34;&gt;@CentBoss&lt;/a&gt; と &lt;a href=&#34;https://twitter.com/eielh&#34;&gt;@eielh&lt;/a&gt; がはじめたミートアップらしいです。(他人事)&lt;/p&gt;
+
+&lt;p&gt;「すごい広島」は、もともと&lt;a href=&#34;http://www.amazon.co.jp/gp/product/4274068854/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=4274068854&amp;amp;linkCode=as2&amp;amp;tag=eiel-22&#34;&gt;すごいHaskell を楽しく学ぼう&lt;/a&gt; という書籍の読書会を広島でやろうとした際に考えた名前だそうです。
+しかし、Haskell の需要が少ない関係で、参加者が見込めないため、読書会はお蔵入りしてしまいました。
+せっかく考えた名前は面白いし、どこかで使いたい。
+そこで、流用したのが「すごい広島」となりました。&lt;/p&gt;
+
+&lt;p&gt;しかし、ただ集まるだけでは目的を見失う恐れがあります。
+「広島のエンジニア」のアウトプットの総量を増やすことによって広島が盛り上ってるように錯覚させることができないか考えることにしました。&lt;/p&gt;
+
+&lt;p&gt;結果、参加ルールを設けることにしました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;その場で何をするつもりなのか &lt;a href=&#34;https://github.com/great-h/great-h.github.io/issues?milestone=55&amp;amp;state=open&#34;&gt;GitHub の Issue に書く&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;すごい広島内でブログを書く&lt;/li&gt;
+&lt;li&gt;GitHub に Pull Request をする&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;というルールです。&lt;/p&gt;
+
+&lt;p&gt;GitHubに慣れてもらうために、開発でない部分にGitHubをつかおうとする試みです。
+最初に Pull Request した時の楽しさを伝えたいというのもありますし、GitHubを使える人と仕事をしたいという裏の目的です。
+結果、GitHubを練習するための場として定着するようになりました。
+しかし、ブログをかくのは少し負担が大きいということになり最近では「何かしらのやったことをウェブに残すこと」というルールに緩和されました。&lt;/p&gt;
+
+&lt;p&gt;ところで、広島でもIT勉強会は土日にそこそこの数あります。
+自分がいろんなすごい人たちの話を聞きたいのもありますが、土日以外なら参加できる人もいるかもしれない。
+毎週やっていれば、月に1回ぐらいは来られるかもしれない。
+そんな気持ちでやっています。&lt;/p&gt;
+
+&lt;p&gt;気がつけば、すごい広島はほぼ毎週参加されている人は3,4人います。
+いつもいる人を中心に、輪が広がり、相乗効果が起きるといいと思っています。&lt;/p&gt;
+
+&lt;h3 id=&#34;一年間活動してみて:745e88304fc7d7cf810bcaecdb73f8ae&#34;&gt;一年間活動してみて&lt;/h3&gt;
+
+&lt;h4 id=&#34;つづけたいこと:745e88304fc7d7cf810bcaecdb73f8ae&#34;&gt;つづけたいこと&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;毎週活動する&lt;/li&gt;
+&lt;li&gt;学生など若い人を優遇する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;学生が来る場合は、社会人がひとりいるだけでも学生にとっては参考になる話も聞けると思うので、それだけでやってる価値がでて良いと思います。&lt;/p&gt;
+
+&lt;h4 id=&#34;問題点とか直したい点:745e88304fc7d7cf810bcaecdb73f8ae&#34;&gt;問題点とか直したい点&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;人数が多いと喫茶店だと迷惑がかかる&lt;/li&gt;
+&lt;li&gt;参加者の固定化&lt;/li&gt;
+&lt;li&gt;名前からやってることが想像をしづらい。なにしてるか不明。&lt;/li&gt;
+&lt;li&gt;よく参加する人はステップアップして欲しいが、その道を示してない。&lt;/li&gt;
+&lt;li&gt;はじめての参加者に優しく、参加しやいように&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;メンバーの固定化はちょっと深刻な気もします。
+なるべくはじめてきた人が入りにくくならないように気をつけたい。&lt;/p&gt;
+
+&lt;h4 id=&#34;挑戦したいこと:745e88304fc7d7cf810bcaecdb73f8ae&#34;&gt;挑戦したいこと&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;みんなが勝手に準備して、勝手にまわるように&lt;/li&gt;
+&lt;li&gt;協賛。活動することにメリットがある企業をみつけて支援してもらいたい。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;企業に協力してもらいたいところはちょっとある。&lt;/p&gt;
+
+&lt;h4 id=&#34;その他感じてること:745e88304fc7d7cf810bcaecdb73f8ae&#34;&gt;その他感じてること&lt;/h4&gt;
+
+&lt;p&gt;大人がんばれ&lt;/p&gt;
+
+&lt;p&gt;参加者に学生がわりと多く、どうやら大学の同好会の活動の一部になってきているらしいです。
+それこそ学生が参加して価値を提供できるように社会人ががんばるようになるとすてきだと思います。
+2ヶ月に一度ぐらい来る人とかが数人いるとちょっと雰囲気が変わるかなとも思います。
+とりあえず、家族をまず大切にしましょう。(関係ない)&lt;/p&gt;
+
+&lt;p&gt;参加費は取りたくない。&lt;/p&gt;
+
+&lt;p&gt;気軽に集まることを大切にしたいので、参加費をとりたくない。来るのも大変だしね。
+「エンジニアが交流することは価値があるよ」みたいな事実があれば本当は良いのですが、そんなものはまだ弱い。
+しかし、最近は安定した参加者があるので、お金を払い場所を利用するようになりました。
+金銭的負担をどうやって減らしていくかは少し課題です。
+継続して欲しいなーって思う人に寄付してもらうというのが当面のスタイルになりそうです。&lt;/p&gt;
+
+&lt;p&gt;たまにワイワイ、ひとりの時間も大切に。&lt;/p&gt;
+
+&lt;p&gt;何か作りはじめた人は作ってるものを小出しにしつつ交流したほうがいいと思います。
+たいていの場合は、プログラミングをしている人はこもりがちです。
+刺激をいれると新しい発想とか問題点もみつかるとおもいます。
+外に出る時間だってもったいない時期もあると思いますが、ぜひ。
+特にプログラミングとかはじめたばかりであれば、外に出る価値はあると思います。
+聞いてみればサクっと解決したりするかもしれません。&lt;/p&gt;
+
+&lt;p&gt;だからといって、交流ばかりしていてもダメなのも感じていて、ひとりの時間も大切にしたいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:745e88304fc7d7cf810bcaecdb73f8ae&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;みんながそれぞれ楽しいって思うことを共有しつつ、楽しいってことを追求していけば、楽しいことが起こるんじゃないかなー。
+変えられなかったものも変えられるようになるんじゃないかなー。&lt;/p&gt;
+
+&lt;p&gt;エンジニアって職業が子供の憧れる職業になるように模索していきたい。&lt;/p&gt;
+
+&lt;p&gt;あれ、これ個人の結論で何もまとめてないや…。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、すごい広島 1周年おめでとうございます。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:745e88304fc7d7cf810bcaecdb73f8ae&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/15/great-h/&#34;&gt;「Github をつかったコミュニティ すごい広島」というタイトルでLTしてきた - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/10/21/operation-great-h/&#34;&gt;コミュニティに GitHub に使ってみて - すごい広島 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>忘年会議2013 に参加して LT したり、表彰されたりした</title>
+          <link>http://blog.eiel.info/blog/2013/12/16/bonenkaigi-2013/</link>
+          <pubDate>Mon, 16 Dec 2013 15:08:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/12/16/bonenkaigi-2013/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://gbdaitokai.doorkeeper.jp/events/5725&#34;&gt;合同勉強会&lt;/a&gt;の懇親会ともいえる、&lt;a href=&#34;http://bonenkaigi.doorkeeper.jp/events/5889&#34;&gt;忘年会議2013&lt;/a&gt;に参加しました。
+その中で告知メインの LT してきました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://osh-2014.github.io/&#34;&gt;オープンセミナー2014@広島&lt;/a&gt;の告知がメインで、その後に今年のアウトプットのふりかえりをしようと思ったのですが、余裕で時間が足りませんでした。
+そもそも「8分ぐらい喋ってもいいよね」なんて甘い考えがよくありませんでした。&lt;/p&gt;
+
+&lt;p&gt;スライドは喋ったところまで公開したいと思います。
+完全版を&lt;a href=&#34;http://osh-web.doorkeeper.jp/events/7544&#34;&gt;オープンセミナー2014@広島 懇親会&lt;/a&gt;でやろうかと考えています。&lt;/p&gt;
+
+&lt;p&gt;ほとんど告知なので大したことは書かれていません。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;279cc8b0484801313547029a9781450d&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;数値は12月10日時点のものです。&lt;/p&gt;
+
+&lt;p&gt;この後は、アクセスの多かった記事の具体的なPVなどを紹介して、「&lt;strong&gt;量が質に転化&lt;/strong&gt;したかなぁ」という話をするつもりでした。
+他にはざっくりとした広告収入の話とか。
+あと、20枚ぐらいありました。&lt;/p&gt;
+
+&lt;h3 id=&#34;大都会アワードの授与式:d70dd5db47055d8f9d6c30d0502f25a8&#34;&gt;大都会アワードの授与式&lt;/h3&gt;
+
+&lt;p&gt;忘年会議では他には、「大都会アワードの授与式」なるものがあって10人以上表彰されていました。&lt;/p&gt;
+
+&lt;p&gt;そういえば、私も表彰状頂きました。
+本当にありがとうございます。
+人生で表彰状なんてもらった記憶が他にない!!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/bonenkaigi-2013/award.jpg&#34; alt=&#34;表彰状&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ピントを合わせるところを間違えた気がする。
+表彰するのは良いことだと思いました。どこかで真似していこう。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:d70dd5db47055d8f9d6c30d0502f25a8&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;こんなにたくさんの IT 技術者が集まり LT のある懇親会は広島にはないので、オープンセミナー2014@広島の懇親会で実現できたらいいなぁ。
+といっても座れる定員の40が限界そうではあるのですが…。
+もし、いっぱいになるようであれば、立食形式も検討したいと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:d70dd5db47055d8f9d6c30d0502f25a8&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/12/15/gbdaitokai-2013/&#34;&gt;流れるようにプログラミングしたい - 合同勉強会 in 大都会岡山 2013 Winter&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>流れるようにプログラミングしたい - 合同勉強会 in 大都会岡山 2013 Winter</title>
+          <link>http://blog.eiel.info/blog/2013/12/15/gbdaitokai-2013/</link>
+          <pubDate>Sun, 15 Dec 2013 01:38:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/12/15/gbdaitokai-2013/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://gbdaitokai.doorkeeper.jp/events/5725&#34;&gt;合同勉強会 in 大都会岡山 -2013 Winter-&lt;/a&gt; でライトニングトークをしました。&lt;/p&gt;
+
+&lt;p&gt;合同勉強会という名前からわかるように各勉強会からいろんなスピーカーがやってきて、セッションをします。
+私は&lt;a href=&#34;http://hiroshimarb.github.io/&#34;&gt;Hiroshima.rb&lt;/a&gt;・&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;・&lt;a href=&#34;http://webtouchmeeting.com/&#34;&gt;WEB TOUCH MEETING&lt;/a&gt; からやってきたという形でライトニングトークをしました。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;82c04820470b0131b3441e6594d9299f&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;「流れるようにプログラミングしたい」というタイトルです。
+Ruby で読み書きしやすいプログラミングをしたときの問題点を紹介しつつ、Haskell の良いところを紹介するといった内容です。
+内容も多かったのでかなりの早口で喋りました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/eiel/7956834&#34;&gt;コードはこちらら&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ruby で関数型の思考でプログラミングをすると自然と流れるようなコードになりますが、問題があり、データをすべて読み終えないとプログラムが実行されないという状態になります。&lt;/p&gt;
+
+&lt;p&gt;その例が flow.rb のプログラムです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;puts ARGF.each_line
+  .map(&amp;amp;:to_i)            # 数値に
+  .map { |n| n * 5}       # 5倍する
+  .select { |n| n &amp;gt; 10 }  # 10より大きいものだけに
+  .first(5)               # 最初の5つ
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Haskell を使用した場合は、そのまま書いてもこの問題はおきず、現時点で処理できる時点まで処理してくれています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;main = do
+  getContents &amp;gt;&amp;gt;= (
+    return .
+    take 5 .        -- 最初の5個
+    filter (&amp;gt;10) .  -- 10より大きいものだけに
+    map (*5) .      -- 5倍する
+    map read .      -- 数値に
+    lines
+    ) &amp;gt;&amp;gt;= mapM_ print
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;しかし、Haskell の場合はコードの順番と実行の順番が逆転してしまいます。&lt;/p&gt;
+
+&lt;p&gt;Haskell をつかわなくても ruby 2.0 以降標準添付された Enumerator::Lazy を使うとこの問題は解決できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;ARGF.each_line
+  .lazy
+  .map(&amp;amp;:to_i)             # 数値に
+  .map { |n| n * 5 }       # 5倍する
+  .select { |n| n &amp;gt; 10 }   # 10より大きいものだけに
+  .map { |n| puts n }      # 出力
+  .first(5)                # 最初の5個
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;この lazy はなかなか一筋縄にはいかなくて、出力も map でやらなければならなく、純粋さを追求すると気持ち悪いです。&lt;/p&gt;
+
+&lt;p&gt;Haskell の問題である順番が逆転してしまう問題は Control.Arrow を利用すると解決できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;main = getContents &amp;gt;&amp;gt;= (
+  lines
+  &amp;gt;&amp;gt;&amp;gt; map read       -- 数値に変換
+  &amp;gt;&amp;gt;&amp;gt; map (*5)       -- 5倍する
+  &amp;gt;&amp;gt;&amp;gt; filter (&amp;gt;10)   -- 10より大きいものだけに
+  &amp;gt;&amp;gt;&amp;gt; take 5         -- 最初の5個
+  &amp;gt;&amp;gt;&amp;gt; return
+  ) &amp;gt;&amp;gt;= mapM_ print
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これでちゃんと、順番どおりによむことができます。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:d4aa6e878fc09181c48be7c1505e8838&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;Arrow の部分はおまけにすぎないですが、感動した部分であったり、関数型の思考で Ruby を書いた場合は効率という点で気になる部分もあり Haskell 面白いと思った部分です。&lt;/p&gt;
+
+&lt;p&gt;その部分を無理矢理5分で話したのでかなり早口だったり、私自身の息が上がったりして少し迷惑をおかけしました。&lt;/p&gt;
+
+&lt;p&gt;笑いもとれていたようなので、その点はよかったです。&lt;/p&gt;
+
+&lt;p&gt;ByteString や Text をつかった場合、どうなるのか確認しておきたいなぁ。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>「Github をつかったコミュニティ すごい広島」というタイトルでLTしてきた</title>
+          <link>http://blog.eiel.info/blog/2013/06/15/great-h/</link>
+          <pubDate>Sat, 15 Jun 2013 19:39:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/06/15/great-h/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.webtouchmeeting.com/meeting/2013/06/58web-touch-meeting.html&#34;&gt;WEB TOUCH MEETING #58&lt;/a&gt; の LT 枠で&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;について LT をしました。&lt;/p&gt;
+
+&lt;p&gt;Githubの話はほとんどしていない。最近、隔週で何か喋ってる気がする。&lt;/p&gt;
+
+&lt;p&gt;主な目的は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;みんな広島を盛り上げようぜ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;です。&lt;/p&gt;
+
+&lt;p&gt;表面的には&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;みんなもっとアウトプットしましょう&lt;/li&gt;
+&lt;li&gt;楽しいことをしよう&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;というのをメインに話しました。&lt;/p&gt;
+
+&lt;p&gt;裏の目的は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;自分のツイートだってコンテンツになりえるか&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;です。&lt;/p&gt;
+
+&lt;p&gt;世の中には勉強会の存在を知らなくて一人でがんばってる人がいたり、
+勉強会で何をやってるのかわからなかったり、
+そういう人たちに地元の勉強会の存在を知る可能性を高くする。&lt;/p&gt;
+
+&lt;p&gt;あと LT できる人、したがる人を増やす。
+LTやる人がいないと LTをやろうと思う人も増えない。
+僕は人前で喋りたくない派なので、できるのはきっかけ作りをしたい。&lt;/p&gt;
+
+&lt;p&gt;そういう目的のセッションをしたつもりです。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/23031128&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;http://www.slideshare.net/TomohikoHimura/ss-23031128&#34; title=&#34;すごい広島&#34; target=&#34;_blank&#34;&gt;すごい広島&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;というわけで、セッション補足。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;up したスライドは削ったものを追懐しています。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;github:a8a6cf8135143e61a1c8c7eaefbc9637&#34;&gt;Github&lt;/h3&gt;
+
+&lt;p&gt;ここを見ている人に書く必要はないと思いますが、オープンソースプロジェクトをしていく上で重要なWebサービスです。
+言葉慣れをしてもらうということで解説は全くしませんでした。&lt;/p&gt;
+
+&lt;h3 id=&#34;気軽にアウトプット:a8a6cf8135143e61a1c8c7eaefbc9637&#34;&gt;気軽にアウトプット&lt;/h3&gt;
+
+&lt;p&gt;気合いれてアウトプットするにはエネルギーが必要です。大作を毎週書くのは大変です。
+「気軽に書きましょう」という話をしたかったですが、時間の都合上、削除しました。&lt;/p&gt;
+
+&lt;p&gt;LTも気軽にアウトプットできて、影響も大きいです。気軽に作れるように練習したほうが良いと思います。
+なので、気軽にLTするには &lt;a href=&#34;http://hiroshimarb.github.io/&#34;&gt;広島Ruby勉強会&lt;/a&gt;を使うといいですよ。
+という話をあらかじめ休憩時間の告知で伏線を貼ることで、省略しました。&lt;/p&gt;
+
+&lt;p&gt;アウトプットをすると勉強になる、かつ、そこに情報が集まる。
+アウトプットをするにはそれなりのエネルギーが必要ですが、インプットするのはアウトプットに比べるとずっと少ないです。
+気軽にコメントをしてくれたり、詳しい情報を聞こうと人が集まってきたり、強力なマサカリが飛んでくることで自分の理解を促進してくれます。&lt;/p&gt;
+
+&lt;p&gt;また、伝えようとすることで考えを整理することができます。
+そういう話をざっくりしました。&lt;/p&gt;
+
+&lt;p&gt;また、ツイートも立派なコンテンツになるんじゃないかと、自分のツイートをスライドに使ってみたりもしました。
+これは自爆気味なのでライフポイントがガンガン減ります。&lt;/p&gt;
+
+&lt;h3 id=&#34;県外のほうが楽しく見える:a8a6cf8135143e61a1c8c7eaefbc9637&#34;&gt;県外のほうが楽しく見える&lt;/h3&gt;
+
+&lt;p&gt;隣の芝生は本当に青いのか。
+青くないのかもしれませんが、青く見えたら人はそちらに流れていく可能性があります。
+そうです。潜在的に面白い人たちが都会へと流れてしまいます。&lt;/p&gt;
+
+&lt;p&gt;こういった勉強会に興味を持つ人が「地元には面白いものがないから」
+と、都会へと行ってしまう。
+特にいまから高い可能性を持つ学生が都会へ流れずに、地元へ残る選択肢を提示していきたい。
+また、面白ければ「県外から広島は楽しそうだから」と、やってくる可能性もあります。&lt;/p&gt;
+
+&lt;p&gt;僕だって楽しいところに行きたいもの。
+じゃあ、楽しくするしかないじゃないか。&lt;/p&gt;
+
+&lt;h3 id=&#34;楽しければいいの:a8a6cf8135143e61a1c8c7eaefbc9637&#34;&gt;楽しければいいの?&lt;/h3&gt;
+
+&lt;p&gt;ここは削った部分です。&lt;/p&gt;
+
+&lt;p&gt;「楽しいだけの勉強会は人は集まらないし、本格化しない。人が集まらないので継続は難しい」そんなマサカリを受けたことがあります。
+ビジネスにならないとメリットを感じることが難しいので人がこないという話ですね。&lt;/p&gt;
+
+&lt;p&gt;実際、Ruby勉強会の参加者のほとんどがRuby初心者です。&lt;/p&gt;
+
+&lt;p&gt;でもね、エンジニアはビジネスをする人じゃない。
+技術を追求すべき人たちです。&lt;/p&gt;
+
+&lt;p&gt;どういったことができるか、ビジネスをする人に伝える必要はありますが、
+そうあるためには、エンジニアが技術を日々高めて、面白いことができるステージに立つ必要がある。&lt;/p&gt;
+
+&lt;p&gt;どうやって技術を高めるかというと、努力するしかない。
+努力するには楽しい必要があるのです。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;「僕にはそれが楽しかったから」&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;そういう人が増えて欲しい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;地域が活性化、エンジニアが活性化してなくて何ができるの？&lt;/li&gt;
+&lt;li&gt;ビジネスをするための下地を作る必要があるのでは？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そんな風に考えました。&lt;/p&gt;
+
+&lt;p&gt;つまり、答えは、&lt;strong&gt;楽しく学ぶ&lt;/strong&gt; 。まずは仲間がいればそれだけで楽しくなる。&lt;/p&gt;
+
+&lt;p&gt;ひとりでもくもくと学んできたエンジニアは濃いネタをもっています。
+だからこそ、それを伝える機会を増やす。&lt;/p&gt;
+
+&lt;p&gt;アウトプットすれば、「ここに面白い人がいる」ということが認知されるのです。
+だから、無理矢理アウトプットすることを すごい広島 の中で強制してみています。&lt;/p&gt;
+
+&lt;h3 id=&#34;ltで失敗した点:a8a6cf8135143e61a1c8c7eaefbc9637&#34;&gt;LTで失敗した点&lt;/h3&gt;
+
+&lt;p&gt;対象者に想定したレベルが高すぎた。
+プロットに対象者の欄をかかなかったのがよくない。
+LT でも対象者を意識するようにする。&lt;/p&gt;
+
+&lt;p&gt;僕のセッション中に内容に関するツイート皆無なので、たぶん、微妙なLTだったんだと思う。
+もっとがんばりましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;独り言:a8a6cf8135143e61a1c8c7eaefbc9637&#34;&gt;独り言&lt;/h3&gt;
+
+&lt;p&gt;しかし、狙ってないところで笑いがとれてしまう。
+狙ったところは だいたい &lt;a href=&#34;http://kita.dyndns.org/diary/&#34;&gt;@NeXTSTEP2OSX&lt;/a&gt; の中の人にしかウケないんだよなー。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>広島Git勉強会 201306 - やりなおせるGit入門</title>
+          <link>http://blog.eiel.info/blog/2013/06/02/hiroshima-git/</link>
+          <pubDate>Sun, 02 Jun 2013 20:47:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/06/02/hiroshima-git/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://local.aguuu.com/events/15354&#34;&gt;広島Git勉強会&lt;/a&gt; に参加しました。&lt;/p&gt;
+
+&lt;p&gt;1セッション喋りました。&lt;/p&gt;
+
+&lt;p&gt;はじめから&lt;code&gt;git reset&lt;/code&gt; と &lt;code&gt;git checkout&lt;/code&gt;あたりを説明しようと思ってたのですが、「元に戻せること」を主眼においていろいろ考えました。
+結果として、「危険」「少し危険」なコマンドを定義して、よくわからない時どうすればいいのか伝えられるか試みてみました。&lt;/p&gt;
+
+&lt;p&gt;「危険」なコマンドはワークツリーにした変更が消えてしまう恐れがあるもの。&lt;/p&gt;
+
+&lt;p&gt;「少し危険」なコマンドは&lt;code&gt;git reflog&lt;/code&gt;などを利用しないと追えなくなるコミットができてしまうもの。&lt;/p&gt;
+
+&lt;p&gt;と定義して、そこを強調しながら説明してみました。&lt;/p&gt;
+
+&lt;p&gt;スライドはこちらに。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/22237343&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;http://www.slideshare.net/TomohikoHimura/git-22237343&#34; title=&#34;やりなおせる Git 入門&#34; target=&#34;_blank&#34;&gt;やりなおせる Git 入門&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;結局、難しかったのか簡単だったのか、周りの空気を読む余裕が僕にはまだまだ足りなくて、「経験値を積まないといけないなぁ」と、思うのでした。&lt;/p&gt;
+
+&lt;h2 id=&#34;追記-ブクマのコメントなどなどに返信:aba3a29cdc6be5a15e7d4c5e3be2c4b2&#34;&gt;追記 ブクマのコメントなどなどに返信&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;「git commit の -m はそろそろ卒業しましょう」というのはどういうことなのかな？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;-m&lt;/code&gt; って解説のために、そう書いてることが多いじゃないかと思う。スライド上でも &lt;code&gt;-m&lt;/code&gt;を利用していますが、こ の場合はコミットログをタイトルしか書かない場合が予想できる。なので、「概要も書きましょう。」という話をするために書いています。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;良いまとめ。だけど rm -rf .git ってそんなにカジュアルでいいのかなw&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;すごく危険な操作なので、カジュアルにやるのはよくないですが、初回のコミットまでなら。という感じで口頭では伝えております。スライドにも入れればよかった。&lt;/p&gt;
+
+&lt;h2 id=&#34;関連リンク:aba3a29cdc6be5a15e7d4c5e3be2c4b2&#34;&gt;関連リンク&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/02/hiroshima-git-extend/&#34;&gt;広島Git勉強会 - 番外編 Github Flow してみる&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/23/okagit-20130223/&#34;&gt;岡山Git勉強会 - 20130223 - Git 仕組み入門 という話をしてきた&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/06/how-to-use-github/&#34;&gt;Git がわからなくても Github を利用しよう&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/05/13/how-to-enjoy-github/&#34;&gt;Github の楽しみ方&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>セキュリティもみじで空気読めてないLTをしたんだ - すごい Hiroshima で楽しく学ぼう</title>
+          <link>http://blog.eiel.info/blog/2013/05/23/momiji/</link>
+          <pubDate>Thu, 23 May 2013 10:56:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/05/23/momiji/</guid>
+          <description>&lt;p&gt;先週の土曜日に&lt;a href=&#34;https://sites.google.com/site/secmomiji/secmomiji24&#34;&gt;セキュリティもみじ&lt;/a&gt;で 5分の LT をしました。&lt;/p&gt;
+
+&lt;p&gt;セキュリティの勉強会なのに、セキュリティと全く関係なかったり、5分を超過してたり、痛いツイート引用していたりと、恥ずかしい限りです。&lt;/p&gt;
+
+&lt;p&gt;しかも、ターゲットに設定していた広島の若い人が……&lt;strong&gt;参加してない!&lt;/strong&gt; という、致命的な問題が発生しました。
+仕方ないので、ネタにしておきました。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/21713029&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;http://www.slideshare.net/TomohikoHimura/hiroshima-21713029&#34; title=&#34;すごい Hiroshima で 楽しく学ぼう&#34; target=&#34;_blank&#34;&gt;すごい Hiroshima で楽しく学ぼう&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;タイトルの元ネタは言わずとしれた、「すごいH本」で知られる [すごいHaskell 楽しく]&lt;a href=&#34;http://www.amazon.co.jp/gp/product/4274068854?ie=UTF8&amp;amp;camp=1207&amp;amp;creative=8411&amp;amp;creativeASIN=4274068854&amp;amp;linkCode=shr&amp;amp;tag=eiel-22(&#34;&gt;http://www.amazon.co.jp/gp/product/4274068854?ie=UTF8&amp;amp;camp=1207&amp;amp;creative=8411&amp;amp;creativeASIN=4274068854&amp;amp;linkCode=shr&amp;amp;tag=eiel-22(&lt;/a&gt;) です。
+良本なので、まだ読んでない方は、ぜひ。Haskell を使う機会がなくて新しい視点を得るヒントになるかもしれません。
+LTは Haskell ともなんにも関係ないし、説明する時間もありませんでした。&lt;/p&gt;
+
+&lt;p&gt;話を戻します。&lt;/p&gt;
+
+&lt;p&gt;つまり、広島は盛り上がってるのか、盛り上がってないのか。
+どちらでも構わないから、もっと盛り上げたらいいよね。
+そういう気持ちの話しをしてきました。&lt;/p&gt;
+
+&lt;p&gt;人前で話すのは本当に苦手です。
+だからといって、何もしないのでは期待するような結果にはならないです。
+ならば、まずは自分にできそうなことをやる。それだけです。&lt;/p&gt;
+
+&lt;p&gt;「地元がよいけど、やっぱ都会のほうが楽しいよー」って、人たちが「地元楽しいな!」になると良いですよね。&lt;/p&gt;
+
+&lt;p&gt;このセッションに便乗したわけではないのですが、&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt; という Meetup 的なものをはじめてみたりしました。
+毎週水曜日にやってみようと思います。
+おしい広島にもなんとなく音が近いですね。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://qwik.jp/asakusarb/&#34;&gt;Asakura.rb&lt;/a&gt; 的なものがやってみたかった。
+実は参加したことがないのでどんなやり方なのか実はさっぱりわかっていません。
+岡山でも &lt;a href=&#34;https://ishikitakai.com/groups/10&#34;&gt;Okayama.rb&lt;/a&gt; というのを毎週やっていて、対抗したい意識があったり、なかったりです。&lt;/p&gt;
+
+&lt;p&gt;やり方がよくわからないので自己流で裏テーマとして&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Github の使う&lt;/li&gt;
+&lt;li&gt;ブログを書く週間をつける&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;というのも兼ねてみてます。
+「これは意識高すぎるんじゃね？」という意見もちょっと出てて、ちょっと迷い気味。
+敷居もなるべく下げたい。&lt;/p&gt;
+
+&lt;p&gt;盛り上がりというのは、正のスパイラルで、そこからはずれてしまうと、負のスパイラルに落ちいってしまう印象があります。
+良い方向へ進めばどんどん良い方向に進むと思います。
+悪い方向へ進んだら、ゼロからやりなおせばいいです。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、まずは周りから。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>岡山Git勉強会 - 20130223 - Git 仕組み入門 という話をしてきた</title>
+          <link>http://blog.eiel.info/blog/2013/02/23/okagit-20130223/</link>
+          <pubDate>Sat, 23 Feb 2013 21:24:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/23/okagit-20130223/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://local.aguuu.com/events/11120&#34;&gt;岡山Git勉強会 20130223&lt;/a&gt; で &lt;code&gt;Git 仕組み 入門&lt;/code&gt;という話をしてきました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://togetter.com/li/460974&#34;&gt;トゥギャッター&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://sekico.co/zaseki/95&#34;&gt;セキココ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;もっと簡単な内容にできるかな？っと思ってやってみたのですが、やっぱり難しめだったみたいです。
+スライドだけでもある程度理解できるように細かめにつくってみました。
+やりすぎた感が漂います。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/16716062&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;http://www.slideshare.net/TomohikoHimura/git-16716062&#34; title=&#34;Git 仕組み 入門&#34; target=&#34;_blank&#34;&gt;Git 仕組み 入門&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/okagit-object&#34;&gt;スライドをつくる際のメモなどもupしています。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;この辺りの話を聞いたことがない方は手を動かしてみてはどうでしょうか。&lt;/p&gt;
+
+&lt;h3 id=&#34;話し忘れたこと:43d1df66e254d4a4856c488e0588fa1e&#34;&gt;話し忘れたこと&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;日頃使うツールはしっかり理解したほうがいいと思う&lt;/li&gt;
+&lt;li&gt;tree  オブジェクトに登場した mode は 666 とかよくパーミッションがどうこう言われるアレです。&lt;/li&gt;
+&lt;li&gt;このあたりの仕組みが入門書に出てくるあたりも Git の魅力なだと思います。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;内容にあまり関係ないこと:43d1df66e254d4a4856c488e0588fa1e&#34;&gt;内容にあまり関係ないこと&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;keynote の機能をいろいろためした&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;もっとはやく勉強しておけばよかった。マスタースライドでスライドのテンプレートをつくっていじると、スライドのデザインをまとめていじれる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;背景色をうっすら変えてみた。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;お洒落感が出るのか試してみたかった。結果はよくわからない。
+ディスプレイでみるとわかる違いはプロジェクターでわかるかどうか怪しい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;keynote で アウトラインからスライドを作ると効率よさげ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;前述のマスタースライドの機能がわかっていれば、わりといけます。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:43d1df66e254d4a4856c488e0588fa1e&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;話をするのは苦手で、相変わらず、反省点の多いセッションですが、話を聞いていただいてありがとうございました。良い経験になりました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

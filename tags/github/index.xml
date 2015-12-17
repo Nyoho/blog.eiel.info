@@ -1,0 +1,2147 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/github/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-02-19 19:09:59 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>GitHubに馴れると何ができるのか</title>
+          <link>http://blog.eiel.info/blog/2015/02/19/github-for-commons/</link>
+          <pubDate>Thu, 19 Feb 2015 19:09:59 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/02/19/github-for-commons/</guid>
+          <description>
+
+&lt;p&gt;コンピュータに疎い人にGitHubに馴れると何ができるのか聞かれたので、その時に書いた文章を残しておく。&lt;/p&gt;
+
+&lt;h1 id=&#34;githubに馴れると何ができるのか:5b9bfe18631d84be041a37c3d50e7329&#34;&gt;GitHubに馴れると何ができるのか&lt;/h1&gt;
+
+&lt;p&gt;GitHubの操作になれると、他の人の協力して「ものづくり」しやすくなります。&lt;/p&gt;
+
+&lt;p&gt;「ものづくり」と書きましたが、なんにでも使えるわけではないです。&lt;/p&gt;
+
+&lt;p&gt;基本的にはコンピュータ上で動くものを作るときでであり、作るものは、文字で表現できるものが主となります。
+文字で表現できるものは、例えば、コンピュータ言語を記述して作るものがあります。&lt;/p&gt;
+
+&lt;p&gt;コンピュータ言語を使って作成できるものは、アプリケーションやウェブページなどなどがあります。&lt;/p&gt;
+
+&lt;p&gt;コンピュータに疎いということであれば、GitHubに慣れることよりもまず、コンピュータを使って何かを作ることになれる必要があるかもしれません。
+もし、コンピュータを使って、アプリケーションやウェブページを作成しているのであれば、GitHubに馴れることで、他の人と協力しやすくなります。
+HTMLというものやCSS、JavaScriptなどを利用して、なにかを作成している場合、今の時代であれば、どこかでGitHubというものに出会うと思います。&lt;/p&gt;
+
+&lt;h1 id=&#34;蛇足:5b9bfe18631d84be041a37c3d50e7329&#34;&gt;蛇足&lt;/h1&gt;
+
+&lt;p&gt;書いてて、思い出したのは「&lt;a href=&#34;http://yanorin.blogspot.jp/2015/01/git.html&#34;&gt;ものづくりにっぽん: Gitとかわかんなくても死なないです&lt;/a&gt;」だけど、Gitとかわかんなくても死なないのは事実だな、と思いながら書いた記憶があります。&lt;/p&gt;
+
+&lt;p&gt;ただ協力して作業する場合に、便利なサービスとしてGitHubをたくさんの人が使うようになると、Gitが使えない人は協力して作業するのが難しくなると思います。
+そのコストを誰かが払ってでも一緒にものをつくれるのであれば、Gitとかわかんなくても生きていけると思うのでした。&lt;/p&gt;
+
+&lt;p&gt;何を学ぶかは、誰と作りたいのか、何を作りたいのか、それをどうやって作るのか。&lt;/p&gt;
+
+&lt;p&gt;僕はGitがないと仕事できないので、一緒につくりたい人のためにはGitの使い方なんていくらでも教える。&lt;/p&gt;
+
+&lt;p&gt;マイノリティーが生きるのはどこへいっても辛いものです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>GitHub戦闘力を提案してみた - 座駆動LT大会</title>
+          <link>http://blog.eiel.info/blog/2014/09/13/github-scouter/</link>
+          <pubDate>Sat, 13 Sep 2014 22:38:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/09/13/github-scouter/</guid>
+          <description>
+
+&lt;p&gt;座駆動LT大会で「戦闘力」というLTをしてきました。&lt;/p&gt;
+
+&lt;p&gt;座駆動LT大会とは、岡山にはRyouteiという素晴しいお店があり、そこの座スタジアムという部屋は非常にLTに適した場所です。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;大都会岡山が誇る最強の懇親会会場「Ryoutei 座・スタジアム」でLT大会を開催します！&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;というわけで、今回参加してきた時のスライドを紹介します。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;9f557cd01d560132ff4612198c64cd5d&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;戦闘力といえば、Vim戦闘力やEmacs戦闘力がありますが、GitHub戦闘力を適当に定義してみました。
+スターの数がGitHub戦闘力と言われているのもみかけましたが、折角なのでいろいろ考えてみました。&lt;/p&gt;
+
+&lt;p&gt;実は&lt;a href=&#34;http://www.ospn.jp/osc2014-hiroshima/&#34;&gt;オープンソースカンフェレンス2014広島&lt;/a&gt;のために制作しているものの中でGitHub APIを使用してつくっていたものがあり、そのノウハウで、そのついでに作成したのが今回の&lt;code&gt;github_scouter&lt;/code&gt;です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/github_scouter&#34;&gt;eiel/github_scouter · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;オープンソースカンファレンスは今週末の土曜日、2014年9月20日に予定されています。
+予約数があまり多くないらしいので、今後も継続して欲しいと考えている方は参加や告知を協力していただけると助かります。&lt;/p&gt;
+
+&lt;p&gt;ちなみに私は&lt;a href=&#34;https://www.ospn.jp/osc2014-hiroshima/modules/eguide/event.php?eid=7&#34;&gt;LT駆動開発ベストセッションズ&lt;/a&gt;でLTをする予定です。&lt;/p&gt;
+
+&lt;p&gt;閑話休題。
+今回はGitHub戦闘力を攻撃力、知力、すばやさの3種類に分けて戦闘力を定義しました。&lt;/p&gt;
+
+&lt;p&gt;攻撃力は所有リポジトリを元に算出しました。&lt;/p&gt;
+
+&lt;p&gt;知力はさまざまな言語を利用していると高くなるようにしました。&lt;/p&gt;
+
+&lt;p&gt;すばやさはOrganizationの情報を元にチーム力の高さとして算出しました。&lt;/p&gt;
+
+&lt;p&gt;と、非常にどうでもいい戦闘力ですが、みなさんも御自分の戦闘力を算出してみてはいかがでしょうか。
+また、APIの利用しすぎにご注意ください。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;ja&#34;&gt;&lt;p&gt;.&lt;a href=&#34;https://twitter.com/eielh&#34;&gt;@eielh&lt;/a&gt; 「わたしの戦闘力は168Gです」 &lt;a href=&#34;https://twitter.com/hashtag/zadrvnlt?src=hash&#34;&gt;#zadrvnlt&lt;/a&gt;&lt;/p&gt;&amp;mdash; (っ’ヮ’c) ＜ 君のほうがかわいいよ (@ryosms) &lt;a href=&#34;https://twitter.com/ryosms/status/510772214694572032&#34;&gt;2014, 9月 13&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+かけ算バージョンは表計算で出したので、コマンドを用意していません。
+0にならないように1を加えてからかけ算しています。&lt;/p&gt;
+
+&lt;p&gt;今後、計算式を定義しなおしてVersion2も検討したいと考えているのはまた別の話です。&lt;/p&gt;
+
+&lt;h1 id=&#34;追記:0769bc5dcffbc42073a9913880f78a40&#34;&gt;追記&lt;/h1&gt;
+
+&lt;p&gt;Gem化して欲しいって要望があったのでしておきました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gem install github_scouter
+$ github_scouter [GitHub ID]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で利用できます。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>GitHub Pages で jekyll を使うなら safe: false で開発したほうが良いかもしれない</title>
+          <link>http://blog.eiel.info/blog/2014/05/08/jekyll-on-github-devel-safe-false/</link>
+          <pubDate>Thu, 08 May 2014 09:50:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/05/08/jekyll-on-github-devel-safe-false/</guid>
+          <description>
+
+&lt;p&gt;3月ぐらいから GitHub Pages でも使える Jekyll のプラグインが一部使えるようになりました。
+最新の &lt;a href=&#34;https://github.com/github/pages-gem&#34;&gt;github-pages gem&lt;/a&gt; の v18 だと&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jekyll/jemoji&#34;&gt;jemoji&lt;/a&gt; - GitHubの絵文字が使える&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jekyll/jekyll-mentions&#34;&gt;jekyll-mentions&lt;/a&gt; - &lt;code&gt;@github-id&lt;/code&gt; と、書くと自動でユーザへのリンクになる&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jekyll/jekyll-redirect-from&#34;&gt;jekyll-redirect-from&lt;/a&gt; - 別のページからこのページに飛ばせる&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jekyll/jekyll-sitemap&#34;&gt;jekyll-sitemap&lt;/a&gt; - &lt;code&gt;sitemap.xml&lt;/code&gt; が自動生成される&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;が使えます。&lt;/p&gt;
+
+&lt;p&gt;ローカルで開発する場合、&lt;code&gt;_config.yml&lt;/code&gt; に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;safe: true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と記述してしまうと、これらのプラグインが動作しません。
+GitHubに push すると動作してました。&lt;/p&gt;
+
+&lt;p&gt;ただし、GitHub上では &lt;code&gt;safe: true&lt;/code&gt; の状態で動いてるはずなので、注意が必要です。(実際に確認はしてないけど)&lt;/p&gt;
+
+&lt;p&gt;github-pages v19 で Jekyll が 2.0.2 になるのでこれはこれでまた違ってくるかもしれませんが、確認していません。(まだリリースされてない)
+そういえば、SASS とか CoffeeScript が使えるようになりそうなので非常に期待したい v19 です。&lt;/p&gt;
+
+&lt;p&gt;ローカルやTravisで生成すればだいたいのことができますが GitHub で生成できるとGitHub 入門として使いやすいですし、どんどん機能拡張されると良いですねー。&lt;/p&gt;
+
+&lt;h3 id=&#34;補足:7862db9e748a2cbd4163d6e30c890c9c&#34;&gt;補足&lt;/h3&gt;
+
+&lt;p&gt;プラグインを利用するには &lt;code&gt;_config.yml&lt;/code&gt; に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gems:
+  - jekyll-mentions
+  - jekyll-redirect-from
+  - jemoji
+  - jekyll-sitemap
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;の記載が必要です。&lt;/p&gt;
+
+&lt;p&gt;当然不要なものがあれば削ちゃってください。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:7862db9e748a2cbd4163d6e30c890c9c&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://help.github.com/articles/using-jekyll-with-pages&#34;&gt;Using Jekyll with Pages · GitHub Help&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;関連:7862db9e748a2cbd4163d6e30c890c9c&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます - そんなこと覚えてない&lt;/a&gt;
+&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/18/jekyll-on-github/&#34;&gt;Github で Jekyll を使う時に調べたこと - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/08/13/github-pages-gem/&#34;&gt;github-pages Gem というのが用意された - Github Page で使う gem のバージョンをあわせてくれる - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Travis-CI でコミットして GitHub にプッシュする - 公開鍵認証を利用してみる</title>
+          <link>http://blog.eiel.info/blog/2014/02/18/github-push-from-travis/</link>
+          <pubDate>Tue, 18 Feb 2014 20:25:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/02/18/github-push-from-travis/</guid>
+          <description>
+
+&lt;p&gt;静的サイトジェネレータとGitHub Pagesを使っていると、Travis-CIでHTMLを生成してコミットを行い、masterを自動で更新して欲しいですね。&lt;/p&gt;
+
+&lt;p&gt;普通なら下記の記事の方法で充分でした。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tricknotes.hateblo.jp/entry/2013/06/17/020229&#34;&gt;Middleman で作った web サイトを Travis + GitHub pages でお手軽に運用する - tricknotesのぼうけんのしょ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;しかし、 Organization のリポジトリに対してこの方法を使うとメンバーが私個人のリポジトリを操作ができる気がする。
+仕方ないので別の方法を模索してみた。&lt;/p&gt;
+
+&lt;p&gt;GitHub には、リポジトリごとに公開鍵を追加する機能があったのでこれを使ってみました。&lt;/p&gt;
+
+&lt;p&gt;考えないといけないことは、秘密鍵をどうやってTarvisへもっていくかです。
+秘密鍵を共通鍵で暗号化して、リポジトリに追加する方法を選んでみました。
+共通鍵を &lt;code&gt;.travis.yml&lt;/code&gt; の中に暗号化してに保存しておきます。
+この共通鍵の復号は Travis 側で自動的にされます。この共通鍵を使い Travis 側でリポジトリに含まれる秘密鍵を復号します。&lt;/p&gt;
+
+&lt;p&gt;秘密鍵さえ手に入れば GitHub に push できます。&lt;/p&gt;
+
+&lt;p&gt;やることを整理します。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Travis-CI の設定&lt;/li&gt;
+&lt;li&gt;秘密鍵と公開鍵の作成&lt;/li&gt;
+&lt;li&gt;秘密鍵を暗号化するための共通鍵の生成&lt;/li&gt;
+&lt;li&gt;秘密鍵の暗号化してリポジトリに追加&lt;/li&gt;
+&lt;li&gt;GitHub のリポジトリに公開鍵を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.travis.yml&lt;/code&gt; へ暗号化した共通鍵を設定&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.travis.yml&lt;/code&gt; にGitHubへ pushする処理などを記述&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;travis-ciの設定:beb7c1e27c3b85c5669165bb894279a8&#34;&gt;Travis-CIの設定&lt;/h3&gt;
+
+&lt;p&gt;割愛します。&lt;/p&gt;
+
+&lt;p&gt;ログインして、設定したいリポジトリをONにします。&lt;/p&gt;
+
+&lt;h2 id=&#34;秘密鍵と公開鍵の作成:beb7c1e27c3b85c5669165bb894279a8&#34;&gt;秘密鍵と公開鍵の作成&lt;/h2&gt;
+
+&lt;p&gt;ssh-gen コマンドを使います。
+作る鍵を &lt;code&gt;deploy_key&lt;/code&gt; として進めます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-keygen -f deploy_key
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;deploy_key&lt;/code&gt; と &lt;code&gt;deploy_key.pub&lt;/code&gt; が生成されます。&lt;/p&gt;
+
+&lt;h3 id=&#34;秘密鍵を暗号化するための共通鍵の生成:beb7c1e27c3b85c5669165bb894279a8&#34;&gt;秘密鍵を暗号化するための共通鍵の生成&lt;/h3&gt;
+
+&lt;p&gt;適当につくります。shell変数 password に保存しておく例を書いておきます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ password=`cat /dev/urandom | head -c 10000 | openssl sha1`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;秘密鍵の暗号化してリポジトリに追加:beb7c1e27c3b85c5669165bb894279a8&#34;&gt;秘密鍵の暗号化してリポジトリに追加&lt;/h3&gt;
+
+&lt;p&gt;さっき作成した共通鍵で &lt;code&gt;deploy_key&lt;/code&gt; を暗号化して &lt;code&gt;deploy_key.enc&lt;/code&gt;を作成します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ openssl aes-256-cbc -k &amp;quot;$password&amp;quot; -in deploy_key -out deploy_key.enc -a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとは適当にコミットします。 &lt;code&gt;deploy_key&lt;/code&gt; をコミットしないように気をつけてください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git add deploy_key.enc
+$ git commit -m &#39;Add deploy key&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;github-のリポジトリに公開鍵を追加:beb7c1e27c3b85c5669165bb894279a8&#34;&gt;GitHub のリポジトリに公開鍵を追加&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;deploy_key.pub&lt;/code&gt; をGitHubに登録します。&lt;/p&gt;
+
+&lt;p&gt;GitHubのリポジトリのページを表示して、&lt;code&gt;設定&lt;/code&gt; &amp;gt; &lt;code&gt;Deploy keys&lt;/code&gt; &amp;gt; &lt;code&gt;Add deploy key&lt;/code&gt; で登録できます。区別がつくように名前は好きにつけましょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2014-02-18-github-push.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;travis-yml-へ暗号化した共通鍵を設定:beb7c1e27c3b85c5669165bb894279a8&#34;&gt;&lt;code&gt;.travis.yml&lt;/code&gt; へ暗号化した共通鍵を設定&lt;/h3&gt;
+
+&lt;p&gt;travis gem をインストールしていない場合はインストールしましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gem install travis
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;travis encrypt&lt;/code&gt; コマンドを使用します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ travis encrypt -r [ユーザ名や組織名]/[リポジトリ名] &amp;quot;SERVER_KEY=$password&amp;quot; -a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;.travis.yml の env.global へ情報が記録されます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/great-h/great-h.github.io&#34;&gt;すごい広島&lt;/a&gt;を例にすると、こんな感じになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ travis encrypt -r great-h/great-h.github.io &amp;quot;SERVER_KEY=$password&amp;quot; -a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;travis-yml-にgithubへ-pushする処理などを記述:beb7c1e27c3b85c5669165bb894279a8&#34;&gt;&lt;code&gt;.travis.yml&lt;/code&gt; にGitHubへ pushする処理などを記述&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;.tarvis.yml&lt;/code&gt; の &lt;code&gt;after_success&lt;/code&gt; にやりたいことを書きましょう。&lt;/p&gt;
+
+&lt;p&gt;鍵の設定の部分はこんな感じ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;after_success:
+  - echo -e &amp;quot;Host github.com\n\tStrictHostKeyChecking no\nIdentityFile ~/.ssh/deploy.key\n&amp;quot; &amp;gt;&amp;gt; ~/.ssh/config
+  - openssl aes-256-cbc -k &amp;quot;$SERVER_KEY&amp;quot; -in .travis/deploy_key.enc -d -a -out deploy.key
+  - cp deploy.key ~/.ssh/
+  - chmod 600 ~/.ssh/deploy.key
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとは煮るなり焼くなり。&lt;/p&gt;
+
+&lt;p&gt;すごい広島での例を上げておきます。
+&lt;code&gt;_site&lt;/code&gt; にファイルが生成されているので、それを master ブランチにコミットしてプッシュしています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;language: ruby
+rvm:
+  - 2.1.0
+after_success:
+  - echo -e &amp;quot;Host github.com\n\tStrictHostKeyChecking no\nIdentityFile ~/.ssh/deploy.key\n&amp;quot; &amp;gt;&amp;gt; ~/.ssh/config
+  - openssl aes-256-cbc -k &amp;quot;$secret&amp;quot; -in .travis/deploy_key.enc -d -a -out deploy.key
+  - cp deploy.key ~/.ssh/
+  - chmod 600 ~/.ssh/deploy.key
+  - git clone git@github.com:great-h/great-h.github.io.git -b master
+  - cd great-h.github.io
+  - cp -a ../_site/ .
+  - git add --all
+  - &#39;git commit -m &amp;quot;Generate Travis JOB $TRAVIS_JOB_NUMBER
+
+https://travis-ci.org/great-h/great-h.github.io/builds/$TRAVIS_BUILD_ID&amp;quot;&#39;
+  - &#39;[ &amp;quot;x$TRAVIS_BRANCH&amp;quot; == &amp;quot;xsource&amp;quot; ] &amp;amp;&amp;amp; git push origin master&#39;
+branches:
+  except:
+    - master
+env:
+  global:
+    - secure: &amp;quot;gIC6PLCnYmO29FiGqA1ZpVFsGBWbbdkZJGcBwYL2kyav3fPwdxRe6+RG3WEUfY2qwFnI52Br7pQ4ZClaBD76abObmYFW8Qkd13bgxgYMHFFzDh6ACMoY/JvRu4SXZcqiSi2QzeDTRk8Q825kGNY3QJXb4NiZ9gj8uAR9bNpnqnc=&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;まとめ:beb7c1e27c3b85c5669165bb894279a8&#34;&gt;まとめ？&lt;/h3&gt;
+
+&lt;p&gt;暗号の強度して十分なのか検証していない。復号できたとしても、できることは限られてるので、とりあえず、妥協している。&lt;/p&gt;
+
+&lt;p&gt;そういえば、master に作成したファイルをコミットしているのですが、master を push した際に travis が走るというバグに悩まされました。
+&lt;code&gt;.travis.yml&lt;/code&gt; には以下のように書いておけば master は無視されます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;branches:
+  except:
+    - master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;実は master には &lt;code&gt;.travis.yml&lt;/code&gt; を置いていないのが原因でした。&lt;/p&gt;
+
+&lt;p&gt;Travisの設定で &lt;code&gt;.travis.yml&lt;/code&gt; が無ければ動かさないという設定もできますし、適当に master に .travis.yml を置いておくのも良いと思います。&lt;/p&gt;
+
+&lt;p&gt;他にも &lt;code&gt;.travis.yml&lt;/code&gt; に秘密鍵を保存する手法をいくつかみかけました。
+長さが足りないので分割して保存して、Travis側で結合して使うようです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/lukewpatterson/4242707&#34;&gt;squeezing private SSH key into .travis.yml file&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;参考文献:beb7c1e27c3b85c5669165bb894279a8&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://help.github.com/articles/managing-deploy-keys&#34;&gt;Managing deploy keys · GitHub Help&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.travis-ci.com/user/travis-pro/#How-can-I-encrypt-files-that-include-sensitive-data%3F&#34;&gt;Travis CI: Travis Pro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/travis-ci/travis/issues/41&#34;&gt;Getting &amp;ldquo;data too large for key size&amp;rdquo; for 128 character  length secret_key_base var · Issue #41 · travis-ci/travis · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://nilfigo.hatenablog.com/entry/20130705/1373000104&#34;&gt;gitにsshで接続（ポートと秘密鍵を指定) - まじめにゆいがどくそん&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;関連:beb7c1e27c3b85c5669165bb894279a8&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/18/jekyll-on-github/&#34;&gt;Github で Jekyll を使う時に調べたこと - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/02/08/i-need-a-girlfriend/&#34;&gt;そういえば彼氏募集というネタリポジトリがありましたね。真似するならこんな感じかなぁ。 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>そういえば彼氏募集というネタリポジトリがありましたね。真似するならこんな感じかなぁ。</title>
+          <link>http://blog.eiel.info/blog/2014/02/08/i-need-a-girlfriend/</link>
+          <pubDate>Sat, 08 Feb 2014 17:19:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/02/08/i-need-a-girlfriend/</guid>
+          <description>
+
+&lt;p&gt;最近、C++界や、ひろし魔界で暴れているらしい&lt;a href=&#34;https://twitter.com/PG_nonen&#34;&gt;まさかず氏&lt;/a&gt;が&lt;a href=&#34;https://github.com/norinori2222/boyfriend_require&#34;&gt;彼氏募集のリポジトリ&lt;/a&gt;を真似して&lt;a href=&#34;https://github.com/minamiyama1994/girlfriend_require&#34;&gt;彼女募集のリポジトリ&lt;/a&gt;を作成してました。&lt;/p&gt;
+
+&lt;p&gt;条件さえ揃えば真似してもよかったのですが、条件が揃ってなかったので真似してませんでした。
+気がついたら条件が揃ってたので真似してみることにしてみました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/need_a_girlfriend&#34;&gt;﻿eiel/need_a_girlfriend - GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;やったこと&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;fork したけど 空のブランチつくって、fork元とはコード的には関係をなくした&lt;/li&gt;
+&lt;li&gt;Haskell で DSL したかった。結局、Writer モナドの上に構築した。&lt;/li&gt;
+&lt;li&gt;source ブランチを push すると travis で &lt;code&gt;README.md&lt;/code&gt; を生成して master ブランチに自動で push する&lt;/li&gt;
+&lt;li&gt;リポジトリの名前を変更した&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;fork-したけど-空のブランチつくって-fork元とはコード的には関係をなくした:a0a1f37e986eb43a89ced5b8b8d20f10&#34;&gt;fork したけど 空のブランチつくって、fork元とはコード的には関係をなくした&lt;/h3&gt;
+
+&lt;p&gt;fork したので、その上から上書きしてもよかったのですが、だいぶ違うし、ゼロからつくりたいけど fork したことは残したいよね。&lt;/p&gt;
+
+&lt;p&gt;ということで空のブランチをつくってから作りました。
+&lt;code&gt;git checkout --orphan &amp;lt;branch名&amp;gt;&lt;/code&gt; で空のブランチが作れます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2014-02-08-network.png&#34; alt=&#34;ネットワーク&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;haskell-で-dsl-したかった:a0a1f37e986eb43a89ced5b8b8d20f10&#34;&gt;Haskell で DSL したかった。&lt;/h3&gt;
+
+&lt;p&gt;README.md は手書きせずにプログラムから生成するようにしてみました。
+&lt;a href=&#34;https://twitter.com/PG_nonen&#34;&gt;まさかず氏&lt;/a&gt;を真似ただけである。&lt;/p&gt;
+
+&lt;p&gt;Haskell で DSL 作るのにはどうしたらいいんだろうなぁ。たぶんモナド作ればいいんだろうと、コード書きはじめたけど、途中でよくわからなくなった。
+それはそれで別に勉強すればいいやということから途中から Writer モナドでつくりました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;background = do
+  h1 &#39;背景&#39;
+  p &#39;ほげほげごろごろ&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;みたいに書きたかった。というか、このように書いてから h1 や p 関数を実装しました。&lt;/p&gt;
+
+&lt;p&gt;Writer モナド は tell 関数を呼びだしておくと、 runWriter した時に最終結果と tell した内容が引き出せるようです。&lt;/p&gt;
+
+&lt;p&gt;上記の例だと以下のような値が返るように作ってます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;((),[&amp;quot;# &amp;quot;,&amp;quot;背景&amp;quot;,&amp;quot;\n&amp;quot;,&amp;quot;\n&amp;quot;,&amp;quot;ほげほげごろごろ&amp;quot;,&amp;quot;\n&amp;quot;,&amp;quot;\n&amp;quot;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとはリストの内容を標準出力に書きだしました。
+リストを後ろにくっつけていくからパフォーマンスがなんか気になるけどどうなんだろう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/need_a_girlfriend/blob/master/need_a_girlfriend.hs&#34;&gt;あとはコードでも見てください。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Writer モナド書き換える際、main関数は &lt;a href=&#34;https://github.com/eiel/need_a_girlfriend/blob/master/need_a_girlfriend.hs#L3&#34;&gt;&lt;code&gt;runWriter&lt;/code&gt;&lt;/a&gt; の部分をちょっと書き換えたかなーぐらいなものでモナドの使いやすさを感じたような気がします。&lt;/p&gt;
+
+&lt;h3 id=&#34;source-ブランチを-push-すると-travis-で-reame-md-を生成して-master-ブランチに自動で-push-する:a0a1f37e986eb43a89ced5b8b8d20f10&#34;&gt;source ブランチを push すると travis で &lt;code&gt;REAME.md&lt;/code&gt; を生成して master ブランチに自動で push する&lt;/h3&gt;
+
+&lt;p&gt;基本的には&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tricknotes.hateblo.jp/entry/2013/06/17/020229&#34;&gt;Middleman で作った web サイトを Travis + GitHub pages でお手軽に運用する - tricknotesのぼうけんのしょ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;を参考にしました。他の方法も試したけどなかなか手強いので結局この方法にしました。&lt;/p&gt;
+
+&lt;p&gt;手順的には travis 上でリポジトリを選択して、処理を &lt;code&gt;.travis.yml&lt;/code&gt;を記述します。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;.travis.yml&lt;/code&gt; に書いた処理の最後で push しますが、 &lt;code&gt;-q&lt;/code&gt; やら &lt;code&gt;2&amp;gt;/dev/null&lt;/code&gt; がついてるせいでなんで失敗してるのか気づきにくいのがちょっと難点でした。
+つけないと TORKEN が漏れてしまう。&lt;/p&gt;
+
+&lt;p&gt;参考程度に書いた yaml を貼っておきます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;language: haskell
+install: cabal install mtl
+script: ghc need_a_girlfriend.hs
+after_success:
+  - git remote add deploy https://$GH_TOKEN@github.com/eiel/need_a_girlfriend.git
+  - git fetch deploy master
+  - git checkout master
+  - git merge source --no-edit
+  - ./need_a_girlfriend &amp;gt; README.md
+  - git add README.md
+  - &#39;git commit -m &amp;quot;Generate Travis JOB $TRAVIS_JOB_NUMBER
+
+https://travis-ci.org/eiel/need_a_girlfriend/builds/$TRAVIS_BUILD_ID&amp;quot;&#39;
+  - &#39;[ &amp;quot;x$TRAVIS_BRANCH&amp;quot; == &amp;quot;xsource&amp;quot; ] &amp;amp;&amp;amp; git push -q deploy master 2&amp;gt;/dev/null&#39;
+branches:
+  except:
+    - master
+env:
+  global:
+    - secure: &amp;quot;KJG63ZK8zdEboimt/+UOVDUu+cECmvSgsCyEUEQVjMnazxpEaNQbP+lEQv9TWki6eRtr71+vt3LU7H4H8Wm/jURV2WiYe31ZeE7wvRcjjaHRWHYfeTJ5OyBJhCJoauKBAwL/jIFSTDt3IEgGIW42WPwagGexHKm+Vh/0ETK1CNc=&amp;quot;
+    - GIT_COMMITTER_NAME=&amp;quot;name&amp;quot;
+    - GIT_COMMITTER_EMAIL=&amp;quot;email@example.com&amp;quot;
+    - GIT_AUTHOR_NAME=&amp;quot;name&amp;quot;
+    - GIT_AUTHOR_EMAIL=&amp;quot;email@example.com&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;after_success が script の実行に成功した場合に実行されます。&lt;/p&gt;
+
+&lt;p&gt;source ブランチの時にしか push しないような処理をいれてあります。
+master ブランチの際は after_success がそもそも走らないようにしています。&lt;/p&gt;
+
+&lt;p&gt;コミットメッセージを作るのに環境変数から情報を得ています。
+どんな環境変数があるかは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.travis-ci.com/user/ci-environment/&#34;&gt;Travis CI: The Build Environment&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;に書いてあります。
+環境変数は travis の画面上では展開しない仕様になってるみたいです。&lt;/p&gt;
+
+&lt;p&gt;その他の参考文献&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.travis-ci.com/user/languages/haskell/&#34;&gt;Travis CI: Building a Haskell Project&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.travis-ci.com/user/deployment/custom/&#34;&gt;Travis CI: Custom Deployment&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;リポジトリの名前を変更した:a0a1f37e986eb43a89ced5b8b8d20f10&#34;&gt;リポジトリの名前を変更した&lt;/h3&gt;
+
+&lt;p&gt;「require ってなんか違う気がするんだよなー」って感覚がしたので調べたら一般的には I need a boyfriend とか I need a girlfriend と書いてる例があったので、リポジトリ名は need_a_girlfriend にしました。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;eiel / need_a_girlfriend&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;となるので、なんか文法的にも良さげな気がします。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:a0a1f37e986eb43a89ced5b8b8d20f10&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;しかし、元のリポジトリの条件の多さにはびっくりする。
+お互い悪いところは相性みながらちょっとづつ調整できないものなのでしょうか。
+これだけは譲れないものはひとつかふたくぐらいあれば充分じゃないんでしょうか。
+私にはよくわからないですけど。&lt;/p&gt;
+
+&lt;p&gt;日々、成長するのを放棄した人間にはなりたくないかなぁ。&lt;/p&gt;
+
+&lt;p&gt;そんなことはともかく&lt;a href=&#34;https://twitter.com/PG_nonen&#34;&gt;まさかず氏&lt;/a&gt;はすごくがんばっていると思うので素敵な彼女ができるように応援したいですね。&lt;/p&gt;
+
+&lt;p&gt;ではでは。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Jekyll 使うときは exclude: vendor しとけって話らしい。</title>
+          <link>http://blog.eiel.info/blog/2014/01/22/exclude-vendor-on-jekyll/</link>
+          <pubDate>Wed, 22 Jan 2014 02:28:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/01/22/exclude-vendor-on-jekyll/</guid>
+          <description>&lt;p&gt;素の&lt;a href=&#34;http://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt; なんて使う人はあまりいないと思うけど一応書いておこう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/great-h/great-h.github.io/issues/586&#34;&gt;以前から jekyll build が失敗するっていう話をしてる人がいて&lt;/a&gt;自分の環境じゃ、おきてなかったんだけど、&lt;code&gt;bundle install --path vendor/bundle&lt;/code&gt; してるのが原因だったらしい。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;_config.yml に exclude: [&#39;vendor&#39;]&lt;/code&gt; するのがよいでしょう。&lt;/p&gt;
+
+&lt;p&gt;ついでに以下のような感じにした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;exclude: [&#39;Gemfile&#39;,&#39;Gemfile.lock&#39;,&#39;Rakefile&#39;,&#39;vendor&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/great-h/great-h.github.io/commit/8c99dc2d0ae37289ce65270587636f3da7447366&#34;&gt;具体的なコミットはこちら&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;素のJekyllから拡張してる場合は注意。
+&lt;a href=&#34;http://middlemanapp.com/&#34;&gt;middleman&lt;/a&gt; などなどを使うことをおすすめしとこう。&lt;/p&gt;
+
+&lt;p&gt;自分が発見したネタじゃないけど記録しておいた。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>GitHub からの通知が迷惑メールになった - 見ないリポジトリは unwatch しよう</title>
+          <link>http://blog.eiel.info/blog/2013/11/21/github-notifications-is-not-spam/</link>
+          <pubDate>Thu, 21 Nov 2013 12:11:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/11/21/github-notifications-is-not-spam/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;での出来事である。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://f.cloud.github.com/assets/118150/1581675/5df81d52-51db-11e3-846a-64bcfc0ad0f7.png&#34; alt=&#34;すごい広島のIssueの通知メールが迷惑メールに&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;いつかなる気がしていた。
+GitHub からの通知のメールが迷惑メールとして判定された。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;多数のユーザが同様のメッセージを迷惑メールとして報告しています。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;迷惑ならそもそも通知が来ないようにするか、単に自動でアーカイブするようにして欲しいですね。&lt;strong&gt;迷惑メール報告すること自体が迷惑になります。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;私が知る限りの通知の設定方法を紹介しておきます。
+GitHub は常に進化しているので、動作や画面はいずれ変わってしまうかもしれません。&lt;/p&gt;
+
+&lt;h3 id=&#34;そもそもの通知設定:54d721771d76678b55dcd7bae2530e64&#34;&gt;そもそもの通知設定&lt;/h3&gt;
+
+&lt;p&gt;「GitHub からメールに通知して欲しくないよ!」という人は基本的な設定を見直しましょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/settings/notifications&#34;&gt;Noticification Center&lt;/a&gt;にアクセスをします。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2013-11-21/notification_center.png&#34; alt=&#34;Notification Center&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;設定&lt;/code&gt; &amp;gt; &lt;code&gt;Notification Center&lt;/code&gt; でアクセスすることができます。
+&lt;small&gt;自分が参加しているグループがだだ漏れですが、特に隠しません。&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;How you receive notifications&lt;/code&gt; に注目してください。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2013-11-21/how_you_receive_notifications.png&#34; alt=&#34;どのように通知をうけとるか設定する画面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;「通知をどのように受信するか」を設定します。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Participating&lt;/li&gt;
+&lt;li&gt;Watching&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;の二種類があります。&lt;/p&gt;
+
+&lt;p&gt;Participating のほうは &lt;code&gt;@自分のGitHub ID&lt;/code&gt; が付いているような「自分が参加しているところに変化があった時」にどこに通知するかを設定できます。&lt;/p&gt;
+
+&lt;p&gt;Watching のほうは GitHub にリポジトリを &lt;code&gt;watch&lt;/code&gt;する機能があり、「&lt;code&gt;watch&lt;/code&gt; してるものに変化があった時」にどこに通知するかを設定できます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Email&lt;/code&gt; のチェックを外せばメールは届かなくなるでしょう。そうではなくて、一部のリポジトリが活発すぎてついていけない場合もあります。
+そのリポジトリを &lt;code&gt;unwatch&lt;/code&gt; することで調整できます。これについては後述します。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Email&lt;/code&gt; という項目の他にも &lt;code&gt;Web&lt;/code&gt; という項目があります。Web での通知は画面左上にあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2013-11-21/web_notification.png&#34; alt=&#34;通知場所&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;クリックすれば通知内容を確認できます。&lt;/p&gt;
+
+&lt;h3 id=&#34;リポジトリのウォッチ:54d721771d76678b55dcd7bae2530e64&#34;&gt;リポジトリのウォッチ&lt;/h3&gt;
+
+&lt;p&gt;リポジトリが活発すぎて、そのリポジトリの通知はちょっと見てる余裕がない場合はリポジトリを &lt;code&gt;unwatch&lt;/code&gt; しましょう。
+あるチームにいつの間にか入れらたしまった場合、自動的に &lt;code&gt;watch&lt;/code&gt; されてしますので、こういうことがあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2013-11-21/repository_watch.png&#34; alt=&#34;リポジトリのウォッチ&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;これは &lt;code&gt;watch&lt;/code&gt; している状態です。
+外す場合は、&lt;code&gt;Unwatch&lt;/code&gt; を選択して &lt;code&gt;Not watching&lt;/code&gt; を選びます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2013-11-21/not_watching.png&#34; alt=&#34;ウォッチしない画面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;自分のGitHub IDが登場しない限りは通知がこなくなります。
+自分が呼ばれていれば通知がきます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Not watching&lt;/li&gt;
+&lt;li&gt;Watching&lt;/li&gt;
+&lt;li&gt;Ignoring&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;の三種類あります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Watching&lt;/code&gt; は push した情報が自分の news feed (Twitter のタイムラインのようなもの)に push されたことが表示されたりもするようになります。
+誰かが面白いことを始めたらすかさず &lt;code&gt;Watch&lt;/code&gt; することオススメしたいです。
+開発な活発リポジトリを追うのは大変なので、ほどほどに調整したほうが良いでしょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Ignoring&lt;/code&gt; は自分のIDが書かれても無視されるようになります。
+迷惑行為にされない限りはしなくて良いように思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;issue-ごとの設定:54d721771d76678b55dcd7bae2530e64&#34;&gt;Issue ごとの設定&lt;/h3&gt;
+
+&lt;p&gt;別にそのリポジトリを追うこと自体は問題ないんだけど、自分には関係ない話題だとはっきりわかっている Issue の通知を止めることができます。&lt;/p&gt;
+
+&lt;p&gt;Issue の下部にいくと下図のようなものがあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2013-11-21/issue_mute.png&#34; alt=&#34;Isuue のミュート&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;mute&lt;/code&gt; をクリックすると通知が来なくなります。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:54d721771d76678b55dcd7bae2530e64&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;本来は必要としている人がいるメールが迷惑メールとして判定されてしまうことがあります。これは「迷惑メールでないものを迷惑メールとする迷惑行為」が存在するからです。
+GitHub には柔軟とは言えるか難しいですが、迷惑行為をしないように、最適な通知設定を模索してみましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連記事:54d721771d76678b55dcd7bae2530e64&#34;&gt;関連記事&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/05/13/how-to-enjoy-github/&#34;&gt;Github の楽しみ方&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/06/how-to-use-github/&#34;&gt;Git がわからなくても Github を利用しよう&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>GitHub で SSH 接続できなくなった。SSH をつかった場合に高速化する設定が原因だった。</title>
+          <link>http://blog.eiel.info/blog/2013/11/09/no-mathcing-cipher-found-on-github/</link>
+          <pubDate>Sat, 09 Nov 2013 14:05:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/11/09/no-mathcing-cipher-found-on-github/</guid>
+          <description>&lt;p&gt;さっき、GitHub に push しようとしたら下記のエラーが発生した。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;no matching cipher found: client arcfour256 server aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;「&lt;code&gt;arcfour256&lt;/code&gt; に対応してねーよ」ってことが書かれている。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;~/.ssh/config&lt;/code&gt; を確認したら&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Host github.com
+  Compression yes
+  Ciphers arcfour256
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;思いっきり自分で指定しています。&lt;/p&gt;
+
+&lt;p&gt;設定した記憶もないし、&lt;code&gt;arcfour256&lt;/code&gt; ってなんだっけなとググると「GitHub で ssh をつかっていると遅くなるから、こういう設定したら速くなるよ」という記事がでてきた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tech.nitoyon.com/ja/blog/2013/01/11/github-clone-http/&#34;&gt;GitHub で clone するときは SSH じゃなく HTTP を使ったほうが高速 - てっく煮ブログ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;「なるほど、設定をコピペしたから記憶に残ってないんだ」と、思った。
+コピペした設定は、ちゃんと勉強した上で使わないとダメですね。&lt;/p&gt;
+
+&lt;p&gt;そんな感想を抱いた。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>コミュニティに GitHub に使ってみて - すごい広島</title>
+          <link>http://blog.eiel.info/blog/2013/10/21/operation-great-h/</link>
+          <pubDate>Mon, 21 Oct 2013 16:44:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/10/21/operation-great-h/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt; も20回を越えて、そろそろ半年経とうとしています。
+&lt;strong&gt;すごい&lt;/strong&gt;ですね。 #知らんけど&lt;/p&gt;
+
+&lt;p&gt;そんなわけでコミュニティのとして &lt;a href=&#34;https://github.com/great-h/great-h.github.io&#34;&gt;GitHub&lt;/a&gt; を使ってみた感想を自分の中でまとめてみようと思います。&lt;/p&gt;
+
+&lt;p&gt;簡単に「すごい広島」について書いておくと、毎週やっている勉強会もどきでミートアップです。ITエンジニアが集まって雑談してたり作業していたりします。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;思ってたより人が集まってる&lt;/li&gt;
+&lt;li&gt;みんな GitHub になれてきた?&lt;/li&gt;
+&lt;li&gt;マージされない Pull Request&lt;/li&gt;
+&lt;li&gt;もっと Issue が作成されてもいいんじゃないか&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;思ってたより人が集まってる:287f871f69f9c9a3326aa8caa3258075&#34;&gt;思ってたより人が集まってる&lt;/h3&gt;
+
+&lt;p&gt;自分が想像していたよりも人が集まっています。
+みなさんありがとうございます。&lt;/p&gt;
+
+&lt;p&gt;どうせ「すぐ一人二人でもくもくーってなる」と、思ってたのですが、3人以下になったのは1回ぐらいしかないように思います。&lt;/p&gt;
+
+&lt;p&gt;参加条件は徐々に緩くしているのもあるかもしれません。&lt;/p&gt;
+
+&lt;p&gt;未参加の人からよくあった意見は、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;行ってみたい&lt;/li&gt;
+&lt;li&gt;ブログを書くのは無理&lt;/li&gt;
+&lt;li&gt;敷居が高そう&lt;/li&gt;
+&lt;li&gt;目的がよくわからない&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;です。&lt;/p&gt;
+
+&lt;p&gt;「行ってみたい」の人は来れない場合の話がありますが、来れる人が言ってる場合はお世辞なんですかね。(煽り&lt;/p&gt;
+
+&lt;p&gt;ブログを書くのは必須ではなくしたので、代わりに GitHub を思う存分試してみて欲しいです。
+&lt;a href=&#34;https://github.com/great-h/great-h.github.io/issues/340&#34;&gt;最近は Issue に作業をメモをとったりしています。&lt;/a&gt; 参考にしてください。&lt;/p&gt;
+
+&lt;p&gt;敷居が高くみえてしまうのは、変態扱いされない人のアウトプットが鍵になる気がしています。
+&lt;strong&gt;期待したい。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;「目的がよくわからない」の一番の理由は名称のせいかな。
+やっぱり情報が読まれるかどうかはタイトル次第というのを改めて感じました。&lt;/p&gt;
+
+&lt;p&gt;それでも 「Web を見て参加しました!」が登場したので個人的には満足です。
+目的のひとつが達成されました。&lt;/p&gt;
+
+&lt;p&gt;改めて「広島 勉強会」で Google で検索しましたが、ちょっと SEO 的にはまだまだです。その辺の工夫が必要そうでした。&lt;/p&gt;
+
+&lt;h3 id=&#34;みんな-github-に馴れてきた:287f871f69f9c9a3326aa8caa3258075&#34;&gt;みんな GitHub に馴れてきた?&lt;/h3&gt;
+
+&lt;p&gt;参加者のほとんどが GitHub に馴れてない人です。
+それだけ GitHub を使う環境がまだまだないのだと思います。
+説明せずに Pull Request した人は僅かです。
+そういう意味では効果があったと思います。&lt;/p&gt;
+
+&lt;p&gt;また、「非プログラマでも Pull Request はできているので難しくないよ」と言いたいのですが、なかなか良い方法がないです。(チラリ&lt;/p&gt;
+
+&lt;p&gt;ちなみに、半分以上の人が Web からのコミット機能を利用しています。
+プログラマでも、黒い画面が怖かったり、GUIのクライアントツールを使えてないことを示しているように思います。
+自分が使ってないので説明できないのもありますが、デザイナでも BitBucket を使ってる人も増えてる印象なのでもうちょっと情報が増えてもいいのではないかなと思います。&lt;/p&gt;
+
+&lt;p&gt;あと、コンフリクトのマージの仕方を忘れた!という人もいました。
+量をこなして、自分の知識へと消化して欲しいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;マージされない-pull-request:287f871f69f9c9a3326aa8caa3258075&#34;&gt;マージされない Pull Request&lt;/h3&gt;
+
+&lt;p&gt;たいした内容でなくてもなかなか Pull Request がマージされません。
+マージポリシーとして、二人以上のレビューを必須にしています。
+なかなかレビューするコストが高いようです。&lt;/p&gt;
+
+&lt;p&gt;コードではないので、本来の Pull Request よりは楽なレビューになるので、数をこなして馴れてもらいたいですね。&lt;/p&gt;
+
+&lt;h3 id=&#34;もっと-issue-が作成されてもいいんじゃないか:287f871f69f9c9a3326aa8caa3258075&#34;&gt;もっと Issue が作成されてもいいんじゃないか&lt;/h3&gt;
+
+&lt;p&gt;あえてコミュニティとして活動できる場所をつくってないです。
+Twitterですんでしまうのもあります。
+Issue はタスクを管理するだけのものではないような使い方をしているけど、アピール不足のようです。&lt;/p&gt;
+
+&lt;p&gt;ラベルも知らないものが、いつの間にか増えていたりしないだろうか。(ちらり&lt;/p&gt;
+
+&lt;h3 id=&#34;せっかくなので:287f871f69f9c9a3326aa8caa3258075&#34;&gt;せっかくなので&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/great-h/great-h.github.io/graphs/contributors?from=2013-05-19&amp;amp;to=2013-10-20&amp;amp;type=c&#34;&gt;コミットランキング&lt;/a&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel&#34;&gt;eiel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/moriC&#34;&gt;moriC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Torokun&#34;&gt;Torokun&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Nyoho&#34;&gt;Nyoho&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/tsuda-a&#34;&gt;tsuda-a&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/furu&#34;&gt;furu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/fujioenoki&#34;&gt;fujioenoki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yukilabo&#34;&gt;yukilabo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nishimotz&#34;&gt;nishimotz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hanapage&#34;&gt;hanapage&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/great-h/great-h.github.io/graphs/contributors?from=2013-05-19&amp;amp;to=2013-10-20&amp;amp;type=d&#34;&gt;コード削除ランキング&lt;/a&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel&#34;&gt;eiel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Torokun&#34;&gt;Torokun&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/moriC&#34;&gt;moriC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Nyoho&#34;&gt;Nyoho&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/great-h/great-h.github.io/graphs/punch-card&#34;&gt;Punchcard&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;コミットランキングを取り上げたのは理由はともかく、削除ランキングというのも上げてみました。
+削除は変更力を示している気がしたのでつけました。&lt;/p&gt;
+
+&lt;p&gt;Punchcard は行動パターンを把握しやすいのでつけてみました。
+深読みしないでください。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:287f871f69f9c9a3326aa8caa3258075&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;量が質に転化するらしいです。
+つまり、結局自分が一番勉強になっている。
+あと別にモテません。いや、ここは嘘でもモテるって書いておくところだったかも。&lt;/p&gt;
+
+&lt;p&gt;「言い出しっぺのの法則」は&lt;strong&gt;すごい&lt;/strong&gt;です。
+&lt;strong&gt;言い出しっぺをやると良い&lt;/strong&gt;と思います。 #違う&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;言ったもん勝ちです。やったもん勝ちです。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>GitHub に課金した</title>
+          <link>http://blog.eiel.info/blog/2013/10/03/billing-github/</link>
+          <pubDate>Thu, 03 Oct 2013 16:48:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/10/03/billing-github/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/&#34;&gt;GitHub&lt;/a&gt; に課金した。月7ドル。&lt;/p&gt;
+
+&lt;p&gt;課金した理由は「プライベートリポジトリが欲しくなった」で充分だろうか。
+いや、充分ではない。&lt;/p&gt;
+
+&lt;p&gt;「プライベートリポジトリが欲しいなら&lt;a href=&#34;https://bitbucket.org/&#34;&gt;BitbBucket&lt;/a&gt;を使えばいいじゃない」と、言われてしまうのである。
+BitBucket は日本語化されているし、プライベートリポジトリは制限なく作れる。&lt;/p&gt;
+
+&lt;p&gt;しかし、チームの人数は5人という制限がある。
+というわけで、「チーム人数が5人越えそうだ」
+というわけでもあるけど、本当の理由は別のところにある。&lt;/p&gt;
+
+&lt;p&gt;Github と BitBucket 両方使っていますが、どちらを使いたいかと言われると GitHub なのである。
+GitHub も BitBucket も、日々変化している。
+変化に対応するためにも毎日利用したい。
+というわけで、毎日使いたい GitHub に課金したのである。&lt;/p&gt;
+
+&lt;p&gt;しかし、主な利用法が Wiki になりそうというのは秘密である。
+最近 iPhone のパケットプランをフラットプランに変更したので、Macローカルにある固有のデータをなるべく減らして情報はどの端末からも参照したくなってきた。
+Wikiのデータは Gitリポジトリアクセスできるので、好きなエディタでも編集しやすい。
+Dropbox となるとハイパーリンクの利用は HTML となりそうだし、HTML の編集はしたくない。&lt;/p&gt;
+
+&lt;p&gt;話は戻るけど、もちろん、チームメンバー5人を越えそうなプライベートリポジトリが必要になりそうなところであった。
+しかし、プライベートなリポジトリが欲しいのであれば自分で作ればよく、いままでそうしてきた。今回は GitHub のサービスを利用したいのである。
+コードレビューするための Pull Request 機能、課題を管理のための Issues機能である。&lt;/p&gt;
+
+&lt;p&gt;BitBucket は自分に書き込み権限があるリポジトリへのプルリクエストができませんでした。
+また、Issues で画像をつかいたい場合、自分でどこかにアップロードしないといけないみたいでした。
+そのあたりが、「コードレビューのする際の不便さを感じそうだった」というのもあります。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、お世話になりっぱなしの GitHub さんに課金を決めたという話でした。&lt;/p&gt;
+
+&lt;h3 id=&#34;課金までの流れ:340439db01554a836d5e56091c04ab85&#34;&gt;課金までの流れ&lt;/h3&gt;
+
+&lt;p&gt;折角なので、課金までの流れを紹介しておきます。&lt;/p&gt;
+
+&lt;p&gt;まず、GitHub にサインインした状態で &lt;code&gt;http://github.com/&lt;/code&gt; へアクセスします。
+そこから、設定画面に移動します。(下記画像参照)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/github-bill-001.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;つづいて、左のメニューから &lt;code&gt;Billing&lt;/code&gt;を選択します。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/github-bill-002.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;次にお好みのプランをクリックします。Micro を選択しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/github-bill-003.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;するとクレジットカードの入力を要求されます。適当に入力します。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/github-bill-004.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;これで終わりです。こんな表示になりました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/github-bill-005.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;料金を考えると1リポジトリあたり月100円だと思うことにしております。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=477416366X&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>github-pages Gem というのが用意された - Github Page で使う gem のバージョンをあわせてくれる</title>
+          <link>http://blog.eiel.info/blog/2013/08/13/github-pages-gem/</link>
+          <pubDate>Tue, 13 Aug 2013 00:54:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/08/13/github-pages-gem/</guid>
+          <description>
+
+&lt;p&gt;Github Page は Jekyll プロジェクトを push すれば HTML に変換してくれます。
+これを使う場合、Github 側とローカルで確認するときの Gem のバージョンを揃えておきたいです。
+そのために Gemfile を記述しますが、&lt;code&gt;github-pages&lt;/code&gt; という gem が用意されました。
+というわけで、試してみた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;source &#39;https://rubygems.org&#39;
+
+gem &#39;github-pages&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;bundle install&lt;/code&gt; とか実行せばあ必要な &lt;code&gt;gem&lt;/code&gt; が手に入ります。
+以前は、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;source &#39;https://rubygems.org&#39;
+ruby &#39;1.9.3&#39;
+
+gem &#39;jekyll&#39;,     &#39;=1.1.2&#39;
+gem &#39;liquid&#39;,     &#39;=2.5.1&#39;
+gem &#39;redcarpet&#39;,  &#39;=2.2.2&#39;
+gem &#39;maruku&#39;,     &#39;=0.6.1&#39;
+gem &#39;rdiscount&#39;,  &#39;=1.6.8&#39;
+gem &#39;RedCloth&#39;,   &#39;=4.2.9&#39;
+gem &#39;kramdown&#39;,   &#39;=1.0.2&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のように書く必要ありました。
+とてもすっきりしています。
+利用する gem が更新されても &lt;code&gt;bundle update&lt;/code&gt; ですむので、とても嬉しいですね。&lt;/p&gt;
+
+&lt;h3 id=&#34;もっと具体的に:5a8456fbdbb2111216d0f99b4a903cbf&#34;&gt;もっと具体的に&lt;/h3&gt;
+
+&lt;p&gt;依存している Gem の情報は gemspec にあります。
+github-pages gem をインストールに必要な gem が記載されています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/github/pages-gem/blob/master/github-pages.gemspec#L17-L24&#34;&gt;github/pages-gem/github-pages.gemspec&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;この github-pages gem に依存関係を記述されているので、利用者は Gemfile に記述する必要がなくなりました。
+Ruby 1.9.3 で使用することになっています。
+2.0 で実行すると失敗するので注意しましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:5a8456fbdbb2111216d0f99b4a903cbf&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/18/jekyll-on-github/&#34;&gt;Github で Jekyll を使う時に調べたこと&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;blog/2013/08/28/browse-open-when-rake-preview/&#34;&gt;ローカルサーバ起動と同時にブラウザで開く。 - Jekyll とかで。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Github の Feed が溜りすぎてやばい。ついでに気になるのをメモっとく - すごい広島 010</title>
+          <link>http://blog.eiel.info/blog/2013/07/24/github-feed-in-these-days/</link>
+          <pubDate>Wed, 24 Jul 2013 19:18:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/07/24/github-feed-in-these-days/</guid>
+          <description>
+
+&lt;p&gt;この記事は &lt;a href=&#34;http://great-h.github.io/events/event-010.html&#34;&gt;すごい広島 #010&lt;/a&gt; でやったこと。&lt;/p&gt;
+
+&lt;p&gt;GitHub の News Feed が読めてない、ヤバイ。6月17日から溜まってる!
+この時間を使って眺めて気になったのを簡単にまとめる。
+ようするに、頭の中を垂れ流すだけの記事です。&lt;/p&gt;
+
+&lt;h3 id=&#34;one-hundred-ideas-for-computing:9e6bb027dfef1ba27a4cf9db9fa8aa66&#34;&gt;One Hundred Ideas for Computing&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/samsquire/ideas&#34;&gt;One Hundred Ideas for Computing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;「クラウドコンピューティングでやりたい100のこと」といったころなのでしょうか。本当に100個あってびびった。ネタがないときのインプットにしたい。&lt;/p&gt;
+
+&lt;p&gt;あと、すでに存在しているものや、似ているものにリンクが貼られていて面白いです。100個あるとタイトルを読むだけで精一杯でした。&lt;/p&gt;
+
+&lt;h3 id=&#34;http-configuration:9e6bb027dfef1ba27a4cf9db9fa8aa66&#34;&gt;http_configuration&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/bdurand/http_configuration&#34;&gt;http_configuration&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ruby の gem。Rails の plugin としても利用可能らしい。&lt;/p&gt;
+
+&lt;p&gt;NET::HTTP のグローバル設定が可能らしい。タイムアウトする時間やプロキシを登録しておけば、自動で引き継ぐ感じなのでしょうか。試してないから知らない。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;config = Net::HTTP::Configuration.new(:proxy =&amp;gt; :environment, :read_timeout =&amp;gt; 10, :open_timeout =&amp;gt; 5)
+config.apply(:read_timeout =&amp;gt; 5) do
+  Net::HTTP.get(&#39;http://example.com/&#39;)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;pjaxメモ:9e6bb027dfef1ba27a4cf9db9fa8aa66&#34;&gt;pjaxメモ&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/furu/6006109&#34;&gt;pjaxメモ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ブラウザの履歴操作のメモのようだ。整然としていてナイスである。
+まだまだ充実していくんだろうか。&lt;/p&gt;
+
+&lt;h3 id=&#34;glim:9e6bb027dfef1ba27a4cf9db9fa8aa66&#34;&gt;glim&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/thias/glim&#34;&gt;GRUB2 Live ISO Multiboot - glim&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;いろんなOS Live CD をブートできる USB メモリや CD を作成できるみたい。
+CDイメージを用意する必要があるのか気になったけど、そこまでは見ませんでした。&lt;/p&gt;
+
+&lt;h3 id=&#34;boris:9e6bb027dfef1ba27a4cf9db9fa8aa66&#34;&gt;boris&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/d11wtq/boris&#34;&gt;boris&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;PHP の REPLのようだ。Read Eval Print Loop。対話環境というやつか。&lt;/p&gt;
+
+&lt;h3 id=&#34;reform-example:9e6bb027dfef1ba27a4cf9db9fa8aa66&#34;&gt;reform example&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/gogogarrett/reform_example/tree/master/app&#34;&gt;reform example&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/apotonick/reform&#34;&gt;reform&lt;/a&gt; という フォームを作成するための gem の利用例のようです。
+reform を知らないので、そっちも見てみた。&lt;/p&gt;
+
+&lt;p&gt;Rails でも利用できるし単体でも利用できるみたい。
+ネストしたモデルが扱いやすいような感じなのでしょうか。わかりません。&lt;/p&gt;
+
+&lt;p&gt;サンプルの中に&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;app/services&lt;/li&gt;
+&lt;li&gt;app/forms&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;というディレクトリがあって、モデルにはバリデーションが全く書かれていないのが興味深いです。&lt;/p&gt;
+
+&lt;h3 id=&#34;i18n-for-javascirpt:9e6bb027dfef1ba27a4cf9db9fa8aa66&#34;&gt;I18n for Javascirpt&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/fnando/i18n-js&#34;&gt;i18n-js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Rails の i18n を JavaScirpt 上でも利用するためのライブラリのようです。
+JavaScript 側でやることが増えてきてるので気になるところ。&lt;/p&gt;
+
+&lt;h3 id=&#34;bower:9e6bb027dfef1ba27a4cf9db9fa8aa66&#34;&gt;Bower&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/bower/bower&#34;&gt;Bower&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最近よくみかける JavaScirpt の Bundler 的なやつ。
+Rails でも使う人が増えてるらしいけど、私はまだ使えてない。&lt;/p&gt;
+
+&lt;h3 id=&#34;rspec-style-guide:9e6bb027dfef1ba27a4cf9db9fa8aa66&#34;&gt;Rspec Style Guide&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/howaboutwe/rspec-style-guide&#34;&gt;Rspec Style Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あとで 10回 読む。中はまだ見てない。watch する。しばらく毎日読む。&lt;/p&gt;
+
+&lt;h3 id=&#34;rspec-best-practices:9e6bb027dfef1ba27a4cf9db9fa8aa66&#34;&gt;Rspec Best Practices&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/crible/rspec-best-practices&#34;&gt;Rspec Best Practices&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あとで 10回 読む。中はまだ見てない。watch する。
+11ヶ月まえなので最近の傾向が取り入れられてるのが気になる。&lt;/p&gt;
+
+&lt;h3 id=&#34;kawaiiemailaddress:9e6bb027dfef1ba27a4cf9db9fa8aa66&#34;&gt;KawaiiEmailAddress&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/esminc/kawaii_email_address&#34;&gt;KawaiiEmailAddress&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Railsで docomoやらauやらの Email アドレスのバリデーションができるようだ。&lt;/p&gt;
+
+&lt;h3 id=&#34;byebug:9e6bb027dfef1ba27a4cf9db9fa8aa66&#34;&gt;byebug&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/deivid-rodriguez/byebug&#34;&gt;byebug&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;バグとさようなら。Ruby のデバッガのようです。
+特徴は…読む元気がなかった。pryが起動できるとかは見えた。
+気になる。&lt;/p&gt;
+
+&lt;h3 id=&#34;phantomflow:9e6bb027dfef1ba27a4cf9db9fa8aa66&#34;&gt;PhantomFlow&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Huddle/PhantomFlow&#34;&gt;PhantomFLow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;すごく気になる。ウェブユーザインターフェースのテストをするために、フローを視覚化してるツールのように見える。
+シナリオを分岐させられる感じなのでしょうか。気になります。&lt;/p&gt;
+
+&lt;h3 id=&#34;cssecss:9e6bb027dfef1ba27a4cf9db9fa8aa66&#34;&gt;CSSeCSS&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/zmoazeni/csscss&#34;&gt;CSSCSS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;CSSを解析して、重複してるコードを見つけてくれる模様。&lt;/p&gt;
+
+&lt;h3 id=&#34;default-value-for:9e6bb027dfef1ba27a4cf9db9fa8aa66&#34;&gt;default_value_for&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/FooBarWidget/default_value_for&#34;&gt;default_value_for&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;rails のプラグイン。モデルのデフォルト値を簡単に設定できるようです。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:9e6bb027dfef1ba27a4cf9db9fa8aa66&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;50件ぐらいは消化した。まだ140件ぐらいある。もうちょっと消化したかった。&lt;/p&gt;
+
+&lt;p&gt;メモしながらなのでペースは落ちますが「メモを残すぐらいは確認しないといけない」と意識できます。
+読んだ気にならず、しっかり読めて良いかもしれません。
+実際に試す時間をどう取るのかというのが悩みどころです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Jekyll を使ったGithub Pages で関数呼び出し的なことをする</title>
+          <link>http://blog.eiel.info/blog/2013/06/19/jekyll-on-function/</link>
+          <pubDate>Wed, 19 Jun 2013 21:32:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/06/19/jekyll-on-function/</guid>
+          <description>
+
+&lt;p&gt;この記事は &lt;a href=&#34;http://great-h.github.io/events/event-005.html&#34;&gt;すごい広島 #005&lt;/a&gt; で試したことです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://pages.github.com/&#34;&gt;Github Pages&lt;/a&gt; で Jekyll を使う場合は機能拡張などすることが基本的にできません。&lt;/p&gt;
+
+&lt;p&gt;関数のように汎用のHTMLを作成して、引数で動作を変えるようなことがしたい。
+本来ではあれば &lt;a href=&#34;http://liquidmarkup.org/&#34;&gt;Liquid&lt;/a&gt; のカスタムタグなどが使えるのですが、&lt;a href=&#34;http://jekyllrb.com/&#34;&gt;jekyll&lt;/a&gt; が safe モードで動いているので、カスタムタグを作成することができません。&lt;/p&gt;
+
+&lt;p&gt;しかし、 liquid の &lt;code&gt;includeタグ&lt;/code&gt; を利用することでそれっぽいことができます。&lt;/p&gt;
+
+&lt;p&gt;流れは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;あらかじめ変数をセットしておく&lt;/li&gt;
+&lt;li&gt;include を使う
+
+&lt;ul&gt;
+&lt;li&gt;セットしておいた変数で分岐したり、表示内容として利用する&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;となります。&lt;/p&gt;
+
+&lt;h1 id=&#34;変数:79fe50412cbb3e59f64ffd395b234641&#34;&gt;変数&lt;/h1&gt;
+
+&lt;p&gt;変数をセットするには FrontFormatter を利用するか、liquidの &lt;code&gt;assignタグ&lt;/code&gt; か &lt;code&gt;caputerタグ&lt;/code&gt;を利用することになります。&lt;/p&gt;
+
+&lt;h2 id=&#34;frontformatterを使う:79fe50412cbb3e59f64ffd395b234641&#34;&gt;FrontFormatterを使う&lt;/h2&gt;
+
+&lt;p&gt;FrontFormatter は ページの先頭に書く yaml の部分です。&lt;/p&gt;
+
+&lt;p&gt;例:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;title:  &amp;quot;すごい広島 #5&amp;quot;
+date:   2013-06-19 19:00:00
+place: tullys
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;page.place&lt;/code&gt; という変数を追加して &lt;code&gt;tullys&lt;/code&gt; という文字列をセットできます。&lt;/p&gt;
+
+&lt;h2 id=&#34;assign-を使う:79fe50412cbb3e59f64ffd395b234641&#34;&gt;assign を使う&lt;/h2&gt;
+
+&lt;p&gt;Liquid の assign タグを利用して&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ % assign place = tullys % }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;place&lt;/code&gt; という変数を追加して &lt;code&gt;tullys&lt;/code&gt; という文字列をセットできます。
+FrontFormatter には page のメンバになっていましたが、こちらは直接参照できます。&lt;/p&gt;
+
+&lt;h2 id=&#34;capture-を使う:79fe50412cbb3e59f64ffd395b234641&#34;&gt;capture を使う&lt;/h2&gt;
+
+&lt;p&gt;capture を用いると長い文字列を変数にセットするのに便利です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ % capture place % }
+tullys
+{ % endcapture % }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これも同様に place という変数を追加して &lt;code&gt;\ntullys\n&lt;/code&gt; という文字列をセットできます。(改行を含みます)&lt;/p&gt;
+
+&lt;h1 id=&#34;include-タグ:79fe50412cbb3e59f64ffd395b234641&#34;&gt;include タグ&lt;/h1&gt;
+
+&lt;p&gt;これは SSI の include のように外部のファイルを読込みして、その場に挿入できる liquid のタグです。
+同様の機能が PHP なんかにもありますね。&lt;/p&gt;
+
+&lt;p&gt;include するためのファイルは &lt;code&gt;_includes&lt;/code&gt; におくことになります。
+&lt;code&gt;PROJECT_ROOT/_includes/place/go&lt;/code&gt;というファイルを作成して、中身を作成します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;b&amp;gt;ある場所に行きます。&amp;lt;/b&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これをあるページで&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ % include place/go % }
+{ % include place/go % }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と記述すれば&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;b&amp;gt;ある場所に行きます。&amp;lt;/b&amp;gt;
+&amp;lt;b&amp;gt;ある場所に行きます。&amp;lt;/b&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、出力されます。&lt;/p&gt;
+
+&lt;h1 id=&#34;変数と-include-を組み合わせる:79fe50412cbb3e59f64ffd395b234641&#34;&gt;変数と include を組み合わせる&lt;/h1&gt;
+
+&lt;p&gt;includeを無理矢理関数のように利用してみます。&lt;/p&gt;
+
+&lt;p&gt;上記の &lt;code&gt;PROJECT_ROOT/_includes/go&lt;/code&gt; を以下のようにします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;b&amp;gt;{{ place }}に行きます。&amp;lt;/b&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そして、assign で値をセットしてから include します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ % assign place = &amp;quot;広島&amp;quot; % }
+{ % include place/go % }
+{ % include place/go % }
+{ % assign place = &amp;quot;日本&amp;quot; % }
+{ % include place/go % }
+{ % include place/go % }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;結果は以下のようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+&amp;lt;b&amp;gt;広島に行きます。&amp;lt;/b&amp;gt;
+&amp;lt;b&amp;gt;広島に行きます。&amp;lt;/b&amp;gt;
+
+&amp;lt;b&amp;gt;日本に行きます。&amp;lt;/b&amp;gt;
+&amp;lt;b&amp;gt;日本に行きます。&amp;lt;/b&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こうすることで繰返し項目を少しだけ DRY に記述できます。&lt;/p&gt;
+
+&lt;h1 id=&#34;注意点:79fe50412cbb3e59f64ffd395b234641&#34;&gt;注意点&lt;/h1&gt;
+
+&lt;p&gt;レイアウトで include する場合、ページから変数を設定するには、FrontFormmater を使用しないとうまくいきません。&lt;/p&gt;
+
+&lt;p&gt;レイアウト -&amp;gt; ページ内部 という順番で処理されるためです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;includeする&lt;/li&gt;
+&lt;li&gt;変数を設定する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という動作になるため、期待した動作になりません。&lt;/p&gt;
+
+&lt;p&gt;また、 include の引数に変数を使う方法はみつけることができませんでした。
+代わりに &lt;code&gt;caseタグ&lt;/code&gt; や &lt;code&gt;ifタグ&lt;/code&gt; で地道にがんばることになります。&lt;/p&gt;
+
+&lt;p&gt;Github  Pages を共同編集するわけではないなら、ローカルでHTMLを生成してから push するほうがいろいろ便利そうです。
+プログラマ的には slim なども利用できる &lt;a href=&#34;http://middlemanapp.com/&#34;&gt;Middleman&lt;/a&gt; などが注目を浴びていきそうですね。&lt;/p&gt;
+
+&lt;h1 id=&#34;参考文献:79fe50412cbb3e59f64ffd395b234641&#34;&gt;参考文献&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Shopify/liquid/wiki/Liquid-for-Designers&#34;&gt;Liquid for Designers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;関連記事:79fe50412cbb3e59f64ffd395b234641&#34;&gt;関連記事&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/18/jekyll-on-github/&#34;&gt;Github で Jekyll を使う時に調べたこと&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Github Page で公開する サイトを ローカルで preview するのに使ってる方法</title>
+          <link>http://blog.eiel.info/blog/2013/05/29/jekyll-preview/</link>
+          <pubDate>Wed, 29 May 2013 21:52:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/05/29/jekyll-preview/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/events/event-002.html&#34;&gt;すごい広島 #2&lt;/a&gt; でしたことを書きます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://eielh-life.tumblr.com/post/51639356116/2&#34;&gt;日記のほうはこちら&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2013年8月23日追記。下記の方法を改良したものがあります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/08/28/browse-open-when-rake-preview/&#34;&gt;ローカルサーバ起動と同時にブラウザで開く。 - Jekyll とかで。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以上、追記終了。&lt;/p&gt;
+
+&lt;p&gt;私は、Jekyllを使用したサイトをプレビューする際に、jekyll のインターフェイスが変化しても、または、jekyll 以外のものを使用しているときのことも考えて、 &lt;code&gt;rake preview&lt;/code&gt; でサイトのプレビューをできるようにしています。&lt;/p&gt;
+
+&lt;p&gt;「Octopressでも、Hakyll でも Jekyll でも &lt;code&gt;rake preview&lt;/code&gt; にしたいんだ!!」&lt;/p&gt;
+
+&lt;p&gt;具体的には以下のような、Rakefile を作成しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;desc &#39;preview する。 http://localhost:4000/&#39;
+task :preview do
+  sh &#39;bundle exec jekyll serve --watch&#39;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Jekyll は v1.0.0 で preview するためのコマンド名が変わりました。&lt;/p&gt;
+
+&lt;p&gt;あとは、他の人が gem のインストールのを軽減するために、Gemfile も書きました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;source &#39;https://rubygems.org&#39;
+
+gem &#39;jekyll&#39;,     &#39;=1.0.2&#39;
+gem &#39;liquid&#39;,     &#39;=2.5.0&#39;
+gem &#39;redcarpet&#39;,  &#39;=2.2.2&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで、ruby と bundler さえ入っている人は &lt;code&gt;bundle instnall&lt;/code&gt; というコマンドを実行すれば、サイトのプレビューができるようになります。&lt;/p&gt;
+
+&lt;p&gt;bundler は &lt;code&gt;gem install bundler&lt;/code&gt; でインストールしておきましょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/great-h/great-h.github.io/pull/31&#34;&gt;具体的なコミットはこちらに&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:a6a66ea74ef9d9b45cfb216612dcf840&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;blog/2013/08/28/browse-open-when-rake-preview/&#34;&gt;ローカルサーバ起動と同時にブラウザで開く。 - Jekyll とかで。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Github の楽しみ方</title>
+          <link>http://blog.eiel.info/blog/2013/05/13/how-to-enjoy-github/</link>
+          <pubDate>Mon, 13 May 2013 01:06:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/05/13/how-to-enjoy-github/</guid>
+          <description>
+
+&lt;p&gt;みなさん &lt;a href=&#34;https://github.com/&#34;&gt;Github&lt;/a&gt; を楽しんでいますか？&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/06/how-to-use-github/&#34;&gt;まだ利用してない場合は、利用しましょう。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;「利用しはじめたけど、もう一歩進みたい…」という人のために、私なりの楽しみ方を紹介しておきたいと思います。&lt;/p&gt;
+
+&lt;p&gt;今回は以下の遊び方について書きます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;友人のリポジトリにちょっかいを出す&lt;/li&gt;
+&lt;li&gt;有名なリポジトリに名前を残す&lt;/li&gt;
+&lt;li&gt;毎日活動して Longest Streak の記録を更新する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;友人のリポジトリにちょっかいを出す:66901502d550b98af57c4e8c22ee3bdf&#34;&gt;友人のリポジトリにちょっかいを出す&lt;/h3&gt;
+
+&lt;p&gt;Github は 「SNS」 です。
+SNS なのでは人とコミュニケーションをとって遊びましょう。&lt;/p&gt;
+
+&lt;p&gt;なので、コミュニケーションをしましょう。
+Github ではユーザ同士がコミュニケーションを取る主な方法は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;コミットへのコメント&lt;/li&gt;
+&lt;li&gt;Issues&lt;/li&gt;
+&lt;li&gt;Pull Request&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;があります。&lt;/p&gt;
+
+&lt;p&gt;こういったものはまずは友人に対して行うのが気軽で、オススメです。&lt;/p&gt;
+
+&lt;p&gt;しかし、リポジトリを作成したことや、コミットされたことに気づかなければ、コミュニケーションを取る機会がありません。&lt;/p&gt;
+
+&lt;p&gt;友人がリポジトリを作成したことに気がつくためには、友人をフォローしておくことです。
+&lt;a href=&#34;(http://blog.eiel.info/blog/2013/02/06/how-to-use-github/&#34;&gt;以前紹介している&lt;/a&gt;ので、ここを読んでいる方はフォローしていると思います。&lt;/p&gt;
+
+&lt;p&gt;これで News Feed を見る癖がついていれば、友人がリポジトリを作成したことに気がつくようになると思います。
+しかし、コミットされ、プッシュした情報は流れてきません。プッシュされたことを知りたいなら、&lt;code&gt;watch&lt;/code&gt; をしましょう。&lt;/p&gt;
+
+&lt;h4 id=&#34;watch-する:66901502d550b98af57c4e8c22ee3bdf&#34;&gt;Watch する&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;watch&lt;/code&gt; をするには リポジトリのページへ移動し、以下の画像の示す部分を Watching にします。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/github-watch.png&#34; alt=&#34;watch&#34; /&gt;
+&lt;img src=&#34;http://blog.eiel.info/images/github-watch-zoom.png&#34; alt=&#34;watch&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;watch&lt;/code&gt; するとそのリポジトリへの push や Issuesの作成、 Pull Request の作成などの情報が流れるようになります。
+ここまで来れば日々チェックして、相手の隙を伺いアタックをしていきます。&lt;/p&gt;
+
+&lt;h4 id=&#34;コミットへのコメント:66901502d550b98af57c4e8c22ee3bdf&#34;&gt;コミットへのコメント&lt;/h4&gt;
+
+&lt;p&gt;Github ではコミットに対してコメントをすることができます。
+また、コミットに関連しているファイルの特定の行にもコメントを付けることができます。&lt;/p&gt;
+
+&lt;p&gt;まずは、Github で コミットを見てみましょう。&lt;/p&gt;
+
+&lt;p&gt;参考用に利用するリポジトリは &lt;a href=&#34;https://github.com/eiel/hiroshima_hall&#34;&gt;eiel/hiroshima_hall&lt;/a&gt; にしました。&lt;/p&gt;
+
+&lt;p&gt;コミットを見るにはコミットを見つける必要があります。
+一般的な方法としては 「コミットの一覧」 &amp;gt; 「コミット」と進めばコミットのページへいけます。&lt;/p&gt;
+
+&lt;p&gt;コミットの一覧を見るには以下の画像を参考にしてください。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/commit-list.png&#34; alt=&#34;commit list&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;そこからコミットを見るには、見たいコミットの`コミットIDをクリックします。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/from-commit-list.png&#34; alt=&#34;from commit list&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;コミットに対しコメントしたい場合は画面下部にテキストエリアがあるので、そこに書き込みします。&lt;/p&gt;
+
+&lt;p&gt;また、ファイルの特定行数に対しコメントすることもできます。
+コメントしたいところにカーソルを合わせると、左側に「+」のようなものがでますので、そこをクリックすると、フォームが表われます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/github-comment.png&#34; alt=&#34;comment&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;さあ、コメントの仕方がわかったので、どんどんコミュニケーションをしましょう。マサカリは怖いです。&lt;/p&gt;
+
+&lt;h4 id=&#34;issues:66901502d550b98af57c4e8c22ee3bdf&#34;&gt;Issues&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;Issues&lt;/code&gt; は問題を発見した場合に、書き込むところですが、おおよそ掲示板のように使えます。&lt;/p&gt;
+
+&lt;p&gt;相手に伝えたいことがあるなら、書いてみましょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Issue&lt;/code&gt; を作るには、&lt;code&gt;リポジトリのトップ&lt;/code&gt; &amp;gt; &lt;code&gt;Issues&lt;/code&gt; &amp;gt; &lt;code&gt;New Issue&lt;/code&gt; から行えます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/github-issues.png&#34; alt=&#34;github issues&#34; /&gt;
+&lt;img src=&#34;http://blog.eiel.info/images/github-issue2.png&#34; alt=&#34;github issues&#34; /&gt;
+&lt;img src=&#34;http://blog.eiel.info/images/github-issue3.png&#34; alt=&#34;github issues&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;好きなようにメッセージを書いて遊びましょう。&lt;/p&gt;
+
+&lt;p&gt;各種コメントが書ける部分で #Issues 番号とすると関連付けもできます。
+&lt;code&gt;:&lt;/code&gt;(コロン) を書くと絵文字なども出せます。&lt;/p&gt;
+
+&lt;h4 id=&#34;pull-request:66901502d550b98af57c4e8c22ee3bdf&#34;&gt;Pull Request&lt;/h4&gt;
+
+&lt;p&gt;Github といえば &lt;code&gt;Pull Request&lt;/code&gt; です。
+&lt;code&gt;Pull Request&lt;/code&gt; は、「ちょっとこういう変更したら面白いじゃね？」とか、製作者に投げかける機能です。
+ナイスな変更であればリポジトリの管理者の方が変更を取り込んでくれると思います。
+そうでなくても、リポジトリに関した情報交換ができるでしょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Pull Request&lt;/code&gt; のやりかたは長くなりそうなので割愛しますが、簡単に書いておきます。
+フォークをして自分のリポジトリを作り、ファイルの変更をすると pull request するボタンがでてきます。
+これを押してメッセージを書くだけです。
+ファイルを変更は Github 上でも行えまし、ローカルPCで編集して push する方法もあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/github-pull.png&#34; alt=&#34;github pull&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Pull Request&lt;/code&gt; を繰り返してリポジトリへ貢献していくと、ちゃんと自分が貢献しことが記録されています。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/github-graph.png&#34; alt=&#34;github graph&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/hiroshima_hall/contributors?from=2013-05-05&amp;amp;to=2013-05-12&amp;amp;type=c&#34;&gt;https://github.com/eiel/hiroshima_hall/contributors?from=2013-05-05&amp;amp;to=2013-05-12&amp;amp;type=c&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;大勢の人が参加しているリポジトリではないので、高い貢献率を叩きだせるかもしれません。
+まるで、自分のリポジトリかのようにしてしまいしょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;有名なリポジトリに名前を残す:66901502d550b98af57c4e8c22ee3bdf&#34;&gt;有名なリポジトリに名前を残す&lt;/h3&gt;
+
+&lt;p&gt;友達のリポジトリを賑やかして遊んだら、本格的にリポジトリに絡んでいってみましょう。
+自分が利用してるアプリケーションを &lt;code&gt;Watch&lt;/code&gt; したり バグを直して &lt;code&gt;Pull Request&lt;/code&gt;してみましょう。&lt;/p&gt;
+
+&lt;p&gt;僕は結構ショボイ Pull Request をしています。
+例えば、&lt;a href=&#34;https://github.com/rails/rails&#34;&gt;Ruby on Rails&lt;/a&gt; で、一行削除しただけ &lt;code&gt;Pull Request&lt;/code&gt; を出してみたりしましたが、取り込まれました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rails/rails/pull/10339&#34;&gt;rails #10339&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/rails-pull1.png&#34; alt=&#34;rails pull1&#34; /&gt;
+&lt;img src=&#34;http://blog.eiel.info/images/rails-pull2.png&#34; alt=&#34;rails pull2&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;これぐらいなら、できそうですよね!(えー)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;こうすることで、リポジトリに自分の名前が残りますし、
+編集したファイルには小さいですが、自分のアイコンが出現します。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/rails-pull3.png&#34; alt=&#34;rails pull3&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;のらりくらりとソースコード読んで気になったところを Pull Request して自慢して遊びましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;毎日活動して-longest-streak-を更新する:66901502d550b98af57c4e8c22ee3bdf&#34;&gt;毎日活動して Longest Streak を更新する&lt;/h3&gt;
+
+&lt;p&gt;いつだったか忘れましたが、昨年末か今年の始めに Your Contributions という 自分の Github での活動が視覚化されるようになっています。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/github-contribution.png&#34; alt=&#34;Your Contribution&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;緑のマスが見える部分は一マスが一日に対応していて一年分表示されています。
+濃い緑のところほど、貢献した日になります。
+灰色の場合はなにもしてないことになります。&lt;/p&gt;
+
+&lt;p&gt;濃い緑がたくさん見えれば見えるほど「この人は化け物か!!」 なんて思ってしまうので、私もほどほどにがんばりたいところです。&lt;/p&gt;
+
+&lt;p&gt;この緑の部分が最高何日つづいたか、中央の Longest Streak に表示されます。
+現在最高25日連続して貢献していることがわかります。&lt;/p&gt;
+
+&lt;p&gt;また、右隣の Current Streak は現在継続中の記録になります。
+最高記録と並んでいる状態で、記録更新中の状態です。&lt;/p&gt;
+
+&lt;p&gt;これをがんばるために毎日更新できるようなものを考えてみたりしても良いかもしれません。
+ちなみに、私はこれをするために &lt;a href=&#34;https://github.com/eiel/railsdoc.eiel.info/commits/master&#34;&gt;Ruby on Rails のソースコードを眺めてメモをとる作業をしています。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;また、この緑の部分を利用して&lt;a href=&#34;http://song-of-github.herokuapp.com/?username=eiel&#34;&gt;音楽が聞けるサービス&lt;/a&gt;とかあったりして、Github の API を叩いて面白いサービスも作りたいですね。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:66901502d550b98af57c4e8c22ee3bdf&#34;&gt;まとめ？&lt;/h3&gt;
+
+&lt;p&gt;Github は日々進化していて、いろいろ面白い機能やら、便利になったりで目が離せません。&lt;/p&gt;
+
+&lt;p&gt;ITの世界に生きるのであれば、自己ブランディングするには現状では最強のサービスではないでしょうか。
+自分なりの楽しみ方を見つけましょー。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=477416366X&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&#34;関連記事:66901502d550b98af57c4e8c22ee3bdf&#34;&gt;関連記事&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/06/how-to-use-github/&#34;&gt;Git がわからなくても Github を利用しよう&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/11/21/github-notifications-is-not-spam/&#34;&gt;GitHub からの通知が迷惑メールになった - 見ないリポジトリは unwatch しよう&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>広島Ruby勉強会 #30で Liquidの簡単な説明をした</title>
+          <link>http://blog.eiel.info/blog/2013/03/02/abc-liquid/</link>
+          <pubDate>Sat, 02 Mar 2013 21:04:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/03/02/abc-liquid/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://hiroshimarb.github.com/blog/2013/02/08/hiroshimarb-30/&#34;&gt;広島Ruby勉強会 #030&lt;/a&gt;で Jekyl の中で使用されている テンプレートエンジン Liquid のざっくりとした説明をする LT しました。&lt;/p&gt;
+
+&lt;p&gt;大したネタもないし、そんなに凝ったこともしてないですが、公開しておきます。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/16879154&#34; width=&#34;476&#34; height=&#34;400&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ruby-build の プルリクエスト バトル</title>
+          <link>http://blog.eiel.info/blog/2013/02/24/ruby-build-battle/</link>
+          <pubDate>Sun, 24 Feb 2013 23:14:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/24/ruby-build-battle/</guid>
+          <description>
+
+&lt;p&gt;ネタです。&lt;/p&gt;
+
+&lt;p&gt;最近もろもろな事情で Ruby がリリースされることが多かったですが、ruby-build の更新を待っていた人はどれくらいいるでしょうか。&lt;/p&gt;
+
+&lt;p&gt;みんな待ちきれなくて自分で ruby-build のレシピを書いたんではないでしょうか？
+そして「俺がと プル リクエストをおくるんだ!!」と燃えたのではないでしょうか？
+これを Ruby のリリースがあるたびに発生する &lt;code&gt;ruby-bulild プルリクエストバトル&lt;/code&gt;だと勝手に想像して楽しんでいます。こんばんは。&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;僕の場合はだいたいなぜか &lt;code&gt;rbenv&lt;/code&gt; のほうをみにいって、「まだ更新がないないなー」っておもってレシピをかくんですが、書いたあとに &lt;code&gt;ruby-build&lt;/code&gt; だったと気づく馬鹿なことをしているだけだったりしますが&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;今日も &lt;a href=&#34;http://www.ruby-lang.org/ja/news/2013/02/24/ruby-2-0-0-p0-is-released/&#34;&gt;Ruby 2.0 のリリース&lt;/a&gt; がありましたが、このプルリクエスト バトル の行方はどうなったのでしょうか。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sstephenson/ruby-build/pull/299&#34;&gt;https://github.com/sstephenson/ruby-build/pull/299&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sstephenson/ruby-build/pull/301&#34;&gt;https://github.com/sstephenson/ruby-build/pull/301&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;同じ Issue を立てないように気をつけたいですね。&lt;/p&gt;
+
+&lt;p&gt;それと Ruby 20周年おめでとうございます。&lt;/p&gt;
+
+&lt;h2 id=&#34;ついでにレシピの書き方:b4fffd22545e14a7e3b00e59a4fcbbfa&#34;&gt;ついでにレシピの書き方&lt;/h2&gt;
+
+&lt;p&gt;ネタだけで終わるのもあれなので。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;~/.rbenv&lt;/code&gt; にインストールしている場合は &lt;code&gt;~/.rbenv/plugins/ruby-build/share/ruby-build/&lt;/code&gt; にレシピが配置されています。&lt;/p&gt;
+
+&lt;p&gt;今回の 2.0 の場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;install_package &amp;quot;openssl-1.0.1e&amp;quot; &amp;quot;https://www.openssl.org/source/openssl-1.0.1e.tar.gz#66bf6f10f060d561929de96f9dfe5b8c&amp;quot; mac_openssl --if has_broken_mac_openssl
+install_package &amp;quot;ruby-2.0.0-p0&amp;quot; &amp;quot;ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p0.tar.gz#50d307c4dc9297ae59952527be4e755d&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とか前のバージョンを参考にして書けばよいです。簡単ですね。&lt;/p&gt;
+
+&lt;h2 id=&#34;なんでこんなことかいたのか:b4fffd22545e14a7e3b00e59a4fcbbfa&#34;&gt;なんでこんなことかいたのか&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;なんで push してないんだー。って怒られたので&lt;/li&gt;
+&lt;li&gt;Ruby 2.0 リリース &amp;amp; 20 周年 おめでとー。とかそういう記事書きたいじゃないですか&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Github で Jekyll を使う時に調べたこと</title>
+          <link>http://blog.eiel.info/blog/2013/02/18/jekyll-on-github/</link>
+          <pubDate>Mon, 18 Feb 2013 00:46:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/18/jekyll-on-github/</guid>
+          <description>
+
+&lt;p&gt;Github で Jekyll を使うときにできることとか調べたので整理しておきます。
+今日の成果物。
+この記事をいきなりポーンと書いても仕方ない気がして前の記事を書きました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Jekyll を利用するかしないかの判断材料などに利用してください。&lt;/p&gt;
+
+&lt;p&gt;利用できる マークアップ&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;HTML&lt;/li&gt;
+&lt;li&gt;Markdown&lt;/li&gt;
+&lt;li&gt;Textile&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;関連する gem&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://liquidmarkup.org/&#34;&gt;liquid&lt;/a&gt;- テンプレートエンジン&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/vmg/redcarpet&#34;&gt;redcarpet&lt;/a&gt; - 高機能高速動作な Markdown&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/bhollis/maruku&#34;&gt;maruku&lt;/a&gt;    - 高機能な Markdown&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rtomayko/rdiscount&#34;&gt;rdiscount&lt;/a&gt; - 高速動作な Markdown&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://redcloth.org/&#34;&gt;RedCloth&lt;/a&gt;  - Textile&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://pygments.org/&#34;&gt;Pygemnts.rb&lt;/a&gt; - シンタックスハイライト&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;できること&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Layoutの利用 - ネスト可能&lt;/li&gt;
+&lt;li&gt;includeの利用 - Jekyll Boostrap がかなり利用してる様子&lt;/li&gt;
+&lt;li&gt;記事の作成
+
+&lt;ul&gt;
+&lt;li&gt;atom.xmlや記事一覧の作成 - site.posts 変数から参照可能&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;シンタックスハイライト&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;できなかったこと&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Rubyのコードを書いて改造&lt;/li&gt;
+&lt;li&gt;pluginの利用
+
+&lt;ul&gt;
+&lt;li&gt;対応するファイルのないものを自動生成&lt;/li&gt;
+&lt;li&gt;拡張タグ&lt;/li&gt;
+&lt;li&gt;利用できるタグの追加&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;gem を読み込んで情報源などにする&lt;/li&gt;
+&lt;li&gt;Scss, Sass, Less などメタCSSの利用&lt;/li&gt;
+&lt;li&gt;CoffeeScript などの利用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Jekyll Bootstrap がしてること&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;include を駆使して
+
+&lt;ul&gt;
+&lt;li&gt;デファルト値を設定したり&lt;/li&gt;
+&lt;li&gt;_config.yml で登録した値で分岐したり&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;プログラムをかいてカスマイズはできそうにない:c7540de9ca42c88091d7129738a9e5bd&#34;&gt;プログラムをかいてカスマイズはできそうにない&lt;/h2&gt;
+
+&lt;p&gt;Github で Jekyll が動作する際に &lt;code&gt;--safe&lt;/code&gt; オプションがつくため _plugins ディレクトリ内のファイルは実行されませんでした。
+他にコードを読ませる手段が非合法な方法を探さないとできそうにないです。&lt;/p&gt;
+
+&lt;p&gt;知っていたら教えてください。&lt;/p&gt;
+
+&lt;p&gt;もし Jekyll を Rubyでカスタマイズして使って、Github Pages で公開したいのであればローカルでJekyll を動かして生成されたものを push しましょう。
+github の push をフックして、別のサーバで動作させるのもありかもしれません。&lt;/p&gt;
+
+&lt;p&gt;なので、基本的には liquid redcarpet pygemnts を利用してページを作成していくことなります。&lt;/p&gt;
+
+&lt;h2 id=&#34;jekyll:c7540de9ca42c88091d7129738a9e5bd&#34;&gt;Jekyll&lt;/h2&gt;
+
+&lt;p&gt;Jekyll についての詳しいことは &lt;a href=&#34;http://melborne.github.com/2012/05/13/first-step-of-jekyll/&#34;&gt;30分のチュートリアルでJekyllを理解する&lt;/a&gt; という記事が非常に良いです。&lt;/p&gt;
+
+&lt;h2 id=&#34;liquid:c7540de9ca42c88091d7129738a9e5bd&#34;&gt;liquid&lt;/h2&gt;
+
+&lt;p&gt;テンプレートエンジンです。
+タグを使用する場合は &lt;code&gt;｛｛ 変数 ｝｝&lt;/code&gt; を使い、変数を参照する場合は &lt;code&gt;｛% タグ %｝&lt;/code&gt; を使います。(エスケープできないので全角を使用)&lt;/p&gt;
+
+&lt;p&gt;｛% 変数 %｝ でも 変数の参照ができますが、未定義の場合はエラーになります。&lt;/p&gt;
+
+&lt;p&gt;タグには ループをする &lt;code&gt;for&lt;/code&gt; や 分岐を行う &lt;code&gt;if&lt;/code&gt; 、SSIにあるような 外部ファイルを読み込む &lt;code&gt;include&lt;/code&gt;などが使えます。
+変数の利用や フィルター という文字列を加工する機能もあります。&lt;/p&gt;
+
+&lt;p&gt;詳しいことは公式の&lt;a href=&#34;https://github.com/Shopify/liquid/wiki/Liquid-for-Designers&#34;&gt;ドキュメント&lt;/a&gt;を参照してください。&lt;/p&gt;
+
+&lt;p&gt;変数は Hash であれば ドットでアクセスできます。&lt;/p&gt;
+
+&lt;p&gt;カスタムタグなど作る機能は用意されれてますが、Github Pages では利用できません。&lt;/p&gt;
+
+&lt;h2 id=&#34;redcarpet:c7540de9ca42c88091d7129738a9e5bd&#34;&gt;redcarpet&lt;/h2&gt;
+
+&lt;p&gt;マークダウンを使う場合、選択肢がありますが、これが一番よさそうです。
+C言語のライブラリ sundown のラッパーで 高速に動作し、&lt;a href=&#34;http://michelf.ca/projects/php-markdown/extra/&#34;&gt;PHP Extars&lt;/a&gt; という Markdown の拡張文法に対応しており、&lt;code&gt;_config.yml&lt;/code&gt; で、利用の可否を設定できます。&lt;/p&gt;
+
+&lt;p&gt;例: &lt;code&gt;_config.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;markdown: redcarpet
+redcarpet:
+  extensions: [tables,autolink,strikethrough]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;といった感じに設定できます。&lt;/p&gt;
+
+&lt;p&gt;設定できる拡張は わかりにくいですが、 &lt;a href=&#34;https://github.com/vmg/redcarpet&#34;&gt;README&lt;/a&gt; の extensiots に書かれています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;no_intra_emphasis&lt;/li&gt;
+&lt;li&gt;tables&lt;/li&gt;
+&lt;li&gt;fenced_code_blocks&lt;/li&gt;
+&lt;li&gt;autolink&lt;/li&gt;
+&lt;li&gt;strikethrough&lt;/li&gt;
+&lt;li&gt;lax_spacing&lt;/li&gt;
+&lt;li&gt;space_after_headers&lt;/li&gt;
+&lt;li&gt;superscript&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;があります。&lt;/p&gt;
+
+&lt;h2 id=&#34;pygemnts:c7540de9ca42c88091d7129738a9e5bd&#34;&gt;pygemnts&lt;/h2&gt;
+
+&lt;p&gt;シンタックスハイライトをするためのものです。&lt;/p&gt;
+
+&lt;p&gt;対応言語は&lt;a href=&#34;http://pygments.org/languages/&#34;&gt;ここ&lt;/a&gt;に書かれています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  ```ruby
+  def hoge
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;
+のように使用します。
+
+## Jekyll Bootstrap
+
+Jekyll Bootstrap は「まずはじめたい。」ときにも良いですし、参考にしても役に経ちます。素のJekyll からはじめたい場合は参考になります。
+
+## その他
+
+動作確認をする場合は `_config.yml` に
+
+```yaml
+safe: true
+lsi: false
+pygments: true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、書いておき、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ jekyll --auto --server
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;として、ブラウザで確認するのがよいです。
+&lt;code&gt;jekyll bootstrap&lt;/code&gt;や&lt;code&gt;Octopress&lt;/code&gt; には &lt;code&gt;rake preview&lt;/code&gt; があります。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:c7540de9ca42c88091d7129738a9e5bd&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;冒頭にまとめてます。&lt;/p&gt;
+
+&lt;p&gt;Jekyll とか liquid のソースコード読んでみたけど、カスタマイズの仕方もわかったけど、Github Pages 上で動かす分には無意味になった。&lt;/p&gt;
+
+&lt;p&gt;Jekyllをローカルで走らせるか、Scssなどはpushする前に自分で変換する。などの手法をとることになります。
+この辺を自動化しているのが &lt;a href=&#34;http://octopress.org/&#34;&gt;Octopress&lt;/a&gt; になります。&lt;/p&gt;
+
+&lt;p&gt;蛇足ですが Jekyll の同様のツールで Haskellでカスタマイズする &lt;a href=&#34;http://jaspervdj.be/hakyll/&#34;&gt;Hakyll&lt;/a&gt; というものもあります。
+Jekyll はある程度ルールがありますが、 Hakyll はもっと自由度が高いツールになります。&lt;/p&gt;
+
+&lt;h2 id=&#34;関連:c7540de9ca42c88091d7129738a9e5bd&#34;&gt;関連&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/06/how-to-use-github/&#34;&gt;Git がわからなくても Github を利用しよう&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Github Pages について整理しておきます</title>
+          <link>http://blog.eiel.info/blog/2013/02/17/github-pages/</link>
+          <pubDate>Sun, 17 Feb 2013 22:39:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/17/github-pages/</guid>
+          <description>
+
+&lt;p&gt;Git の練習を兼ねて Github できることといえばひとつとして &lt;a href=&#34;http://pages.github.com/&#34;&gt;Github Pages&lt;/a&gt; があります。
+ウェブサイトを Git で管理して、Github へ プッシュすれば公開できるというものです。&lt;/p&gt;
+
+&lt;p&gt;使い方などは &lt;a href=&#34;https://help.github.com/tags/20/articles&#34;&gt;公式のヘルプ&lt;/a&gt;に書かれていますが自分が Github Pages を使おうとした時に知りたかったことを整理しておきます。
+細かいことについてはあまり書きません。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Github Pages の特徴&lt;/li&gt;
+&lt;li&gt;Github Pages の種類
+
+&lt;ul&gt;
+&lt;li&gt;ユーザぺージ または グループページ&lt;/li&gt;
+&lt;li&gt;プロジェクトページ&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Github Pages の構築方法
+
+&lt;ul&gt;
+&lt;li&gt;Jekyll&lt;/li&gt;
+&lt;li&gt;静的ファイル&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;独自ドメインの利用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;github-pages-の特徴:a84c94e8af05d534511e157f48c1577d&#34;&gt;Github Pages の特徴&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;公開リポジトリで作れば無料。容量制限もないと言ってよいです。&lt;/li&gt;
+&lt;li&gt;CGI,PHPなどで動的ページは生成できません。
+
+&lt;ul&gt;
+&lt;li&gt;代わりに Jekyll というアプリケーションを使い github にページを生成させることができる&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;github-pages-の種類:a84c94e8af05d534511e157f48c1577d&#34;&gt;Github Pages の種類&lt;/h2&gt;
+
+&lt;p&gt;Github Pages には 2種類あります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ユーザページ または グループページ&lt;/li&gt;
+&lt;li&gt;プロジェクトページ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;ユーザページ-グループページ:a84c94e8af05d534511e157f48c1577d&#34;&gt;ユーザページ グループページ&lt;/h3&gt;
+
+&lt;p&gt;ユーザページ と グループページは同じ機能と言えるので同じものと考えてください。&lt;/p&gt;
+
+&lt;p&gt;ユーザページはアカウントにひとつだけ作れる Github Pages になります。
+グルーページは Github には Organization という グループを作る機能があります。
+正確には &lt;code&gt;Organization Pages&lt;/code&gt; ですが、グループページと呼びます。グループページもひとつだけ作れます。&lt;/p&gt;
+
+&lt;p&gt;このユーザページは http://&lt;code&gt;アカウント名&lt;/code&gt;.github.com というアドレスでアクセスできるウェブサイトを作ることができます
+。私の場合 アカウント名が &lt;code&gt;eiel&lt;/code&gt; なので &lt;a href=&#34;http://eiel.github.com&#34;&gt;http://eiel.github.com&lt;/a&gt; になります。(作ってません)&lt;/p&gt;
+
+&lt;p&gt;グループも同じで hiroshimarb というアカウントのグループがあるのので &lt;a href=&#34;http://hiroshimarb.github.com&#34;&gt;http://hiroshimarb.github.com&lt;/a&gt; となります。
+こちらは作っているのでこちらを例にしていきます。&lt;/p&gt;
+
+&lt;p&gt;このページを作るには、 &lt;a href=&#34;https://github.com/hiroshimarb/hiroshimarb.github.com&#34;&gt;hiroshimarb.github.com&lt;/a&gt; という リポジトリを作ります。&lt;/p&gt;
+
+&lt;p&gt;このリポジトリの &lt;strong&gt;master&lt;/strong&gt; ブランチがウェブサイトになります。&lt;/p&gt;
+
+&lt;p&gt;自動生成機能はなく、自分で構築することになります。&lt;/p&gt;
+
+&lt;h3 id=&#34;プロジェクトページ:a84c94e8af05d534511e157f48c1577d&#34;&gt;プロジェクトページ&lt;/h3&gt;
+
+&lt;p&gt;こちらは リポジトリ用のページ作成をする機能です。
+リポジトリごとに作れます。&lt;/p&gt;
+
+&lt;p&gt;アドレスは &lt;code&gt;http://アカウント名.github.com/リポジトリ名/&lt;/code&gt; となります。
+ユーザページのサブディレクトリに構築されます。&lt;/p&gt;
+
+&lt;p&gt;Hiroshimarb の &lt;a href=&#34;https://github.com/hiroshimarb/hiroshimarb-gem&#34;&gt;Hiroshimarb-gem&lt;/a&gt; というリポジトリのページは &lt;a href=&#34;http://hiroshimarb.github.com/hiroshimarb-gem/&#34;&gt;http://hiroshimarb.github.com/hiroshimarb-gem/&lt;/a&gt;になります。&lt;/p&gt;
+
+&lt;p&gt;これは、&lt;code&gt;hiroshimarb-gem&lt;/code&gt; リポジトリの &lt;strong&gt;gh-pages&lt;/strong&gt; ブランチがウェブサイトになります。&lt;/p&gt;
+
+&lt;p&gt;ユーザページとは違う点として 自動生成する機能があり、内容をウェブ上で入力して、レイアウトを選択することで作成することもできます。
+自分で構築することもできます。&lt;/p&gt;
+
+&lt;p&gt;自動生成するには、 リポジトリの設定画面にいくと、Options に Github Pages という項目があるので、&lt;code&gt;Automatic Page Generator&lt;/code&gt;をクリックして指示どおりすすめていくと作ることができます。&lt;/p&gt;
+
+&lt;p&gt;この自動生成されたページは Jekyll が使用されています。&lt;/p&gt;
+
+&lt;h2 id=&#34;github-pages-の構築方法:a84c94e8af05d534511e157f48c1577d&#34;&gt;Github Pages の構築方法&lt;/h2&gt;
+
+&lt;p&gt;何度か出てきましたが、Github Pages を使って公開するウェブサイトを構築する方法は大きく分けて二通りあります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Jekyll を使う&lt;/li&gt;
+&lt;li&gt;Jekyll を使わない&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;です。&lt;/p&gt;
+
+&lt;h3 id=&#34;jekyll-を使う:a84c94e8af05d534511e157f48c1577d&#34;&gt;Jekyll を使う&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt; を使う場合は markdown 形式や textile 形式のファイルを書いて push すれば、Github が HTML へ変換してくれます。
+レイアウトなどの機能も備えているので 重複を抑えつつページを作成することができます。&lt;/p&gt;
+
+&lt;p&gt;ユーザぺージで、Jekyllを使う場合、デザインしたり、RSSを配信したりするのは少し手間がかかります。
+楽をしたい場合は、&lt;a href=&#34;http://jekyllbootstrap.com/&#34;&gt;Jekyll Bootstrap&lt;/a&gt;などを使うある程度設定された状態と Jekyll を利用できます。&lt;/p&gt;
+
+&lt;p&gt;一応、もう一度書いておきますが、ユーザページなら master ブランチ、プロジェクトページなら gh-pages ブランチ にpush した内容が使われます。&lt;/p&gt;
+
+&lt;h3 id=&#34;jekyll-を使わない場合はさらに細分化できます:a84c94e8af05d534511e157f48c1577d&#34;&gt;Jekyll を使わない場合はさらに細分化できます。&lt;/h3&gt;
+
+&lt;p&gt;Jekyll を使わない場合は、ユーザページの master ブランチ、プロジェクトページなら gh-pages ブランチ の内容がそのまま公開されます。&lt;/p&gt;
+
+&lt;p&gt;なので、HTMLを書いてコミットして push すれば 普通のウェブサーバの様に利用することができます。&lt;/p&gt;
+
+&lt;p&gt;動的にページを生成することはできないので、JavaScriptなどで工夫したり、ローカルマシンで Jekyll などを動かして生成したページをコミットして使うという方法もよくされています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://octopress.org/&#34;&gt;Octopress&lt;/a&gt; というツールがよく使われていますが、これはローカルマシンで Jekyll を動かしページを生成して、自動的にコミット、プッシュします。
+同様のツールはいくつかありますが、ここでは紹介しません。&lt;/p&gt;
+
+&lt;p&gt;この方法の良いところはやりたい放題できることでしょう。Githubで動く Jekyll はplugin が利用できないなど、制限があります。&lt;/p&gt;
+
+&lt;p&gt;しかし、 Git の練習はできません。&lt;/p&gt;
+
+&lt;h2 id=&#34;独自ドメインの使用:a84c94e8af05d534511e157f48c1577d&#34;&gt;独自ドメインの使用&lt;/h2&gt;
+
+&lt;p&gt;使用したいドメインを &lt;code&gt;CNAME&lt;/code&gt; というファイルに書いておいて、 DNSを設定をして,Githubを参照するようにすれば独自ドメインが利用できます。
+DNSの設定方法にについてはここには書きません。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:a84c94e8af05d534511e157f48c1577d&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Github Pages を使ってみたいなら ユーザページを試してみましょう。&lt;/li&gt;
+&lt;li&gt;プロジェクトのサイトを簡単に作れます。成熟してるプロジェクトは試してみましょう。&lt;/li&gt;
+&lt;li&gt;CGI、PHPの動かない Webサーバとして使えます。&lt;/li&gt;
+&lt;li&gt;Blog を作りたいなら Jekyll Bootstrap か Octopress を試してみましょう。
+
+&lt;ul&gt;
+&lt;li&gt;Git を使う練習を兼ねたいなら Jekyll Bootstrap のほうがおすすめです。&lt;/li&gt;
+&lt;li&gt;複数人で変更する可能性がある場合も Jekyll がよいです。&lt;/li&gt;
+&lt;li&gt;Scss などメタCSSを使いたいなら Octopress のほうが良いです。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;説明してない結論がありますが、気にしないでください。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=477416366X&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&#34;関連:a84c94e8af05d534511e157f48c1577d&#34;&gt;関連&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/06/how-to-use-github/&#34;&gt;Git がわからなくても Github を利用しよう&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Git がわからなくても Github を利用しよう</title>
+          <link>http://blog.eiel.info/blog/2013/02/06/how-to-use-github/</link>
+          <pubDate>Wed, 06 Feb 2013 13:36:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/06/how-to-use-github/</guid>
+          <description>
+
+&lt;p&gt;みなさん &lt;a href=&#34;https://github.com/&#34;&gt;Github&lt;/a&gt; を利用していますか？&lt;/p&gt;
+
+&lt;p&gt;「Git がわからないから…」と、そんな理由で使わないのはもったいないです。&lt;/p&gt;
+
+&lt;p&gt;Webや開発に携わる人間であれば、例えプログラムを書かなくても、Github へアクセスする機会は増えているのではないでしょうか。&lt;/p&gt;
+
+&lt;p&gt;Webの人であれば jQueryのプラグインを探したり、サンプルコードが Github においてあったりすると思います。&lt;/p&gt;
+
+&lt;p&gt;しかし、いきなり使いこなすのは難しいので、まずは以下のことをはじめてみることをおすすめします。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;アカウントを作る&lt;/li&gt;
+&lt;li&gt;知り合いや気になる人をフォローする&lt;/li&gt;
+&lt;li&gt;自分が利用しているリポジトリや気になるリポジトリにスターを付ける&lt;/li&gt;
+&lt;li&gt;News Feed を読む&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;日本人がやってるネタリポジトリの Issues やPull Requestsに絡む&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Gitを利用しなければいけない機能はとりたててありません。&lt;small&gt;(Pull Requestには突っ込まないで)&lt;/small&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;アカウントを作る:43d506de6b4a65e51ca9ab597ec3c938&#34;&gt;アカウントを作る&lt;/h2&gt;
+
+&lt;p&gt;まず、アカウントがないと何もできません。作りましょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/&#34;&gt;Githubのトップページ&lt;/a&gt;に &amp;ldquo;Sign up for free&amp;rdquo; というボタンから作成することができます。&lt;/p&gt;
+
+&lt;h2 id=&#34;知り合いや気になる人をフォローする:43d506de6b4a65e51ca9ab597ec3c938&#34;&gt;知り合いや気になる人をフォローする&lt;/h2&gt;
+
+&lt;p&gt;友達や気になる人をフォローしましょう。相手がフォロー返しをしてこなくても気にすることはないです。&lt;code&gt;News Feed を読む&lt;/code&gt; ための布石にすぎません。&lt;/p&gt;
+
+&lt;p&gt;フォローすると News Feed にフォローした人の活動が表示されるようになります。これを見るのが目的なので、自分が興味のある活動をしている人がおすすめです。
+あまり活動的な人をフォローするとフィードがどんどん流れてしまうので、初心者にはおすすめできません。&lt;/p&gt;
+
+&lt;p&gt;フォローする相手がいない場合は、あまり活発でない リポジトリをウォッチするという手もあります。&lt;/p&gt;
+
+&lt;p&gt;フォローするには &lt;code&gt;https//github.com/ユーザ名&lt;/code&gt; にアクセスして、画面右上のほうに Followというボタンがあるのでそれをクリックします。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/follow.png&#34; alt=&#34;フォローする&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;例えば、私をフォローしたい場合は、&lt;a href=&#34;http://github.com/eiel&#34;&gt;http://github.com/eiel&lt;/a&gt; にアクセスします。&lt;/p&gt;
+
+&lt;h2 id=&#34;自分が利用しているリポジトリや気になるリポジトリにスターを付ける:43d506de6b4a65e51ca9ab597ec3c938&#34;&gt;自分が利用しているリポジトリや気になるリポジトリにスターを付ける&lt;/h2&gt;
+
+&lt;p&gt;スターというのは、&lt;code&gt;お気に入り&lt;/code&gt;、&lt;code&gt;ブックマーク&lt;/code&gt;、&lt;code&gt;いいね!&lt;/code&gt;のような機能です。ソーシャルブックマークの効果を感じていれば、説明は不要だと思います。&lt;/p&gt;
+
+&lt;p&gt;スターをつけると、自分の活動に &lt;code&gt;このリポジトリにスターをつけました&lt;/code&gt; と流れるので、あなたをフォローしている人が目にすることになります。
+そうすると、そのリポジトリを見にいく人が増えますので、そのリポジトリがより活発になる可能性が高くなります。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;応援したい!!&lt;/strong&gt; と思えば、すかさず押してしまっても良いでしょう。&lt;/p&gt;
+
+&lt;h2 id=&#34;news-feed-を読む:43d506de6b4a65e51ca9ab597ec3c938&#34;&gt;News Feed を読む&lt;/h2&gt;
+
+&lt;p&gt;ここが本記事の主旨です。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;News Feed を読みましょう。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;News Feed はログインした状態で、&lt;a href=&#34;https://github.com/&#34;&gt;Githubのトップ&lt;/a&gt;にアクセスすると閲覧できます。&lt;/p&gt;
+
+&lt;p&gt;友人もフォローしたし、スターをつけることを学びました。
+友人がスターを付けたことがわかるはずです。
+そのときはどんなリポジトリなのか見にいきましょう。
+トレンドや面白いものが見つかるかもしれません。&lt;/p&gt;
+
+&lt;p&gt;News Feed は RSSリーダでも読むことができます。&lt;/p&gt;
+
+&lt;p&gt;画面右上にリンクがありますので、簡単にできると思います。URLにアクセストークンを含むので、&lt;strong&gt;Web上の RSSリーダで閲覧する場合は自己責任でお願いします。&lt;/strong&gt;
+自分の活動が流れるわけではないのであまり気にすることでもないかもしれません。&lt;/p&gt;
+
+&lt;h2 id=&#34;日本人がやってるネタリポジトリの-issue-やpull-request-に絡む:43d506de6b4a65e51ca9ab597ec3c938&#34;&gt;&lt;strong&gt;日本人がやってるネタリポジトリの Issue やPull Request に絡む&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;上記の機能以外で挑戦してみて欲しいのは &lt;code&gt;Issue&lt;/code&gt; や &lt;code&gt;Pull Request&lt;/code&gt; という機能です。
+Github の中で特に魅力的な機能です。&lt;/p&gt;
+
+&lt;p&gt;Isuueはバグを報告するところです。質問するためにも利用されていますし、TODOリストにも使います。&lt;/p&gt;
+
+&lt;p&gt;Pull Request は&lt;strong&gt;「ここを修正したのだけど、取り込んでくれませんか？」&lt;/strong&gt;と伝えるところです。
+Issueに上がってるものを修正したり、追加機能を思いついたときに利用します。&lt;/p&gt;
+
+&lt;p&gt;これらの機能を試すには、いきなり英語の開発プロジェクトに行くにはハードルが高いです。挑戦してみたいなら遊びでやってるようなものが絡みやすいです&lt;/p&gt;
+
+&lt;p&gt;私が関わるものであれば&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hiroshimarb/hiroshimarb-gem&#34;&gt;Hiroshimarb-gem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/StudySessions&#34;&gt;全国の勉強会を整理しよう&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などがあります。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめとか:43d506de6b4a65e51ca9ab597ec3c938&#34;&gt;まとめとか&lt;/h2&gt;
+
+&lt;p&gt;News Feed を見ているだけでも、いろんなことに挑戦したくなったり、もっと便利に使いたくなるようになります。
+Git 自体の勉強はその時にはじめていけばよいと思います。&lt;/p&gt;
+
+&lt;p&gt;Git のコマンドラインインターフェイスもどんどん丁寧になっており、&lt;small&gt;英語さえ読めば&lt;/small&gt;怖いこともありません。
+GUIツールもどんどん便利になっていますが、痒いところに届きにくいですので、余裕がある方はコマンドラインからの利用から入門をおすすめします。&lt;/p&gt;
+
+&lt;p&gt;Githubは開発者のSNSともいえる場所です。一歩進んだ開発者をめざすには必見のサイトではないでしょうか。&lt;/p&gt;
+
+&lt;h2 id=&#34;関連:43d506de6b4a65e51ca9ab597ec3c938&#34;&gt;関連&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/06/how-to-use-github/&#34;&gt;Github の楽しみ方 &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/11/21/github-notifications-is-not-spam/&#34;&gt;GitHub からの通知が迷惑メールになった - 見ないリポジトリは unwatch しよう&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=477416366X&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Github pages が反映されない？と思ったらスパム扱いされてるかも</title>
+          <link>http://blog.eiel.info/blog/2013/01/21/github-spam/</link>
+          <pubDate>Mon, 21 Jan 2013 15:22:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/21/github-spam/</guid>
+          <description>&lt;p&gt;ここ最近 github に push しても Github pages が反映されない現象に悩まされておりましたが、スパム判定されていたらしいです。&lt;a href=&#34;https://github.com/eiel&#34;&gt;私のgithubのprofileページ&lt;/a&gt;が私以外の人がみれなくてスパム判定されていることが発覚しました。同じようなことに悩まれることがあれば、運営に確認してみてはどうでしょうか。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

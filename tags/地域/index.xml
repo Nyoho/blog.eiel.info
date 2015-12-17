@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E5%9C%B0%E5%9F%9F/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-07-01 23:23:35 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>プログラマは地域のヒーローになれるんだろうか - Code for Japan Brigadeに関わることについて少し考えた</title>
+          <link>http://blog.eiel.info/blog/2015/07/01/code-for-hiroshima/</link>
+          <pubDate>Wed, 01 Jul 2015 23:23:35 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/07/01/code-for-hiroshima/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://www.facebook.com/CodeForHiroshima&#34;&gt;Code for Hiroshima&lt;/a&gt;というコミュニティができたらしい。
+広島の市民や自治体と連携して、テクノロジーを活用することで地域課題を解決することを目指す団体だ。広島以外にもこのような団体はあって「Code for なにがし」がいろんな地域にある。&lt;/p&gt;
+
+&lt;p&gt;このような活動は普段の生活ににおいて&lt;strong&gt;IT業界にいるプログラマやデザイナの価値を高める&lt;/strong&gt;んじゃないかと思っていたりする。&lt;/p&gt;
+
+&lt;p&gt;少し前までは、コンピュータのチカラを有効に使えるという能力は地域課題の課題解決には役に立たなかったんじゃないかと思う。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;市民の多くの人がテクノロジーを活用できるデジタルデバイスを所有するようになった&lt;/li&gt;
+&lt;li&gt;プログラマが活用できるコンピュータ資源が豊富になった&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という背景ができて、身近なまわりの人の問題にプログラマの活躍できるようになったんじゃないかと思う。
+IT関係のスタートアップが豊富なのもきっと同じ理由だろう。&lt;/p&gt;
+
+&lt;p&gt;今や僕らプログラマは大きなチカラをもっているのかもしれない。&lt;/p&gt;
+
+&lt;h1 id=&#34;プログラマは地域のヒーローになれるのか:0e9265a47e4cc711e1b03b075314ef6c&#34;&gt;プログラマは地域のヒーローになれるのか&lt;/h1&gt;
+
+&lt;p&gt;プログラマといえば、少し前までは、一部の物好きが使うおもちゃみたいなものだったみたいです。
+黒い画面に向かい、指だけを動かしている人たちです。
+とても不健康そうです。オタクなんて言われていたりした気がする。&lt;/p&gt;
+
+&lt;p&gt;コンピュータは軍事活用のために研究は進められたかもしれません。
+ビジネスの世界では効率化のために活用されていったかもしれません。
+しかし、今は誰でも持ち歩けるところまで発展しました。
+プログラミングができるというのは、車を運転ができるような生活に役に立つようなものではなかったのですが、誰もが持ちあるくものになることで状況は変わってきているのです。
+これまでもパソコンが普及したことで、パソコンで困ったことがあれば、質問されるようなこともありました。
+大抵の質問はプログラマとしてのスキルが活かせるようなものはなく、特定のソフトウェアの利用方法に関するものでした。
+でも、状況は変わってきたのです。&lt;/p&gt;
+
+&lt;p&gt;地域課題を解決するオープンソースプロジェクトやオープンデータが登場することで、プログラマは地域課題に活躍できる立場になったのです。&lt;/p&gt;
+
+&lt;p&gt;ソースコードが公開されていれば、他の地域の問題を解決するサービスを自分達の地域でも使えるように修正ができるのです。
+ソフトウェアの根本的な問題を追うことができるのです。
+データがないのであれば、データをつくる場所を提供することができるのです。
+さらに、公開されている情報を組み合わせたり、情報を公開する場を提供したりできるのです。&lt;/p&gt;
+
+&lt;p&gt;そして実際に問題を解決していくことで、プログラマはよくわからない不健康そうな人たちから、「もしかしたらなんとかしてくれる」という、子供たちの憧れになっていくのではないかと思うのです。&lt;/p&gt;
+
+&lt;h1 id=&#34;code-for-hiroshimaについてもう少し:0e9265a47e4cc711e1b03b075314ef6c&#34;&gt;Code for Hiroshimaについてもう少し&lt;/h1&gt;
+
+&lt;p&gt;Code for Hiroshimaは&lt;a href=&#34;http://code4japan.org/&#34;&gt;Code for Japan&lt;/a&gt;が提供する支援プログラムに参加するCode for Japan Brigade(ブリゲード)という立場になります。
+個々のブリゲードは独立して活動しているようですがCode for Japanを通して関節的に連携することになります。繋りをつかってお互いにサポートしあうことができます。&lt;/p&gt;
+
+&lt;p&gt;コミュニティを構成するメンバーはテクノロジーの提供するプログラマやデザイナだけでなく、地域課題を抱えている市民も対象となります。&lt;/p&gt;
+
+&lt;p&gt;市民のためのコミュニティであるため、非プログラマの市民のメンバーがいることは重要なことです。
+活用をするのは市民だからです。活用されないテクノロジーに価値はありません。&lt;/p&gt;
+
+&lt;p&gt;そのため、市民が本当に必要なものを提供するために開発段階から一緒に活動し、問題の共有とテクノロジーの活用する能力を一緒に向上していくことになります。
+l
+そんなわけでCode for Hiroshimaのオープンなミーティングが7月からはじまるそうです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;7月5日 日曜日 10時 &lt;a href=&#34;https://www.facebook.com/events/1589552057985627/&#34;&gt;Code for Hiroshima 井戸端会議&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Code for Hiroshimaは「&lt;a href=&#34;https://readyfor.jp/projects/peaceweek-hironaga&#34;&gt;被爆70年の広島・長崎での平和イベントを可視化するサービス&lt;/a&gt;」の開発や、&lt;a href=&#34;http://hiroshima.5374.jp/&#34;&gt;いつ、どのゴミが収集されているのか？をわかるサービス&lt;/a&gt;のメンテナンスをしていたり、&lt;a href=&#34;http://parkmap.eiel.info/&#34;&gt;広島の駐車場の料金を調べることのできるサービス&lt;/a&gt;の開発を支援していたりするそうです。&lt;/p&gt;
+
+&lt;p&gt;作成中のサービスに意見をしたかったり、自分の困っている問題をテクノロジーで解決してみたかったりするような人をみかけたら紹介してあげてください。
+もちろんテクロノジーを提供する能力をもった人はヒーローになるために参加してみてもいいと思います。&lt;/p&gt;
+
+&lt;h1 id=&#34;まとめ:0e9265a47e4cc711e1b03b075314ef6c&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Code for Hiroshimaができた。&lt;/li&gt;
+&lt;li&gt;プログラマはみんなの憧れになれるかもしれない。わからない。&lt;/li&gt;
+&lt;li&gt;参加自体はオープンだ。気軽に参加してみよう。&lt;/li&gt;
+&lt;li&gt;普通の人の視点が重要だ。みんなを巻き込んでいこう。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;関連リンク:0e9265a47e4cc711e1b03b075314ef6c&#34;&gt;関連リンク&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/04/06/ltdd-02-5374/&#34;&gt;hiroshima.5374.jpをつくった話を LT駆動開発 02 でしてきた&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

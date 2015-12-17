@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/gentoo/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-07-10 15:04:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Docker Hub を少し試してきた</title>
+          <link>http://blog.eiel.info/blog/2014/07/10/abc-docker-hub/</link>
+          <pubDate>Thu, 10 Jul 2014 15:04:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/10/abc-docker-hub/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.docker.com/&#34;&gt;Docker&lt;/a&gt; 初心者です。
+難しいことはよくわかりません。&lt;/p&gt;
+
+&lt;p&gt;いまさら &lt;a href=&#34;https://hub.docker.com/&#34;&gt;Docker Hub&lt;/a&gt; で遊んだ。&lt;/p&gt;
+
+&lt;p&gt;ちなみに &lt;a href=&#34;http://great-h.github.io/events/event-060.html&#34;&gt;#すごい広島 60&lt;/a&gt; で遊んでたことらしいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;今回は何をしたのか:fa815a66b9e024206917c488bc425e45&#34;&gt;今回は何をしたのか&lt;/h3&gt;
+
+&lt;p&gt;docker さえインストールされていれば、以下のコマンドを実行できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker run eiel/banner
+######   #######   #####   #    #  #######  ######
+#     #  #     #  #     #  #   #   #        #     #
+#     #  #     #  #        #  #    #        #     #
+#     #  #     #  #        ###     #####    ######
+#     #  #     #  #        #  #    #        #   #
+#     #  #     #  #     #  #   #   #        #    #
+######   #######   #####   #    #  #######  #     #
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker run -e BANNER_ENV=&amp;quot;happy hacking&amp;quot; eiel/banner
+#     #     #     ######   ######   #     #
+#     #    # #    #     #  #     #   #   #
+#     #   #   #   #     #  #     #    # #
+#######  #     #  ######   ######      #
+#     #  #######  #        #           #
+#     #  #     #  #        #           #
+#     #  #     #  #        #           #
+
+
+#     #     #      #####   #    #  ###  #     #   #####
+#     #    # #    #     #  #   #    #   ##    #  #     #
+#     #   #   #   #        #  #     #   # #   #  #
+#######  #     #  #        ###      #   #  #  #  #  ####
+#     #  #######  #        #  #     #   #   # #  #     #
+#     #  #     #  #     #  #   #    #   #    ##  #     #
+#     #  #     #   #####   #    #  ###  #     #   #####
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;BANNER_ENV を設定すると出力を変えられます。&lt;/p&gt;
+
+&lt;p&gt;これの何が嬉しいかというと、&lt;strong&gt;banner コマンドの実行環境が簡単に用意できる&lt;/strong&gt;ことだと思います。
+redmine を実行するのに、 GitLab を実行するのに、Wordpressを実行するのに &lt;code&gt;docker run&lt;/code&gt; でリポジトリ名を指定するだけでできるとしたらとても嬉しいと思います。&lt;/p&gt;
+
+&lt;p&gt;(実際にはDbのデータどうすんの？とかある気がするけど、どうするのがいいのかよく知らないけど)&lt;/p&gt;
+
+&lt;p&gt;定時実行するスクリプトが Docker さえインストールしていれば実行できたりするわけですね。&lt;/p&gt;
+
+&lt;h3 id=&#34;docke-hub-はどこで使ってるのか:fa815a66b9e024206917c488bc425e45&#34;&gt;Docke Hub はどこで使ってるのか&lt;/h3&gt;
+
+&lt;p&gt;eiel/banner というイメージが Docker Hub にあいてあるので、&lt;code&gt;docker run eiel/banner&lt;/code&gt; を実行すると、まだローカルにイメージがなければ取得して実行できます。
+それだけ。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://registry.hub.docker.com/u/eiel/banner/&#34;&gt;このイメージはここにあります&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/docker-banner&#34;&gt;イメージを作成するのに Dockerfile をつかっており、コードは GitHub に up してあります。&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FROM eiel/gentoo-sample:banner
+MAINTAINER Tomohiko Himura &amp;lt;eiel.hal@gmail.com&amp;gt;
+
+ENV BANNER_ENV docker
+CMD banner $BANNER_ENV
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;このファイルをカレントディレクトリに置いて &lt;code&gt;docker build -t banner .&lt;/code&gt; とするとイメージを作ることができます。
+&lt;code&gt;docker run banner&lt;/code&gt; とすることで、同じことができるようになります。&lt;/p&gt;
+
+&lt;p&gt;Docker Hub は GitHub と連携して、&lt;code&gt;git push&lt;/code&gt; した際に、&lt;code&gt;docker build&lt;/code&gt; をして自動的にイメージをつくってくれる機能があります。
+これで docker ファイルを編集して GitHub に push するたびに最新のイメージを自動的に作成され、Docke Hub に置かれるようになります。素敵。&lt;/p&gt;
+
+&lt;p&gt;Docker Hub でリポジトリをつくる際に automated build を選び、GitHub のリポジトリを指定するだけでした。&lt;/p&gt;
+
+&lt;p&gt;複数のリポジトリに紐付けしたり、途中から別のリポジトリに紐付けしたりはできませんでした。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;CMD banner $BANNER_ENV&lt;/code&gt; と指定している部分が run に引数を指定しなかった時のコマンドになるそうです。&lt;/p&gt;
+
+&lt;h3 id=&#34;もうちょっと詳しく-リポジトリ連携:fa815a66b9e024206917c488bc425e45&#34;&gt;もうちょっと詳しく リポジトリ連携&lt;/h3&gt;
+
+&lt;p&gt;Dockerfile をみると &lt;code&gt;FROM eiel/gentoo-sample:banner&lt;/code&gt; となっています。
+元になるイメージが別にあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://registry.hub.docker.com/u/eiel/gentoo-sample/&#34;&gt;このイメージはこっちにあります。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;banner はタグです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/docker-sample-eiel-gentoo-banner/blob/master/Dockerfile]&#34;&gt;これも Dockerfile が GitHub にあります。&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FROM eiel/gentoo
+MAINTAINER Tomohiko Himura &amp;lt;eiel.hal@gmail.com&amp;gt;
+
+WORKDIR /usr
+ADD install-portage.sh .
+RUN sh /install-portage.sh
+RUN emerge banner
+CMD banner docker
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;emerge するために portage を追加して、emerge banner をしているだけです。&lt;/p&gt;
+
+&lt;p&gt;ADD するときに .tar.bz2 を展開できたら便利なのに…。&lt;/p&gt;
+
+&lt;p&gt;これも git push すると自動的にイメージが作成されます。
+ところで、 eiel/gentoo-sample:banner が更新されたら、先ほどの eie/banner のイメージも構築しなおして欲しいですよね。&lt;/p&gt;
+
+&lt;p&gt;Docker Hub に Repository Links という機能があるらしいので、
+eiel/banner のほうの Reposityr Links に eiel/gentoo-sample と追加すると eiel/gentoo-sample のイメージが新しくなると、eiel/banner も自動的にビルドされるようになりました。&lt;/p&gt;
+
+&lt;h3 id=&#34;さらに詳しく-eiel-gentoo-はどうやってつくったか:fa815a66b9e024206917c488bc425e45&#34;&gt;さらに詳しく eiel/gentoo はどうやってつくったか&lt;/h3&gt;
+
+&lt;p&gt;FROM に eiel/gentoo と指定されてます。
+これは Docker File を用意していません。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget http://ftp.iij.ad.jp/pub/linux/gentoo/releases/amd64/current-iso/stage3-amd64-$20140619.tar.bz2 -O - | bzcat | docker import - eiel/gentoo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;みたいな感じでつくりました。
+こちらはイメージを作成したあと docker push eiel/gentoo にアップロードしました。&lt;/p&gt;
+
+&lt;p&gt;こちらも Repository Links を設定しておくとベースシステムの Gentoo が更新されると、eiel/gentoo-sample/banner が更新され、 eiel/banner が更新されるはずです。(試してないけど)&lt;/p&gt;
+
+&lt;p&gt;stage3 の tarball を展開しただけだけどこんなのでいいのかは &lt;a href=&#34;https://github.com/naota/dockergentoo&#34;&gt;@naota さんのリポジトリをみてみたいと思う。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;個人的には portage をつっこんだイメージで emerge して 、portage をつっこんでないほうへもっていって使いたい。&lt;/p&gt;
+
+&lt;h3 id=&#34;蛇足:fa815a66b9e024206917c488bc425e45&#34;&gt;蛇足&lt;/h3&gt;
+
+&lt;p&gt;最初は sl コマンドをつかっていたのだけど run する時に &lt;code&gt;-t&lt;/code&gt; 必要なのでやめた。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:fa815a66b9e024206917c488bc425e45&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;GitHub にプルリクをだすと実行環境として必要なイメージが作成されて、作成したイメージの上でテストコードを実行して、イメージのIDが返ってきて、その上でアプリケーションの実行とかできて、そのままデプロイできると素敵そうですね。失敗した場合は動作確認ができたりとか。&lt;/p&gt;
+
+&lt;p&gt;知らんけど&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:fa815a66b9e024206917c488bc425e45&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.docker.com/reference/builder/&#34;&gt;Dockerfile - Docker Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.docker.com/reference/commandline/cli/&#34;&gt;Command line - Docker Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/naota/dockergentoo&#34;&gt;naota/dockergentoo · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/k2works/docker_practice#ruby-on-rails%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AEdockerfile%E3%82%92%E3%81%A4%E3%81%8F%E3%82%8B&#34;&gt;k2works/docker_practice · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>さくらVPSでGentoo をインストールした時のはまったことのメモ</title>
+          <link>http://blog.eiel.info/blog/2014/07/01/gentoo-linux-in-sakura-vps/</link>
+          <pubDate>Tue, 01 Jul 2014 17:58:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/01/gentoo-linux-in-sakura-vps/</guid>
+          <description>
+
+&lt;p&gt;つかってた VPS がサービス終了してしまったので、さくら VPS に移行してみた。
+折角なので OS は &lt;a href=&#34;https://www.gentoo.org/&#34;&gt;Gentoo Linux&lt;/a&gt; を選択した。&lt;/p&gt;
+
+&lt;p&gt;前の VPS では Debian をつかってた。
+なんか、ウェブサーバの応答がよくなった気がする。&lt;/p&gt;
+
+&lt;p&gt;一応はまったことを書いておくけど大したことは書いていない。&lt;/p&gt;
+
+&lt;p&gt;iso アップロードして、普通にインストールした。&lt;/p&gt;
+
+&lt;h3 id=&#34;デバイス-eth0-がみつからない:e34c3ccdd1c68d0a41c9b85aa59ae074&#34;&gt;デバイス eth0 がみつからない&lt;/h3&gt;
+
+&lt;p&gt;なんか enp0s3 として認識してた。
+おかげで、ネットワークつながらなくて苦労した。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考 &lt;a href=&#34;http://gakutarou.hatenablog.com/entry/2013/05/22/204507&#34;&gt;さくらのVPS（2G）でのハマリポイント(enp0s3) - /dev/curiosity&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;ディスク-が-vda-だった:e34c3ccdd1c68d0a41c9b85aa59ae074&#34;&gt;ディスク が vda だった&lt;/h3&gt;
+
+&lt;p&gt;「ディスクがねぇぇええ」って、デフォのCentOS起動してよくみたら &lt;code&gt;sda&lt;/code&gt; じゃなくて &lt;code&gt;vda&lt;/code&gt; だった。&lt;/p&gt;
+
+&lt;h3 id=&#34;gpt-に挑戦したら-grub-が入らなかった:e34c3ccdd1c68d0a41c9b85aa59ae074&#34;&gt;GPT に挑戦したら GRUB が入らなかった&lt;/h3&gt;
+
+&lt;p&gt;最近Linuxインストールしてなかった。GPTとやらにしてみることにした。
+なにも考えずにデフォのCentOSのパーティションをそのまま利用して構築していた。
+さあ、GRUBをインスールするぞ。というところで気づいたのだけど、&lt;a href=&#34;http://www.gnu.org/software/grub/manual/html_node/BIOS-installation.html&#34;&gt;BIOS boot partition&lt;/a&gt;とやらなく、GRUBのインストールに失敗するので、対処を迫られた。&lt;/p&gt;
+
+&lt;p&gt;すでにカーネル配置済みの &lt;code&gt;/boot&lt;/code&gt; の中身を一旦退避して、パーティションを書き換えてごまかした。&lt;/p&gt;
+
+&lt;h3 id=&#34;ブートcd-がある方法で-ディスクブートする方法がわからない:e34c3ccdd1c68d0a41c9b85aa59ae074&#34;&gt;ブートCD がある方法で、ディスクブートする方法がわからない&lt;/h3&gt;
+
+&lt;p&gt;15秒放置するだけでした。&lt;/p&gt;
+
+&lt;h3 id=&#34;virtio-いれわすれてディスクがみつけられない:e34c3ccdd1c68d0a41c9b85aa59ae074&#34;&gt;virtio いれわすれてディスクがみつけられない&lt;/h3&gt;
+
+&lt;p&gt;とりあえず、 genkernel したからなにもいらないかとおもったけどダメだったらしい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ genkernel --virtio all
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とか genkernel にいろいろオプションがあるのを学んだ。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:e34c3ccdd1c68d0a41c9b85aa59ae074&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;Gentoo力上がってるので、あんまりハマってない。
+最初のネットワークが繋がらないで挫折しそうだったのは秘密である。&lt;/p&gt;
+
+&lt;h3 id=&#34;他に参考したものとか:e34c3ccdd1c68d0a41c9b85aa59ae074&#34;&gt;他に参考したものとか&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ruby.agile.esm.co.jp/pages/HowToInstallGentooForSakuraVps&#34;&gt;Ruby x Agile version:β - Rubyとアジャイルでふつうのシステム開発を実現する永和システムマネジメントのWebサイト&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;コンパネにもかいってあったけどシリアルコンソール用の設定とかみないと忘れていたであろう。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Funtoo から Gentoo に戻してみた</title>
+          <link>http://blog.eiel.info/blog/2013/07/10/from-funtoo-to-gentoo/</link>
+          <pubDate>Wed, 10 Jul 2013 19:29:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/07/10/from-funtoo-to-gentoo/</guid>
+          <description>
+
+&lt;p&gt;この記事は &lt;a href=&#34;http://great-h.github.io/events/event-008.html&#34;&gt;すごい広島 #008&lt;/a&gt; に参加中に書きました。&lt;/p&gt;
+
+&lt;p&gt;この間、我が家の Funtoo を Gentoo に戻してみた。&lt;/p&gt;
+
+&lt;p&gt;戻した理由 OpenRC のバージョン違いで munin が新しいのにできなかったから。
+Gentooからの乖離が大きくなってきてるみたいですね。 #知らんけど&lt;/p&gt;
+
+&lt;p&gt;折角なので、戻す際に新規インストールせずに、そのまま移行できないか試みてみた。バックアップとるのがめんどくさかったとかでは決してない。たぶん。&lt;/p&gt;
+
+&lt;p&gt;Gentoo に関しては勉強不足なので、ここに書いてあることは&lt;strong&gt;鵜呑みにせず参考にするぐらい&lt;/strong&gt;にしてください。
+そういうこともできるだろうということでやってみたかった。&lt;/p&gt;
+
+&lt;h2 id=&#34;手順を考える:3d78432f4ed171a16fc0f70a54aa9292&#34;&gt;手順を考える&lt;/h2&gt;
+
+&lt;p&gt;最初どうすればいいのかなぁ。考えてみた結果。
+以下のとおりになりました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;portage tree を Gentoo のものに変える&lt;/li&gt;
+&lt;li&gt;emerge -e @system を実行する&lt;/li&gt;
+&lt;li&gt;meerge -e @world を実行する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;結論からいうと概ね予定通りできましたが、それなりにはトラブルがありました。&lt;/p&gt;
+
+&lt;h3 id=&#34;portage-tree-を-gentoo-のものに変える:3d78432f4ed171a16fc0f70a54aa9292&#34;&gt;portage tree を Gentoo のものに変える&lt;/h3&gt;
+
+&lt;p&gt;一番苦戦したところです。&lt;/p&gt;
+
+&lt;p&gt;Funtoo は git を利用して portage tree を更新するので、参照先の Gentoo の rsync のものするだけでは &lt;code&gt;emerge --sync&lt;/code&gt; がエラーになってしまいました。具体的には &lt;code&gt;/etc/make.conf&lt;/code&gt; の SYNC です。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/funtoo/portage&#34;&gt;Gentoo の portage tree も Git を使う&lt;/a&gt; という手もあるのですが、これ最近 コミットされてないように見えます。
+どこかに更新されてるのがあるのかもしれませんが、よくわからなかったのでこの方法は諦めました。&lt;/p&gt;
+
+&lt;p&gt;ということで、既存の portage tree である &lt;code&gt;/usr/portage&lt;/code&gt; を一旦 &lt;code&gt;mv&lt;/code&gt; で退避しておいて、 &lt;a href=&#34;http://rsync1.jp.gentoo.org/snapshots/portage-latest.tar.bz2&#34;&gt;http://rsync1.jp.gentoo.org/snapshots/portage-latest.tar.bz2&lt;/a&gt; を取得して展開することにしました。&lt;/p&gt;
+
+&lt;p&gt;差し替えたのはよいのですが、 &lt;code&gt;/etc/portage/make.pryfole&lt;/code&gt; の形式が Funtoo と Gentoo で違いました。&lt;/p&gt;
+
+&lt;p&gt;Gentoo はシンボリックリンクなのですが、Funtoo は複数の profile が選択できるので、ファイルになっていました。
+というわけで、手作業でなんとかしました。&lt;/p&gt;
+
+&lt;h3 id=&#34;emerge-e-system:3d78432f4ed171a16fc0f70a54aa9292&#34;&gt;emerge -e @system&lt;/h3&gt;
+
+&lt;p&gt;これで Gentoo のパッケージを参照できるようになったので、基本的なパッケージを差し替えていきます。
+「一発でいけばいいなぁ」、と思いなが適当に回したところ、何度か失敗しました。&lt;/p&gt;
+
+&lt;p&gt;収録されているファイルが違うパッケージのものがあったみたいで、コンフリクトが起きました。
+コンフリクトした先のパッケージを先にインストールして、再開すると無事に インストールできました。&lt;/p&gt;
+
+&lt;h3 id=&#34;emerge-e-world:3d78432f4ed171a16fc0f70a54aa9292&#34;&gt;emerge -e @world&lt;/h3&gt;
+
+&lt;p&gt;ここまでくるとほとんど Gentoo です。たぶん。
+&lt;code&gt;emereg -e @world&lt;/code&gt; は特に問題なく実行できました。
+Gentooにないパッケージは &lt;code&gt;/var/lib/portage/world&lt;/code&gt; を適当にいじりました。
+具体的には、いらない行を削除しただけです。&lt;/p&gt;
+
+&lt;h3 id=&#34;あと雑多な作業:3d78432f4ed171a16fc0f70a54aa9292&#34;&gt;あと雑多な作業&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;/etc/make.conf&lt;/code&gt; の &lt;code&gt;SYNC&lt;/code&gt; と &lt;code&gt;PORTAGE_MIRROR&lt;/code&gt; を mirrorselect を使って設定しておきました。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:3d78432f4ed171a16fc0f70a54aa9292&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;適当に挑戦してみましたが、うまくいきました。
+もしかすると何か不具合があるかもしれませんが、あればまた報告したいと思います。&lt;/p&gt;
+
+&lt;p&gt;何かの参考になるかもしれないと思ったので書き残すことにしましたが間違えてることも多々あるような気がします。
+試すときはしっかりバックアップをとってから失敗しても良いようにして挑戦しましょう。&lt;/p&gt;
+
+&lt;p&gt;そういえば カーネル を変更していない。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Ruby の とあるクラスの実装がどこにあるかわからない時の方法 - コードリーディング</title>
+          <link>http://blog.eiel.info/blog/2013/04/03/search-ruby-code/</link>
+          <pubDate>Wed, 03 Apr 2013 19:34:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/04/03/search-ruby-code/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://hiroshimarb.github.com/blog/2013/04/06/hiroshimarb-31/&#34;&gt;広島Ruby勉強会&lt;/a&gt; のネタ探しをしていて、「実装見てなにか面白いネタないかなー。」
+って時に使ったコマンドを紹介。&lt;/p&gt;
+
+&lt;p&gt;例は Method クラスの実装を探す。&lt;/p&gt;
+
+&lt;p&gt;まずは git でソースコードをとってきている場合。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git grep &#39;rb_define_class(&amp;quot;Method&amp;quot;&#39;
+proc.c:    rb_cMethod = rb_define_class(&amp;quot;Method&amp;quot;, rb_cObject);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;git grep&lt;/code&gt; を使います。&lt;code&gt;git grep&lt;/code&gt; はサクサクなのでメインの探索方法です。
+Emacs上から使うとジャンプも楽チン。&lt;/p&gt;
+
+&lt;p&gt;「git リポジトリじゃねーよ」って時は &lt;code&gt;ag&lt;/code&gt; を使います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ag &#39;rb_define_class\(&amp;quot;Method&amp;quot;&#39;
+proc.c
+2331:    rb_cMethod = rb_define_class(&amp;quot;Method&amp;quot;, rb_cObject);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こちらは行番号とかでます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;(&lt;/code&gt; のエスケープがいります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ag&lt;/code&gt; というのは &lt;a href=&#34;http://geoff.greer.fm/2011/12/27/the-silver-searcher-better-than-ack/&#34;&gt;the silver searcher&lt;/a&gt; のことです。こちらも emacs から使う &lt;a href=&#34;http://d.hatena.ne.jp/syohex/20130302/1362182193&#34;&gt;helm-ag&lt;/a&gt; というのがあるのでオススメします。&lt;/p&gt;
+
+&lt;p&gt;使える正規表現も違うような気がするので凝ったことがしたいならこちらを。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;rb_define_class&lt;/code&gt; というのは Ruby の C API で クラスオブジェクトを作成します。このあたりに メソッドをクラスに紐づける処理なんかがあったりします。&lt;/p&gt;
+
+&lt;p&gt;それでは Happy な ソースコードリーディングを。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Gentoo Prefix で python3.2 がないって言われてインストールできない</title>
+          <link>http://blog.eiel.info/blog/2013/03/06/gentoo-prefix-python3-dot-2/</link>
+          <pubDate>Wed, 06 Mar 2013 14:08:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/03/06/gentoo-prefix-python3-dot-2/</guid>
+          <description>&lt;p&gt;いつのまにやら Gentoo Prefix が python 3.2 を入れようとするのだけど、 python 3.2 の ebuild はありません。
+&lt;code&gt;emerge -uDNt world&lt;/code&gt; とかで更新しようとしたとき python 関連のものがあると実行できない。以下のようなメッセージがでます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;emerge: there are no ebuilds to satisfy &amp;quot;dev-lang/python:3.2&amp;quot;.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;python 3.3 はいってるし、別にいらないよね。&lt;/code&gt; ということで USE フラグに &lt;code&gt;-python_targets_python3_2&lt;/code&gt; を追加したらうまくいった。&lt;/p&gt;
+
+&lt;p&gt;TARGET_PYTHONを調整したくなるのですが、これは 上記の USE フラグに展開される。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

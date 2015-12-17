@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/gitx/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-06-13 18:00:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>gitx --all</title>
+          <link>http://blog.eiel.info/blog/2012/06/13/gitx-all/</link>
+          <pubDate>Wed, 13 Jun 2012 18:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/06/13/gitx-all/</guid>
+          <description>
+
+&lt;p&gt;skypeでgitの説明していたときに &lt;code&gt;gitxa&lt;/code&gt; って何？と問われた。単なる&lt;code&gt;gitx --all&lt;/code&gt; のエイリアスです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;alias gitxa=&amp;quot;gitx -all&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;gitx:c32972e1436eedac8aff6c4ae59310c2&#34;&gt;Gitx&lt;/h1&gt;
+
+&lt;p&gt;Mac用のgitクライアントツールに&lt;a href=&#34;http://gitx.frim.nl/&#34;&gt;Gitx&lt;/a&gt;というものがあるのですが、コミットの機能なども備えていますが、私は&lt;code&gt;gitk&lt;/code&gt;コマンドの代替として利用しています。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.tumblr.com/tumblr_m5jh47eL8d1qk2e7q.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ただし、Gitxをインストールしただけでは &lt;code&gt;gitx&lt;/code&gt; コマンドは使用できません。Gitxのメニュー内のEnabble Terminal Usaeg&amp;hellip; をクリックすることで利用できるようになります。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.tumblr.com/tumblr_m5jhgcOZxD1qk2e7q.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;gitx&lt;/code&gt;を引数になにもなしで、呼びだした場合、checkout している branchを表示します。&lt;code&gt;--all&lt;/code&gt;を使用すると&lt;code&gt;all branches&lt;/code&gt;を選択した状態になります。
+他にもときどき便利なのは &lt;code&gt;gitx ブランチ名&lt;/code&gt; や &lt;code&gt;gitx -- ファイル名&lt;/code&gt; などがあります。gitkを使う場合はさらにいろいろできます。詳細は &lt;code&gt;man gitk&lt;/code&gt; にて。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/capybara/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-01-27 00:12:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Cucumber の Capybara で 複数の同じ名前のリンクに対応するステップ</title>
+          <link>http://blog.eiel.info/blog/2013/01/27/capybara-link-or-button/</link>
+          <pubDate>Sun, 27 Jan 2013 00:12:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/27/capybara-link-or-button/</guid>
+          <description>
+
+&lt;p&gt;Cucumber のステップで&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;もし /^&amp;quot;(.+)&amp;quot;をクリック$/ do |name|
+  click_on name
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;というステップを書いていますが、&lt;code&gt;name&lt;/code&gt; に複数マッチしてしまうとエラーが発生しています。同じ名前にならないようにすればいいのですが、そうもいかない場合もあります。結局、以下の方法を用意しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;もし /^(\d+)番目の&amp;quot;(.*?)&amp;quot;をクリック_$/ do |n, name|
+  n = n.to_i - 1
+  all(:link_or_button, name)[n].click
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;何番目のリンクか指定することで回避しました。&lt;/p&gt;
+
+&lt;h2 id=&#34;もうちょっと詳しく:3c29b2d13f59a0711f26d17483c28d4a&#34;&gt;もうちょっと詳しく&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;click_button&lt;/code&gt;と同じことをやろうとすると &lt;code&gt;find(name)&lt;/code&gt; や &lt;code&gt;all(name)&lt;/code&gt; ではうまくいきません。調べてみると &lt;code&gt;XPath::HTML.link_or_button&lt;/code&gt; というメソッドを使用して、&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/selector.rb#L90-L93&#34;&gt;findに渡すXPathを生成してることがわかりました。&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;これをどうやって使うというと all の第一引数に使えばいいことがわかりました。&lt;/p&gt;
+
+&lt;h2 id=&#34;さらに詳しく:3c29b2d13f59a0711f26d17483c28d4a&#34;&gt;さらに詳しく&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;page.class # =&amp;gt; Capybara::Session
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;click_onメソッドやallメソッドのレシーバである page オブジェクトは Capybara::Session でした。pry で調べました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb&#34;&gt;Capybara::Session&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;    NODE_METHODS = [
+      :all, :first, :attach_file, :text, :check, :choose,
+      :click_link_or_button, :click_button, :click_link, :field_labeled,
+      :fill_in, :find, :find_button, :find_by_id, :find_field, :find_link,
+      :has_content?, :has_text?, :has_css?, :has_no_content?, :has_no_text?,
+      :has_no_css?, :has_no_xpath?, :resolve, :has_xpath?, :select, :uncheck,
+      :has_link?, :has_no_link?, :has_button?, :has_no_button?, :has_field?,
+      :has_no_field?, :has_checked_field?, :has_unchecked_field?,
+      :has_no_table?, :has_table?, :unselect, :has_select?, :has_no_select?,
+      :has_selector?, :has_no_selector?, :click_on, :has_no_checked_field?,
+      :has_no_unchecked_field?, :query, :assert_selector, :assert_no_selector
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;NODE_METHODS.each do |method|
+  define_method method do |*args, &amp;amp;block|
+    @touched = true
+    current_node.send(method, *args, &amp;amp;block)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L338-L343&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L338-L343&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これらの メソッドは動的に生成されるようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def current_node
+  scopes.last
+end
+
+def scopes
+  @scopes ||= [document]
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L351-L358&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L351-L358&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;current_node は document という変数に格納されたオブジェクトのようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def document
+  @document ||= Capybara::Node::Document.new(self, driver)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L334-L336&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L334-L336&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;documentは Capybara::Node::Document クラスのインスタンスだとわかりました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class Document &amp;lt; Base
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/document.rb#L11&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/document.rb#L11&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ここには all メソッドがなく Capbyra::Node::Base を継承しているようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;include Capybara::Node::Finders
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/base.rb#L27&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/base.rb#L27&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;この辺にありそうですね。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;      def click_link_or_button(locator)
+        find(:link_or_button, locator).click
+      end
+      alias_method :click_on, :click_link_or_button
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/actions.rb#L12-L15&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/actions.rb#L12-L15&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;cloick_on みつけました。このあたりを grep でみつけた時点で &lt;code&gt;all :link_or_button&lt;/code&gt; でいけそうなのはわかります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def all(*args)
+  query = Capybara::Query.new(*args)
+  elements = synchronize do
+    base.find(query.xpath).map do |node|
+      Capybara::Node::Element.new(session, node, self, query)
+    end
+  end
+  Capybara::Result.new(elements, query)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/finders.rb#L110-L118&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/finders.rb#L110-L118&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;all みつけたー!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/query.rb#L14-L16&#34;&gt;Capybara::Query.initialize&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;第一引数がシンボルの時の処理がありました。&lt;/p&gt;
+
+&lt;h2 id=&#34;ごめん力尽きた:3c29b2d13f59a0711f26d17483c28d4a&#34;&gt;ごめん力尽きた。&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/selector.rb#L11-L13&#34;&gt;Capybara::Selector.add&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;生成したXpathをハッシュに保存しておく&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/selector.rb#L7-L9&#34;&gt;Capybara::Selector.all&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;登録しておいたxpathを撮りだす。&lt;/p&gt;
+
+&lt;p&gt;という感じです。実際にはpryの show-method つかって探してるのでこんなに大変じゃないんだからね!&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Capybaraでtitleタグの内容が取得できなくなってしまった。</title>
+          <link>http://blog.eiel.info/blog/2012/11/16/capybara-title/</link>
+          <pubDate>Fri, 16 Nov 2012 11:07:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/16/capybara-title/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara&#34;&gt;Capybara&lt;/a&gt;を2.0にしたら動かなくなった &lt;a href=&#34;http://cukes.info/&#34;&gt;Cucumber&lt;/a&gt; の step がありました。titleタグ のtextをとる部分。visible でない要素のtextは取得できなくなったんでしょうか。
+コードを追う余裕がなかったので、Nokogiriで対処した。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;target = find(&amp;quot;title&amp;quot;).text
+expect(target).to eq(title)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;を&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;target = Nokogiri::HTML.parse(page.source).css(&amp;quot;title&amp;quot;).text
+expect(target).to eq(title)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;に書き換えました。&lt;/p&gt;
+
+&lt;p&gt;ちょっと無理矢理。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://cukes.info/&#34;&gt;Cucumber&lt;/a&gt;についてやりとりする仲間がいないので、titleタグのテキストの中身なんて確認しなくていいよ!とか、そういうい話ができないのが寂しいですね。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

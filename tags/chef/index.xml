@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/chef/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-02-26 23:04:36 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>ChefDKハンズオンをして思ったこと</title>
+          <link>http://blog.eiel.info/blog/2015/02/26/chefdk-hands-on/</link>
+          <pubDate>Thu, 26 Feb 2015 23:04:36 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/02/26/chefdk-hands-on/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://hiroshimarb.doorkeeper.jp/events/20979&#34;&gt;ChefDKハンズオン&lt;/a&gt;をしました。
+&lt;a href=&#34;http://great-h.github.io/events/event-093.html&#34;&gt;すごい広島93&lt;/a&gt;の脇で行いました。&lt;/p&gt;
+
+&lt;p&gt;ハンズオンをするととても勉強になります。自分が。&lt;/p&gt;
+
+&lt;p&gt;当日のトラブルを避けるための入念な準備をしたり、それでも想定しないことが起きたり、自分では簡単だと思っていることが他の人には意外と難しかったり、なんとなく理解の部分を発見したりできました。&lt;/p&gt;
+
+&lt;p&gt;参加者にとってハンズオンの良いところは、本来一人で新しいことをはじめるとつまづいた時に一人で解決しないといけませんが、講師がいて一緒に解決できるところがとても大きいと思いました。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、&lt;a href=&#34;http://qiita.com/eielh/items/adb173ffcd6389c12e36&#34;&gt;ChefDKハンズオン with すごい広島の資料&lt;/a&gt;はここにあるので、気が向いたら遊んでみてください。
+反省点なんかを反映したいですが、間に合っていません。
+作るのもそれなりに大変だったので、しっかり直したいです。&lt;/p&gt;
+
+&lt;p&gt;今度から月1回程度、他の人の作成したハンズオン資料でハンズオンしたり、ときどき自作したりしてもいいかなと思いはじめています。&lt;/p&gt;
+
+&lt;p&gt;そういえば、Boot2dockerの準備の仕方を書いてなかったらみんなハマってました。
+使ったことなければ、それはそうですね、本当にすみません。&lt;/p&gt;
+
+&lt;p&gt;再演希望とかあれば言ってください。研修に使いたい場合、講師で呼んでくれても良いです。
+生活費稼がなきゃ。&lt;/p&gt;
+
+&lt;p&gt;もっとみんなに使って欲しいと思った技術をみつけたら、新しいハンズオンを考えてみたいです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発10でTest KitchenではじめるChef入門という話をした。OSH2015のステマかもしれない。</title>
+          <link>http://blog.eiel.info/blog/2015/01/10/chef-abc-on-test-kitchen/</link>
+          <pubDate>Sat, 10 Jan 2015 12:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/01/10/chef-abc-on-test-kitchen/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA10&#34;&gt;LT駆動開発10&lt;/a&gt;で「Test KitchenではじめるChef入門」という話をした。&lt;/p&gt;
+
+&lt;p&gt;ちなみにこの記事は&lt;a href=&#34;http://osh-web.github.io/2015/&#34;&gt;オープンセミナー2015@広島&lt;/a&gt;のステマ記事でもある。&lt;/p&gt;
+
+&lt;p&gt;また、&lt;a href=&#34;http://qiita.com/eielh/items/64e197f4f1eaf5ff6097&#34;&gt;「Test KitchenではじめるChef入門」はQiitaに投稿した記事である&lt;/a&gt;。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;ba236a70755b0132ffbd4aca611a7ac2&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Chefはちょいちょい使っていて、使いこなせてはいません。&lt;/p&gt;
+
+&lt;p&gt;Cookbookを作成するときの環境で、Vagrantfileでやるのがよいのか、knife-zeroを使うのがいいのかいろいろ悩んでいた。
+やっぱりテストコードを書きたいし、ますは&lt;a href=&#34;https://github.com/test-kitchen/test-kitchen&#34;&gt;Test Kitchen&lt;/a&gt;をいじっておこうと至るのは自然な道だと思う。&lt;/p&gt;
+
+&lt;p&gt;Test Kitchenをいじっていると、そのままの環境でCookbookを書くのが良さそうだということに気づいた。
+ならば、はじめからTest Kitchenを使いつつChefを学ぶのも良さそうだということで「Test KitchenではじめるChef入門」というネタを考えた。&lt;/p&gt;
+
+&lt;p&gt;詳細はQiitaの記事を参照して欲しい。&lt;/p&gt;
+
+&lt;p&gt;広島のみんなは&lt;a href=&#34;http://osh-2014.github.io/&#34;&gt;オープンセミナー2014@広島&lt;/a&gt;で&lt;a href=&#34;https://twitter.com/t_wada&#34;&gt;@t_wada&lt;/a&gt;さんに来てもらったことだし、何をはじめるにしてもテストコードをかく環境から導入したいはずだ。
+きっと、Chefのテスト環境にみんな興味があるはずだ。(確信)(そんなわけはない)&lt;/p&gt;
+
+&lt;p&gt;そういえば、&lt;a href=&#34;http://osh-web.github.io/2015/&#34;&gt;オープンセミナー2015@広島&lt;/a&gt;は2月14日が行なわれる。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://osh-web.doorkeeper.jp/events/18561&#34;&gt;事前申し込みはこちらからできる&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;そして、みんなすごいChefを試していると思うんだけど、Chefの調べものをしていると、きっと&lt;a href=&#34;https://twitter.com/sawanoboly&#34;&gt;@sawanoboly&lt;/a&gt;さんを何度もみかけるはずだ。
+代表的な記事をピックアップしてみよう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/sawanoboly/items/4f363909615d8a76e9e5&#34;&gt;Ruby - Chefのローカルモードチュートリアル + knife-zero + knife-sakura - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/sawanoboly/items/9f560bd63ad0712b17ba&#34;&gt;test-kitchenのつかいかた - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/sawanoboly/items/218a7b03ddec6be45e34&#34;&gt;Chefのローカルモードだけでリモートサーバを運用してみようと、Knife-Zeroを作った。Nodeの構成情報もとれるよ。 - Qiita&lt;/a&gt;
+ところで、オープンセミナー2015@広島の講師に&lt;a href=&#34;https://twitter.com/sawanoboly&#34;&gt;@sawanoboly&lt;/a&gt;さんがいるように見えるのは僕の気のせいだろか。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Chefに限らず構成管理ツールの利用箇所は幅が広がりつつある。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Packerをつかって各仮想環境のbox作成&lt;/li&gt;
+&lt;li&gt;Vagrantのプロビション&lt;/li&gt;
+&lt;li&gt;Dockerなどコンテナのプロビジョン&lt;/li&gt;
+&lt;li&gt;WerkerのBox作成&lt;/li&gt;
+&lt;li&gt;GitLabのインストーラ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あまり知らないけど、僕が知る限りでも、そこそこある。
+もっとあるんじゃないかと思う。
+構成管理ツールは運用する人たちののツールから開発をする人たちでも使われていくツールなるだろう。&lt;/p&gt;
+
+&lt;p&gt;せっかく&lt;a href=&#34;https://twitter.com/sawanoboly&#34;&gt;@sawanoboly&lt;/a&gt;さんがいらいしゃるので、いまのうちにChefをしっかりいじっておきたいよね。&lt;/p&gt;
+
+&lt;p&gt;他にも広島でChefをいじっている人いえば、&lt;a href=&#34;https://twitter.com/akira345&#34;&gt;@akira345&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/k2works&#34;&gt;@k2works&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/ogatomo&#34;&gt;@ogatomo&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/moobay&#34;&gt;@moobay9&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/pecosantoyobe&#34;&gt;@pecosantoyobe&lt;/a&gt;さんとかがいる。
+Ansibleなら&lt;a href=&#34;https://twitter.com/soudai1025&#34;&gt;@soudai&lt;/a&gt;さんとか&lt;a href=&#34;https://twitter.com/24motz&#34;&gt;@24motz&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/yukilab&#34;&gt;@yukilab&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/NeXTSTEP2OSX&#34;&gt;@NeXTSTEP2OSX&lt;/a&gt;さんとかがいじっていると聞いている。&lt;/p&gt;
+
+&lt;p&gt;たぶんTwitter IDを上げた人はほとんど参加するはずだ。間違いない。
+名前を上げなかった人でもきっと何かしらの構成管理ツールを使っている人がたくさんいて遊びに来るはずだ。
+&lt;a href=&#34;https://twitter.com/sawanoboly&#34;&gt;@sawanoboly&lt;/a&gt;さんが来るんだし、きっと間違いない。(自信なし)&lt;/p&gt;
+
+&lt;p&gt;さあ、みんなでオープンセミナー2015@広島に集まって情報交換しよう。
+構成管理に入門するタイミングとしては、この上はないはずだ。&lt;/p&gt;
+
+&lt;p&gt;そういえば以前こんな記事を書いている人がいましたね。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/01/04/lets-take-part-in-osh/&#34;&gt;オープンセミナー広島は広島のITエンジニアが集う場所 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;くりかえす。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://osh-web.github.io/2015/&#34;&gt;オープンセミナー2015@広島&lt;/a&gt;は2月14日だ。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://osh-web.doorkeeper.jp/events/18561&#34;&gt;事前申し込みはこちらからできる&lt;/a&gt;ぞい。&lt;/p&gt;
+
+&lt;p&gt;全く関係ないし、公式に受理されていないが、オープンセミナー2015@広島の懇親会の裏の名前はLT駆動開発11なる予定だ。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:3c166a901741b69349f74cc2dabda17c&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://akira-junkbox.blogspot.jp/2014/12/2015.html&#34;&gt;JunkBox～主に個人的防備録～: オープンセミナー2015@広島を開催します！&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>gitで公開されてるクックブックに依存している時のmetadata</title>
+          <link>http://blog.eiel.info/blog/2014/12/24/test-kitchen-depends/</link>
+          <pubDate>Wed, 24 Dec 2014 12:32:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/24/test-kitchen-depends/</guid>
+          <description>&lt;p&gt;ふつうに書くしかない。&lt;/p&gt;
+
+&lt;p&gt;利用する際にはcookbooksディレクトリにあればよい。
+test-kitchenをする際には、Berksfileにかいとけばよい。
+以下のようになる。例はrbenv。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;metadata
+cookbook &#39;rbenv&#39;, git: &#39;git://github.com/fnichol/chef-rbenv.git&#39;, branch: &#39;v0.7.2&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;このクックブックに依存したクックブックを書くとつらい目にあうような気がするので、READMEにしっかりかいておいたほうが良さそう。&lt;/p&gt;
+
+&lt;p&gt;どうしてこんな話が出てくるかというと、rbenvは系統が違うものがふたつある。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/fnichol/chef-rbenv&#34;&gt;chef-rbenv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/RiotGames/rbenv-cookbook&#34;&gt;rbenv-cookbook&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;chef-rbenvのほうは&lt;a href=&#34;https://supermarket.chef.io/&#34;&gt;supermacket&lt;/a&gt;にあるのだけどrbenv-cookbookのほうはない。お互いに関連はなさそう。&lt;/p&gt;
+
+&lt;p&gt;「&lt;a href=&#34;http://qiita.com/zaru/items/1436a383c3d41483c371&#34;&gt;VagrantにRuby/Rails開発環境を整えるChef+Berkshelf構築メモ - Qiita&lt;/a&gt;」ではgitで指定していたのでそんな話がでてきただけである。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Sensu を少しだけ触ってみた</title>
+          <link>http://blog.eiel.info/blog/2014/03/05/sensu-abc/</link>
+          <pubDate>Wed, 05 Mar 2014 20:16:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/03/05/sensu-abc/</guid>
+          <description>
+
+&lt;p&gt;ちょっと前に &lt;a href=&#34;http://sensuapp.org/&#34;&gt;Sensu&lt;/a&gt; を試した。
+大したことは試してないのですが、日本語の情報もあまりないので試したことを記録しておこうと思う。&lt;/p&gt;
+
+&lt;h3 id=&#34;sensu-って:a96f6097673edaa404e42451cd38aa4e&#34;&gt;Sensu って？&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ja.wikipedia.org/wiki/Nagios&#34;&gt;Nagios&lt;/a&gt; という統合監視ツールの置き換えを狙ったプロダクトのようで、Nagios のプラグインがそのまま使えます。
+そもそも Nagios のプロトコルをそのまま使ってるようです。&lt;/p&gt;
+
+&lt;p&gt;同様のツールとして &lt;a href=&#34;http://ja.wikipedia.org/wiki/Zabbix&#34;&gt;Zabbix&lt;/a&gt; などありますが、結構毛色が違うツールだということを今回わかりました。(Zabbix は試したことがありますが、Nagios は試したことがないです)&lt;/p&gt;
+
+&lt;p&gt;Zabbix は全部入りみたいな感じで、これだけでなんでもできたりして、入門するには難しい感じです。&lt;/p&gt;
+
+&lt;p&gt;Nagios を利用する際にはグラフを書きたい場合は &lt;a href=&#34;http://munin-monitoring.org/&#34;&gt;munin&lt;/a&gt; などを併用する人も多いようです。
+munin は個人的に設定が楽なので、ちょろっとした時に利用します。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、「いまどきの Nagios」 である Sensu を試してみようという流れです。&lt;/p&gt;
+
+&lt;h3 id=&#34;まずインストールしてみる:a96f6097673edaa404e42451cd38aa4e&#34;&gt;まずインストールしてみる&lt;/h3&gt;
+
+&lt;p&gt;どんなものかピンと来ない場合はまず動かしてみるほうがいいです。
+Sensu をインストールするのに chef や puppet が使えるように公式から &lt;a href=&#34;https://github.com/sensu/sensu-chef&#34;&gt;sensu-chef&lt;/a&gt; や &lt;a href=&#34;https://github.com/sensu/sensu-puppet&#34;&gt;chef-puppet&lt;/a&gt; があり割と簡単にインストールできるようです。&lt;/p&gt;
+
+&lt;p&gt;手動でもそんなに難しいわけではなく &lt;a href=&#34;http://sensuapp.org/docs/0.12/guide&#34;&gt;ドキュメント&lt;/a&gt;を見ながらやればできると思います。&lt;/p&gt;
+
+&lt;p&gt;というわけで、今回は sensu-chef を試しました。&lt;/p&gt;
+
+&lt;p&gt;私が chef の初心者なので、その辺のメモも書いています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/sensu/sensu-chef&#34;&gt;sensu-chef の README.md をみる&lt;/a&gt;とやり方が書いてあります。
+&lt;a href=&#34;http://www.vagrantup.com/&#34;&gt;Vagrant&lt;/a&gt; をつかって動かすサンプルがあります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git clone git@github.com:sensu/sensu-chef.git
+$ cd sensu-chef/examples
+$ gem install bundler
+$ bundle install
+$ librarian-chef install
+$ vagrant up
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とすると sensu-server, suns-clint, sensu-api, sensu-dashboard, Redis, RabbitMQ がインストールされます。&lt;/p&gt;
+
+&lt;p&gt;それぞれの関係は &lt;a href=&#34;http://sensuapp.org/docs/0.12/overview&#34;&gt;ドキュメントに図示されています&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://sensuapp.org/docs/0.12/img/sensu-diagram-4801b356.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;sensu が収集している情報は sensu-api 経由、または sensu-dashboard にアクセスと取得できるようです。
+この example を利用した場合、 &lt;a href=&#34;http://localhost:8080&#34;&gt;http://localhost:8080&lt;/a&gt; で sensu-dashboard アクセスできます。
+Basic認証がかかっていて、デフォルトでは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;User名: admin&lt;/li&gt;
+&lt;li&gt;password: secret&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;になってます。
+ちなみに &lt;a href=&#34;https://github.com/sensu/sensu-chef/blob/master/attributes/default.rb#L35-L36&#34;&gt;attributes/default.rb&lt;/a&gt; に定義されています。
+実際に運用する場合は、この値ををどこかで上書きすればよいです。
+(chef はいろんなポイントで値を上書きできるっぽい)&lt;/p&gt;
+
+&lt;h3 id=&#34;なんか監視してみる:a96f6097673edaa404e42451cd38aa4e&#34;&gt;なんか監視してみる&lt;/h3&gt;
+
+&lt;p&gt;監視項目の追加には check を追加するようです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://sensuapp.org/docs/0.12/adding_a_check&#34;&gt;Sensu | An open source monitoring framework&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最初のサンプルは crond をチェックするもので、 &lt;code&gt;/etc/conf.d/check_cron.json&lt;/code&gt; というJSONファイルを作成することになります。&lt;/p&gt;
+
+&lt;p&gt;この chef のレシピを使っていると chef の機能である Data Bag をつかってcheckの追加ができるようになっています。
+&lt;code&gt;data_bags/sensu_checks&lt;/code&gt; ディレクトリにJSONファイルをおくことで設定できるようになっています。
+試しに &lt;code&gt;data_bags/sensu_checks/check_cron.json&lt;/code&gt; を作成してみました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;id&amp;quot;: &amp;quot;cron_check&amp;quot;,
+    &amp;quot;handlers&amp;quot;: [&amp;quot;default&amp;quot;],
+    &amp;quot;command&amp;quot;: &amp;quot;check-procs.rb -p crond -C 1 &amp;quot;,
+    &amp;quot;interval&amp;quot;: 5,
+    &amp;quot;subscribers&amp;quot;: [&amp;quot;all&amp;quot;]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;この JSON は &lt;code&gt;/etc/conf.d/check_cron.json&lt;/code&gt; を生成するための&lt;a href=&#34;https://github.com/portertech/chef-monitor&#34;&gt;monitor&lt;/a&gt;というクックブックにより提供されている機能で読み込まれて使用されます。&lt;/p&gt;
+
+&lt;p&gt;このJSONを配置すると下記のような &lt;code&gt;/etc/conf.d/check_cron.json&lt;/code&gt; が生成されます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &amp;quot;checks&amp;quot;: {
+    &amp;quot;cron_check&amp;quot;: {
+      &amp;quot;command&amp;quot;: &amp;quot;check-procs.rb -p crond -C 1 &amp;quot;,
+      &amp;quot;subscribers&amp;quot;: [
+        &amp;quot;all&amp;quot;
+      ],
+      &amp;quot;handlers&amp;quot;: [
+        &amp;quot;default&amp;quot;
+      ],
+      &amp;quot;interval&amp;quot;: 5
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;似ているものですが違うものです。&lt;/p&gt;
+
+&lt;p&gt;Sensu は設定ファイルがJSONで書くことができて、Chefやなんかで設定を生成しやすいという特徴があることがわかりました。&lt;/p&gt;
+
+&lt;p&gt;あとは cron をとめたり、開始したりして遊んでみてみると良いと思います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ service cron stop   # crond 停止
+$ service cron start  # crond 開始
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;crond を止めてみると下記のような状態になりました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2014-03-05-sensu.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:a96f6097673edaa404e42451cd38aa4e&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;まだまだわからないことが多いのですが、とりあえず Sensu を体験することができました。
+RedisやRabbitMQ のインストールが必要ですが Chef を使えば特に設定はせずに体験することができました。&lt;/p&gt;
+
+&lt;p&gt;ついでに chef の Cookbook を読んで chefの勉強することもできました。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:a96f6097673edaa404e42451cd38aa4e&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/portertech/chef-monitor&#34;&gt;portertech/chef-monitor · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://sensuapp.org/docs/0.12&#34;&gt;Sensu | An open source monitoring framework&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>knife のログレベルの設定</title>
+          <link>http://blog.eiel.info/blog/2013/12/17/loglevel-knife/</link>
+          <pubDate>Tue, 17 Dec 2013 23:46:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/12/17/loglevel-knife/</guid>
+          <description>
+
+&lt;p&gt;knife solo でエラーがでるけど、どこで起きてるかわからねぇ。&lt;/p&gt;
+
+&lt;p&gt;というわけで、pry を差し込みして調べた。ぐぐってトップのほうにあるのは
+「やり方がわからない!」って、なっていた。悲しい。&lt;/p&gt;
+
+&lt;p&gt;結論としては、knifeの設定ファイルである &lt;code&gt;.chef/knife.rb&lt;/code&gt; や
+&lt;code&gt;~/.chef/knife.rb&lt;/code&gt; に以下を追記すればいい&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;verbosity       :debug
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;:debug&lt;/code&gt; としてるのは分かりやすくかいただけで、 &lt;code&gt;nil&lt;/code&gt; や &lt;code&gt;0&lt;/code&gt; 、&lt;code&gt;1&lt;/code&gt; で
+ない値であればいい。&lt;/p&gt;
+
+&lt;p&gt;参考:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/opscode/chef/blob/11.8.2/lib/chef/knife.rb#L373-L380&#34;&gt;https://github.com/opscode/chef/blob/11.8.2/lib/chef/knife.rb#L373-L380&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;case Chef::Config[:verbosity]
+when 0, nil
+  Chef::Config[:log_level] = :error
+when 1
+  Chef::Config[:log_level] = :info
+else
+  Chef::Config[:log_level] = :debug
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これぐらいならドキュメントにかいてありそうだけどソースをみてしまった。&lt;/p&gt;
+
+&lt;h3 id=&#34;追記:ef0725d72dcc6ef73a4cf89ba014bf31&#34;&gt;追記&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;-V&lt;/code&gt; でログレベルが変わる模様 &lt;code&gt;-VV&lt;/code&gt; で、さらに変化する。
+&lt;code&gt;-V&lt;/code&gt; で出力がかわんなかったから油断した。(いいわけ)&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:ef0725d72dcc6ef73a4cf89ba014bf31&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/11/13/abc-chef-solo/&#34;&gt;やっと Chef Solo はじめた&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>やっと Chef Solo はじめた</title>
+          <link>http://blog.eiel.info/blog/2013/11/13/abc-chef-solo/</link>
+          <pubDate>Wed, 13 Nov 2013 18:28:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/11/13/abc-chef-solo/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/events/event-026.html&#34;&gt;すごい広島 #26&lt;/a&gt; にて、書いている。&lt;/p&gt;
+
+&lt;p&gt;すこし前に chef-solo で遊んだので、その時思ったことを書いておく。
+自分が考えたことが書いてあるだけなので、不正確な内容も含むかもしれません。&lt;/p&gt;
+
+&lt;p&gt;主な参考文献は以下。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B00BSPH158/ref=as_li_ss_til?tag=eiel-22&amp;amp;camp=1027&amp;amp;creative=7407&amp;amp;linkCode=as4&amp;amp;creativeASIN=B00BSPH158&amp;amp;adid=153X49YMKHPZN8FFFA70&amp;amp;&#34;&gt;入門 Chef Solo - Infrastructure as Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/taiki45/items/b46a2f32248720ec2bae&#34;&gt;今っぽい Vagrant + Chef Solo チュートリアル - Qiita - taiki45&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;「今っぽい Vagrant + Chef Solo チュートリアル」は「入門 Chef Solo」の内容を踏まえた上で、最近の動向も押えてて参考になりました。&lt;/p&gt;
+
+&lt;h3 id=&#34;目的:f97c7bc8b16df0444fa9136284c4aad4&#34;&gt;目的&lt;/h3&gt;
+
+&lt;p&gt;chef-solo を試す上で、
+一番の目的は「リモートサーバの設定反映をコマンドを一つ実行すれば済むようにしたい」ということでした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ knife solo cook ホスト名
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;このコマンドをローカルマシンで実行すると、「ホスト名」が示すサーバの設定をできるようにしました。&lt;/p&gt;
+
+&lt;p&gt;また、「入門 Chef Solo」では、ローカルマシンでテストするにも &lt;code&gt;knife solo&lt;/code&gt; を利用していた点が気になっていました。そこは別にしたかったので、&lt;code&gt;vagrant&lt;/code&gt; の機能を利用して、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant provision
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、済むようにしました。&lt;/p&gt;
+
+&lt;h3 id=&#34;成果物:f97c7bc8b16df0444fa9136284c4aad4&#34;&gt;成果物&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/cookbook-munin-example&#34;&gt;GitHub の eiel/cookbook-munin-example&lt;/a&gt; に置いています。
+使い方も README.md に書いています。&lt;/p&gt;
+
+&lt;p&gt;なぜ munin かというと、munin のインストールが必要だったからです。&lt;/p&gt;
+
+&lt;p&gt;上記のリポジトリは必要なツールがそろっていれば &lt;code&gt;git clone&lt;/code&gt; して &lt;code&gt;vagrant up&lt;/code&gt; すれば、&lt;code&gt;chef-solo&lt;/code&gt; が走り、設定の終わった仮想マシンが立ち上がります。&lt;/p&gt;
+
+&lt;p&gt;Cookbook を修正して、再実行する際には &lt;code&gt;vagrant provision&lt;/code&gt; とすれば反映できます。&lt;/p&gt;
+
+&lt;h3 id=&#34;chef-solo-を実行について:f97c7bc8b16df0444fa9136284c4aad4&#34;&gt;chef-solo を実行について&lt;/h3&gt;
+
+&lt;p&gt;chef-solo の実行には、固有情報を記述した「JSONファイル」が必要になります。
+「JSONファイル」はエントリーポイントのような位置づけで、実行するレシピの記述ができます。
+Cookbook は汎用的なライブラリのようなもので、プログラミングに例えると「引数を与える必要があったり、呼び出すメソッドを指定する」必要があり、そういった指定するためのものが、「JSONファイル」になります。
+設定ファイルとも言えます。&lt;/p&gt;
+
+&lt;h3 id=&#34;cookbook-について:f97c7bc8b16df0444fa9136284c4aad4&#34;&gt;Cookbook について&lt;/h3&gt;
+
+&lt;p&gt;以下は Chef 使ってみた結果で構築された個人のイメージを記述します。&lt;/p&gt;
+
+&lt;p&gt;Chef を Ruby におきかえると Cookbook に相当するのが gem です。
+Rubygems ではなく、ひとつの gem です。&lt;/p&gt;
+
+&lt;p&gt;Chef を試すときに最初に作成する &lt;code&gt;Cookbooks&lt;/code&gt; (複数形のほう)  は gem を保存しておく場所と考えると良いと思いました。
+Chef を使う場合は、トップレベルのスクリプトを書くところがなく、いきなりディレクトリ構造の整理した場所にコードを書かされます。&lt;/p&gt;
+
+&lt;p&gt;別の誰かが書いた Cookbook を使う場合は、「JSONファイル」の run_list にレシピを指定するだけで chef を利用できるわけです。
+Cookbook はいろんなレシピをまとめていて、Chef を Ruby に置き換えると「レシピはクラスのようなもの」です。
+gem 添付されているクラスを使うかどうかは、コードを書くときに決めることです。
+chef だと run_list にかくことで使われます。&lt;/p&gt;
+
+&lt;p&gt;つまり Cookbook を書くというのは、いきなり gem を作るような感じになります。&lt;br&gt;
+なるほど、これは難しい。&lt;/p&gt;
+
+&lt;h3 id=&#34;knife-solo-について:f97c7bc8b16df0444fa9136284c4aad4&#34;&gt;knife solo について&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;knife solo&lt;/code&gt; は &lt;code&gt;chef solo&lt;/code&gt; を外部サーバで実行するためのツールです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;chef solo&lt;/code&gt; を実行するには、設定したいサーバにログインして、利用する Cookbook をダウンロードして、jsonファイルを用意します。
+これはめんどくさいので、リモートサーバを指定して、用意している Cookbook をアップロードして、リモートサーバで &lt;code&gt;chef solo&lt;/code&gt; を実行します。&lt;/p&gt;
+
+&lt;h3 id=&#34;なぜ-knife-solo-でテストの実行をしたくないか:f97c7bc8b16df0444fa9136284c4aad4&#34;&gt;なぜ knife solo でテストの実行をしたくないか&lt;/h3&gt;
+
+&lt;p&gt;Vagrant にIPアドレスを設定する必要があり、「JSONファイル」をコミットしなければならなかったからです。
+&lt;code&gt;IPアドレス.json&lt;/code&gt; ファイルをgitリポジトリにコミットするのが嫌でした。&lt;/p&gt;
+
+&lt;p&gt;vagrant の box に chef がインストールしなければいけない問題は &lt;a href=&#34;https://github.com/schisamo/vagrant-omnibus&#34;&gt;vagrant-omnibus&lt;/a&gt; プラグインで解決しました。
+このプラグインは &lt;code&gt;vagrant up&lt;/code&gt; した際に、chef がインストールされていない場合にインストールしてくれます。&lt;/p&gt;
+
+&lt;h3 id=&#34;provider:f97c7bc8b16df0444fa9136284c4aad4&#34;&gt;provider&lt;/h3&gt;
+
+&lt;p&gt;レシピで使える命令を追加できる Chef の機能です。
+名前空間が Cookbook ごとに閉じているようで、利用したいクックブックの &lt;code&gt;metadata.rb&lt;/code&gt; に記述しておかなければ、追加命令が使えません。
+ちなみに、事前にそのクックブックのレシピを実行していれば、利用できました。はまる原因になりそうなので、&lt;code&gt;metadata.rb&lt;/code&gt;には、ちゃんと書いたほうが良いと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;vagrant-ssh:f97c7bc8b16df0444fa9136284c4aad4&#34;&gt;vagrant ssh&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;vagrant ssh&lt;/code&gt; には &lt;code&gt;--&lt;/code&gt; につづいて ssh の引数を追加できます。&lt;/p&gt;
+
+&lt;p&gt;vagrant にホストオンリーアクセスできるように指定してないので、とりあえず、これを利用してサーバのサービスにアクセスしてます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant ssh -- -L 4000:localhost:80
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;としておけば、 &lt;code&gt;https://localhost:4000/&lt;/code&gt; で、Webサーバにアクセスできます。
+若干めんどくさい…。&lt;/p&gt;
+
+&lt;h3 id=&#34;vgrant-provision:f97c7bc8b16df0444fa9136284c4aad4&#34;&gt;vgrant provision&lt;/h3&gt;
+
+&lt;p&gt;vgrant provision で使う「JSONファイル」は用意する必要がなく、Vagrantfile に同等の記述を行います。&lt;/p&gt;
+
+&lt;p&gt;以下の風に書いている。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;config.vm.provision :chef_solo do |chef|
+  chef.cookbooks_path = [&amp;quot;cookbooks&amp;quot;, &amp;quot;site-cookbooks&amp;quot;]
+  chef.add_recipe &amp;quot;munin&amp;quot;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;knife-solo をベースしたリポジトリになっているので &lt;code&gt;site-cookbooks&lt;/code&gt; を追加しています。
+ひとつの cookbook を書くためのリボジトリであれば、不必要でしょう。&lt;/p&gt;
+
+&lt;p&gt;site-cookbooks にあるファイルを汎用化してきたら、個別のリポジトリをつくると良さそうです。&lt;/p&gt;
+
+&lt;h3 id=&#34;その他:f97c7bc8b16df0444fa9136284c4aad4&#34;&gt;その他&lt;/h3&gt;
+
+&lt;p&gt;Databags や Attributes, librarian-chef も試したけど記憶からすでにない…。
+serverspec はまだ試せてない。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

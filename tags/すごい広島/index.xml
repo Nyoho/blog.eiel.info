@@ -1,0 +1,1201 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E3%81%99%E3%81%94%E3%81%84%E5%BA%83%E5%B3%B6/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-07-16 23:14:57 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>AtlasでPackerが実行できるようになってて感動した</title>
+          <link>http://blog.eiel.info/blog/2015/07/16/atlas-packer-vagrant/</link>
+          <pubDate>Thu, 16 Jul 2015 23:14:57 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/07/16/atlas-packer-vagrant/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/events/event-113.html&#34;&gt;すごい広島113&lt;/a&gt;で遊んでたこと。&lt;/p&gt;
+
+&lt;p&gt;テスト環境を提供しないといけなくて、Dockerつかいたかったけど、今回はVagrantのBoxでベースを提供することにした。
+Packerつかうと時間がかかるのでvagrant packageでつくって、Vagrant Cloudにおいたりしてました。&lt;/p&gt;
+
+&lt;p&gt;ちょっと久しぶりにPackerでboxをつくるかーって&lt;a href=&#34;https://atlas.hashicorp.com/&#34;&gt;Atlas&lt;/a&gt;にいってみたら、Web上に表示されたチュートリアルにそってコマンドラインで作業するだけでBoxがつくれるようになってました。
+しかも、Packerの実行をAtlasがやってくれます。しかも、VirtualboxとVMwareのイメージ両方つくってくれます。
+しかも、勝手にBoxesに登録されます。
+素敵です。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Atlasにサインインする&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Build Vagrant Boxes with Packer and Atlas&lt;/code&gt;というメニューがあってクリックする&lt;/li&gt;
+&lt;li&gt;packerのバージョンの確認をさせられる。0.8.0より最新かどうか。&lt;/li&gt;
+&lt;li&gt;PackeのTemplaterをもってるかきかれます。もってなかったら &lt;a href=&#34;https://github.com/hashicorp/atlas-packer-vagrant-tutorial&#34;&gt;atlas-packer-vagrant-tutorial&lt;/a&gt;が使えると教えてくれます。&lt;/li&gt;
+&lt;li&gt;API TOKENが生成されるので、環境変数に登録します&lt;/li&gt;
+&lt;li&gt;packer push をつかって template.jsonとscriptをAtlasに送信します&lt;/li&gt;
+&lt;li&gt;進行状況をAtlasで閲覧できます。だいたい30分ぐらいかかります。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;そうすると、boxができて、Atlasから取得できるようになります。
+ここから配布していると vagrant box update でboxが更新できたりとなかなか嬉しいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;他に遊んだこと:1247e1560615377b9ea7b5177fc320aa&#34;&gt;他に遊んだこと&lt;/h3&gt;
+
+&lt;p&gt;tutorialのものはUbuntu12.04だったので&lt;a href=&#34;https://github.com/eiel/atlas-packer-vagrant-rails/commit/03d5c05b48ec02bae24bbf58d8ebd4f7c380762d&#34;&gt;14.04&lt;/a&gt;にかえたりしました。&lt;/p&gt;
+
+&lt;p&gt;railsが実行できる環境つくって遊びました。
+&lt;a href=&#34;https://github.com/eiel/atlas-packer-vagrant-rails/commit/054deb74f7d6ab4a034304f3f78deee1df386bd5&#34;&gt;mysqlとrubyをいれてるだけです&lt;/a&gt;。2.1.6なのは大人の事情です。&lt;/p&gt;
+
+&lt;p&gt;公開するboxは一度公開したバージョンの場合、最終的なPackerの実行が失敗します。
+成果物が登録できないからです。
+メタデータを修正して、新しいバージョンに変えるようにしてください。&lt;/p&gt;
+
+&lt;p&gt;具体的には&lt;a href=&#34;https://github.com/eiel/atlas-packer-vagrant-rails/commit/683741aa9f6055e70c0822bf2520d4b59ecaca4f&#34;&gt;この辺を参考にしてください&lt;/a&gt;。versionを0.0.4にしています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://atlas.hashicorp.com/eiel/boxes/rails-mysql&#34;&gt;実際につくったVagarantのBoxはこちらにあります。&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vagrant init eiel/rails-ymqsl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とかすると使えます。&lt;/p&gt;
+
+&lt;p&gt;Vagrantのboxをつくるのに、Packerをつかうとローカルマシンが占有されてつらかったのですが、Atlas上でビルドできるようになってたいへん幸せです。&lt;/p&gt;
+
+&lt;p&gt;継続的デリバリー感がします。とても楽しいので一度遊んでみてください。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>すごい広島 x IBM - クラウド交流会でゆるくすごい広島の紹介した。 - ゆるい広島 Advent Calendar 2014</title>
+          <link>http://blog.eiel.info/blog/2014/12/03/yurui-great-h-x-ibm/</link>
+          <pubDate>Wed, 03 Dec 2014 00:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/03/yurui-great-h-x-ibm/</guid>
+          <description>&lt;p&gt;一応、&lt;a href=&#34;http://www.adventar.org/calendars/334&#34;&gt;ゆるい広島 Advent Calendar 2014&lt;/a&gt;の三日目の記事になります。&lt;/p&gt;
+
+&lt;p&gt;12月1日のお昼に&lt;a href=&#34;http://ibm-seminar.jp/cloudexchange/&#34;&gt;IBM Cloud Exchange 2014&lt;/a&gt;の広島が開催されておりましたが、その夜にひっそりと&lt;a href=&#34;https://www.facebook.com/events/741892012568562/&#34;&gt;すごい広島 x IBM - クラウド座談会&lt;/a&gt;が開催されました。
+すごい広島という弱小コミュニティがIBMさまといったいどんな交流をしたらいいのかよくわかりませんが、ここは弱小なことは気にせず、対等な振りをして対等なつもりでいつもどおり&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;の紹介をしてきました。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;f251d8205b9b0132e0851646a38ce118&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;なるべくゆるくいこうとはじめからおもっていたので、「すごい広島っていうのはー」という、すごいゆるいタイトルをつけてみました。&lt;/p&gt;
+
+&lt;p&gt;まとめると、すごい広島は、すごい人を集めるのが目的のようです。&lt;/p&gt;
+
+&lt;p&gt;すごい広島の話はもう何度もしていますが、IBMの方たちを対象にしたとき、なにをしたいコミュニティなのか改めてブレストをして臨みました。
+そうすると普段のすごい広島の参加者から、「そんな目的が!」なんて声が聞こえました。
+なんとなく新しいスライドをつくった甲斐がありました。&lt;/p&gt;
+
+&lt;p&gt;あとあと、&lt;a href=&#34;http://jslug.jp/&#34;&gt;SoftLayerユーザ会&lt;/a&gt; 広島支部を作りたいそうです。
+支部長希望者探しているようです。主に女性。&lt;/p&gt;
+
+&lt;p&gt;少し脱線しますが、今回挑戦したことは自分が撮影した写真を使うというところでした。
+ちなみに、使用しているカメラはRICOH GRです。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=B00CE2V2VI&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;たぶん高級コンパクトデジタルカメラに分類されるカメラで、起動がはやく気軽に撮影できて、ミラーレスと同等のセンサーサイズを備えるなかなか素敵なカメラです。
+このカメラの素晴しいのはレンズ沼にはまらないということがあります。
+低価格帯のミラーレスの少し触らせてもらっいましたが、良いカメラを買ったと感じております。
+でも、フルサイズの一眼レフ欲しくなるので、沼には確実に近づいていますね。&lt;/p&gt;
+
+&lt;p&gt;閑話休題。
+コミュニティを運営することに関しては、わりと無欲におこなって継続できるペースで続けるのがいいかなとなんとく改めて思いました。
+継続することから産まれるリターンが計ることができないように思います。&lt;/p&gt;
+
+&lt;p&gt;「だからこそ、企業との対話、連携に価値が産まれるのかな」なんて思いました。
+お互いにとって価値のあることがもっとできるようになるといいですね。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>すごいHirohsimaの本について、OSC2014とWTM71で紹介した</title>
+          <link>http://blog.eiel.info/blog/2014/09/21/great-h-book-osc-2014-and-wtm71/</link>
+          <pubDate>Sun, 21 Sep 2014 10:50:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/09/21/great-h-book-osc-2014-and-wtm71/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;を紹介するための書籍(通称、薄い本)である、すごいHiroshimaの本というものを作成しました。
+作成した主の目的はオープンソースカンファレンスで展示をするためです。&lt;/p&gt;
+
+&lt;p&gt;作成した電子書籍は&lt;a href=&#34;http://great-h-book.eiel.info/&#34;&gt;すごいHiroshimaの本置場&lt;/a&gt;というところに置いています。
+ePubとPDFを提供しています。&lt;/p&gt;
+
+&lt;h3 id=&#34;osc2014広島編:017021d1665f9696038118823e7cad42&#34;&gt;OSC2014広島編&lt;/h3&gt;
+
+&lt;p&gt;せっかく電子書籍を作ったので、興味をもってもらうために、&lt;a href=&#34;http://www.ospn.jp/osc2014-hiroshima/&#34;&gt;オープンソースカンファレンス2014広島&lt;/a&gt;の&lt;a href=&#34;https://www.ospn.jp/osc2014-hiroshima/modules/eguide/event.php?eid=7&#34;&gt;LT駆動開発 ベストセッションズ – 凪のライトニングトーク&lt;/a&gt;の中でライトニングトークをしました。&lt;/p&gt;
+
+&lt;p&gt;題して、すごいHirohsimaの本のここがヒドいです。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;23114bc022a7013253c762b11b8dfdf5&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;少し、補足。&lt;/p&gt;
+
+&lt;p&gt;しつこいですが、&lt;a href=&#34;https://www.google.com/webhp?sourceid=chrome-instant&amp;amp;ion=1&amp;amp;espv=2&amp;amp;ie=UTF-8#q=%E6%88%91%E9%A6%AC&#34;&gt;我馬&lt;/a&gt;は広島のラーメン屋です。博多ラーメンを提供します。&lt;/p&gt;
+
+&lt;p&gt;私とすごい広島の章は実際には4人しか書いていません。
+一人で5役している人がいます。誰やねん。あ、でも一役は入れ替わる可能性も。&lt;/p&gt;
+
+&lt;h2 id=&#34;第71回-web-touch-meeting:017021d1665f9696038118823e7cad42&#34;&gt;第71回 WEB TOUCH MEETING&lt;/h2&gt;
+
+&lt;p&gt;OSC2014広島と同日に行なわれた&lt;a href=&#34;http://webtouchmeeting.doorkeeper.jp/events/15334&#34;&gt;WEB TOUCH MEETING 71&lt;/a&gt;で、Web製作者向けにこの書籍をつくるのに利用技術がどんなものなのか、すごい速さでざっくりと紹介しました。
+対象者をWebの初心者にすればよかったと少し反省しております。&lt;/p&gt;
+
+&lt;p&gt;速さ自体はやや意図的にやった部分はあるのですが、いろんな参加者がいて真ん中あたりの人を対象にしてしまった感じがあります。
+よくわからないけど、キーワードをひろってもらったりしてもらえた良いかなぁ。という感じでつくりました。&lt;/p&gt;
+
+&lt;p&gt;それよりも図はもっとがんばらなければ。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;5010f1e023630132a9090a763f010e40&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;スライドは前半のすごいHiroshimaの本のここがヒドいの部分はカットしてアップロードしています。&lt;/p&gt;
+
+&lt;p&gt;そして補足。&lt;/p&gt;
+
+&lt;p&gt;電子書籍をつくるためには&lt;a href=&#34;https://github.com/kmuto/review&#34;&gt;Re:VIEW&lt;/a&gt;を利用しました。はじめて挑戦する場合は&lt;a href=&#34;https://github.com/kmuto/review/blob/master/doc/quickstart.rdoc&#34;&gt;クイックスタートガイド&lt;/a&gt;を読めば良いと思います。&lt;/p&gt;
+
+&lt;p&gt;Re:VIEWは電子書籍をつくりたい場合でも、技術書を書きたい人向けのものっぽいです。プログラミングなどをしてない人には少し扱うのが難しいかもしれません。
+ただ、環境さえ用意できれば、使うこと自体はは難しくはないと思います。
+書くだけとかなら。&lt;/p&gt;
+
+&lt;p&gt;本の中でグラフをかくのに今回gnuplotを利用しました。
+gnuplotは理系の学生であれば利用したことが多いと思われるグラフ作成ツールです。コマンドラインから利用します。&lt;/p&gt;
+
+&lt;p&gt;Re:VIEWではgnuplotのコマンドを書く方法が用意されていて、PDFに変換する時はPDF用の画像をつくってくれて、ePubに変換する時はePub用に画像をつくってくれます。
+ありがたい。&lt;/p&gt;
+
+&lt;p&gt;この本をつくるにあたって、最初にしたことは、ePubとPDFに変換する部分を自動化したことです。
+もし途中で執筆に誰かが参加しようと思った時に作成されるものをわかりやすくしたり、本が生成されてるところを見せて、興味をもってもらおうと思ったというのが主な目的です。
+他にも執筆に集中してしまって、いざePubやPDFに変換する際にトラブルで間に合わないという自体を避けるなどの理由もあります。
+実際に文字化けとかグラフが生成されなかったり、予期していなかったエラーを事前に発見することができました。&lt;/p&gt;
+
+&lt;p&gt;Octokitは付録の「すごい広島の統計情報」「すごい広島の参加者」を作成するために、利用しています。すごい広島のサイトの情報がおいてあるGitHubのリポジトリ&lt;a href=&#34;https://github.com/great-h/great-h.github.io&#34;&gt;great-h.github.io&lt;/a&gt;から情報を取得して、gnuplot用のCSVを作成したり、Re:VIEWの&lt;code&gt;.re&lt;/code&gt;ファイル内に挿入する文字列を作成しています。&lt;/p&gt;
+
+&lt;p&gt;Octokitを使った例として、&lt;a href=&#34;http://blog.eiel.info/blog/2014/09/13/github-scouter/&#34;&gt;GitHub戦闘力&lt;/a&gt;があります。(GitHub戦闘力が完全にこれを作るときの副産物である)&lt;/p&gt;
+
+&lt;p&gt;蛇足ですが、この電子書籍には他にも最新の情報を取得して、更新している部分がいくつかあります。
+コミットの数なんかは随時変化していくので、ePubやPDFを作成する際に最新情報を使うようにしています。&lt;/p&gt;
+
+&lt;p&gt;対象読者に対して説明不足になってしまうのですが、この電子書籍はgit pushしたら自動生成するようにしています。
+これを実現しているのがCIサーバで今回利用したサービスが&lt;a href=&#34;http://wercker.com/&#34;&gt;Wercer&lt;/a&gt;です。
+CIサーバでできることは結局は自分のコンピュータできることと基本的に同じです。
+しかし、CIサーバを使うと基本的にクリーンな状態でePubやPDFを作成することができます。
+これがどんな時に嬉しいかというと、執筆者が増えた時に、ePubやPDFをつくるのに、自分が追加し忘れたファイルがないことを保証できます。
+(一部のファイルがキャッシュされたりはじますが…)
+また、ePubやPDFを生成するための手順をコードに落とす必要がでるため、作成方法が明確なります。&lt;/p&gt;
+
+&lt;p&gt;こういったことを早めにやっておくと、本を作成するための全体像を把握しやすくなります。&lt;/p&gt;
+
+&lt;p&gt;Werckerを使う際にRe:VIEWを使うための仮想マシン(box)も作成しました。
+この詳しい話は今回割愛しますが、リポジトリは晒しておきます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/wercker-box-review&#34;&gt;eiel/wercker-box-review&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Werckerで作成したePubやPDFはAmazon S3へアップロードしています。
+作成したファイルは&lt;code&gt;tmp/great-h-book-[バージョン番号]&lt;/code&gt;というファイル名にして保存しています。
+これらのファイルは1週間たつと削除されるようにしています。こちらはAmazon S3の機能です。
+ただ、masterブランチものをCIサーバに動かした場合は、&lt;code&gt;great-h-book&lt;/code&gt;というファイル名にして、消えないようにしてあります。
+(厳密にはファイル名はオブジェクト名ですが…)&lt;/p&gt;
+
+&lt;p&gt;Amazon S3はとても安価で信頼性も高いので、最近、成果物はなるべくS3におくようにしています。特に変更がもうないものを置くのが良いと思います。&lt;/p&gt;
+
+&lt;p&gt;最後に、ePubやPDFが生成されたことがみんなに伝わらないと意味がないので、Twitterに流すようにしています。この時にユニークなハッシュタグをつけるようにしています。
+&lt;a href=&#34;https://sites.google.com/site/yorufukurou/&#34;&gt;夜フクロウ&lt;/a&gt;は特定のキーワードを含むツイートを音声つきで通知する機能があるので、これも使ってます。
+とても便利です。&lt;/p&gt;
+
+&lt;p&gt;継続的デリバリなんて言葉を使いましたが、みんなで一緒になって何かをつくるときはみんが嬉しくなるようにやるのが大切だと思います。
+書く人も、確認する人も、作りたい人も、読む人もみんなチームだよね。&lt;/p&gt;
+
+&lt;p&gt;意外と長くなってしまった。
+関連する技術を深く掘り下げて紹介して欲しい要望があれば&lt;a href=&#34;http://ltdd.doorkeeper.jp/&#34;&gt;LT駆動&lt;/a&gt;や&lt;a href=&#34;http://webtouchmeeting.com/&#34;&gt;WEB TOUCH MEETING&lt;/a&gt;で紹介したいと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;リンク:017021d1665f9696038118823e7cad42&#34;&gt;リンク&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://oreilly-generator.com/&#34;&gt;O&amp;rsquo;Reilly Generator&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;関連:017021d1665f9696038118823e7cad42&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/09/20/osc-2014/&#34;&gt;オープンソースカンファレンス2014広島 - LT駆動開発 ベストセッションズ 凪のライトニングトーク&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ヒロハタ 第1回レギュラー・ミーティング に潜入してきた</title>
+          <link>http://blog.eiel.info/blog/2014/07/28/hirohata-1st-meeting/</link>
+          <pubDate>Mon, 28 Jul 2014 17:39:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/28/hirohata-1st-meeting/</guid>
+          <description>
+
+&lt;p&gt;ひろしま発人材集積促進プロジェクトというのが行われていて、通称「ヒロハタ」というらしいのですが、その&lt;a href=&#34;http://hiro-hata.com/post/91065991460/1-7-26&#34;&gt;第1回 レギュラー・ミーティング&lt;/a&gt;があったので&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt; をネタに潜入してきました。&lt;/p&gt;
+
+&lt;p&gt;「ヒロハタ」というのは一言からいうと、広島にクリエイティブな人材を集めようというプロジェクトだと思われます。&lt;/p&gt;
+
+&lt;p&gt;第１回のミーティングはプロジェクトに応募したアイディアのプレゼンテーションをするというもので一部のプレゼンが Ustream で配信されていました。&lt;/p&gt;
+
+&lt;p&gt;もうすでに動いているプロジェクトでさらなるブラッシュアップを計る人たちや、準備中で動いてはいるけど表に出るようなアウトプットはない人たちだったり、構想だけのものだったり、いろんな立場の人たちがいました。&lt;/p&gt;
+
+&lt;p&gt;参加してみると、こういった人たちがつながり相互に良い影響を与えようというのがプロジェクトの目的のように感じました。&lt;/p&gt;
+
+&lt;p&gt;「すごい広島」の立ち位置自体は協力できそうなプロジェクトをみつけて、Webアプリケーションのプロトタイプを作成してみたり、良いと感じたものを広めるお手伝いをしようという目論みです。
+「すごい広島」は結果的にすごいエンジニアをみつけることができればメリットになります。または、作成したプロトタイプのつづきの作成するエンジニアをみつけることができればメリットになるかなぁ、というそんな感じです。&lt;/p&gt;
+
+&lt;p&gt;個人的には、参加者同士が交流する方法が少ないので、他の参加者の現状を見える化やコミュニケーションをとる何かがあるといいなぁ、と思っているところです。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:5e4a6f614546f542b488b29b39f0b346&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://hiro-hata.com/&#34;&gt;ヒロハタ～Web・ITを活用してアイデアの事業化を目指そう～&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発で ruboty の使い方っぽいことを適当に紹介した</title>
+          <link>http://blog.eiel.info/blog/2014/07/07/great-bot-and-ruboty-ltdd/</link>
+          <pubDate>Mon, 07 Jul 2014 17:14:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/07/great-bot-and-ruboty-ltdd/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA05&#34;&gt;LT駆動開発 05&lt;/a&gt; でライトニングトークをした。&lt;/p&gt;
+
+&lt;p&gt;6月は&lt;a href=&#34;https://twitter.com/great_hiroshima&#34;&gt;すごい広島のBOT&lt;/a&gt;を作って遊ぶことをしていた気がしたのでこれを紹介することにした。これは &lt;a href=&#34;https://github.com/r7kamura/ruboty&#34;&gt;Ruboty&lt;/a&gt; で作成した。&lt;/p&gt;
+
+&lt;p&gt;何か毎回やってないネタを挟みたいということで、ふたつスライドを用意して相互参照するというネタをした。
+まずは、BOTの具体例である「すごい広島 BOT」を紹介することでなにがしたいのかをBOTを知らない人に理解してもらう。
+そこから、どうやってそれを作るのか。というところに焦点をおいたというライトニングトークするという流れである。&lt;/p&gt;
+
+&lt;p&gt;しかし、実際、ふたつもライトニングトークをする時間があるかどうかわからないので「Rubotyの使い方」はかなり適当につくってしまった。
+類似性を持たせるために、前半は同じ構成になっている。&lt;/p&gt;
+
+&lt;p&gt;最終的にしたいことは、「すごい広島のTwitterアカウントを誰か運用してくれ」ということかもしれない。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;589b86f0e4c8013160d4220f151a2dd2&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;22966d40e4c90131438f225375d05812&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;すごい広島のBOTは今後もプロキシーBOTとして活躍していただきたいところである。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/r7kamura/ruboty-twitter/&#34;&gt;ruboty-twitter&lt;/a&gt; の fork をみてみると、デバッグ用のコード仕込んでみたりとかしているところがあって、うまくメンションが返ってこなかったからかと思い、その辺を補足してみたという経緯があったりなかったりもします。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:1775b1f910f762fbfac43e9ba225b4f1&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/06/08/ruboty-with-web/&#34;&gt;Rackup で Ruboty&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/05/23/1st-anniversary-for-great-h/&#34;&gt;すごい広島 一周年&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/02/19/start-ltdd/&#34;&gt;LT駆動開発という勉強会をはじめるよ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>すごい広島 一周年</title>
+          <link>http://blog.eiel.info/blog/2014/05/23/1st-anniversary-for-great-h/</link>
+          <pubDate>Fri, 23 May 2014 10:51:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/05/23/1st-anniversary-for-great-h/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;って勉強会というかミートアップが一年間、毎週休まず活動したらしい。「すごい」というか、めでたい。&lt;/p&gt;
+
+&lt;p&gt;概要&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;すごい広島とは何か&lt;/li&gt;
+&lt;li&gt;一年間活動してみて&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;すごい広島とは何か:745e88304fc7d7cf810bcaecdb73f8ae&#34;&gt;すごい広島とは何か&lt;/h3&gt;
+
+&lt;p&gt;すごい広島は、「ITエンジニアとか、情報系の学生とか、Web系デザイナが毎週どこかに集まっていればそれだけで面白いことになるはずだ」
+と考えた &lt;a href=&#34;https://twitter.com/Toro_kun&#34;&gt;@Toro_kun&lt;/a&gt; と &lt;a href=&#34;https://twitter.com/CentBoss&#34;&gt;@CentBoss&lt;/a&gt; と &lt;a href=&#34;https://twitter.com/eielh&#34;&gt;@eielh&lt;/a&gt; がはじめたミートアップらしいです。(他人事)&lt;/p&gt;
+
+&lt;p&gt;「すごい広島」は、もともと&lt;a href=&#34;http://www.amazon.co.jp/gp/product/4274068854/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=4274068854&amp;amp;linkCode=as2&amp;amp;tag=eiel-22&#34;&gt;すごいHaskell を楽しく学ぼう&lt;/a&gt; という書籍の読書会を広島でやろうとした際に考えた名前だそうです。
+しかし、Haskell の需要が少ない関係で、参加者が見込めないため、読書会はお蔵入りしてしまいました。
+せっかく考えた名前は面白いし、どこかで使いたい。
+そこで、流用したのが「すごい広島」となりました。&lt;/p&gt;
+
+&lt;p&gt;しかし、ただ集まるだけでは目的を見失う恐れがあります。
+「広島のエンジニア」のアウトプットの総量を増やすことによって広島が盛り上ってるように錯覚させることができないか考えることにしました。&lt;/p&gt;
+
+&lt;p&gt;結果、参加ルールを設けることにしました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;その場で何をするつもりなのか &lt;a href=&#34;https://github.com/great-h/great-h.github.io/issues?milestone=55&amp;amp;state=open&#34;&gt;GitHub の Issue に書く&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;すごい広島内でブログを書く&lt;/li&gt;
+&lt;li&gt;GitHub に Pull Request をする&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;というルールです。&lt;/p&gt;
+
+&lt;p&gt;GitHubに慣れてもらうために、開発でない部分にGitHubをつかおうとする試みです。
+最初に Pull Request した時の楽しさを伝えたいというのもありますし、GitHubを使える人と仕事をしたいという裏の目的です。
+結果、GitHubを練習するための場として定着するようになりました。
+しかし、ブログをかくのは少し負担が大きいということになり最近では「何かしらのやったことをウェブに残すこと」というルールに緩和されました。&lt;/p&gt;
+
+&lt;p&gt;ところで、広島でもIT勉強会は土日にそこそこの数あります。
+自分がいろんなすごい人たちの話を聞きたいのもありますが、土日以外なら参加できる人もいるかもしれない。
+毎週やっていれば、月に1回ぐらいは来られるかもしれない。
+そんな気持ちでやっています。&lt;/p&gt;
+
+&lt;p&gt;気がつけば、すごい広島はほぼ毎週参加されている人は3,4人います。
+いつもいる人を中心に、輪が広がり、相乗効果が起きるといいと思っています。&lt;/p&gt;
+
+&lt;h3 id=&#34;一年間活動してみて:745e88304fc7d7cf810bcaecdb73f8ae&#34;&gt;一年間活動してみて&lt;/h3&gt;
+
+&lt;h4 id=&#34;つづけたいこと:745e88304fc7d7cf810bcaecdb73f8ae&#34;&gt;つづけたいこと&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;毎週活動する&lt;/li&gt;
+&lt;li&gt;学生など若い人を優遇する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;学生が来る場合は、社会人がひとりいるだけでも学生にとっては参考になる話も聞けると思うので、それだけでやってる価値がでて良いと思います。&lt;/p&gt;
+
+&lt;h4 id=&#34;問題点とか直したい点:745e88304fc7d7cf810bcaecdb73f8ae&#34;&gt;問題点とか直したい点&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;人数が多いと喫茶店だと迷惑がかかる&lt;/li&gt;
+&lt;li&gt;参加者の固定化&lt;/li&gt;
+&lt;li&gt;名前からやってることが想像をしづらい。なにしてるか不明。&lt;/li&gt;
+&lt;li&gt;よく参加する人はステップアップして欲しいが、その道を示してない。&lt;/li&gt;
+&lt;li&gt;はじめての参加者に優しく、参加しやいように&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;メンバーの固定化はちょっと深刻な気もします。
+なるべくはじめてきた人が入りにくくならないように気をつけたい。&lt;/p&gt;
+
+&lt;h4 id=&#34;挑戦したいこと:745e88304fc7d7cf810bcaecdb73f8ae&#34;&gt;挑戦したいこと&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;みんなが勝手に準備して、勝手にまわるように&lt;/li&gt;
+&lt;li&gt;協賛。活動することにメリットがある企業をみつけて支援してもらいたい。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;企業に協力してもらいたいところはちょっとある。&lt;/p&gt;
+
+&lt;h4 id=&#34;その他感じてること:745e88304fc7d7cf810bcaecdb73f8ae&#34;&gt;その他感じてること&lt;/h4&gt;
+
+&lt;p&gt;大人がんばれ&lt;/p&gt;
+
+&lt;p&gt;参加者に学生がわりと多く、どうやら大学の同好会の活動の一部になってきているらしいです。
+それこそ学生が参加して価値を提供できるように社会人ががんばるようになるとすてきだと思います。
+2ヶ月に一度ぐらい来る人とかが数人いるとちょっと雰囲気が変わるかなとも思います。
+とりあえず、家族をまず大切にしましょう。(関係ない)&lt;/p&gt;
+
+&lt;p&gt;参加費は取りたくない。&lt;/p&gt;
+
+&lt;p&gt;気軽に集まることを大切にしたいので、参加費をとりたくない。来るのも大変だしね。
+「エンジニアが交流することは価値があるよ」みたいな事実があれば本当は良いのですが、そんなものはまだ弱い。
+しかし、最近は安定した参加者があるので、お金を払い場所を利用するようになりました。
+金銭的負担をどうやって減らしていくかは少し課題です。
+継続して欲しいなーって思う人に寄付してもらうというのが当面のスタイルになりそうです。&lt;/p&gt;
+
+&lt;p&gt;たまにワイワイ、ひとりの時間も大切に。&lt;/p&gt;
+
+&lt;p&gt;何か作りはじめた人は作ってるものを小出しにしつつ交流したほうがいいと思います。
+たいていの場合は、プログラミングをしている人はこもりがちです。
+刺激をいれると新しい発想とか問題点もみつかるとおもいます。
+外に出る時間だってもったいない時期もあると思いますが、ぜひ。
+特にプログラミングとかはじめたばかりであれば、外に出る価値はあると思います。
+聞いてみればサクっと解決したりするかもしれません。&lt;/p&gt;
+
+&lt;p&gt;だからといって、交流ばかりしていてもダメなのも感じていて、ひとりの時間も大切にしたいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:745e88304fc7d7cf810bcaecdb73f8ae&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;みんながそれぞれ楽しいって思うことを共有しつつ、楽しいってことを追求していけば、楽しいことが起こるんじゃないかなー。
+変えられなかったものも変えられるようになるんじゃないかなー。&lt;/p&gt;
+
+&lt;p&gt;エンジニアって職業が子供の憧れる職業になるように模索していきたい。&lt;/p&gt;
+
+&lt;p&gt;あれ、これ個人の結論で何もまとめてないや…。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、すごい広島 1周年おめでとうございます。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:745e88304fc7d7cf810bcaecdb73f8ae&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/15/great-h/&#34;&gt;「Github をつかったコミュニティ すごい広島」というタイトルでLTしてきた - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/10/21/operation-great-h/&#34;&gt;コミュニティに GitHub に使ってみて - すごい広島 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>すごい広島のサイトを sitespec に変えてみた</title>
+          <link>http://blog.eiel.info/blog/2014/02/19/change-sitespec-for-great-h/</link>
+          <pubDate>Wed, 19 Feb 2014 18:43:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/02/19/change-sitespec-for-great-h/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/events/event-040.html&#34;&gt;すごい広島 #40&lt;/a&gt; で書いてる。&lt;/p&gt;
+
+&lt;p&gt;すごい広島には &lt;a href=&#34;https://github.com/&#34;&gt;GitHub&lt;/a&gt; に馴れるというサブの目的が存在します。
+参加者は 「GitHub にプルリクエストをしなければならない」というルールがあって、参加するだけでプルリクエストの練習することができます。
+プルリクエストを体験することで、GitHubがどういうものなのか理解してもらおうという魂胆です。&lt;/p&gt;
+
+&lt;p&gt;どんなプルリクエストを行うかというと、すごい広島のサイトに情報を追加してもらいます。
+すごい広島で何をしているのか GitHubのIssue に書いてもらっているので、そこへのリンクを貼るのが一番簡単な変更となります。&lt;/p&gt;
+
+&lt;p&gt;さて本題です。&lt;/p&gt;
+
+&lt;p&gt;40回を迎えたことだし、もっと実際の GitHub の作業フローに合わせるためにすごい広島のプロセスの中に CI サーバを登場させることを考えてみました。
+すごい広島のサイトは GitHub に生成させていましたが、Travis-CI でサイトを生成するようにしました。
+プルリクエストすると Travis-CI でサイトが生成できるかどうか確認します。
+これで、プルリクエストを本流にマージする際にサイトが生成できることを確認してからマージすることができるようになりました。&lt;/p&gt;
+
+&lt;p&gt;これで少しだけですが、より実際の開発の流れに近づけることができたはずです。たぶん。&lt;/p&gt;
+
+&lt;p&gt;下図はTravi-CI でサイトが生成できるかどうか確認中の時のプルリクエストのマージボタンです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2014-02-19-travis.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;ついでに静的サイトジェネレータを変更する:805d6ee8f9be4a8a874327ae75367d6e&#34;&gt;ついでに静的サイトジェネレータを変更する&lt;/h3&gt;
+
+&lt;p&gt;せっかくなので、静的サイトジェネレータもJekyllから別ものに変えることにしました。&lt;/p&gt;
+
+&lt;p&gt;GitHub 上でビルドしなくなるので Jekyll でもいろいろできるようになりますが、どうせ機能面で優れたものに変えたいですよね。&lt;/p&gt;
+
+&lt;p&gt;候補は &lt;a href=&#34;http://middlemanapp.com/&#34;&gt;middleman&lt;/a&gt; か &lt;a href=&#34;https://github.com/r7kamura/sitespec&#34;&gt;sitespec&lt;/a&gt; だったのですが、sitespec を試してみたかったので sitespec にしてみました。&lt;/p&gt;
+
+&lt;h3 id=&#34;sitespec:805d6ee8f9be4a8a874327ae75367d6e&#34;&gt;Sitespec&lt;/h3&gt;
+
+&lt;p&gt;sitespec は rspecをつかってサイトを生成します。&lt;/p&gt;
+
+&lt;p&gt;Sitespec を使ってみて良い点は、普段のテスト駆動開発っぽいプロセスで開発できて、思考を変えなくてよかったところです。
+作成したいページの spec を書いて、 rspec を実行するとそのページが生成できないことが確認できます。&lt;/p&gt;
+
+&lt;p&gt;そこからは好きな方法で Rack アプリケーションを用意してあげればよいのです。
+あとは通常のウェブ開発と同じやり方になりそうだと、sitespec を使いはじめてすぐにわかりました。&lt;/p&gt;
+
+&lt;p&gt;Rails や Sinatra に馴れているのであればそれを使えばよくて、拡張機能もそれぞれのフレームワークのものが使えるし、足りないものがあれば同じ要領で開発すればよさそうです。
+新しいことを覚えなくていいし、かゆいところに手が届きます。
+また、なにか拡張機能を作れば普段の開発にも生かせそうなのも良いです。&lt;/p&gt;
+
+&lt;p&gt;sitespec は柔軟性がありますが、その代わりにやることがちょっと増えたりします。
+気軽に作りたい場合は middleman のようなツールを使うほうが良いかもしれません。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、すごい広島のサイトの修正は半日ぐらい真面目にやったらできました。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:805d6ee8f9be4a8a874327ae75367d6e&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;すごい広島のプロセスの中にCIを加えてみました。
+他にも、取り込めるものをみつけたらどんどん取り込みしていきたいですね。
+なにか面白いものないかなー。&lt;/p&gt;
+
+&lt;p&gt;sitespec のほうはウェブアプリ開発者であれば、は選択肢としてありだと思いました。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:805d6ee8f9be4a8a874327ae75367d6e&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/18/jekyll-on-github/&#34;&gt;Github で Jekyll を使う時に調べたこと - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/19/jekyll-on-function/&#34;&gt;Jekyll を使ったGithub Pages で関数呼び出し的なことをする - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>GitHub からの通知が迷惑メールになった - 見ないリポジトリは unwatch しよう</title>
+          <link>http://blog.eiel.info/blog/2013/11/21/github-notifications-is-not-spam/</link>
+          <pubDate>Thu, 21 Nov 2013 12:11:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/11/21/github-notifications-is-not-spam/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;での出来事である。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://f.cloud.github.com/assets/118150/1581675/5df81d52-51db-11e3-846a-64bcfc0ad0f7.png&#34; alt=&#34;すごい広島のIssueの通知メールが迷惑メールに&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;いつかなる気がしていた。
+GitHub からの通知のメールが迷惑メールとして判定された。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;多数のユーザが同様のメッセージを迷惑メールとして報告しています。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;迷惑ならそもそも通知が来ないようにするか、単に自動でアーカイブするようにして欲しいですね。&lt;strong&gt;迷惑メール報告すること自体が迷惑になります。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;私が知る限りの通知の設定方法を紹介しておきます。
+GitHub は常に進化しているので、動作や画面はいずれ変わってしまうかもしれません。&lt;/p&gt;
+
+&lt;h3 id=&#34;そもそもの通知設定:54d721771d76678b55dcd7bae2530e64&#34;&gt;そもそもの通知設定&lt;/h3&gt;
+
+&lt;p&gt;「GitHub からメールに通知して欲しくないよ!」という人は基本的な設定を見直しましょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/settings/notifications&#34;&gt;Noticification Center&lt;/a&gt;にアクセスをします。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2013-11-21/notification_center.png&#34; alt=&#34;Notification Center&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;設定&lt;/code&gt; &amp;gt; &lt;code&gt;Notification Center&lt;/code&gt; でアクセスすることができます。
+&lt;small&gt;自分が参加しているグループがだだ漏れですが、特に隠しません。&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;How you receive notifications&lt;/code&gt; に注目してください。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2013-11-21/how_you_receive_notifications.png&#34; alt=&#34;どのように通知をうけとるか設定する画面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;「通知をどのように受信するか」を設定します。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Participating&lt;/li&gt;
+&lt;li&gt;Watching&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;の二種類があります。&lt;/p&gt;
+
+&lt;p&gt;Participating のほうは &lt;code&gt;@自分のGitHub ID&lt;/code&gt; が付いているような「自分が参加しているところに変化があった時」にどこに通知するかを設定できます。&lt;/p&gt;
+
+&lt;p&gt;Watching のほうは GitHub にリポジトリを &lt;code&gt;watch&lt;/code&gt;する機能があり、「&lt;code&gt;watch&lt;/code&gt; してるものに変化があった時」にどこに通知するかを設定できます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Email&lt;/code&gt; のチェックを外せばメールは届かなくなるでしょう。そうではなくて、一部のリポジトリが活発すぎてついていけない場合もあります。
+そのリポジトリを &lt;code&gt;unwatch&lt;/code&gt; することで調整できます。これについては後述します。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Email&lt;/code&gt; という項目の他にも &lt;code&gt;Web&lt;/code&gt; という項目があります。Web での通知は画面左上にあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2013-11-21/web_notification.png&#34; alt=&#34;通知場所&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;クリックすれば通知内容を確認できます。&lt;/p&gt;
+
+&lt;h3 id=&#34;リポジトリのウォッチ:54d721771d76678b55dcd7bae2530e64&#34;&gt;リポジトリのウォッチ&lt;/h3&gt;
+
+&lt;p&gt;リポジトリが活発すぎて、そのリポジトリの通知はちょっと見てる余裕がない場合はリポジトリを &lt;code&gt;unwatch&lt;/code&gt; しましょう。
+あるチームにいつの間にか入れらたしまった場合、自動的に &lt;code&gt;watch&lt;/code&gt; されてしますので、こういうことがあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2013-11-21/repository_watch.png&#34; alt=&#34;リポジトリのウォッチ&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;これは &lt;code&gt;watch&lt;/code&gt; している状態です。
+外す場合は、&lt;code&gt;Unwatch&lt;/code&gt; を選択して &lt;code&gt;Not watching&lt;/code&gt; を選びます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2013-11-21/not_watching.png&#34; alt=&#34;ウォッチしない画面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;自分のGitHub IDが登場しない限りは通知がこなくなります。
+自分が呼ばれていれば通知がきます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Not watching&lt;/li&gt;
+&lt;li&gt;Watching&lt;/li&gt;
+&lt;li&gt;Ignoring&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;の三種類あります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Watching&lt;/code&gt; は push した情報が自分の news feed (Twitter のタイムラインのようなもの)に push されたことが表示されたりもするようになります。
+誰かが面白いことを始めたらすかさず &lt;code&gt;Watch&lt;/code&gt; することオススメしたいです。
+開発な活発リポジトリを追うのは大変なので、ほどほどに調整したほうが良いでしょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Ignoring&lt;/code&gt; は自分のIDが書かれても無視されるようになります。
+迷惑行為にされない限りはしなくて良いように思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;issue-ごとの設定:54d721771d76678b55dcd7bae2530e64&#34;&gt;Issue ごとの設定&lt;/h3&gt;
+
+&lt;p&gt;別にそのリポジトリを追うこと自体は問題ないんだけど、自分には関係ない話題だとはっきりわかっている Issue の通知を止めることができます。&lt;/p&gt;
+
+&lt;p&gt;Issue の下部にいくと下図のようなものがあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2013-11-21/issue_mute.png&#34; alt=&#34;Isuue のミュート&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;mute&lt;/code&gt; をクリックすると通知が来なくなります。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:54d721771d76678b55dcd7bae2530e64&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;本来は必要としている人がいるメールが迷惑メールとして判定されてしまうことがあります。これは「迷惑メールでないものを迷惑メールとする迷惑行為」が存在するからです。
+GitHub には柔軟とは言えるか難しいですが、迷惑行為をしないように、最適な通知設定を模索してみましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連記事:54d721771d76678b55dcd7bae2530e64&#34;&gt;関連記事&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/05/13/how-to-enjoy-github/&#34;&gt;Github の楽しみ方&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/06/how-to-use-github/&#34;&gt;Git がわからなくても Github を利用しよう&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>コミュニティに GitHub に使ってみて - すごい広島</title>
+          <link>http://blog.eiel.info/blog/2013/10/21/operation-great-h/</link>
+          <pubDate>Mon, 21 Oct 2013 16:44:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/10/21/operation-great-h/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt; も20回を越えて、そろそろ半年経とうとしています。
+&lt;strong&gt;すごい&lt;/strong&gt;ですね。 #知らんけど&lt;/p&gt;
+
+&lt;p&gt;そんなわけでコミュニティのとして &lt;a href=&#34;https://github.com/great-h/great-h.github.io&#34;&gt;GitHub&lt;/a&gt; を使ってみた感想を自分の中でまとめてみようと思います。&lt;/p&gt;
+
+&lt;p&gt;簡単に「すごい広島」について書いておくと、毎週やっている勉強会もどきでミートアップです。ITエンジニアが集まって雑談してたり作業していたりします。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;思ってたより人が集まってる&lt;/li&gt;
+&lt;li&gt;みんな GitHub になれてきた?&lt;/li&gt;
+&lt;li&gt;マージされない Pull Request&lt;/li&gt;
+&lt;li&gt;もっと Issue が作成されてもいいんじゃないか&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;思ってたより人が集まってる:287f871f69f9c9a3326aa8caa3258075&#34;&gt;思ってたより人が集まってる&lt;/h3&gt;
+
+&lt;p&gt;自分が想像していたよりも人が集まっています。
+みなさんありがとうございます。&lt;/p&gt;
+
+&lt;p&gt;どうせ「すぐ一人二人でもくもくーってなる」と、思ってたのですが、3人以下になったのは1回ぐらいしかないように思います。&lt;/p&gt;
+
+&lt;p&gt;参加条件は徐々に緩くしているのもあるかもしれません。&lt;/p&gt;
+
+&lt;p&gt;未参加の人からよくあった意見は、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;行ってみたい&lt;/li&gt;
+&lt;li&gt;ブログを書くのは無理&lt;/li&gt;
+&lt;li&gt;敷居が高そう&lt;/li&gt;
+&lt;li&gt;目的がよくわからない&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;です。&lt;/p&gt;
+
+&lt;p&gt;「行ってみたい」の人は来れない場合の話がありますが、来れる人が言ってる場合はお世辞なんですかね。(煽り&lt;/p&gt;
+
+&lt;p&gt;ブログを書くのは必須ではなくしたので、代わりに GitHub を思う存分試してみて欲しいです。
+&lt;a href=&#34;https://github.com/great-h/great-h.github.io/issues/340&#34;&gt;最近は Issue に作業をメモをとったりしています。&lt;/a&gt; 参考にしてください。&lt;/p&gt;
+
+&lt;p&gt;敷居が高くみえてしまうのは、変態扱いされない人のアウトプットが鍵になる気がしています。
+&lt;strong&gt;期待したい。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;「目的がよくわからない」の一番の理由は名称のせいかな。
+やっぱり情報が読まれるかどうかはタイトル次第というのを改めて感じました。&lt;/p&gt;
+
+&lt;p&gt;それでも 「Web を見て参加しました!」が登場したので個人的には満足です。
+目的のひとつが達成されました。&lt;/p&gt;
+
+&lt;p&gt;改めて「広島 勉強会」で Google で検索しましたが、ちょっと SEO 的にはまだまだです。その辺の工夫が必要そうでした。&lt;/p&gt;
+
+&lt;h3 id=&#34;みんな-github-に馴れてきた:287f871f69f9c9a3326aa8caa3258075&#34;&gt;みんな GitHub に馴れてきた?&lt;/h3&gt;
+
+&lt;p&gt;参加者のほとんどが GitHub に馴れてない人です。
+それだけ GitHub を使う環境がまだまだないのだと思います。
+説明せずに Pull Request した人は僅かです。
+そういう意味では効果があったと思います。&lt;/p&gt;
+
+&lt;p&gt;また、「非プログラマでも Pull Request はできているので難しくないよ」と言いたいのですが、なかなか良い方法がないです。(チラリ&lt;/p&gt;
+
+&lt;p&gt;ちなみに、半分以上の人が Web からのコミット機能を利用しています。
+プログラマでも、黒い画面が怖かったり、GUIのクライアントツールを使えてないことを示しているように思います。
+自分が使ってないので説明できないのもありますが、デザイナでも BitBucket を使ってる人も増えてる印象なのでもうちょっと情報が増えてもいいのではないかなと思います。&lt;/p&gt;
+
+&lt;p&gt;あと、コンフリクトのマージの仕方を忘れた!という人もいました。
+量をこなして、自分の知識へと消化して欲しいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;マージされない-pull-request:287f871f69f9c9a3326aa8caa3258075&#34;&gt;マージされない Pull Request&lt;/h3&gt;
+
+&lt;p&gt;たいした内容でなくてもなかなか Pull Request がマージされません。
+マージポリシーとして、二人以上のレビューを必須にしています。
+なかなかレビューするコストが高いようです。&lt;/p&gt;
+
+&lt;p&gt;コードではないので、本来の Pull Request よりは楽なレビューになるので、数をこなして馴れてもらいたいですね。&lt;/p&gt;
+
+&lt;h3 id=&#34;もっと-issue-が作成されてもいいんじゃないか:287f871f69f9c9a3326aa8caa3258075&#34;&gt;もっと Issue が作成されてもいいんじゃないか&lt;/h3&gt;
+
+&lt;p&gt;あえてコミュニティとして活動できる場所をつくってないです。
+Twitterですんでしまうのもあります。
+Issue はタスクを管理するだけのものではないような使い方をしているけど、アピール不足のようです。&lt;/p&gt;
+
+&lt;p&gt;ラベルも知らないものが、いつの間にか増えていたりしないだろうか。(ちらり&lt;/p&gt;
+
+&lt;h3 id=&#34;せっかくなので:287f871f69f9c9a3326aa8caa3258075&#34;&gt;せっかくなので&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/great-h/great-h.github.io/graphs/contributors?from=2013-05-19&amp;amp;to=2013-10-20&amp;amp;type=c&#34;&gt;コミットランキング&lt;/a&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel&#34;&gt;eiel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/moriC&#34;&gt;moriC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Torokun&#34;&gt;Torokun&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Nyoho&#34;&gt;Nyoho&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/tsuda-a&#34;&gt;tsuda-a&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/furu&#34;&gt;furu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/fujioenoki&#34;&gt;fujioenoki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yukilabo&#34;&gt;yukilabo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nishimotz&#34;&gt;nishimotz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hanapage&#34;&gt;hanapage&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/great-h/great-h.github.io/graphs/contributors?from=2013-05-19&amp;amp;to=2013-10-20&amp;amp;type=d&#34;&gt;コード削除ランキング&lt;/a&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel&#34;&gt;eiel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Torokun&#34;&gt;Torokun&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/moriC&#34;&gt;moriC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Nyoho&#34;&gt;Nyoho&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/great-h/great-h.github.io/graphs/punch-card&#34;&gt;Punchcard&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;コミットランキングを取り上げたのは理由はともかく、削除ランキングというのも上げてみました。
+削除は変更力を示している気がしたのでつけました。&lt;/p&gt;
+
+&lt;p&gt;Punchcard は行動パターンを把握しやすいのでつけてみました。
+深読みしないでください。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:287f871f69f9c9a3326aa8caa3258075&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;量が質に転化するらしいです。
+つまり、結局自分が一番勉強になっている。
+あと別にモテません。いや、ここは嘘でもモテるって書いておくところだったかも。&lt;/p&gt;
+
+&lt;p&gt;「言い出しっぺのの法則」は&lt;strong&gt;すごい&lt;/strong&gt;です。
+&lt;strong&gt;言い出しっぺをやると良い&lt;/strong&gt;と思います。 #違う&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;言ったもん勝ちです。やったもん勝ちです。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>OSC 2013 HIROSHIMA に参加した。</title>
+          <link>http://blog.eiel.info/blog/2013/10/06/osc-2013-hiroshima/</link>
+          <pubDate>Sun, 06 Oct 2013 23:53:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/10/06/osc-2013-hiroshima/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.ospn.jp/osc2013-hiroshima/&#34;&gt;OSC 2013 HIROSHIMA&lt;/a&gt; に参加しました。
+200名以上の参加があったらしいです。正確な情報が待ちどおしいです。&lt;/p&gt;
+
+&lt;p&gt;私も実行委員会に所属したり(あんまり手伝えてなくてごめんなさい)、&lt;a href=&#34;https://www.ospn.jp/osc2013-hiroshima/modules/eguide/event.php?eid=10&#34;&gt;Hiroshima.rb の枠でライトリングトーク&lt;/a&gt;をしたり、&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt; と &lt;a href=&#34;http://hiroshimarb.github.io/&#34;&gt;Hiroshima.rb&lt;/a&gt; の展示ブースで説明をしたりしました。あと、&lt;a href=&#34;https://www.ospn.jp/osc2013-hiroshima/modules/eguide/event.php?eid=21&#34;&gt;ライトニングトーク&amp;amp;じゃんけん大会&lt;/a&gt; でライトニングトークをしてきました。&lt;a href=&#34;http://blog.eiel.info/blog/2013/10/05/chugokudb-02/&#34;&gt;前日の DB 勉強会&lt;/a&gt; を含めると計3セッションをするという状況になりました。&lt;/p&gt;
+
+&lt;h3 id=&#34;hiroshima-rb-広島でrubyが流行らないのはどう考えても俺たちが悪い:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;Hiroshima.rb 広島でRubyが流行らないのはどう考えても俺たちが悪い&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/hiroshimarb/hiroshimarb.github.com/wiki/2013%E5%B9%B410%E6%9C%88%E3%81%AE%E6%B4%BB%E5%8B%95&#34;&gt;Hiroshima.rbの発表については wiki に整理してあります。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;というわけで、僕は毎年前座を務めているので、「Hiroshima.rb の紹介」と「広島でRubyが流行しているか調べた」のでその話をしました。
+本当は僕も成果発表したかったのですが、時間が足りそうにないので諦めました。
+&lt;a href=&#34;https://github.com/hiroshimarb/hiroshimarb.github.com/wiki&#34;&gt;その他のHiroshima.rb の活動は wiki にもまとめています。&lt;/a&gt;興味があれば覗いてみてください。
+スライドは以下の感じなのですが、実際に使ったものとは違う完全版になっています。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/26900494&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;https://www.slideshare.net/TomohikoHimura/ruby-26900494&#34; title=&#34;広島で Ruby が流行らないのはどう考えても俺たちが悪い&#34; target=&#34;_blank&#34;&gt;広島で Ruby が流行らないのはどう考えても俺たちが悪い&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;セッションを見にきてくれた方は20人以上いたと思うのですが数えてないのでわかりません。
+セッションの元ネタは&lt;a href=&#34;http://www.ganganonline.com/comic/watashiga/&#34;&gt;私がモテないのはどう考えてもお前らが悪い!&lt;/a&gt;でした。
+セッションにはどこにもこのネタは入れてないので注意してください。&lt;/p&gt;
+
+&lt;p&gt;勝手にみんなのセッションをざっくり感想書いてしまいます。&lt;/p&gt;
+
+&lt;h4 id=&#34;岡山のruby勉強会:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;岡山のRuby勉強会&lt;/h4&gt;
+
+&lt;p&gt;岡山勢 &lt;a href=&#34;http://twitter.com/mako_wis&#34;&gt;まこぴー&lt;/a&gt; の LT です。&lt;/p&gt;
+
+&lt;p&gt;僕が「広島」と「岡山」の比較をしたので岡山の状況について喋ってくれました。
+本人はもっとネタをいれればよかったといってましたが、もちろんいれるとよかったですが、岡山勢の牽制としては充分なトークだったと思います。&lt;/p&gt;
+
+&lt;h4 id=&#34;youtube動画の再生回数がわし-気になります-きゅふぃーん:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;YouTube動画の再生回数がわし…気になります!! (きゅふぃーん&lt;/h4&gt;
+
+&lt;p&gt;うちの OSC でしか使えない秘密兵器 &lt;a href=&#34;https://twitter.com/NeXTSTEP2OSX/&#34;&gt;にょほう&lt;/a&gt;(にょ砲) の LT です。&lt;/p&gt;
+
+&lt;p&gt;4分超過の打ち切り御免のLTなら死んでいた。
+息子さんの支援により笑いだけでなく、癒しも追加されたため、圧倒的に一番人気な LT になりました。
+しかし、一番アニメ色があるセッションになっていた気がするのは言ってはいけない。&lt;/p&gt;
+
+&lt;h4 id=&#34;paasで簡単-railsアプリを公開しよう-もあぐれっしぶ-rubyを体験しよう:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;PaaSで簡単 Railsアプリを公開しよう！ ～もあぐれっしぶ～ ＆ Rubyを体験しよう！&lt;/h4&gt;
+
+&lt;p&gt;広島の基盤 &lt;a href=&#34;https://twitter.com/takatayoshitake&#34;&gt;たかた&lt;/a&gt; さんの LT です。&lt;/p&gt;
+
+&lt;p&gt;タイトル的にはもっともアニメ色の強いセッションですが、去年にひきつづきPaaSの紹介になりました。
+ぶっちゃけると、僕も知らない PaaS の話でおもしろかったです。
+Gitの説明を求められたけど 「clone するだけだよ!」 (それがわからんと言われる罠)&lt;/p&gt;
+
+&lt;h3 id=&#34;repostar:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;RepoStar&lt;/h3&gt;
+
+&lt;p&gt;うちの裏エース &lt;a href=&#34;https://twitter.com/pecosantoyobe&#34;&gt;ふる&lt;/a&gt; の LT です。&lt;/p&gt;
+
+&lt;p&gt;JavaScript をつかったスライドをつっこんできたのでこのあたりの解説もそのうち聞きたいですね。彼はもっと評価されるべき。
+「GitHubのスターがコンテンツになる!」なかなかの目の付け所です。&lt;/p&gt;
+
+&lt;h3 id=&#34;raspberry-piでlチカしてみた:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;Raspberry PiでLチカしてみた&lt;/h3&gt;
+
+&lt;p&gt;うちの期待の新人にして、はやくも関東行きが確定している &lt;a href=&#34;https://twitter.com/CentBoss&#34;&gt;もりしー&lt;/a&gt; の LT です。&lt;/p&gt;
+
+&lt;p&gt;最近レイヤー下位に落ちている彼です。もりしーは評価されすぎなので、残念にならないようにみんなマサカリを投げて血だらけにしましょう。(冗談です)
+事前にスライドみたときにフォントは変更することをおすすめすればよかった。&lt;/p&gt;
+
+&lt;p&gt;やってることは面白いのけど、身内ネタになりすぎないように注意しましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;電光掲示板を作ってみた:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;電光掲示板を作ってみた&lt;/h3&gt;
+
+&lt;p&gt;うちの常連 かつ 遊撃兵(何それ)の &lt;a href=&#34;https://twitter.com/akira345&#34;&gt;あきら&lt;/a&gt; さんのLTです。&lt;/p&gt;
+
+&lt;p&gt;電光掲示板とガチ組み込み系という mruby かと見せかけて処理はPCでやっているという技術的にもたくさん挑戦している制作発表です。
+展示にはこの子に助けられまくりの掲示板くんです。
+たぶん、いっぱい脱線したい部分があったはずなので、展示で話を聞けた人はラッキーです。&lt;/p&gt;
+
+&lt;h1 id=&#34;すごい広島-展示ブース:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;すごい広島 展示ブース&lt;/h1&gt;
+
+&lt;p&gt;もうひとつの活動ですごい広島というグループの展示をやっていました。
+カンバンという手法をパクッて来場者に OSC の時間内にやることを宣言してもらいました。どう考えても終わるわけがない「プラモを作成する」とかありました。
+二次元からやってきた&lt;a href=&#34;http://sakuraha-blog.jp/&#34;&gt;桜葉愛&lt;/a&gt; と握手したり、記念撮影したりなどもありました。
+非常にたくさんの人にやること宣言してもらいました。ありがとうございます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://great-h.github.io/events/event-osc-2013.html&#34;&gt;すごい広島 in OSC 2013 HIROSHIMA&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;ライトニングトーク-じゃんけん大会-閉会式:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;ライトニングトーク＆じゃんけん大会＆閉会式&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://osh-2014.github.io/&#34;&gt;OSH2014@広島&lt;/a&gt;の告知とすごい広島の話をしてきました。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/26941852&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;https://www.slideshare.net/TomohikoHimura/osc-26941852&#34; title=&#34;OSC2013 HIROSHIMA ライトニングトーク すごい広島&#34; target=&#34;_blank&#34;&gt;OSC2013 HIROSHIMA ライトニングトーク すごい広島&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;もっとネタをつっこめばよかった。少しは笑いをとれたのでよかった点はよかったです。最初のほう緊張してたり、最後のほうは冷静さが欠けてたりしたので、もうちょっと冷静にネタをやればよかった。&lt;/p&gt;
+
+&lt;p&gt;他の方のライトニングトークも感銘を受けるレベルの高いものでした。&lt;/p&gt;
+
+&lt;p&gt;特に &lt;a href=&#34;http://takashi-yokoyama.blogspot.jp/2013/10/osc2013.html&#34;&gt;よこやまさん&lt;/a&gt;はOSCや広島を盛り上げるために岡山からこの10分のためにやってきてくれました。感謝の言葉では足りないです。&lt;/p&gt;
+
+&lt;p&gt;他のLT職人のセッションはとてもすごかったです。
+今年参加できなかった人は来年ぜひ参加して欲しい。
+できれば若い子にはライトニングトークして欲しいですね。&lt;/p&gt;
+
+&lt;p&gt;あ、ライトニングトークの練習をしたくなったら広島Ruby勉強会へ行きましょう。大歓迎です。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;OSC 2013 HIROSHIMA は懸念していた参加者数をゆうゆうと目標人数を達成しました。コミュニティ同士の横の繋りが深まったという話もちらほら聞きました。とてもよかったです。
+来年がもっともっと盛り上がるように積極的に参加してくれる人が増えると嬉しいですね。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;あなたの一票が日本を変える&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p&gt;昨日はOSCから帰ったら息子が「ひむひむ (&lt;a href=&#34;https://twitter.com/eielh&#34;&gt;@eielh&lt;/a&gt;) いなくなっちゃったー」などとひむひむを連呼していた。今朝は起きて開口一番「ひむひむどこにいるの?」であった。&lt;/p&gt;&amp;mdash; Nyoho (@NeXTSTEP2OSX) &lt;a href=&#34;https://twitter.com/NeXTSTEP2OSX/statuses/386996764147843072&#34;&gt;October 6, 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>「Github をつかったコミュニティ すごい広島」というタイトルでLTしてきた</title>
+          <link>http://blog.eiel.info/blog/2013/06/15/great-h/</link>
+          <pubDate>Sat, 15 Jun 2013 19:39:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/06/15/great-h/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.webtouchmeeting.com/meeting/2013/06/58web-touch-meeting.html&#34;&gt;WEB TOUCH MEETING #58&lt;/a&gt; の LT 枠で&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;について LT をしました。&lt;/p&gt;
+
+&lt;p&gt;Githubの話はほとんどしていない。最近、隔週で何か喋ってる気がする。&lt;/p&gt;
+
+&lt;p&gt;主な目的は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;みんな広島を盛り上げようぜ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;です。&lt;/p&gt;
+
+&lt;p&gt;表面的には&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;みんなもっとアウトプットしましょう&lt;/li&gt;
+&lt;li&gt;楽しいことをしよう&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;というのをメインに話しました。&lt;/p&gt;
+
+&lt;p&gt;裏の目的は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;自分のツイートだってコンテンツになりえるか&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;です。&lt;/p&gt;
+
+&lt;p&gt;世の中には勉強会の存在を知らなくて一人でがんばってる人がいたり、
+勉強会で何をやってるのかわからなかったり、
+そういう人たちに地元の勉強会の存在を知る可能性を高くする。&lt;/p&gt;
+
+&lt;p&gt;あと LT できる人、したがる人を増やす。
+LTやる人がいないと LTをやろうと思う人も増えない。
+僕は人前で喋りたくない派なので、できるのはきっかけ作りをしたい。&lt;/p&gt;
+
+&lt;p&gt;そういう目的のセッションをしたつもりです。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/23031128&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;http://www.slideshare.net/TomohikoHimura/ss-23031128&#34; title=&#34;すごい広島&#34; target=&#34;_blank&#34;&gt;すごい広島&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;というわけで、セッション補足。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;up したスライドは削ったものを追懐しています。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;github:a8a6cf8135143e61a1c8c7eaefbc9637&#34;&gt;Github&lt;/h3&gt;
+
+&lt;p&gt;ここを見ている人に書く必要はないと思いますが、オープンソースプロジェクトをしていく上で重要なWebサービスです。
+言葉慣れをしてもらうということで解説は全くしませんでした。&lt;/p&gt;
+
+&lt;h3 id=&#34;気軽にアウトプット:a8a6cf8135143e61a1c8c7eaefbc9637&#34;&gt;気軽にアウトプット&lt;/h3&gt;
+
+&lt;p&gt;気合いれてアウトプットするにはエネルギーが必要です。大作を毎週書くのは大変です。
+「気軽に書きましょう」という話をしたかったですが、時間の都合上、削除しました。&lt;/p&gt;
+
+&lt;p&gt;LTも気軽にアウトプットできて、影響も大きいです。気軽に作れるように練習したほうが良いと思います。
+なので、気軽にLTするには &lt;a href=&#34;http://hiroshimarb.github.io/&#34;&gt;広島Ruby勉強会&lt;/a&gt;を使うといいですよ。
+という話をあらかじめ休憩時間の告知で伏線を貼ることで、省略しました。&lt;/p&gt;
+
+&lt;p&gt;アウトプットをすると勉強になる、かつ、そこに情報が集まる。
+アウトプットをするにはそれなりのエネルギーが必要ですが、インプットするのはアウトプットに比べるとずっと少ないです。
+気軽にコメントをしてくれたり、詳しい情報を聞こうと人が集まってきたり、強力なマサカリが飛んでくることで自分の理解を促進してくれます。&lt;/p&gt;
+
+&lt;p&gt;また、伝えようとすることで考えを整理することができます。
+そういう話をざっくりしました。&lt;/p&gt;
+
+&lt;p&gt;また、ツイートも立派なコンテンツになるんじゃないかと、自分のツイートをスライドに使ってみたりもしました。
+これは自爆気味なのでライフポイントがガンガン減ります。&lt;/p&gt;
+
+&lt;h3 id=&#34;県外のほうが楽しく見える:a8a6cf8135143e61a1c8c7eaefbc9637&#34;&gt;県外のほうが楽しく見える&lt;/h3&gt;
+
+&lt;p&gt;隣の芝生は本当に青いのか。
+青くないのかもしれませんが、青く見えたら人はそちらに流れていく可能性があります。
+そうです。潜在的に面白い人たちが都会へと流れてしまいます。&lt;/p&gt;
+
+&lt;p&gt;こういった勉強会に興味を持つ人が「地元には面白いものがないから」
+と、都会へと行ってしまう。
+特にいまから高い可能性を持つ学生が都会へ流れずに、地元へ残る選択肢を提示していきたい。
+また、面白ければ「県外から広島は楽しそうだから」と、やってくる可能性もあります。&lt;/p&gt;
+
+&lt;p&gt;僕だって楽しいところに行きたいもの。
+じゃあ、楽しくするしかないじゃないか。&lt;/p&gt;
+
+&lt;h3 id=&#34;楽しければいいの:a8a6cf8135143e61a1c8c7eaefbc9637&#34;&gt;楽しければいいの?&lt;/h3&gt;
+
+&lt;p&gt;ここは削った部分です。&lt;/p&gt;
+
+&lt;p&gt;「楽しいだけの勉強会は人は集まらないし、本格化しない。人が集まらないので継続は難しい」そんなマサカリを受けたことがあります。
+ビジネスにならないとメリットを感じることが難しいので人がこないという話ですね。&lt;/p&gt;
+
+&lt;p&gt;実際、Ruby勉強会の参加者のほとんどがRuby初心者です。&lt;/p&gt;
+
+&lt;p&gt;でもね、エンジニアはビジネスをする人じゃない。
+技術を追求すべき人たちです。&lt;/p&gt;
+
+&lt;p&gt;どういったことができるか、ビジネスをする人に伝える必要はありますが、
+そうあるためには、エンジニアが技術を日々高めて、面白いことができるステージに立つ必要がある。&lt;/p&gt;
+
+&lt;p&gt;どうやって技術を高めるかというと、努力するしかない。
+努力するには楽しい必要があるのです。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;「僕にはそれが楽しかったから」&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;そういう人が増えて欲しい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;地域が活性化、エンジニアが活性化してなくて何ができるの？&lt;/li&gt;
+&lt;li&gt;ビジネスをするための下地を作る必要があるのでは？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そんな風に考えました。&lt;/p&gt;
+
+&lt;p&gt;つまり、答えは、&lt;strong&gt;楽しく学ぶ&lt;/strong&gt; 。まずは仲間がいればそれだけで楽しくなる。&lt;/p&gt;
+
+&lt;p&gt;ひとりでもくもくと学んできたエンジニアは濃いネタをもっています。
+だからこそ、それを伝える機会を増やす。&lt;/p&gt;
+
+&lt;p&gt;アウトプットすれば、「ここに面白い人がいる」ということが認知されるのです。
+だから、無理矢理アウトプットすることを すごい広島 の中で強制してみています。&lt;/p&gt;
+
+&lt;h3 id=&#34;ltで失敗した点:a8a6cf8135143e61a1c8c7eaefbc9637&#34;&gt;LTで失敗した点&lt;/h3&gt;
+
+&lt;p&gt;対象者に想定したレベルが高すぎた。
+プロットに対象者の欄をかかなかったのがよくない。
+LT でも対象者を意識するようにする。&lt;/p&gt;
+
+&lt;p&gt;僕のセッション中に内容に関するツイート皆無なので、たぶん、微妙なLTだったんだと思う。
+もっとがんばりましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;独り言:a8a6cf8135143e61a1c8c7eaefbc9637&#34;&gt;独り言&lt;/h3&gt;
+
+&lt;p&gt;しかし、狙ってないところで笑いがとれてしまう。
+狙ったところは だいたい &lt;a href=&#34;http://kita.dyndns.org/diary/&#34;&gt;@NeXTSTEP2OSX&lt;/a&gt; の中の人にしかウケないんだよなー。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Rails で AngularJs を使おうとしてみた</title>
+          <link>http://blog.eiel.info/blog/2013/06/12/htmlday-angular-js/</link>
+          <pubDate>Wed, 12 Jun 2013 20:05:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/06/12/htmlday-angular-js/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.htmlday.jp&#34;&gt;&amp;lt;htmlday&amp;gt; 2013&lt;/a&gt;でやったことプラスアルファ。
+足りなかった部分は&lt;a href=&#34;http://great-h.github.io/events/event-004.html&#34;&gt;すごい広島 #4&lt;/a&gt;内で調査しました。&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;htmlday&amp;gt; では &lt;a href=&#34;http://angularjs.org/&#34;&gt;AngularJS&lt;/a&gt; で遊びました&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2012/07/26/angularjs-abc/&#34;&gt;前にAngularJSを利用したときの復習&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://angularjs.org/&#34;&gt;AngularJS&lt;/a&gt; を rails で使うのに使えそうな gemの調査&lt;/li&gt;
+&lt;li&gt;&amp;lt;html ng-app&amp;gt; と書けないの時の対処方法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;angularjs-を-rails-で使うのに使えそうな-gemの調査:de9db9eb8c6ccb8fc160fb8104e352a8&#34;&gt;AngularJS を rails で使うのに使えそうな gemの調査&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.ruby-toolbox.com/search?utf8=%E2%9C%93&amp;amp;q=angular&#34;&gt;とりあえず、Ruby Toolboxで angularを検索してみました。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;候補としては&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ludicast/angular-rails/tree/master/vendor/assets/javascripts&#34;&gt;angular-rails&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hiravgandhi/angularjs-rails/tree/master/lib&#34;&gt;anglurajs-rails&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ets-berkeley-edu/angular-gem&#34;&gt;angular-gem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yjchen/angular-rails-engine&#34;&gt;angular-rails-engine&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;と、乱立状態でした。他にもありましたけど、見る元気はありませんでした。&lt;/p&gt;
+
+&lt;p&gt;結論をまとめておくと&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;素の AngularJs でいいのなら angularjs-rails&lt;/li&gt;
+&lt;li&gt;generatorなど、もしかすると便利になるものがあるかもしれないのが angular-gem&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という感じでした。&lt;/p&gt;
+
+&lt;p&gt;まずは、angular-rails を試しました。generator などついていますが、AngularJSの本体が更新されていない状態でした。
+また、添付されている angle.js を読み込みすると動作しなかったりと問題もちらほらありました。&lt;/p&gt;
+
+&lt;p&gt;次にみたのは angularjs-rails です。これは Javascriptが添付されているだけのシンプルなものでした。添付されているものも最新で、unstable な最新バージョンも添付されていました。読み込みたいだけならこれで良さそうです。x&lt;/p&gt;
+
+&lt;p&gt;unstableなバージョンをよみこむ場合は application.js に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;//= require_tree ./angular/unstable
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、かけば良さそうです。&lt;/p&gt;
+
+&lt;p&gt;3番目に angular-gem です。前述の angularjs をフォークして複数のversion のAngularJSを取りこんでいたりと、なかなか意欲的です。&lt;/p&gt;
+
+&lt;p&gt;4つ目は angular-rails-engin です。angular_include_tag というヘルパーを提供してくれて、必要に応じて読込みして使う感じになるようです。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、 angular-gem を試していこうかなと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;html-ng-app-を書けないのでその対処方法:de9db9eb8c6ccb8fc160fb8104e352a8&#34;&gt;&amp;lt;html ng-app&amp;gt; を書けないのでその対処方法&lt;/h3&gt;
+
+&lt;p&gt;AngularJs では&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;html ng-app&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のような書き方をして、機能拡張をする場合は、myModule を作成して、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;html ng-app=&amp;quot;myModule&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のようにします。&lt;/p&gt;
+
+&lt;p&gt;しかし、&lt;a href=&#34;http://haml.info/&#34;&gt;haml&lt;/a&gt; &lt;a href=&#34;http://slim-lang.com/&#34;&gt;slim&lt;/a&gt; を利用していると、自動生成されてしまって書けそうにない。&lt;/p&gt;
+
+&lt;p&gt;書けない場合は JavaScriptでなんとかできました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;angular.element(document).ready(function() {
+  angular.bootstrap(document, [&#39;myModule&#39;]);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と書くと、前述のものと等価になります。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>セキュリティもみじで空気読めてないLTをしたんだ - すごい Hiroshima で楽しく学ぼう</title>
+          <link>http://blog.eiel.info/blog/2013/05/23/momiji/</link>
+          <pubDate>Thu, 23 May 2013 10:56:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/05/23/momiji/</guid>
+          <description>&lt;p&gt;先週の土曜日に&lt;a href=&#34;https://sites.google.com/site/secmomiji/secmomiji24&#34;&gt;セキュリティもみじ&lt;/a&gt;で 5分の LT をしました。&lt;/p&gt;
+
+&lt;p&gt;セキュリティの勉強会なのに、セキュリティと全く関係なかったり、5分を超過してたり、痛いツイート引用していたりと、恥ずかしい限りです。&lt;/p&gt;
+
+&lt;p&gt;しかも、ターゲットに設定していた広島の若い人が……&lt;strong&gt;参加してない!&lt;/strong&gt; という、致命的な問題が発生しました。
+仕方ないので、ネタにしておきました。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/21713029&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;http://www.slideshare.net/TomohikoHimura/hiroshima-21713029&#34; title=&#34;すごい Hiroshima で 楽しく学ぼう&#34; target=&#34;_blank&#34;&gt;すごい Hiroshima で楽しく学ぼう&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;タイトルの元ネタは言わずとしれた、「すごいH本」で知られる [すごいHaskell 楽しく]&lt;a href=&#34;http://www.amazon.co.jp/gp/product/4274068854?ie=UTF8&amp;amp;camp=1207&amp;amp;creative=8411&amp;amp;creativeASIN=4274068854&amp;amp;linkCode=shr&amp;amp;tag=eiel-22(&#34;&gt;http://www.amazon.co.jp/gp/product/4274068854?ie=UTF8&amp;amp;camp=1207&amp;amp;creative=8411&amp;amp;creativeASIN=4274068854&amp;amp;linkCode=shr&amp;amp;tag=eiel-22(&lt;/a&gt;) です。
+良本なので、まだ読んでない方は、ぜひ。Haskell を使う機会がなくて新しい視点を得るヒントになるかもしれません。
+LTは Haskell ともなんにも関係ないし、説明する時間もありませんでした。&lt;/p&gt;
+
+&lt;p&gt;話を戻します。&lt;/p&gt;
+
+&lt;p&gt;つまり、広島は盛り上がってるのか、盛り上がってないのか。
+どちらでも構わないから、もっと盛り上げたらいいよね。
+そういう気持ちの話しをしてきました。&lt;/p&gt;
+
+&lt;p&gt;人前で話すのは本当に苦手です。
+だからといって、何もしないのでは期待するような結果にはならないです。
+ならば、まずは自分にできそうなことをやる。それだけです。&lt;/p&gt;
+
+&lt;p&gt;「地元がよいけど、やっぱ都会のほうが楽しいよー」って、人たちが「地元楽しいな!」になると良いですよね。&lt;/p&gt;
+
+&lt;p&gt;このセッションに便乗したわけではないのですが、&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt; という Meetup 的なものをはじめてみたりしました。
+毎週水曜日にやってみようと思います。
+おしい広島にもなんとなく音が近いですね。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://qwik.jp/asakusarb/&#34;&gt;Asakura.rb&lt;/a&gt; 的なものがやってみたかった。
+実は参加したことがないのでどんなやり方なのか実はさっぱりわかっていません。
+岡山でも &lt;a href=&#34;https://ishikitakai.com/groups/10&#34;&gt;Okayama.rb&lt;/a&gt; というのを毎週やっていて、対抗したい意識があったり、なかったりです。&lt;/p&gt;
+
+&lt;p&gt;やり方がよくわからないので自己流で裏テーマとして&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Github の使う&lt;/li&gt;
+&lt;li&gt;ブログを書く週間をつける&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;というのも兼ねてみてます。
+「これは意識高すぎるんじゃね？」という意見もちょっと出てて、ちょっと迷い気味。
+敷居もなるべく下げたい。&lt;/p&gt;
+
+&lt;p&gt;盛り上がりというのは、正のスパイラルで、そこからはずれてしまうと、負のスパイラルに落ちいってしまう印象があります。
+良い方向へ進めばどんどん良い方向に進むと思います。
+悪い方向へ進んだら、ゼロからやりなおせばいいです。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、まずは周りから。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

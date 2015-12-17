@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/atom/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-08-02 11:00:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>LT駆動開発で とある我馬の非公式というLTをした</title>
+          <link>http://blog.eiel.info/blog/2014/08/02/gaba-ltdd/</link>
+          <pubDate>Sat, 02 Aug 2014 11:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/08/02/gaba-ltdd/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA06&#34;&gt;LT駆動開発06&lt;/a&gt; でライトニングトークをした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.gaba-2000.com/&#34;&gt;我馬&lt;/a&gt;というラーメン屋のウェブサイトが更新情報のフィード配信してないので、勝手に応援しているという話をしました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gaba.eiel.info/&#34;&gt;とある我馬の非公式(ファンサイト)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;af32c140fc3e01312f2926529f74da74&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;折角なのでフィードの存在を知らない人もいるかもしれないので、簡単に説明しつつ、どうやってフィードをつくったのか説明しました。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、季節のラーメンはアツいので広島には3ヶ月に一度程度いらっしゃると良いと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:77a32f3198ef37442d00c5e329cdbc18&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gaba.eiel.info/&#34;&gt;とある我馬の非公式(ファンサイト)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.gaba-2000.com/&#34;&gt;我馬&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/gaba&#34;&gt;eiel/gaba · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/gaba.eiel.info&#34;&gt;eiel/gaba.eiel.info · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/deltawalker/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-07-03 19:16:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Mac で使える git mergetool をいろいろ試してみる - DeltaWalker</title>
+          <link>http://blog.eiel.info/blog/2013/07/03/git-mergetool-deltawalker/</link>
+          <pubDate>Wed, 03 Jul 2013 19:16:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/07/03/git-mergetool-deltawalker/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt; の続きです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.deltopia.com/&#34;&gt;DeltaWalker&lt;/a&gt; を紹介します。&lt;/p&gt;
+
+&lt;p&gt;DeltaWalker 49ドル の有料アプリケーションで、見た感じ Eclipse と同じツールキットのようで、マルチプラットフォームを実現しているようです。
+しかし、購入する際はOSを指定するので、OSごとにライセンスがいるのでしょうか。試用ができるので試してみました。&lt;/p&gt;
+
+&lt;p&gt;有料ツールの中では値段が安く、日本語を使用していても問題はおきてないです。&lt;/p&gt;
+
+&lt;p&gt;設定するには &lt;code&gt;/Applications&lt;/code&gt; にインストールした場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;git config --global --add mergetool.dw.cmd &#39;&amp;quot;/Applications/DeltaWalker.app/Contents/MacOS/git-merge&amp;quot; &amp;quot;$LOCAL&amp;quot; &amp;quot;$REMOTE&amp;quot; &amp;quot;$BASE&amp;quot; &amp;quot;$MERGED&amp;quot;&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で設定できます。&lt;/p&gt;
+
+&lt;p&gt;起動するには&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git mergetool -t dw
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とするとできます。&lt;/p&gt;
+
+&lt;p&gt;デフォルトで起動するツールに設定したい場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global merge.tool dw
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、設定することができます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/deltawalker.png&#34; alt=&#34;deltawalker の画面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;画面左にもとのブランチのファイル、画面右にマージするブランチのファイルが表示されます。中央にマージ結果が表示されています。&lt;/p&gt;
+
+&lt;p&gt;マージ方式は emacs の ediffと同じように、先にベースしたいほうを選びます。&lt;/p&gt;
+
+&lt;p&gt;そうすると細かいコンフリクト箇所が表示されるので、どちらを選択するか選ぶことができます
+。
+左を選ぶか、右を選ぶかを選択するための状態にもっていくのが少し扱いづらかったです。
+なぜだかわからないですが、左しか選べない状態になったりしました。マウスクリックですることで直りました。&lt;/p&gt;
+
+&lt;p&gt;コンフリクトの修正後は、ウィンドウ閉じれば次へ勧みます。
+他にコンフリクトするファイルがあれば続けて表示されます。&lt;/p&gt;
+
+&lt;p&gt;修正が終了するとコンフリクトしたときのファイルは &lt;code&gt;.orig&lt;/code&gt; が末尾について保存されます。&lt;/p&gt;
+
+&lt;p&gt;気になる点は Java で実行するため、起動が少し遅いです。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:e2222856aecf02415ae2282b2b3ed87f&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

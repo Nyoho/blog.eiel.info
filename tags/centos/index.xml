@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/centos/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-09-04 22:25:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>CentOSにJenkinsを入れてみた</title>
+          <link>http://blog.eiel.info/blog/2012/09/04/jenkins-on-centos/</link>
+          <pubDate>Tue, 04 Sep 2012 22:25:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/09/04/jenkins-on-centos/</guid>
+          <description>&lt;p&gt;ちょっと前に(だいぶ前?)にCentOSに &lt;a href=&#34;http://jenkins-ci.org/&#34;&gt;Jenkins&lt;/a&gt; をインストールしてみた。その方法のメモ。&lt;/p&gt;
+
+&lt;p&gt;Jenkinsは継続的インテグレーションを行うためのツールで、
+ビルドやテストの自動実行を行い、カバレッジなどの統計データを生成したりするツールです。大規模なプロジェクトになってくるとローカル環境ですべてのテストを実行するのが難しくなってきたりすると便利です。&lt;/p&gt;
+
+&lt;p&gt;具体的なインストール方法ですが&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo yum install java-1.6.0-openjdk
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+sudo yum install jenkins
+sudo cp -p /etc/sysconfig/jenkins /etc/sysconfig/jenkins.orig
+sudo /sbin/chkconfig jenkins on
+sudo /etc/init.d/jenkins start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;といった感じです。JREを何使えばよいのか迷いましたが openJDKにしてみました。
+あとは デフォルトーでは ポート &lt;code&gt;8080&lt;/code&gt; で動作するので、 &lt;a href=&#34;http://localhost:8080&#34;&gt;http://localhost:8080&lt;/a&gt; へアクセスしたりすればよいです。
+&lt;code&gt;/etc/sysconfig/jenkins&lt;/code&gt; をいじりたい場合(ポートを変えたいなど)に備えてコピーもしてあります。&lt;/p&gt;
+
+&lt;p&gt;Jenkinsに関連するデータは &lt;code&gt;/var/lib/jenkins/&lt;/code&gt; に配置されます。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

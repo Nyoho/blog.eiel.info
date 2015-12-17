@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/phantomjs/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-05-23 01:59:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>cucumber で PhantomJS を使う</title>
+          <link>http://blog.eiel.info/blog/2013/05/23/cucumber-with-phantomjs/</link>
+          <pubDate>Thu, 23 May 2013 01:59:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/05/23/cucumber-with-phantomjs/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://cukes.info/&#34;&gt;Cucumber&lt;/a&gt; で使うブラウザを &lt;a href=&#34;http://phantomjs.org/&#34;&gt;PhantomJS&lt;/a&gt; にしたい。&lt;/p&gt;
+
+&lt;p&gt;Cucumber -&amp;gt; Capybara -&amp;gt; Poltergeist -&amp;gt; PhantomJS という感じに利用します。&lt;/p&gt;
+
+&lt;p&gt;PhantomJS は画面のないブラウザと言うと、伝わりやすいでしょうか。&lt;/p&gt;
+
+&lt;p&gt;統合的なテストを行う場合、Rails プロジェクトでは Cucumber がよく使われています。
+Cucumberのシナリオに &lt;code&gt;@javascript&lt;/code&gt; というタグをつけると Selenium を利用して Firefox を制御してテストを行うことができます。
+非常に便利なのですが、処理が長かったり、また、X11の起動してない Linux などで動かそうとするとちょっと問題がおきます。
+そこで、画面の表示をしないブラウザでテストしたくなります。
+また、実際によく使うわれるのはレンダリングエンジンは Webkit です。&lt;/p&gt;
+
+&lt;p&gt;そのためのブラウザとしての有力候補が PhantomJS です。
+PhantomJS のレンダリングエンジンは Webkit で、必要であればスクリーンショットがとれます。
+Travis CI でも利用できるようです。(未確認)&lt;/p&gt;
+
+&lt;p&gt;利用までの手順としては&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;PhantomJS のインストール&lt;/li&gt;
+&lt;li&gt;Rails プロジェクトに Poltergeistを追加&lt;/li&gt;
+&lt;li&gt;featrue/support/env.rb を設定&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;となります。&lt;/p&gt;
+
+&lt;h3 id=&#34;phantomjs-のインストール:0431d6fc23db040417a221faa946fe58&#34;&gt;PhantomJS のインストール&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://phantomjs.org/download.html&#34;&gt;http://phantomjs.org/download.html&lt;/a&gt; から ダウンロードできます。
+Mac であれば Homebrew や Macport でインストール可能なようです。ダウンロードしても bin/phantomjs を 環境変数PATH に入っているところに配置するだけです。&lt;/p&gt;
+
+&lt;h3 id=&#34;rails-プロジェクトに-poltergeist-を追加:0431d6fc23db040417a221faa946fe58&#34;&gt;Rails プロジェクトに Poltergeist を追加&lt;/h3&gt;
+
+&lt;p&gt;Gemfile に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;group :test do
+  gem &#39;poltergeist&#39;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と追記すれば良いです。&lt;/p&gt;
+
+&lt;h3 id=&#34;feature-support-env-rb-を設定:0431d6fc23db040417a221faa946fe58&#34;&gt;feature/support/env.rb を設定&lt;/h3&gt;
+
+&lt;p&gt;設定しないと使えません。
+&lt;code&gt;feature/support/env.rb&lt;/code&gt; に以下を追記すればよいでしょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;capybara/poltergeist&#39;
+Capybara.javascript_driver = :poltergeist
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;@javascript&lt;/code&gt; つけるのがめんどくさい! って場合は、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;equire &#39;capybara/poltergeist&#39;
+Before do
+  Capybara.current_driver = :poltergeist
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とする方法もあります。&lt;/p&gt;
+
+&lt;h3 id=&#34;トラブルとか:0431d6fc23db040417a221faa946fe58&#34;&gt;トラブルとか&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;javascript がちょっとエラーがおきただけで、エラーになる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;js_errors&lt;/code&gt; などを設定すると無視できるようです。
+今のところは折角なので全部直しています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;クリックに失敗することがある。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;なにやらふたつの node をクリックしてしまって、エラーのようなものが起きてる箇所がでてます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;もし /^&amp;quot;(.*?)&amp;quot;をクリック$/ do |name|
+  click_on name
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のような、step を&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;もし /^&amp;quot;(.*?)&amp;quot;をクリック$/ do |name|
+  find(:link_or_button, name).trigger(&#39;click&#39;)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;にすると動く場面もありました。&lt;/p&gt;
+
+&lt;h3 id=&#34;もうちょっと詳しく:0431d6fc23db040417a221faa946fe58&#34;&gt;もうちょっと詳しく&lt;/h3&gt;
+
+&lt;p&gt;失敗する利用がわからなくて、pry などで停止させた時に Poltergeist を直接やりとりしたい場合は&lt;code&gt;page.driver&lt;/code&gt; でオブジェクトにアクセスできます。
+PhantomJS と直接やりとりしたい場合は &lt;code&gt;page.driver.server&lt;/code&gt; でよさそうです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jonleighton/poltergeist/blob/master/lib/capybara/poltergeist/driver.rb&#34;&gt;Capybara::Poltergeist::Driver&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jonleighton/poltergeist/blob/master/lib/capybara/poltergeist/server.rb&#34;&gt;Capybara::Poltergeist::Server&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;一応登場人物の整理:0431d6fc23db040417a221faa946fe58&#34;&gt;一応登場人物の整理&lt;/h3&gt;
+
+&lt;p&gt;Capybara はウェブブラウザの違いを吸収してブラウザの操作を記述するDSLです。バックエンドに何を使うとしても同じように書けます。&lt;/p&gt;
+
+&lt;p&gt;Poltergeist は CapybaraのDSLによる命令を、PhantomJS の命令に変換し、実行結果をもどす役目をします。違いを吸する部分です。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:0431d6fc23db040417a221faa946fe58&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;まだテストがすべて通ってない。JavaScript を使用していない シナリオからの移行はそれなりに大変です。
+でも、やるなら速いほうがいいと思います。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

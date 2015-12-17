@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/activerecord/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-12-13 05:51:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>PostGIS関連でRailsの本番環境でエラー</title>
+          <link>http://blog.eiel.info/blog/2014/12/13/activerecord-postgis/</link>
+          <pubDate>Sat, 13 Dec 2014 05:51:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/13/activerecord-postgis/</guid>
+          <description>&lt;p&gt;PostGIS
+開発環境ではおきないのだけど、pointを作ろうとしてエラーが起きる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NoMethodError (undefined method `point&#39; for #&amp;lt;Proc:0x000000038dde90&amp;gt;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;見事に下記の通りだった。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/rgeo/activerecord-postgis-adapter/issues/63&#34;&gt;https://github.com/rgeo/activerecord-postgis-adapter/issues/63&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;self.lonlat = Pin.rgeo_factory_for_column(:latlon).point(self.longitude, self.latitude)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;だったのを&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;self.lonlat = Pin.rgeo_factory_for_column(:latlon, {}).point(self.longitude, self.latitude)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;に書き換え。&lt;code&gt;rgeo_factory_for_column&lt;/code&gt;の第2引数に &lt;code&gt;{}&lt;/code&gt;を加えた。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>第２回 中国地方DB勉強会に参加したり、喋ったり。</title>
+          <link>http://blog.eiel.info/blog/2013/10/05/chugokudb-02/</link>
+          <pubDate>Sat, 05 Oct 2013 18:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/10/05/chugokudb-02/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://local.aguuu.com/events/21550&#34;&gt;第２回 中国地方DB勉強会&lt;/a&gt; に参加しました。&lt;/p&gt;
+
+&lt;h3 id=&#34;o-r-mapping-の話をするよ-特にactiverecordの話をしたかった:c6e38ba68398cfb85b49db71f6fea302&#34;&gt;O/R Mapping の話をするよ。特にActiveRecordの話をしたかった。&lt;/h3&gt;
+
+&lt;p&gt;セッションしました。準備不足はいいわけにはできないけど、ぶっちゃけ準備不足で、対象者が詰め切れていませんでした。&lt;/p&gt;
+
+&lt;p&gt;とはいえ、スライドはアップロードしておきます。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/26883805&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;https://www.slideshare.net/TomohikoHimura/or-mapping-activerecord&#34; title=&#34;O/R Mapping の話をするよ。ActiveRecord の話をしたかった。&#34; target=&#34;_blank&#34;&gt;O/R Mapping の話をするよ。ActiveRecord の話をしたかった。&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;よろしい-ならばmicro-ormだ:c6e38ba68398cfb85b49db71f6fea302&#34;&gt;よろしい、ならばMicro-ORMだ&lt;/h3&gt;
+
+&lt;p&gt;ORM の利点を長所もわかったんだけど、 ORM が使えない場面で ORM がもつ機能の一部を使いたい。そんなときに Micro-ORM が便利だよ。という話がつづきました。&lt;/p&gt;
+
+&lt;p&gt;特にデータのマッピングを操作する部分の機能を持っているようでした。
+たしかに、普段のプログラミング生活では表現力の高いクエリビルダと値のマッピングができれば充分な感じは最近していたりもします。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/kiyokura/microorm&#34;&gt;スライド&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;mysql-cluster-解説-mysql-cluster-7-3-最新情報:c6e38ba68398cfb85b49db71f6fea302&#34;&gt;MySQL Cluster 解説 ＆ MySQL Cluster 7.3 最新情報&lt;/h3&gt;
+
+&lt;p&gt;MySQL と MySQL Cluster 異なる製品で、MySQLのストレージとして MySQL Clusterを利用したりできるようです。
+単体でも使えるっぽいですが、よくわかっていません。
+安価なマシンを並べて性能を出しつつ、高い可用性を実現します。&lt;/p&gt;
+
+&lt;p&gt;使われてる箇所としては、「艦コレ」で使われていたのが最近の話題っぽいです。&lt;/p&gt;
+
+&lt;p&gt;MySQLのストレージとして使えるので、InnoDBの互換性向上とかもやってるそうです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/yoyamasaki/mysql-cluster-mysql-cluster-73&#34;&gt;スライド&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;awsで始めるpostgresql-mysql:c6e38ba68398cfb85b49db71f6fea302&#34;&gt;AWSで始めるPostgreSQL/MySQL&lt;/h3&gt;
+
+&lt;p&gt;AWS で MySQL や PostgreSQL をいれる話でした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://myhome.munetika.mydns.jp/ossdbwiki/index.php/%E5%88%9D%E5%BF%83%E8%80%85%E5%90%91%E3%81%91DB%E5%85%A5%E9%96%80&#34;&gt;Wiki に内容がまとめられてます。&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;さくらインターネットにおけるデータベース提供の実際:c6e38ba68398cfb85b49db71f6fea302&#34;&gt;さくらインターネットにおけるデータベース提供の実際&lt;/h3&gt;
+
+&lt;p&gt;特にレンタルサーバの話が印象的でした。&lt;/p&gt;
+
+&lt;p&gt;データベース不慣れな人が多く、そういった一部の人が共用サーバに不可をかけてしまったりするということは予想通り多いみたいです。
+コントロールパネルが書籍との違いが出てしまうので、なかなかUIを変更できなっかたりもするそうです。&lt;/p&gt;
+
+&lt;p&gt;DBはIOがボトルネックになるので仮想化は向いてないのかなあ。なんて話もしてでていました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ActiveModelを利用してフォームを作成した時の型変換</title>
+          <link>http://blog.eiel.info/blog/2013/03/20/activerecord-value-to-type/</link>
+          <pubDate>Wed, 20 Mar 2013 15:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/03/20/activerecord-value-to-type/</guid>
+          <description>
+
+&lt;p&gt;対応するレコードがないフォームを使う場合、ActiveModelを使用することで、シンプルなビューを構築しつつ、処理はモデルにかけます。&lt;/p&gt;
+
+&lt;p&gt;しかし、ActiveModelのノウハウってあんまり落ちていません。
+それなりに ActiveRecord に対する理解も必要で、難しいですね。
+ハマったことなど共有していきたいと思います。&lt;/p&gt;
+
+&lt;p&gt;フォームからのデータは文字列ですが、ActiveRecord にはコラム自体には型があるため、型変換を自動的に行ってくれます。
+これを無意識に使用していると ActiveModelではまります。&lt;/p&gt;
+
+&lt;p&gt;具体的には以下のテーブルがあったとします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class CreateUsers &amp;lt; ActiveRecord::Migration
+  def change
+    create_table :users do |t|
+      t.string :name
+      t.integer :age
+      t.boolean :is_person
+      t.timestamps
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;利用例を見てみましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;user = User.new(age: &#39;20&#39;)
+user.age                        # =&amp;gt; 20
+user.age.class                  # =&amp;gt; Fixnum
+
+user = User.new(is_person: &amp;quot;1&amp;quot;)
+user.is_person                  # =&amp;gt; true
+user.is_person.class            # =&amp;gt; TrueClass
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;文字列から作成しているけども、自動的に数値や、真偽値へと変換されています。&lt;/p&gt;
+
+&lt;p&gt;ActiveModel を使用する場合は以下のように実装しておくとよさそうです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class User2
+  attr_reader :age, :is_person
+  include ActiveRecord::ConnectionAdapters
+
+  def initialize(attributes = {})
+    attributes.each do |key, value|
+      send(&amp;quot;#{key}=&amp;quot;,value)
+    end
+  end
+
+  def age=(age)
+    @age = age.to_i
+  end
+
+  def is_person=(is_person)
+    @is_person = Column.value_to_boolean(is_person)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;代入する時に値を修正するのが インスタンス変数に直接アクセスした場合にも型が保証できて良いです。&lt;/p&gt;
+
+&lt;p&gt;「別に文字列でもいいよ。」なんてこともあると思いますが、
+数値だとおもってうっかり使うと &lt;code&gt;&#39;20&#39; * 3 -&amp;gt; &#39;202020&#39;&lt;/code&gt; となって欲しい &lt;code&gt;40&lt;/code&gt;とは大きく違います。
+チェックボックスを利用すると &lt;code&gt;&amp;quot;1&amp;quot;&lt;/code&gt; などなど、値として降ってきます。&lt;/p&gt;
+
+&lt;p&gt;特に 真偽値への変換ですが、とりあえずわからなかったので、自前でごまかしていたのですが、調べました。
+&lt;code&gt;ActiveRecord::ConnectionAdapters::Column&lt;/code&gt; にさままな型変換のメソッドが実装されています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/rails/rails/blob/v3.2.13/activerecord/lib/active_record/connection_adapters/column.rb&#34;&gt;https://github.com/rails/rails/blob/v3.2.13/activerecord/lib/active_record/connection_adapters/column.rb&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;その中の &lt;code&gt;value_to_boolean&lt;/code&gt; を使用しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def value_to_boolean(value)
+  if value.is_a?(String) &amp;amp;&amp;amp; value.blank?
+    nil
+  else
+    TRUE_VALUES.include?(value)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;true&lt;/code&gt; になる値は以下のように定義されてます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[true, 1, &#39;1&#39;, &#39;t&#39;, &#39;T&#39;, &#39;true&#39;, &#39;TRUE&#39;, &#39;on&#39;, &#39;ON&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;他にも&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;value_to_integer&lt;/li&gt;
+&lt;li&gt;value_to_decimal&lt;/li&gt;
+&lt;li&gt;string_to_time&lt;/li&gt;
+&lt;li&gt;string_to_date&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などのメソッドがありました。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:373a133d85b51f8db7edc035cb738400&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;単体テストをかくときには文字列を渡すようにしたほうが良いかもしれません。
+しかし、このような状況下になることはあまりないので、そんなに気にしなくても良いかなーという感じです。&lt;/p&gt;
+
+&lt;p&gt;テーブルつくれることならテーブルを作るほうが手軽そうです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gist.github.com/eiel/5202625&#34;&gt;サンプルコード&lt;/a&gt; はこちらに置いてます。&lt;/p&gt;
+
+&lt;p&gt;ActiveModel を使用するには 積極的にActiveRecord への理解を深める必要があります。
+ソースコードもそこまで複雑ではないと思いますので、Rdocやソースコードも読んでいきたいですね。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ActiveRecord の has_many で生成されるメソッドってActiveRecord::Relationに変換できる配列なんですね。</title>
+          <link>http://blog.eiel.info/blog/2013/01/25/has-many-scope/</link>
+          <pubDate>Fri, 25 Jan 2013 00:34:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/25/has-many-scope/</guid>
+          <description>
+
+&lt;p&gt;タイトルのとおりなんですが、&lt;code&gt;Article&lt;/code&gt;と&lt;code&gt;Comment&lt;/code&gt; とかあったりして、ちゃんと設定をしておくと &lt;code&gt;article.comments&lt;/code&gt; とやると &lt;code&gt;あるArticle&lt;/code&gt;に紐づいている&lt;code&gt;Comment&lt;/code&gt;がとってこれる機能です。&lt;/p&gt;
+
+&lt;p&gt;まず、結論からいうと &lt;code&gt;article.comments.to_sql&lt;/code&gt; とか &lt;code&gt;article.comments.scoped&lt;/code&gt; とか &lt;code&gt;article.comments.joins&lt;/code&gt;とかできる!! ということです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;article.comments.create&lt;/code&gt; ってかける時点でうすうす思ってたんですが、これがわかっていると小回りがききます。返しているものが &lt;code&gt;ActiveRecord::Relation&lt;/code&gt;のようなものです。&lt;code&gt;class&lt;/code&gt;を確認すると &lt;code&gt;Array&lt;/code&gt;って言われちゃいますが。&lt;/p&gt;
+
+&lt;h2 id=&#34;もうちょい深く:9d6d069ba1139f1de3e4b65b8595e060&#34;&gt;もうちょい深く&lt;/h2&gt;
+
+&lt;p&gt;以下のクラスがあることを想定してみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Article &amp;lt; ActiveRecord::Base
+  has_many :comments
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;class Comment &amp;lt; ActiveRecord::Base
+  belongs_to :artcile
+  belongs_to :user
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;class User
+  has_many :comment
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;さきほど紹介した技を紹介すると User.first かつ Article.first な Commentを探す場合、以下のように書けます&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;a = Article.first
+u = User.first
+a.comments.merge(u.comments.scoped)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;すると、こんな SQLができます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;SELECT &amp;quot;comments&amp;quot;.* FROM &amp;quot;comments&amp;quot;  WHERE &amp;quot;comments&amp;quot;.&amp;quot;article_id&amp;quot; = 1 AND &amp;quot;comments&amp;quot;.&amp;quot;user_id&amp;quot; = 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;aとかuとかを引数な関数を用意するとウハウハな気がしてこないでしょうか。&lt;/p&gt;
+
+&lt;p&gt;joinだってできます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;a = Article.first
+a.comments.merge(Comment.joins(:user))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;SELECT &amp;quot;comments&amp;quot;.* FROM &amp;quot;comments&amp;quot; INNER JOIN &amp;quot;users&amp;quot; ON &amp;quot;users&amp;quot;.&amp;quot;id&amp;quot; = &amp;quot;comments&amp;quot;.&amp;quot;user_id&amp;quot; WHERE &amp;quot;comments&amp;quot;.&amp;quot;article_id&amp;quot; = 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これは has_many through でもできますね。&lt;/p&gt;
+
+&lt;p&gt;このあたりを上手くつかっていけば ActiveRecordでも作りたいSQLがある程度つくれるんじゃないでしょうか。&lt;/p&gt;
+
+&lt;p&gt;Rails4がくると scoped をかかなくてもよくなるような気がしますが、試していません。&lt;/p&gt;
+
+&lt;p&gt;しかし、はじめの例ですが、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;a.comments.where(user_id: u)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;「ってかいても同じじゃね？」とか、言わないでください。なんとなく &lt;code&gt;user_id&lt;/code&gt; ってかきたくなくないですか？&lt;/p&gt;
+
+&lt;h2 id=&#34;なんとなくおまけ:9d6d069ba1139f1de3e4b65b8595e060&#34;&gt;なんとなくおまけ&lt;/h2&gt;
+
+&lt;p&gt;a.comments とかいた場合は Commentの Relationをつくっている。&lt;/p&gt;
+
+&lt;p&gt;u.comments とかいても Commentの Relationをつくっている。&lt;/p&gt;
+
+&lt;p&gt;と、メソッド名のほうのテーブルを意識してやると理解しやすいと思います。&lt;/p&gt;
+
+&lt;p&gt;レシーバほうに対してのテーブルを意識すると息苦しくなります。&lt;code&gt;has_many&lt;/code&gt;をかく場合はそういう意識になるのでちょっと注意が必要です。&lt;/p&gt;
+
+&lt;p&gt;ちょんと感覚的な話でした。&lt;/p&gt;
+
+&lt;h2 id=&#34;サンプル用コード:9d6d069ba1139f1de3e4b65b8595e060&#34;&gt;サンプル用コード&lt;/h2&gt;
+
+&lt;p&gt;動作確認のためのコードを用意しておきました。おすきにお使いください。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/has_many-relation&#34;&gt;https://github.com/eiel/has_many-relation&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>read_attributeの存在を知らなかった、死にたい - rails</title>
+          <link>http://blog.eiel.info/blog/2012/12/17/read-attribute-activerecord/</link>
+          <pubDate>Mon, 17 Dec 2012 16:57:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/12/17/read-attribute-activerecord/</guid>
+          <description>
+
+&lt;p&gt;Railsの ActiveRecordで レコードの属性にアクセスする際は動的に生成されたメソッドを使いますが、そのようなメソッドを上書きしている場合、値に直接アクセスする必要があります。このような属性情報は &lt;code&gt;@attributes&lt;/code&gt; に保存されています。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/lib/active_record/attribute_methods.rb&lt;/code&gt;に定義されてる attributes メソッドを経由してアクセスしていましたが、なんとなく &lt;code&gt;@attributes&lt;/code&gt; へ直接アクセスするだけかとおもってたのですが、違ったようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def attributes
+  attrs = {}
+  attribute_names.each { |name| attrs[name] = read_attribute(name) }
+  attrs
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;という定義になってました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;attribute_names&lt;/code&gt; は文字列で属性の一覧を返すので &lt;code&gt;@attributes&lt;/code&gt;は 普通のHashでキーが文字列です。
+もし &lt;code&gt;email&lt;/code&gt; というの属性にアクセスしたい場合は &lt;code&gt;attributes[&amp;quot;email&amp;quot;]&lt;/code&gt; になります。 &lt;code&gt;attributes[:email]&lt;/code&gt; ではアクセスすることができません。&lt;/p&gt;
+
+&lt;p&gt;しかし、 read_attributeは シンボルでも文字列でも使用することができて、
+&lt;code&gt;read_attribute :email&lt;/code&gt; でも &lt;code&gt;read_attribute &amp;quot;email&amp;quot;&lt;/code&gt; のどちらでも良いみたいです。&lt;/p&gt;
+
+&lt;p&gt;ちなみにエイリアスがあって &lt;code&gt;[]&lt;/code&gt; メソッドになります。なので &lt;code&gt;self[:email]&lt;/code&gt; などでアクセスできます。pubilcメソッドです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;read_attribute&lt;/code&gt; があるということはも &lt;code&gt;write_attribute&lt;/code&gt; もあります。&lt;/p&gt;
+
+&lt;h3 id=&#34;ついでにもう少し深追い:7ee3a5e37df409bb91993c108309b1ff&#34;&gt;ついでにもう少し深追い&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;read_attribute&lt;/code&gt;の実装もついでにおってみると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def read_attribute(attr_name)
+  self.class.type_cast_attribute(attr_name, @attributes, @attributes_cache)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となってました。クラスメソッドを経由するようです
+こいつも中身を追うと&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def type_cast_attribute(attr_name, attributes, cache = {}) #:nodoc:
+  return unless attr_name
+  attr_name = attr_name.to_s
+
+  if generated_external_attribute_methods.method_defined?(attr_name)
+    if attributes.has_key?(attr_name) || attr_name == &#39;id&#39;
+      generated_external_attribute_methods.send(attr_name, attributes[attr_name], attributes, cache, attr_name)
+    end
+  elsif !attribute_methods_generated?
+    # If we haven&#39;t generated the caster methods yet, do that and
+    # then try again
+    define_attribute_methods
+    type_cast_attribute(attr_name, attributes, cache)
+  else
+    # If we get here, the attribute has no associated DB column, so
+    # just return it verbatim.
+    attributes[attr_name]
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;渡された名前がすぐに文字列に変換されてます。&lt;/p&gt;
+
+&lt;p&gt;そしてまず 属性にアクセスするためのメソッドがあるかどうか確認するようです。ある場合はそちらに処理を渡すようです。attributesにまわってくるオブジェクトがHashじゃないモデルオブジェクトの場合の処理っぽいです。
+また、まだ未定義なだけな場合は定義してからアクセスするようです。
+それ以外のただのhashの場合は直接アクセスしにいくようです。&lt;/p&gt;
+
+&lt;p&gt;ここでの attributes はActireRecordの attributes メソッドではなくただのHashです。一瞬、無限ループしてるように思えたので一応書いておきます。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ActiveRecordで今のスコープをそのまま返したい</title>
+          <link>http://blog.eiel.info/blog/2012/08/01/active-recode-scoped/</link>
+          <pubDate>Wed, 01 Aug 2012 11:37:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/08/01/active-recode-scoped/</guid>
+          <description>&lt;p&gt;あるオプションパラメータがあるかどうかで、条件が変わるような処理を書いてると、オプションがない場合、ActiveRecord::Relationが欲しくなるような場面があります。&lt;/p&gt;
+
+&lt;p&gt;例えば&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;@articles = Article
+@articles = @articles.where(valid: true) if params[:valid]
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;みたいな感じになっちゃって&lt;code&gt;@articles = Article&lt;/code&gt;って何?な状態になります。&lt;/p&gt;
+
+&lt;p&gt;メソッド化しようとするとさらに困るのですが、scopedを使うと以下のように書けるようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;@articels = Article.scoped
+@articles = @articles.where(valid: true) if params[:valid]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なんか異臭がしなくなりましたね。&lt;/p&gt;
+
+&lt;p&gt;だから、どうした？って思う方もいるかもしれませんがメソッド化すると、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def self.valid(is_valid = nil)
+  scoped.where(valid: true) if is_valid
+  scoped
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となります。&lt;code&gt;scoped&lt;/code&gt;なしで書かこうとするとちょっと困ります。&lt;/p&gt;
+
+&lt;p&gt;そんだけ。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

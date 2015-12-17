@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/microdata/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-06-23 23:44:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Microdata を使ってイベント情報をページに埋め込む。</title>
+          <link>http://blog.eiel.info/blog/2013/06/23/microdata-on-great-h/</link>
+          <pubDate>Sun, 23 Jun 2013 23:44:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/06/23/microdata-on-great-h/</guid>
+          <description>
+
+&lt;p&gt;この記事は &lt;a href=&#34;http://great-h.github.io/events/event-005.html&#34;&gt;すごい広島 #005&lt;/a&gt; で調べたこととかです。その2。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io&#34;&gt;すごい広島&lt;/a&gt; は個人的な思惑として、「広島にいる表に出てこないエンジニアを発掘する。」という裏の目的があったりなかったりします。&lt;/p&gt;
+
+&lt;p&gt;そのためには、SEOとして効果のありそうな技術もいろいろ試してみよう。&lt;/p&gt;
+
+&lt;p&gt;ということで、&lt;a href=&#34;http://microformats.org/&#34;&gt;Microformats&lt;/a&gt;を使ってウェブページにイベント情報を付与してみようと思いました。
+以前、ブラウザの拡張を使えば、「カレンダーアプリケーションへイベント登録が簡単にできる。」という噂を聞いたことがあったからです。&lt;/p&gt;
+
+&lt;p&gt;調べてみると、HTML5 には Microdata というものがあるみたいなので、Microdataを試すことにしました。&lt;/p&gt;
+
+&lt;p&gt;しかし、結局カレンダーに簡単に登録する方法はわかっておりません。&lt;/p&gt;
+
+&lt;h1 id=&#34;microdata:8eed65b5f665b211efb4546c78efe13a&#34;&gt;Microdata&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://kojika17.com/2011/06/summary-of-microdata.html&#34;&gt;コーディングとSEOの概念が変わるかもしれない、Microdataについての概要 - Web Design KOJIKA17&lt;/a&gt; より引用&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Microdataとは何か？&lt;/p&gt;
+
+&lt;p&gt;マークアップ言語であるHTMLは「見出し(h1,h2,h3&amp;hellip; )」「段落(p)」「リスト(ul,ol,li)」などの文章構造を示すことができても、「人の名前」「肩書き」「地域」などを示すことができません。
+それらをHTMLでメタデータとして追加する方法のひとつとして、HTML5の仕様からMicrodataというものができました。&lt;/p&gt;
+
+&lt;p&gt;類似の技術には、MicroformatsやRDFaなどがあります。
+これらMicrodata,Microformats, RDFaを指す言葉として「Semantic HTML」などと呼ばれています。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;一応自分の理解で説明してみます。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;人間はページを読んでこれは「イベント情報だ」とか、「会社の情報だ」とか認識する能力がありますが、コンピュータにはわかりません。
+なので、コンピュータがわかるようにするためのルールを用意しました。
+このルールに従ってHTMLを書いてください。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;というものだと思います。&lt;/p&gt;
+
+&lt;p&gt;仕様とかは下記をみてください。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.w3.org/TR/microdata/&#34;&gt;Microdata Working Draft&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;microdata-と-microformats:8eed65b5f665b211efb4546c78efe13a&#34;&gt;Microdata と Microformats&lt;/h1&gt;
+
+&lt;p&gt;せっかく  Microfrmats の話もしたので、比較ページとしては下記のものが面白っかたです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://d.hatena.ne.jp/m-hiyama/20100412/1271032800&#34;&gt;マイクロフォーマット(microformats) vs. マイクロデータ(microdata) - 檜山正幸のキマイラ飼育記&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;実際に使ってみた:8eed65b5f665b211efb4546c78efe13a&#34;&gt;実際に使ってみた&lt;/h1&gt;
+
+&lt;p&gt;すごい広島のイベントページに使ってみました。
+イベントの情報として、場所や日時、名前を設定しています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.google.com/webmasters/tools/richsnippets?q=http%3A%2F%2Fgreat-h.github.io%2Fevents%2Fevent-004.html&#34;&gt;Google ウェブマスターツールの構造化データ テストツール&lt;/a&gt;を使うと内容や、Google検索での結果を確認することができます。
+&lt;img src=&#34;http://blog.eiel.info/images/20130623-sample.png&#34; alt=&#34;構造化データテストツールの結果&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;赤枠の部分に日付や場所が表示されています。&lt;/p&gt;
+
+&lt;p&gt;具体的な読取した結果も確認できます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/20130623-result.png&#34; alt=&#34;サイトプロパティ&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;この部分のHTMLは下記のようにしました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div itemscope itemtype=&amp;quot;http://schema.org/Event&amp;quot;&amp;gt;
+  &amp;lt;h1&amp;gt;日時&amp;lt;/h1&amp;gt;
+  &amp;lt;span itemprop=&amp;quot;startDate&amp;quot; content=&amp;quot;2013-06-26T19:00&amp;quot;&amp;gt;2013年06月26日 19:00&amp;lt;/span&amp;gt;
+  &amp;lt;h1&amp;gt;開催場所&amp;lt;/h1&amp;gt;
+  &amp;lt;div itemprop=&amp;quot;location&amp;quot; itemscope itemtype=&amp;quot;http://schema.org/Place&amp;quot;&amp;gt;
+    &amp;lt;span itemprop=&amp;quot;name&amp;quot;&amp;gt;タリーズコーヒー広島本通店&amp;lt;/span&amp;gt;
+    &amp;lt;div itemprop=&amp;quot;address&amp;quot; itemscope itemtype=&amp;quot;http://schema.org/PostalAddress&amp;quot;&amp;gt;
+      &amp;lt;span itemprop=&amp;quot;addressLocality&amp;quot;&amp;gt;広島市&amp;lt;/span&amp;gt;
+      &amp;lt;span itemprop=&amp;quot;streetAddress&amp;quot;&amp;gt;中区本通３−９&amp;lt;/span&amp;gt;
+      &amp;lt;meta itemprop=&amp;quot;addressRegion&amp;quot; content=&amp;quot;広島県&amp;quot;&amp;gt;
+      &amp;lt;meta itemprop=&amp;quot;addressCountry&amp;quot; content=&amp;quot;日本&amp;quot;&amp;gt;
+      &amp;lt;meta itemprop=&amp;quot;postalCode&amp;quot; content=&amp;quot;7300035&amp;quot;&amp;gt;
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;meta itemprop=&amp;quot;name&amp;quot; content=&amp;quot;すごい広島 #6&amp;quot;&amp;gt;
+  &amp;lt;meta itemprop=&amp;quot;image&amp;quot; content=&amp;quot;https://raw.github.com/great-h/great-h_logo/master/logo.png&amp;quot;&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;実際には &lt;a href=&#34;http://blog.eiel.info/blog/2013/06/19/jekyll-on-function/&#34;&gt;Jekyll を使ったGithub Pages で関数呼び出し的なことをする&lt;/a&gt; で書いたテクニックを使っています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/great-h/great-h.github.io/blob/e264ccad9733ec534ef63f43b2aa551943173afc/_layouts/event.html&#34;&gt;具体的にはこの辺に&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;書き方とか:8eed65b5f665b211efb4546c78efe13a&#34;&gt;書き方とか&lt;/h1&gt;
+
+&lt;p&gt;書き方などは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://terkel.jp/archives/2011/08/microdata-and-schema-org/&#34;&gt;Microdata + schema.org を実際に使ってみる - terkel.jp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://schema-ja.appspot.com/docs/gs.html&#34;&gt;schema.org 日本語訳 - 始めましょう！&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などが参考になりました。&lt;/p&gt;
+
+&lt;p&gt;埋め込みする情報の構造は &lt;a href=&#34;http://schema.org/&#34;&gt;schema.org&lt;/a&gt; に集められているようです。
+このあたりは LDAP を仕様したことあるとわかりやすいように思いました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

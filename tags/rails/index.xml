@@ -1,0 +1,3255 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/rails/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-09-24 23:23:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>re: Rails update時に値を変更して更新したい</title>
+          <link>http://blog.eiel.info/blog/2014/09/24/re-modified-rails-update/</link>
+          <pubDate>Wed, 24 Sep 2014 23:23:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/09/24/re-modified-rails-update/</guid>
+          <description>
+
+&lt;p&gt;友人のブログ記事へのレスです。
+&lt;a href=&#34;http://akira-junkbox.blogspot.jp/2014/09/rails-update.html&#34;&gt;JunkBox～主に個人的防備録～: Rails update時に値を変更して更新したい。&lt;/a&gt;について。&lt;/p&gt;
+
+&lt;p&gt;さすがにやってることがまわりくどい。コメント欄だと返信がつらいのでここにかく。&lt;/p&gt;
+
+&lt;p&gt;まず、元の内容を引用します。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;たとえば、保存時１０円単位で四捨五入して保存したい場合。
+ついでに登録日を１日ずらす。&lt;/p&gt;
+
+&lt;p&gt;日付型の項目は、年、月、日、時、分、秒と別れてパラメタに入ってくるので、扱いづらい。ので、一旦モデルに突っ込んで処理し、その後ハッシュに変換する。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def update
+  # パラメタを一旦モデルに突っ込む
+  tmp = Syohin.new(syohin_params)
+  # 金額を10円単位で丸める
+  tmp.kingaku = tmp.kingaku.round(-1)
+  # 日付型の登録日を１日ずらす。
+  tmp.record_datetime = tmp.record_datetime + (60 * 60 * 24)
+  # モデルをハッシュに変換する。
+  tmp2 = tmp.attributes
+  # 不要なキーを削除
+  [&amp;quot;id&amp;quot;,&amp;quot;created_at&amp;quot;,&amp;quot;updated_at&amp;quot;].each do |key|
+    tmp2.delete(key)
+  end
+  #updateに突っ込む
+  respond_to do |format|
+    if @syohin.update(tmp2)
+      format.html { redirect_to @syohin, notice: &#39;更新完了&#39; }
+    else
+      format.html { render :edit }
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;わざわざ一時的な新しいモデルをつくっているけど、updateメソッドのsaveしなバージョンのメソッドがある。assign_attributesメソッドである。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def update
+  @syohin.assign_attributes(syohin_params)
+  @syohin.kingaku = @syohin.kingaku.round(-1) # 金額を10円単位で丸める
+  @syohin.record_datetime += 1.day # 日付型の登録日を１日ずらす。
+  respond_to do |format|
+    if @syohin.save
+      format.html { redirect_to @syohin, notice: &#39;Syohin was successfully updated.&#39; }
+      format.json { render :show, status: :ok, location: @syohin }
+    else
+      format.html { render :edit }
+      format.json { render json: @syohin.errors, status: :unprocessable_entity }
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;だいぶすっきりした。&lt;/p&gt;
+
+&lt;p&gt;ついでに日付だけど、1日増加させたいなら 1.day を足すほうが確実によみやすいので変更した。&lt;/p&gt;
+
+&lt;h3 id=&#34;そもそもcontrollerに処理を書きたくない:c270ff8ba5f5400af7698c69e481e7d3&#34;&gt;そもそもcontrollerに処理を書きたくない&lt;/h3&gt;
+
+&lt;p&gt;整理したところで、これらの処理はコントローラレイヤーに書くべきだろうか。
+モデルで処理しよう。&lt;/p&gt;
+
+&lt;p&gt;コントローラは最初の状態にもどそう。なにも変更は必要ない。&lt;/p&gt;
+
+&lt;p&gt;コールバックbefore_updateを使う。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class Syohin &amp;lt; ActiveRecord::Base
+  before_update do
+    self.kingaku = kingaku.round(-1)
+    self.record_datetime += 1.day
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;今回はないけど、新規の時も+1したいし、表示するときは+1してない値にしたいとかになるとまた別のテクニックが必要になりそうだけど今回は必要がないので割愛。&lt;/p&gt;
+
+&lt;h3 id=&#34;動作確認用のコード:c270ff8ba5f5400af7698c69e481e7d3&#34;&gt;動作確認用のコード&lt;/h3&gt;
+
+&lt;p&gt;タグ v1 と v2 をきってあるので動かしたい場合はそこにチェックアウトしてください。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/modified-update-rails-sample&#34;&gt;modified-update-rails-sample&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Rails 4.2.0 beta1 ちょっとだけ見たのでメモしとく。</title>
+          <link>http://blog.eiel.info/blog/2014/08/22/rails4-beta/</link>
+          <pubDate>Fri, 22 Aug 2014 15:21:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/08/22/rails4-beta/</guid>
+          <description>
+
+&lt;p&gt;Rails 4.2.0.beta1 が出てるよね。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://weblog.rubyonrails.org/2014/8/20/Rails-4-2-beta1/&#34;&gt;Riding Rails: Rails 4.2.0 beta1: Active Job, Deliver Later, Adequate Record, Web Console&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;betaが出ると試したくなるのでアップデートしても問題ないものをアップデートして遊ぶ。&lt;/p&gt;
+
+&lt;h3 id=&#34;先に結論:76d27696f138b0b82e7539488c014aa5&#34;&gt;先に結論&lt;/h3&gt;
+
+&lt;p&gt;詳細とかあとで述べる。&lt;/p&gt;
+
+&lt;p&gt;Gemfile に追加とか変更とか。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gem &#39;rails&#39;, &#39;4.2.0.beta1&#39;
+gem &#39;sass-rails&#39;, &#39;~&amp;gt; 5.0.0.beta1&#39;
+gem &#39;web-console&#39;, &#39;~&amp;gt; 2.0.0.beta2&#39;
+
+group :development, :test do
+  gem &#39;byebug&#39;
+  gem &#39;web-console&#39;, &#39;~&amp;gt; 2.0.0.beta2&#39;
+end
+
+gem &#39;rails-html-sanitizer&#39;, &#39;~&amp;gt; 1.0&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;config/application.rb&lt;/code&gt; に追加&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;config.active_record.raise_in_transactional_callbacks = true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;config/environments/development.rb&lt;/code&gt; に追加。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;config.assets.digest = true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;rails-new-したときの違い:76d27696f138b0b82e7539488c014aa5&#34;&gt;rails new したときの違い&lt;/h3&gt;
+
+&lt;p&gt;rails new してときの生成されるファイルの違い下記の方法で確認した。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rails _4.2.0.beta1_ new --no-rc hoge
+$ mv hoge 4.2.0.beta1
+$ rails _4.1.5_ new --no-rc hoge
+$ mv hoge 4.1.5
+$ diff -ur 4.1.5 4.2.0.beta1/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gist.github.com/eiel/403e6e473487bb9a9a42&#34;&gt;全文はGistに貼った。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;まず gem 関連&lt;/p&gt;
+
+&lt;p&gt;web-console と byebug と rails-html-sanitizer が追加されてる。
+その他は、バージョン調整されてるだけ。&lt;/p&gt;
+
+&lt;p&gt;debugger はたぶん ruby 2.1 だと動いてないし、web-console を使うようになったので、byebug も追加された感じがする。よくしらん。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/rails/rails-html-sanitizer&#34;&gt;rails-html-sanitaizer&lt;/a&gt; は &lt;code&gt;sanitize&lt;/code&gt; ヘルパーが追加できるらしい。HTMLタグがとりのぞけて独自のルールはScrubberを作ることで調整ができる模様。&lt;/p&gt;
+
+&lt;p&gt;以下、それ意外の抜粋。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;onfig/application.rb&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-diff&#34;&gt;+    # For not swallow errors in after_commit/after_rollback callbacks.
++    config.active_record.raise_in_transactional_callbacks = true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ちゃんと確認してない。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Currently, Active Record will rescue any errors raised within after_rollback/after_create callbacks and print them to the logs. Next versions of rails will not rescue those errors anymore, and just bubble them up, as the other callbacks.
+
+This adds a opt-in flag to enable that behaviour, of not rescuing the errors. Example:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とあってトランザクジョン後のコールバックでのエラー rescue されなくなったのかしら。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;config/boot.rb&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-diff&#34;&gt;-require &#39;bundler/setup&#39; if File.exist?(ENV[&#39;BUNDLE_GEMFILE&#39;])
++require &#39;bundler/setup&#39; # Set up gems listed in the Gemfile.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;ENV[&#39;BUNDLE_GEMFILE&#39;]&lt;/code&gt; 次第だったのが読まれるようになった。
+ Gemfile の一覧になってる gem を読む。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;config/environments/development.rb&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-diff&#34;&gt;+  # Asset digests allow you to set far-future HTTP expiration dates on all assets,
++  # yet still be able to expire them through the digest params.
++  config.assets.digest = true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;development 環境でも assets.digest が true になったらしい。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;environments/production.rb&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  # Set to :info to decrease the log volume.
++  config.log_level = :debug
+
+-  # Disable automatic flushing of the log to improve performance.
+-  # config.autoflush_log = false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;production での log_levele が debug になったらしい。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;config/initializers/assets.rb&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+# Add additional assets to the asset load path
++# Rails.application.config.assets.paths &amp;lt;&amp;lt; Emoji.images_path
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Emoji.images_path を追加する例が増えてる…。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発で とある我馬の非公式というLTをした</title>
+          <link>http://blog.eiel.info/blog/2014/08/02/gaba-ltdd/</link>
+          <pubDate>Sat, 02 Aug 2014 11:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/08/02/gaba-ltdd/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA06&#34;&gt;LT駆動開発06&lt;/a&gt; でライトニングトークをした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.gaba-2000.com/&#34;&gt;我馬&lt;/a&gt;というラーメン屋のウェブサイトが更新情報のフィード配信してないので、勝手に応援しているという話をしました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gaba.eiel.info/&#34;&gt;とある我馬の非公式(ファンサイト)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;af32c140fc3e01312f2926529f74da74&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;折角なのでフィードの存在を知らない人もいるかもしれないので、簡単に説明しつつ、どうやってフィードをつくったのか説明しました。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、季節のラーメンはアツいので広島には3ヶ月に一度程度いらっしゃると良いと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:77a32f3198ef37442d00c5e329cdbc18&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gaba.eiel.info/&#34;&gt;とある我馬の非公式(ファンサイト)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.gaba-2000.com/&#34;&gt;我馬&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/gaba&#34;&gt;eiel/gaba · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/gaba.eiel.info&#34;&gt;eiel/gaba.eiel.info · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ActionView 単体で slim を使ってみる</title>
+          <link>http://blog.eiel.info/blog/2014/07/28/action-view-with-slim/</link>
+          <pubDate>Mon, 28 Jul 2014 15:52:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/28/action-view-with-slim/</guid>
+          <description>
+
+&lt;p&gt;「&lt;a href=&#34;http://blog.eiel.info/blog/2014/07/18/action-view/&#34;&gt;ActionView を単体で使ってみる&lt;/a&gt;」というのを書いたので、ついでにいろいろ試してみる。その1。&lt;/p&gt;
+
+&lt;p&gt;誰が得するのか謎だけど ActionView だけで slim を使うことを試みてみました。
+&lt;code&gt;action_view&lt;/code&gt;を require して、 &lt;code&gt;action_pack&lt;/code&gt; を require して、 &lt;code&gt;slim&lt;/code&gt; を require すれば使えます。&lt;/p&gt;
+
+&lt;p&gt;用意したファイル&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;views/prefix/slim.html.slim&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;p
+  | Hello, #{@name}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;views/layout/appliacation.html.erb&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;--
+&amp;lt;%= yield %&amp;gt;
+--
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;action_view&#39;
+require &#39;action_pack&#39;
+require &#39;slim&#39;
+
+lookup_context = ActionView::LookupContext.new(&#39;./views&#39;)
+lookup_context.cache = false   # ActionPachk を読まなくて済む魔法
+
+view_context = ActionView::Base.new(lookup_context)
+view_context.assign(name: &#39;eiel&#39;)
+ret = view_context.render(template: &#39;slim&#39;,
+                          prefixes: &#39;prefix&#39;,
+                          
+puts ret
+
+=begin
+--
+&amp;lt;p&amp;gt;Hello, eiel&amp;lt;/p&amp;gt;
+--
+=end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;slim は &lt;a href=&#34;https://github.com/judofyr/temple&#34;&gt;temple&lt;/a&gt; という gem を使ってRailsに対応してました。
+ActionPack はバージョン確認に利用しているだけなので、ちょっといじればなんとかなりそうですけど。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/judofyr/temple/blob/v0.6.8/lib/temple/templates/rails.rb&#34;&gt;Temple::Templates::Rails&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;もう少し詳しく:7dcde33f55e4e3742902be6a8bf43ee6&#34;&gt;もう少し詳しく&lt;/h3&gt;
+
+&lt;p&gt;誰得感がひどいのでもうちょっと書いてみる。&lt;/p&gt;
+
+&lt;p&gt;Railsとの連携の処理の部分は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Temple::Templates::Rails(Slim::Engine,
+  :register_as =&amp;gt; :slim,
+  # Use rails-specific generator. This is necessary
+  # to support block capturing and streaming.
+  :generator =&amp;gt; Temple::Generators::RailsOutputBuffer,
+  # Disable the internal slim capturing.
+  # Rails takes care of the capturing by itself.
+  :disable_capture =&amp;gt; true,
+  :streaming =&amp;gt; defined?(::Fiber))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/slim-template/slim/blob/master/lib/slim/template.rb#L9-L17&#34;&gt;Slim::Template&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そうすると &lt;code&gt;Temple::Template#method_missing&lt;/code&gt; が呼ばれてます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def self.method_missing(name, engine, options = {})
+  const_get(name).create(engine, options)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/judofyr/temple/blob/v0.6.8/lib/temple/templates.rb#L7-L9&#34;&gt;Temple::Temlate#method_missing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;変数を置き換えてみると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Temple::Templates::Rails.create(Slim::Engin,
+  register_as: :slim,
+  generator: Temple::Generators::RailsOutputBuffers,
+  disable_caputre: true,
+  streaming: defined?(::Fiber))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と &lt;a href=&#34;https://github.com/judofyr/temple/blob/v0.6.8/lib/temple/mixins/template.rb#L17-L25&#34;&gt;Temple::Templates::Rails.create&lt;/a&gt; が  &lt;code&gt;register_as: :slim&lt;/code&gt; 呼ばれることがわかります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def create(engine, options)
+  register_as = options.delete(:register_as)
+  template = Class.new(self)
+  template.disable_option_validator!
+  template.default_options[:engine] = engine
+  template.default_options.update(options)
+  template.register_as(*register_as) if register_as
+  template
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そうすると &lt;a href=&#34;https://github.com/judofyr/temple/blob/v0.6.8/lib/temple/templates/rails.rb#L41-L45&#34;&gt;Temple::Templates::Rails.register_as&lt;/a&gt; が &lt;code&gt;ActionViewActionView::Template.register_template_handler&lt;/code&gt; を呼びだされて、ActionView で利用できるようになります。&lt;/p&gt;
+
+&lt;p&gt;names には &lt;code&gt;[:slim]&lt;/code&gt; が束縛されることになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def self.register_as(*names)
+  names.each do |name|
+    ActionView::Template.register_template_handler name.to_sym, new
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;まとめ:7dcde33f55e4e3742902be6a8bf43ee6&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;ActionViewにテンプレートエンジンを追加するには &lt;code&gt;ActionView::Template.register_template_handler&lt;/code&gt; 使うことがわかりました。&lt;/p&gt;
+
+&lt;p&gt;ちなみに Rails のリポジトリを検索するとこんな感じでした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;base.register_default_template_handler :erb, ERB.new
+base.register_template_handler :builder, Builder.new
+base.register_template_handler :raw, Raw.new
+base.register_template_handler :ruby, :source.to_proc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rails/rails/blob/v4.1.4/actionview/lib/action_view/template/handlers.rb#L10-L13&#34;&gt;ソースコード&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;関連:7dcde33f55e4e3742902be6a8bf43ee6&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/07/18/action-view/&#34;&gt;ActionView を単体で使ってみる&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ActionView を単体で使ってみる</title>
+          <link>http://blog.eiel.info/blog/2014/07/18/action-view/</link>
+          <pubDate>Fri, 18 Jul 2014 18:35:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/18/action-view/</guid>
+          <description>
+
+&lt;p&gt;誰が興味があるのか謎ですが、&lt;a href=&#34;https://github.com/rails/rails/tree/v4.1.4/actionview&#34;&gt;ActionView&lt;/a&gt; を単体で使ってみようと思います。
+意外にも Rails の仕組みとか見えてくるかもしれません。&lt;/p&gt;
+
+&lt;p&gt;Rails 4.1 ぐらいから ActionPack から独立した記憶があります。どうでしたっけ。&lt;/p&gt;
+
+&lt;p&gt;テンプレートを使いたい時には erb, haml, slim などを単体で利用すればいいのであまり使う機会はないかもしれません。&lt;/p&gt;
+
+&lt;p&gt;雑感では、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;layout 機能を使いたい&lt;/li&gt;
+&lt;li&gt;インスタンス変数で値にアクセスしたい&lt;/li&gt;
+&lt;li&gt;Rails が提供するビューヘルパーを使いたい&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あたりがメリットかと思います。&lt;/p&gt;
+
+&lt;p&gt;この記事のために&lt;a href=&#34;https://github.com/eiel/use-actionview&#34;&gt;作成したコードはこちら&lt;/a&gt;においておきます。&lt;/p&gt;
+
+&lt;p&gt;補足の部分は読み飛ばせるように書いているつもりです。&lt;/p&gt;
+
+&lt;p&gt;利用したRailsのバージョンは 4.1.4 です。&lt;/p&gt;
+
+&lt;h3 id=&#34;1-hello-world:1c071b860be59640993cf2f27a5f39dd&#34;&gt;1 Hello, world&lt;/h3&gt;
+
+&lt;p&gt;まずは使ってみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;ActionView::Base.new.render(inline: &#39;Hello, World!&#39;) # =&amp;gt; Hello, world
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/rails/rails/blob/v4.1.4/actionview/lib/action_view/base.rb&#34;&gt;ActionView::Base&lt;/a&gt; のインスタンスを作成し、renderメソッドを呼びだします。
+コントローラでの render メソッドはどうやらこの render メソッドのようです。&lt;/p&gt;
+
+&lt;p&gt;(viewで使う render もこの render ですが…)&lt;/p&gt;
+
+&lt;h3 id=&#34;1の補足-actionview-base:1c071b860be59640993cf2f27a5f39dd&#34;&gt;1の補足 ActionView::Base&lt;/h3&gt;
+
+&lt;p&gt;Rails を使ってる際に erb ファイルの中で &lt;code&gt;self.class&lt;/code&gt; を確認したことはあるでしょうか？&lt;/p&gt;
+
+&lt;p&gt;ちょっと確認してみましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;%= self.class %&amp;gt;
+&amp;lt;%= self.class.superclass %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;#&amp;lt;Class:0x007f82891092e0&amp;gt;
+ActionView::Base
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;self は無名のクラスになっていますが、そのスーパークラスは ActiovView::Base です。
+ビューは ActionView::Base のインスタンスのコンテキストで実行されるわけです。ビューコンテキストと呼んでいるようです。&lt;/p&gt;
+
+&lt;p&gt;また、このクラスにヘルパーをミックスインすることでヘルパーとして利用できるようになります。&lt;/p&gt;
+
+&lt;p&gt;デフォルトのHelperはすでに include されています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; ActionView::Base.ancestors.map(&amp;amp;:to_s).grep(/Helper/)
+=&amp;gt; [&amp;quot;ActionView::Helpers&amp;quot;, &amp;quot;ActionView::Helpers::TranslationHelper&amp;quot;, &amp;quot;ActionView::Helpers::RenderingHelper&amp;quot;, &amp;quot;ActionView::Helpers::RecordTagHelper&amp;quot;, &amp;quot;ActionView::Helpers::OutputSafetyHelper&amp;quot;, &amp;quot;ActionView::Helpers::NumberHelper&amp;quot;, &amp;quot;ActionView::Helpers::JavaScriptHelper&amp;quot;, &amp;quot;ActionView::Helpers::FormOptionsHelper&amp;quot;, &amp;quot;ActionView::Helpers::FormHelper&amp;quot;, &amp;quot;ActionView::Helpers::FormTagHelper&amp;quot;, &amp;quot;ActionView::Helpers::TextHelper&amp;quot;, &amp;quot;ActionView::Helpers::DebugHelper&amp;quot;, &amp;quot;ActionView::Helpers::DateHelper&amp;quot;, &amp;quot;ActionView::Helpers::CsrfHelper&amp;quot;, &amp;quot;ActionView::Helpers::ControllerHelper&amp;quot;, &amp;quot;ActionView::Helpers::CacheHelper&amp;quot;, &amp;quot;ActionView::Helpers::AtomFeedHelper&amp;quot;, &amp;quot;ActionView::Helpers::AssetTagHelper&amp;quot;, &amp;quot;ActionView::Helpers::AssetTagHelper::StylesheetTagHelpers&amp;quot;, &amp;quot;ActionView::Helpers::AssetTagHelper::JavascriptTagHelpers&amp;quot;, &amp;quot;ActionView::Helpers::SanitizeHelper&amp;quot;, &amp;quot;ActionView::Helpers::ActiveModelHelper&amp;quot;, &amp;quot;ActionView::Helpers::UrlHelper&amp;quot;, &amp;quot;ActionView::Helpers::TagHelper&amp;quot;, &amp;quot;ActionView::Helpers::CaptureHelper&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;2-インスタンス変数を使う:1c071b860be59640993cf2f27a5f39dd&#34;&gt;2 インスタンス変数を使う&lt;/h3&gt;
+
+&lt;p&gt;Rails ではコントローラのインスタンス変数がビューの中で使えます。
+普段はRailsが自動でやってくれていますが、自分でインスタンス変数を設定するには assign メソッドを使います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;view_context = ActionView::Base.new
+view_context.assign(name: &#39;eiel&#39;)
+view_context.render(inline: &#39;Hello, &amp;lt;%= @name %&amp;gt;&#39;) # =&amp;gt; Hello, eiel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;@name&lt;/code&gt; が eiel に展開されています。&lt;/p&gt;
+
+&lt;p&gt;ActionView::Base のコンストラクタの第2引数に渡しても設定できます。&lt;/p&gt;
+
+&lt;h3 id=&#34;2の補足-actionview-rendering:1c071b860be59640993cf2f27a5f39dd&#34;&gt;2の補足 ActionView::Rendering&lt;/h3&gt;
+
+&lt;p&gt;コントローラがビューコンテキストに対して assign メソッドを利用して、設定します。
+これは &lt;a href=&#34;https://github.com/rails/rails/blob/v4.1.4/actionview/lib/action_view/rendering.rb&#34;&gt;ActionView::Rendering&lt;/a&gt; で行われます。&lt;/p&gt;
+
+&lt;p&gt;この ActionView::Rendering には ActionController::Base にミックスインされていて、コントローラがビューを設定する処理などが記述されているようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; ActionController::Base.ancestors.map(&amp;amp;:to_s).grep(/ActionView/)
+=&amp;gt; [&amp;quot;ActionView::Layouts&amp;quot;, &amp;quot;ActionView::Rendering&amp;quot;, &amp;quot;ActionView::ViewPaths&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ActionController::Base には ActionView::Rendering がミックスインされています。&lt;/p&gt;
+
+&lt;p&gt;ちなみに assign するのに使う Hash は AbstractController::Rendering#view_assign で作成されています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def view_assigns
+  protected_vars = _protected_ivars
+  variables      = instance_variables
+
+  variables.reject! { |s| protected_vars.include? s }
+  variables.each_with_object({}) { |name, hash|
+    hash[name.slice(1, name.length)] = instance_variable_get(name)
+  }
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rails/rails/blob/53d7b2ffe9ccdf2ded9898e20a947ea7da63566e/actionpack/lib/abstract_controller/rendering.rb#L66-L74&#34;&gt;ソースコード&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;インスタンス変数の一覧を取り出し、先頭の &lt;code&gt;@&lt;/code&gt; を取り除いてハッシュにしています。_protected_ivars に登録されているものは除外されます。&lt;/p&gt;
+
+&lt;h3 id=&#34;3-テンプレートファイルの利用:1c071b860be59640993cf2f27a5f39dd&#34;&gt;3 テンプレートファイルの利用&lt;/h3&gt;
+
+&lt;p&gt;別のファイルに保存したテンプレートを利用してみます。
+ActionView::LookupContext というものがテンプレートファイルを探します。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;views/prefix/hoge.html.erb&lt;/code&gt; を用意して中身は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Hello, &amp;lt;%= @name %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;として用意しているとします。&lt;/p&gt;
+
+&lt;p&gt;使ってみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;action_dispatch/http/mime_type&#39;
+view_context = ActionView::Base.new(&#39;./views&#39;)
+view_context.assign(name: &#39;eiel&#39;)
+view_context.render(template: &#39;hoge&#39;, prefixes: &#39;prefix&#39;) # =&amp;gt; Hello, eiel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ActionView::Base の第一引数から自動的に ActionView::LookupContext が生成されます。&lt;/p&gt;
+
+&lt;p&gt;バグなのかどうか判断が付いていないですが action_dispatch/http/mime_type を読まなりと動いてくれません。&lt;/p&gt;
+
+&lt;p&gt;どうしても読みたくない場合は以下のようにします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;lookup_context = ActionView::LookupContext.new(&#39;./views&#39;)
+lookup_context.cache = false   # ActionPack を読まなくて済む魔法
+
+view_context = ActionView::Base.new(lookup_context)
+view_context.assign(name: &#39;eiel&#39;)
+view_context.render(template: &#39;hoge&#39;, prefixes: &#39;prefix&#39;) # =&amp;gt; Hello, eiel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ルックアップコンテキストを自分で作り、cache を切ると ActionDispatch を利用せずに動かすことができます。&lt;/p&gt;
+
+&lt;p&gt;Rails が prefixes と template を自動で設定してくれていることが想像できます。普段はコントローラ名やアクション名から判断できるからですね。&lt;/p&gt;
+
+&lt;p&gt;prefixes は指定しないとテンプレートをみつけることができないようです。&lt;/p&gt;
+
+&lt;p&gt;また、文字列を指定することもできます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;view_context.render(&#39;prefix/hoge&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;この場合は &lt;code&gt;prefix/_hoge.html.erb&lt;/code&gt; のようなファイルを探しにいきます。&lt;/p&gt;
+
+&lt;h3 id=&#34;3の補足:1c071b860be59640993cf2f27a5f39dd&#34;&gt;3の補足&lt;/h3&gt;
+
+&lt;p&gt;render に自動設定されるオプションは _normalize_options メソッドで設定されるようです。&lt;/p&gt;
+
+&lt;p&gt;例えば  &lt;a href=&#34;https://github.com/rails/rails/blob/v4.1.4/actionview/lib/action_view/rendering.rb&#34;&gt;ActionVIew::Rendreing#_normalive_options&lt;/a&gt; では&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def _normalize_options(options)
+  options = super(options)
+  if options[:partial] == true
+    options[:partial] = action_name
+  end
+
+  if (options.keys &amp;amp; [:partial, :file, :template]).empty?
+    options[:prefixes] ||= _prefixes
+  end
+
+  options[:template] ||= (options[:action] || action_name).to_s
+  options
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となっていて prefixes や template が設定されている様子があります。&lt;/p&gt;
+
+&lt;p&gt;特に &lt;code&gt;options[:template] ||= (options[:action] || action_name).to_s&lt;/code&gt; なんかは予想通りな感じですね。
+options に :action を利用して、なければ action_name を利用しています。&lt;/p&gt;
+
+&lt;p&gt;prefixes は &lt;a href=&#34;https://github.com/rails/rails/blob/7b50d7f2496a84bec5aceb9e0fd1f1f9dcbdab88/actionview/lib/action_view/view_paths.rb#L34-L36&#34;&gt;ActionView::ViewPaths&lt;/a&gt; で&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def local_prefixes
+  [controller_path]
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となっており、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def _prefixes # :nodoc:
+  @_prefixes ||= begin
+    deprecated_prefixes = handle_deprecated_parent_prefixes
+    if deprecated_prefixes
+      deprecated_prefixes
+    else
+      return local_prefixes if superclass.abstract?
+
+      local_prefixes + superclass._prefixes
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最終的に _prefixes として利用できることがわかります。&lt;/p&gt;
+
+&lt;p&gt;そういえば ActionView::ViewPaths も ActionController::Base にミックスインされていましたね。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; ActionController::Base.ancestors.map(&amp;amp;:to_s).grep(/ActionView/)
+=&amp;gt; [&amp;quot;ActionView::Layouts&amp;quot;, &amp;quot;ActionView::Rendering&amp;quot;, &amp;quot;ActionView::ViewPaths&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;4-レイアウトの利用:1c071b860be59640993cf2f27a5f39dd&#34;&gt;4 レイアウトの利用&lt;/h3&gt;
+
+&lt;p&gt;レイアウトを利用するには &lt;code&gt;layout&lt;/code&gt; オプションを使います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ tree views/
+views/
+├── layouts
+│   └── application.html.erb
+└── prefix
+    └── hoge.html.erb
+$ cat view/layouts/application.html.erb
+--
+&amp;lt;%= yield %&amp;gt;
+--
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;としておいて、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;lookup_context = ActionView::LookupContext.new(&#39;./views&#39;)
+lookup_context.cache = false   # ActionPachk を読まなくて済む魔法
+
+view_context = ActionView::Base.new(lookup_context)
+view_context.assign(name: &#39;eiel&#39;)
+view_context.render(template: &#39;hoge&#39;,
+                          prefixes: &#39;prefix&#39;,
+                          
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とすると、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;--
+Hello, eiel
+
+--
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のような文字列がかえってきます。&lt;/p&gt;
+
+&lt;h3 id=&#34;4の補足:1c071b860be59640993cf2f27a5f39dd&#34;&gt;4の補足&lt;/h3&gt;
+
+&lt;p&gt;layout に関するコントローラの処理は &lt;a href=&#34;https://github.com/rails/rails/blob/v4.1.4/actionview/lib/action_view/layouts.rb&#34;&gt;ActionView::Layouts&lt;/a&gt; にあります。&lt;/p&gt;
+
+&lt;p&gt;もう一度確認してみましょう。ActionController::Base にミックスインされているモジュールを確認してみましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; ActionController::Base.ancestors.map(&amp;amp;:to_s).grep(/ActionView/)
+=&amp;gt; [&amp;quot;ActionView::Layouts&amp;quot;, &amp;quot;ActionView::Rendering&amp;quot;, &amp;quot;ActionView::ViewPaths&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ちなみに ActionView::Rendering は ActionView::Layouts で &lt;code&gt;include&lt;/code&gt; されています。&lt;/p&gt;
+
+&lt;p&gt;render へのオプション設定はやっぱり &lt;code&gt;_normalaize_options&lt;/code&gt; にあります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def _normalize_options(options) # :nodoc:
+  super
+
+  if _include_layout?(options)
+    layout = options.delete(:layout) { :default }
+    options[:layout] = _layout_for_option(layout)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;options[:layout]&lt;/code&gt; を設定しています。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:1c071b860be59640993cf2f27a5f39dd&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;ActionView を単体で使いたい場面を考えると ERB を単体で利用していたけど layout を使いたくなったときぐらいしか浮かびません。
+Rails が提供する MVC に乗かりたいなら AbstroctController を使うほうが楽そうです。&lt;/p&gt;
+
+&lt;p&gt;補足としたほうを読んでみると Rails の仕組みも見えてくるような気がしますね。(#知らんけど)&lt;/p&gt;
+
+&lt;h3 id=&#34;補足のまとめ:1c071b860be59640993cf2f27a5f39dd&#34;&gt;補足のまとめ&lt;/h3&gt;
+
+&lt;p&gt;登場人物を整理しておきます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;view_context - ActionView::Base のサブクラスのインスタンス。ビューの中のself&lt;/li&gt;
+&lt;li&gt;lookup_context - ActionView::LookupContext のインスタンス。テンプレートを探してくれる。テンプレートを探すための情報ももってる。&lt;/li&gt;
+&lt;li&gt;renderer - render を実際に行うところ。今回は登場してない。render の引数によってどのクラスを使うか選択される。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;コントローラーと連携するためにコントローラに機能を追加する人たちとして、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ActionView::Layouts&lt;/li&gt;
+&lt;li&gt;ActionView::Rendering&lt;/li&gt;
+&lt;li&gt;ActionView::ViewPaths&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;が登場しました。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:1c071b860be59640993cf2f27a5f39dd&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/09/04/extend-abstract-controller/&#34;&gt;AbstractController を継承して遊ぶ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;blog/2014/03/30/action-dispatch/&#34;&gt;ActionDispatch ってなんだろう？ - 広島・岡山Ruby交流会01&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/09/07/autoload-rails/&#34;&gt;Rails の自動読み込みの話&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>rails console でルーティングが生成した helper を使う</title>
+          <link>http://blog.eiel.info/blog/2014/05/16/rails-console-routeing-helper/</link>
+          <pubDate>Fri, 16 May 2014 15:54:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/05/16/rails-console-routeing-helper/</guid>
+          <description>
+
+&lt;p&gt;Railsで &lt;code&gt;config/routes.rb&lt;/code&gt; に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;resources :users
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とかくと&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;users_path&lt;/li&gt;
+&lt;li&gt;users_url&lt;/li&gt;
+&lt;li&gt;user_path&lt;/li&gt;
+&lt;li&gt;user_url&lt;/li&gt;
+&lt;li&gt;new_user_path&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などなどのViewで利用できるヘルパーが生成される。&lt;/p&gt;
+
+&lt;p&gt;このヘルパーを &lt;code&gt;rails console&lt;/code&gt; で使うには、&lt;code&gt;app&lt;/code&gt; オブジェクトを経由する。&lt;/p&gt;
+
+&lt;p&gt;例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;app.users_path  # =&amp;gt; &amp;quot;/users&amp;quot;
+app.users_url  # =&amp;gt; &amp;quot;http://www.example.com/records/3.html&amp;quot;
+app.user_path(User.first) # =&amp;gt; &amp;quot;/users/1&amp;quot;
+app.user_path(User.first, :html) # =&amp;gt; &amp;quot;/users/1.html&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なんとなく関係ない例を混ぜた。&lt;/p&gt;
+
+&lt;p&gt;routing helper というらしいのに helper からアクセスできない。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連リンク:7f0734fc78dcc450b87ba7840a5485a2&#34;&gt;関連リンク&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/03/30/action-dispatch/&#34;&gt;ActionDispatch ってなんだろう？ - 広島・岡山Ruby交流会01 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Devise で登録時にConfirmation Token が不正な値というエラー</title>
+          <link>http://blog.eiel.info/blog/2014/02/20/confirmation-token-error-indevise/</link>
+          <pubDate>Thu, 20 Feb 2014 14:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/02/20/confirmation-token-error-indevise/</guid>
+          <description>
+
+&lt;p&gt;Devise で確認メールで確認してから有効にする機能 Confirmable の機能をつかってたのだけど、トークンが不正というエラーがおきた。&lt;/p&gt;
+
+&lt;p&gt;この問題は devise 3.1.0 より前で、確認のために送信されるメールの内容をカスタマイズしていれば起きてるんじゃないかと思う。&lt;/p&gt;
+
+&lt;p&gt;DBに格納される Token の値が HMAC されるようになったらしい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/plataformatec/devise/commit/143794d701bcd7b8c900c5bb8a216026c3c68afc&#34;&gt;Use HMAC on tokens stored in the DB ·  143794d · plataformatec/devise · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そのため、画面をカスタマイズしている場合、token の取得方法が変えないといけないっぽい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-diff&#34;&gt;-&amp;lt;p&amp;gt;&amp;lt;%= link_to &#39;Confirm my account&#39;, confirmation_url(@resource, :confirmation_token =&amp;gt; @resource.confirmation_token) %&amp;gt;&amp;lt;/p&amp;gt;
++&amp;lt;p&amp;gt;&amp;lt;%= link_to &#39;Confirm my account&#39;, confirmation_url(@resource, :confirmation_token =&amp;gt; @token) %&amp;gt;&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;確認メールだけでなく &lt;code&gt;app/views/devise/mailer&lt;/code&gt; 内のファイル全部変えないといけない気がする。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;confirmation_instructions.html.erb&lt;/li&gt;
+&lt;li&gt;reset_password_instructions.html.erb&lt;/li&gt;
+&lt;li&gt;unlock_instructions.html.erb&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あたりですね。&lt;/p&gt;
+
+&lt;h3 id=&#34;蛇足:fa9d61f5264beb87c65f061b161f485f&#34;&gt;蛇足&lt;/h3&gt;
+
+&lt;p&gt;v3.1.0 ってリリースされたの9月なんだが…さっき気づいたということは…。とおもって Gemfie.lock を git log &amp;ndash;patch Gemfile.lock して devise 検索したら、デプロイされたのは最近だった。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考:fa9d61f5264beb87c65f061b161f485f&#34;&gt;参考&lt;/h3&gt;
+
+&lt;p&gt;直してから探したやつだけど。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/18626544/devise-confirmation-token-is-invalid-when-user-signs-up&#34;&gt;ruby on rails - Devise &amp;ldquo;Confirmation token is invalid&amp;rdquo; when user signs up - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;関連:fa9d61f5264beb87c65f061b161f485f&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2012/12/30/modify-email-on-devise/&#34;&gt;Devise で email 変更する。 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ActiveRecord のスコープを書くときは proc を使えよって話</title>
+          <link>http://blog.eiel.info/blog/2014/01/09/scope-proc/</link>
+          <pubDate>Thu, 09 Jan 2014 16:42:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/01/09/scope-proc/</guid>
+          <description>
+
+&lt;p&gt;ActiveRecord で scope を定義する時は、普通は以下のように書きますよね。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;scope :hoge, -&amp;gt; { where(name: &#39;hoge&#39; }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;歴史的背景で、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;scope :hoge, where(hname: &#39;hoge&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とか、書いてることがあるかもしれません。&lt;/p&gt;
+
+&lt;p&gt;この場合、一応、問題なく動きますが、コンテキストに応じて値が変化するようなものを利用してる場合には問題が起きることがあるので、早めに修正したほうが良いかもしれません。(というか問題が起きた)&lt;/p&gt;
+
+&lt;p&gt;前者で書きましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;具体例:3f3fb1fc52b69b3dc3a2283746996ad0&#34;&gt;具体例&lt;/h3&gt;
+
+&lt;p&gt;特に日付などを利用してると問題になりやすいかもしれません。
+例えば、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;scope :this_month, where(month: Date.today.month)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;というのは、月を跨ぐと問題になる可能性が高いです。
+常にデプロイした月の結果を返すことになります。&lt;/p&gt;
+
+&lt;p&gt;クラスをファイルを読み込みした際に Date.today.month が評価されてしまうので、そこの値が固定されてしまいます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;scope :this_month, -&amp;gt; { where(month: Date.today.month) }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;という風に書き換えておいたほうが良いです。&lt;/p&gt;
+
+&lt;p&gt;年とか使ってると気づかない可能性高そうですね。怖い怖い。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Wisper 試した</title>
+          <link>http://blog.eiel.info/blog/2013/12/25/wisper/</link>
+          <pubDate>Wed, 25 Dec 2013 01:11:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/12/25/wisper/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/krisleech/wisper&#34;&gt;Wisper&lt;/a&gt; を試した。&lt;/p&gt;
+
+&lt;p&gt;Rails のプラグインで、依存性の管理や分離ができる。
+ActiveRecord の callback だと依存の記述がモデル上になって、
+Observer は本家から外れたような気がするし(うる覚え)、
+ActiveSupport::Notification じゃ依存性がゆるすぎる。
+でも、コントローラでかくにはちょっと処理が多すぎるし…って時に探してたらみつけたプラグイン。&lt;/p&gt;
+
+&lt;p&gt;やってることはどれも大差ない気がするんだけど、とりあえず、公式のサンプルコードをみてみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class BidsController &amp;lt; ApplicationController
+  def new
+    @bid = Bid.new
+  end
+
+  def create
+    @bid = Bid.new(params[:bid])
+
+    @bid.subscribe(PusherListener.new)
+    @bid.subscribe(ActivityListener.new)
+    @bid.subscribe(StatisticsListener.new)
+
+    @bid.on(:create_bid_successful) { |bid| redirect_to bid }
+    @bid.on(:create_bid_failed)     { |bid| render :action =&amp;gt; :new }
+
+    @bid.commit
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;create_bid_successful が発生したときはリダイレクトして、create_bid_failed が発生した時は new を render するというのをアクションでかける。
+ifの分岐がなくて、縦にコードが並んで複雑な分岐をする場合は読みやすい。
+また、Listener を登録することで機能追加ができる。
+create_bid_successful イベントがおきたときは、&lt;code&gt;PusherLister#create_bid_successful&lt;/code&gt; や &lt;code&gt;ActivityListener#create_bid_successful&lt;/code&gt;、&lt;code&gt;StatisticsListener#create_bid_successful&lt;/code&gt; なんかも呼ばれる。
+Set で保存されてるようなので順番は保証されない&lt;/p&gt;
+
+&lt;p&gt;メインの処理をモデルで集中できて少し脇道に逸れるようなものは Listener を書いて &lt;code&gt;subscribe&lt;/code&gt; していけばいいという感じである。&lt;/p&gt;
+
+&lt;p&gt;また、 &lt;a href=&#34;https://github.com/krisleech/wisper-async&#34;&gt;wisper-async&lt;/a&gt; っていうのがあって、脇道に逸れるものは非同期に実行したりできそう。&lt;/p&gt;
+
+&lt;p&gt;イベントを起こすには &lt;code&gt;Wisper::Publisher&lt;/code&gt; を &lt;code&gt;include&lt;/code&gt; しておいて &lt;code&gt;publish&lt;/code&gt; を呼ぶだけです。引数を渡したいときは一緒に渡します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;publish(:create_bid_successful, self)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;単体テストもしやすかったです。&lt;/p&gt;
+
+&lt;p&gt;個人的にはオブジェクトを subscribe すると反応しないイベントがある場合は警告してくれたら嬉しいなぁ、と思いながらちらちら見ている。
+メソッド名を間違えるとちょっとめんどくさい。&lt;/p&gt;
+
+&lt;p&gt;エラーが発生したとき、わかりにくかったのもちょっと欠点か。&lt;/p&gt;
+
+&lt;p&gt;規模が大きいアプリケーションには使えそうな感じがしました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>config/database.yml の情報にアクセスする。</title>
+          <link>http://blog.eiel.info/blog/2013/10/26/config-database/</link>
+          <pubDate>Sat, 26 Oct 2013 00:34:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/10/26/config-database/</guid>
+          <description>&lt;p&gt;Rails の config/database.yml の情報にアクセスしたかった。&lt;/p&gt;
+
+&lt;p&gt;別に open して read して YAML.parse するだけなのですが、
+もしかすると、 config/database.yml じゃないところを読むように設定を変えてる場合もありますからね。(ねーよ)&lt;/p&gt;
+
+&lt;p&gt;ということで適当にリポジトリを検索したら、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Rails.application.config.database_configuration
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、取り出せました。
+&lt;a href=&#34;https://github.com/rails/rails/search?q=database.yml&amp;amp;ref=cmdform&#34;&gt;この辺りはバージョンよって違うかもしれないので、GitHub で検索するのが良いかもしれないです。&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Rails の自動読み込みの話</title>
+          <link>http://blog.eiel.info/blog/2013/09/07/autoload-rails/</link>
+          <pubDate>Sat, 07 Sep 2013 22:38:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/09/07/autoload-rails/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://hiroshimarb.github.io/blog/2013/09/07/hiroshimarb-34/&#34;&gt;広島Ruby勉強会 #034&lt;/a&gt;で使用したネタの文に書きなおしました。&lt;/p&gt;
+
+&lt;p&gt;「Rails の自動読み込み規約を支える技術」と若干煽っておりますが
+以下の内容はソースコードを読んで判断したことですべて正しいとは保証できないので参考にする程度にお願いします。&lt;/p&gt;
+
+&lt;p&gt;というわけで、Rails の自動読み込みの話をしたいと思います。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/25983089&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;https://www.slideshare.net/TomohikoHimura/rails-25983089&#34; title=&#34;Rails の自動読み込みを支える技術&#34; target=&#34;_blank&#34;&gt;Rails の自動読み込みを支える技術&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+### Rails のファイル読み込みの規約
+
+Rails には[設定より規約](http://ja.wikipedia.org/wiki/%E8%A8%AD%E5%AE%9A%E3%82%88%E3%82%8A%E8%A6%8F%E7%B4%84) という設計パラダイムが採用されています。
+ファイルの自動読み込みの規約は
+
+&gt; 読み込みされていないクラス/モジュールがあった場合、名前から読み込みするファイルを判断できる
+
+というような規約があります。
+
+例えば
+
+```
+Hoge       -&gt; &#39;hoge.rb&#39; を読み込む
+Hoge::Mogu -&gt; &#39;hoge/mogu.rb&#39; を読み込む
+HogeMogu   -&gt; &#39;hoge_mogu.rb&#39; を読み込む
+```
+
+といった感じになっています。
+この時、クラス名からファイル名の変換は `ActiveSupport::Inflector.underscore` が利用されます。
+
+Rails では、自動読み込みは `RAILS_ROOT/app/models` のような `RAILS_ROOT/app/` の中のディレクトリに対し行われます。
+`RAILS_ROOT/lib` とかに配置しても自動読み込みされません。
+
+これを実現しているモジュールは [ActiveSupport::Dependencies](https://github.com/rails/rails/blob/master/activesupport/lib/active_support/dependencies.rb) になります。
+
+### ActiveSupport::Dependencies
+
+Rails を使わない場合の使い方を紹介します。
+
+```ruby
+require &#39;active_support/dependencies.rb&#39;
+ActiveSupport::Dependencies.autoload_paths &lt;&lt; &#39;lib&#39;
+```
+
+このようにしておくとクラスやモジュールがない場合 `lib` の中から規約に沿ったファイルを読み込みします。
+`autoload_paths` に読み込みの対象となるディレクトリを指定します。
+実際に自作ライブラリで利用しないほうが良いです。
+こういった用途の場合は後述の `ActiveSupport::Autoload` などで読み込みするのが一般的なようです。
+Rails の`app` の中のように DSLを使った記述をシンプルにする場合に使うような印象を浮けました。
+
+Rails での `autoload_paths` の初期値は
+
+* &#34;RAILS_ROOT/app/assets&#34;
+* &#34;RAILS_ROOT/app/controllers&#34;
+* &#34;RAILS_ROOT/app/helpers&#34;
+* &#34;RAILS_ROOT/app/mailers&#34;
+* &#34;RAILS_ROOT/app/models&#34;
+* &#34;RAILS_ROOT/app/controllers/concerns&#34;
+* &#34;RAILS_ROOT/app/models/concerns&#34;
+
+また、自動再読込もこの `autoload_paths` の path のみに適用さます。
+
+#### 仕組み
+
+簡単に仕組みをメモしておきます。
+
+読み込みされていないクラスを使用すると ConstMissing という例外が発生します。
+この部分に介入して autoload_paths の中に規約に合うファイルがあるか確認します。
+存在する場合は読み込みします。
+存在しない場合は `ConstMissing` を発生させます。
+
+この自動読み込みの機能の動きを確認をする場合 Loggerを設定すると便利です。
+
+```ruby
+require &#39;active_support/dependencies.rb&#39;
+require &#39;logger&#39;
+ActiveSupport::Dependencies.logger = Logger.new($stderr)
+ActiveSupport::Dependencies.log_activity = true
+```
+
+とすれば標準エラー出力にログが出力されます。
+Rails の場合は Logger の設定がされているので、`log_activety` を設定するだけで大丈夫です。
+
+この自動読み込み機能は、
+`require &#39;active_support/dependencies.rb&#39;` しただけで有効になりますが、
+これは `ActiveSupport::Dependencies.hook!` が呼ばれるようになっているためです。
+
+停止したい場合は `ActiveSupport::Dependencies.unhook!` を呼ぶことで停止させることができます。
+
+#### その他知っていると便利かもしれないこと
+
+* ActiveSupport::Dependencies.warnings_on_first_load
+
+この値をtrue にするとはじめて読み込みしたクラスが log レベル warn でメッセージを書き込まみます。
+もう一度読まれた場合は Log には出力されません。
+
+* ActiveSupport::Dependencies.history
+
+この機能を使い読み込みしたクラスの一覧が入ります。
+Set で保存されているので順番は分かりません。
+
+* ActiveSupport::Dependencies.loaded
+
+この機能を使い読み込みしたクラスの一覧が入ります。
+history と違うのは clear されることがあることです。
+
+* ActiveSupport::Dependencies.mechanism
+
+ファイルを読み込みする際に load を利用するか require を利用するかを切り替えできます。
+デフォルトは load になっています。シンボルで設定します。
+また、環境変数 `NO_RELOAD` を設定しておくと `require` に切り替えられます。
+* ActiveSupport::Dependencies.explicitly_unloadable_constants
+
+自動読み込みを行わない定数名を設定できます。
+
+### ActiveSupport::Autoload
+
+`ActiveSupport::Dependencies` はライブラリ上では使われないようです。
+似たような機能を持つものとしては [ActiveSupport::Autoload](https://github.com/rails/rails/blob/master/activesupport/lib/active_support/dependencies/autoload.rb) があります。
+
+`lib/active_support.rb` や `lib/active_record.rb` など上げるとキリがありませんが、これらのファイルではたくさんの `autoload` が利用されています。
+
+そもそも ruby には `autoload` が実装されています。
+ただし、引数がふたつ必要になります。
+この `autoload` を `ActiveSupport::Autoload` で拡張されたものです。
+
+* Kernel.autoload(module, filename)
+* Module.autoload(module, filename)
+* ActiveSupport::Autoload#autoload(const_name, path = @@at_path)
+
+
+`autoload` は自動読み込みするきっかけになる名前と読み込みするファイルを渡します。そうです。Rails の規約に添えば2番目の引数が省略できるのです。
+
+ちなみに、Kernel のほうの `autoload` は変化しません。
+Module のほうが差し替えられ第2引数が省略できます。
+
+例:
+
+```ruby
+require &#39;active_support/dependencies/autoload&#39;
+
+module Hoge
+  extend ActiveSupport::Autoload
+  autoload :Mogu
+end
+
+Hoge::Mogu
+# &gt; LoadError: cannot load such file -- hoge/mogu
+```
+
+#### eager_autoload と auto_load!
+
+Rails のソースコードをみていると
+
+```ruby
+eager_autoload do
+  autoload :Hoge
+  autoload :Mogu
+end
+```
+
+のようになってることがあります。
+
+eager_autoload のブロックにかいておくと `auto_load!` メソッドで一括読み込みができます。
+どのような利点があるのかよくわかってません。
+
+しかも、`ActiveSupport::Autoload` って `active_support/dependencies/autload.rb` に定義されてるんですよね。なんでなんだろう。
+
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=B00P0UR1RU&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>AbstractController を継承して遊ぶ</title>
+          <link>http://blog.eiel.info/blog/2013/09/04/extend-abstract-controller/</link>
+          <pubDate>Wed, 04 Sep 2013 19:03:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/09/04/extend-abstract-controller/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/events/event-016.html&#34;&gt;すごい広島 #16&lt;/a&gt; で遊んだこと&lt;/p&gt;
+
+&lt;p&gt;Rails で AbstractContrller::Base を継承して &lt;strong&gt;オレオレ コントローラ&lt;/strong&gt; を作りたいと思います。&lt;/p&gt;
+
+&lt;p&gt;どうしてこれをしたいかというと View です。
+コントローラ名とアクションに対応した View がレンダリングできるのが魅力的です。&lt;/p&gt;
+
+&lt;p&gt;状況としてはメールを送るわけではないので ActionMailer 使えないし、すぐに画面に表示するわけではないので ActionController はちょっと…という感じなわけです。
+どんな状況かというとDBに保存する長文を作成したい時です。&lt;/p&gt;
+
+&lt;p&gt;書いたビューはこんな感じ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;こんにちは &amp;lt;%= @user %&amp;gt;さん
+
+&amp;lt;%= goodbye_helper @user %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ヘルパーも使えるようにしてみます。
+ファイル名は &lt;code&gt;app/views/hoge_template/goro.text.erb&lt;/code&gt; でコントローラ名が &lt;code&gt;hoge_template&lt;/code&gt; アクション名 &lt;code&gt;goro&lt;/code&gt; テンプレートエンジンは &lt;code&gt;erb&lt;/code&gt; です。&lt;/p&gt;
+
+&lt;p&gt;利用には以下のように使います。
+&lt;code&gt;rails c&lt;/code&gt; の中でやったり、モデルの中で使えます。
+もちろんコントローラ上でも。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;template = HogeTemplate.new
+template.process(:goro)
+template.render
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;renderの戻り値がテンプレートの出力結果になります。&lt;/p&gt;
+
+&lt;p&gt;最終的な出力目標は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;こんにちは  おなまえさん
+
+おなまえさん、おやすみ
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;を目指します。
+&lt;code&gt;@uesr&lt;/code&gt; には &lt;code&gt;おなまえ&lt;/code&gt; が入っています。
+&lt;code&gt;goobye_helper&lt;/code&gt; はお別れのあいさつをしてくれるように実装します。&lt;/p&gt;
+
+&lt;p&gt;作成するコントローラ的な役割をする HogeTemplate はこのように書きたいはずです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class HogeTemplate &amp;lt; ActionTemplate
+  def goro
+    @user = &amp;quot;おなまえ&amp;quot;
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Helper は以下のように書きたいです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;module ApplicationHelper
+  def goodbye_helper(user)
+    &amp;quot;#{user}さん、おやすみ&amp;quot;
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;このようにできる ActionTemplate クラスを作るのが目的です。&lt;/p&gt;
+
+&lt;p&gt;その ActienTemplate クラスは下記で動作させることができました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class ActionTemplate &amp;lt; AbstractController::Base
+  include AbstractController::Rendering
+  include ActionController::Helpers
+
+  helpers_path &amp;lt;&amp;lt; &#39;app/helpers&#39;
+  helper :all
+
+  view_paths &amp;lt;&amp;lt; &#39;app/views&#39;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;helpers_path&lt;/code&gt; や &lt;code&gt;view_paths&lt;/code&gt; で読み込み場所を調整できます。
+これはうまくやれば省略できそうなのですがそこまでまだいけていません。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/ActienTemplate&#34;&gt;サンプルリポジトリはこちら。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;ActionTemplate&lt;/code&gt; を &lt;code&gt;app/models&lt;/code&gt; に保存していますが、これは説明用です。
+専用のディレクトリを作成して autoload_path へ追加したいですが、複雑になるので省略しました。&lt;/p&gt;
+
+&lt;p&gt;使い道があるかどうかわかりませんが、試したので整理してみました。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連リンク:bcb28a1437c95f61b27873bb44edcf92&#34;&gt;関連リンク&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/07/18/action-view/&#34;&gt;ActionView を単体で使ってみる&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>広島Ruby勉強会 #033 でやったこと - ActiveSupport CoreExt &amp; Rails Template</title>
+          <link>http://blog.eiel.info/blog/2013/08/04/hiroshimarb-33/</link>
+          <pubDate>Sun, 04 Aug 2013 12:22:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/08/04/hiroshimarb-33/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://partake.in/events/9dacdbfc-8acf-4968-a0eb-5327a6937b7d&#34;&gt;広島Ruby勉強会 #033&lt;/a&gt; に参加しました。&lt;/p&gt;
+
+&lt;p&gt;前回に引き続き ActiveSupport のCoreExt のソースコードを読んだので、面白そうなところをざっくりと紹介しました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://railsdoc.eiel.info/hiroshimarb/33/&#34;&gt;資料 - Rails のソースコード読んだので面白そうなところを紹介する &amp;ndash; ActiveSupport CoreExt編 その2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あと LT しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;rails new&lt;/code&gt; には &lt;code&gt;--template&lt;/code&gt; という引数があるのでこれについて調べました。&lt;/p&gt;
+
+&lt;p&gt;まずはスライド。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/24887855&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;http://www.slideshare.net/TomohikoHimura/rails-template&#34; title=&#34;Rails プロジェクトでスタートダッシュを決める&#34; target=&#34;_blank&#34;&gt;Rails プロジェクトでスタートダッシュを決める&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;このスライドを作る前に調べものした時のメモは前回の記事を&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/08/03/rails-new-template/&#34;&gt;Rails New した時の追加処理をかく&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;参加者の &lt;a href=&#34;https://twitter.com/CentBoss&#34;&gt;もりしー こと @CentBoss&lt;/a&gt; が 「&lt;a href=&#34;http://blog.mori-theta.net/?p=238&#34;&gt;広島Ruby勉強会 #033に遊びに行ってrails newでのtemplateを作った&lt;/a&gt;」 早速試してみてくれました。
+&lt;code&gt;rails new&lt;/code&gt; する時のデフォルトの引数を指定できる &lt;code&gt;~/.railsrc&lt;/code&gt; というものがありますが、そのなかで &amp;ndash;template が使えるのを試してくれています。
+上手くいったようです。
+ここでテンプレートファイルを指定しておくと、とても楽ができます。&lt;/p&gt;
+
+&lt;p&gt;次回の 広島Ruby勉強会は 9月7日を予定しているそうです。
+発表の練習したい方募集中だそうです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>rails new した時の追加処理をかく</title>
+          <link>http://blog.eiel.info/blog/2013/08/01/rails-new-template/</link>
+          <pubDate>Thu, 01 Aug 2013 18:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/08/01/rails-new-template/</guid>
+          <description>
+
+&lt;p&gt;この記事はメモです。
+&lt;a href=&#34;http://hiroshimarb.github.io/blog/2013/08/03/hiroshimarb-33/&#34;&gt;広島Ruby勉強会 #33&lt;/a&gt; で LT するのに下調べしたことを書いてるだけです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;rails new&lt;/code&gt; した時に &lt;code&gt;--template file_or_url&lt;/code&gt; というオプションがあります。省略形は &lt;code&gt;-m&lt;/code&gt;。
+これを使うと、&lt;code&gt;rails new&lt;/code&gt; した時に追加処理ができます。
+「テンプレート機能」と呼びたいと思います。&lt;/p&gt;
+
+&lt;p&gt;何がしたいかというと rails new した時点で &lt;code&gt;pry&lt;/code&gt; とか &lt;code&gt;rspec&lt;/code&gt; とか &lt;code&gt;cucumber&lt;/code&gt; とかいつも使うのを設定した状態にしたいのです。
+ウェブサービスが思いついたら直ちに開発をしたいのです。&lt;/p&gt;
+
+&lt;p&gt;このテンプレート機能を使うものとしては &lt;a href=&#34;https://github.com/RailsApps/rails-composer&#34;&gt;Rails Composer&lt;/a&gt; というものがあります。
+これを使うと、どのライブラリを利用するか質問されるので、回答していくと、雛形ができます。&lt;/p&gt;
+
+&lt;p&gt;これを自分でカスタマイズしたいので、いろいろ調べました。&lt;/p&gt;
+
+&lt;p&gt;役に立つかもしれないウェブページ&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://guides.rubyonrails.org/rails_application_templates.html&#34;&gt;Rails Application Templates - Rails Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guides.rubyonrails.org/generators.html&#34;&gt;Creating and Customizing Rails Generators &amp;amp; Templates - Rails Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/tachiba@github/items/26b2e9dc271bd8e6907d&#34;&gt;RailsのApplication templateを使って開発の初速をあげよう！&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ひとつめの「Rails Application Templates」は Rails Guide ですが、Rails Guide のトップにリンクがありません。
+だいぶ調べた後に気づきました。泣きたい。&lt;/p&gt;
+
+&lt;p&gt;ふたつめも Rails Guide ですが、機能的には Generator と同じなので参考になります。&lt;/p&gt;
+
+&lt;p&gt;みっつめは日本語記事。面白くまとめてあります。このメモを書いてLTをつくった後にみつけた。&lt;/p&gt;
+
+&lt;p&gt;つづいて、関係してきそうなクラスやモジュールを整理します。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Rails::AppBuilder&lt;/li&gt;
+&lt;li&gt;Rails::Generators::AppGenerator&lt;/li&gt;
+&lt;li&gt;Rails::Generators::AppBase&lt;/li&gt;
+&lt;li&gt;Rails::Generators::Base&lt;/li&gt;
+&lt;li&gt;Rails::Generators::Actions&lt;/li&gt;
+&lt;li&gt;Thor::Actions&lt;/li&gt;
+&lt;li&gt;Thor::Group&lt;/li&gt;
+&lt;li&gt;Thor::Shell&lt;/li&gt;
+&lt;li&gt;Thor::Invocation&lt;/li&gt;
+&lt;li&gt;Thor::Base&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;--template&lt;/code&gt; に指定したファイルは &lt;code&gt;Rails::Generators::AppGenerator&lt;/code&gt; インスタンスのコンテキストで実行されます。
+Rails::Generators::AppGenerator が継承してるクラスやミックスインしているモジュールのメソッドが使えると考えてください。
+「&lt;code&gt;instance_eval&lt;/code&gt; される」と書いたほうがわかりやすい人もいるとかもしれません。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;rails new&lt;/code&gt; や &lt;code&gt;rails generator&lt;/code&gt; には、&lt;a href=&#34;http://whatisthor.com/&#34;&gt;Thor&lt;/a&gt; というライブリが使用されています。
+bundler や Vagrant でも利用されているそうです。
+もっと詳しいことを知りたいのであれば、
+&lt;a href=&#34;https://github.com/erikhuda/thor&#34;&gt;Github のリボジトリ&lt;/a&gt;や&lt;a href=&#34;https://github.com/erikhuda/thor/wiki&#34;&gt;Wiki&lt;/a&gt;をみるとよさそうです。
+Thor についてはまだ勉強中でまだよくわかりませんが、コマンドラインから実行するプログラムを作成するのを支援するようです。&lt;/p&gt;
+
+&lt;p&gt;継承関係は、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Rails::Generators::AppGenerator
+  &amp;lt; Rails::Generators::AppBase
+    &amp;lt; Rails::Generators::Base - [Thor::Actions, Rails::Generators::Actions]
+      &amp;lt; Thor::Group - [Thor::Base, Thor::Shell, Thor::Invocation]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となっていて、 &lt;code&gt;&amp;lt;&lt;/code&gt; は継承しているところで &lt;code&gt;-&lt;/code&gt; はミックスインしているところです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Rails::AppBuilder&lt;/code&gt; には &lt;code&gt;Rails::Generators::AppGenerator&lt;/code&gt; で使用するレシピが書いてある感じになっています。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Rails::Generators::AppGenerator&lt;/code&gt;に定義されているメソッドは &lt;code&gt;Thor::Group&lt;/code&gt; の規約により、定義された順番に実行されるようになっています。
+&lt;code&gt;--template&lt;/code&gt;に指定したファイルが実行されるのは最後から二番目になります。
+最後は&lt;code&gt;run_bundle&lt;/code&gt; が実行されます。これは &lt;code&gt;bundle install&lt;/code&gt; が実行されます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;rails generator&lt;/code&gt; に対応したクラスのを多くは &lt;code&gt;Rails::Generators::NamedBase&lt;/code&gt; を継承しています。
+継承関係は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Rails::Generators::NamedBase &amp;lt; Rails::Generators::Base
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となっているので、両者に共通するものが &lt;code&gt;Rails::Generators::Base&lt;/code&gt; になることがわかりました。
+&lt;code&gt;rails new&lt;/code&gt; する時の処理をまるまる変更したいのであれば &lt;code&gt;Rails::AppBuilder&lt;/code&gt; を継承して&lt;code&gt;::AppBuilder&lt;/code&gt; を作成すればできそうな感じでした。&lt;/p&gt;
+
+&lt;p&gt;ベースになるクラスは &lt;code&gt;railties/lib/rails/generators&lt;/code&gt; にあります。
+generatorとして利用できるものは、ここに配置されているディレクトリに配置されています。
+ないものもありますが、&lt;code&gt;rails g --help&lt;/code&gt; に表示されるものと概ね対応しています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;find -maxdepth 2 -type d
+.
+./css
+./css/assets
+./css/scaffold
+./erb
+./erb/controller
+./erb/mailer
+./erb/scaffold
+./js
+./js/assets
+./rails
+./rails/app
+./rails/assets
+./rails/controller
+./rails/generator
+./rails/helper
+./rails/integration_test
+./rails/migration
+./rails/model
+./rails/plugin_new
+./rails/resource
+./rails/resource_route
+./rails/scaffold
+./rails/scaffold_controller
+./rails/task
+./test_unit
+./test_unit/controller
+./test_unit/helper
+./test_unit/integration
+./test_unit/mailer
+./test_unit/model
+./test_unit/plugin
+./test_unit/scaffold
+./testing
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rails g --help
+(中略)
+Rails:
+  assets
+  controller
+  generator
+  helper
+  integration_test
+  jbuilder
+  mailer
+  migration
+  model
+  resource
+  scaffold
+  scaffold_controller
+  task
+
+Coffee:
+  coffee:assets
+
+Jquery:
+  jquery:install
+
+Js:
+  js:assets
+
+TestUnit:
+  test_unit:controller
+  test_unit:helper
+  test_unit:integration
+  test_unit:mailer
+  test_unit:model
+  test_unit:plugin
+  test_unit:scaffold
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;試してみる:6e7e0eab36b2e5b334925a8641b4649e&#34;&gt;試してみる&lt;/h3&gt;
+
+&lt;p&gt;あまり面白い例ではないですが &lt;code&gt;rspec&lt;/code&gt; と &lt;code&gt;pry-byebug&lt;/code&gt; がインストールされた状態になるように挑戦してみました。
+折角なので、`rails g scaffold user name:string\ も実行してみました。&lt;/p&gt;
+
+&lt;p&gt;スクリプトはこんな感じになりました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;gem_group :development, :test do
+  gem &#39;rspec-rails&#39;, &#39;~&amp;gt; 2.0&#39;
+  gem &#39;pry-rails&#39;
+  gem &#39;pry-byebug&#39;
+end
+
+run_bundle
+
+git :init
+git add: &#39;.&#39;
+git commit: &amp;quot;-m &#39;initial commit&#39;&amp;quot;
+
+generate &#39;rspec:install&#39;
+
+git add: &#39;.&#39;
+git commit: &amp;quot;-m &#39;rspec install&#39;&amp;quot;
+
+generate :scaffold, &#39;user name:string&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;手順としては、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;rspec-rails の gem 追加&lt;/li&gt;
+&lt;li&gt;pry-byebug の gem 追加&lt;/li&gt;
+&lt;li&gt;bundle install&lt;/li&gt;
+&lt;li&gt;コミット&lt;/li&gt;
+&lt;li&gt;rspec の設定&lt;/li&gt;
+&lt;li&gt;コミット&lt;/li&gt;
+&lt;li&gt;scaffold&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;となります。&lt;/p&gt;
+
+&lt;p&gt;動作確認は &lt;code&gt;rake db:migrate&lt;/code&gt; 後に&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;rake spec&lt;/li&gt;
+&lt;li&gt;rails c&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;など確認してみてください。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;bundle install&lt;/code&gt; は時間がかかりそうなので、できるだけ回数を減らしたいのです。
+なので、gem を設定してから &lt;code&gt;bundle install&lt;/code&gt; することで2回に抑えました。
+コミットの部分はメソッドを用意しても良さそうですね。&lt;/p&gt;
+
+&lt;p&gt;これをうまく使っていくと初期設定が楽できそうです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Exception Notification の 4.x 系へのアップグレード</title>
+          <link>http://blog.eiel.info/blog/2013/07/24/upgrade-exception-notification-4-dot-x/</link>
+          <pubDate>Wed, 24 Jul 2013 10:47:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/07/24/upgrade-exception-notification-4-dot-x/</guid>
+          <description>&lt;p&gt;Rails のプラグインである &lt;a href=&#34;http://smartinez87.github.io/exception_notification/&#34;&gt;Exception Notification&lt;/a&gt; を gem upgrade したらエラーが起きた。
+例外が発生したらメールを送信してくれるやつです。
+最近は &lt;a href=&#34;http://errbit.github.io/errbit/&#34;&gt;Errbit&lt;/a&gt; とかが流行りらしいです。
+ブルジョワ層は &lt;a href=&#34;https://airbrake.io/pages/home&#34;&gt;Airbrake&lt;/a&gt; とか使うらしいです。&lt;/p&gt;
+
+&lt;p&gt;話が剃れた。起きたエラーは以下の通り。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;undefined method `new&#39; for ExceptionNotifier:Module
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;対処方法は公式に書いてある。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://smartinez87.github.io/exception_notification/#getting-started/upgrading-to-4-x-version&#34;&gt;Upgrading to 4.x version - Exception Notification&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ミドルウェアの名前が &lt;code&gt;ExceptionNotification::Rack&lt;/code&gt; に変更された&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;第2引数に &lt;code&gt;:email&lt;/code&gt; という上位にキーが必要になった&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;production モードじゃないと発生しないので、Jenkins などで &lt;code&gt;rake assets:precompile&lt;/code&gt; して置かないと発見が deploy するまで遅れそうです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Ruby on Rails で NOT IN な SQL をかく。</title>
+          <link>http://blog.eiel.info/blog/2013/07/20/not-in-on-rails/</link>
+          <pubDate>Sat, 20 Jul 2013 15:53:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/07/20/not-in-on-rails/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://guides.rubyonrails.org/active_record_querying.html#not-conditions&#34;&gt;Rails 4 で NOT な条件をもつ WHERE 句 が非常に書きやすくなりました。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Rails 4 なら NOT IN な SQL も簡単に書けます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;User.where.not( name: [&amp;quot;hoge&amp;quot;,&amp;quot;goro&amp;quot;] )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;条件にリストを渡せばよいです。SQLは以下のようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;SELECT &amp;quot;users&amp;quot;.* FROM &amp;quot;users&amp;quot;
+  WHERE (&amp;quot;users&amp;quot;.&amp;quot;name&amp;quot; NOT IN (&#39;hoge&#39;, &#39;goro&#39;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;サブクエリも使えます。これが便利すぎて困る。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;query = User.select(:name)
+User.where.not name: query
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;SELECT &amp;quot;users&amp;quot;.* FROM &amp;quot;users&amp;quot;
+  WHERE (&amp;quot;users&amp;quot;.&amp;quot;name&amp;quot; NOT IN (SELECT name FROM &amp;quot;users&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;rails-3-の話:d52174ed3f9dfee46acae1194d43608e&#34;&gt;Rails 3 の話&lt;/h3&gt;
+
+&lt;p&gt;そうはいっても、Rails 4 にすぐには更新できないプロジェクトがあるので、これに慣れてしまうと非常につらい。折角なのでメモしておく。&lt;/p&gt;
+
+&lt;h4 id=&#34;where-に文字列を渡す:d52174ed3f9dfee46acae1194d43608e&#34;&gt;where に文字列を渡す&lt;/h4&gt;
+
+&lt;p&gt;格好悪いけど、とりあえずごまかす場合はこれを使う。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;User.where(&amp;quot;name NOT IN (&#39;hoge&#39;, &#39;goro&#39;)&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;文字列で渡す。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;?&lt;/code&gt; を使うとエスケープで泣きたくなるので、手軽には使えない。右辺も文字列で逃げます。&lt;/p&gt;
+
+&lt;p&gt;サブクエリを使うときは、こんな感じ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;query = User.select(:name)
+User.where(&amp;quot;name NOT IN (#{query.to_sql})&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;SQLを直接書くしかない。複雑な query だとつらいので &lt;code&gt;to_sql&lt;/code&gt; メソッドで逃げます。&lt;/p&gt;
+
+&lt;h4 id=&#34;squeel-を使う:d52174ed3f9dfee46acae1194d43608e&#34;&gt;squeel を使う&lt;/h4&gt;
+
+&lt;p&gt;Rails 3 だと NOT なSQL を書きづらいので、 &lt;a href=&#34;https://github.com/ernie/squeel&#34;&gt;squeel&lt;/a&gt; をよく使っています。&lt;/p&gt;
+
+&lt;p&gt;squeel を使っていればこんな風に書けます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;User.where { name &amp;lt;&amp;lt; [&amp;quot;hoge&amp;quot;,&amp;quot;mogu&amp;quot;] }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;where に ブロックで引数が渡せるようになって &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; という演算子を使うと NOT IN になります。&lt;code&gt;name&lt;/code&gt; はシンボルではないのも ポイントです。&lt;/p&gt;
+
+&lt;p&gt;ブロックで渡すので、スコープ内で name に値が束縛されているとそちらを参照してしまうので注意。&lt;/p&gt;
+
+&lt;p&gt;サブクエリも使える。素晴らしい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;query = User.select(:name)
+User.where { name &amp;lt;&amp;lt; query }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;squeel を使うと LIKE やら OUTER JOIN やらもできます。便利。&lt;/p&gt;
+
+&lt;h4 id=&#34;arel-の世界へ行く:d52174ed3f9dfee46acae1194d43608e&#34;&gt;arel の世界へ行く&lt;/h4&gt;
+
+&lt;p&gt;arel で構築した sql を where に渡す方法がある。
+squeel をインストールしたくない時に。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;users = User.arel_table
+User.where( users[:name].not_in([&#39;hoge&#39;,&#39;mogu&#39;]) )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;arel 自体あまり解説してる人がいないのでなかなか勉強しにくいのが欠点。
+わかってくるとなんとなくでも書けます。&lt;/p&gt;
+
+&lt;p&gt;サブクエリもいけます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;query = User.select(:name)
+users = User.arel_table
+User.where( users[:name].not_in(query.arel) )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;ActiveRecord::Relation&lt;/code&gt; はそのまま渡せませんが &lt;code&gt;arel&lt;/code&gt; メソッドで変換可能です。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:d52174ed3f9dfee46acae1194d43608e&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;Rails 4 の &lt;code&gt;not&lt;/code&gt; 便利です。&lt;/p&gt;
+
+&lt;p&gt;squeel も良いです.
+私は最初は仕組みがわからなくて、気持ち悪かったです。
+ところが、 &lt;code&gt;where&lt;/code&gt; メソッドの実装を見たら察しがつきました。
+利用する場合は、一度目に目にすることをおすすめします。&lt;/p&gt;
+
+&lt;p&gt;Rails3 からの &lt;code&gt;ActiveRecord::Relation&lt;/code&gt; になれると元の世界に帰れる気がしません。&lt;/p&gt;
+
+&lt;p&gt;この記事のタイトルに悩んだけど、「書きはじめた理由でいいや」と、結局考えるのを放棄した。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=B00P0UR1RU&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>rails4 で Asset の生成したいファイルの追加がうまいこといかなかった。</title>
+          <link>http://blog.eiel.info/blog/2013/05/04/rails4-assets/</link>
+          <pubDate>Sat, 04 May 2013 00:44:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/05/04/rails4-assets/</guid>
+          <description>&lt;p&gt;Rails4 を試していた。
+1ページだけ全く違うデザインがあって js とか css を application.js とか application.css とは別に生成したかった。&lt;/p&gt;
+
+&lt;p&gt;ということで `config/environments/production.rb&amp;rsquo; に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;config.assets.precompile += %w( hoge.js )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と書きました。&lt;/p&gt;
+
+&lt;p&gt;なぜか生成されない。Rails3 では間違いなく生成される。&lt;/p&gt;
+
+&lt;p&gt;調べてみたところ &lt;code&gt;config/application.rb&lt;/code&gt; に書けば動くことがわかった。
+それだけ。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>rails4 rc1 がリリースされたことだし beta1 からアップグレードしてみた</title>
+          <link>http://blog.eiel.info/blog/2013/05/03/rails4-rc1-from-beta1/</link>
+          <pubDate>Fri, 03 May 2013 01:36:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/05/03/rails4-rc1-from-beta1/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://weblog.rubyonrails.org/2013/5/1/Rails-4-0-release-candidate-1/&#34;&gt;Rails 4.0 rc1 がリリース&lt;/a&gt;されてますね。軽いノリでアップグレードしてみたら余裕で起動しませんでした。&lt;/p&gt;
+
+&lt;p&gt;アップグレードするには &lt;code&gt;Gemfile&lt;/code&gt; を以下の編集をしました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;-gem &#39;rails&#39;, &#39;4.0.0.beta1&#39;
++gem &#39;rails&#39;, &#39;4.0.0.rc1&#39;
+
+ gem &#39;pg&#39;
+
+ # Gems used only for assets and not required
+ # in production environments by default.
+ group :assets do
+-  gem &#39;sass-rails&#39;,   &#39;~&amp;gt; 4.0.0.beta1&#39;
+-  gem &#39;coffee-rails&#39;, &#39;~&amp;gt; 4.0.0.beta1&#39;
++  gem &#39;sass-rails&#39;,   &#39;~&amp;gt; 4.0.0.rc1&#39;
++  gem &#39;coffee-rails&#39;, &#39;~&amp;gt; 4.0.0.rc1&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとは &lt;code&gt;bundle update&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;そんでもって起動すると下記のエラー。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gems/railties-4.0.0.rc1/lib/rails/application/configuration.rb:144:in `const_get&#39;: uninitialized consta
+nt ActionDispatch::Session::EncryptedCookieStore (NameError)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/rails/rails/blob/4-0-stable/actionpack/CHANGELOG.md&#34;&gt;CHANGELOG.md&lt;/a&gt;には&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Automatically configure cookie-based sessions to be encrypted if secret_key_base is set, falling back to signed if only secret_token is set. Automatically upgrade existing signed cookie-based sessions from Rails 3.x to be encrypted if both secret_key_base and secret_token are set, or signed with the new key generator if only secret_token is set. This leaves only the config.session_store :cookie_store option and removes the two new options introduced in 4.0.0.beta1: encrypted_cookie_store and upgrade_signature_to_encryption_cookie_store.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;とかいてあって、僕には細かいニュアンスは分からないのですが、&lt;code&gt;config/initializers/session_store.rb&lt;/code&gt; を下記のように修正しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;-RealGame::Application.config.session_store :encrypted_cookie_store, key: &#39;_RealGame_session&#39;
++RealGame::Application.config.session_store :cookie_store, key: &#39;_RealGame_session&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そしたら無事に起動するようになりました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Rails で外部キー制約</title>
+          <link>http://blog.eiel.info/blog/2013/04/08/foreign-key-constrait-on-rails/</link>
+          <pubDate>Mon, 08 Apr 2013 01:51:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/04/08/foreign-key-constrait-on-rails/</guid>
+          <description>&lt;p&gt;外部キー制約は好きですか？&lt;/p&gt;
+
+&lt;p&gt;O/RマッパーしててもなるべくDBの力は借りたいです。
+ということで、&lt;a href=&#34;https://www.ruby-toolbox.com/&#34;&gt;Ruby Toolbox&lt;/a&gt;で foreign を検索して、ちらちら見て一番人気の&lt;a href=&#34;https://github.com/matthuhiggins/foreigner&#34;&gt;foreigner&lt;/a&gt;を選びました。基本的にはデータベースに丸投げなので Rails4 でもいまのとこ問題なく使えております。&lt;/p&gt;
+
+&lt;p&gt;インストールは &lt;code&gt;Gemfile&lt;/code&gt; に:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;gem &#39;foreigner&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と追加して &lt;code&gt;bundle install&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;あとはマイグレーションで:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;create_table :comments do |t|
+  t.references :post, null: false, index: true
+  t.foreign_key :posts, dependent: :delete
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;としておきました。&lt;/p&gt;
+
+&lt;p&gt;ついでに確認。&lt;/p&gt;
+
+&lt;p&gt;存在しない 外部キーを指定すると保存を失敗する確認。postgresの例:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Comment.create(post_id: 1)
+# =&amp;gt; PG::Error: ERROR:  insert or update on table &amp;quot;comments&amp;quot; violates foreign key constraint &amp;quot;comments_post_id_fk&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;キーを指定して、親になるオブジェクトを削除すると消える確認:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Comment.create(post_id: Post.create)
+Comment.count
+# =&amp;gt; 1
+Post.count
+# =&amp;gt; 1
+Post.first.destroy
+Post.count
+# =&amp;gt; 0
+Comment.count
+# =&amp;gt; 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ほむ。良い感じですね。&lt;/p&gt;
+
+&lt;p&gt;しかし、Rails4 からは scheme.rb の hash形式が変わってるけどそこには対応してませんでした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;add_foreign_key &amp;quot;comments&amp;quot;, &amp;quot;posts&amp;quot;, :name =&amp;gt; &amp;quot;comments_post_id_fk&amp;quot;, :dependent =&amp;gt; :delete
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;パッチがきてなかったら プルリクエストしてみようかな。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Rails で ajax をちょっと実験するときに `render text:` すると コールバックしてこない。 </title>
+          <link>http://blog.eiel.info/blog/2013/04/03/render-text-ajax-on-rails/</link>
+          <pubDate>Wed, 03 Apr 2013 19:49:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/04/03/render-text-ajax-on-rails/</guid>
+          <description>&lt;p&gt;サンプルコードがなくて申し訳ないです。&lt;/p&gt;
+
+&lt;p&gt;rails で ajax を使用とすると 一般的には &lt;a href=&#34;https://github.com/rails/jquery-ujs&#34;&gt;jquery-ujs&lt;/a&gt; を利用します。&lt;/p&gt;
+
+&lt;p&gt;あるリンクをクリックする時に非同期に読込みたい場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;&amp;lt;%= link_to &#39;hoge&#39;, @user, class: user-link %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;に対して、 remote: true を追加します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;&amp;lt;%= link_to &#39;hoge&#39;, @user, remote: ture, class: user-link %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;といった感じになります。
+あとはサーバからのレスポンスが返ってきた時の処理を書きましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;$(function () {
+   $(document).on(&#39;ajax:success&#39;, &#39;.user-link&#39;, function (ujs, content, status, xhr) {
+    $(&#39;#user-info&#39;).html(content);
+  });
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;少し説明不足ですが、気にせず。&lt;/p&gt;
+
+&lt;p&gt;さて、ここで リンク先が未実装で手抜きして:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class UsersController
+  def show
+    render text: &#39;hoge&#39;
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、さくっと実装しちゃうと さきほど実装した javascript の コールバックが呼ばれません。
+めんどくさがらずに、 &lt;code&gt;app/views/users/show.htmle.rb&lt;/code&gt; などを作成してあげましょう。&lt;/p&gt;
+
+&lt;p&gt;そんなこと滅多にないか…。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Rails4 beta1 がリリースされたのでアップグレードしてみた</title>
+          <link>http://blog.eiel.info/blog/2013/02/27/rails4.0-beta/</link>
+          <pubDate>Wed, 27 Feb 2013 14:32:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/27/rails4.0-beta/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://weblog.rubyonrails.org/2013/2/25/Rails-4-0-beta1/&#34;&gt;Rails4 beta1がリリースされてます。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;というわけで、アップグレードしてもよさそうなプロジェクトをアップグレードしてみました。(リリースしてないし)&lt;/p&gt;
+
+&lt;p&gt;config以下の書き換えなどは自己責任で。&lt;/p&gt;
+
+&lt;h2 id=&#34;やったこと:141a49326ebf4d78d7401d875ab6d2bd&#34;&gt;やったこと&lt;/h2&gt;
+
+&lt;p&gt;bundler 1.3 が必要になるので、まだいれていない場合アップデートします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ gem install bundler
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Gemfileを修正します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;gem &#39;rails&#39;, &#39;4.0.0.beta1&#39;
+
+group :assets do
+  gem &#39;sass-rails&#39;, &#39;~&amp;gt; 4.0.0.beta1&#39;
+  gem &#39;coffee-rails&#39;, &#39;~&amp;gt; 4.0.0.beta1&#39;
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem &#39;therubyracer&#39;, :platforms =&amp;gt; :ruby
+
+  gem &#39;uglifier&#39;, &#39;&amp;gt;= 1.0.3&#39;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;必要に応じてgemの設定:141a49326ebf4d78d7401d875ab6d2bd&#34;&gt;必要に応じてgemの設定&lt;/h2&gt;
+
+&lt;h3 id=&#34;protected-attributes:141a49326ebf4d78d7401d875ab6d2bd&#34;&gt;protected_attributes&lt;/h3&gt;
+
+&lt;p&gt;strong_parameters に移行してない場合&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;gem &#39;protected_attributes&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;devise:141a49326ebf4d78d7401d875ab6d2bd&#34;&gt;devise&lt;/h3&gt;
+
+&lt;p&gt;devise がまだ対応 gem がないので&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;gem &#39;devise&#39;, github: &#39;plataformatec/devise&#39;, branch: &#39;rails4&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;githubから直接。&lt;/p&gt;
+
+&lt;h3 id=&#34;simple-form:141a49326ebf4d78d7401d875ab6d2bd&#34;&gt;simple_form&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;gem &#39;simple_form&#39;, &#39;3.0.0.beta1&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;simple_form が rails4 に対応したものが beta なので&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;gem &amp;quot;simple_form&amp;quot;, &amp;quot;3.0.0.beta1&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;config-をモダンに:141a49326ebf4d78d7401d875ab6d2bd&#34;&gt;config をモダンに？&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ rake rails:update
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;地道に diff をみながら調整しました。自分で変更したところははっきりと分離しておいたほうがよさそうでした。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;routes.rb&lt;/code&gt; は確実に変更していると思います。
+がっつり変更されるのでコミットをした上で試しましょう。&lt;/p&gt;
+
+&lt;h2 id=&#34;参考にしたりとか:141a49326ebf4d78d7401d875ab6d2bd&#34;&gt;参考にしたりとか&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.upgradingtorails4.com/&#34;&gt;upgrading rails 4&lt;/a&gt;&lt;br&gt;
+Topics Covered あたりをみながら、必要そうなものを追加したり、修正したりしました。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://rubygems.org/&#34;&gt;rubygems.org&lt;/a&gt;&lt;br&gt;
+リリースされてるgemの確認とか&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あとは各gem のリポジトリを見にいったりして確認しました。
+gem関連はリリースされるころには rails のバージョンを指定をするだけで済むかもしれないペースで対応が進んでいそうですね。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>今さらながら turbolinksを試した。- 感想</title>
+          <link>http://blog.eiel.info/blog/2013/02/11/start-turbolinks/</link>
+          <pubDate>Mon, 11 Feb 2013 01:14:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/11/start-turbolinks/</guid>
+          <description>
+
+&lt;p&gt;今さらながら Rails4 の新機能の一つである &lt;a href=&#34;https://github.com/rails/turbolinks&#34;&gt;turbolinks&lt;/a&gt; を試してみました。&lt;/p&gt;
+
+&lt;p&gt;解説なんかは僕がするよりも様々な記事がもうあるので、あまり必要ないと思います。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://willnet.in/40&#34;&gt;Rails 4.0 に入る予定の turbolinks について調べた&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://d.hatena.ne.jp/deeeki/20121202/rails4_turbolinks&#34;&gt;Rails4 Turbolinksのメモ #mtsmhack&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.uu59.org/2012-11-19-turbolinks-breaks-cors.html&#34;&gt;Rails4でデフォルトで入るturbolinksがオープンリダイレクタと合わさると何でもできてかなり危険&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;どれも良い記事でした。&lt;/p&gt;
+
+&lt;p&gt;ということで、個人的感想とか&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;production環境より development環境での効果が高い気がした
+
+&lt;ul&gt;
+&lt;li&gt;体感ほんとに早い - development環境&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;だいたいそのままで動く。動かなくなる Javascriptはやっぱりある。
+
+&lt;ul&gt;
+&lt;li&gt;fancyboxとか、でも、そういうのはそもそもRailsで扱いずらいものばかり。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;CSSやJavaScriptが切り変わるリンクには HTMLタグに data-no-turbolink属性をいれればよい。いれないと悲しいことになります。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;インストール:9138d146f71a8b279fcd7b05378ecb22&#34;&gt;インストール&lt;/h2&gt;
+
+&lt;p&gt;一緒に &lt;a href=&#34;https://github.com/kossnocorp/jquery.turbolinks/blob/master/README.md&#34;&gt;jquery.turbolinks&lt;/a&gt; も入れておきました。
+これは簡単に言うと、&amp;rdquo;なにもしなかったら動かなくなってしまうもの&amp;rdquo;を減らすように工夫したものだと思います。
+なんとなくで具体的に書くと、readyイベントでやってることをページロードするときにも実行するようにするんじゃないかと思います。(たぶん)&lt;/p&gt;
+
+&lt;p&gt;jquery.turbolinks は turbolinks に依存してないのでそれぞれGemfileに入れる必要がありました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gem &#39;turbolinks`
+gem &#39;jquery-turbolinks&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;//= require turbolinks
+//= require jquery.turbolinks
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;といった感じです。&lt;/p&gt;
+
+&lt;h2 id=&#34;感想をもうちょっと:9138d146f71a8b279fcd7b05378ecb22&#34;&gt;感想をもうちょっと&lt;/h2&gt;
+
+&lt;h3 id=&#34;体感ほんとに早い:9138d146f71a8b279fcd7b05378ecb22&#34;&gt;体感ほんとに早い&lt;/h3&gt;
+
+&lt;p&gt;Rails3 でも試せるので、体感しておくのは良いと思います。設定はとても簡単なので、どういうものかは知っておいたほうが今後の方針に役立ちます。
+個人的には、規模が大きいプロジェクトでは develpoment 環境でだけでも使いたいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;動かなくなったプラグイン:9138d146f71a8b279fcd7b05378ecb22&#34;&gt;動かなくなったプラグイン&lt;/h3&gt;
+
+&lt;p&gt;試したプロジェクトは fancybox という jQueryプラグインが使用されてる箇所がありましたが、ここが動かなくなりました。
+そもそも、Railsではこれはすごく扱いにくくて置き換えてやろうしてる部分で放置してるうちに次々と使われてしまってる問題児です。
+修正するにはちょうどよい機会。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:9138d146f71a8b279fcd7b05378ecb22&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;Rails的じゃないところほど問題がでやすい機能という点ですごく面白いなー。と、思いました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Cucumber の Capybara で 複数の同じ名前のリンクに対応するステップ</title>
+          <link>http://blog.eiel.info/blog/2013/01/27/capybara-link-or-button/</link>
+          <pubDate>Sun, 27 Jan 2013 00:12:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/27/capybara-link-or-button/</guid>
+          <description>
+
+&lt;p&gt;Cucumber のステップで&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;もし /^&amp;quot;(.+)&amp;quot;をクリック$/ do |name|
+  click_on name
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;というステップを書いていますが、&lt;code&gt;name&lt;/code&gt; に複数マッチしてしまうとエラーが発生しています。同じ名前にならないようにすればいいのですが、そうもいかない場合もあります。結局、以下の方法を用意しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;もし /^(\d+)番目の&amp;quot;(.*?)&amp;quot;をクリック_$/ do |n, name|
+  n = n.to_i - 1
+  all(:link_or_button, name)[n].click
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;何番目のリンクか指定することで回避しました。&lt;/p&gt;
+
+&lt;h2 id=&#34;もうちょっと詳しく:3c29b2d13f59a0711f26d17483c28d4a&#34;&gt;もうちょっと詳しく&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;click_button&lt;/code&gt;と同じことをやろうとすると &lt;code&gt;find(name)&lt;/code&gt; や &lt;code&gt;all(name)&lt;/code&gt; ではうまくいきません。調べてみると &lt;code&gt;XPath::HTML.link_or_button&lt;/code&gt; というメソッドを使用して、&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/selector.rb#L90-L93&#34;&gt;findに渡すXPathを生成してることがわかりました。&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;これをどうやって使うというと all の第一引数に使えばいいことがわかりました。&lt;/p&gt;
+
+&lt;h2 id=&#34;さらに詳しく:3c29b2d13f59a0711f26d17483c28d4a&#34;&gt;さらに詳しく&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;page.class # =&amp;gt; Capybara::Session
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;click_onメソッドやallメソッドのレシーバである page オブジェクトは Capybara::Session でした。pry で調べました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb&#34;&gt;Capybara::Session&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;    NODE_METHODS = [
+      :all, :first, :attach_file, :text, :check, :choose,
+      :click_link_or_button, :click_button, :click_link, :field_labeled,
+      :fill_in, :find, :find_button, :find_by_id, :find_field, :find_link,
+      :has_content?, :has_text?, :has_css?, :has_no_content?, :has_no_text?,
+      :has_no_css?, :has_no_xpath?, :resolve, :has_xpath?, :select, :uncheck,
+      :has_link?, :has_no_link?, :has_button?, :has_no_button?, :has_field?,
+      :has_no_field?, :has_checked_field?, :has_unchecked_field?,
+      :has_no_table?, :has_table?, :unselect, :has_select?, :has_no_select?,
+      :has_selector?, :has_no_selector?, :click_on, :has_no_checked_field?,
+      :has_no_unchecked_field?, :query, :assert_selector, :assert_no_selector
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;NODE_METHODS.each do |method|
+  define_method method do |*args, &amp;amp;block|
+    @touched = true
+    current_node.send(method, *args, &amp;amp;block)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L338-L343&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L338-L343&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これらの メソッドは動的に生成されるようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def current_node
+  scopes.last
+end
+
+def scopes
+  @scopes ||= [document]
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L351-L358&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L351-L358&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;current_node は document という変数に格納されたオブジェクトのようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def document
+  @document ||= Capybara::Node::Document.new(self, driver)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L334-L336&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L334-L336&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;documentは Capybara::Node::Document クラスのインスタンスだとわかりました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class Document &amp;lt; Base
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/document.rb#L11&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/document.rb#L11&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ここには all メソッドがなく Capbyra::Node::Base を継承しているようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;include Capybara::Node::Finders
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/base.rb#L27&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/base.rb#L27&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;この辺にありそうですね。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;      def click_link_or_button(locator)
+        find(:link_or_button, locator).click
+      end
+      alias_method :click_on, :click_link_or_button
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/actions.rb#L12-L15&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/actions.rb#L12-L15&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;cloick_on みつけました。このあたりを grep でみつけた時点で &lt;code&gt;all :link_or_button&lt;/code&gt; でいけそうなのはわかります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def all(*args)
+  query = Capybara::Query.new(*args)
+  elements = synchronize do
+    base.find(query.xpath).map do |node|
+      Capybara::Node::Element.new(session, node, self, query)
+    end
+  end
+  Capybara::Result.new(elements, query)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/finders.rb#L110-L118&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/finders.rb#L110-L118&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;all みつけたー!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/query.rb#L14-L16&#34;&gt;Capybara::Query.initialize&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;第一引数がシンボルの時の処理がありました。&lt;/p&gt;
+
+&lt;h2 id=&#34;ごめん力尽きた:3c29b2d13f59a0711f26d17483c28d4a&#34;&gt;ごめん力尽きた。&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/selector.rb#L11-L13&#34;&gt;Capybara::Selector.add&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;生成したXpathをハッシュに保存しておく&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/selector.rb#L7-L9&#34;&gt;Capybara::Selector.all&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;登録しておいたxpathを撮りだす。&lt;/p&gt;
+
+&lt;p&gt;という感じです。実際にはpryの show-method つかって探してるのでこんなに大変じゃないんだからね!&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ActiveRecord の has_many で生成されるメソッドってActiveRecord::Relationに変換できる配列なんですね。</title>
+          <link>http://blog.eiel.info/blog/2013/01/25/has-many-scope/</link>
+          <pubDate>Fri, 25 Jan 2013 00:34:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/25/has-many-scope/</guid>
+          <description>
+
+&lt;p&gt;タイトルのとおりなんですが、&lt;code&gt;Article&lt;/code&gt;と&lt;code&gt;Comment&lt;/code&gt; とかあったりして、ちゃんと設定をしておくと &lt;code&gt;article.comments&lt;/code&gt; とやると &lt;code&gt;あるArticle&lt;/code&gt;に紐づいている&lt;code&gt;Comment&lt;/code&gt;がとってこれる機能です。&lt;/p&gt;
+
+&lt;p&gt;まず、結論からいうと &lt;code&gt;article.comments.to_sql&lt;/code&gt; とか &lt;code&gt;article.comments.scoped&lt;/code&gt; とか &lt;code&gt;article.comments.joins&lt;/code&gt;とかできる!! ということです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;article.comments.create&lt;/code&gt; ってかける時点でうすうす思ってたんですが、これがわかっていると小回りがききます。返しているものが &lt;code&gt;ActiveRecord::Relation&lt;/code&gt;のようなものです。&lt;code&gt;class&lt;/code&gt;を確認すると &lt;code&gt;Array&lt;/code&gt;って言われちゃいますが。&lt;/p&gt;
+
+&lt;h2 id=&#34;もうちょい深く:9d6d069ba1139f1de3e4b65b8595e060&#34;&gt;もうちょい深く&lt;/h2&gt;
+
+&lt;p&gt;以下のクラスがあることを想定してみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Article &amp;lt; ActiveRecord::Base
+  has_many :comments
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;class Comment &amp;lt; ActiveRecord::Base
+  belongs_to :artcile
+  belongs_to :user
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;class User
+  has_many :comment
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;さきほど紹介した技を紹介すると User.first かつ Article.first な Commentを探す場合、以下のように書けます&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;a = Article.first
+u = User.first
+a.comments.merge(u.comments.scoped)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;すると、こんな SQLができます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;SELECT &amp;quot;comments&amp;quot;.* FROM &amp;quot;comments&amp;quot;  WHERE &amp;quot;comments&amp;quot;.&amp;quot;article_id&amp;quot; = 1 AND &amp;quot;comments&amp;quot;.&amp;quot;user_id&amp;quot; = 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;aとかuとかを引数な関数を用意するとウハウハな気がしてこないでしょうか。&lt;/p&gt;
+
+&lt;p&gt;joinだってできます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;a = Article.first
+a.comments.merge(Comment.joins(:user))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;SELECT &amp;quot;comments&amp;quot;.* FROM &amp;quot;comments&amp;quot; INNER JOIN &amp;quot;users&amp;quot; ON &amp;quot;users&amp;quot;.&amp;quot;id&amp;quot; = &amp;quot;comments&amp;quot;.&amp;quot;user_id&amp;quot; WHERE &amp;quot;comments&amp;quot;.&amp;quot;article_id&amp;quot; = 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これは has_many through でもできますね。&lt;/p&gt;
+
+&lt;p&gt;このあたりを上手くつかっていけば ActiveRecordでも作りたいSQLがある程度つくれるんじゃないでしょうか。&lt;/p&gt;
+
+&lt;p&gt;Rails4がくると scoped をかかなくてもよくなるような気がしますが、試していません。&lt;/p&gt;
+
+&lt;p&gt;しかし、はじめの例ですが、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;a.comments.where(user_id: u)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;「ってかいても同じじゃね？」とか、言わないでください。なんとなく &lt;code&gt;user_id&lt;/code&gt; ってかきたくなくないですか？&lt;/p&gt;
+
+&lt;h2 id=&#34;なんとなくおまけ:9d6d069ba1139f1de3e4b65b8595e060&#34;&gt;なんとなくおまけ&lt;/h2&gt;
+
+&lt;p&gt;a.comments とかいた場合は Commentの Relationをつくっている。&lt;/p&gt;
+
+&lt;p&gt;u.comments とかいても Commentの Relationをつくっている。&lt;/p&gt;
+
+&lt;p&gt;と、メソッド名のほうのテーブルを意識してやると理解しやすいと思います。&lt;/p&gt;
+
+&lt;p&gt;レシーバほうに対してのテーブルを意識すると息苦しくなります。&lt;code&gt;has_many&lt;/code&gt;をかく場合はそういう意識になるのでちょっと注意が必要です。&lt;/p&gt;
+
+&lt;p&gt;ちょんと感覚的な話でした。&lt;/p&gt;
+
+&lt;h2 id=&#34;サンプル用コード:9d6d069ba1139f1de3e4b65b8595e060&#34;&gt;サンプル用コード&lt;/h2&gt;
+
+&lt;p&gt;動作確認のためのコードを用意しておきました。おすきにお使いください。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/has_many-relation&#34;&gt;https://github.com/eiel/has_many-relation&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Rails の rake notes というタスクをいまさらしった。</title>
+          <link>http://blog.eiel.info/blog/2013/01/19/rake-note-on-rails/</link>
+          <pubDate>Sat, 19 Jan 2013 11:35:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/19/rake-note-on-rails/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://guides.rubyonrails.org/command_line.html&#34;&gt;Rails Guide&lt;/a&gt; 読んでたら &lt;code&gt;notes&lt;/code&gt; というタスクがあるのを知りました。&lt;/p&gt;
+
+&lt;p&gt;コードのコメントに &lt;code&gt;TODO&lt;/code&gt; とか &lt;code&gt;FIXME&lt;/code&gt;, &lt;code&gt;OPTIMIZE&lt;/code&gt; といったコメントをみつけて表示してくれます。
+&lt;code&gt;grep すればいいや&lt;/code&gt;とか思いますが、それなりの便利そうです。jenkins なんかで回してレポートに出すのもよいかもしれません。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ roke notes
+app/controllers/admin/users_controller.rb:
+  * [ 20] [TODO] any other way to do this?
+  * [132] [FIXME] high priority for next deploy
+ 
+app/model/school.rb:
+  * [ 13] [OPTIMIZE] refactor this code to make it faster
+  * [ 17] [FIXME]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;notes:custom&lt;/code&gt; というタスクもあるようです。&lt;/p&gt;
+
+&lt;h3 id=&#34;もう少しつっこんでみよう:368aee731fc0e5ef8e2833f004e27ed8&#34;&gt;もう少しつっこんでみよう&lt;/h3&gt;
+
+&lt;p&gt;タスクの&lt;a href=&#34;https://github.com/rails/rails/blob/master/railties/lib/rails/tasks/annotations.rake&#34;&gt;ソースコード&lt;/a&gt;がここになります。
+&lt;code&gt;notes:custom&lt;/code&gt; では 環境変数 ANNOTATION で表示するキーワードを決められるようです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;notes&lt;/code&gt;の場合は &amp;ldquo;OPTIMIZE&amp;rdquo;, &amp;ldquo;FIXME&amp;rdquo;, &amp;ldquo;TODO&amp;rdquo; の3つか使用されていますね。
+あと 動的にタスクを生成しているようなので&lt;code&gt;notes:todo&lt;/code&gt; &lt;code&gt;optimize&lt;/code&gt; &lt;code&gt;fixme&lt;/code&gt; といったタスクも存在するようです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Devise で email 変更する。</title>
+          <link>http://blog.eiel.info/blog/2012/12/30/modify-email-on-devise/</link>
+          <pubDate>Sun, 30 Dec 2012 14:41:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/12/30/modify-email-on-devise/</guid>
+          <description>&lt;p&gt;Railsの plugin で 認証を行なう &lt;a href=&#34;https://github.com/plataformatec/devise&#34;&gt;devise&lt;/a&gt; という gem があります。
+このユーザ認証で &lt;code&gt;実際にユーザにメールを送信して、登録を完了する&lt;/code&gt;という機能を提供するのに  confirmable という機能があります。&lt;/p&gt;
+
+&lt;p&gt;このConfirmableという機能を使用していると管理者が ユーザのメールアドレスを変更してあげる必要がある場合、代えるときもメールがユーザに送信されます。これが便利なときもあったりテスト時にこまったりすることがあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;devise :confirmable&lt;/code&gt; した モデルには &lt;code&gt;skip_confirmation!&lt;/code&gt; &lt;code&gt;skip_reconfirmation!&lt;/code&gt; というメソッドが追加されてるので、これらを呼び出すことで回避することができます。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、これらのメソッドの中身をみると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def skip_confirmation!
+  self.confirmed_at = Time.now.utc
+end
+
+def skip_reconfirmation!
+  @bypass_postpone = true
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となってます。&lt;/p&gt;
+
+&lt;p&gt;confirmed_at に値がはいっていれば有効で、@bypass_postpone が true で メールの送信が回避できそうですね。このあたりの実装はversionによって変更される恐れがあるので直接利用するには注意が必要です。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ActiveRecordで関連レコードの自動保存</title>
+          <link>http://blog.eiel.info/blog/2012/12/30/activerecord-association/</link>
+          <pubDate>Sun, 30 Dec 2012 13:50:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/12/30/activerecord-association/</guid>
+          <description>&lt;p&gt;ActiveRecordで has_one なんかで関連づけしている場合、関連モデルを保存しわすれる。
+そもそも、関連してることをドメインロジック上からは隠蔽したい。そんなときは &lt;code&gt;autosave&lt;/code&gt; オプションが使えます。&lt;/p&gt;
+
+&lt;p&gt;関連するモデルが Information の場合、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;has_one :information, autosave: true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となります。
+informationで親のモデル IDを validate presence かけてたらはまったことも一応メモしておきます。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>zeus test で スペックを実行すると 2度実行されてしまう</title>
+          <link>http://blog.eiel.info/blog/2012/12/27/zeus-test-twice/</link>
+          <pubDate>Thu, 27 Dec 2012 18:05:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/12/27/zeus-test-twice/</guid>
+          <description>
+
+&lt;p&gt;&lt;code&gt;zeus test&lt;/code&gt; で spec を走らせるとなぜかスペックが2度実行されるようになっていた。
+&lt;code&gt;spec/spec_helper.rb&lt;/code&gt; 内の &lt;code&gt;require &#39;rspec/autorun&#39;&lt;/code&gt; を削除すると治るようです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;spork&lt;/code&gt; で実行してみたり、 &lt;code&gt;rake spec&lt;/code&gt; したりもしてみたけど、消したから起きている問題は今のところないです。&lt;/p&gt;
+
+&lt;h3 id=&#34;追記:f0c737f26f30e893e307678172ab107f&#34;&gt;追記&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;zeus rake spec&lt;/code&gt; したときに DB がリセットされてなくて上手く動いてないことがわかった。全件まわしたい場合は &lt;code&gt;rake spec&lt;/code&gt; を使用してたので気がつかなかった。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考:f0c737f26f30e893e307678172ab107f&#34;&gt;参考&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/burke/zeus/issues/180&#34;&gt;https://github.com/burke/zeus/issues/180&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>read_attributeの存在を知らなかった、死にたい - rails</title>
+          <link>http://blog.eiel.info/blog/2012/12/17/read-attribute-activerecord/</link>
+          <pubDate>Mon, 17 Dec 2012 16:57:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/12/17/read-attribute-activerecord/</guid>
+          <description>
+
+&lt;p&gt;Railsの ActiveRecordで レコードの属性にアクセスする際は動的に生成されたメソッドを使いますが、そのようなメソッドを上書きしている場合、値に直接アクセスする必要があります。このような属性情報は &lt;code&gt;@attributes&lt;/code&gt; に保存されています。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/lib/active_record/attribute_methods.rb&lt;/code&gt;に定義されてる attributes メソッドを経由してアクセスしていましたが、なんとなく &lt;code&gt;@attributes&lt;/code&gt; へ直接アクセスするだけかとおもってたのですが、違ったようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def attributes
+  attrs = {}
+  attribute_names.each { |name| attrs[name] = read_attribute(name) }
+  attrs
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;という定義になってました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;attribute_names&lt;/code&gt; は文字列で属性の一覧を返すので &lt;code&gt;@attributes&lt;/code&gt;は 普通のHashでキーが文字列です。
+もし &lt;code&gt;email&lt;/code&gt; というの属性にアクセスしたい場合は &lt;code&gt;attributes[&amp;quot;email&amp;quot;]&lt;/code&gt; になります。 &lt;code&gt;attributes[:email]&lt;/code&gt; ではアクセスすることができません。&lt;/p&gt;
+
+&lt;p&gt;しかし、 read_attributeは シンボルでも文字列でも使用することができて、
+&lt;code&gt;read_attribute :email&lt;/code&gt; でも &lt;code&gt;read_attribute &amp;quot;email&amp;quot;&lt;/code&gt; のどちらでも良いみたいです。&lt;/p&gt;
+
+&lt;p&gt;ちなみにエイリアスがあって &lt;code&gt;[]&lt;/code&gt; メソッドになります。なので &lt;code&gt;self[:email]&lt;/code&gt; などでアクセスできます。pubilcメソッドです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;read_attribute&lt;/code&gt; があるということはも &lt;code&gt;write_attribute&lt;/code&gt; もあります。&lt;/p&gt;
+
+&lt;h3 id=&#34;ついでにもう少し深追い:7ee3a5e37df409bb91993c108309b1ff&#34;&gt;ついでにもう少し深追い&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;read_attribute&lt;/code&gt;の実装もついでにおってみると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def read_attribute(attr_name)
+  self.class.type_cast_attribute(attr_name, @attributes, @attributes_cache)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となってました。クラスメソッドを経由するようです
+こいつも中身を追うと&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def type_cast_attribute(attr_name, attributes, cache = {}) #:nodoc:
+  return unless attr_name
+  attr_name = attr_name.to_s
+
+  if generated_external_attribute_methods.method_defined?(attr_name)
+    if attributes.has_key?(attr_name) || attr_name == &#39;id&#39;
+      generated_external_attribute_methods.send(attr_name, attributes[attr_name], attributes, cache, attr_name)
+    end
+  elsif !attribute_methods_generated?
+    # If we haven&#39;t generated the caster methods yet, do that and
+    # then try again
+    define_attribute_methods
+    type_cast_attribute(attr_name, attributes, cache)
+  else
+    # If we get here, the attribute has no associated DB column, so
+    # just return it verbatim.
+    attributes[attr_name]
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;渡された名前がすぐに文字列に変換されてます。&lt;/p&gt;
+
+&lt;p&gt;そしてまず 属性にアクセスするためのメソッドがあるかどうか確認するようです。ある場合はそちらに処理を渡すようです。attributesにまわってくるオブジェクトがHashじゃないモデルオブジェクトの場合の処理っぽいです。
+また、まだ未定義なだけな場合は定義してからアクセスするようです。
+それ以外のただのhashの場合は直接アクセスしにいくようです。&lt;/p&gt;
+
+&lt;p&gt;ここでの attributes はActireRecordの attributes メソッドではなくただのHashです。一瞬、無限ループしてるように思えたので一応書いておきます。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ViewSourceMap が地味に役に立つ</title>
+          <link>http://blog.eiel.info/blog/2012/12/13/view-source-map/</link>
+          <pubDate>Thu, 13 Dec 2012 14:35:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/12/13/view-source-map/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://r7kamura.hatenablog.com/entry/2012/12/04/141911&#34;&gt;ViewSourceMap&lt;/a&gt;というのが地味に役に立ちそうなので導入してみた。&lt;/p&gt;
+
+&lt;p&gt;部分テンプレートを render して出力された前後にどの view をレンダーしたのかHTMLのコメントを挿入してくれる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!-- BEGIN app/views/users/_form.html.haml --&amp;gt;
+  &amp;lt;form /&amp;gt;
+&amp;lt;!-- END app/views/users/_form.html.haml --&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ついでに、partial以外のレイアウトとかメインのビューとかもついでに出力してみるのもありかなと思ったりもするけど、その辺は明確だし、時間ができたら fork してみよう&lt;/p&gt;
+
+&lt;p&gt;ソースコードも短いしRails の plugin 的なものを作ってみたいときにも参考になりそうでした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/r7kamura/view_source_map&#34;&gt;https://github.com/r7kamura/view_source_map&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ruby 2.0.0-preview2 をいれて rails起動してみた</title>
+          <link>http://blog.eiel.info/blog/2012/12/10/ruby-2-dot-0-0-preview2/</link>
+          <pubDate>Mon, 10 Dec 2012 13:49:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/12/10/ruby-2-dot-0-0-preview2/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/50443&#34;&gt;ruby 2.0.0-preview2&lt;/a&gt; が出てるのでビルドして rails を起動してみた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ uname -v
+Darwin Kernel Version 12.2.1: Thu Oct 18 16:32:48 PDT 2012; root:xnu-2050.20.9~2/RELEASE_X86_64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2012/11/25/rbenv-ruby-2-dot-0-0-inclued-openssl/&#34;&gt;preview1のとき&lt;/a&gt;と同様にopenSSLがついてこないので、OpenSSLを一緒にビルドするようにrbenvを修正しました。[&lt;a href=&#34;https://github.com/eiel/ruby-build/tree/2.0.0-preview2-with_openssl&#34;&gt;https://github.com/eiel/ruby-build/tree/2.0.0-preview2-with_openssl&lt;/a&gt;]&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;bundle instal&lt;/code&gt;の実行で&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;~/.rbenv/versions/2.0.0-preview2/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:45:in `require&amp;rsquo;: cannot load such file &amp;ndash; rubygems/format (LoadError)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;と出てしまいますが rubygemsのライブラリ構成が変わっててbundlerが動かないだけみたいなので、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ gem install bundler --version &amp;quot;&amp;gt;= 1.3.0.pre2&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;として 1.3 系の gem をいれました。&lt;/p&gt;
+
+&lt;p&gt;あとは普通に rails が起動できました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>TagHelperっていうのがあるんだけど、周りの人が使ってない - Rails</title>
+          <link>http://blog.eiel.info/blog/2012/11/22/rails-tag-helper/</link>
+          <pubDate>Thu, 22 Nov 2012 10:35:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/22/rails-tag-helper/</guid>
+          <description>&lt;p&gt;Railsのhelperに &lt;a href=&#34;http://rubydoc.info/gems/actionpack/3.2.8/ActionView/Helpers/TagHelper&#34;&gt;TagHelper&lt;/a&gt; っていうのが &lt;code&gt;text_area_tag&lt;/code&gt; のようなフォームを作成するような Helper がありますが、その内部で使用するようなメソッドが定義されています。&lt;/p&gt;
+
+&lt;p&gt;主に &lt;code&gt;tag&lt;/code&gt;, &lt;code&gt;content_tag&lt;/code&gt; になるのですが、自分でHTMLのタグを生成するようなヘルパーを生成したときこれを使うと便利です。&lt;/p&gt;
+
+&lt;p&gt;例えば &lt;code&gt;hoge&lt;/code&gt;的なものを表現するタグを生成するhoge_tagという抽象化をしたいときにざっくりな実装をすると以下のようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def hoge_tag(content)
+  %Q{&amp;lt;div class=&amp;quot;hoge&amp;quot;&amp;gt;#{content}&amp;lt;/div&amp;gt;}.html_safe
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;hoge_tag &amp;quot;hogehoge&amp;quot; # =&amp;gt; &amp;quot;&amp;lt;div class=\&amp;quot;hoge goro\&amp;quot;&amp;gt;hogehoge&amp;lt;/div&amp;gt;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;しかし、つかっていくと個別に class属性を追加したくなる場合が多々ありますし、content の escape などもしないといけないです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def hoge_tag(content, *classes)
+  classes = [&amp;quot;hoge&amp;quot;] + classes
+  class_string = classes.join(&amp;quot; &amp;quot;)
+  %Q{&amp;lt;div class=&amp;quot;#{class_string}&amp;quot;&amp;gt;#{content}&amp;lt;/div&amp;gt;}.html_safe
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;hoge_tag &amp;quot;hogehoge&amp;quot;, &amp;quot;goro&amp;quot; # =&amp;gt; &amp;quot;&amp;lt;div class=\&amp;quot;hoge goro\&amp;quot;&amp;gt;hogehoge&amp;lt;/div&amp;gt;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;もちろん、class属性だけじゃなくていろいろ指定したくなります。
+&lt;code&gt;text_area_tag&lt;/code&gt; なんかと同じようにoptionsで受けるようにしたい。こうなっとときに 「&lt;strong&gt;ソースを読もう!!&lt;/strong&gt;」 という発想が出るようになると良いと思います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def hoge_tag(content, options = nil)
+  classes = options[:class]
+  classes = [classes] unless Array === classes
+  options[:class] = [&amp;quot;hoge&amp;quot;] + classes
+  content_tag :hoge, content, options
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;hoge_tag &amp;quot;hogehoge&amp;quot;, class: &amp;quot;goro&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;content_tag はブロックを受けとったり, escapeの可否などの指定もできます。
+ブロックをうけとるようなものはテンプレートエンジン内ではなかなかあばれてくれます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;%= content_tag :hoge do %&amp;gt;
+  &amp;quot;hogehoge&amp;quot;
+&amp;lt;% end %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;といった書き方ができます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt;,&lt;code&gt;&amp;lt;img /&amp;gt;&lt;/code&gt;のような内部にコンテントを持たないタグを生成する場合は &lt;code&gt;tag&lt;/code&gt;というメソッドを使うと良いです。&lt;/p&gt;
+
+&lt;p&gt;Viewを書きはじめる前に &lt;a href=&#34;http://rubydoc.info/gems/actionpack/3.2.8/ActionView/Helpers&#34;&gt;Helperの一覧&lt;/a&gt;をみておくのも良いと思います。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ActiveSupport::Concern - Railsのソースとか読みはじめた 2</title>
+          <link>http://blog.eiel.info/blog/2012/11/18/activesupport-concern2/</link>
+          <pubDate>Sun, 18 Nov 2012 23:42:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/18/activesupport-concern2/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog//2012/11/14/activesupport-concern/&#34;&gt;ActiveSupport::Concern - Railsのソースとか読みはじめた&lt;/a&gt;の続きになるのですが、&lt;/p&gt;
+
+&lt;p&gt;@netwillnet さんに。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;ActiveSupport::Concernはモジュールが少しだけ書きやすくなるというメリットよりも、複数のモジュール同士に依存関係があったときにモジュール内でその依存関係をうまく解消させられるところに真価があるのでは&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/netwillnet/status/270150759335723008&#34;&gt;https://twitter.com/netwillnet/status/270150759335723008&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;と素敵な突っ込みを頂いたので、rdocとソースコードと睨めっこしてきました。&lt;/p&gt;
+
+&lt;p&gt;睨めっこした結果の結論を書きたいと思います。&lt;/p&gt;
+
+&lt;p&gt;というわけで&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;A -&amp;gt; B -&amp;gt; C
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;という依存性があるモジュールを考えます。A には B が必要で。 B には C が必要という意味です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;module C
+  def c
+    &amp;quot;c&amp;quot;
+  end
+end
+
+module B
+  include C
+
+  def b
+    &amp;quot;b&amp;quot; + c
+  end
+end
+
+class A
+  include B
+
+  def a
+    &amp;quot;a&amp;quot; + b
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;A.new.a&lt;/code&gt; と実行すると &lt;code&gt;&amp;quot;abc&amp;quot;&lt;/code&gt; と出力されます。
+これと同じことをクラスメソッドで実現しようとしてみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;module C2
+  def c
+    &amp;quot;c&amp;quot;
+  end
+end
+
+module B2
+  def b
+    &amp;quot;b&amp;quot; + c
+  end
+end
+
+class A2
+  extend C2 # ここにかきたくない
+  extend B2
+
+  class &amp;lt;&amp;lt; self
+    def a
+      &amp;quot;a&amp;quot; + b
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;extend C2&lt;/code&gt; を &lt;code&gt;module B2&lt;/code&gt; の中で書きたいのですが、 A2に書かなければ動作させることができません。(がんばればできるけど、がんばりたくない)&lt;/p&gt;
+
+&lt;p&gt;こういうときに &lt;code&gt;ActiveSupport::Concern&lt;/code&gt; を利用すると下記のように書けました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;module C3
+  extend ActiveSupport::Concern
+
+  module ClassMethods
+    def c
+      &amp;quot;c&amp;quot;
+    end
+  end
+end
+
+module B3
+  extend ActiveSupport::Concern
+  include C3 # ここにかける
+
+  module ClassMethods
+    def b
+      &amp;quot;b&amp;quot; + c
+    end
+  end
+end
+
+class A3
+  include B3
+
+  class &amp;lt;&amp;lt; self
+    def a
+      &amp;quot;a&amp;quot; + b
+    end
+  end
+end
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;include C3&lt;/code&gt;を &lt;code&gt;module B3&lt;/code&gt;の内側でかくことができました。&lt;/p&gt;
+
+&lt;p&gt;Concernという名前は依存性の悩みから解消されるということなんでしょうか？まだよくわからないです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Rails 3.2.9 で default_scopeに設定してる条件が属性の初期値になるらしい</title>
+          <link>http://blog.eiel.info/blog/2012/11/16/rails-329-default-scope/</link>
+          <pubDate>Fri, 16 Nov 2012 15:05:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/16/rails-329-default-scope/</guid>
+          <description>&lt;p&gt;あるプロジェクトでrails 3.2.9 にアップデートしたら テストが失敗しまくる。そのひとつに ActiveRecordの default_scope を使ってる部分に問題があるとわかった。&lt;/p&gt;
+
+&lt;p&gt;どんなエラーかと言いますと。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;NoMethodError: undefined method `to_i&#39; for [1, 2, 3]:Array
+from activerecord-3.2.9/lib/active_record/connection_adapters/column.rb:178:in `value_to_integer&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;[1, 2, 3]&lt;/code&gt; とか即値すぎて &lt;em&gt;わけがわからないよ&lt;/em&gt; という感じだったんですが、いろいろ調べると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class User &amp;lt; ActiveRecord::Base
+   default_scope proc { where(state_id: [1, 2, 3]]) }
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;というコードがあったときに&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;User.new
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;すると発生することがわかりました。&lt;/p&gt;
+
+&lt;p&gt;仕方ないので、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class User &amp;lt; ActiveRecord::Base
+   scope :valid, proc { where(state_id: [1, 2, 3]]) }
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;として、ひたすら置換しまくりでした。
+僕はdefault_scope使わない派なのであまり気にしない方向で。&lt;/p&gt;
+
+&lt;p&gt;ちなみに&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class User &amp;lt; ActiveRecord::Base
+   default_scope proc { where(state_id: 1,name: &amp;quot;hoge&amp;quot;) }
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;としておくと&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;User.new
+=&amp;gt; #&amp;lt;User id: nil, name: &amp;quot;hoge&amp;quot;, state_id: 1&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となるようです。
+scopeから初期値を生成する機能がもともとあったみたいで(知らなかった)それが&lt;code&gt;default_scope&lt;/code&gt;のものがデフォルトになったようです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ActiveSupport::Concern - Railsのソースとか読みはじめた</title>
+          <link>http://blog.eiel.info/blog/2012/11/14/activesupport-concern/</link>
+          <pubDate>Wed, 14 Nov 2012 11:59:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/14/activesupport-concern/</guid>
+          <description>&lt;p&gt;Railsのソースをちょろちょろ読むようにしている。読んで学んだことをメモしておきたい。だいたい読んだ当時の最新リリースを参考にします。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/rails/rails/blob/v3.2.9/activesupport/lib/active_support/concern.rb&#34;&gt;ActiveSupport::Concern&lt;/a&gt; を読みました。&lt;/p&gt;
+
+&lt;p&gt;このモジュールはモジュールの定義を手助けします。
+クラスメソッドの定義場所をルール決めして &lt;code&gt;include&lt;/code&gt; するだけで済むようにしたり、クラスのコンテキストで実行したい処理を書く場所を用意してくれます。&lt;/p&gt;
+
+&lt;p&gt;具体的にいきます。
+以下のコードがあったとします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class ConcernSample
+
+  attr_accessor :hoge
+
+  def self.mogu
+    &amp;quot;mogu&amp;quot;
+  end
+
+  def goro
+    &amp;quot;goro&amp;quot;
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これを以下のようにするだけで同じ機能を提供できるようにしたいと思います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class ConcernSample
+  include Sample
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;処理を Sample モジュールにまとめたいということです。
+これができると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class ConcernSample
+  include Sample
+end
+
+class ConcernSample2
+  include Sample
+end
+
+class ConcernSample3
+  include Sample
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、似たような機能をもつクラスを量産できます。
+クラスに機能を追加するのが簡単になるという視点を持つとよいでしょう。&lt;/p&gt;
+
+&lt;p&gt;さて、Sample はどのように書くかということです。
+ここで &lt;code&gt;ActiveSupport::Concern&lt;/code&gt; を利用します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;active_support&#39;
+
+module Sample
+
+  extend ActiveSupport::Concern
+
+  included do
+    attr_accessor :hoge
+  end
+
+  module ClassMethods
+    def mogu
+      &amp;quot;mogu&amp;quot;
+    end
+  end
+
+  def goro
+    &amp;quot;goro&amp;quot;
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんな感じになります。
+クラスメソッドの定義の仕方を少し代えて横に並べてみると、非常に変化が少なくて済むのがわかると思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/concern.png&#34; alt=&#34;参考&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ActiveSupport::Concern&lt;/code&gt; を利用せずに実装するとこんな感じになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;module Sample
+  def self.included(base)
+    base.extend ClassMethods
+    base.class_exec do
+      attr_accessor :hoge
+    end
+  end
+
+  module ClassMethods
+    def mogu
+      &amp;quot;mogu&amp;quot;
+    end
+  end
+
+  def goro
+    &amp;quot;goro&amp;quot;
+  end
+end
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;def self.included&lt;/code&gt; がなくなり、モジュールの特異メソッドの利用がなくなるのと、&lt;code&gt;base.extend&lt;/code&gt; が不要になるところが若干便利になります。よく rails のコード内で出てくるので知っておきたいですね。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/NeXTSTEP2OSX&#34;&gt;@NeXTSTEP2OSさん&lt;/a&gt; から質問があって&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;サブクラスじゃダメなの？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;と、質問されました。&lt;/p&gt;
+
+&lt;p&gt;親クラスにも重複するコードをまとめることができますが、&lt;strong&gt;機能を追加する&lt;/strong&gt;という視点で考えた場合、module の場合はいくつも &lt;code&gt;include&lt;/code&gt; することができます。継承を利用した場合は、親クラスはひとつしか持つことができないため不便です。また、継承は&lt;code&gt;is-a&lt;/code&gt;の関係ではないところでは使うべきでないとされています。この &lt;code&gt;Concern&lt;/code&gt; が利用されている部分は &lt;code&gt;is-a&lt;/code&gt;の関係を持たない部分でコードの重複を避けるためやメソッドが多すぎるクラスでメソッドを分類するために利用されているようです。&lt;/p&gt;
+
+&lt;p&gt;利用例としてはたくさんのメソッドが定義されている &lt;a href=&#34;https://github.com/rails/rails/blob/v3.2.9/activerecord/lib/active_record/base.rb#L685-715&#34;&gt;ActiveRecord::Base&lt;/a&gt; クラスで &lt;code&gt;include&lt;/code&gt; されてるモジュールなどがあります。
+&lt;a href=&#34;https://github.com/rails/rails/blob/v3.2.9/activerecord/lib/active_record/persistence.rb#L6&#34;&gt;ActiveRecrod::Persistence&lt;/a&gt;などをみてみると利用されています。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Concern&lt;/code&gt;というクラスの名前の由来がよくわからない。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2012/11/18/activesupport-concern2/&#34;&gt;つづき&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>cucumber で表示した画面がXMLを出力しているか確認する</title>
+          <link>http://blog.eiel.info/blog/2012/11/07/cucumber-xml/</link>
+          <pubDate>Wed, 07 Nov 2012 15:27:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/07/cucumber-xml/</guid>
+          <description>&lt;p&gt;rspec でマッチャーがあればよいのですが、とりあえず心当たりがなかったので、適当にごまかしました。良いgemがあれば紹介して欲しいです。&lt;/p&gt;
+
+&lt;p&gt;page.source が サーバからの出力を返してくださるので、これを Nokogiri で parse させてエラーがないかどうかで確認しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;ならば /XMLを出力する/ do
+  errros = Nokogiri::XML(page.source).errors
+  expect(errors).to be_empty
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;どうせなら下記のように書きたいですね。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;ならば /XMLを出力する/ do
+  should render_xml
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;マッチャーを書いてみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;RSpec::Matchers.define :render_xml do
+  match do |actual|
+    Nokogiri::XML(actual.source).errors.empty?
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ほとんどそのままです。matcher つくるのは難しくないので気軽に作りたいです。&lt;/p&gt;
+
+&lt;p&gt;少しだけ解説。
+y
+cucumberの中では subject を省略した場合は page になります。なので、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;ならば /XMLを出力する/ do
+  page.should render_xml
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と書いたのと等しいです。なので、acutual には page オブジェクトがバインドされていますので、そこから source を取り出してチェックします。page オブジェクトには html というメソッドが存在しますが、ブラウザが解釈したあとのDOMをdumpしたような感じになってるので期待通りの動きをしませんでした。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Railsによる開発にはzeusが新たな定番になりそう。</title>
+          <link>http://blog.eiel.info/blog/2012/10/13/zeus/</link>
+          <pubDate>Sat, 13 Oct 2012 11:52:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/10/13/zeus/</guid>
+          <description>&lt;p&gt;&lt;code&gt;rails c&lt;/code&gt; や &lt;code&gt;rake spec&lt;/code&gt; ってすごく時間がかかる。それをできるだけ早くするプロダクトはいままでにもいろいろありました。&lt;code&gt;rails-sh&lt;/code&gt;とか&lt;code&gt;spork&lt;/code&gt;とか。&lt;/p&gt;
+
+&lt;p&gt;そんな中&lt;a href=&#34;https://github.com/burke/zeus&#34;&gt;zeus&lt;/a&gt;というのが最近登場したみたいです。&lt;code&gt;gem install zeusu&lt;/code&gt; でインストール。&lt;code&gt;Gemfile&lt;/code&gt;に書いてもいいそうですが、かかなくて良いようです。&lt;/p&gt;
+
+&lt;p&gt;あとは RAILS_ROOTで &lt;code&gt;zeus init&lt;/code&gt; して &lt;code&gt;zeus start&lt;/code&gt; しておけば、あとは別の端末で &lt;code&gt;zeus c&lt;/code&gt; や &lt;code&gt;zeusu s&lt;/code&gt;として使うだけです。ファイルを変更すると認識して再読込します。&lt;code&gt;zeus init&lt;/code&gt;した際に&lt;code&gt;zeus.json&lt;/code&gt;が生成されます。
+変更箇所に応じて必要なところからforkしなおすような挙動をしているように見えます(よくわかっていません)&lt;/p&gt;
+
+&lt;p&gt;cucumberやrspecも認識して &lt;code&gt;zeusu cucumber&lt;/code&gt; や &lt;code&gt;zeusu spec&lt;/code&gt; というものも用意してくれます。&lt;/p&gt;
+
+&lt;p&gt;まだ使い込んでいませんが、イノベーションを感じるのでしばらく使ってみようと思います。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>database.ymlが.gitignoreに入っている環境でのcapistranoを使ったデプロイ</title>
+          <link>http://blog.eiel.info/blog/2012/08/31/capistrano-and-database-dot-yml/</link>
+          <pubDate>Fri, 31 Aug 2012 11:15:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/08/31/capistrano-and-database-dot-yml/</guid>
+          <description>
+
+&lt;p&gt;[2012-09-20日追記] 以下の記事の内容ですが、gemが用意されてました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/amfranz/capistrano_database_yml&#34;&gt;https://github.com/amfranz/capistrano_database_yml&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Railsプロジェクトで、ひとりで開発している場合は除いて、&lt;code&gt;.gitignore&lt;/code&gt;に&lt;code&gt;config/database.yml&lt;/code&gt;を追加することがよくよくあります。この場合、&lt;code&gt;config/database.yml&lt;/code&gt;をどこかのタイミングで作ってやらなければなりません。この対処法は&lt;a href=&#34;http://www.simonecarletti.com/blog/2009/06/capistrano-and-database-yml/&#34;&gt;この記事&lt;/a&gt;で説明されてます。&lt;/p&gt;
+
+&lt;h2 id=&#34;概略:9415db707fd2c7b112b3a5ad42f3ce87&#34;&gt;概略&lt;/h2&gt;
+
+&lt;p&gt;英語だったりするので簡単に説明をかいておきます。
+前述の記事の作業を行うと&lt;code&gt;cap&lt;/code&gt;コマンドにふたつのタスクが追加されます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;cap db:setup&lt;/li&gt;
+&lt;li&gt;cap db:symlink&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;db:setup&lt;/code&gt;は&lt;code&gt;shared_path&lt;/code&gt;に&lt;code&gt;config/database.yml&lt;/code&gt;に生成してくれます。すでにあると上書きされるので注意が必要です。
+&lt;code&gt;db:symlink&lt;/code&gt;は &lt;code&gt;db:setup&lt;/code&gt;で生成した&lt;code&gt;config/database.yml&lt;/code&gt;へsymlinkを貼ります。なので、&lt;code&gt;#{shared_path}/config/database.yml&lt;/code&gt;手で編集しておけば良いということになります。&lt;/p&gt;
+
+&lt;h2 id=&#34;試したときに困ったことなど:9415db707fd2c7b112b3a5ad42f3ce87&#34;&gt;試したときに困ったことなど&lt;/h2&gt;
+
+&lt;p&gt;記載されているコードをコピーして、&lt;code&gt;capistrano_database.rb&lt;/code&gt;を作成するのですが、このファイルをどこに作成すべきなのか記述されていないので、&lt;code&gt;lib&lt;/code&gt;上に作成しました。
+&lt;code&gt;lib&lt;/code&gt;は&lt;code&gt;LOAD_PATH&lt;/code&gt;が通ってないのに気付かなくて迷惑をかけました。
+&lt;code&gt;config/deploy.rb&lt;/code&gt;に &lt;code&gt;require &amp;quot;capistrano_database&amp;quot;&lt;/code&gt;とするところを&lt;code&gt;require &amp;quot;./lib/capistrano_database&amp;quot;&lt;/code&gt;として回避しました。
+ところが、cucumberの実行時のオプションに&lt;code&gt;--require lib&lt;/code&gt;をつけているせいだと思いますが、cucumberの実行時に読み込まれてしまい不具合がでてしまったので、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Capistrano::Configuration.instance.load do
+  ....
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;の部分を&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;if instance = Capistrano::Configuration.instance
+  instance.load do
+    ...
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のように変更して回避しました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Railsでコントローラのスペックを試行錯誤中</title>
+          <link>http://blog.eiel.info/blog/2012/08/09/rspec-for-rails-controller/</link>
+          <pubDate>Thu, 09 Aug 2012 23:42:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/08/09/rspec-for-rails-controller/</guid>
+          <description>
+
+&lt;p&gt;Rspec書いてますか？最近なかなか荒れ気味ですが、僕はなんだかんだで嫌いじゃないです。
+コントローラのテストは何をすべきかなかなか難しいです。&lt;/p&gt;
+
+&lt;p&gt;こんな感じでどうかなーというのを一応紹介しておきます。&lt;/p&gt;
+
+&lt;h1 id=&#34;何をテストするか:12a8138a16f445e446aa7b1b9f6da6be&#34;&gt;何をテストするか&lt;/h1&gt;
+
+&lt;p&gt;基本的には rspec を走られせるとこのコントローラが何をするのかわかるようにすることです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;どのアクションがどのHTTPメソッドを受けるのか&lt;/li&gt;
+&lt;li&gt;どんな変数をビューに渡すのか&lt;/li&gt;
+&lt;li&gt;リダイレクトするのか、しないのか&lt;/li&gt;
+&lt;li&gt;どんなflashが設定されるのか&lt;/li&gt;
+&lt;li&gt;前提とする状況はなにか&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;といったあたりがわかるようにしています。&lt;/p&gt;
+
+&lt;h2 id=&#34;どのアクションがどのhttpメソッドを受けるのか:12a8138a16f445e446aa7b1b9f6da6be&#34;&gt;どのアクションがどのHTTPメソッドを受けるのか&lt;/h2&gt;
+
+&lt;p&gt;これは単純にdescribeにかくだけですが、コード上ではlet式を利用して request という変数にバインドしてちょっとだけ目立つようにしています。&lt;/p&gt;
+
+&lt;h2 id=&#34;どんな変数をビューに渡すのか:12a8138a16f445e446aa7b1b9f6da6be&#34;&gt;どんな変数をビューに渡すのか&lt;/h2&gt;
+
+&lt;p&gt;ビューに渡す値はインスタンス変数に入れますが、どの変数にどんな型の値が入るのかテストしています。
+ビューを先にかくことが多いのでその際にpendingにして追加していくとコントローラかくときにビューの確認をする必要がありません。
+あと、before_filterのようなものを利用しているの、その中で勝手にバインドするものがあるのでこれを明確にしてやったりします。&lt;/p&gt;
+
+&lt;h2 id=&#34;リダイレクトするのか-しないのか:12a8138a16f445e446aa7b1b9f6da6be&#34;&gt;リダイレクトするのか、しないのか&lt;/h2&gt;
+
+&lt;p&gt;対応するビューがあるのかないのか、うまくいくのどこの画面にいくのかが明確になるのでかいておきます。&lt;/p&gt;
+
+&lt;h2 id=&#34;どんなflashが設定されるのか:12a8138a16f445e446aa7b1b9f6da6be&#34;&gt;どんなflashが設定されるのか&lt;/h2&gt;
+
+&lt;p&gt;これは変数の場合とだいたい一緒です。ビューではなく cucumber でのテストとの橋渡しな感じもあります。私はcucumberでは成功したらこの値が出てるのか確認してます。&lt;/p&gt;
+
+&lt;h2 id=&#34;前提とする状況はなにか:12a8138a16f445e446aa7b1b9f6da6be&#34;&gt;前提とする状況はなにか&lt;/h2&gt;
+
+&lt;p&gt;ログインしている場合なのか、とかです。contextのブロックが増えるだけです。&lt;/p&gt;
+
+&lt;h1 id=&#34;それらを踏まえて上での雛形:12a8138a16f445e446aa7b1b9f6da6be&#34;&gt;それらを踏まえて上での雛形&lt;/h1&gt;
+
+&lt;p&gt;コメントは解説のために。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;describe HogeController do
+  subject { request }
+
+  describe &amp;quot;GET &#39;index&#39;&amp;quot; do
+    let(:request) { get :index, params }
+    let(:params) { { hoge: &amp;quot;mogumogu&amp;quot;} }
+
+    context &amp;quot;ログインしている時&amp;quot; do
+      include_context &amp;quot;ログイン&amp;quot;
+
+      # リダイレクトなどしない場合
+      it { should be_success }
+
+      context &amp;quot;リクエストした時&amp;quot; do
+        # これをやらないとこの先のブロックが1行な it でかけない
+        before(:each) { request }
+
+        # ビューへ渡す変数のの確認
+        describe &amp;quot;@hoge&amp;quot; do
+          subject { assigns :hoge }
+          it { should be_kind_of(Hoge) }
+        end
+
+        # flashの確認
+        describe &amp;quot;flash[:notice]&amp;quot; do
+          subject { flash[:notice] }
+          it { should eq(&amp;quot;hoge&amp;quot;) }
+        end
+      end
+    end
+
+    context &amp;quot;ログインしていない時&amp;quot; do
+      # リダイレクトする場合
+      it { should redirecto_to(&amp;quot;/hoge&amp;quot;) }
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;といった感じに書いてます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;describe &amp;quot;@hoge&amp;quot; do
+ subject { assigns :hoge }
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、かくのはめんどくさいので&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;describe_assigns :hoge do
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、かけるようにしてたりするのですが、それはまた別の話。&lt;/p&gt;
+
+&lt;p&gt;個人的にどうにかしたいのば be_success マッチャー。失敗した場合に falseとでちゃうだけなので、statusコードなどを出すとデバッグも楽になりそうです。&lt;/p&gt;
+
+&lt;p&gt;あとは be_kind_of も結構微妙な出力をするので悩み中。リストの時もなんとかしたいです。&lt;/p&gt;
+
+&lt;p&gt;あとは単体テストのようで、対応するビューがなかったりすると動かなかったりするのはなんとかしたいです。(なんとかなってた気がするんだけどなぁ。)&lt;/p&gt;
+
+&lt;p&gt;Railsのテストについて話し合う人が周りにいないので、誰かお話ししましょう。ヘルプミー。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ActiveRecordで今のスコープをそのまま返したい</title>
+          <link>http://blog.eiel.info/blog/2012/08/01/active-recode-scoped/</link>
+          <pubDate>Wed, 01 Aug 2012 11:37:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/08/01/active-recode-scoped/</guid>
+          <description>&lt;p&gt;あるオプションパラメータがあるかどうかで、条件が変わるような処理を書いてると、オプションがない場合、ActiveRecord::Relationが欲しくなるような場面があります。&lt;/p&gt;
+
+&lt;p&gt;例えば&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;@articles = Article
+@articles = @articles.where(valid: true) if params[:valid]
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;みたいな感じになっちゃって&lt;code&gt;@articles = Article&lt;/code&gt;って何?な状態になります。&lt;/p&gt;
+
+&lt;p&gt;メソッド化しようとするとさらに困るのですが、scopedを使うと以下のように書けるようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;@articels = Article.scoped
+@articles = @articles.where(valid: true) if params[:valid]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なんか異臭がしなくなりましたね。&lt;/p&gt;
+
+&lt;p&gt;だから、どうした？って思う方もいるかもしれませんがメソッド化すると、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def self.valid(is_valid = nil)
+  scoped.where(valid: true) if is_valid
+  scoped
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となります。&lt;code&gt;scoped&lt;/code&gt;なしで書かこうとするとちょっと困ります。&lt;/p&gt;
+
+&lt;p&gt;そんだけ。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Ruyb on Railsにて render を before_filterとかafter_filterで読んだら酷い目にあった</title>
+          <link>http://blog.eiel.info/blog/2012/07/12/render-on-filter-ror/</link>
+          <pubDate>Thu, 12 Jul 2012 15:22:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/07/12/render-on-filter-ror/</guid>
+          <description>&lt;p&gt;コントローラ内デいろんなところで同じrenderを書いてたのでリファクタリングしようと思った。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで &lt;code&gt;after_filter&lt;/code&gt; を利用して render を呼んでみましたが、actionの処理がすでに終了してるようで、 &lt;strong&gt;renderは一度呼んでるよ!&lt;/strong&gt; って怒られました。&lt;/p&gt;
+
+&lt;p&gt;仕方なく &lt;code&gt;before_filter&lt;/code&gt; で呼んだら、action内に入る前にレンダリングしてしまって、&lt;strong&gt;@hogehoge がnilやねーんって怒らました。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;とりあえず、あきらめることにしました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Rspecマッチャー rspec-html-matchersを試してみてる</title>
+          <link>http://blog.eiel.info/blog/2012/06/22/rspec-html-matchers/</link>
+          <pubDate>Fri, 22 Jun 2012 18:04:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/06/22/rspec-html-matchers/</guid>
+          <description>&lt;p&gt;Ruby on Railsで ViewやHelperの Specを書く際に利用するマッチャーに良いのがないか探してます。現在のRspecはcontainぐらいしかないので、細かくチェックしたい場合は若干使いづらいです。というわけで、&lt;a href=&#34;https://github.com/kucaahbe/rspec-html-matchers&#34;&gt;rspec-html-matchers&lt;/a&gt;を試しています。&lt;/p&gt;
+
+&lt;p&gt;以前は &lt;a href=&#34;https://github.com/dcuddeback/rspec-tag_matchers&#34;&gt;rspec-tag_matchers&lt;/a&gt; を使用していたのですが、出力がちょっとイマイチでした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;www.ruby-toolbox.com&#34;&gt;Ruby Tools&lt;/a&gt;でざらざらと探した結果、&lt;a href=&#34;https://github.com/kucaahbe/rspec-html-matchers&#34;&gt;rspec-html-matchers&lt;/a&gt;を試してみることにしました。&lt;/p&gt;
+
+&lt;p&gt;Form用のマッチャーがいろいろあったり、内部に存在するタグをチェックしたりできるのが嬉しいですね。capybaraの&lt;code&gt;have_css&lt;/code&gt;はsubject側で find(selector)しておく必要があるので、ややめんどくさいです。&lt;/p&gt;
+
+&lt;p&gt;いまのところの不満点は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Hashで渡していくのがちょっと格好悪い&lt;/li&gt;
+&lt;li&gt;正規表現での属性チェックができなかった&lt;/li&gt;
+&lt;li&gt;暗黙的なsubjectを使用する場合、ブロックがあると不具合がでる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;3番目なんですが、have_tag マッチャーにブロックを渡し場合 shouldメソッドのレシーバをかかないと、ブロック内へと処理が流れないようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;subject { render }
+it do
+  should have_tag(&amp;quot;a&amp;quot;) do
+    # このブロック処理が走らない
+    with_tag(&amp;quot;b&amp;quot;)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のように書いてしまうと &lt;code&gt;with_tag(&amp;quot;b&amp;quot;)&lt;/code&gt; の部分が動作しません。3行目を明示的に &lt;code&gt;subject.should&lt;/code&gt;とすると動いてくれました。rspecの問題なのか、rspec-html-matchersの問題なのか切りわけが難しいのでとりあえず、我慢することにしました。
+ブロックを渡さない場合は大丈夫です。&lt;/p&gt;
+
+&lt;p&gt;他は良好に使えています。
+View Specの良い例が欲しいです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

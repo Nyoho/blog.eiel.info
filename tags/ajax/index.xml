@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/ajax/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-04-03 19:49:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Rails で ajax をちょっと実験するときに `render text:` すると コールバックしてこない。 </title>
+          <link>http://blog.eiel.info/blog/2013/04/03/render-text-ajax-on-rails/</link>
+          <pubDate>Wed, 03 Apr 2013 19:49:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/04/03/render-text-ajax-on-rails/</guid>
+          <description>&lt;p&gt;サンプルコードがなくて申し訳ないです。&lt;/p&gt;
+
+&lt;p&gt;rails で ajax を使用とすると 一般的には &lt;a href=&#34;https://github.com/rails/jquery-ujs&#34;&gt;jquery-ujs&lt;/a&gt; を利用します。&lt;/p&gt;
+
+&lt;p&gt;あるリンクをクリックする時に非同期に読込みたい場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;&amp;lt;%= link_to &#39;hoge&#39;, @user, class: user-link %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;に対して、 remote: true を追加します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;&amp;lt;%= link_to &#39;hoge&#39;, @user, remote: ture, class: user-link %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;といった感じになります。
+あとはサーバからのレスポンスが返ってきた時の処理を書きましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;$(function () {
+   $(document).on(&#39;ajax:success&#39;, &#39;.user-link&#39;, function (ujs, content, status, xhr) {
+    $(&#39;#user-info&#39;).html(content);
+  });
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;少し説明不足ですが、気にせず。&lt;/p&gt;
+
+&lt;p&gt;さて、ここで リンク先が未実装で手抜きして:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class UsersController
+  def show
+    render text: &#39;hoge&#39;
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、さくっと実装しちゃうと さきほど実装した javascript の コールバックが呼ばれません。
+めんどくさがらずに、 &lt;code&gt;app/views/users/show.htmle.rb&lt;/code&gt; などを作成してあげましょう。&lt;/p&gt;
+
+&lt;p&gt;そんなこと滅多にないか…。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

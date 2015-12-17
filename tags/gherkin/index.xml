@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/gherkin/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-02-12 14:13:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Cucumber のフィーチャの文法 - Gherkin</title>
+          <link>http://blog.eiel.info/blog/2013/02/12/gherkin/</link>
+          <pubDate>Tue, 12 Feb 2013 14:13:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/12/gherkin/</guid>
+          <description>
+
+&lt;p&gt;Cucumber 利用していますか？&lt;/p&gt;
+
+&lt;p&gt;基本的な使い方はわかるんだけど、なんだかもっと上手く使えるんじゃないだろうか？と、もやもやしながら使っています。
+少くとも私の周りには Cucumber について情報交換できる人がいないです。&lt;/p&gt;
+
+&lt;p&gt;それでも、SlideShare や Speaker Deck なんかに公開されたスライドでよくみかけるので、使い込んでるところでは使い込まれているのだと思います。&lt;/p&gt;
+
+&lt;p&gt;Cucumber は Rails プロジェクト以外でも利用されているようで、範囲が広いです。もうちょっといろんな情報がWeb上に流れていても良い気がします。&lt;/p&gt;
+
+&lt;p&gt;私が知る限りでは Cucumber についてもっと詳しく書かれているのは &lt;a href=&#34;http://www.amazon.co.jp/gp/product/4798121932/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=4798121932&amp;amp;linkCode=as2&amp;amp;tag=eiel-22&#34;&gt;The Rspec Book&lt;/a&gt; です。&lt;/p&gt;
+
+&lt;p&gt;前置きはさておき、 Cucumber の &lt;code&gt;*.feature&lt;/code&gt; は &lt;a href=&#34;https://github.com/cucumber/cucumber/wiki/Gherkin&#34;&gt;Gherkin&lt;/a&gt; という 言語で書きます。
+その文法について調べたのでそのメモを整理しておきます。&lt;/p&gt;
+
+&lt;p&gt;ちなみにこの内容はソース読んだり、Wikiに書かれているものを参考したもので、仕様として記述されてない情報もあるので未来のバージョンでは予告なく変更される部分があるかもしれません。&lt;/p&gt;
+
+&lt;p&gt;こんな長くて不正確な記事読みたくないよ!という人は &lt;a href=&#34;https://github.com/cucumber/gherkin/wiki/BNF&#34;&gt;BNF&lt;/a&gt; を読むのが手っ取りです。
+というか、BNFが読める人は読みましょう。
+むしろ、もっとはやく読めばよかった。&lt;/p&gt;
+
+&lt;h2 id=&#34;具体例:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;具体例&lt;/h2&gt;
+
+&lt;p&gt;Gherukinのという言語で書いた文書の例を上げておきます。
+内容はシステムに関するものにしませんでした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;# language: ja
+@blog
+フィーチャ: ブログを書く
+  ブログを書くには本人のやる気と書く時間が必要です。
+  アウトプットは次のインプットに繋がるので積極的に行なうべきです。
+
+  # これはコメントでタグの後にはかけない
+  # @ではじまるのはタグ
+  @good
+  シナリオ: ブログが書ける
+    ブログが書ける場合はやる気と時間があるのです。
+
+    # ネタがないとかけないです。
+    前提 ネタがある
+    # 時間がないとかけないです
+    かつ 納期に終われていない
+    # 先輩とかいないですけど
+    もし 先輩にブログを書けと言われた
+    # オチがない
+    ならば ブログが書けている
+
+  @bad
+  シナリオ: デスマ中はブログが書けない
+     デスマ中ダトソレドコロジャナインダ!!
+
+     前提 ネタがある
+     かつ デスマ中
+     もし 先輩にブログを書けと言われた
+     ならば ブログが書けていない
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/gherkin.png&#34; width=&#34;400&#34; height=&#34;290&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;見てわかるように、ほぼ自然言語の雰囲気を残せます。
+&lt;strong&gt;これならプログラマ以外の人でも読み書きできそうだよね。&lt;/strong&gt;
+ってのがウリです。&lt;/p&gt;
+
+&lt;h2 id=&#34;要素:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;要素&lt;/h2&gt;
+
+&lt;p&gt;Gherkin は以下の要素で構成されます。
+&lt;small&gt;ここでは要素と呼んでますが、トークンの一部を抜粋しただけです。&lt;/small&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;コメント&lt;/li&gt;
+&lt;li&gt;タグ&lt;/li&gt;
+&lt;li&gt;フィーチャ&lt;/li&gt;
+&lt;li&gt;バックグラウンド&lt;/li&gt;
+&lt;li&gt;シナリオ&lt;/li&gt;
+&lt;li&gt;シナリオテンプレート&lt;/li&gt;
+&lt;li&gt;例&lt;/li&gt;
+&lt;li&gt;ステップ&lt;/li&gt;
+&lt;li&gt;ドックストリング&lt;/li&gt;
+&lt;li&gt;表&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;トップダウンに説明していきます。説明する前の用語がでてきますが、一通り読んでもどってくると良いです。&lt;/p&gt;
+
+&lt;h2 id=&#34;ファイル構成:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;ファイル構成&lt;/h2&gt;
+
+&lt;p&gt;Gherkin では ひとつのファイルにひとつの&lt;code&gt;フィーチャ&lt;/code&gt;しか記述できません。
+なので全体像としては&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;コメント&lt;/code&gt; (省略可能)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;タグ&lt;/code&gt; (省略可能)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;フィーチャ&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;となります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;タグ&lt;/code&gt;と&lt;code&gt;コメント&lt;/code&gt;の順番は入れかえることはできません。&lt;/p&gt;
+
+&lt;p&gt;具体的には:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;# comment
+@tag
+フィーチャ: フィーチャ名
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;コメント:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;コメント&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;#&lt;/code&gt; ではじまる行は コメント&lt;code&gt;になります。
+&lt;/code&gt;#` の前に空白があっても構いません。&lt;/p&gt;
+
+&lt;p&gt;プログラミング言語にあるような&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;@blog      # comment
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のようなことは&lt;strong&gt;できません。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;先頭にある &lt;code&gt;language: ja&lt;/code&gt;
+は特殊な&lt;code&gt;コメント&lt;/code&gt;でこのファイルで使用するキーワードの言語を指定します。
+&lt;code&gt;フィーチャ&lt;/code&gt; や &lt;code&gt;シナリオ&lt;/code&gt;,&lt;code&gt;前提&lt;/code&gt;、&lt;code&gt;かつ&lt;/code&gt;などがキーワードです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;コメント&lt;/code&gt;は書けるところがわりと限られてます。&lt;/p&gt;
+
+&lt;h2 id=&#34;タグ:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;タグ&lt;/h2&gt;
+
+&lt;p&gt;@ではじまる単語は タグになります。
+1行に複数かくこともできますし、複数行にわたってかくこともできます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;@blog @hoge
+@mogu
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;フィーチャ&lt;/code&gt;や&lt;code&gt;シナリオ&lt;/code&gt;の前で書けます。&lt;/p&gt;
+
+&lt;h2 id=&#34;フィーチャ:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;フィーチャ&lt;/h2&gt;
+
+&lt;p&gt;このファイルに記述する&lt;code&gt;フィーチャ&lt;/code&gt;(機能)に関して記述します。
+言語に日本語を利用している場合は
+&lt;code&gt;フィーチャ:&lt;/code&gt; または  &lt;code&gt;機能:&lt;/code&gt;ではじまります。
+つづけてその後ろには、その&lt;code&gt;フィーチャ&lt;/code&gt;の名前をかきます。&lt;/p&gt;
+
+&lt;p&gt;次の行には&lt;code&gt;フィーチャ&lt;/code&gt;に関する説明をかくことができます。
+説明はだいたい好きなように書けます。
+それ以降には&lt;code&gt;バックグラウンド&lt;/code&gt;と&lt;code&gt;シナリオ&lt;/code&gt;を n個かくことができます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;フィーチャ&lt;/code&gt;: 名前
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;説明&lt;/code&gt;(省略可能)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;バックグラウンド&lt;/code&gt;(省略可能)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;シナリオ1&lt;/code&gt; or &lt;code&gt;シナリオアウトライン&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;シナリオ2&lt;/code&gt; or &lt;code&gt;シナリオアウトライン&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;シナリオn&lt;/code&gt; or &lt;code&gt;シナリオアウトライン&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;フィーチャ&lt;/code&gt;と&lt;code&gt;説明&lt;/code&gt;の間には空行は置けますが&lt;code&gt;コメント&lt;/code&gt;などは書けません。
+具体的には:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;フィーチャ: フィーチャ名
+  フィーチャの説明
+
+  バックグラウンド:
+     前提 なにかがある
+
+  シナリオ: シナリオ名
+    .
+    .
+    .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のような感じです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;フィーチャ: hoge
+  説明
+  # comment
+  説明
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;などはエラーになります。&lt;/p&gt;
+
+&lt;h2 id=&#34;バックグラウンド:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;バックグラウンド&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;フィーチャ&lt;/code&gt;内の&lt;code&gt;シナリオ&lt;/code&gt;の前に実行したい&lt;code&gt;ステップ&lt;/code&gt;をかくことができます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;背景: 名前
+
+&lt;ul&gt;
+&lt;li&gt;ステップ1&lt;/li&gt;
+&lt;li&gt;ステップ2&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;ステップn&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という構造になります。&lt;/p&gt;
+
+&lt;h2 id=&#34;シナリオ:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;シナリオ&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;シナリオ&lt;/code&gt;はひとつのテストになります。
+&lt;code&gt;シナリオ&lt;/code&gt;はステップを複数持っていて、&lt;code&gt;ステップ&lt;/code&gt;の途中で失敗するとシナリオは失敗したことになります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;シナリオ&lt;/code&gt;も&lt;code&gt;フィーチャ&lt;/code&gt;と同様に説明が書けます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;コメント&lt;/code&gt; (省略可能)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;タグ&lt;/code&gt;(省略可能)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;シナリオ&lt;/code&gt;: 名前
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;説明&lt;/code&gt; (省略可能)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ステップ1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ステップ2&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ステップn&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という構造になります。&lt;/p&gt;
+
+&lt;h2 id=&#34;シナリオアウトライン:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;シナリオアウトライン&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;シナリオ&lt;/code&gt;の重複を減らすためには&lt;code&gt;シナリオアウトライン&lt;/code&gt;を使うことができます。
+シナリオ内に変数を埋めこんで、最後に変数に代入する値を&lt;code&gt;例&lt;/code&gt;として明示することで、&lt;code&gt;シナリオ&lt;/code&gt;になります。
+変数は &lt;code&gt;&amp;lt;変数名&amp;gt;&lt;/code&gt;として表現できます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;コメント(省略可能)&lt;/li&gt;
+&lt;li&gt;タグ(省略可能)&lt;/li&gt;
+&lt;li&gt;シナリオアウトライン: 名前
+
+&lt;ul&gt;
+&lt;li&gt;説明&lt;/li&gt;
+&lt;li&gt;ステップ1&lt;/li&gt;
+&lt;li&gt;ステップ2&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;ステップn&lt;/li&gt;
+&lt;li&gt;例:&lt;/li&gt;
+&lt;li&gt;表&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;具体例をあげておきます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;シナリオアウトライン: &amp;lt;種類&amp;gt;が書ける
+  &amp;lt;種類&amp;gt;が書ける場合はやる気と時間があるのです。
+
+  前提 ネタがある
+  かつ 納期に終われていない
+  もし &amp;lt;人&amp;gt;に&amp;lt;種類&amp;gt;を書けと言われた
+  ならば &amp;lt;種類&amp;gt;が書けている
+  例:
+    | 種類   | 人   |
+    | ブログ | 先輩 |
+    | 資料   | 営業 |
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;例の表の 1行目は変数名に対応しますが、Gherkinというより Cucumber の部分になる気がします。
+2行目に具体的な値を書きます。&lt;/p&gt;
+
+&lt;p&gt;ブログ が &amp;lt;種類&amp;gt; の部分に、先輩 が &amp;lt;人&amp;gt; の部分に 展開されます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;シナリオアウトライン&lt;/code&gt;の代わりに &lt;code&gt;シナリオテンプレート&lt;/code&gt; なども使えます&lt;/p&gt;
+
+&lt;p&gt;詳細は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cucumber --i18n ja
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ステップ:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;ステップ&lt;/h2&gt;
+
+&lt;p&gt;先頭が&lt;code&gt;前提&lt;/code&gt; &lt;code&gt;もし&lt;/code&gt; &lt;code&gt;ならば&lt;/code&gt; などの部分です。
+Cucumberでは対応する コード が実行されます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;コメント&lt;/code&gt; (省略可能)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ステップキーワード&lt;/code&gt;: 名前
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ドックストリング&lt;/code&gt; もしくは &lt;code&gt;表&lt;/code&gt; (省略可能)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という構造になります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ステップキーワード&lt;/code&gt;には&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;前提 (given)&lt;/li&gt;
+&lt;li&gt;もし (when)&lt;/li&gt;
+&lt;li&gt;ならば (then)&lt;/li&gt;
+&lt;li&gt;かつ (and)&lt;/li&gt;
+&lt;li&gt;しかし (but)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などがあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;*&lt;/code&gt; というのもありまして:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;* ネタがある
+* 納期に終われていない
+* 先輩にブログを書けと言われた
+* ならば ブログが書けている
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とかいても等価です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cucumber --i18n ja
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なども確認してみてください&lt;/p&gt;
+
+&lt;h2 id=&#34;ドックストリング:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;ドックストリング&lt;/h2&gt;
+
+&lt;p&gt;ステップに長い文字列を渡したい場合に利用します。
+&lt;code&gt;&#39;&#39;&#39;&lt;/code&gt;(クオート3つ)で挟むことでドックストリングになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;前提 ネタがある
+   &#39;&#39;&#39;
+   デスマ神がほげほげ
+   ネコ型の何かがもぐもぐ
+   &#39;&#39;&#39;
+かつ 納期に終われていない
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とすると &amp;ldquo;ネタがある&amp;rdquo; &lt;code&gt;ステップ&lt;/code&gt;ヘ &amp;ldquo;デスマ神がほげ…もぐもぐ&amp;rdquo; という文字列を渡すことができます。&lt;/p&gt;
+
+&lt;h2 id=&#34;表:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;表&lt;/h2&gt;
+
+&lt;p&gt;表は &amp;ldquo;&lt;code&gt;シナリオアウトライン&lt;/code&gt;の例&amp;rdquo; と &amp;ldquo;&lt;code&gt;ステップ&lt;/code&gt;への引数として表を使いたい&amp;rdquo; 場合に利用できます。&lt;/p&gt;
+
+&lt;p&gt;表は&lt;code&gt;|&lt;/code&gt;(パイプ)を利用してAscii Art で表を書きます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;シナリオアウトライン&lt;/code&gt;についてはもう書いているので省きます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ステップ&lt;/code&gt;で使用すると &lt;code&gt;Cucumber::Ast::Table&lt;/code&gt; というクラスのインスタンスが渡されます。ステップの実装で煮るなり焼くなりしあしょう。&lt;/p&gt;
+
+&lt;p&gt;一応具体例:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;前提 なにかある
+  | 1 | 2 |
+  | 3 | 4 |
+もし なにかする
+  | 1 | 2 | 3 |
+  | 4 | 5 | 6 |
+ならば こういう結果になる
+  | 7 | 8 | 9 | 10 |
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;インデントについて:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;インデントについて&lt;/h2&gt;
+
+&lt;p&gt;インデント自体に意味はありませんが適切につけておくと読みやすいです。cucumberで実行した場合は自動的に整形されます。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;無駄に時間がかかりました。何かの役に立てば良いなぁ。
+途中で対象読者を意識してないことに絶望していろいろブレてます。&lt;/p&gt;
+
+&lt;p&gt;間違いなどあればご連絡ください。&lt;/p&gt;
+
+&lt;p&gt;仕事してきます。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

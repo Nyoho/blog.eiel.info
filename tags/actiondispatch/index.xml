@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/actiondispatch/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-03-30 01:27:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>ActionDispatch ってなんだろう？ - 広島・岡山Ruby交流会01</title>
+          <link>http://blog.eiel.info/blog/2014/03/30/action-dispatch/</link>
+          <pubDate>Sun, 30 Mar 2014 01:27:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/03/30/action-dispatch/</guid>
+          <description>&lt;p&gt;ちわっす。絶賛、仕事が遅れまくっていてこんなことをしている場合じゃない状態です。こんにちは。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://hirosimaokayamarb.doorkeeper.jp/events/8993&#34;&gt;広島岡山Ruby交流会01&lt;/a&gt; に参加してきました。
+一応セッションをしたので、ブログに残しておきたいと思います。&lt;/p&gt;
+
+&lt;p&gt;Rails のコードリーディングをしているので、自分の中に構築できたイメージをアウトプットをしようというシリーズです。4ヶ月ぶりぐらいですね。&lt;/p&gt;
+
+&lt;p&gt;今回は ActionDispatch です。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;97426d70998c013115765a48c3b99610&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;ActionDispatch ってなにすんだよ？って正直思っていたので、「ActionDispatchってなんだろう？」というタイトルにしました。&lt;/p&gt;
+
+&lt;p&gt;Rails は MVC フレームワークということで MVC のどこかにはまるものであればイメージが湧きやすいのですが、それ意外の部分になると途端に想像できなくなります。
+ようやく想像できるようになったので簡単に図示しつつ、それと気になる部分をざっくりと紹介しました。&lt;/p&gt;
+
+&lt;p&gt;スライド中のコードは Gist にアップロードしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gist.github.com/eiel/b4c6e39bf9b694022b17&#34;&gt;https://gist.github.com/eiel/b4c6e39bf9b694022b17&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;最後に言い訳をしておくと、時間を使ってる場合ではないので図が雑です。&lt;/p&gt;
+
+&lt;p&gt;Rails の勉強をしている人に参考になれば幸いです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

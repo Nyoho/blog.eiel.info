@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/monad/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-04-04 00:41:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Ruby で モナドを書いてみた。</title>
+          <link>http://blog.eiel.info/blog/2013/04/04/monad-in-ruby/</link>
+          <pubDate>Thu, 04 Apr 2013 00:41:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/04/04/monad-in-ruby/</guid>
+          <description>
+
+&lt;p&gt;ちょっと気分転換したかっただけで、反省している。(2015年4月11加筆修正)&lt;/p&gt;
+
+&lt;p&gt;記事を書く目的があったわけでも、何か確認したかったわけでもないけど、自分的に得るものがあったので、それを書いておきます。&lt;/p&gt;
+
+&lt;p&gt;Rubyでモナドをつくってみました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/eiel/5302011&#34;&gt;ソースコード&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;モナドってモノイドに名前が似ていることからわかるようにモノイド的な特性があるらしいです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%8E%E3%82%A4%E3%83%89&#34;&gt;Wikipedia:モノイド&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今回の話は、モナドだと簡単にモノイドが作れるという話のような気がする。&lt;/p&gt;
+
+&lt;h3 id=&#34;結合律:36e25dd139b5b5a09c43152e31083e30&#34;&gt;結合律&lt;/h3&gt;
+
+&lt;p&gt;モノイドであれば&lt;strong&gt;結合律&lt;/strong&gt;が成立します。&lt;/p&gt;
+
+&lt;p&gt;結合律をプログラミングに当てはめてみると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func1();
+func2();
+func3();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;という命令列があった場合&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func1(); func2();
+func3();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func1();
+func2(); func3();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;は等価と言えるという話にできます。&lt;/p&gt;
+
+&lt;p&gt;違いがよくわからないので、別名をつけてまとめてみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;funcX();   // funcX () { func1(); func2(); }
+func3();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;func1();
+funcY();   // funcY () { func2(); func3(); }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;どちらも同じように動きますよね。
+セミコロンを演算子とみたててみます&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func1 ; func2 ; func3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最後のセミコロンはみにくいので削除しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(func1 ; func2) ; func3 == func1 ; (func2; func3)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;単位元:36e25dd139b5b5a09c43152e31083e30&#34;&gt;単位元&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;単位元の存在  - 演算してもコンテキストが変化しない値が存在する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;プログラムでいえばセミコロンだけでかこまれていればそんな感じになりそうです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func1;
+;         // あってもなくても変わらない
+func2;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;かけ算で考える:36e25dd139b5b5a09c43152e31083e30&#34;&gt;かけ算で考える&lt;/h3&gt;
+
+&lt;p&gt;結合律と単位元を整数のかけ算に確認しておきます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;3 * 4 * 5 == (3 * 4) * 5 == 3 * (4 * 5) == 60 // どっちを先に計算してもOK
+
+3 * 1 == 3    // 単位元になにをかけ算してもそのまま。
+1 * 3 == 3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;簡単ですね。&lt;/p&gt;
+
+&lt;h3 id=&#34;具体例:36e25dd139b5b5a09c43152e31083e30&#34;&gt;具体例&lt;/h3&gt;
+
+&lt;p&gt;さて、作成した Maybeクラスですが &lt;code&gt;*&lt;/code&gt; を用意しています。遊んでみましょう。
+Maybeのインスタンス同士でしか演算はできません。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Maybe.new(3)                # =&amp;gt; Just 3
+Maybe.new(2)                # =&amp;gt; Just 2
+Maybe.new(3) * Maybe.new(2) # =&amp;gt; Just 2
+
+Maybe.zero    # =&amp;gt; Nothing
+Maybe.new(3) * Maybe.zero   # =&amp;gt; Nothing
+Maybe.zero  * Maybe.new(2)  # =&amp;gt; Nothing
+Maybe.zero  * Maybe.zero  # =&amp;gt; Nothing
+Maybe.new(3) * Mabye.zero * Mabye.new(2) # =&amp;gt; Nothing
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2 とか 3 とかは気にせずに &lt;code&gt;Just&lt;/code&gt; と &lt;code&gt;Nothing&lt;/code&gt;だけに注目しましょう。
+あえて無視するようにつくっています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Just    * Just    = Just&lt;/li&gt;
+&lt;li&gt;Just    * Nothing = Nothing&lt;/li&gt;
+&lt;li&gt;Nothing * Just    = Nothing&lt;/li&gt;
+&lt;li&gt;Nothing * Nothing = Nothing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;というルールが成立しています。&lt;/p&gt;
+
+&lt;p&gt;整数で考えたいのであれば Just を 1、 Nothing を 0 と考えても良いかもしれません。
+Bool であれば Just は true, Nothing は false で、 * は &lt;code&gt;and&lt;/code&gt; という置き換えができそうですね。&lt;/p&gt;
+
+&lt;p&gt;この&lt;code&gt;*&lt;/code&gt;ですか実装はとてもシンプルです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def *(m)
+  bind { m }
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;この実装はHaskellの&lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt;と同じです。
+bindを使えば似たようなものをたくさんつくれます。&lt;/p&gt;
+
+&lt;p&gt;なので、モナドであれば簡単にモノイドをつくれるということが言えそうです。
+単位元はreturnすれば作れるし、演算子はbindをつかって簡単に作れます。&lt;/p&gt;
+
+&lt;p&gt;以下補足。&lt;/p&gt;
+
+&lt;p&gt;Maybe.zero は Nothing を生成するためのファクトリです。&lt;/p&gt;
+
+&lt;p&gt;Maybe は &lt;code&gt;Just&lt;/code&gt; と &lt;code&gt;Nothing&lt;/code&gt; しかないので &lt;code&gt;*&lt;/code&gt;という演算に対する単位元と zero しか値がないのであんまり楽しくないですね。
+あとで、Haskell で リストモナドをみてみましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_4:36e25dd139b5b5a09c43152e31083e30&#34;&gt;&amp;gt;&amp;gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; はいままで保持している値を捨ててしまうので、後のほうの値である 2 しか残っていません。
+この &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; を別のものに代えてしまえばモナドが保持している値も持ち運びができます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Maybe.bind&lt;/code&gt; ですが、
+&lt;code&gt;a -&amp;gt; M b&lt;/code&gt; な型の関数を用意すれば単項演算子が作れる感じです。
+(&amp;gt;&amp;gt;= return) の型を見てみるとわかりやいです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;:t (&amp;gt;&amp;gt;= return)
+(&amp;gt;&amp;gt;= return) :: Monad m =&amp;gt; m b -&amp;gt; m b
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Maybe.new は Haskell では &lt;code&gt;Just&lt;/code&gt; になります。
+抽象化してどんなモナドでも使えるのが &lt;code&gt;return&lt;/code&gt; になります。&lt;/p&gt;
+
+&lt;p&gt;Maybe であれば &lt;code&gt;+&lt;/code&gt; も定義できます。MonadPlus です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Maybe.new(3) + Maybe.new(2) # =&amp;gt; Just 2
+Maybe.new(3) * Maybe.zero + Maybe.new(2) # =&amp;gt; Just 2
+Maybe.zero + Maybe.new(3) * Maybe.new(2) # =&amp;gt; Just 2
+Maybe.zero + Maybe.zeror # =&amp;gt; Nothing
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Just    + Just    = Just&lt;/li&gt;
+&lt;li&gt;Nothing + Just    = Just&lt;/li&gt;
+&lt;li&gt;Just    + Nothing = Just&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Nothing + Nothing = Nothing&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;においては 単位元は Nothing になります。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;list-モナド:36e25dd139b5b5a09c43152e31083e30&#34;&gt;List モナド&lt;/h2&gt;
+
+&lt;p&gt;これらのことを踏まえて Haskell でリストモナドで遊んでみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;[1] &amp;gt;&amp;gt; [2] -- =&amp;gt; [2]
+[1] &amp;gt;&amp;gt; []  -- =&amp;gt; []
+[] &amp;gt;&amp;gt; [1]  -- =&amp;gt; []
+[] &amp;gt;&amp;gt; []   -- =&amp;gt; []
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; を &lt;code&gt;*&lt;/code&gt; だと考えましょう。&lt;/p&gt;
+
+&lt;p&gt;要素が1つの リストが単位元です。&lt;/p&gt;
+
+&lt;p&gt;もうちょっと複雑な例にいきましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;[1,2] &amp;gt;&amp;gt; [3]   -- =&amp;gt; [3,3]
+[1,2] &amp;gt;&amp;gt; [3,4] -- =&amp;gt; [3,4,3,4]
+[1,2] &amp;gt;&amp;gt; []    -- =&amp;gt; []
+[]    &amp;gt;&amp;gt; [3,4] -- =&amp;gt; []
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ちょっとわかりにくい。
+以下の作業をしてみましょう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; を &lt;code&gt;*&lt;/code&gt; に&lt;/li&gt;
+&lt;li&gt;演算される値を要素数に置き換えてみましょう。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;2 * 1 =&amp;gt; 2  --  [1,2] &amp;gt;&amp;gt; [3]   # =&amp;gt; [3,3]
+2 * 2 =&amp;gt; 4  --  [1,2] &amp;gt;&amp;gt; [3,4] # =&amp;gt; [3,4,3,4]
+2 * 0 =&amp;gt; 0  --  [1,2] &amp;gt;&amp;gt; []    # =&amp;gt; []
+0 * 2 =&amp;gt; 0  --  []    &amp;gt;&amp;gt; [3,4] # =&amp;gt; []
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;整数の積になりました。&lt;/p&gt;
+
+&lt;p&gt;値が捨てられるのが気に食わないですか？
+活かせるようにもできます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;let product = \x y -&amp;gt; x &amp;gt;&amp;gt;= \x&#39; -&amp;gt; (y &amp;gt;&amp;gt;= \y&#39; -&amp;gt; return $ x&#39; * y&#39;) :: [Int]
+[1,2] `product` [3] -- =&amp;gt; [3,6]
+-- 2 * 1 = 2
+[1,2] `product` [3,4] -- =&amp;gt; [3,4,6,8]
+-- 2 * 2 = 4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ちょっと難しいかもしれません、product は do 記法つかえばシンプルに書けます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;product x y = do
+  x&#39; &amp;lt;- x
+  y&#39; &amp;lt;- y
+  return $ x&#39; * y&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;io-モナド:36e25dd139b5b5a09c43152e31083e30&#34;&gt;IO モナド&lt;/h2&gt;
+
+&lt;p&gt;なんとなく思ったこと。&lt;/p&gt;
+
+&lt;p&gt;結合律を利用して順番を保証しているのだと思いました。&lt;/p&gt;
+
+&lt;h2 id=&#34;rubyの話もすこし:36e25dd139b5b5a09c43152e31083e30&#34;&gt;Rubyの話もすこし&lt;/h2&gt;
+
+&lt;p&gt;型推論ができないため、 bind がブロックに渡す引数を ふたつにして、第2引数に型を渡してみました。
+これでbind に渡すブロック内の処理が Maybe に依存せずに済んでいます。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:36e25dd139b5b5a09c43152e31083e30&#34;&gt;まとめ。&lt;/h2&gt;
+
+&lt;p&gt;Rubyでモナドを実装してみたら、
+「モナドを勉強していて気になっていたことが文章にできそうになった」ので、文章にしてみました。&lt;/p&gt;
+
+&lt;p&gt;途中に説明不足な部分がありますが、今回は割愛しておきます。&lt;/p&gt;
+
+&lt;p&gt;圏論楽しいですね。やばいです。&lt;/p&gt;
+
+&lt;p&gt;誰かのモナドの理解への助けになるといいな。&lt;/p&gt;
+
+&lt;p&gt;それより斧で血だらけになりそうです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>プログラムミングにおけるモナドと圏論との対応。</title>
+          <link>http://blog.eiel.info/blog/2012/06/07/monad-memo/</link>
+          <pubDate>Thu, 07 Jun 2012 17:57:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/06/07/monad-memo/</guid>
+          <description>&lt;p&gt;説明するわけではないです。メモです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Kleisli圏&lt;/code&gt; をキーワードに調べると気になるということがわかったのでメモしておきます。&lt;/p&gt;
+
+&lt;p&gt;その中で気になったもの&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tnomura9.exblog.jp/12138525/&#34;&gt;tnomuraのブログのブログ - モナドのKleisli圏&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://takeichi.ipl-lab.org/~hamana/local/monad2.pdf&#34;&gt;関数型プログラマのためのモナド理論&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://d.hatena.ne.jp/m-hiyama/20060821/1156120185&#34;&gt;はじめての圏論 その第1歩&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;単にHaskellをするのに圏論の理解は不要です。使うだけなら馴れるだけで十分だと思います。モナドの表現力がどのようなところまであるのか、そのあたりを知りたいのです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

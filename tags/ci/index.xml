@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/ci/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-03-03 12:05:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>LT駆動開発で「CI のある生活」という話をするはずだった</title>
+          <link>http://blog.eiel.info/blog/2014/03/03/ci-in-ltdd/</link>
+          <pubDate>Mon, 03 Mar 2014 12:05:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/03/03/ci-in-ltdd/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA01&#34;&gt;LT駆動開発 01&lt;/a&gt;で「CI のある生活 すごい広島の例」という話をするはずでしたが、時間の都合で「すごい広島の例」だけになりました。&lt;/p&gt;
+
+&lt;p&gt;LT駆動開発の参加者には、継続インテグレーション(以下、CI)の知らない普通の人もいるだろうという想定で CI の説明をしてみようという試みでしたが、時間がなかったので30枚ぐらいスライドを省略しました。&lt;/p&gt;
+
+&lt;p&gt;下記のスライドは省いたスライドも追加してあります。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;af93ee90836f0131cf5b265e09c13f13&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;本スライドは「CI を普通の人に有用性を知ってもらうには」や「Web制作の人にも使いどころを考えてもらうにはどうすればいいか」を考えつつ、ウェブで見つかる CI の説明は開発者よりのものばかりなので、他の説明方法はできないかと考えてみたものです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;の中に &lt;a href=&#34;https://travis-ci.org/&#34;&gt;Travis-CI&lt;/a&gt; というサービスが登場するようになりました。
+すごい広島の目的の一つに、プログラマではないITの仕事をしてる人に「GitHubの使い方を学んでもらう」というのがあるというのが発端です。&lt;/p&gt;
+
+&lt;p&gt;CI って、とりあえずテストを自動実行するところから入る使い方から入るパターンが多くて、自動テストかいてなくて使いどころがなくって使ってないなんて話や「何に使うの？」って話が周りでは多い気がします。
+そんな中、「CIサーバってなんだろうなー」と半日考えた結果の答えは「作ることに集中したい」ってことと「継続的デリバリーをするためのツール」ってことだと考えました。&lt;/p&gt;
+
+&lt;p&gt;そこで、そこへ至る道を論理的に進めてみたつもりです。&lt;/p&gt;
+
+&lt;p&gt;ちなみに&lt;a href=&#34;http://www.amazon.co.jp/gp/product/4048707876/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=4048707876&amp;amp;linkCode=as2&amp;amp;tag=eiel-22&#34;&gt;継続的デリバリー&lt;/a&gt;は読んでいない。&lt;/p&gt;
+
+&lt;p&gt;スライドつくってて困ったのは、最初 CI って言葉しか使ってなくて、文脈によっては CIサーバという意味に変化してることがあって、それをどうやってごまかさないのか苦労しました。
+気がついたら CI が継続的デリバリーって意味になっていることに気がついて、「これ CI じゃないじゃん」「CI ってなんなんだ」とか、ぐるぐるしました。
+あと、統合って説明しにくい。&lt;/p&gt;
+
+&lt;p&gt;LT 仕様なのでスライドの枚数の割に内容がないですね。&lt;/p&gt;
+
+&lt;p&gt;そんなわけでLT駆動開発なのですが、私はLTをするために、いろいろ考えたので、当日参加した時点で勉強する目的を達成した感があったりします。
+参加しなくても勉強になったかもしれない。&lt;/p&gt;
+
+&lt;p&gt;他のLTは分野が多岐にわたり、自分が追えてない情報がまとまっていたり、自分にはない発想があったりと、当日は当日で勉強になりました。&lt;/p&gt;
+
+&lt;p&gt;LT駆動開発の主旨を説明するために用意したスライドもアップロードしておいたので興味があれば、確認してみてください。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;0fdaccc0836f0131c82e4ea9b462f4d3&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;ついでに、スライドの .key ファイルをどっかに残しておきたいと思いつつ GitHub だとローカルディスクにコピーがいるし、悩んだ結果 S3 に置いてみたりしました。
+来月にはこのあたりを自動化したりして、この話を整理して話そうかなぁ、と考えていたりします。3月は忙しそうで怖い。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://keynotes.eiel.info/&#34;&gt;keynotes.eiel.info&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;index.html を自動生成したい。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:d620192eeb02a2e24418c588ce4dcf5a&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/02/19/start-ltdd/&#34;&gt;LT駆動開発という勉強会をはじめるよ - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/02/18/github-push-from-travis/&#34;&gt;Travis-CI でコミットして GitHub にプッシュする - 公開鍵認証を利用してみる - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/02/19/change-sitespec-for-great-h/&#34;&gt;すごい広島のサイトを sitespec に変えてみた - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Circle CI を試した</title>
+          <link>http://blog.eiel.info/blog/2013/10/30/circle-ci/</link>
+          <pubDate>Wed, 30 Oct 2013 11:55:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/10/30/circle-ci/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://twitter.com/hwebsys&#34;&gt;2013年10月の広島Webシステム開発勉強会&lt;/a&gt;内で&lt;a href=&#34;https://circleci.com&#34;&gt;Cicle CI&lt;/a&gt; を試していた。&lt;/p&gt;
+
+&lt;p&gt;最安値が19ドルで、この場合プライベートリポジトリがひとつ使える。&lt;/p&gt;
+
+&lt;p&gt;Rails プロジェクトで試しました。設定した内容はわずかで、&lt;code&gt;.ruby-version&lt;/code&gt; の指定をしただけで、テストの実行することができました。
+これはこのプロジェクトが ruby 2.0 以上である必要があるからです。
+リポジトリの選択も Github から一覧が取得されているので、一覧から選択するだけでした。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;config/database.yml&lt;/code&gt; は自動で生成されました。&lt;/li&gt;
+&lt;li&gt;デフォルトでは並列ビルドされず、20分ぐらい実行にかかりました&lt;/li&gt;
+&lt;li&gt;Edit settings から 6つに分けて並列に実行できました。4分ぐらいで終了するようになりました&lt;/li&gt;
+&lt;li&gt;GitHub に Pull Request があれば merge するときにビルド実行結果がわかります
+現在、タイムゾーンの影響で失敗してテストがあるので修正方法を模索しているところです。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;並列ビルドは rspec、 cucumber それぞれ、自動で6分割して実行されていました。
+一部のcucumberがかなり素早く終了したのでファイル単位で分割しているのだと思います。
+&lt;a href=&#34;https://circleci.com/docs/parallel-manual-setup&#34;&gt;その辺のカスタマイズ方法はここに書いてある&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;結局 &lt;code&gt;circle.yml&lt;/code&gt; は、これだけしか書いていない状態。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;machine:
+  ruby:
+    version: 2.0.0-p247
+  timezone: Asia/Tokyo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;導入がとても簡単で維持費が EC2 のマイクロを立ち上げっぱなし程度です。
+コンテナの数ではなくて、プライベートリポジトリの数での課金なのでアクティブなプロジェクトでのみ使用する使い方になりそうです。
+そんな使い方が可能なのかはまだよくわからない。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>cucumber で PhantomJS を使う</title>
+          <link>http://blog.eiel.info/blog/2013/05/23/cucumber-with-phantomjs/</link>
+          <pubDate>Thu, 23 May 2013 01:59:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/05/23/cucumber-with-phantomjs/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://cukes.info/&#34;&gt;Cucumber&lt;/a&gt; で使うブラウザを &lt;a href=&#34;http://phantomjs.org/&#34;&gt;PhantomJS&lt;/a&gt; にしたい。&lt;/p&gt;
+
+&lt;p&gt;Cucumber -&amp;gt; Capybara -&amp;gt; Poltergeist -&amp;gt; PhantomJS という感じに利用します。&lt;/p&gt;
+
+&lt;p&gt;PhantomJS は画面のないブラウザと言うと、伝わりやすいでしょうか。&lt;/p&gt;
+
+&lt;p&gt;統合的なテストを行う場合、Rails プロジェクトでは Cucumber がよく使われています。
+Cucumberのシナリオに &lt;code&gt;@javascript&lt;/code&gt; というタグをつけると Selenium を利用して Firefox を制御してテストを行うことができます。
+非常に便利なのですが、処理が長かったり、また、X11の起動してない Linux などで動かそうとするとちょっと問題がおきます。
+そこで、画面の表示をしないブラウザでテストしたくなります。
+また、実際によく使うわれるのはレンダリングエンジンは Webkit です。&lt;/p&gt;
+
+&lt;p&gt;そのためのブラウザとしての有力候補が PhantomJS です。
+PhantomJS のレンダリングエンジンは Webkit で、必要であればスクリーンショットがとれます。
+Travis CI でも利用できるようです。(未確認)&lt;/p&gt;
+
+&lt;p&gt;利用までの手順としては&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;PhantomJS のインストール&lt;/li&gt;
+&lt;li&gt;Rails プロジェクトに Poltergeistを追加&lt;/li&gt;
+&lt;li&gt;featrue/support/env.rb を設定&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;となります。&lt;/p&gt;
+
+&lt;h3 id=&#34;phantomjs-のインストール:0431d6fc23db040417a221faa946fe58&#34;&gt;PhantomJS のインストール&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://phantomjs.org/download.html&#34;&gt;http://phantomjs.org/download.html&lt;/a&gt; から ダウンロードできます。
+Mac であれば Homebrew や Macport でインストール可能なようです。ダウンロードしても bin/phantomjs を 環境変数PATH に入っているところに配置するだけです。&lt;/p&gt;
+
+&lt;h3 id=&#34;rails-プロジェクトに-poltergeist-を追加:0431d6fc23db040417a221faa946fe58&#34;&gt;Rails プロジェクトに Poltergeist を追加&lt;/h3&gt;
+
+&lt;p&gt;Gemfile に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;group :test do
+  gem &#39;poltergeist&#39;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と追記すれば良いです。&lt;/p&gt;
+
+&lt;h3 id=&#34;feature-support-env-rb-を設定:0431d6fc23db040417a221faa946fe58&#34;&gt;feature/support/env.rb を設定&lt;/h3&gt;
+
+&lt;p&gt;設定しないと使えません。
+&lt;code&gt;feature/support/env.rb&lt;/code&gt; に以下を追記すればよいでしょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;capybara/poltergeist&#39;
+Capybara.javascript_driver = :poltergeist
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;@javascript&lt;/code&gt; つけるのがめんどくさい! って場合は、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;equire &#39;capybara/poltergeist&#39;
+Before do
+  Capybara.current_driver = :poltergeist
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とする方法もあります。&lt;/p&gt;
+
+&lt;h3 id=&#34;トラブルとか:0431d6fc23db040417a221faa946fe58&#34;&gt;トラブルとか&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;javascript がちょっとエラーがおきただけで、エラーになる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;js_errors&lt;/code&gt; などを設定すると無視できるようです。
+今のところは折角なので全部直しています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;クリックに失敗することがある。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;なにやらふたつの node をクリックしてしまって、エラーのようなものが起きてる箇所がでてます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;もし /^&amp;quot;(.*?)&amp;quot;をクリック$/ do |name|
+  click_on name
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のような、step を&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;もし /^&amp;quot;(.*?)&amp;quot;をクリック$/ do |name|
+  find(:link_or_button, name).trigger(&#39;click&#39;)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;にすると動く場面もありました。&lt;/p&gt;
+
+&lt;h3 id=&#34;もうちょっと詳しく:0431d6fc23db040417a221faa946fe58&#34;&gt;もうちょっと詳しく&lt;/h3&gt;
+
+&lt;p&gt;失敗する利用がわからなくて、pry などで停止させた時に Poltergeist を直接やりとりしたい場合は&lt;code&gt;page.driver&lt;/code&gt; でオブジェクトにアクセスできます。
+PhantomJS と直接やりとりしたい場合は &lt;code&gt;page.driver.server&lt;/code&gt; でよさそうです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jonleighton/poltergeist/blob/master/lib/capybara/poltergeist/driver.rb&#34;&gt;Capybara::Poltergeist::Driver&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jonleighton/poltergeist/blob/master/lib/capybara/poltergeist/server.rb&#34;&gt;Capybara::Poltergeist::Server&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;一応登場人物の整理:0431d6fc23db040417a221faa946fe58&#34;&gt;一応登場人物の整理&lt;/h3&gt;
+
+&lt;p&gt;Capybara はウェブブラウザの違いを吸収してブラウザの操作を記述するDSLです。バックエンドに何を使うとしても同じように書けます。&lt;/p&gt;
+
+&lt;p&gt;Poltergeist は CapybaraのDSLによる命令を、PhantomJS の命令に変換し、実行結果をもどす役目をします。違いを吸する部分です。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:0431d6fc23db040417a221faa946fe58&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;まだテストがすべて通ってない。JavaScript を使用していない シナリオからの移行はそれなりに大変です。
+でも、やるなら速いほうがいいと思います。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>travisを利用してみる</title>
+          <link>http://blog.eiel.info/blog/2012/09/21/travis/</link>
+          <pubDate>Fri, 21 Sep 2012 17:51:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/09/21/travis/</guid>
+          <description>
+
+&lt;p&gt;githubで公開してるリポジトリを継続的インテグレーションを行えるサービスとして &lt;a href=&#34;http://travis-ci.org/&#34;&gt;travis&lt;/a&gt; というのがあるので、&lt;a href=&#34;http://travis-ci.org/&#34;&gt;hiroshimarb-gem&lt;/a&gt;で利用してみることにした&lt;/p&gt;
+
+&lt;p&gt;githubのアカウントがあればログインができるのでアカウントの作成は手軽でした。&lt;/p&gt;
+
+&lt;h2 id=&#34;リポジトリの指定:c56930a3760ec07c4fc95b46ac55be17&#34;&gt;リポジトリの指定&lt;/h2&gt;
+
+&lt;p&gt;リポジトリを指定するにはプロフィールからいけばよいです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/travis-profile.png&#34; alt=&#34;ここ&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;いろいろでるので利用するリポジトリをONにすればよいみたいです。&lt;/p&gt;
+
+&lt;h2 id=&#34;travisの設定:c56930a3760ec07c4fc95b46ac55be17&#34;&gt;travisの設定&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;.travis.yml&lt;/code&gt;用意する必要があります。&lt;/p&gt;
+
+&lt;h2 id=&#34;参考文献:c56930a3760ec07c4fc95b46ac55be17&#34;&gt;参考文献&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://about.travis-ci.org/docs/user/getting-started/&#34;&gt;Travis CI Getting started&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

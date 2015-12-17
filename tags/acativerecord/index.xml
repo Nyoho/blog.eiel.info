@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/acativerecord/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-11-16 15:05:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Rails 3.2.9 で default_scopeに設定してる条件が属性の初期値になるらしい</title>
+          <link>http://blog.eiel.info/blog/2012/11/16/rails-329-default-scope/</link>
+          <pubDate>Fri, 16 Nov 2012 15:05:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/16/rails-329-default-scope/</guid>
+          <description>&lt;p&gt;あるプロジェクトでrails 3.2.9 にアップデートしたら テストが失敗しまくる。そのひとつに ActiveRecordの default_scope を使ってる部分に問題があるとわかった。&lt;/p&gt;
+
+&lt;p&gt;どんなエラーかと言いますと。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;NoMethodError: undefined method `to_i&#39; for [1, 2, 3]:Array
+from activerecord-3.2.9/lib/active_record/connection_adapters/column.rb:178:in `value_to_integer&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;[1, 2, 3]&lt;/code&gt; とか即値すぎて &lt;em&gt;わけがわからないよ&lt;/em&gt; という感じだったんですが、いろいろ調べると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class User &amp;lt; ActiveRecord::Base
+   default_scope proc { where(state_id: [1, 2, 3]]) }
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;というコードがあったときに&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;User.new
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;すると発生することがわかりました。&lt;/p&gt;
+
+&lt;p&gt;仕方ないので、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class User &amp;lt; ActiveRecord::Base
+   scope :valid, proc { where(state_id: [1, 2, 3]]) }
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;として、ひたすら置換しまくりでした。
+僕はdefault_scope使わない派なのであまり気にしない方向で。&lt;/p&gt;
+
+&lt;p&gt;ちなみに&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class User &amp;lt; ActiveRecord::Base
+   default_scope proc { where(state_id: 1,name: &amp;quot;hoge&amp;quot;) }
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;としておくと&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;User.new
+=&amp;gt; #&amp;lt;User id: nil, name: &amp;quot;hoge&amp;quot;, state_id: 1&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となるようです。
+scopeから初期値を生成する機能がもともとあったみたいで(知らなかった)それが&lt;code&gt;default_scope&lt;/code&gt;のものがデフォルトになったようです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

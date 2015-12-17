@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/fizzbuzz/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-01-26 14:33:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>@souda1025 に PythonでFizzBuzzとかしてみた に対抗しろって煽られたので。</title>
+          <link>http://blog.eiel.info/blog/2013/01/26/soudai-fizzbuzz/</link>
+          <pubDate>Sat, 26 Jan 2013 14:33:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/26/soudai-fizzbuzz/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://twitter.com/soudai1025&#34;&gt;@soudai1025&lt;/a&gt; が書いた&lt;a href=&#34;http://soudai1025.blogspot.jp/2013/01/pythonfizzbuzz.html?spref=fb&#34;&gt;ブログ記事にPythonでFizzBuzzとかしてみた&lt;/a&gt;というエントリーがあるのですが、Facebookでこういうコメントをみた。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;多分、ひむひむが対抗してくるはず。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;全力でお答えしましょう。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、普通 FizzBuzz かくならこうかくだろう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def fizzbuzz(number):
+    if number % 15 == 0:  # number % 5 == 0 and number % 3 == 0
+        return &amp;quot;FizzBuzz&amp;quot;
+    elif number % 5 == 0:
+        return &amp;quot;Buzz&amp;quot;
+    elif number % 3 == 0:
+        return &amp;quot;Fizz&amp;quot;
+    else:
+        return str(number)
+
+if __name__ == &#39;__main__&#39;:
+    number = int(raw_input(&amp;quot;Please enter an integer: &amp;quot;))
+    print fizzbuzz(number)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;数値を入れると &lt;code&gt;数値の文字列&lt;/code&gt; か &amp;ldquo;Fizz&amp;rdquo; か &amp;ldquo;Buzz&amp;rdquo; か &amp;ldquo;FizzBuzz&amp;rdquo; を返す関数を用意するほうが柔軟性があり、わかりやすいです。&lt;/p&gt;
+
+&lt;p&gt;さて、もとのコードを確認していきましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;int = int(raw_input(&amp;quot;Please enter an integer: &amp;quot;))
+
+def do_fizz(int):
+    if (int % 3) == 0:
+        return 1
+    return 0
+
+def do_buzz(int):
+    if (int % 5) == 0:
+        return 2
+    return 0
+
+def do_answer(fizz, buzz):
+    flag = fizz + buzz
+    if flag == 0:
+        print int #引数に居なくても外のintを参照出来る
+    elif flag == 1:
+        print &amp;quot;Fizz&amp;quot;
+    elif flag == 2:
+        print &amp;quot;Buzz&amp;quot;
+    elif flag == 3:
+        print &amp;quot;FizzBuzz&amp;quot;
+
+do_answer(do_fizz(int), do_buzz(int))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;さて、気になる点をあげていこう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;do_answer&lt;/code&gt; 関数が外のスコープにアクセスしている。&lt;/li&gt;
+&lt;li&gt;よくわからないフラグ処理がされている。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;do_answer&lt;/code&gt; の引数が意味不明。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;関数が外のスコープにアクセスしている:aa533cc5bfd0e8e446ea5505e1815d9f&#34;&gt;関数が外のスコープにアクセスしている&lt;/h2&gt;
+
+&lt;p&gt;関数が外のスコープにアクセスしてしまうとその関数だけみたときに他の部分を確認しないといけないのでよくない。&lt;/p&gt;
+
+&lt;p&gt;それぐらいなら引数を追加しましょう。&lt;/p&gt;
+
+&lt;h2 id=&#34;よくわからないフラグ処理がされている:aa533cc5bfd0e8e446ea5505e1815d9f&#34;&gt;よくわからないフラグ処理がされている&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;do_fizz&lt;/code&gt; と &lt;code&gt;do_buzz&lt;/code&gt; が関数名から何をするのかさっぱりわからない。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;do_fizz&lt;/code&gt; は &lt;em&gt;3で割り切れる場合 1 を返し、それ以外の場合は 0 を返す関数である&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;do_buzz&lt;/code&gt; は &lt;em&gt;5で割り切れる場合 2 を返し、それ以外の場合は 0 を返す関数である&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ということはコードをよまなければわからない。ならば、関数の頭にコメントをかくか、そのような名前の関数にすべきだと思う。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;do_&lt;/code&gt; という接頭辞が着いている以上何かする関数だと想像するので、ここで &lt;code&gt;print&lt;/code&gt; されているのであれば、まだ良いと思うけど, iPhoneで閲覧していたらこの命名のせいで混乱しました。&lt;/p&gt;
+
+&lt;h2 id=&#34;do-answer-の引数が意味不明:aa533cc5bfd0e8e446ea5505e1815d9f&#34;&gt;do_answer の引数が意味不明&lt;/h2&gt;
+
+&lt;p&gt;fizz って何? buzz って何?&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;do_answer(do_fizz(int), do_buzz(int))&lt;/code&gt; これをみてわけがわかる人がいたら教えて欲しい。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;do_fizz&lt;/code&gt; と &lt;code&gt;do_buzz&lt;/code&gt; の実行結果を使うのであれば、関数内で使うべきだろう。&lt;code&gt;int&lt;/code&gt;をdo_answer に渡さない設計にしているのに &lt;code&gt;do_fizz&lt;/code&gt; と &lt;code&gt;do_buzz&lt;/code&gt; に渡しているのに ここで int の文字がふたつ見える。 &lt;strong&gt;わけがわからないよ&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;do_answer&lt;/code&gt; は &lt;code&gt;print&lt;/code&gt; するという点でまあ良いのじゃないかと思う。
+ただ、doしないversionを用意しておけば&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;for n in range(1,int):
+   print answer(do_fizz(n), do_buzz(n))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とかきかえることができて、&lt;code&gt;int&lt;/code&gt;までの FizzBuzz が表示できてナイスだと思います。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:aa533cc5bfd0e8e446ea5505e1815d9f&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;「Haskell と Ruby で書いたらどうなるかを書け」という煽りな気がしたけど無視してみた。&lt;/p&gt;
+
+&lt;p&gt;ついで、個人的感想。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;「Pythonって三項演算子どうやるんだろ？」って思ったんで調べて使ってみた。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;たぶん、&lt;code&gt;and&lt;/code&gt; &lt;code&gt;or&lt;/code&gt; で同様のことはできるけど、&lt;strong&gt;「3項演算子は読みにくいから使うな。」&lt;/strong&gt; ってことだと思う。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;phpの&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;$flag[] = (int % 3 == 0) ? 1 : 0;
+$flag[] = (int % 5 == 0) ? 2 : 0;
+
+$flag[&#39;fizz&#39;] = (int % 3 == 0) ? 1 :0;
+$flag[&#39;buzz&#39;] = (int % 5 == 0) ? 2 :0;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;みたいにいきなりList（配列）を作る書き方がPythonでも出来ると思うんだけど知識不足。
+公式チュートリアルやったらどっかで出てくるかな？ｗ&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;初期化してない変数に無理矢理突っ込むということのほうがおかしい。
+かくなら&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;flag = []
+flag.append(fizz)
+flag.append(buzz)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となるのではないでしょうか。&lt;/p&gt;
+
+&lt;p&gt;このように中途半端なコードを書いて誰かを煽ると添削とかしてもらえるらしいです。非常に勉強する際にショートカットになりますし、煽られるほうも勉強になります。どんどん真似していきましょう。&lt;/p&gt;
+
+&lt;p&gt;まあ、せっかくなので Haskell でも書いておきました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import Control.Monad
+
+main = do
+  putStr &amp;quot;please enter an integer:&amp;quot;
+  number &amp;lt;- fmap read $ getLine
+  putStrLn . fizzbuzz $ number
+  -- forM_ [1..number] $ \n -&amp;gt;
+  --       putStrLn . fizzbuzz $ n
+
+fizzbuzz :: Int -&amp;gt; String
+fizzbuzz n | n `mod` 15 == 0 = &amp;quot;FizzBuzz&amp;quot;
+           | n `mod`  5 == 0 = &amp;quot;Buzz&amp;quot;
+           | n `mod`  3 == 0 = &amp;quot;Fizz&amp;quot;
+           | otherwise       = show n
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;再帰についても書きたいですが、話がずれてしまうので、また別の機会に。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/soudai-FizzBuzz&#34;&gt;リポジトリはこちらに用意しておきました。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;トマホークおまちしています。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

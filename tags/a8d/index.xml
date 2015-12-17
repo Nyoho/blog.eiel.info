@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/a8d/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-08-02 12:00:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>LT駆動開発で UIDynamics を利用した万華鏡アプリを紹介した</title>
+          <link>http://blog.eiel.info/blog/2014/08/02/a8d2-kaeidscope/</link>
+          <pubDate>Sat, 02 Aug 2014 12:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/08/02/a8d2-kaeidscope/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://www.facebook.com/events/321060364724219/&#34;&gt;A8D:2&lt;/a&gt; というイベントが2014年8月3日に行なわれます。明日じゃねーか。&lt;/p&gt;
+
+&lt;p&gt;そんなことはさておいて、&lt;a href=&#34;http://augment8.org/&#34;&gt;Augment8&lt;/a&gt;というグループがあります。
+このグループは年に1回、普段作っているものをみんなに体験してもらう場をつくろうというイベントがあるらしく、Augment8 Day を省略して A8D というイベントをしているそうです。&lt;/p&gt;
+
+&lt;p&gt;デジタルなガジェットを一般の人に体験していただくイベントだ。&lt;/p&gt;
+
+&lt;p&gt;そのイベントに参加することになったので、このために作成したアプリを告知を兼ねて&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA06&#34;&gt;LT駆動開発06&lt;/a&gt;で紹介をしました。&lt;/p&gt;
+
+&lt;p&gt;というわけでまずスライド。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;4e0e1b60fb610131b3ca3a8923229263&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;つづいて、スライド内で利用している動画。&lt;/p&gt;
+
+&lt;p&gt;万華鏡のサンプル1&lt;/p&gt;
+
+&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/sMJtJsOGcPg&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;万華鏡のサンプル2&lt;/p&gt;
+
+&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/GXqg2EEn-d4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;UIDynamicsのサンプル&lt;/p&gt;
+
+&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/4AIo5x1DoZo&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;iOS7 からUIKitで物理エンジンが搭載されていて気軽に使えるようになったらしい。
+まだ試してなかったのだけど、普通の人にも楽しめそうなものとして万華鏡をつくってみた。
+iOSのCoreMotionを使いiOS端末を操作して画面に映る万華鏡が変化するという寸法です。&lt;/p&gt;
+
+&lt;p&gt;普段、iOSアプリをつくってるわけではないのでそんなに凝ったことはしていません。
+万華鏡といえば三角なのですが四角のものもあるそうで、手抜きで四角の万華鏡になっています。&lt;/p&gt;
+
+&lt;p&gt;Apple Swift で作成しているためアプリとして申請するのもできないし、体験できるようにソースコードを公開しておきますね。まだ勉強中でソースコードが汚いですね、わかります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Augment8/kaleidoscope&#34;&gt;Augment8/kaleidoscope · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;サブディスプレイに対応しているので、プロジェクタに写したり Apple TV で画面に写したりできます。&lt;/p&gt;
+
+&lt;p&gt;当日は丸いものにプロジェクトションマップもどきをしたりする予定です。
+操作用のiOS端末のために&lt;strong&gt;拡張パーツ&lt;/strong&gt;を用意しています。デザイン担当の&lt;a href=&#34;https://twitter.com/akigonn&#34;&gt;あきさん&lt;/a&gt;が作成しています。これを装着すると…つづきは当日のA8D:2にて体験してください。&lt;/p&gt;
+
+&lt;p&gt;デジタルならではなところは動的に反射している数が増えたり、中身が変化したり、マスクが変化したりと用意してみました。
+それなりに面白くなったでしょうか。
+魅せるためのスキル不足なため、本当に楽しめるものになったのかよくわからないので、みんなの反応が気になります。&lt;/p&gt;
+
+&lt;p&gt;今回のLT駆動における初挑戦は「動画をつかってみる」でした。
+スライドを公開する際に動画は別のところにアップロードしないといけないのがすこしつらい。&lt;/p&gt;
+
+&lt;p&gt;Swiftのコードを書いていて思ったことは、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ブロック構文がなかなか書きなれない&lt;/li&gt;
+&lt;li&gt;変数宣言で型から書きそうになる&lt;/li&gt;
+&lt;li&gt;なぜか&lt;code&gt;［&lt;/code&gt;を入力してしまう&lt;/li&gt;
+&lt;li&gt;なるべつ let で済ませたい病&lt;/li&gt;
+&lt;li&gt;selector 補完効かない。つらい。(文字列で渡すから当たり前)&lt;/li&gt;
+&lt;li&gt;ヘッダファイルいらないヒャッハー&lt;/li&gt;
+&lt;li&gt;CGFloat が絡む数値計算なんかよくわからない(すぐ型エラーに阻まれる)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などなどでしょうか。(咄嗟に思いついたものだけ書いた)&lt;/p&gt;
+
+&lt;p&gt;UIDynamics で ビヘイビアのインスタンスを節約しようとするとランタイムエラーではまったりしたのも良い思い出です。アニメータごとにインスタンスをつくりましょう。&lt;/p&gt;
+
+&lt;p&gt;Viewを触れるようにしてみたけど、移動したViewは元の位置にもどるという残念な結果にもなりました。&lt;/p&gt;
+
+&lt;p&gt;最後になりますが、調整するのに&lt;a href=&#34;https://bauhaus-web.jp/&#34;&gt;BAUHAUS&lt;/a&gt;の&lt;a href=&#34;https://twitter.com/uehaso&#34;&gt;上原さん&lt;/a&gt;や&lt;a href=&#34;http://funaffect.jp/&#34;&gt;ファナフェクト&lt;/a&gt;の方々にアドバイスをちょろっともらったりしました。さんきゅーです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

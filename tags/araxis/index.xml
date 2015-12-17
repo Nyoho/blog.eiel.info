@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/araxis/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-07-10 01:54:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Mac で使える git mergetool をいろいろ試してみる - Araxis</title>
+          <link>http://blog.eiel.info/blog/2013/07/10/git-mergetool-araxis/</link>
+          <pubDate>Wed, 10 Jul 2013 01:54:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/07/10/git-mergetool-araxis/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt; の続きです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.araxis.com/merge_mac/index.html&#34;&gt;Araxis Merge&lt;/a&gt; を紹介します。&lt;/p&gt;
+
+&lt;p&gt;Cocoaアプリで表現も操作性も良いです。
+だけど、値段を考えるとすこし残念な感じでした。&lt;/p&gt;
+
+&lt;p&gt;値段は 120ドルと &lt;a href=&#34;http://blog.eiel.info/blog/2013/06/29/git-mergetool-kaleidoscope/&#34;&gt;Kaleidscope&lt;/a&gt;の2倍近い値段です。
+ちょっと高い。&lt;/p&gt;
+
+&lt;p&gt;マージモードなのに3カラムではなく、2カラムでどのようにマージされるのかわかりにくかったり、キーボードショートカット が fn + ↓ とかになっていて効かなかったりと、そのあたりが残念でした。&lt;/p&gt;
+
+&lt;p&gt;設定方法ですが、git にあらかじめ設定がもりこまれているため、インストールして、環境変数PATHを設定してやれば利用できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export PATH=/Applications/Araxis\ Merge.app/Contents/Utilities:$PATH
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ここもまた残念で、compare というコマンドで起動するようですが、 他にもcompareというコマンドがあると、これより先にコマンドがみつかるように PATH を設定する必要があります。&lt;/p&gt;
+
+&lt;p&gt;公式の設定だと &lt;code&gt;PATH=$PATH:/Applications/Araxis\ Merge.app/Contents/Utilities&lt;/code&gt;とかかれていてハマりました。&lt;/p&gt;
+
+&lt;p&gt;あとは&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git mergetool -t araxis
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、実行すると起動することができます。&lt;/p&gt;
+
+&lt;p&gt;常に Araxis を利用したい場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global merge.tool araxis
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;としておくと &lt;code&gt;-t  araxis&lt;/code&gt; を省略できます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/araxis.png&#34; alt=&#34;araxis の画面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;画面左が現在のファイル内容で、画面右がマージしようとするブランチのファイルの内容になります。保存して画面を閉じれば左側の内容に決定したことになります。
+左側がデフォルトで選択されていて、右側を採用したい場合は選んでいくという使い方になります。&lt;/p&gt;
+
+&lt;p&gt;TimeMachine との連携などもでき多機能で優秀なのですが、&lt;code&gt;git mergetool&lt;/code&gt;として使うにはちょっと悩む感じでした。
+有料だけあって、無料ツールよりはずっと使いやすいです。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:1c998e69ffcc0a3e9f14d9053baa18d3&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

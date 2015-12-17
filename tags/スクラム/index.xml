@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%A0/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-03-14 23:00:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>「ふりかえり」の仕方をときどき振り返りしたほうが良いと思った - すくすくスクラム広島第10回　スタッフによる「ふりかえり」</title>
+          <link>http://blog.eiel.info/blog/2015/03/14/scrum-furikaeri/</link>
+          <pubDate>Sat, 14 Mar 2015 23:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/03/14/scrum-furikaeri/</guid>
+          <description>
+
+&lt;p&gt;『「ふりかえり」の仕方をちゃんとおさらいしたい』と思う出来事があった。
+「ふりかえり」に限らず、よく行うことはときどきやり方の見直しが必要だと思った。&lt;/p&gt;
+
+&lt;h1 id=&#34;いきさつ:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;いきさつ&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sukusuku-scrum-hiroshima.doorkeeper.jp/events/21061&#34;&gt;すくすくスクラム広島第10回　スタッフによる「ふりかえり」&lt;/a&gt;に参加しました。
+すくすくスクラム広島では3回に1回「ふりかえり」を行います。前回やりわすれたらしくて、約1年ぶりのふりかえりをしました。&lt;/p&gt;
+
+&lt;h1 id=&#34;どのようなふりかえりをしたか:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;どのようなふりかえりをしたか&lt;/h1&gt;
+
+&lt;p&gt;去年のふりかえり時にしたKPTを確認して、Tryに着目して、継続するかどうか検討した。&lt;/p&gt;
+
+&lt;h2 id=&#34;ふりかえり:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;ふりかえり&lt;/h2&gt;
+
+&lt;p&gt;スクラムのふりかえりのことで、英語ではsprint retrospective(スプリントレトロスペクティブ)と言うらしい。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;h1 id=&#34;振り返り:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;振り返り&lt;/h1&gt;
+
+&lt;p&gt;スプリントゴールの達成具合や、スプリントで発生した問題とその改善について話し合う。次回のスプリントゴール目標についての取りまとめも含まれる場合がある&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ja.wikipedia.org/wiki/%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%A0_%28%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E9%96%8B%E7%99%BA%29#.E6.8C.AF.E3.82.8A.E8.BF.94.E3.82.8A&#34;&gt;スクラム (ソフトウェア開発) - Wikipedia&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;kpt:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;KPT&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Keep(続けたいこと)&lt;/li&gt;
+&lt;li&gt;Problem(問題点)&lt;/li&gt;
+&lt;li&gt;Try(挑戦したいこと)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;3つにわけてふりかえります。&lt;/p&gt;
+
+&lt;p&gt;参考: &lt;a href=&#34;http://enterprisezine.jp/iti/detail/788&#34;&gt;今日からできる！全員参加型の建設的フィードバック「ふりかえり」～実践編（KPT・タイムライン） (&lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt;)：テクノロジーでビジネスを加速するための実践Webメディア EnterpriseZine (EZ)&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;起きた問題点:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;起きた問題点&lt;/h1&gt;
+
+&lt;p&gt;ふりかえりのやり方はあれでよかったのか&lt;/p&gt;
+
+&lt;h2 id=&#34;どんなことをしたか:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;どんなことをしたか&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;前回出たTryができたかどうかを判断した&lt;/li&gt;
+&lt;li&gt;続けるべきだどうかを考えた&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;何が問題か:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;何が問題か&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;前回のトライにしか着目していない&lt;/li&gt;
+&lt;li&gt;新たなトライがあまり登場してない&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そもそも正しいKPTはどうするのだろう。
+よくよく考えると私はしらない。&lt;/p&gt;
+
+&lt;h1 id=&#34;ふたたびkpt:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;ふたたびKPT&lt;/h1&gt;
+
+&lt;p&gt;さきほど参考にはった記事のやり方をみてみる&lt;/p&gt;
+
+&lt;p&gt;参考: &lt;a href=&#34;http://enterprisezine.jp/iti/detail/788&#34;&gt;今日からできる！全員参加型の建設的フィードバック「ふりかえり」～実践編（KPT・タイムライン） (&lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt;)：テクノロジーでビジネスを加速するための実践Webメディア EnterpriseZine (EZ)&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Try実施確認&lt;/li&gt;
+&lt;li&gt;Keep/Problem抽出&lt;/li&gt;
+&lt;li&gt;Keep/Problem確認&lt;/li&gt;
+&lt;li&gt;Problem深掘り&lt;/li&gt;
+&lt;li&gt;Try項目抽出&lt;/li&gt;
+&lt;li&gt;Who、When決定&lt;/li&gt;
+&lt;li&gt;クロージング&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;今回、2の「Keep/Problem抽出」がとても弱く、6の「Who、When決定」は自然とやっていたけど、強制力が弱かった気がする。&lt;/p&gt;
+
+&lt;p&gt;2については&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;今回のKeep/Problemについての項目を書き出します。時間を決めて全員で一斉に書き出します。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;と書かれています。
+今回のKeepとProblemに着目する時間がとれていなかったと思います。&lt;/p&gt;
+
+&lt;h1 id=&#34;改善案:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;改善案&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ちゃんと各イベントごとふりかえる&lt;/li&gt;
+&lt;li&gt;時間ととって付箋で個別にKPTをする時間をとるべきだった&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;やはり付箋をつかったKeepとProblemの抽出をやるべきだと思いました。&lt;/p&gt;
+
+&lt;h1 id=&#34;その他:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;その他&lt;/h1&gt;
+
+&lt;p&gt;ふりかえりの手法としてYWTという手法の紹介がありました。&lt;/p&gt;
+
+&lt;p&gt;参考 &lt;a href=&#34;http://kuranuki.sonicgarden.jp/2013/06/ywt.html&#34;&gt;ビジョンを叶えるために。個人でも出来る戦略を考える第１歩 〜 YWTを使った戦略の立てかたとは | Social Change!&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;やったこと(Y)&lt;/li&gt;
+&lt;li&gt;わかったこと(W)&lt;/li&gt;
+&lt;li&gt;次にやること(T)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;の3つでYWTだそうです。&lt;/p&gt;
+
+&lt;p&gt;これは、書きやすそうだと思いました。&lt;/p&gt;
+
+&lt;h1 id=&#34;まとめ:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;p&gt;ふりかえりに限らないですが、やり方は知らぬうちにオレオレルールになっていないか確認したほうが良いと思いました。
+本来のルールに問題があって、改善している場合はもちろん変えてよいと思います。&lt;/p&gt;
+
+&lt;p&gt;スクラムに限らず、毎日のようにするようなことは「ふりかえり」ことが大切だと改めて思いました。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.facebook.com/Sukusuku.Scrum.Hiroshima&#34;&gt;すくすくスクラム広島 | Facebook&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

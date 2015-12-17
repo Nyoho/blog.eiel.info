@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/xcode/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-06-18 18:03:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Xcodeのテンプレート</title>
+          <link>http://blog.eiel.info/blog/2012/06/18/xcode-template/</link>
+          <pubDate>Mon, 18 Jun 2012 18:03:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/06/18/xcode-template/</guid>
+          <description>&lt;p&gt;Xcodeが genarate する templateですが、
+いつもかきかえる部分があるのでなんとかしたいなーっておもっててしらべたら&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://akisute.com/2009/06/xcode.html&#34;&gt;http://akisute.com/2009/06/xcode.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;にかかれているんですが、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;というディレクトリはすでにありません。&lt;/p&gt;
+
+&lt;p&gt;現在は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あたりにあるようです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

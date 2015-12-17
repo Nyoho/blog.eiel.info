@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E9%9F%B3%E5%A3%B0%E7%B7%A8%E9%9B%86/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-07-29 16:32:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Mac で WMA ファイル MP3 に変換するのに wavePad を利用した</title>
+          <link>http://blog.eiel.info/blog/2013/07/29/wavepad/</link>
+          <pubDate>Mon, 29 Jul 2013 16:32:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/07/29/wavepad/</guid>
+          <description>&lt;p&gt;Mac で WMA ファイル編集して MP3 に変換するのに &lt;a href=&#34;http://www.nch.com.au/wavepad/jp/index.html&#34;&gt;wavePad&lt;/a&gt; を利用しました。
+営利目的でなければ無料で利用できます。&lt;/p&gt;
+
+&lt;p&gt;QuickTime で WMV を再生可能にする Flik4Mac だと Flip4Macを使用している旨が音声に追加されてしまいますので、これを使いました。&lt;/p&gt;
+
+&lt;p&gt;トリミングなど編集もできて出力形式も指定できるのでとても助かりました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

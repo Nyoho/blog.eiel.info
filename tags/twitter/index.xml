@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/twitter/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-06-02 10:28:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>ツイートを埋め込みするためのボタンが行方不明なので、JavaScriptでなんとかする</title>
+          <link>http://blog.eiel.info/blog/2014/06/02/not-found-etc-button/</link>
+          <pubDate>Mon, 02 Jun 2014 10:28:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/06/02/not-found-etc-button/</guid>
+          <description>&lt;p&gt;ブログにツイートを埋め込みしたい…。
+なぜか「その他」ボタンがみつからない…なぜだ…。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2014-0602-etc-button.png&#34; alt=&#34;その他ボタンどこ…&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;解析したら要素は存在している模様。ブックマークレットをつくってごまかす。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;javascript: $(&#39;.permalink-tweet .embed-link button&#39;)[0].click()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ちなみに、ログインしてない状態だと「その他」ボタンが出ることに後で気づいた。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>今すぐフォローしたい!?広島のすごいTwitterユーザを紹介</title>
+          <link>http://blog.eiel.info/blog/2013/12/01/recommend-twitter-users/</link>
+          <pubDate>Sun, 01 Dec 2013 00:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/12/01/recommend-twitter-users/</guid>
+          <description>
+
+&lt;p&gt;本記事は&lt;a href=&#34;http://www.adventar.org/calendars/74&#34;&gt;すごい広島 Advent Calendar 2013&lt;/a&gt;の1日目の記事となります。&lt;/p&gt;
+
+&lt;p&gt;タイトルは釣りです。
+個人的に紹介したい広島の人を紹介したいと思います。
+紹介したい人はいっぱいいるのですが Twitter ユーザに限らせていただきます。&lt;/p&gt;
+
+&lt;p&gt;基本的にITエンジニアの人ですが、一部例外があります。
+また、すごい人なんだけど、ツイートがあまりない方も対象外にしてます。
+明確な基準はありません。
+といっても、フォローしている人を上から順に眺めて選んだだけという説もあります。
+そして、すごい人なのにうっかり漏れた人もいるかもしれないですが、そこは本当にごめんなさい。(ガクガクブルブル)&lt;/p&gt;
+
+&lt;p&gt;順番は意味がありそうで適当です。&lt;/p&gt;
+
+&lt;h3 id=&#34;kakenavi-https-twitter-com-kakenavi:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/kakenavi&#34;&gt;kakenavi&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;外したくても外せない。
+伝説の「デスマ神」と言われているがその真相は不明。
+Twitter界でも普通に有名人。
+リアルでは「おもったほどおもしろくないですね」と、言われることがあるそうな。
+しかし、彼の本質はそこではない。
+でも、これ以上語ると私がデスマになってしまうので、これ以上語ることができない。
+噂によると彼のツイートのまとめたサイトがあるらしい。
+その破壊力はあまり知られていない。&lt;/p&gt;
+
+&lt;h3 id=&#34;nextstep2osx-https-twitter-com-nextstep2osx:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/NeXTSTEP2OSX&#34;&gt;NeXTSTEP2OSX&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;ITエンジニアではない。
+どちらかというと広島弁で有名。
+しかし、プログラミングスキルを有し、その辺のプログラマよりプログラムが書けるかもしれない。
+Emacsユーザ。
+あまり知られてないがキーボードも変態度もなかなか高い。
+Cocoaの勉強会の主催もしている。&lt;/p&gt;
+
+&lt;h3 id=&#34;24motz-https-twitter-com-24motz:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/24motz&#34;&gt;24motz&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sourceforge.jp/projects/nvdajp/&#34;&gt;NVDAというスクリーンリーダの日本語版&lt;/a&gt;の開発者。
+私の中で有識者という立ち位置を確立している。
+いつも自分にない視点からの素敵なアドバイスが飛んでくる。
+Git ネタをよくふぁぼられる。
+バージョン管理システムに思い入れを感じる。&lt;/p&gt;
+
+&lt;h3 id=&#34;moobay9-https-twitter-com-moobay9:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/moobay9&#34;&gt;moobay9&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;今、広島でもっとも売り出し中のインフラエンジニア。
+広島の救世主として知られている。
+ちょっと持ち上げすぎると怒られる。
+すばらしいほどの広島愛を「広島のアニキ」といえばこの人！になるように仕向けているがあんまりうまくいってない。&lt;/p&gt;
+
+&lt;h3 id=&#34;pecosantoyobe-https-twitter-com-pecosantoyobe:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/pecosantoyobe&#34;&gt;pecosantoyobe&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;次期エースと勝手に言ってて、いつも迷惑をかけている。
+ネタ力が高い。
+しかし、ネタ力が高すぎる故に理解されていない感がある。
+たぶん、先を行きすぎているのだとおもう。
+私より GitHub の Star がアクティブで参考になる。&lt;/p&gt;
+
+&lt;h3 id=&#34;keiso-https-twitter-com-keiso:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/keiso&#34;&gt;keiso&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;広島のコミュニティを支えている人達の中でひとり。
+かなりの存在感。
+広島MacUGやAUGM広島の代表者。
+「調べれば keiso」という異名があって、ブログの更新量が多く、質も高い。
+それだけ引き出しもすごく多い。勉強になる。&lt;/p&gt;
+
+&lt;h3 id=&#34;akira345-https-twitter-com-akira345:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/akira345&#34;&gt;akira345&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;今回紹介している人の中で明らかに違う方向に Geek。
+ハードに強いのに、ハードっぽい仕事あまりしていない。
+自分とは違う方向に知識の幅が広いので、参考になる話をたくさん聞ける。&lt;/p&gt;
+
+&lt;h3 id=&#34;soudai1025-https-twitter-com-soudai1025:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/soudai1025&#34;&gt;soudai1025&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;「#た」 の人と言うと伝わるから不思議。
+紹介してる人の中でも県外でもなかなか知名度が高いイメージ。(実際はよくわからない)
+広島に入れていいのか謎の福山在中。
+なぜか「残念」と言われている。
+その真偽は自分で確かめて欲しい。
+&lt;a href=&#34;NPO法人 日本PostgreSQLユーザ会&#34;&gt;日本PostgreSQLユーザ会&lt;/a&gt;の中国支部長。&lt;/p&gt;
+
+&lt;h3 id=&#34;tsuda-ahr-https-twitter-com-tsuda-ahr:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/tsuda_ahr&#34;&gt;tsuda_ahr&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;広島の勉強会に参加していれば、だれでも知る人ランキング第２位にランクインする。(当社比)
+Microsoft系のコミュニティへの出現率が高いけど、他のコミュニティにも出現する。
+議論すると盛り上がるので、議論する時に必須です。
+素朴な疑問を素朴にぶつかってくる。&lt;/p&gt;
+
+&lt;h3 id=&#34;coelacanth-https-twitter-com-coelacanth:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/coelacanth&#34;&gt;coelacanth&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;きっと全国的にも知名度のある深海魚さん。
+広島の代名詞にしたい。
+もはや語る必要もなく Winodws Phone の人でありながら Windows 8の人でもあり、Flashの人のイメージはすでにない。
+つまり、何をやらせてもすごい人なのである。たぶん。&lt;/p&gt;
+
+&lt;h3 id=&#34;toro-kun-https-twitter-com-toro-kun:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/Toro_kun&#34;&gt;Toro_kun&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;発起人のひとりのはず。
+現状、日本Androidの会 中国支部における広島の実質的なリーダーとも言えそう
+ハードからWeb系まで幅広くカバーしていて、広島で node.js やってると公言している数少ないエンジニア。
+音ゲークラスタ。&lt;/p&gt;
+
+&lt;h3 id=&#34;hanapage-https-twitter-com-hanapage:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/hanapage&#34;&gt;hanapage&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;コミュニティ活動という点においては、時間さえあれば何かを起こしそうな雰囲気がある。
+3Dプログラミングに詳しい。
+iOSの開発がメインのエンジニア。
+きっとそのうち何か大きいことをしてくれるはず。&lt;/p&gt;
+
+&lt;h3 id=&#34;wotani-https-twitter-com-wotani:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/woTani&#34;&gt;woTani&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;広島の勉強会に参加している人に、「Macに詳しい人教えて？iOSに詳しい人教えて？」と聞いて返ってくる名前ランキングなら間違いなく1位にランクインする。
+&lt;a href=&#34;http://ja.wikipedia.org/wiki/WebObjects&#34;&gt;Web Objects&lt;/a&gt; に詳しい。
+iOS SDK 開発勉強会の運営もしている。&lt;/p&gt;
+
+&lt;h3 id=&#34;yampuu-https-twitter-com-yampuu:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/yampuu&#34;&gt;yampuu&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;デザイナー。デザイナーというにはプログラムが書け過ぎる。というわけで、例外的に紹介する。
+彼のファンは多数存在し、利用者の視点で面白いものをいつも構築している。
+たくさんの人が一目置いていて、間違いなく広島の代表。&lt;/p&gt;
+
+&lt;h3 id=&#34;ogatomo-https-twitter-com-ogatomo:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/ogatomo&#34;&gt;ogatomo&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;私の知る限りでは、NeXTSTEP2OSX に次ぐ変態。
+彼の説明はいつも丁寧で非常にわかりやすい。
+いつもどこかで練習しているような風景がないので天賦の才を持ってるのかもしれない。&lt;/p&gt;
+
+&lt;h3 id=&#34;souitirou-https-twitter-com-souitirou:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/souitirou&#34;&gt;souitirou&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;デザイナーだけど例外的に紹介する。
+広島のデザイナーとエンジニアの中心点にいるのは間違いない。
+最近ネタツイートが減ってしまっていて、惜しまれている姿をときどきみかける。
+&lt;a href=&#34;http://webtouchmeeting.com/&#34;&gt;WEB TOUCH MEETING&lt;/a&gt; 代表にして、&lt;a href=&#34;http://cssnite.webtouchmeeting.com/&#34;&gt;CSS Nite in HIROSHIMA&lt;/a&gt; の実行委員長。&lt;/p&gt;
+
+&lt;h3 id=&#34;yukilab-https-twitter-com-yukilab:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/yukilab&#34;&gt;yukilab&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Windows Phone ハンズオンのエースらしい。
+その正体は不明ということにしておく。
+つまり、広島のエースといってしまってもいいのではないか。
+最近デスマ気味のようであまり見かけなくて残念。
+広島のエース決定戦をするころには復活していて欲しい。&lt;/p&gt;
+
+&lt;h3 id=&#34;ykumano-https-twitter-com-ykumano:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/ykumano&#34;&gt;ykumano&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;最近は mruby をいじっていた印象。
+組み込みエンジニアで、Haskellにも手を出したり(出させたが正しいかもしれない)幅広い見識を持つ。
+ゲーム作るのが趣味と聞いてる。&lt;/p&gt;
+
+&lt;h3 id=&#34;jmettraux-https-twitter-com-jmettraux:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/jmettraux&#34;&gt;jmettraux&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;プロのRuby使い。
+けど仕事都合で最近はMS系をいじっているらしい。
+とあるコワーキングスペースで最近よく会う。
+たくさんの成果物があり、&lt;a href=&#34;http://ruote.rubyforge.org/&#34;&gt;ruote&lt;/a&gt;が有名。
+実はスイス人。&lt;/p&gt;
+
+&lt;h3 id=&#34;takatayoshitake-https-twitter-com-takatayoshitake:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/takatayoshitake&#34;&gt;takatayoshitake&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;広島で勉強会に参加していれば知らない人はいないっといっても過言ではない。
+勉強会に行くと会える人ランキング第一位にランクイン。
+広島の支える技術&amp;lt;ヒト&amp;gt;。
+いろんなコミュニティが彼によって支えられています。&lt;/p&gt;
+
+&lt;h3 id=&#34;eielh-https-twitter-com-eielh:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/eielh&#34;&gt;eielh&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;{ この部分はあなたが埋めてください }&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;ややネタも盛り込んで、ふざけた書き方をしているところもあるかもしれませんが、みんな素晴しい人です。
+あと勝手に紹介しているので、「この紹介はちょっと…」とかあれば、石を投げてください。
+甘んじて血だらけになります。ごめんなさい。(痛い痛い)&lt;/p&gt;
+
+&lt;p&gt;学生も何人か書いてたのだけど、やっぱり削りました。
+奴らは優秀なのでここで紹介しなくても勝手に有名になることでしょう。&lt;/p&gt;
+
+&lt;p&gt;ざっと見直すと傾向として40代以下が多いです。
+つまり、私の交流範囲がそうなっているからです。
+もっともっと昔からいる&lt;strong&gt;すごい人&lt;/strong&gt;が広島には存在しているはずです。
+なので、ぜひあなたの「今すぐフォローしたい！？すごい Twitter のユーザ」にチャレンジして、紹介してください。
+結果、広島のコミュニティがもっと活発になると嬉しいよね。
+楽しみにしてます。&lt;/p&gt;
+
+&lt;p&gt;ちなみにこの Twitter ユーザを紹介するというのは安易に決めたわけですが、書いてみるとやめたくなります。
+公開で人を評価するというのは怖いですね。
+勇気と度胸がいります。&lt;/p&gt;
+
+&lt;p&gt;明日のすごい広島 Advent Calendar の担当者は &lt;a href=&#34;http://www.adventar.org/users/327?year=2013&#34;&gt;Tama Eguchi&lt;/a&gt; さんです。
+楽しみですね。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

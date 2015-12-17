@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/bundle/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-11-27 00:23:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>もっと楽ができた。bundle init で作成したプロジェクトの rake task</title>
+          <link>http://blog.eiel.info/blog/2012/11/27/bundle-rake-task/</link>
+          <pubDate>Tue, 27 Nov 2012 00:23:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/27/bundle-rake-task/</guid>
+          <description>&lt;p&gt;以前 &lt;a href=&#34;http://blog.eiel.info/blog/2012/09/02/hiroshimarb-gem/&#34;&gt;勢いでhiroshimarbというgemを作った。反省する気なんてあんまりない。&lt;/a&gt;という記事で gem の リリースをする方法を書いたのですが、&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;bundle gem で作られた rake タスクも見てあげると良いかもしれません（rake releaseだと push しつつ tag も切ってくれたりする）。(via @sugamasao)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/sugamasao/status/268286597110312960&#34;&gt;https://twitter.com/sugamasao/status/268286597110312960&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;というコメントを頂いてました。
+なので、調べました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ rake -T
+rake build    # Build hiroshimarb-0.1.4.gem into the pkg directory
+rake install  # Build and install hiroshimarb-0.1.4.gem into system gems
+rake release  # Create tag v0.1.4 and build and push hiroshimarb-0.1.4.gem to Rubygems
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;rake release&lt;/code&gt; で git でタグをつくりつつ、rubygems.org に uploadしてくれました。
+生成したgemは &lt;code&gt;pkg&lt;/code&gt; ディレクトリ内に保存されます。対した作業ではないですが、バージョンを入力する手間が省けて素敵ですね。&lt;/p&gt;
+
+&lt;p&gt;taskの中身は Rakefileが&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ cat Rakefile                                                              (gi#!/usr/bin/env rake
+require &amp;quot;bundler/gem_tasks&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ということで &lt;a href=&#34;https://github.com/carlhuda/bundler/blob/master/lib/bundler/gem_tasks.rb&#34;&gt;gem_task.rb&lt;/a&gt; をみてみましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;bundler/gem_helper&#39;
+Bundler::GemHelper.install_tasks
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/carlhuda/bundler/blob/master/lib/bundler/gem_helper.rb#L13-L15&#34;&gt;Bundler::GemHelper.install_tasks&lt;/a&gt;が呼ばれてます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def install_tasks(opts = {})
+  new(opts[:dir], opts[:name]).install
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;install_tasksはインスタンスを生成して installすることがわかります。&lt;/p&gt;
+
+&lt;p&gt;つづいて インスタンスを生成するので、initilaizeです。
+&lt;a href=&#34;https://github.com/carlhuda/bundler/blob/master/lib/bundler/gem_helper.rb#L26-L33&#34;&gt;Bundle::GemHelper#initialize&lt;/a&gt;では gemspecを読み込んでいるようです。なんとなくしかみてません。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def initialize(base = nil, name = nil)
+  Bundler.ui = UI::Shell.new
+  @base = (base ||= Dir.pwd)
+  gemspecs = name ? [File.join(base, &amp;quot;#{name}.gemspec&amp;quot;)] : Dir[File.join(base, *}.gemspec&amp;quot;)]
+  raise &amp;quot;Unable to determine name from existing gemspec. Use :name =&amp;gt; &#39;gemname&#39; in #install_tasks to manually set it.&amp;quot; unless gemspecs.size == 1
+  @spec_path = gemspecs.first
+  @gemspec = Bundler.load_gemspec(@spec_path)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そして install で rake タスクの生成をしています。
+&lt;a href=&#34;https://github.com/carlhuda/bundler/blob/master/lib/bundler/gem_helper.rb#L35-L52&#34;&gt;Bundle::GemHelper#install&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def install
+  desc &amp;quot;Build #{name}-#{version}.gem into the pkg directory.&amp;quot;
+  task &#39;build&#39; do
+    build_gem
+  end
+
+  desc &amp;quot;Build and install #{name}-#{version}.gem into system gems.&amp;quot;
+  task &#39;install&#39; do
+    install_gem
+  end
+
+  desc &amp;quot;Create tag #{version_tag} and build and push #{name}-#{version}.gem to Rubygems&amp;quot;
+  task &#39;release&#39; do
+    release_gem
+  end
+
+  GemHelper.instance = self
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そしてついに gem の生成。
+&lt;a href=&#34;https://github.com/carlhuda/bundler/blob/master/lib/bundler/gem_helper.rb#L54-L63&#34;&gt;Bnudle::GemHelper#build_gem&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def build_gem
+  file_name = nil
+  sh(&amp;quot;gem build -V &#39;#{spec_path}&#39;&amp;quot;) { |out, code|
+    file_name = File.basename(built_gem_path)
+    FileUtils.mkdir_p(File.join(base, &#39;pkg&#39;))
+    FileUtils.mv(built_gem_path, &#39;pkg&#39;)
+    Bundler.ui.confirm &amp;quot;#{name} #{version} built to pkg/#{file_name}.&amp;quot;
+  }
+  File.join(base, &#39;pkg&#39;, file_name)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;pkgディレクトリに生成している様子が見えます。&lt;/p&gt;
+
+&lt;p&gt;つづいて &lt;code&gt;install_gem&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/carlhuda/bundler/blob/master/lib/bundler/gem_helper.rb#L65-L70&#34;&gt;Bundle::GemHelper#install_gem&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def install_gem
+  built_gem_path = build_gem
+  out, _ = sh_with_code(&amp;quot;gem install &#39;#{built_gem_path}&#39;&amp;quot;)
+  raise &amp;quot;Couldn&#39;t install gem, run `gem install #{built_gem_path}&#39; for more detailed output&amp;quot; unless out[/Successfully installed/]
+  Bundler.ui.confirm &amp;quot;#{name} (#{version}) installed.&amp;quot;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;build_gem&lt;/code&gt; を呼びだして、生成した上で insntall するだけのようです。&lt;/p&gt;
+
+&lt;p&gt;最後に &lt;code&gt;release_gem&lt;/code&gt;
+&lt;a href=&#34;https://github.com/carlhuda/bundler/blob/master/lib/bundler/gem_helper.rb#L72-L77&#34;&gt;Bundle::GemHelper#release_gem&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def release_gem
+  guard_clean
+  built_gem_path = build_gem
+  tag_version { git_push } unless already_tagged?
+  rubygem_push(built_gem_path)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;guard_clean&lt;/code&gt;というのは変更があるかどうかを &lt;code&gt;git diff&lt;/code&gt; を利用して確認してるようです。変更があれば例外が飛ぶようです。
+そのあと &lt;code&gt;build_gem&lt;/code&gt;で gemを生成し、
+tag を打った上で &lt;code&gt;git push&lt;/code&gt;し、
+rubygems に pushしてくれるようです。&lt;/p&gt;
+
+&lt;p&gt;おー。便利ですね。&lt;/p&gt;
+
+&lt;p&gt;なんとなくソースコードを追う手順も一緒に書いてみました。参考になれば幸いです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

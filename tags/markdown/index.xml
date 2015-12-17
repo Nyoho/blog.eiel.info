@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/markdown/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-07-07 15:20:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Atom Editor で markdownモードのスニペットの追加</title>
+          <link>http://blog.eiel.info/blog/2014/07/07/github-markdown-on-atom-editor/</link>
+          <pubDate>Mon, 07 Jul 2014 15:20:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/07/github-markdown-on-atom-editor/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://atom.io/&#34;&gt;Atom Editor&lt;/a&gt;をときどき試している。
+markdownモードにスニペットを追加する方法がなかなかわからなくて困ったのでメモ。&lt;/p&gt;
+
+&lt;p&gt;最初に指定する文法名がわからなかった。&lt;code&gt;.source.gfm&lt;/code&gt;を指定すれば良かった。
+この &lt;code&gt;.source.gfm&lt;/code&gt; の簡単な調べ方がよくわからない。&lt;/p&gt;
+
+&lt;p&gt;gfm は GitHub Flaver Markdown の略だと思われる。&lt;/p&gt;
+
+&lt;p&gt;参考例をあげておきます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&#39;.source.gfm&#39;:
+  &#39;Sample Snippet Hoge&#39;:
+    &#39;prefix&#39;: &#39;hoge&#39;
+    &#39;body&#39;: &#39;hogehoge&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;atom.syntax.grammarsByScopeName&lt;/code&gt; にいろんな名前がとれたけど、全然効率よくない。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

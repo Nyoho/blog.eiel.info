@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/cleditor/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-05-31 19:20:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>cleditor の内容を javascirptで変更する in Cucumber</title>
+          <link>http://blog.eiel.info/blog/2013/05/31/cucumber-cleditor/</link>
+          <pubDate>Fri, 31 May 2013 19:20:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/05/31/cucumber-cleditor/</guid>
+          <description>&lt;p&gt;Cucumber の @javascript で実行しているシナリオに ]cleditor](&lt;a href=&#34;https://github.com/cleditor/cleditor/blob/master/jquery.cleditor.js&#34;&gt;https://github.com/cleditor/cleditor/blob/master/jquery.cleditor.js&lt;/a&gt;) という WYGSYG が利用されていて 普通に値を代入しただけだと反映されない問題に直面した。&lt;/p&gt;
+
+&lt;p&gt;caybara  のドライバーには poltergeist を使用しています。&lt;/p&gt;
+
+&lt;p&gt;バリデーションをかけていて、入力しないと進めないので、javascriptを使って入力することにした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;$(selector).data(&#39;cleditor&#39;).$area.html( content );
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;.data(&amp;lsquo;cleditor&amp;rsquo;).$area というところに情報が保存されていることがわかったので、そこのHTMLをさしかえます。
+Safari で実行した場合は画面表示は変更されないので注意です。&lt;/p&gt;
+
+&lt;p&gt;これを cucumber の step で実行したいので、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;description = &amp;quot;hogehoge&amp;quot;
+code = &amp;lt;&amp;lt;&amp;quot;JAVASCRIPT&amp;quot;
+$(&#39;#hogehoge&#39;).data(&#39;cleditor&#39;).$area.html(&#39;#{description}&#39;);
+JAVASCRIPT
+evaluate_script(code)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;として、 evalute_script を利用して実行しました。&lt;/p&gt;
+
+&lt;p&gt;data属性にデータを保存しておくのは一般的なのかな？この辺の事情はよくしりません。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/postgres/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-12-11 13:54:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>PostGISを試してみる</title>
+          <link>http://blog.eiel.info/blog/2014/12/11/postgis-abc/</link>
+          <pubDate>Thu, 11 Dec 2014 13:54:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/11/postgis-abc/</guid>
+          <description>
+
+&lt;p&gt;緯度経度って奴をDBにいれる。
+Postgresなら&lt;a href=&#34;http://postgis.net/&#34;&gt;PostGIS&lt;/a&gt;って奴があるらしい。&lt;/p&gt;
+
+&lt;p&gt;とりあえずローカルで試す。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;brew install postgresql
+brew install postgis
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;データベースを作る&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;createdb postgis_sample
+psql -d postgis_sample -c &amp;quot;CREATE EXTENSION postgis;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;CREATE EXTENSION postgis;&lt;/code&gt; すれば postgis が使えるらしい。&lt;/p&gt;
+
+&lt;p&gt;八丁堀から510ビルまでの距離を求めてみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ psql -d postgis_sample -c &amp;quot;SELECT ST_Distance(ST_GeographyFromText(&#39;Point(132.463495 34.393817)&#39;), ST_GeographyFromText(&#39;Point(132.468527 34.393366)&#39;));&amp;quot;
+  st_distance
+---------------
+ 465.421862299
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ST_Distanceで距離を算出できる。&lt;/p&gt;
+
+&lt;p&gt;テーブルをつくってみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;CREATE table places ( name VARCHAR(255),geog GEOGRAPHY(Point));
+INSERT INTO places  VALUES (&#39;ShakeHands&#39;, &#39;POINT(132.458767 34.394010)&#39;);
+INSERT INTO places  VALUES (&#39;MOVIN&#39;&#39;ON&#39;, &#39;POINT(132.465314 34.393052)&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;シャレオ中央からの距離を求めてみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; SELECT name, ST_Distance(geog, ST_GeographyFromText(&#39;POINT(132.457589 34.395300)&#39;)) FROM places;
+
+ShakeHands | 179.475100761
+ MOVIN&#39;ON   | 752.858070591
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;500m 以内の絞り込みをしてみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT name FROM places WHERE ST_Distance(geog, ST_GeographyFromText(&#39;POINT(132.457589 34.395300)&#39;)) &amp;lt; 500;
+
+ShakeHands
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;3000件つっこんで検索してみる&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ for i in `seq 3000`
+&amp;gt; do
+&amp;gt;   psql -d postgis_sample -c &amp;quot;INSERT INTO places  VALUES (&#39;$i&#39;, &#39;POINT(132.$i 34.$i)&#39;);&amp;quot;
+&amp;gt; done
+
+$ psql -d postgis_sample
+
+&amp;gt; /timing
+
+&amp;gt; SELECT name FROM places WHERE ST_Distance(geog, ST_GeographyFromText(&#39;POINT(132.457589 34.395300)&#39;)) &amp;lt; 5000
+
+Time: 12.816 ms;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;12msだった。ジオグラフィ型だと計算量があれこれらしいの狭い範囲ならジオメトリでやるほうがよいようだけど、どうしたらよいかわからないけど、ジオグラフィのままでも場合によっては良さそう。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:08c78688b32cefde89caa7e680b8c4dd&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://workshops.boundlessgeo.com/postgis-intro-jp/geography.html&#34;&gt;Boundless : Introduction to PostGIS (Japanese) : 第17章: ジオグラフィー型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://user.numazu-ct.ac.jp/~tsato/tsato/geoweb/googlemaps/coordinates/advanced.html&#34;&gt;Googleマップで緯度・経度を求める （拡張版）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.geopacific.org/opensourcegis/postgis/postgis-30af30a830ea30fc306e57fa672c&#34;&gt;PostGIS クエリーの基本 — GeoPacific.org&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

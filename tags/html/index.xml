@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/html/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-11-22 09:49:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>HTMLを印刷時 表の途中で改ページを防ぐ</title>
+          <link>http://blog.eiel.info/blog/2012/11/22/table-page-break/</link>
+          <pubDate>Thu, 22 Nov 2012 09:49:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/22/table-page-break/</guid>
+          <description>&lt;p&gt;印刷用のページってどうやって作るのがいいんだろう? PDF? HTMLでもいいの？
+ってことで HTML でかきはじめてました。&lt;/p&gt;
+
+&lt;p&gt;キャプションと表をひとくくりにしたかったのですが、そのままだと表の途中で改ページされてしまうのは具合が悪くてなんとしたい。
+ひとつの表はページを跨いで欲しくない。&lt;/p&gt;
+
+&lt;p&gt;CSSで改ページを制御するには &lt;code&gt;page-break-inside&lt;/code&gt; を &lt;code&gt;avoid&lt;/code&gt; にしてやればよいらしいです。
+なので以下のようなHTMLを用意して、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;block&amp;quot;&amp;gt;
+  &amp;lt;h1&amp;gt;表の説明&amp;lt;/h1&amp;gt;
+  &amp;lt;table&amp;gt;
+    &amp;lt;tr&amp;gt;
+      ...
+    &amp;lt;/tr&amp;gt;
+  &amp;lt;/table&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;CSSを以下のように用意すると期待したとおりになりました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.block {
+   page-break-inside: avoid;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

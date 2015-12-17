@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/debian/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-07-11 14:19:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>nginxの最新版を Debian squeezeで</title>
+          <link>http://blog.eiel.info/blog/2012/07/11/nginx-on-debian/</link>
+          <pubDate>Wed, 11 Jul 2012 14:19:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/07/11/nginx-on-debian/</guid>
+          <description>&lt;p&gt;nginxはいままでソースからビルドしてたんですが、公式でパッケージ配布されてるのでいい加減aptでインストールできるようにしました。特に特殊なこともしてなかったですし。&lt;/p&gt;
+
+&lt;p&gt;gpgのキーが必要なので登録します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget http://nginx.org/keys/nginx_signing.key
+sudo apt-key add nginx_signing.key
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;sources.listにsourceを追加します。&lt;/p&gt;
+
+&lt;p&gt;``` bash /etc/apt/sources.list.d/nginx.list
+deb &lt;a href=&#34;http://nginx.org/packages/debian/&#34;&gt;http://nginx.org/packages/debian/&lt;/a&gt; squeeze nginx
+deb-src &lt;a href=&#34;http://nginx.org/packages/debian/&#34;&gt;http://nginx.org/packages/debian/&lt;/a&gt; squeeze nginx&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+`/etc/apt/sources.list.d/`で設定する場合ファイル名の接尾語が.listである必要があります。
+
+
+あとはupdateしてsafe-upgrade
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;$ sudo aptitude update
+$ sudo aptitude safe-upgrade&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+/etc/nginx/conf.d/に設定を移動して
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;$ sudo /etc/init.d/nginx configtest&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+でOKがでれば
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;$ sudo /etc/init.d/nginx start
+```&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

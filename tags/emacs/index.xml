@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/emacs/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-10-22 14:41:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>ruby-end マイナーモード - emacs</title>
+          <link>http://blog.eiel.info/blog/2013/10/22/ruby-end-mode/</link>
+          <pubDate>Tue, 22 Oct 2013 14:41:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/10/22/ruby-end-mode/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/rejeep/ruby-end&#34;&gt;ruby-end&lt;/a&gt; モードをいれました。&lt;/p&gt;
+
+&lt;p&gt;ruby で end を自動挿入してくれるマイナーモードです。&lt;/p&gt;
+
+&lt;p&gt;似たようなマイナーモードとしては ruby-elecric-mode があります。
+この子は他にもいろいろ機能をもっています。end の補完も機能のひとつです。
+個人的にはかなか挙動が使いづらく end の補完の処理だけ利用していました。&lt;/p&gt;
+
+&lt;p&gt;また、emacs24 では微妙な挙動をしたりするそうです。 - [参考: Emacs24 で ruby-electric的なruby-modeを実現するには - メモとか]&lt;/p&gt;
+
+&lt;p&gt;ruby-end は end が挿入されるタイミングが心地良いので試してみています。&lt;/p&gt;
+
+&lt;h3 id=&#34;インストール:40b03ca96c39703533b1ea468c4edae2&#34;&gt;インストール&lt;/h3&gt;
+
+&lt;p&gt;epel でインストールできるので &lt;code&gt;M-x package-install&lt;/code&gt; で &lt;code&gt;ruby-end&lt;/code&gt; で入力でインストールできます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://emacs-jp.github.io/packages/package-management/package-el.html&#34;&gt;参考: package.el - EmacsJP&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;普通は package.el で充分かと思いますが、私は el-get を利用してるので &lt;code&gt;(el-get &#39;sync &#39;ruby-end)&lt;/code&gt; を設定ファイルに書いて評価しました。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:40b03ca96c39703533b1ea468c4edae2&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/08/07/el-get/&#34;&gt;自分の el-get のワークフローについて整理する&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>自分の el-get のワークフローについて整理する</title>
+          <link>http://blog.eiel.info/blog/2013/08/07/el-get/</link>
+          <pubDate>Wed, 07 Aug 2013 19:07:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/08/07/el-get/</guid>
+          <description>
+
+&lt;p&gt;この記事は &lt;a href=&#34;http://great-h.github.io/events/event-012.html&#34;&gt;すごい広島 #12&lt;/a&gt; で書きました。&lt;/p&gt;
+
+&lt;p&gt;Emacs のパッケージ管理に &lt;code&gt;el-get&lt;/code&gt; を利用しています。
+他にもいろいろありますが、どれもしっかりと使いこなせないまま &lt;code&gt;el-get&lt;/code&gt; におちついています。
+ぶっちゃけ、&lt;code&gt;el-get&lt;/code&gt; 使いこなせていません。
+使いこなせてないので不安な箇所があったので確認してまとめました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;el-get&lt;/code&gt; を使いこなせてないのに、これに落ち着いている理由は&lt;code&gt;Distributed Setup&lt;/code&gt; という機能を利用しているからです。
+これを使うと インストールしているパッケージがない場合自動でインストールしてくれます。&lt;/p&gt;
+
+&lt;p&gt;例えば、&lt;code&gt;helm&lt;/code&gt; というパッケージを利用していて、emacsの設定ファイルを git などで共有しているとします。普段利用していない別のマシンで設定ファイルをコピーしてきます。
+これで Emacs を起動すると、起動時にエラーが出てしまいます。
+もし el-get の &lt;code&gt;Distributed Setup&lt;/code&gt; の機能を利用していればインストールしていないパッケージをダウンロードしてくれます。
+ドロップボックスで共有している場合は不要なのですが、そういった使い方をしていない場合は有効です。&lt;/p&gt;
+
+&lt;p&gt;この方法を使っている場合の設定方法とパッケージの更新方法について書いておきます。&lt;/p&gt;
+
+&lt;h3 id=&#34;設定方法:22ead55274344014ce95e0770135fcd9&#34;&gt;設定方法&lt;/h3&gt;
+
+&lt;p&gt;その設定方法は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-common-lisp&#34;&gt;(el-get &#39;sync &#39;helm)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、書いておきます。
+基本的にはこれでOKです。&lt;/p&gt;
+
+&lt;p&gt;一緒に yasnippet をインストールしたいのであれば リストにすればよいです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-common-lisp&#34;&gt;(el-get &#39;sync &#39;(helm yasnippet))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;たぶんリストにしなくても大丈夫。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-common-lisp&#34;&gt;(el-get &#39;sync &#39;helm &#39;yasnippet)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;別々にやっても大丈夫。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-common-lisp&#34;&gt;(el-get &#39;sync &#39;yasnippet)
+(el-get &#39;sync &#39;helm)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;すでにインストールしてしまっていて、動作を確認したい場合は &lt;code&gt;el-get-remove&lt;/code&gt;コマンドで削除して、再評価することで動作確認できます。
+&lt;code&gt;rm&lt;/code&gt; コマンドなどで削除してしまった場合は el-get から見ると削除したことになっていないので注意してください。
+その場合でも &lt;code&gt;el-get-remove&lt;/code&gt; を呼べば大丈夫です。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;el-get&lt;/code&gt; 関数はダウンロードしていないパッケージの場合はダウンロードするという動作をします。
+第1引数の &amp;lsquo;sync というを付けておくと同期実行になります。
+ファイルのダウンロードを待つことになります。
+nil にすることで非同期にも実行できます。
+設定を el-getの hook に書いたりする必要がでてくると考えられますが試してません。同期実行するほうが設定しやすいと思います。&lt;/p&gt;
+
+&lt;p&gt;第2引数以降にはパッケージ名を指定することになります。
+パッケージ名&lt;code&gt;el-get-list-package&lt;/code&gt;コマンドなどで確認できます。
+パッケージ名を省略した場合は インストール済のパッケージのリストが入るようです。
+&lt;code&gt;el-get&lt;/code&gt; 関数は他にも load-path を通したりもするようです。&lt;/p&gt;
+
+&lt;p&gt;あとは &lt;code&gt;el-get&lt;/code&gt; の自動でインストールするコードを加えて&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-common-lisp&#34;&gt;(add-to-list &#39;load-path &amp;quot;~/.emacs.d/el-get/el-get&amp;quot;)
+(unless (require &#39;el-get nil &#39;noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       &amp;quot;https://raw.github.com/dimitri/el-get/master/el-get-install.el&amp;quot;)
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+(el-get &#39;sync &#39;helm)
+;; helm の設定
+(el-get &#39;sync &#39;yasnippet)
+;; yasnippet の設定
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;という感じにしておくと設定ファイルをコピーするだけで設定が完了します。
+&lt;small&gt;とはいえ、だいたいなにかがトラブりますが。&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;この方法を使っている場合は &lt;code&gt;el-get-install&lt;/code&gt; はとりあえず試してみたいパッケージをインストールするという感じで使えます。
+「他の環境でも使いたいなぁ」とか、設定いじりたいなぁ。となれば追記すれば良いのではないかと思います。
+パッケージを更新をした場合は hook により設定が上書きされるんじゃないかと気になっていたりもしますが、未確認です。&lt;/p&gt;
+
+&lt;h3 id=&#34;パッケージの更新:22ead55274344014ce95e0770135fcd9&#34;&gt;パッケージの更新&lt;/h3&gt;
+
+&lt;p&gt;パッケージの更新するには &lt;code&gt;el-get-update&lt;/code&gt; でパッケージごとに更新するか、
+&lt;code&gt;el-get-update-all&lt;/code&gt; でまとめて更新できます。
+適当な頻度で実行すればよいと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:22ead55274344014ce95e0770135fcd9&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;よくわかってないけど、自分が最低限必要なことはできているという使い方をしています。
+&lt;code&gt;(el-get &#39;sync)&lt;/code&gt; まわりの部分について確認したので、記事にしました。
+もうちょっと使いこなしたい。&lt;/p&gt;
+
+&lt;p&gt;もっと詳しいことは info などを読むのが良いと思います。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/dimitri/el-get/blob/4.stable/el-get.info&#34;&gt;github elget/elget.info&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Mac で使える git mergetool をいろいろ試してみる - ediff</title>
+          <link>http://blog.eiel.info/blog/2013/06/29/git-mergetool-ediff/</link>
+          <pubDate>Sat, 29 Jun 2013 19:27:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/06/29/git-mergetool-ediff/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt; の続きです。&lt;/p&gt;
+
+&lt;p&gt;ediff は &lt;a href=&#34;http://www.gnu.org/software/emacs/&#34;&gt;Emacs&lt;/a&gt; に添付されているマージツールです。
+いつから添付されているのか調べてないですが最近のEmacsであれば標準で使えるはずです。&lt;/p&gt;
+
+&lt;p&gt;個人的には一番使いやすいと感じています。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git mergetool&lt;/code&gt; から ediff を起動するのはややめんどくさいです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/magit/magit&#34;&gt;magit&lt;/a&gt;を使用していれば、コンフリクトしているファイルにカーソルを合わせて &lt;code&gt;e&lt;/code&gt; を押すと起動できます。こちらのほうは設定いらずで楽ちんでした。&lt;/p&gt;
+
+&lt;p&gt;どうしても &lt;code&gt;git mergetool&lt;/code&gt; から使いたい場合は &lt;a href=&#34;http://d.akinori.org/2012/07/23/git-mergetool%E3%81%A7emacs%E3%81%AEediff-merge-files-with-ancestor%E3%82%92%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%99/&#34;&gt;git mergetoolでEmacsのediff-merge-files-with-ancestorを呼び出す - 工夫と趣向と分別と。&lt;/a&gt; を参考にするとできました。&lt;/p&gt;
+
+&lt;p&gt;具体的には上記の記事で紹介されてる &lt;a href=&#34;https://github.com/knu/emacsc&#34;&gt;emacsc&lt;/a&gt; をclone してきて設定しました。
+個人的な使い方の問題で emacsclient への引数を付加したかったので少しいじりました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/ediff.png&#34; alt=&#34;ediff の画面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ediff を起動するとこのような画面になります。
+配色設定を細かくやってないのでみづらいのは気にしないでください。&lt;/p&gt;
+
+&lt;p&gt;左が現在のブランチのファイルで、右がマージしようとするブランチのファイルになります。
+下部がマージ結果になります。下部は直接編集することもできます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;a&lt;/code&gt; を入力すると 左側を選択できて、 &lt;code&gt;b&lt;/code&gt; を入力すると右側を選択できて、下部に反映されます。&lt;/p&gt;
+
+&lt;p&gt;差分は2行あるのに、まとまってしまって不便に感じますが、どちらをベースするかという選択だと考えると良いことがわかりました。
+その後 &lt;code&gt;!&lt;/code&gt; を入力すると細かく差分が表示され &lt;code&gt;n&lt;/code&gt; や &lt;code&gt;p&lt;/code&gt; で競合箇所を移動して &lt;code&gt;a&lt;/code&gt; や &lt;code&gt;b&lt;/code&gt; で選ぶことができます。&lt;/p&gt;
+
+&lt;p&gt;編集が終了したら &lt;code&gt;q&lt;/code&gt; で終了できます。 magit から起動した場合は ステージングされないので注意してください。
+再度 &lt;code&gt;e&lt;/code&gt; を入力するとやりなおすこともできます。&lt;/p&gt;
+
+&lt;p&gt;emacs 上で動くとカスタマイズが気軽にできるところも嬉しいし、なによりキーボードで操作しやすいです。
+あえて問題を上げるなら ediff の設定がしてある配色を使わないと見にくいのと、emacs ユーザでない場合は覚えることが多すぎるということでしょう。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:7a9f455065511ac41f1329f68dde90ab&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Ruby の とあるクラスの実装がどこにあるかわからない時の方法 - コードリーディング</title>
+          <link>http://blog.eiel.info/blog/2013/04/03/search-ruby-code/</link>
+          <pubDate>Wed, 03 Apr 2013 19:34:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/04/03/search-ruby-code/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://hiroshimarb.github.com/blog/2013/04/06/hiroshimarb-31/&#34;&gt;広島Ruby勉強会&lt;/a&gt; のネタ探しをしていて、「実装見てなにか面白いネタないかなー。」
+って時に使ったコマンドを紹介。&lt;/p&gt;
+
+&lt;p&gt;例は Method クラスの実装を探す。&lt;/p&gt;
+
+&lt;p&gt;まずは git でソースコードをとってきている場合。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git grep &#39;rb_define_class(&amp;quot;Method&amp;quot;&#39;
+proc.c:    rb_cMethod = rb_define_class(&amp;quot;Method&amp;quot;, rb_cObject);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;git grep&lt;/code&gt; を使います。&lt;code&gt;git grep&lt;/code&gt; はサクサクなのでメインの探索方法です。
+Emacs上から使うとジャンプも楽チン。&lt;/p&gt;
+
+&lt;p&gt;「git リポジトリじゃねーよ」って時は &lt;code&gt;ag&lt;/code&gt; を使います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ag &#39;rb_define_class\(&amp;quot;Method&amp;quot;&#39;
+proc.c
+2331:    rb_cMethod = rb_define_class(&amp;quot;Method&amp;quot;, rb_cObject);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こちらは行番号とかでます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;(&lt;/code&gt; のエスケープがいります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ag&lt;/code&gt; というのは &lt;a href=&#34;http://geoff.greer.fm/2011/12/27/the-silver-searcher-better-than-ack/&#34;&gt;the silver searcher&lt;/a&gt; のことです。こちらも emacs から使う &lt;a href=&#34;http://d.hatena.ne.jp/syohex/20130302/1362182193&#34;&gt;helm-ag&lt;/a&gt; というのがあるのでオススメします。&lt;/p&gt;
+
+&lt;p&gt;使える正規表現も違うような気がするので凝ったことがしたいならこちらを。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;rb_define_class&lt;/code&gt; というのは Ruby の C API で クラスオブジェクトを作成します。このあたりに メソッドをクラスに紐づける処理なんかがあったりします。&lt;/p&gt;
+
+&lt;p&gt;それでは Happy な ソースコードリーディングを。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>tmux で copy-mode でのキーバインドについて</title>
+          <link>http://blog.eiel.info/blog/2013/02/17/tmux-copy-mode/</link>
+          <pubDate>Sun, 17 Feb 2013 12:45:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/17/tmux-copy-mode/</guid>
+          <description>&lt;p&gt;tmuxのコピーモードでのキーバインドはデフォルトで emacs like になっています。&lt;/p&gt;
+
+&lt;p&gt;なぜか、一部のマシンでのみ vi like になってたので、&lt;code&gt;man tmux&lt;/code&gt; をみてみた。
+&amp;gt;  the default is emacs, unless VISUAL or EDITOR contains ‘vi’.&lt;/p&gt;
+
+&lt;p&gt;デフォルトは emacs だけど環境変数 VISUAL か EDITOR に &amp;lsquo;vi&amp;rsquo; を含んでいれば vi like になるそうです。&lt;/p&gt;
+
+&lt;p&gt;環境変数に影響されずに固定したい場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;set-window-option -g mode-keys emacs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とか&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;set-window-option -g mode-keys vi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とか、書いておきましょう。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Macで M-x gdbするとうまく動かない…</title>
+          <link>http://blog.eiel.info/blog/2012/12/27/gdb-mi-on-mac-osx/</link>
+          <pubDate>Thu, 27 Dec 2012 00:59:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/12/27/gdb-mi-on-mac-osx/</guid>
+          <description>&lt;p&gt;まず要点から。&lt;/p&gt;
+
+&lt;p&gt;新しめの emacs でMac上で &lt;code&gt;M-x gdb&lt;/code&gt; がうまくうごきません。
+&lt;code&gt;M-x gud-gdb&lt;/code&gt; は動くことがわかりました。
+&lt;code&gt;gud-gdb&lt;/code&gt;を使う場合は&lt;code&gt;gdb --fullname command&lt;/code&gt;で動かすと良いです。&lt;/p&gt;
+
+&lt;p&gt;原因ですが、Macの gdb が古い模様。最近の Emacsに添付されてる gdb は gdb/mi インターフェイス(よくわかってない)でやりとりするようで、一応うごくけどわけのわからぬ動作をするみたいです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://users.snap.net.nz/~nickrob/#GDBMI&#34;&gt;gdbmi&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Gentoo-Prefix をつかって gdb いれてみたものの run ができませんでした。ツールチェーンまわりはよくわからないのでなんとも言えません。&lt;/p&gt;
+
+&lt;p&gt;gud-gdb ですが、これは gdb よりも機能が弱いものの模様です。古いeamcsがこれと同等のもので動いてるのかもしれませんが、調べていません。gdbに比べたら便利な機能は減るかもしれませんが、十分使えそうです。&lt;/p&gt;
+
+&lt;p&gt;LLDB/MI みたいなものがあれば良いのでしょうが、よくわかりません。&lt;/p&gt;
+
+&lt;p&gt;このあたりはMac使ってて不便なところですね。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>magit-brame-modeの表示がみやすかった件</title>
+          <link>http://blog.eiel.info/blog/2012/05/30/magit-blame-mode/</link>
+          <pubDate>Wed, 30 May 2012 17:55:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/05/30/magit-blame-mode/</guid>
+          <description>&lt;p&gt;共同作業ないし、自分が書いたコードでも&lt;strong&gt;ここ変更したのいつだっけ&lt;/strong&gt;ってことあると&lt;code&gt;git blame&lt;/code&gt;を利用するんですが、emacs の magit についてる magit-brame-mode がみやすくて感動しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git blame&lt;/code&gt;がどのようなことをしてくれるのかは github でも特定のファイルを選択したときにもみることができます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.tumblr.com/tumblr_m4th98QljM1qk2e7q.jpg&#34; alt=&#34;github blame&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;押すとこんな感じ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.tumblr.com/tumblr_m4thgjx4eq1qk2e7q.jpg&#34; alt=&#34;github de blame&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;すっきりみやすい。&lt;/p&gt;
+
+&lt;p&gt;端末で &lt;code&gt;$ git blame conf/50-ruby.el&lt;/code&gt; するとこんな感じ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.tumblr.com/tumblr_m4thlzshOW1qk2e7q.jpg&#34; alt=&#34;端末&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;文字ばっかり。&lt;/p&gt;
+
+&lt;p&gt;git-emacsの &lt;code&gt;M-x git-blame-mode&lt;/code&gt; だとこんな感じ&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.tumblr.com/tumblr_m4throQoHf1qk2e7q.jpg&#34; alt=&#34;git-emacs&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;カラフル。細かい情報はミニバファにでます。そのまま編集できるのはナイスなのかもしれない。(重いですけど&lt;/p&gt;
+
+&lt;p&gt;magitの &lt;code&gt;M-x magit-blame-mode&lt;/code&gt; だとこんな感じ&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.tumblr.com/tumblr_m4thwdwoK61qk2e7q.jpg&#34; alt=&#34;magit&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;あれ、なんかみやすさが伝わない…。
+80列におさまるのは嬉しいですね。&lt;/p&gt;
+
+&lt;p&gt;ゆっくりみる分には github が一番いんじゃないかということいわれてしまいそうです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Helmをインストールしてみた</title>
+          <link>http://blog.eiel.info/blog/2012/04/04/install-helm/</link>
+          <pubDate>Wed, 04 Apr 2012 11:25:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/04/04/install-helm/</guid>
+          <description>&lt;p&gt;anythingのフォークである&lt;a href=&#34;https://github.com/emacs-helm/helm&#34;&gt;helm&lt;/a&gt;を試してみた。
+試した環境は GNU Emacs 24.0.94.1 (x86_64-apple-darwin11.3.0, NS apple-appkit-1138.32) of 2012-03-25&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;具合がわるくなってしまう設定&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;(set-file-name-coding-system &#39;utf-8-hfs)
+(setq local-coding-system &#39;utf-8-hfs)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;utf-8-hfsを設定してるとhelmのロードがおわらなくなった。何かを収集中に無限ループに落ちいる模様。anythingにできて、helmにできないことはまだまだたくさんあるので、しばらくanythingと共存させてみます。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

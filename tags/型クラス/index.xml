@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E5%9E%8B%E3%82%AF%E3%83%A9%E3%82%B9/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-07-04 23:57:04 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>「戻り値の型によって処理を変える」という話をした。 - #LT駆動 16</title>
+          <link>http://blog.eiel.info/blog/2015/07/04/ltdd-16-type-class/</link>
+          <pubDate>Sat, 04 Jul 2015 23:57:04 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/07/04/ltdd-16-type-class/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA16&#34;&gt;LT駆動開発16&lt;/a&gt;で「戻り値の型によって処理を変える」をというLTをした。&lt;/p&gt;
+
+&lt;p&gt;要するに自分の中で型クラスのことがそこそこすっきりしたので喋ってみた。
+完全な準備不足でもっと丁寧につくりたい部分があったけど雑に説明してしまってるところがある。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;9cc235d693da405191f4a5376ad45941&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;h3 id=&#34;戯言:daad3f06627dcec1727dfc3e414ec918&#34;&gt;戯言&lt;/h3&gt;
+
+&lt;p&gt;いまだにアドホックという言葉がよくわかっておらず、つらい。
+型クラスを使うとアドホック多相というのが実現できるらしい。&lt;/p&gt;
+
+&lt;p&gt;アドホック多相というのは、分岐処理の自動生成ができる機能とも言えさうだ。
+また、クラスがメソッドをグルーピングする機能と見なした場合、型クラスをつかうとより柔軟にグルーピングできる機能とも言えそうだ。&lt;/p&gt;
+
+&lt;p&gt;その辺の話をうまく図示したいけど、考える時間が足りなかったので、また今度考えてみたい。&lt;/p&gt;
+
+&lt;p&gt;型推論や型を指定することで関数の戻り値の型が決定すると実行される関数が決まる。
+戻り値だけでなく、引数の型なんかでも決めることができる。
+オプジェクト指向では、レシーバで決まったり、オーバロードで呼び出しする処理を変えたりできる。&lt;/p&gt;
+
+&lt;p&gt;オブジェクト指向だとか、関数型だとかではなく、言語がもってる機能の違いなんだよなぁ、と思ったりしなくもないけど真面目に考えてない。&lt;/p&gt;
+
+&lt;p&gt;LT中に登場した言語がHaskell, Ruby, Python, Perl, ScalaだったけどOCamlのことをあまり知らないので、もっと勉強しようと思った。&lt;/p&gt;
+
+&lt;p&gt;スライド中のコードはGistにアップしておきます。(実行例かきわすれてる…)&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/eiel/3674c713e34eaac67cf8.js&#34;&gt;&lt;/script&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

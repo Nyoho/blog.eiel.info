@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/sitespec/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-02-19 18:43:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>すごい広島のサイトを sitespec に変えてみた</title>
+          <link>http://blog.eiel.info/blog/2014/02/19/change-sitespec-for-great-h/</link>
+          <pubDate>Wed, 19 Feb 2014 18:43:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/02/19/change-sitespec-for-great-h/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/events/event-040.html&#34;&gt;すごい広島 #40&lt;/a&gt; で書いてる。&lt;/p&gt;
+
+&lt;p&gt;すごい広島には &lt;a href=&#34;https://github.com/&#34;&gt;GitHub&lt;/a&gt; に馴れるというサブの目的が存在します。
+参加者は 「GitHub にプルリクエストをしなければならない」というルールがあって、参加するだけでプルリクエストの練習することができます。
+プルリクエストを体験することで、GitHubがどういうものなのか理解してもらおうという魂胆です。&lt;/p&gt;
+
+&lt;p&gt;どんなプルリクエストを行うかというと、すごい広島のサイトに情報を追加してもらいます。
+すごい広島で何をしているのか GitHubのIssue に書いてもらっているので、そこへのリンクを貼るのが一番簡単な変更となります。&lt;/p&gt;
+
+&lt;p&gt;さて本題です。&lt;/p&gt;
+
+&lt;p&gt;40回を迎えたことだし、もっと実際の GitHub の作業フローに合わせるためにすごい広島のプロセスの中に CI サーバを登場させることを考えてみました。
+すごい広島のサイトは GitHub に生成させていましたが、Travis-CI でサイトを生成するようにしました。
+プルリクエストすると Travis-CI でサイトが生成できるかどうか確認します。
+これで、プルリクエストを本流にマージする際にサイトが生成できることを確認してからマージすることができるようになりました。&lt;/p&gt;
+
+&lt;p&gt;これで少しだけですが、より実際の開発の流れに近づけることができたはずです。たぶん。&lt;/p&gt;
+
+&lt;p&gt;下図はTravi-CI でサイトが生成できるかどうか確認中の時のプルリクエストのマージボタンです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2014-02-19-travis.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;ついでに静的サイトジェネレータを変更する:805d6ee8f9be4a8a874327ae75367d6e&#34;&gt;ついでに静的サイトジェネレータを変更する&lt;/h3&gt;
+
+&lt;p&gt;せっかくなので、静的サイトジェネレータもJekyllから別ものに変えることにしました。&lt;/p&gt;
+
+&lt;p&gt;GitHub 上でビルドしなくなるので Jekyll でもいろいろできるようになりますが、どうせ機能面で優れたものに変えたいですよね。&lt;/p&gt;
+
+&lt;p&gt;候補は &lt;a href=&#34;http://middlemanapp.com/&#34;&gt;middleman&lt;/a&gt; か &lt;a href=&#34;https://github.com/r7kamura/sitespec&#34;&gt;sitespec&lt;/a&gt; だったのですが、sitespec を試してみたかったので sitespec にしてみました。&lt;/p&gt;
+
+&lt;h3 id=&#34;sitespec:805d6ee8f9be4a8a874327ae75367d6e&#34;&gt;Sitespec&lt;/h3&gt;
+
+&lt;p&gt;sitespec は rspecをつかってサイトを生成します。&lt;/p&gt;
+
+&lt;p&gt;Sitespec を使ってみて良い点は、普段のテスト駆動開発っぽいプロセスで開発できて、思考を変えなくてよかったところです。
+作成したいページの spec を書いて、 rspec を実行するとそのページが生成できないことが確認できます。&lt;/p&gt;
+
+&lt;p&gt;そこからは好きな方法で Rack アプリケーションを用意してあげればよいのです。
+あとは通常のウェブ開発と同じやり方になりそうだと、sitespec を使いはじめてすぐにわかりました。&lt;/p&gt;
+
+&lt;p&gt;Rails や Sinatra に馴れているのであればそれを使えばよくて、拡張機能もそれぞれのフレームワークのものが使えるし、足りないものがあれば同じ要領で開発すればよさそうです。
+新しいことを覚えなくていいし、かゆいところに手が届きます。
+また、なにか拡張機能を作れば普段の開発にも生かせそうなのも良いです。&lt;/p&gt;
+
+&lt;p&gt;sitespec は柔軟性がありますが、その代わりにやることがちょっと増えたりします。
+気軽に作りたい場合は middleman のようなツールを使うほうが良いかもしれません。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、すごい広島のサイトの修正は半日ぐらい真面目にやったらできました。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:805d6ee8f9be4a8a874327ae75367d6e&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;すごい広島のプロセスの中にCIを加えてみました。
+他にも、取り込めるものをみつけたらどんどん取り込みしていきたいですね。
+なにか面白いものないかなー。&lt;/p&gt;
+
+&lt;p&gt;sitespec のほうはウェブアプリ開発者であれば、は選択肢としてありだと思いました。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:805d6ee8f9be4a8a874327ae75367d6e&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/18/jekyll-on-github/&#34;&gt;Github で Jekyll を使う時に調べたこと - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/19/jekyll-on-function/&#34;&gt;Jekyll を使ったGithub Pages で関数呼び出し的なことをする - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

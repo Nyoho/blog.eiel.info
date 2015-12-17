@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E3%83%A2%E3%83%8A%E3%83%89/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-05-02 13:00:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>モナド則だけ見つめていたい - LT駆動開発14</title>
+          <link>http://blog.eiel.info/blog/2015/05/02/want-staring-monad-only-ltdd-14/</link>
+          <pubDate>Sat, 02 May 2015 13:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/05/02/want-staring-monad-only-ltdd-14/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA14&#34;&gt;LT駆動開発14&lt;/a&gt;に参加した。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://xenobladex.jp/&#34;&gt;ゼノブレイドクロス&lt;/a&gt;発売記念でモナドの話をしといた。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;b016eb833b804fca903db71dc869bae0&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Stateモナドを簡約して、Stateモナドを説明しようとおもったけどうまくいかなくてボツになりました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/eielh/items/3612e4233c9c4a2d80a0&#34;&gt;Haskell - Stateモナドを手で簡約してみたりしていた - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そんなわけで&lt;a href=&#34;http://ja.wikibooks.org/wiki/Haskell/%E5%9C%8F%E8%AB%96&#34;&gt;Haskell/圏論 - Wikibooks&lt;/a&gt;を元ネタにモナド則を辿ってみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;a -&amp;gt; M b&lt;/code&gt;って型の関数を並べるにはfmapしてjoinしてを間にはさむことがポイントな気がしたことがあったのでその話です。
+&lt;code&gt;a -&amp;gt; M b&lt;/code&gt;な関数を組み合わせると &lt;code&gt;M b -&amp;gt; M (M c)&lt;/code&gt; になって &lt;code&gt;M (M c) -&amp;gt; M (M (M d))&lt;/code&gt; とどんどんMが増えていってしまうのですが、モナドであれば&lt;code&gt;M d&lt;/code&gt;にできるわけです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;a -&amp;gt; M b&lt;/code&gt;ってなんなんだって話になってきますが&lt;code&gt;M a -&amp;gt; M b&lt;/code&gt;でも良いけど、&lt;code&gt;a -&amp;gt; M b&lt;/code&gt; のほうがあつかいやすいよね。だって&lt;code&gt;M&lt;/code&gt;は外せないんだから外れているものが受け取れたら便利じゃないですか。
+結果的に残ったものは &lt;strong&gt;何度も同じことをしないといけない部分&lt;/strong&gt;を隠すことができます。
+その内容を自由に取り替えできちゃうのがモナドの魅力なのだと思う。&lt;/p&gt;
+
+&lt;p&gt;そしてMに関する操作は裏でひそかに行われて、命令書を構築したり、失敗していたら何もしなかったり、可能性すべてを記録したり、単に設定した値をおけるだけだったり、するだけだと思われます。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:b742772047f9f19a088e8c7ef8bf510f&#34;&gt;関連&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/eielh/items/3612e4233c9c4a2d80a0&#34;&gt;Haskell - Stateモナドを手で簡約してみたりしていた - Qiita&lt;/a&gt;&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=B00T73HQHQ&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

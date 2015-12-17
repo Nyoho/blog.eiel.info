@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/rbenv/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-11-25 12:08:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Mac で rbenv 使って ruby-2.0.0-preview1 インストールすると OpenSSLがうごかないのでなんとかしてみた</title>
+          <link>http://blog.eiel.info/blog/2012/11/25/rbenv-ruby-2-dot-0-0-inclued-openssl/</link>
+          <pubDate>Sun, 25 Nov 2012 12:08:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/25/rbenv-ruby-2-dot-0-0-inclued-openssl/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;blog/2012/11/07/ruby2/&#34;&gt;以前書いたruby-2.0.0をビルドしてみた on Rbenv&lt;/a&gt;の方法で build できるのですが Mac OSX でやると OpenSSLのバージョンが古いようで、 &lt;code&gt;bundle install&lt;/code&gt; などが失敗してしまいます。&lt;/p&gt;
+
+&lt;p&gt;なので OpenSSLを一緒にインストールするようにパッチを書いてみました。
+&lt;a href=&#34;https://github.com/eiel/ruby-build&#34;&gt;github&lt;/a&gt;にupしてます。&lt;/p&gt;
+
+&lt;p&gt;上記の記事と同じ状況であれば以下の操作でインストールできます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ cd ~/.rbenv/plungin/ruby-build
+$ git remote add eiel git@github.com:eiel/ruby-build.git
+$ git remote update
+$ git checkout eiel/master -b eiel
+$ rbenv install 2.0.0-preview1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;patchの内容ですが &lt;code&gt;share/ruby-build/&lt;/code&gt; にビルド時のルールを定義するファイルがあるのでそこに OpenSSL を追加しました。でもそのままだと失敗したので、&lt;code&gt;configure&lt;/code&gt; のoptionを追加したり make のオプションを潰したりしてます。&lt;/p&gt;
+
+&lt;p&gt;homebrewを使った場合の情報はおちてるんですが Gentoo Prefix を使う身としては使わずになんとかしたかった。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:e85d9c8131138866f640506d8f841157&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.takuyan.com/blog/2012/11/21/rbenv-install-2-0-0-preview1-and-openssl/&#34;&gt;http://blog.takuyan.com/blog/2012/11/21/rbenv-install-2-0-0-preview1-and-openssl/&lt;/a&gt;
+&lt;a href=&#34;https://github.com/mxcl/homebrew/blob/master/Library/Formula/openssl.rb&#34;&gt;https://github.com/mxcl/homebrew/blob/master/Library/Formula/openssl.rb&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

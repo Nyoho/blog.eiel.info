@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/actionview/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-07-28 15:52:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>ActionView 単体で slim を使ってみる</title>
+          <link>http://blog.eiel.info/blog/2014/07/28/action-view-with-slim/</link>
+          <pubDate>Mon, 28 Jul 2014 15:52:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/28/action-view-with-slim/</guid>
+          <description>
+
+&lt;p&gt;「&lt;a href=&#34;http://blog.eiel.info/blog/2014/07/18/action-view/&#34;&gt;ActionView を単体で使ってみる&lt;/a&gt;」というのを書いたので、ついでにいろいろ試してみる。その1。&lt;/p&gt;
+
+&lt;p&gt;誰が得するのか謎だけど ActionView だけで slim を使うことを試みてみました。
+&lt;code&gt;action_view&lt;/code&gt;を require して、 &lt;code&gt;action_pack&lt;/code&gt; を require して、 &lt;code&gt;slim&lt;/code&gt; を require すれば使えます。&lt;/p&gt;
+
+&lt;p&gt;用意したファイル&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;views/prefix/slim.html.slim&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;p
+  | Hello, #{@name}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;views/layout/appliacation.html.erb&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;--
+&amp;lt;%= yield %&amp;gt;
+--
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;action_view&#39;
+require &#39;action_pack&#39;
+require &#39;slim&#39;
+
+lookup_context = ActionView::LookupContext.new(&#39;./views&#39;)
+lookup_context.cache = false   # ActionPachk を読まなくて済む魔法
+
+view_context = ActionView::Base.new(lookup_context)
+view_context.assign(name: &#39;eiel&#39;)
+ret = view_context.render(template: &#39;slim&#39;,
+                          prefixes: &#39;prefix&#39;,
+                          
+puts ret
+
+=begin
+--
+&amp;lt;p&amp;gt;Hello, eiel&amp;lt;/p&amp;gt;
+--
+=end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;slim は &lt;a href=&#34;https://github.com/judofyr/temple&#34;&gt;temple&lt;/a&gt; という gem を使ってRailsに対応してました。
+ActionPack はバージョン確認に利用しているだけなので、ちょっといじればなんとかなりそうですけど。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/judofyr/temple/blob/v0.6.8/lib/temple/templates/rails.rb&#34;&gt;Temple::Templates::Rails&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;もう少し詳しく:7dcde33f55e4e3742902be6a8bf43ee6&#34;&gt;もう少し詳しく&lt;/h3&gt;
+
+&lt;p&gt;誰得感がひどいのでもうちょっと書いてみる。&lt;/p&gt;
+
+&lt;p&gt;Railsとの連携の処理の部分は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Temple::Templates::Rails(Slim::Engine,
+  :register_as =&amp;gt; :slim,
+  # Use rails-specific generator. This is necessary
+  # to support block capturing and streaming.
+  :generator =&amp;gt; Temple::Generators::RailsOutputBuffer,
+  # Disable the internal slim capturing.
+  # Rails takes care of the capturing by itself.
+  :disable_capture =&amp;gt; true,
+  :streaming =&amp;gt; defined?(::Fiber))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/slim-template/slim/blob/master/lib/slim/template.rb#L9-L17&#34;&gt;Slim::Template&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そうすると &lt;code&gt;Temple::Template#method_missing&lt;/code&gt; が呼ばれてます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def self.method_missing(name, engine, options = {})
+  const_get(name).create(engine, options)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/judofyr/temple/blob/v0.6.8/lib/temple/templates.rb#L7-L9&#34;&gt;Temple::Temlate#method_missing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;変数を置き換えてみると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Temple::Templates::Rails.create(Slim::Engin,
+  register_as: :slim,
+  generator: Temple::Generators::RailsOutputBuffers,
+  disable_caputre: true,
+  streaming: defined?(::Fiber))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と &lt;a href=&#34;https://github.com/judofyr/temple/blob/v0.6.8/lib/temple/mixins/template.rb#L17-L25&#34;&gt;Temple::Templates::Rails.create&lt;/a&gt; が  &lt;code&gt;register_as: :slim&lt;/code&gt; 呼ばれることがわかります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def create(engine, options)
+  register_as = options.delete(:register_as)
+  template = Class.new(self)
+  template.disable_option_validator!
+  template.default_options[:engine] = engine
+  template.default_options.update(options)
+  template.register_as(*register_as) if register_as
+  template
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そうすると &lt;a href=&#34;https://github.com/judofyr/temple/blob/v0.6.8/lib/temple/templates/rails.rb#L41-L45&#34;&gt;Temple::Templates::Rails.register_as&lt;/a&gt; が &lt;code&gt;ActionViewActionView::Template.register_template_handler&lt;/code&gt; を呼びだされて、ActionView で利用できるようになります。&lt;/p&gt;
+
+&lt;p&gt;names には &lt;code&gt;[:slim]&lt;/code&gt; が束縛されることになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def self.register_as(*names)
+  names.each do |name|
+    ActionView::Template.register_template_handler name.to_sym, new
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;まとめ:7dcde33f55e4e3742902be6a8bf43ee6&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;ActionViewにテンプレートエンジンを追加するには &lt;code&gt;ActionView::Template.register_template_handler&lt;/code&gt; 使うことがわかりました。&lt;/p&gt;
+
+&lt;p&gt;ちなみに Rails のリポジトリを検索するとこんな感じでした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;base.register_default_template_handler :erb, ERB.new
+base.register_template_handler :builder, Builder.new
+base.register_template_handler :raw, Raw.new
+base.register_template_handler :ruby, :source.to_proc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rails/rails/blob/v4.1.4/actionview/lib/action_view/template/handlers.rb#L10-L13&#34;&gt;ソースコード&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;関連:7dcde33f55e4e3742902be6a8bf43ee6&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/07/18/action-view/&#34;&gt;ActionView を単体で使ってみる&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ActionView を単体で使ってみる</title>
+          <link>http://blog.eiel.info/blog/2014/07/18/action-view/</link>
+          <pubDate>Fri, 18 Jul 2014 18:35:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/18/action-view/</guid>
+          <description>
+
+&lt;p&gt;誰が興味があるのか謎ですが、&lt;a href=&#34;https://github.com/rails/rails/tree/v4.1.4/actionview&#34;&gt;ActionView&lt;/a&gt; を単体で使ってみようと思います。
+意外にも Rails の仕組みとか見えてくるかもしれません。&lt;/p&gt;
+
+&lt;p&gt;Rails 4.1 ぐらいから ActionPack から独立した記憶があります。どうでしたっけ。&lt;/p&gt;
+
+&lt;p&gt;テンプレートを使いたい時には erb, haml, slim などを単体で利用すればいいのであまり使う機会はないかもしれません。&lt;/p&gt;
+
+&lt;p&gt;雑感では、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;layout 機能を使いたい&lt;/li&gt;
+&lt;li&gt;インスタンス変数で値にアクセスしたい&lt;/li&gt;
+&lt;li&gt;Rails が提供するビューヘルパーを使いたい&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あたりがメリットかと思います。&lt;/p&gt;
+
+&lt;p&gt;この記事のために&lt;a href=&#34;https://github.com/eiel/use-actionview&#34;&gt;作成したコードはこちら&lt;/a&gt;においておきます。&lt;/p&gt;
+
+&lt;p&gt;補足の部分は読み飛ばせるように書いているつもりです。&lt;/p&gt;
+
+&lt;p&gt;利用したRailsのバージョンは 4.1.4 です。&lt;/p&gt;
+
+&lt;h3 id=&#34;1-hello-world:1c071b860be59640993cf2f27a5f39dd&#34;&gt;1 Hello, world&lt;/h3&gt;
+
+&lt;p&gt;まずは使ってみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;ActionView::Base.new.render(inline: &#39;Hello, World!&#39;) # =&amp;gt; Hello, world
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/rails/rails/blob/v4.1.4/actionview/lib/action_view/base.rb&#34;&gt;ActionView::Base&lt;/a&gt; のインスタンスを作成し、renderメソッドを呼びだします。
+コントローラでの render メソッドはどうやらこの render メソッドのようです。&lt;/p&gt;
+
+&lt;p&gt;(viewで使う render もこの render ですが…)&lt;/p&gt;
+
+&lt;h3 id=&#34;1の補足-actionview-base:1c071b860be59640993cf2f27a5f39dd&#34;&gt;1の補足 ActionView::Base&lt;/h3&gt;
+
+&lt;p&gt;Rails を使ってる際に erb ファイルの中で &lt;code&gt;self.class&lt;/code&gt; を確認したことはあるでしょうか？&lt;/p&gt;
+
+&lt;p&gt;ちょっと確認してみましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;%= self.class %&amp;gt;
+&amp;lt;%= self.class.superclass %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;#&amp;lt;Class:0x007f82891092e0&amp;gt;
+ActionView::Base
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;self は無名のクラスになっていますが、そのスーパークラスは ActiovView::Base です。
+ビューは ActionView::Base のインスタンスのコンテキストで実行されるわけです。ビューコンテキストと呼んでいるようです。&lt;/p&gt;
+
+&lt;p&gt;また、このクラスにヘルパーをミックスインすることでヘルパーとして利用できるようになります。&lt;/p&gt;
+
+&lt;p&gt;デフォルトのHelperはすでに include されています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; ActionView::Base.ancestors.map(&amp;amp;:to_s).grep(/Helper/)
+=&amp;gt; [&amp;quot;ActionView::Helpers&amp;quot;, &amp;quot;ActionView::Helpers::TranslationHelper&amp;quot;, &amp;quot;ActionView::Helpers::RenderingHelper&amp;quot;, &amp;quot;ActionView::Helpers::RecordTagHelper&amp;quot;, &amp;quot;ActionView::Helpers::OutputSafetyHelper&amp;quot;, &amp;quot;ActionView::Helpers::NumberHelper&amp;quot;, &amp;quot;ActionView::Helpers::JavaScriptHelper&amp;quot;, &amp;quot;ActionView::Helpers::FormOptionsHelper&amp;quot;, &amp;quot;ActionView::Helpers::FormHelper&amp;quot;, &amp;quot;ActionView::Helpers::FormTagHelper&amp;quot;, &amp;quot;ActionView::Helpers::TextHelper&amp;quot;, &amp;quot;ActionView::Helpers::DebugHelper&amp;quot;, &amp;quot;ActionView::Helpers::DateHelper&amp;quot;, &amp;quot;ActionView::Helpers::CsrfHelper&amp;quot;, &amp;quot;ActionView::Helpers::ControllerHelper&amp;quot;, &amp;quot;ActionView::Helpers::CacheHelper&amp;quot;, &amp;quot;ActionView::Helpers::AtomFeedHelper&amp;quot;, &amp;quot;ActionView::Helpers::AssetTagHelper&amp;quot;, &amp;quot;ActionView::Helpers::AssetTagHelper::StylesheetTagHelpers&amp;quot;, &amp;quot;ActionView::Helpers::AssetTagHelper::JavascriptTagHelpers&amp;quot;, &amp;quot;ActionView::Helpers::SanitizeHelper&amp;quot;, &amp;quot;ActionView::Helpers::ActiveModelHelper&amp;quot;, &amp;quot;ActionView::Helpers::UrlHelper&amp;quot;, &amp;quot;ActionView::Helpers::TagHelper&amp;quot;, &amp;quot;ActionView::Helpers::CaptureHelper&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;2-インスタンス変数を使う:1c071b860be59640993cf2f27a5f39dd&#34;&gt;2 インスタンス変数を使う&lt;/h3&gt;
+
+&lt;p&gt;Rails ではコントローラのインスタンス変数がビューの中で使えます。
+普段はRailsが自動でやってくれていますが、自分でインスタンス変数を設定するには assign メソッドを使います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;view_context = ActionView::Base.new
+view_context.assign(name: &#39;eiel&#39;)
+view_context.render(inline: &#39;Hello, &amp;lt;%= @name %&amp;gt;&#39;) # =&amp;gt; Hello, eiel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;@name&lt;/code&gt; が eiel に展開されています。&lt;/p&gt;
+
+&lt;p&gt;ActionView::Base のコンストラクタの第2引数に渡しても設定できます。&lt;/p&gt;
+
+&lt;h3 id=&#34;2の補足-actionview-rendering:1c071b860be59640993cf2f27a5f39dd&#34;&gt;2の補足 ActionView::Rendering&lt;/h3&gt;
+
+&lt;p&gt;コントローラがビューコンテキストに対して assign メソッドを利用して、設定します。
+これは &lt;a href=&#34;https://github.com/rails/rails/blob/v4.1.4/actionview/lib/action_view/rendering.rb&#34;&gt;ActionView::Rendering&lt;/a&gt; で行われます。&lt;/p&gt;
+
+&lt;p&gt;この ActionView::Rendering には ActionController::Base にミックスインされていて、コントローラがビューを設定する処理などが記述されているようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; ActionController::Base.ancestors.map(&amp;amp;:to_s).grep(/ActionView/)
+=&amp;gt; [&amp;quot;ActionView::Layouts&amp;quot;, &amp;quot;ActionView::Rendering&amp;quot;, &amp;quot;ActionView::ViewPaths&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ActionController::Base には ActionView::Rendering がミックスインされています。&lt;/p&gt;
+
+&lt;p&gt;ちなみに assign するのに使う Hash は AbstractController::Rendering#view_assign で作成されています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def view_assigns
+  protected_vars = _protected_ivars
+  variables      = instance_variables
+
+  variables.reject! { |s| protected_vars.include? s }
+  variables.each_with_object({}) { |name, hash|
+    hash[name.slice(1, name.length)] = instance_variable_get(name)
+  }
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rails/rails/blob/53d7b2ffe9ccdf2ded9898e20a947ea7da63566e/actionpack/lib/abstract_controller/rendering.rb#L66-L74&#34;&gt;ソースコード&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;インスタンス変数の一覧を取り出し、先頭の &lt;code&gt;@&lt;/code&gt; を取り除いてハッシュにしています。_protected_ivars に登録されているものは除外されます。&lt;/p&gt;
+
+&lt;h3 id=&#34;3-テンプレートファイルの利用:1c071b860be59640993cf2f27a5f39dd&#34;&gt;3 テンプレートファイルの利用&lt;/h3&gt;
+
+&lt;p&gt;別のファイルに保存したテンプレートを利用してみます。
+ActionView::LookupContext というものがテンプレートファイルを探します。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;views/prefix/hoge.html.erb&lt;/code&gt; を用意して中身は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Hello, &amp;lt;%= @name %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;として用意しているとします。&lt;/p&gt;
+
+&lt;p&gt;使ってみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;action_dispatch/http/mime_type&#39;
+view_context = ActionView::Base.new(&#39;./views&#39;)
+view_context.assign(name: &#39;eiel&#39;)
+view_context.render(template: &#39;hoge&#39;, prefixes: &#39;prefix&#39;) # =&amp;gt; Hello, eiel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ActionView::Base の第一引数から自動的に ActionView::LookupContext が生成されます。&lt;/p&gt;
+
+&lt;p&gt;バグなのかどうか判断が付いていないですが action_dispatch/http/mime_type を読まなりと動いてくれません。&lt;/p&gt;
+
+&lt;p&gt;どうしても読みたくない場合は以下のようにします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;lookup_context = ActionView::LookupContext.new(&#39;./views&#39;)
+lookup_context.cache = false   # ActionPack を読まなくて済む魔法
+
+view_context = ActionView::Base.new(lookup_context)
+view_context.assign(name: &#39;eiel&#39;)
+view_context.render(template: &#39;hoge&#39;, prefixes: &#39;prefix&#39;) # =&amp;gt; Hello, eiel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ルックアップコンテキストを自分で作り、cache を切ると ActionDispatch を利用せずに動かすことができます。&lt;/p&gt;
+
+&lt;p&gt;Rails が prefixes と template を自動で設定してくれていることが想像できます。普段はコントローラ名やアクション名から判断できるからですね。&lt;/p&gt;
+
+&lt;p&gt;prefixes は指定しないとテンプレートをみつけることができないようです。&lt;/p&gt;
+
+&lt;p&gt;また、文字列を指定することもできます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;view_context.render(&#39;prefix/hoge&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;この場合は &lt;code&gt;prefix/_hoge.html.erb&lt;/code&gt; のようなファイルを探しにいきます。&lt;/p&gt;
+
+&lt;h3 id=&#34;3の補足:1c071b860be59640993cf2f27a5f39dd&#34;&gt;3の補足&lt;/h3&gt;
+
+&lt;p&gt;render に自動設定されるオプションは _normalize_options メソッドで設定されるようです。&lt;/p&gt;
+
+&lt;p&gt;例えば  &lt;a href=&#34;https://github.com/rails/rails/blob/v4.1.4/actionview/lib/action_view/rendering.rb&#34;&gt;ActionVIew::Rendreing#_normalive_options&lt;/a&gt; では&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def _normalize_options(options)
+  options = super(options)
+  if options[:partial] == true
+    options[:partial] = action_name
+  end
+
+  if (options.keys &amp;amp; [:partial, :file, :template]).empty?
+    options[:prefixes] ||= _prefixes
+  end
+
+  options[:template] ||= (options[:action] || action_name).to_s
+  options
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となっていて prefixes や template が設定されている様子があります。&lt;/p&gt;
+
+&lt;p&gt;特に &lt;code&gt;options[:template] ||= (options[:action] || action_name).to_s&lt;/code&gt; なんかは予想通りな感じですね。
+options に :action を利用して、なければ action_name を利用しています。&lt;/p&gt;
+
+&lt;p&gt;prefixes は &lt;a href=&#34;https://github.com/rails/rails/blob/7b50d7f2496a84bec5aceb9e0fd1f1f9dcbdab88/actionview/lib/action_view/view_paths.rb#L34-L36&#34;&gt;ActionView::ViewPaths&lt;/a&gt; で&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def local_prefixes
+  [controller_path]
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となっており、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def _prefixes # :nodoc:
+  @_prefixes ||= begin
+    deprecated_prefixes = handle_deprecated_parent_prefixes
+    if deprecated_prefixes
+      deprecated_prefixes
+    else
+      return local_prefixes if superclass.abstract?
+
+      local_prefixes + superclass._prefixes
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最終的に _prefixes として利用できることがわかります。&lt;/p&gt;
+
+&lt;p&gt;そういえば ActionView::ViewPaths も ActionController::Base にミックスインされていましたね。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; ActionController::Base.ancestors.map(&amp;amp;:to_s).grep(/ActionView/)
+=&amp;gt; [&amp;quot;ActionView::Layouts&amp;quot;, &amp;quot;ActionView::Rendering&amp;quot;, &amp;quot;ActionView::ViewPaths&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;4-レイアウトの利用:1c071b860be59640993cf2f27a5f39dd&#34;&gt;4 レイアウトの利用&lt;/h3&gt;
+
+&lt;p&gt;レイアウトを利用するには &lt;code&gt;layout&lt;/code&gt; オプションを使います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ tree views/
+views/
+├── layouts
+│   └── application.html.erb
+└── prefix
+    └── hoge.html.erb
+$ cat view/layouts/application.html.erb
+--
+&amp;lt;%= yield %&amp;gt;
+--
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;としておいて、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;lookup_context = ActionView::LookupContext.new(&#39;./views&#39;)
+lookup_context.cache = false   # ActionPachk を読まなくて済む魔法
+
+view_context = ActionView::Base.new(lookup_context)
+view_context.assign(name: &#39;eiel&#39;)
+view_context.render(template: &#39;hoge&#39;,
+                          prefixes: &#39;prefix&#39;,
+                          
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とすると、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;--
+Hello, eiel
+
+--
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のような文字列がかえってきます。&lt;/p&gt;
+
+&lt;h3 id=&#34;4の補足:1c071b860be59640993cf2f27a5f39dd&#34;&gt;4の補足&lt;/h3&gt;
+
+&lt;p&gt;layout に関するコントローラの処理は &lt;a href=&#34;https://github.com/rails/rails/blob/v4.1.4/actionview/lib/action_view/layouts.rb&#34;&gt;ActionView::Layouts&lt;/a&gt; にあります。&lt;/p&gt;
+
+&lt;p&gt;もう一度確認してみましょう。ActionController::Base にミックスインされているモジュールを確認してみましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; ActionController::Base.ancestors.map(&amp;amp;:to_s).grep(/ActionView/)
+=&amp;gt; [&amp;quot;ActionView::Layouts&amp;quot;, &amp;quot;ActionView::Rendering&amp;quot;, &amp;quot;ActionView::ViewPaths&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ちなみに ActionView::Rendering は ActionView::Layouts で &lt;code&gt;include&lt;/code&gt; されています。&lt;/p&gt;
+
+&lt;p&gt;render へのオプション設定はやっぱり &lt;code&gt;_normalaize_options&lt;/code&gt; にあります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def _normalize_options(options) # :nodoc:
+  super
+
+  if _include_layout?(options)
+    layout = options.delete(:layout) { :default }
+    options[:layout] = _layout_for_option(layout)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;options[:layout]&lt;/code&gt; を設定しています。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:1c071b860be59640993cf2f27a5f39dd&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;ActionView を単体で使いたい場面を考えると ERB を単体で利用していたけど layout を使いたくなったときぐらいしか浮かびません。
+Rails が提供する MVC に乗かりたいなら AbstroctController を使うほうが楽そうです。&lt;/p&gt;
+
+&lt;p&gt;補足としたほうを読んでみると Rails の仕組みも見えてくるような気がしますね。(#知らんけど)&lt;/p&gt;
+
+&lt;h3 id=&#34;補足のまとめ:1c071b860be59640993cf2f27a5f39dd&#34;&gt;補足のまとめ&lt;/h3&gt;
+
+&lt;p&gt;登場人物を整理しておきます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;view_context - ActionView::Base のサブクラスのインスタンス。ビューの中のself&lt;/li&gt;
+&lt;li&gt;lookup_context - ActionView::LookupContext のインスタンス。テンプレートを探してくれる。テンプレートを探すための情報ももってる。&lt;/li&gt;
+&lt;li&gt;renderer - render を実際に行うところ。今回は登場してない。render の引数によってどのクラスを使うか選択される。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;コントローラーと連携するためにコントローラに機能を追加する人たちとして、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ActionView::Layouts&lt;/li&gt;
+&lt;li&gt;ActionView::Rendering&lt;/li&gt;
+&lt;li&gt;ActionView::ViewPaths&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;が登場しました。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:1c071b860be59640993cf2f27a5f39dd&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/09/04/extend-abstract-controller/&#34;&gt;AbstractController を継承して遊ぶ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;blog/2014/03/30/action-dispatch/&#34;&gt;ActionDispatch ってなんだろう？ - 広島・岡山Ruby交流会01&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/09/07/autoload-rails/&#34;&gt;Rails の自動読み込みの話&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

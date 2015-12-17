@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/npm/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-01-10 18:52:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>LT駆動開発10で「Rubyistからみたnpm」という話をした。</title>
+          <link>http://blog.eiel.info/blog/2015/01/10/npm-abc-for-rubyist/</link>
+          <pubDate>Sat, 10 Jan 2015 18:52:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/01/10/npm-abc-for-rubyist/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA10&#34;&gt;LT駆動開発10&lt;/a&gt;で「Rubyistからみたnpm」という話をした。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;9961d6c07adc0132c0c22e2d526dbddf&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;このスライドは10月につくったのだけど、使う場面がなかったけど、今日は時間が余ってたので取り出しました。&lt;/p&gt;
+
+&lt;p&gt;なんか微妙だった。まあ。いいや。
+使ってみた上での認識です。&lt;/p&gt;
+
+&lt;p&gt;参考になれば幸いです。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:d8e7875209aacee2cecc6347dacbedc1&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2015/01/10/chef-abc-on-test-kitchen/&#34;&gt;LT駆動開発10でTest KitchenではじめるChef入門という話をした。OSH2015のステマかもしれない。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

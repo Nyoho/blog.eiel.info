@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/api/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-09-28 12:44:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>RubyでFacebookのコメントに写真を投稿する</title>
+          <link>http://blog.eiel.info/blog/2014/09/28/put-comment-with-photo-in-facebook/</link>
+          <pubDate>Sun, 28 Sep 2014 12:44:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/09/28/put-comment-with-photo-in-facebook/</guid>
+          <description>
+
+&lt;p&gt;FacebookのGraph APIをさわった。コメントを自動でしたかったからだ。&lt;/p&gt;
+
+&lt;p&gt;RubyでFacebook Graph APIをたたくにはサードパーティなgemを使うのでいろいろい種類がある。今回は&lt;a href=&#34;https://github.com/arsduo/koala&#34;&gt;koala&lt;/a&gt;を使用した。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://developers.facebook.com/docs/graph-api/reference/v2.1/object/comments&#34;&gt;コメントに関するAPIの仕様はここに書いてある&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;kola&#39;
+
+object_id = &amp;quot;OBJECT_ID&amp;quot;
+file_path = &amp;quot;FILE_PATH&amp;quot;
+oauth_access_token = &amp;quot;ACCESS_TOKEN&amp;quot;
+
+file = Koala::UploadableIO.new(file_path)
+graph = Koala::Facebook::API.new(oauth_access_token)
+graph.put_object(object_id,&amp;quot;comments&amp;quot;, source: file)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、投稿できる。&lt;code&gt;graph.put_comment&lt;/code&gt; というメソッドがあるが、ファイルがわたせない。コメントしたいだけならこれで充分。&lt;/p&gt;
+
+&lt;p&gt;object_id が必要になる。
+てっとり早い方法はブラウザでコメントしたいポストを開いたらURLに書いてある数字がobject_idである。&lt;/p&gt;
+
+&lt;p&gt;画像はsourceに指定するが Koala::UploadableIOで開いておく。&lt;/p&gt;
+
+&lt;p&gt;またoauth_tokenが必要になる。
+&lt;a href=&#34;https://developers.facebook.com/tools/explorer?method=GET&amp;amp;path=me%3Ffields%3Did%2Cname&amp;amp;version=v2.1&#34;&gt;Graph API Explorer&lt;/a&gt;(アクセスにはログインしている必要がありそう)``から作成できる。たぶん1、2時間しかつかえないはず。(ちゃんと調べてない)&lt;/p&gt;
+
+&lt;p&gt;権限は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;user_photos&lt;/li&gt;
+&lt;li&gt;publish_actions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;が最低必要で、書き込みする場所によって対応したものが必要。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;user_status&lt;/li&gt;
+&lt;li&gt;user_groups&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などなど。必要に応じて追加する。&lt;/p&gt;
+
+&lt;p&gt;user_photosをつけてなくて3時間ぐらい悩んだのはただの愚痴。&lt;/p&gt;
+
+&lt;p&gt;ついでにRestClientで送りつける場合の方法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;rest_client&#39;
+url = &amp;quot;https://graph.facebook.com/v2.1/#{object_id}/comments?oauth_token=&amp;quot; + oauth_access_token
+RestClient.post(url, &amp;quot;source&amp;quot; =&amp;gt; open(&amp;quot;/Users/eiel/Desktop/hoge.png&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;参考文献:73717b21f862f2e91a4b1d32275a2efb&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/184178/ruby-how-to-post-a-file-via-http-as-multipart-form-data&#34;&gt;Ruby: How to post a file via HTTP as multipart/form-data? - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>iOSでFacebookAPIへのアクセス</title>
+          <link>http://blog.eiel.info/blog/2012/05/11/ios-for-facebook/</link>
+          <pubDate>Fri, 11 May 2012 17:30:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/05/11/ios-for-facebook/</guid>
+          <description>&lt;p&gt;最小限のサンプルを作成してみました。&lt;/p&gt;
+
+&lt;p&gt;FacebookのSDKいたれりつくせりでそれなりに簡単。
+&lt;a href=&#34;https://github.com/eiel/iOS-FacebookAPISapmle&#34;&gt;https://github.com/eiel/iOS-FacebookAPISapmle&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

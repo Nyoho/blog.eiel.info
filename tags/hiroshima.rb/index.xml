@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/hiroshima/index.rb/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-02-26 23:04:36 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>ChefDKハンズオンをして思ったこと</title>
+          <link>http://blog.eiel.info/blog/2015/02/26/chefdk-hands-on/</link>
+          <pubDate>Thu, 26 Feb 2015 23:04:36 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/02/26/chefdk-hands-on/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://hiroshimarb.doorkeeper.jp/events/20979&#34;&gt;ChefDKハンズオン&lt;/a&gt;をしました。
+&lt;a href=&#34;http://great-h.github.io/events/event-093.html&#34;&gt;すごい広島93&lt;/a&gt;の脇で行いました。&lt;/p&gt;
+
+&lt;p&gt;ハンズオンをするととても勉強になります。自分が。&lt;/p&gt;
+
+&lt;p&gt;当日のトラブルを避けるための入念な準備をしたり、それでも想定しないことが起きたり、自分では簡単だと思っていることが他の人には意外と難しかったり、なんとなく理解の部分を発見したりできました。&lt;/p&gt;
+
+&lt;p&gt;参加者にとってハンズオンの良いところは、本来一人で新しいことをはじめるとつまづいた時に一人で解決しないといけませんが、講師がいて一緒に解決できるところがとても大きいと思いました。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、&lt;a href=&#34;http://qiita.com/eielh/items/adb173ffcd6389c12e36&#34;&gt;ChefDKハンズオン with すごい広島の資料&lt;/a&gt;はここにあるので、気が向いたら遊んでみてください。
+反省点なんかを反映したいですが、間に合っていません。
+作るのもそれなりに大変だったので、しっかり直したいです。&lt;/p&gt;
+
+&lt;p&gt;今度から月1回程度、他の人の作成したハンズオン資料でハンズオンしたり、ときどき自作したりしてもいいかなと思いはじめています。&lt;/p&gt;
+
+&lt;p&gt;そういえば、Boot2dockerの準備の仕方を書いてなかったらみんなハマってました。
+使ったことなければ、それはそうですね、本当にすみません。&lt;/p&gt;
+
+&lt;p&gt;再演希望とかあれば言ってください。研修に使いたい場合、講師で呼んでくれても良いです。
+生活費稼がなきゃ。&lt;/p&gt;
+
+&lt;p&gt;もっとみんなに使って欲しいと思った技術をみつけたら、新しいハンズオンを考えてみたいです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

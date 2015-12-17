@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/xxdiff/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-07-03 21:27:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Mac で使える git mergetool をいろいろ試してみる - xxdiff</title>
+          <link>http://blog.eiel.info/blog/2013/07/03/git-mergetool-xxdiff/</link>
+          <pubDate>Wed, 03 Jul 2013 21:27:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/07/03/git-mergetool-xxdiff/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt; の続きです。&lt;/p&gt;
+
+&lt;p&gt;つづいて &lt;a href=&#34;http://furius.ca/xxdiff/&#34;&gt;xxdiff&lt;/a&gt; を紹介したいと思います。&lt;/p&gt;
+
+&lt;p&gt;Ot で実装されているっぽいです。
+マージ結果が常に表示されないため扱いにくいです。
+また、Retina に対応していないみたいで、文字が読めませんでした。
+あと、日本語が文字化けしました。&lt;/p&gt;
+
+&lt;p&gt;設定は不要で、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git mergetool -t xxdiff
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とすると起動できます。&lt;/p&gt;
+
+&lt;p&gt;また、常に xxdiff を利用したい場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global merge.tool xxdiff
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;としておけばよいです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/xxdiff.png&#34; alt=&#34;xxdiffの画面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;画面左に現在のブランチのファイル、画面右にマージするブランチのファイルの内容が表示されます。&lt;/p&gt;
+
+&lt;p&gt;キーボードショーットカットは充実しているようですが、マージ結果をみる方法がわかりませんでした。&lt;/p&gt;
+
+&lt;p&gt;日本語はでないし、マージ結果の出し方がわからないということで利用は難しそうでした。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:1d171718914462b98b256fe2eaffa740&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

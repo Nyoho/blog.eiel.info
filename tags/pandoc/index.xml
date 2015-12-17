@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/pandoc/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-01-06 15:45:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>pandocのインストールに失敗する</title>
+          <link>http://blog.eiel.info/blog/2014/01/06/failure-install-pandoc/</link>
+          <pubDate>Mon, 06 Jan 2014 15:45:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/01/06/failure-install-pandoc/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://jaspervdj.be/hakyll/&#34;&gt;hakyll&lt;/a&gt; のアップデートしてたら pandoc のビルドにこけた。&lt;/p&gt;
+
+&lt;p&gt;エラーの内容は下記のとおり。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;src/Text/Pandoc/Readers/Haddock/Lex.x:149:46:
+    Couldn&#39;t match type `(AlexPosn, Char, String)&#39;
+                  with `(AlexPosn, t0, t1, [Char])&#39;
+    Expected type: (AlexPosn, t0, t1, [Char])
+      Actual type: AlexInput
+    In the first argument of `go&#39;, namely inp&#39;
+    In the expression: go inp&#39; sc
+    In a case alternative: AlexSkip inp&#39; len -&amp;gt; go inp&#39; sc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ぐぐったら以下が出てきた&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jgm/pandoc/issues/815&#34;&gt;https://github.com/jgm/pandoc/issues/815&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;というわけで下記を実行してみた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cabal install alex
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;再度 install してみたら成功した。&lt;/p&gt;
+
+&lt;p&gt;失敗したファイルが &lt;code&gt;*.x&lt;/code&gt; なファイルだけどコンパイル前に alex で処理されるんだろうか…よくわからない。そのうち調べたい。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

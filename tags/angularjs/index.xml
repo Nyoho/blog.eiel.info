@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/angularjs/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-06-12 20:05:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Rails で AngularJs を使おうとしてみた</title>
+          <link>http://blog.eiel.info/blog/2013/06/12/htmlday-angular-js/</link>
+          <pubDate>Wed, 12 Jun 2013 20:05:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/06/12/htmlday-angular-js/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.htmlday.jp&#34;&gt;&amp;lt;htmlday&amp;gt; 2013&lt;/a&gt;でやったことプラスアルファ。
+足りなかった部分は&lt;a href=&#34;http://great-h.github.io/events/event-004.html&#34;&gt;すごい広島 #4&lt;/a&gt;内で調査しました。&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;htmlday&amp;gt; では &lt;a href=&#34;http://angularjs.org/&#34;&gt;AngularJS&lt;/a&gt; で遊びました&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2012/07/26/angularjs-abc/&#34;&gt;前にAngularJSを利用したときの復習&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://angularjs.org/&#34;&gt;AngularJS&lt;/a&gt; を rails で使うのに使えそうな gemの調査&lt;/li&gt;
+&lt;li&gt;&amp;lt;html ng-app&amp;gt; と書けないの時の対処方法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;angularjs-を-rails-で使うのに使えそうな-gemの調査:de9db9eb8c6ccb8fc160fb8104e352a8&#34;&gt;AngularJS を rails で使うのに使えそうな gemの調査&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.ruby-toolbox.com/search?utf8=%E2%9C%93&amp;amp;q=angular&#34;&gt;とりあえず、Ruby Toolboxで angularを検索してみました。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;候補としては&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ludicast/angular-rails/tree/master/vendor/assets/javascripts&#34;&gt;angular-rails&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hiravgandhi/angularjs-rails/tree/master/lib&#34;&gt;anglurajs-rails&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ets-berkeley-edu/angular-gem&#34;&gt;angular-gem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yjchen/angular-rails-engine&#34;&gt;angular-rails-engine&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;と、乱立状態でした。他にもありましたけど、見る元気はありませんでした。&lt;/p&gt;
+
+&lt;p&gt;結論をまとめておくと&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;素の AngularJs でいいのなら angularjs-rails&lt;/li&gt;
+&lt;li&gt;generatorなど、もしかすると便利になるものがあるかもしれないのが angular-gem&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という感じでした。&lt;/p&gt;
+
+&lt;p&gt;まずは、angular-rails を試しました。generator などついていますが、AngularJSの本体が更新されていない状態でした。
+また、添付されている angle.js を読み込みすると動作しなかったりと問題もちらほらありました。&lt;/p&gt;
+
+&lt;p&gt;次にみたのは angularjs-rails です。これは Javascriptが添付されているだけのシンプルなものでした。添付されているものも最新で、unstable な最新バージョンも添付されていました。読み込みたいだけならこれで良さそうです。x&lt;/p&gt;
+
+&lt;p&gt;unstableなバージョンをよみこむ場合は application.js に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;//= require_tree ./angular/unstable
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、かけば良さそうです。&lt;/p&gt;
+
+&lt;p&gt;3番目に angular-gem です。前述の angularjs をフォークして複数のversion のAngularJSを取りこんでいたりと、なかなか意欲的です。&lt;/p&gt;
+
+&lt;p&gt;4つ目は angular-rails-engin です。angular_include_tag というヘルパーを提供してくれて、必要に応じて読込みして使う感じになるようです。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、 angular-gem を試していこうかなと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;html-ng-app-を書けないのでその対処方法:de9db9eb8c6ccb8fc160fb8104e352a8&#34;&gt;&amp;lt;html ng-app&amp;gt; を書けないのでその対処方法&lt;/h3&gt;
+
+&lt;p&gt;AngularJs では&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;html ng-app&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のような書き方をして、機能拡張をする場合は、myModule を作成して、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;html ng-app=&amp;quot;myModule&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のようにします。&lt;/p&gt;
+
+&lt;p&gt;しかし、&lt;a href=&#34;http://haml.info/&#34;&gt;haml&lt;/a&gt; &lt;a href=&#34;http://slim-lang.com/&#34;&gt;slim&lt;/a&gt; を利用していると、自動生成されてしまって書けそうにない。&lt;/p&gt;
+
+&lt;p&gt;書けない場合は JavaScriptでなんとかできました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;angular.element(document).ready(function() {
+  angular.bootstrap(document, [&#39;myModule&#39;]);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と書くと、前述のものと等価になります。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>AngularJSで遊んだときのメモ</title>
+          <link>http://blog.eiel.info/blog/2012/07/26/angularjs-abc/</link>
+          <pubDate>Thu, 26 Jul 2012 15:58:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/07/26/angularjs-abc/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://hwebsys.eshima.info/&#34;&gt;広島ウェブシステム開発勉強会&lt;/a&gt;で、&lt;a href=&#34;http://angularjs.org/&#34;&gt;AngularJS&lt;/a&gt;で遊んだのでそのメモ。&lt;/p&gt;
+
+&lt;h2 id=&#34;angularjsってなんぞ:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;AngularJSってなんぞ&lt;/h2&gt;
+
+&lt;p&gt;Googleとコミュニティによって開発されているWebアプリケーション作成のためのフレームワークらしいです。Googleという名がでてくるように、保守性の高そうな設計がしてある印象を受けました。非常に使いやすかったです。
+DOM操作が必要にならない工夫もしてある印象。&lt;/p&gt;
+
+&lt;p&gt;特徴としては、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;規約をもちいた、ViewとModelの自動化と knockoutJSのようにモデルの変更を検知して自動的に画面が更新される&lt;/li&gt;
+&lt;li&gt;mix-inのようにコントローラへ機能を追加でき、引数からオブジェクトをうけとることで、スコープの制限をしていること&lt;/li&gt;
+&lt;li&gt;htmlに埋め込まれる式は Javascriptではなく、AngularJSのDSLでシェルのパイプのような流れるようなコードが記述できる&lt;/li&gt;
+&lt;li&gt;コンポーネント化しやすい構造&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;なのかなぁ。印象ですが。スコープをうまく設計してあると思いました。&lt;/p&gt;
+
+&lt;h2 id=&#34;angular:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;Angular&lt;/h2&gt;
+
+&lt;p&gt;日本語の意味は角度っぽいです。由来が全然検討がつきません。&lt;/p&gt;
+
+&lt;h2 id=&#34;チュートリアルをひととおりやってみました:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;チュートリアルをひととおりやってみました。&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://docs.angularjs.org/tutorial/&#34;&gt;http://docs.angularjs.org/tutorial/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;github で公開されてるサンプルコードを追っていきます。
+node.js は必須ではないです。Mac では pkg が用意されていて簡単にインストールできるのでいれてしまったほうが楽だと思います。&lt;/p&gt;
+
+&lt;p&gt;以下、 各章のメモです。
+step ごとの diff をみながらすすめぬのがよさそうです。
+見ている step を checkout して&lt;code&gt;git show&lt;/code&gt; などなど。&lt;/p&gt;
+
+&lt;h3 id=&#34;step0-bootstrap:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;step0 bootstrap&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git checkout -f step-0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;して&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ scripts/web-server.js
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;でサーバが起動する
+&lt;a href=&#34;http://localhost:8000/app/index.html&#34;&gt;http://localhost:8000/app/index.html&lt;/a&gt;
+にアクセスすると Nothing here yet! と表示される。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ng-app 命令&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;html ng-app&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Angular Application のルート要素を指定する&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;二重の波括弧内に式がかける&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;{{&#39;hoge&#39;}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;かける式は Angular Expression であって JavaScriptではないらしい
+ng-appの指定したモジュールを DOMContentLoaded イベント時に自動で読込む&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;手動でよみたい場合は&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script&amp;gt;
+angular.element(document).ready(function() {
+   angular.bootstrap(document);
+});
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;他の人がはまったポイント:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;他の人がはまったポイント&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Javaばっかりしてるせいで localhost:8000を localhost:8080 でアクセスしていた。&lt;/li&gt;
+&lt;li&gt;script/web-server.jsを プロジェクトルートで起動せず、index.htmlにアクセスできなかった&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;step1-static-template:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;step1 static Template&lt;/h3&gt;
+
+&lt;p&gt;HTMLが普通にかけるねってことだった&lt;/p&gt;
+
+&lt;h3 id=&#34;step2-angular-template:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;step2 Angular Template&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;直接埋め込んでいたデータをcontroller.jsに移動。&lt;/li&gt;
+&lt;li&gt;コントローラはなにもしないけど、変数の割り当てをする。&lt;/li&gt;
+&lt;li&gt;ちゃんとコントローラごとにバインディングされてる(すごくいい!)&lt;/li&gt;
+&lt;li&gt;jasmineのサンプルもあってすごくいい&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;step3-filterrepeat:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;step3 FilterRepeat&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;inputタグでng-model属性を指定すると変数に代入されとりだせる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;two-way-data-binding:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;Two-way Data Binding&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;orderByを使用するとモデルの並び変えができる&lt;/li&gt;
+&lt;li&gt;プロパティ名を指定するだけ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;xhrs-dependency-injection:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;XHRs &amp;amp; Dependency Injection&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;$httpを使ってhttpアクセスができる&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;JSONを取得する場合は $http.json というのがある
+&lt;a href=&#34;http://docs.angularjs.org/api/ng.$http#jsonp&#34;&gt;http://docs.angularjs.org/api/ng.$http#jsonp&lt;/a&gt;
+callbackには JSON_CALLBACKを指定すること&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;$が先頭につくオブジェクトは特殊なオブジェクトっぽい。Rootオブジェクトにあるオブジェクトを共有してる感じ&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;それを渡すかどうかは別に宣言するみたいだけど、ある程度暗黙になってる？&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;templating-links-images:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;Templating Links &amp;amp; Images&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ng-srcを利用すると画像のURLから表示できる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;routing-multiple-views:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;Routing &amp;amp; Multiple Views&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;複雑になってきたので分離しようという章&lt;/li&gt;
+&lt;li&gt;詳細ページも用意する作業をします。&lt;/li&gt;
+&lt;li&gt;$routeProbiderにルーティングを設定
+
+&lt;ul&gt;
+&lt;li&gt;URLに対しコントローラとテンプレートの関係を定義する&lt;/li&gt;
+&lt;li&gt;ng-app属性にmodule名を指定することで読込むモジュールを指定できる&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;more-templating:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;More Templating&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$routeParamsにルーティングによって代入される値が保持される railsでいうと paramsになります。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;filterの作成方法:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;Filterの作成方法&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;自前のフィルターを作成する方法&lt;/li&gt;
+&lt;li&gt;モジュールを作成して filter関数を使用して定義することになる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;event-handlers:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;Event Handlers&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;クリックされたときの処理を追加&lt;/li&gt;
+&lt;li&gt;コントローラにメソッド追加して ng-click属性で呼び出し。オリジナルのプロパティを使うことでラッピングできてる。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;rest-and-custom-serviwe:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;REST and Custom Serviwe&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;angular-resource.jsを読込むとRESTfulなAPIにアクセスできる&lt;/li&gt;
+&lt;li&gt;$resourceを使って Resourceを定義していく。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;まとめ:f2315f44927736f1aa49cb0fc5ccb712&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;仕組みのなんだかわかりやすく、そこが見えていれば、AngularJS使ってるコードはよみやすそうでした。
+HTMLをデザイナーが読めるかどうかが要めになりそうです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

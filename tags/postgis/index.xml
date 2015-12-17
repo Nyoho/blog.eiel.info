@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/postgis/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-12-13 05:51:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>PostGIS関連でRailsの本番環境でエラー</title>
+          <link>http://blog.eiel.info/blog/2014/12/13/activerecord-postgis/</link>
+          <pubDate>Sat, 13 Dec 2014 05:51:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/13/activerecord-postgis/</guid>
+          <description>&lt;p&gt;PostGIS
+開発環境ではおきないのだけど、pointを作ろうとしてエラーが起きる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NoMethodError (undefined method `point&#39; for #&amp;lt;Proc:0x000000038dde90&amp;gt;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;見事に下記の通りだった。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/rgeo/activerecord-postgis-adapter/issues/63&#34;&gt;https://github.com/rgeo/activerecord-postgis-adapter/issues/63&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;self.lonlat = Pin.rgeo_factory_for_column(:latlon).point(self.longitude, self.latitude)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;だったのを&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;self.lonlat = Pin.rgeo_factory_for_column(:latlon, {}).point(self.longitude, self.latitude)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;に書き換え。&lt;code&gt;rgeo_factory_for_column&lt;/code&gt;の第2引数に &lt;code&gt;{}&lt;/code&gt;を加えた。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

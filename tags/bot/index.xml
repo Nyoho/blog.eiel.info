@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/bot/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-06-07 23:34:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>通知環境としてidobataを試した話をLT駆動開発04でした</title>
+          <link>http://blog.eiel.info/blog/2014/06/07/notification-development/</link>
+          <pubDate>Sat, 07 Jun 2014 23:34:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/06/07/notification-development/</guid>
+          <description>
+
+&lt;p&gt;今月も&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA04&#34;&gt;LT駆動開発04&lt;/a&gt;でライトニングトークしてきました。&lt;/p&gt;
+
+&lt;p&gt;結構今回雑…。喋りもグダってた。見直しとか、リハっぽいこともしてないから…。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;b2e78510d07b0131bebd268a39862ac0&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://circleci.com/&#34;&gt;CircleCI&lt;/a&gt;の通知をしたいなーってことで &lt;a href=&#34;https://idobata.io/&#34;&gt;idobata&lt;/a&gt; のクライアント使えばできそうなので、 &lt;a href=&#34;https://hubot.github.com/&#34;&gt;hubot&lt;/a&gt; をつかって idobata に情報を送信してみたよ!という話をしました。&lt;/p&gt;
+
+&lt;p&gt;なんか開発で BOT を使うの良さってのがやっとわかってきたので、その話もちらっとした気がします。しかし、中身がないな…。&lt;/p&gt;
+
+&lt;p&gt;気になってるのは CircleCI の Web Hook から飛んでくるJSONの情報が整理されてなくて調べるのがめんどくさいなーって思ってたりします。なんかライブラリはないのだろうか。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:fdd903ceba3839837355b0b2f8cef221&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/05/27/message-send-from-hubot-httpd-to-idobata/&#34;&gt;hubot で起動しているウェブサーバを経由して idobata へ投稿してみる&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

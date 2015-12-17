@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/gpg/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-07-31 19:26:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>GnuPG で遊ぶ - 暗号化してみる</title>
+          <link>http://blog.eiel.info/blog/2013/07/31/gpg/</link>
+          <pubDate>Wed, 31 Jul 2013 19:26:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/07/31/gpg/</guid>
+          <description>
+
+&lt;p&gt;GnuPG 使う機会が無い。無さすぎるよ。使わないと忘れそうなので、たまには遊ぶ。ついでに広まればいいな。ということで、整理しながら試す。&lt;/p&gt;
+
+&lt;p&gt;そうそう、これは &lt;a href=&#34;http://great-h.github.io/events/event-011.html&#34;&gt;すごい広島 #011&lt;/a&gt; で遊んだことです。&lt;/p&gt;
+
+&lt;h3 id=&#34;gpgとは:57bbd94ea7d6f1e7f7f5c97174866510&#34;&gt;GPGとは&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.gnupg.org/&#34;&gt;GNU Privacy Guard&lt;/a&gt; という暗号化ソフト。ざっくりとは &lt;a href=&#34;http://ja.wikipedia.org/wiki/GNU_Privacy_Guard&#34;&gt;Wikipedia の GPG&lt;/a&gt;とかみてみると良いかも。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ja.wikipedia.org/wiki/Pretty_Good_Privacy&#34;&gt;PGPの実装のひとつ&lt;/a&gt;です。
+これを使うと暗号化とか署名とかできる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;暗号化すると特定の人しか解読できないファイルが作成できる&lt;/li&gt;
+&lt;li&gt;署名すると特定の人が作成したことを示せる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;メールの暗号化にも使える。しかし、私は暗号化されたメールを受信したことがない。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gnupg.hclippr.com/howto.html&#34;&gt;GnuPGの使い方&lt;/a&gt; あたりを見ながら復習。&lt;/p&gt;
+
+&lt;h3 id=&#34;gpg-がインストールされているか確認する:57bbd94ea7d6f1e7f7f5c97174866510&#34;&gt;GPG がインストールされているか確認する&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gpg --version
+gpg (GnuPG) 2.0.20
+libgcrypt 1.5.3
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &amp;lt;http://gnu.org/licenses/gpl.html&amp;gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Home: xxxx
+サポートしているアルゴリズム:
+公開鍵: RSA, ELG, DSA
+暗号方式: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256,
+      TWOFISH, CAMELLIA128, CAMELLIA192, CAMELLIA256
+ハッシュ: MD5, SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224
+圧縮: 無圧縮, ZIP, ZLIB
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;入ってるとこんな感じ。&lt;/p&gt;
+
+&lt;h3 id=&#34;暗号化してみる:57bbd94ea7d6f1e7f7f5c97174866510&#34;&gt;暗号化してみる&lt;/h3&gt;
+
+&lt;p&gt;暗号化する場合&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;暗号化するための鍵を取得する&lt;/li&gt;
+&lt;li&gt;暗号化する&lt;/li&gt;
+&lt;li&gt;読みたい人に送りつける&lt;/li&gt;
+&lt;li&gt;読む人が自分の鍵で複合する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;暗号化するための鍵が必要になります。
+暗号化してメールを送って欲しい人は「公開鍵」という種類の鍵を鍵を公開しています。なので、これを取得すれば暗号化できます。&lt;/p&gt;
+
+&lt;p&gt;復号化するほうは「公開鍵」とペアになっている「秘密鍵」を使います。
+これは復号化する人しか持っていないので、メールの暗号化が成立するわけです。&lt;/p&gt;
+
+&lt;h3 id=&#34;実際にやってみる:57bbd94ea7d6f1e7f7f5c97174866510&#34;&gt;実際にやってみる&lt;/h3&gt;
+
+&lt;p&gt;実際にやってみたいと思います。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;メインのコンピュータで自分の鍵を作成する&lt;/li&gt;
+&lt;li&gt;自分の公開鍵を公開する&lt;/li&gt;
+&lt;li&gt;別のコンピュータで、公開鍵を取得する&lt;/li&gt;
+&lt;li&gt;別のコンピュータで暗号化したファイルを作成する&lt;/li&gt;
+&lt;li&gt;メインのコンピュータにファイルを送る&lt;/li&gt;
+&lt;li&gt;メインのコンピュータで復号する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;というシナリオでやります。&lt;/p&gt;
+
+&lt;p&gt;メインのコンピュータでの実行は &lt;code&gt;main $&lt;/code&gt; をつけて、別のマシンの場合は &lt;code&gt;sub $&lt;/code&gt; をつけて明示しておきます。
+サブのコンピュータを用意する簡単な方法は仮想マシンでしょうか。&lt;/p&gt;
+
+&lt;h4 id=&#34;メインのコンピュータで自分の鍵を作成する:57bbd94ea7d6f1e7f7f5c97174866510&#34;&gt;メインのコンピュータで自分の鍵を作成する&lt;/h4&gt;
+
+&lt;p&gt;鍵がないことには始まらないので作成します。&lt;code&gt;--key-gen&lt;/code&gt; オプションを使用します。&lt;/p&gt;
+
+&lt;p&gt;すでに作成しているので、実際には使用しない鍵で例をあげます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;main $ gpg --gen-key
+ご希望の鍵の種類を選択してください:
+   (1) RSA and RSA (default)
+   (2) DSA and Elgamal
+   (3) DSA (署名のみ)
+   (4) RSA (署名のみ)
+選択? 1
+
+SA keys may be between 1024 and 4096 bits long.
+What keysize do you want? (2048)
+要求された鍵長は2048ビット
+鍵の有効期限を指定してください。
+         0 = 鍵は無期限
+      &amp;lt;n&amp;gt;  = 鍵は n 日間で満了
+      &amp;lt;n&amp;gt;w = 鍵は n 週間で満了
+      &amp;lt;n&amp;gt;m = 鍵は n か月間で満了
+      &amp;lt;n&amp;gt;y = 鍵は n 年間で満了
+鍵の有効期間は? (0)
+これで正しいですか? (y/N) y
+あなたの鍵を同定するためにユーザーIDが必要です。
+このソフトは本名、コメント、電子メール・アドレスから
+次の書式でユーザーIDを構成します:
+    &amp;quot;Heinrich Heine (Der Dichter) &amp;lt;heinrichh@duesseldorf.de&amp;gt;&amp;quot;
+
+本名: Tomohiko Himura
+電子メール・アドレス: eiel at eiel.info
+コメント: eiel
+次のユーザーIDを選択しました:
+    “Tomohiko Himura (eiel) &amp;lt;eiel at eiel.inof&amp;gt;”
+名前(N)、コメント(C)、電子メール(E)の変更、またはOK(O)か終了(Q)? O
+秘密鍵を保護するためにパスフレーズがいります。
+
+今から長い乱数を生成します。キーボードを打つとか、マウスを動かす
+とか、ディスクにアクセスするとかの他のことをすると、乱数生成子で
+乱雑さの大きないい乱数を生成しやすくなるので、お勧めいたします。
+......+++++
+.+++++
+今から長い乱数を生成します。キーボードを打つとか、マウスを動かす
+とか、ディスクにアクセスするとかの他のことをすると、乱数生成子で
+乱雑さの大きないい乱数を生成しやすくなるので、お勧めいたします。
+.+++++
+十分な長さの乱数が得られません。OSがもっと乱雑さを収集
+できるよう、何かしてください! (あと75バイトいります)
+.gpg: 鍵CB547A37を絶対的に信用するよう記録しました
+公開鍵と秘密鍵を作成し、署名しました。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;例に使用したメールアドレスは存在しません。あと &lt;code&gt;@&lt;/code&gt; を &lt;code&gt;at&lt;/code&gt; に置き換えてます。&lt;/p&gt;
+
+&lt;p&gt;作成した「公開鍵」があることを確認します。&lt;code&gt;--list-keys&lt;/code&gt; オプションを使用します。鍵IDは &lt;code&gt;CB547A37&lt;/code&gt; になります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;main $ gpg --list-keys
+pub   2048R/CB547A37 2013-07-31
+uid                  Tomohiko Himura (eiel) &amp;lt;eiel@eiel.info&amp;gt;
+sub   2048R/C2A0FFF5 2013-07-31
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;秘密鍵があることを確認します。&lt;code&gt;--list-secret-keys&lt;/code&gt; オプションを使用します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;main $ gpg --list-secret-keys
+/home/eiel/.gnupg/secring.gpg
+-----------------------------
+sec   2048R/CB547A37 2013-07-31
+uid                  Tomohiko Himura (eiel) &amp;lt;eiel@eiel.info&amp;gt;
+ssb   2048R/C2A0FFF5 2013-07-31
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;みたいな出力がでました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sec   2048R/CA566D81 2009-11-21&lt;/code&gt;
+ というのは 秘密鍵で 2048 の RSA の鍵で、 鍵ID が &lt;code&gt;CA566D81&lt;/code&gt; というように読めそうです。
+公開鍵の場合は pub がついているようです。
+ssb や sub はなんなのでしょうか。
+どこを見ればわかるのか知りたいです。&lt;/p&gt;
+
+&lt;h4 id=&#34;自分の公開鍵を公開する:57bbd94ea7d6f1e7f7f5c97174866510&#34;&gt;自分の公開鍵を公開する&lt;/h4&gt;
+
+&lt;p&gt;鍵を公開するのには 鍵サーバというものが提供されています。
+&lt;code&gt;--send-keys&lt;/code&gt; オプションを使うと簡単に登録できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;main $ gpg --send-keys CB547A37
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;間違えて送ってしまったものを削除するには &lt;code&gt;--gen-revoke&lt;/code&gt; で執行証明書を作成して、&lt;code&gt;revoke.asc&lt;/code&gt; に保存している場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;main $ gpg --send-keys CB547A37 &amp;lt; revoke.asc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で削除できました。
+正しいやりかたかどうかよくわからないので、ざっくりと書いておきます。&lt;/p&gt;
+
+&lt;p&gt;公開されている鍵を探してみます。
+相手のメールアドレスがだいたいわかれば検索できます。
+以下は以前公開したものを利用してます。
+都合によりさきほど作成したものと違います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sub $ gpg --search-keys eiel.hal
+gpg: “eiel.hal”をhkpサーバーkeys.gnupg.netから検索
+(1)	Tomohiko Himura &amp;lt;eiel.hal@gmail.com&amp;gt;
+	Tomohiko Himura &amp;lt;tomohiko.himura@gmail.com&amp;gt;
+	  2048 bit RSA key CA566D81, 作成: 2009-11-21
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;--search-keys&lt;/code&gt; オプションで鍵サーバから検索できます。鍵のID は &lt;code&gt;CA566D81&lt;/code&gt;です。
+検索で見つけられない場合は、Webサイトなどで公開している場合があります。
+鍵を見つけたので、鍵を取得します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sub $ gpg --recv-keys CA566D81
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで鍵が取得できました。確認してみます。
+&lt;code&gt;--list-keys&lt;/code&gt; オプション` を使用します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pub   2048R/CA566D81 2009-11-21
+uid                  Tomohiko Himura &amp;lt;eiel.hal at gmail.com&amp;gt;
+uid                  Tomohiko Himura &amp;lt;tomohiko.himura at gmail.com&amp;gt;
+sub   2048R/72D733CE 2009-11-21
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;間違えた時のために消す方法も確認します。
+&lt;code&gt;--delete-keys&lt;/code&gt; を使います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sub $ gpg --delete-keys CA566D81
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;別のコンピュータで暗号化したファイルを作成する:57bbd94ea7d6f1e7f7f5c97174866510&#34;&gt;別のコンピュータで暗号化したファイルを作成する&lt;/h4&gt;
+
+&lt;p&gt;暗号化してみます。
+まずは、暗号化するファイルを用意します。
+&lt;code&gt;hoge.txt&lt;/code&gt; としたことにします。次に &lt;code&gt;-e&lt;/code&gt; 使うことで暗号化を示し、&lt;code&gt;-r&lt;/code&gt; で、どの鍵を使うか設定します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sub $ gpg -e -r CA566D81 hoge.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とすると、&lt;code&gt;hoge.txt.gpg&lt;/code&gt; というファイルが作成されました。
+中身を見て確認すると暗号されていると思います。&lt;/p&gt;
+
+&lt;p&gt;信用できてない鍵を使用している旨が出ます。
+鍵の信頼性を上げる方法は宿題にしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;-r&lt;/code&gt; には メールアドレスでもOKでした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gpg -e -r eiel.hal@gmail.com hoge.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;メインのコンピュータにファイルを送る:57bbd94ea7d6f1e7f7f5c97174866510&#34;&gt;メインのコンピュータにファイルを送る&lt;/h4&gt;
+
+&lt;p&gt;なんとかして取得しましょう。
+私は scp で取得しました。&lt;/p&gt;
+
+&lt;h4 id=&#34;メインのコンピュータで復号する:57bbd94ea7d6f1e7f7f5c97174866510&#34;&gt;メインのコンピュータで復号する&lt;/h4&gt;
+
+&lt;p&gt;復号します。
+オプションはいりません。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;main $ gpg hoge.txt.gpg
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;hoge.txt&lt;/code&gt; が作成されています。&lt;/p&gt;
+
+&lt;p&gt;試しに、別のコンピュータで復号してみました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gpg hoge.txt.gpg
+gpg: 2048-ビットRSA鍵, ID 72D733CE, 日付2009-11-21に暗号化されました
+      “Tomohiko Himura &amp;lt;eiel.hal@gmail.com&amp;gt;”
+gpg: 復号に失敗しました: 秘密鍵が得られません
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;見事に失敗しました。&lt;/p&gt;
+
+&lt;p&gt;署名も似たような感じにできると思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;複数人が復号できるファイルを作ってみる:57bbd94ea7d6f1e7f7f5c97174866510&#34;&gt;複数人が復号できるファイルを作ってみる&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;-r&lt;/code&gt; を複数指定すればできた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gpg -e -r メールアドレス -r メールアドレス2 hoge.txt
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;まとめ:57bbd94ea7d6f1e7f7f5c97174866510&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;暗号化したいなら相手の公開鍵が必要です。公開鍵を公開しないと暗号メールも届くことはないでしょう。たぶん。&lt;/p&gt;
+
+&lt;p&gt;自分で暗号化して、自分だけ復号化したい場合は、ひとつのコンピュータだけでできます。
+今回は復号できないのを確認できるように、別々のコンピュータで確認しました。&lt;/p&gt;
+
+&lt;p&gt;メールで使う場合はメールクライアントが自動でやってくれるようにできると思います。流れがわかっているほうが安心して使えると思います。
+今度は鍵の信頼性を上げる方法や署名の方法を試してみたいです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

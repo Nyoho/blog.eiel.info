@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/funtoo/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-07-10 19:29:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Funtoo から Gentoo に戻してみた</title>
+          <link>http://blog.eiel.info/blog/2013/07/10/from-funtoo-to-gentoo/</link>
+          <pubDate>Wed, 10 Jul 2013 19:29:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/07/10/from-funtoo-to-gentoo/</guid>
+          <description>
+
+&lt;p&gt;この記事は &lt;a href=&#34;http://great-h.github.io/events/event-008.html&#34;&gt;すごい広島 #008&lt;/a&gt; に参加中に書きました。&lt;/p&gt;
+
+&lt;p&gt;この間、我が家の Funtoo を Gentoo に戻してみた。&lt;/p&gt;
+
+&lt;p&gt;戻した理由 OpenRC のバージョン違いで munin が新しいのにできなかったから。
+Gentooからの乖離が大きくなってきてるみたいですね。 #知らんけど&lt;/p&gt;
+
+&lt;p&gt;折角なので、戻す際に新規インストールせずに、そのまま移行できないか試みてみた。バックアップとるのがめんどくさかったとかでは決してない。たぶん。&lt;/p&gt;
+
+&lt;p&gt;Gentoo に関しては勉強不足なので、ここに書いてあることは&lt;strong&gt;鵜呑みにせず参考にするぐらい&lt;/strong&gt;にしてください。
+そういうこともできるだろうということでやってみたかった。&lt;/p&gt;
+
+&lt;h2 id=&#34;手順を考える:3d78432f4ed171a16fc0f70a54aa9292&#34;&gt;手順を考える&lt;/h2&gt;
+
+&lt;p&gt;最初どうすればいいのかなぁ。考えてみた結果。
+以下のとおりになりました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;portage tree を Gentoo のものに変える&lt;/li&gt;
+&lt;li&gt;emerge -e @system を実行する&lt;/li&gt;
+&lt;li&gt;meerge -e @world を実行する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;結論からいうと概ね予定通りできましたが、それなりにはトラブルがありました。&lt;/p&gt;
+
+&lt;h3 id=&#34;portage-tree-を-gentoo-のものに変える:3d78432f4ed171a16fc0f70a54aa9292&#34;&gt;portage tree を Gentoo のものに変える&lt;/h3&gt;
+
+&lt;p&gt;一番苦戦したところです。&lt;/p&gt;
+
+&lt;p&gt;Funtoo は git を利用して portage tree を更新するので、参照先の Gentoo の rsync のものするだけでは &lt;code&gt;emerge --sync&lt;/code&gt; がエラーになってしまいました。具体的には &lt;code&gt;/etc/make.conf&lt;/code&gt; の SYNC です。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/funtoo/portage&#34;&gt;Gentoo の portage tree も Git を使う&lt;/a&gt; という手もあるのですが、これ最近 コミットされてないように見えます。
+どこかに更新されてるのがあるのかもしれませんが、よくわからなかったのでこの方法は諦めました。&lt;/p&gt;
+
+&lt;p&gt;ということで、既存の portage tree である &lt;code&gt;/usr/portage&lt;/code&gt; を一旦 &lt;code&gt;mv&lt;/code&gt; で退避しておいて、 &lt;a href=&#34;http://rsync1.jp.gentoo.org/snapshots/portage-latest.tar.bz2&#34;&gt;http://rsync1.jp.gentoo.org/snapshots/portage-latest.tar.bz2&lt;/a&gt; を取得して展開することにしました。&lt;/p&gt;
+
+&lt;p&gt;差し替えたのはよいのですが、 &lt;code&gt;/etc/portage/make.pryfole&lt;/code&gt; の形式が Funtoo と Gentoo で違いました。&lt;/p&gt;
+
+&lt;p&gt;Gentoo はシンボリックリンクなのですが、Funtoo は複数の profile が選択できるので、ファイルになっていました。
+というわけで、手作業でなんとかしました。&lt;/p&gt;
+
+&lt;h3 id=&#34;emerge-e-system:3d78432f4ed171a16fc0f70a54aa9292&#34;&gt;emerge -e @system&lt;/h3&gt;
+
+&lt;p&gt;これで Gentoo のパッケージを参照できるようになったので、基本的なパッケージを差し替えていきます。
+「一発でいけばいいなぁ」、と思いなが適当に回したところ、何度か失敗しました。&lt;/p&gt;
+
+&lt;p&gt;収録されているファイルが違うパッケージのものがあったみたいで、コンフリクトが起きました。
+コンフリクトした先のパッケージを先にインストールして、再開すると無事に インストールできました。&lt;/p&gt;
+
+&lt;h3 id=&#34;emerge-e-world:3d78432f4ed171a16fc0f70a54aa9292&#34;&gt;emerge -e @world&lt;/h3&gt;
+
+&lt;p&gt;ここまでくるとほとんど Gentoo です。たぶん。
+&lt;code&gt;emereg -e @world&lt;/code&gt; は特に問題なく実行できました。
+Gentooにないパッケージは &lt;code&gt;/var/lib/portage/world&lt;/code&gt; を適当にいじりました。
+具体的には、いらない行を削除しただけです。&lt;/p&gt;
+
+&lt;h3 id=&#34;あと雑多な作業:3d78432f4ed171a16fc0f70a54aa9292&#34;&gt;あと雑多な作業&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;/etc/make.conf&lt;/code&gt; の &lt;code&gt;SYNC&lt;/code&gt; と &lt;code&gt;PORTAGE_MIRROR&lt;/code&gt; を mirrorselect を使って設定しておきました。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:3d78432f4ed171a16fc0f70a54aa9292&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;適当に挑戦してみましたが、うまくいきました。
+もしかすると何か不具合があるかもしれませんが、あればまた報告したいと思います。&lt;/p&gt;
+
+&lt;p&gt;何かの参考になるかもしれないと思ったので書き残すことにしましたが間違えてることも多々あるような気がします。
+試すときはしっかりバックアップをとってから失敗しても良いようにして挑戦しましょう。&lt;/p&gt;
+
+&lt;p&gt;そういえば カーネル を変更していない。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>funtooメモ grubの設定</title>
+          <link>http://blog.eiel.info/blog/2012/06/09/funtoo-memo-grub/</link>
+          <pubDate>Sat, 09 Jun 2012 17:59:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/06/09/funtoo-memo-grub/</guid>
+          <description>&lt;p&gt;funtooのメモ&lt;/p&gt;
+
+&lt;p&gt;grubの設定は &lt;code&gt;/etc/boot.conf&lt;/code&gt; を雛形に作成される。
+変更後は&lt;code&gt;boot-update&lt;/code&gt;で &lt;code&gt;/boot/grub.cfg&lt;/code&gt; を生成してくれます。&lt;/p&gt;
+
+&lt;p&gt;新しいkernelを &lt;code&gt;/boot&lt;/code&gt; に配置したときも自動的に生成された印象があるんだけど、あれはどうなってんだろう。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

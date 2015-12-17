@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/sh/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-07-03 12:13:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>シェルの if を1行でかく</title>
+          <link>http://blog.eiel.info/blog/2014/07/03/oneline-if-on-shell-script/</link>
+          <pubDate>Thu, 03 Jul 2014 12:13:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/03/oneline-if-on-shell-script/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/events/event-059.html&#34;&gt;すごい広島 59&lt;/a&gt; のメモ&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sensuapp.org/&#34;&gt;sensu&lt;/a&gt; の実験をしていて実行する command に if を含むスクリプトをかいていたのだけど、ちょっとはまったのでメモしとく。&lt;/p&gt;
+
+&lt;p&gt;以下のようなスクリプトを1行で書きたいとする。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;HTTP_STATUS=`curl -w &#39;%{http_code}&#39; -s http://blog.eiel.info/ -o /dev/null`
+if [ $HTTP_STATUS -eq 200 ]
+then
+  echo -n $STATUS
+else
+  echo -n $STATUS; exit 1
+fi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;1行で書くとこうなる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;HTTP_STATUS=`curl -w &#39;%{http_code}&#39; -s http://blog.eiel.info/ -o /dev/null`; if [ $HTTP_STATUS -eq 200 ]; then echo -n $STATUS; else echo -n $STATUS; exit 1; fi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then と else のすぐ後ろにはセミコロンがあってはいけないらしい。&lt;/p&gt;
+
+&lt;p&gt;整理すると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;if [test]; then command1; else command2; fi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;簡単に確認したいなら以下のような感じかしら。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ if [ 1 -eq 1 ]; then echo true; else echo false; fi
+true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ if [ 2 -eq 1 ]; then echo true; else echo false; fi
+false
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

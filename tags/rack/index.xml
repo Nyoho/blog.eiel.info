@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/rack/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-03-20 02:20:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>iOS で Digest認証してみる。 - AFNetworking</title>
+          <link>http://blog.eiel.info/blog/2013/03/20/digest-authencation-for-ios/</link>
+          <pubDate>Wed, 20 Mar 2013 02:20:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/03/20/digest-authencation-for-ios/</guid>
+          <description>
+
+&lt;p&gt;iOS で Digest認証するコードを書きました。&lt;/p&gt;
+
+&lt;p&gt;サンプルコードの作成は頼まれて作成しただけです。
+折角なので、簡単な説明を 記事にしておきます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/Digest_Sample&#34;&gt;サンプルコードはこちら&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;テストサーバ構築:d404f6f128ea77c478a4255b45512e01&#34;&gt;テストサーバ構築&lt;/h2&gt;
+
+&lt;p&gt;まずは動作確認をできるようにしないといけないので Digest認証 をするためのウェブサーバがないと困ります。Ruby の rack を使いました。&lt;/p&gt;
+
+&lt;p&gt;Digest認証をするには Rack のミドルウェア &lt;code&gt;Rack::Auth::Digest::MD5&lt;/code&gt; を使用しました。
+Digest認証は ハッシュ化アルゴリズムの選択できるようになっているので、ミドルウェアはこのような名前になっているようです。
+Rackのソースコードみにいったら、最初気づかなくて困りました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;config.ru&lt;/code&gt; は以下のように書きました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;use Rack::Auth::Digest::MD5, &amp;quot;auth&amp;quot;, &#39;&#39; do |username|
+  &amp;quot;password&amp;quot;
+end
+
+run proc { [200, {&#39;Content-Type&#39; =&amp;gt; &#39;text/html&#39;}, [&#39;hoge&#39;]] }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;use の第三引数は opaque となります。デフォルトでは &lt;code&gt;nil&lt;/code&gt; で、設定しないと動きません。はまりました。&lt;/p&gt;
+
+&lt;p&gt;蛇足ですが、 &lt;code&gt;use&lt;/code&gt; の仕組みをよくしらなかったので&lt;a href=&#34;https://github.com/rack/rack/blob/1.5.2/lib/rack/builder.rb#L81-L87&#34;&gt;ソースコード&lt;/a&gt;をちら見しました。
+&lt;code&gt;lib/builder.rb&lt;/code&gt; に実装があります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;    def use(middleware, *args, &amp;amp;block)
+      if @map
+        mapping, @map = @map, nil
+        @use &amp;lt;&amp;lt; proc { |app| generate_map app, mapping }
+      end
+      @use &amp;lt;&amp;lt; proc { |app| middleware.new(app, *args, &amp;amp;block) }
+    end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;@map が &lt;code&gt;nil&lt;/code&gt; の場合は middleware.new する処理が割り込むだけですね。引数はまるまる渡しています。&lt;/p&gt;
+
+&lt;p&gt;use する時の引数は 使用するミドルウェア の initialize メソッドをみればよいことがわかります。
+Digest認証の場合は (&lt;a href=&#34;https://github.com/rack/rack/blob/rack-1.5/lib/rack/auth/digest/md5.rb#L24-L31&#34;&gt;ソースコード&lt;/a&gt;)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;        def initialize(app, realm=nil, opaque=nil, &amp;amp;authenticator)
+          @passwords_hashed = nil
+          if opaque.nil? and realm.respond_to? :values_at
+            realm, opaque, @passwords_hashed = realm.values_at :realm, :opaque, :passwords_hashed
+          end
+          super(app, realm, &amp;amp;authenticator)
+          @opaque = opaque
+        end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第2引数、第3引数、ブロックを用意すればよさそうです。rdoc にも書いてありますが、block は username を引数にうけとります。
+確認しないと心配なら &lt;a href=&#34;https://github.com/rack/rack/blob/rack-1.5/lib/rack/auth/digest/md5.rb#L97-L100&#34;&gt;valid_digest?&lt;/a&gt; で利用されています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;        def valid_digest?(auth)
+          pw = @authenticator.call(auth.username)
+          pw &amp;amp;&amp;amp; digest(auth, pw) == auth.response
+        end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ios側:d404f6f128ea77c478a4255b45512e01&#34;&gt;iOS側&lt;/h2&gt;
+
+&lt;p&gt;使い方は サンプルコードの &lt;a href=&#34;https://github.com/eiel/Digest_Sample&#34;&gt;README.md&lt;/a&gt; にかいています。&lt;/p&gt;
+
+&lt;p&gt;AFNetworking は iOS と Mac OS X で利用できるライブラリで block や NSOperation を利用して ネットワークの処理がかけるライブラリみたいです。&lt;/p&gt;
+
+&lt;p&gt;Digjest 認証をしたい場合は `AFHTTPRequestOperation#setAuthenticationChallengeBlock に認証が必要なときに呼び出される処理を block で登録しておけばよいようです。&lt;/p&gt;
+
+&lt;p&gt;なので、あらかじめ登録しておいた username と password を利用して、
+認証する処理を登録した状態の AFHTTPRequestOperation を返すようなファクトリを用意してやりました。&lt;/p&gt;
+
+&lt;p&gt;あと雑談ですが、&lt;/p&gt;
+
+&lt;p&gt;block 内で &lt;code&gt;self&lt;/code&gt; を利用したい場合は JavaScript の影響で &lt;code&gt;that&lt;/code&gt; にして使っています。
+一般的な変数名はなんなのでしょうか。&lt;/p&gt;
+
+&lt;h2 id=&#34;参考リンク:d404f6f128ea77c478a4255b45512e01&#34;&gt;参考リンク&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://d.hatena.ne.jp/dayflower/20120711/1342058487&#34;&gt;Rack::Auth::Digest::MD5 のつかいかた&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rack/rack&#34;&gt;rack&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/AFNetworking/AFNetworking&#34;&gt;AFNetworking&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ch3cooh.hatenablog.jp/entry/20110513/1305264939&#34;&gt;NSURLConnectionクラスを使用したダイジェスト認証処理&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

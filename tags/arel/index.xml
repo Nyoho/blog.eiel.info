@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/arel/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-07-20 15:53:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Ruby on Rails で NOT IN な SQL をかく。</title>
+          <link>http://blog.eiel.info/blog/2013/07/20/not-in-on-rails/</link>
+          <pubDate>Sat, 20 Jul 2013 15:53:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/07/20/not-in-on-rails/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://guides.rubyonrails.org/active_record_querying.html#not-conditions&#34;&gt;Rails 4 で NOT な条件をもつ WHERE 句 が非常に書きやすくなりました。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Rails 4 なら NOT IN な SQL も簡単に書けます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;User.where.not( name: [&amp;quot;hoge&amp;quot;,&amp;quot;goro&amp;quot;] )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;条件にリストを渡せばよいです。SQLは以下のようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;SELECT &amp;quot;users&amp;quot;.* FROM &amp;quot;users&amp;quot;
+  WHERE (&amp;quot;users&amp;quot;.&amp;quot;name&amp;quot; NOT IN (&#39;hoge&#39;, &#39;goro&#39;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;サブクエリも使えます。これが便利すぎて困る。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;query = User.select(:name)
+User.where.not name: query
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;SELECT &amp;quot;users&amp;quot;.* FROM &amp;quot;users&amp;quot;
+  WHERE (&amp;quot;users&amp;quot;.&amp;quot;name&amp;quot; NOT IN (SELECT name FROM &amp;quot;users&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;rails-3-の話:d52174ed3f9dfee46acae1194d43608e&#34;&gt;Rails 3 の話&lt;/h3&gt;
+
+&lt;p&gt;そうはいっても、Rails 4 にすぐには更新できないプロジェクトがあるので、これに慣れてしまうと非常につらい。折角なのでメモしておく。&lt;/p&gt;
+
+&lt;h4 id=&#34;where-に文字列を渡す:d52174ed3f9dfee46acae1194d43608e&#34;&gt;where に文字列を渡す&lt;/h4&gt;
+
+&lt;p&gt;格好悪いけど、とりあえずごまかす場合はこれを使う。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;User.where(&amp;quot;name NOT IN (&#39;hoge&#39;, &#39;goro&#39;)&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;文字列で渡す。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;?&lt;/code&gt; を使うとエスケープで泣きたくなるので、手軽には使えない。右辺も文字列で逃げます。&lt;/p&gt;
+
+&lt;p&gt;サブクエリを使うときは、こんな感じ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;query = User.select(:name)
+User.where(&amp;quot;name NOT IN (#{query.to_sql})&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;SQLを直接書くしかない。複雑な query だとつらいので &lt;code&gt;to_sql&lt;/code&gt; メソッドで逃げます。&lt;/p&gt;
+
+&lt;h4 id=&#34;squeel-を使う:d52174ed3f9dfee46acae1194d43608e&#34;&gt;squeel を使う&lt;/h4&gt;
+
+&lt;p&gt;Rails 3 だと NOT なSQL を書きづらいので、 &lt;a href=&#34;https://github.com/ernie/squeel&#34;&gt;squeel&lt;/a&gt; をよく使っています。&lt;/p&gt;
+
+&lt;p&gt;squeel を使っていればこんな風に書けます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;User.where { name &amp;lt;&amp;lt; [&amp;quot;hoge&amp;quot;,&amp;quot;mogu&amp;quot;] }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;where に ブロックで引数が渡せるようになって &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; という演算子を使うと NOT IN になります。&lt;code&gt;name&lt;/code&gt; はシンボルではないのも ポイントです。&lt;/p&gt;
+
+&lt;p&gt;ブロックで渡すので、スコープ内で name に値が束縛されているとそちらを参照してしまうので注意。&lt;/p&gt;
+
+&lt;p&gt;サブクエリも使える。素晴らしい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;query = User.select(:name)
+User.where { name &amp;lt;&amp;lt; query }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;squeel を使うと LIKE やら OUTER JOIN やらもできます。便利。&lt;/p&gt;
+
+&lt;h4 id=&#34;arel-の世界へ行く:d52174ed3f9dfee46acae1194d43608e&#34;&gt;arel の世界へ行く&lt;/h4&gt;
+
+&lt;p&gt;arel で構築した sql を where に渡す方法がある。
+squeel をインストールしたくない時に。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;users = User.arel_table
+User.where( users[:name].not_in([&#39;hoge&#39;,&#39;mogu&#39;]) )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;arel 自体あまり解説してる人がいないのでなかなか勉強しにくいのが欠点。
+わかってくるとなんとなくでも書けます。&lt;/p&gt;
+
+&lt;p&gt;サブクエリもいけます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;query = User.select(:name)
+users = User.arel_table
+User.where( users[:name].not_in(query.arel) )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;ActiveRecord::Relation&lt;/code&gt; はそのまま渡せませんが &lt;code&gt;arel&lt;/code&gt; メソッドで変換可能です。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:d52174ed3f9dfee46acae1194d43608e&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;Rails 4 の &lt;code&gt;not&lt;/code&gt; 便利です。&lt;/p&gt;
+
+&lt;p&gt;squeel も良いです.
+私は最初は仕組みがわからなくて、気持ち悪かったです。
+ところが、 &lt;code&gt;where&lt;/code&gt; メソッドの実装を見たら察しがつきました。
+利用する場合は、一度目に目にすることをおすすめします。&lt;/p&gt;
+
+&lt;p&gt;Rails3 からの &lt;code&gt;ActiveRecord::Relation&lt;/code&gt; になれると元の世界に帰れる気がしません。&lt;/p&gt;
+
+&lt;p&gt;この記事のタイトルに悩んだけど、「書きはじめた理由でいいや」と、結局考えるのを放棄した。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=B00P0UR1RU&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

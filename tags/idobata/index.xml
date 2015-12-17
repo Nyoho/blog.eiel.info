@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/idobata/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-05-27 16:24:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>hubot で起動しているウェブサーバを経由して idobata へ投稿してみる</title>
+          <link>http://blog.eiel.info/blog/2014/05/27/message-send-from-hubot-httpd-to-idobata/</link>
+          <pubDate>Tue, 27 May 2014 16:24:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/05/27/message-send-from-hubot-httpd-to-idobata/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://hubot.github.com/&#34;&gt;hubot&lt;/a&gt; をつかって &lt;a href=&#34;https://idobata.io/&#34;&gt;idobata&lt;/a&gt; 用のBOTを作っていた。
+&lt;a href=&#34;https://dashboard.heroku.com/apps&#34;&gt;heroku&lt;/a&gt; にホスティングして HTTPアクセスをすると idobata へメッセージが流れるようにしたい。&lt;/p&gt;
+
+&lt;p&gt;最終目的は CircleCI から WebHooks に登録しておいて、ビルドが終了したら通知したい、だったりするけど今回はそこはおいておく。&lt;/p&gt;
+
+&lt;p&gt;チャットへメッセージを送るには &lt;code&gt;robot#send&lt;/code&gt; を呼べばよくて、第1引数が envelope で 第2引数以降が文字列。
+idobata-adapter の場合は第1引数の message.data.room_id に投稿する ROOM_ID が必要になる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/idobata/hubot-idobata/blob/v0.0.3/src/idobata.coffee#L13-L14&#34;&gt;参考 - hubot-idobata&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;robot.send_room &#39;hogehoge&#39;&lt;/code&gt; みたいな感じに投稿できるようにメソッドを加えるならこんな感じになった。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ROOM_ID = process.env.HUBOT_IDOBATA_DEFAULT_ROOM_ID
+
+module.exports = (robot) -&amp;gt;
+  robot.send_room = (msg) -&amp;gt;
+    envelope = { message: { data: {room_id: ROOM_ID } } }
+    @send envelope, msg
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ROOM_ID を取得しないといけないので、登録したBOTに &lt;code&gt;room_id&lt;/code&gt; を返すような機能を追加しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;robot.respond /ROOM_ID/i, (msg) -&amp;gt;
+  room_id = msg.message.data.room_id
+  robot.logger.debug room_id
+  msg.send room_id
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ROOM_ID がわかったら 環境変数 HUBOT_IDOBATA_DEFAULT_ROOM_ID を設定しておく。
+あとは &lt;code&gt;robot.router.get&lt;/code&gt; とか &lt;code&gt;robot.router.post&lt;/code&gt; をつかって処理を作成すればいよい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;robot.router.post &amp;quot;/hubot/ping&amp;quot;, (req, res) -&amp;gt;
+  robot.send_room &#39;pong&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ローカルで実行する場合は 8080 ポート。
+heroku へは push するだけで使える。&lt;/p&gt;
+
+&lt;p&gt;/hubot/ping にアクセスするとチャットに pong と書き込みがされます。&lt;/p&gt;
+
+&lt;p&gt;hubot 自体のソースコードはそんなに長くないので、いじりながらソースよめばなんとか使えるようになりそうでした。&lt;/p&gt;
+
+&lt;h3 id=&#34;補足:3e0f256f778db620819538f6e47ca8ff&#34;&gt;補足&lt;/h3&gt;
+
+&lt;p&gt;robot.respond とか、使った場合は コールバック引数 msg があるのでこいつの &lt;code&gt;send&lt;/code&gt; を利用するだけでチャットにかきこみができる。
+msg は &lt;a href=&#34;https://github.com/github/hubot/blob/v2.7.2/src/response.coffee&#34;&gt;Response&lt;/a&gt; クラスのインスタンスでサーバからうけとった情報を message プロパティに保存されてて、この情報で envelope.message から取り出せる。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/github/hubot/blob/v2.7.2/src/response.coffee#L21-L22&#34;&gt;Response#send は以下のように実装されていて&lt;/a&gt;、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;send: (strings...) -&amp;gt;
+  @robot.adapter.send @envelope, strings...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;@robot.adapter.send へいくので、それぞれの adapter の send メソッドをみてみればいい。&lt;/p&gt;
+
+&lt;p&gt;前述しているけど、&lt;a href=&#34;https://github.com/idobata/hubot-idobata/blob/v0.0.3/src/idobata.coffee#L13-L14&#34;&gt;idobataの場合は&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;send: (envelope, strings...) -&amp;gt;
+  @_postMessage string, envelope.message.data.room_id for string in strings
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となってて message.data.room_id が必要なことがわかる。&lt;/p&gt;
+
+&lt;p&gt;試したコードの全体をはっとく。
+script ディレクトリに保存しておけばよいだけです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ROOM_ID = process.env.HUBOT_IDOBATA_DEFAULT_ROOM
+
+module.exports = (robot) -&amp;gt;
+  robot.send_room = (msg) -&amp;gt;
+    @send { message: { data: {room_id: ROOM_ID } } }, msg
+
+  robot.respond /ROOM_ID/i, (msg) -&amp;gt;
+    room_id = msg.message.data.room_id
+    robot.logger.debug room_id
+    msg.send room_id
+
+  robot.router.post &amp;quot;/hubot/circle&amp;quot;, (req, res) -&amp;gt;
+    robot.send_room &amp;quot;finished build&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;/hubot/circle&lt;/code&gt; を CircleCI から叩かせるつもり。
+&lt;code&gt;req&lt;/code&gt; に CircleCI からの情報がはいってくるので、ちょっと料理する予定。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:3e0f256f778db620819538f6e47ca8ff&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/idobata/hubot-idobata&#34;&gt;idobata/hubot-idobata · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/github/hubot/blob/master/docs/deploying/heroku.md&#34;&gt;hubot/docs/deploying/heroku.md at master · github/hubot · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

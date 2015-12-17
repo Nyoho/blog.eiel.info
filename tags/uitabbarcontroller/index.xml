@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/uitabbarcontroller/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-01-09 22:30:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>UITabBarControllerのMoreに表示される edit を消したいなー。</title>
+          <link>http://blog.eiel.info/blog/2013/01/09/remove-uinavigation-edit-button/</link>
+          <pubDate>Wed, 09 Jan 2013 22:30:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/09/remove-uinavigation-edit-button/</guid>
+          <description>&lt;p&gt;&lt;strong&gt;「UITabBarControllerのMoreに表示される edit を消したいなー。」&lt;/strong&gt;と思いながら、なんてググればいいんだろーと思いつつも、ヘッダファイルをみていたら customizableViewControllers ってプロパティがあった。
+迷わずに nil に設定した。うまくいった。&lt;/p&gt;
+
+&lt;p&gt;もし、UITabBarControllerを継承してるクラスがあるなら -viewDidLoad で処理してしまうのが早いです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;self.customizableViewControllers = nil;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ない場合、用意しましょう。といってもいいんですが、タブ内の UIViewController の viedDidLoadで&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;self.tabBarController.customizableViewControllers = nil;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;でも、いけました。
+&lt;strong&gt;「継承してるコントローラあるのにわざわざ試したんだからねっ!」&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;ちなみに、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;このプロパティは nil じゃない場合 &amp;quot;Edit&amp;quot; で表示されるコントローラをカスタマイズできてデフォルトはすべてのコントローラだよ。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;的なことが書かれていました。なので空の配列を渡してもOKです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

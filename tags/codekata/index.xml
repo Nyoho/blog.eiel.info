@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/codekata/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-02-13 16:08:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>よりよい開発者になるために CodeKata</title>
+          <link>http://blog.eiel.info/blog/2013/02/13/codekata/</link>
+          <pubDate>Wed, 13 Feb 2013 16:08:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/13/codekata/</guid>
+          <description>&lt;p&gt;github の News Feed みてたら codekata というのがあって、なんだっけと思いつつ調べたら&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;情熱プログラマという本 （ &lt;a href=&#34;http://amzn.to/d6zjDE&#34;&gt;http://amzn.to/d6zjDE&lt;/a&gt; ) を読んでいる。&lt;/p&gt;
+
+&lt;p&gt;そこにこんなことが書いてあった。&lt;/p&gt;
+
+&lt;p&gt;プログラマはしばしば実務の中でスキルを訓練する。
+これがミュージシャンだったらどうだろう？ 彼らがステージ上で変な音を出しながら練習していたら、観客はどう思う？ 練習は、観客のいない密室で、自分の時間を使ってするべきだ。プログラマもそれと同じだ。&lt;/p&gt;
+
+&lt;p&gt;なるほど、それはその通りだ。で、この本にプログラミングの訓練の手がかりが紹介されている。
+それが「Code Kata ( &lt;a href=&#34;http://codekata.pragprog.com/&#34;&gt;http://codekata.pragprog.com/&lt;/a&gt; )」 だ。&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Kata&amp;rdquo;とは、空手の型のこと。
+空手の練習は、定められた型を繰り返し反復することで技術を習得していく。
+それと同様のコンセプトで、型を訓練し、ソフトウェア開発のスキルを磨きましょう、というものだそうな。&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;&amp;ndash; 言葉をポッケに持ち歩こう&lt;/small&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;なるほど。日々の基礎練習が大切なんですね。&lt;/p&gt;
+
+&lt;p&gt;ということで forkして &lt;a href=&#34;https://github.com/eiel/haskell_codekata&#34;&gt;codekata for haskell&lt;/a&gt; はじめました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

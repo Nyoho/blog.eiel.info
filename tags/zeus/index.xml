@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/zeus/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-12-27 18:05:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>zeus test で スペックを実行すると 2度実行されてしまう</title>
+          <link>http://blog.eiel.info/blog/2012/12/27/zeus-test-twice/</link>
+          <pubDate>Thu, 27 Dec 2012 18:05:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/12/27/zeus-test-twice/</guid>
+          <description>
+
+&lt;p&gt;&lt;code&gt;zeus test&lt;/code&gt; で spec を走らせるとなぜかスペックが2度実行されるようになっていた。
+&lt;code&gt;spec/spec_helper.rb&lt;/code&gt; 内の &lt;code&gt;require &#39;rspec/autorun&#39;&lt;/code&gt; を削除すると治るようです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;spork&lt;/code&gt; で実行してみたり、 &lt;code&gt;rake spec&lt;/code&gt; したりもしてみたけど、消したから起きている問題は今のところないです。&lt;/p&gt;
+
+&lt;h3 id=&#34;追記:f0c737f26f30e893e307678172ab107f&#34;&gt;追記&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;zeus rake spec&lt;/code&gt; したときに DB がリセットされてなくて上手く動いてないことがわかった。全件まわしたい場合は &lt;code&gt;rake spec&lt;/code&gt; を使用してたので気がつかなかった。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考:f0c737f26f30e893e307678172ab107f&#34;&gt;参考&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/burke/zeus/issues/180&#34;&gt;https://github.com/burke/zeus/issues/180&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Railsによる開発にはzeusが新たな定番になりそう。</title>
+          <link>http://blog.eiel.info/blog/2012/10/13/zeus/</link>
+          <pubDate>Sat, 13 Oct 2012 11:52:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/10/13/zeus/</guid>
+          <description>&lt;p&gt;&lt;code&gt;rails c&lt;/code&gt; や &lt;code&gt;rake spec&lt;/code&gt; ってすごく時間がかかる。それをできるだけ早くするプロダクトはいままでにもいろいろありました。&lt;code&gt;rails-sh&lt;/code&gt;とか&lt;code&gt;spork&lt;/code&gt;とか。&lt;/p&gt;
+
+&lt;p&gt;そんな中&lt;a href=&#34;https://github.com/burke/zeus&#34;&gt;zeus&lt;/a&gt;というのが最近登場したみたいです。&lt;code&gt;gem install zeusu&lt;/code&gt; でインストール。&lt;code&gt;Gemfile&lt;/code&gt;に書いてもいいそうですが、かかなくて良いようです。&lt;/p&gt;
+
+&lt;p&gt;あとは RAILS_ROOTで &lt;code&gt;zeus init&lt;/code&gt; して &lt;code&gt;zeus start&lt;/code&gt; しておけば、あとは別の端末で &lt;code&gt;zeus c&lt;/code&gt; や &lt;code&gt;zeusu s&lt;/code&gt;として使うだけです。ファイルを変更すると認識して再読込します。&lt;code&gt;zeus init&lt;/code&gt;した際に&lt;code&gt;zeus.json&lt;/code&gt;が生成されます。
+変更箇所に応じて必要なところからforkしなおすような挙動をしているように見えます(よくわかっていません)&lt;/p&gt;
+
+&lt;p&gt;cucumberやrspecも認識して &lt;code&gt;zeusu cucumber&lt;/code&gt; や &lt;code&gt;zeusu spec&lt;/code&gt; というものも用意してくれます。&lt;/p&gt;
+
+&lt;p&gt;まだ使い込んでいませんが、イノベーションを感じるのでしばらく使ってみようと思います。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

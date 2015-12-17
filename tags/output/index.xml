@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/output/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-12-08 00:15:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>近畿大学のIT交流勉強会 2013 に参加してきた</title>
+          <link>http://blog.eiel.info/blog/2013/12/08/it-newwork-event-2013-in-kinki-ac/</link>
+          <pubDate>Sun, 08 Dec 2013 00:15:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/12/08/it-newwork-event-2013-in-kinki-ac/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.hiro.kindai.ac.jp/index.html&#34;&gt;近畿大学 工学部 情報学科&lt;/a&gt;の IT 交流勉強会に参加してきました。
+2013年版。残念ながら固定リンクがない。&lt;/p&gt;
+
+&lt;p&gt;オープンメディアラボ開設記念ということで学生に自分から学ぶきっかけをつくるための施設づくりをしているようです。
+というわけで、その中で稲妻トークを一本してきました。
+稲妻トークというのはライトニングという言葉から連想した、近畿大学オリジナルの名前です。10分のライトニングトーク風になるように挑戦してみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;a5021fc0406c01311b314ac7d2690918&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;裏テーマは「ライトニングトークがどんなものか体感してもらう。へたくそでも大丈夫」というのでやりました。
+速すぎると言われたので、「リハーサルをちゃんとやらないといけないなあ」と、思いました。あと事前にイメージトレーニングが足りなくて話そうとした内容をいくつか飛ばしてしまいました。
+反省点が毎回あるのは良いことです。&lt;/p&gt;
+
+&lt;p&gt;私より前の発表者でアウトプットの利点が説明されていて、その部分はちょうど省いていて、アウトプットの利点の部分はネタにしていたので、個人的にはラッキーでした。&lt;/p&gt;
+
+&lt;p&gt;Speaker Deck 応援週間ということで Speaker Deck にアップしました。
+Slide Share は PV とかわかって良いのですが、Ruby製を応援したくなる病。&lt;/p&gt;
+
+&lt;h3 id=&#34;ちゃんと解説:5afb2def9a2b7337bea777dd26e20b9b&#34;&gt;ちゃんと解説&lt;/h3&gt;
+
+&lt;p&gt;募集が「稲妻トークの募集」だったので、タイトルを「ライトニングトークをしよう」にすると非常に危険そうになって良さそう、ということでこれに決めました。
+それだとストレートすぎるので、ターゲットは学生なので音ゲーネタから&lt;a href=&#34;http://p.eagate.573.jp/game/bemani/academy/p/profile/as96.html&#34;&gt;「お米の美味しい炊き方、そしてお米を食べることによるその効果。」&lt;/a&gt;を参考にタイトルをつけました。
+しかし、知ってる人が誰もいませんでした。&lt;/p&gt;
+
+&lt;p&gt;セッションの目的は「地方の勉強会は発表者が足りてないので、ライトニングトークの練習をして発表者になれる練習をして欲しい」というのが主なところです。&lt;/p&gt;
+
+&lt;p&gt;そこで、発表者になることのメリット。もっと一般的にしてアウトプットすることのメリットについて前述のとおりざっくりと喋りました。&lt;/p&gt;
+
+&lt;p&gt;「アウトプットすると情報が集まる」のは実際によくあって、アウトプットする人は自分の必要な情報をうまく集めます。そんな話はしわすれたけど。
+うまく使うと効率よく勉強できます。&lt;/p&gt;
+
+&lt;p&gt;あとは、これからライトニングトークができそうな勉強会を駆け足で紹介しました。
+そこが速かったのかもしれませんが、スライドをアップロードしてるのでそっちを見て欲しいということでおまけをつけています。学生さんは見てくれるでしょうか。&lt;/p&gt;
+
+&lt;p&gt;自己紹介の定番であるベストツイートが省略されたのは現地でネットが使えなかったからです。&lt;/p&gt;
+
+&lt;p&gt;今回、自分の中で挑戦したことは10分というのはライトニングトークとしては長めなので、中盤に大きなネタを突っ込んだことです。
+自分をネタにすると他人の誹謗中傷にならなくて使いやすいですが、自分で直視できない問題があります。&lt;/p&gt;
+
+&lt;p&gt;ソーシャルの力を使うで、&lt;a href=&#34;http://www.ntv.co.jp/GATCHAMAN_Crowds/&#34;&gt;ガッチャマン クラウズ&lt;/a&gt; の話を入れたかったりしたのですが、時間の都合で入れませんでした。
+最近は「一人でできることには限りがあるなぁ」と感じているので、みんなの力を借りれるようになりたいです。
+そのためには、やることを「社会的価値あることにしたりしないといけない」というのを感じてます。&lt;/p&gt;
+
+&lt;p&gt;まー、実際みんな、そんなにがんばる必要はないと思う。&lt;/p&gt;
+
+&lt;h3 id=&#34;直近の勉強会リンク:5afb2def9a2b7337bea777dd26e20b9b&#34;&gt;直近の勉強会リンク&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://webtouchmeeting.com/&#34;&gt;WEB TOUCH MEETING&lt;/a&gt; (&lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;14&lt;/sub&gt; 土) Web界隈の勉強会。ジャンルが幅広く毎月。 発表に挑戦してみたい勉強会。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://gbdaitokai.doorkeeper.jp/events/5725&#34;&gt;岡山 合同勉強会&lt;/a&gt; (&lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;14&lt;/sub&gt; 土) 年に一度の岡山周辺のIT勉強会が集う。エンジニア向け。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://bonenkaigi.doorkeeper.jp/events/5889&#34;&gt;岡山 忘年会議2013 (&lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;14&lt;/sub&gt; 土)&lt;/a&gt; 合同勉強会の後のお祭。本当の戦いはここから。一度いってみるべき。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://partake.in/events/5ddde1fe-88b7-4541-9f37-02cf4fa0284c&#34;&gt;C++勉強会in広島&lt;/a&gt; (01/11 土) 大学生主催。もう定員いっぱい。部屋がひろくなったりしないんだろうか。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://osh-2014.github.io/&#34;&gt;オープンセミナー2014@広島&lt;/a&gt; (&lt;sup&gt;2&lt;/sup&gt;&amp;frasl;&lt;sub&gt;1&lt;/sub&gt; 土) 年に1度の大きな勉強会。懇親会LT可能！岡山に負けてられない &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://hiroshimarb.github.io/&#34;&gt;Hiroshima.rb&lt;/a&gt; (&lt;sup&gt;3&lt;/sup&gt;&amp;frasl;&lt;sub&gt;1&lt;/sub&gt; 土) 毎月第一土曜日(1月と5月は除く)みんなセッションの練習をしにきてるので気楽に。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt; (&lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;11&lt;/sub&gt; 水) GitHubで遊ぼう！広島のすごい(？)人たちが集まって情報交換したり、作業したりしている&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

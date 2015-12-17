@@ -1,0 +1,1098 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/cucumber/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-05-01 01:37:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>CucumberとTurnipとSpinachと。</title>
+          <link>http://blog.eiel.info/blog/2014/05/01/cucumber-turnip-spinach/</link>
+          <pubDate>Thu, 01 May 2014 01:37:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/05/01/cucumber-turnip-spinach/</guid>
+          <description>
+
+&lt;p&gt;最近 spinach というライブラリがあることを知って Cucumber や Turnip と同じようなものだということはわかっていたのですが、ちゃんと調べてみることにした。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://cukes.info/&#34;&gt;Cucumber&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jnicklas/turnip&#34;&gt;Turnip&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/codegram/spinach&#34;&gt;Spinach&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;「きゅうり」と「かぶ」と「ほうれん草」ですね。
+一応ざっくり解説しておくと &lt;a href=&#34;http://ja.wikipedia.org/wiki/%E3%83%93%E3%83%98%E3%82%A4%E3%83%93%E3%82%A2%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA&#34;&gt;ビヘイビア駆動開発&lt;/a&gt; を実践するためのテスティングフレームワークです。
+&lt;a href=&#34;https://github.com/cucumber/gherkin&#34;&gt;Gherkin&lt;/a&gt; という書式を利用して自然言語をならべて記述した文書を使い、自動テストとの結びつけができます。
+動くことを確認することができる仕様書として使えます。&lt;/p&gt;
+
+&lt;p&gt;今回登場している3つのソフトウェアは Gherkin を使っている Cucumber がら派生したライブラリです。
+Turnip は Cucumber から派生して、使いやすく改良したものです。
+Spinach は Cucumber から機能を削減して見通しをよくしています。&lt;/p&gt;
+
+&lt;h3 id=&#34;turnip:077f29a11a792b7f6d209f7fe0a365be&#34;&gt;Turnip&lt;/h3&gt;
+
+&lt;p&gt;Cucumber から派生して、Cucumber のイケてないところが修正されており、最近徐々に人気が出ているようです。
+&lt;a href=&#34;http://magazine.rubyist.net/?0042-FromCucumberToTurnip&#34;&gt;るびま&lt;/a&gt;で取り上げられているので知っている方も多いと思います。
+また rspec コマンドから実行することになります。&lt;/p&gt;
+
+&lt;h3 id=&#34;spinach:077f29a11a792b7f6d209f7fe0a365be&#34;&gt;Spinach&lt;/h3&gt;
+
+&lt;p&gt;Spinach は &lt;a href=&#34;https://github.com/gitlabhq/gitlabhq/blob/master/features/steps/help.rb&#34;&gt;GitLab&lt;/a&gt; で利用されています。
+Cucumber から強い機能が外されてます。
+ステップから引数をうけとったり、シナリオテンプレートが廃止されていたり。
+「重複を排除するための機能は Ruby のレイヤーでやらせてしまおう」という感じがしました&lt;/p&gt;
+
+&lt;p&gt;また、Gherkin は独自のものが再実装されていて国際化がされてないので、Cucumberだとできることが一部できません。
+When や Given などは、日本語で「前提」や「もし」とかけましたが、Spinach 日本語が使えません。&lt;/p&gt;
+
+&lt;h3 id=&#34;もうちょっと詳しく:077f29a11a792b7f6d209f7fe0a365be&#34;&gt;もうちょっと詳しく&lt;/h3&gt;
+
+&lt;p&gt;例として Feature をひとつ作成してみました&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Feature: Cucumber と Turnip と Spinach
+ちょっと遊んでみる
+
+Scenario: 配列の作成
+  Given 長さが10の配列を作成
+  When &amp;quot;string&amp;quot;を最後尾に追加
+  Then 配列の中身は&amp;quot;string&amp;quot;である
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;features ディレクトリに保存しています。&lt;/p&gt;
+
+&lt;p&gt;まずはCucumberを試してみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cucumber
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と実行すると下記のような出力があります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Given(/^長さが(\d+)の配列を作成$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+When(/^&amp;quot;(.*?)&amp;quot;を最後尾に追加$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^配列の中身は&amp;quot;(.*?)&amp;quot;である$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;「ステップがないので追加しろ。雛形は用意した。」そんな感じですね。
+数字やダブルグオーテーションで括った部分は arg1 として利用できるように生成されます。&lt;/p&gt;
+
+&lt;p&gt;次に turinp を試してみます。
+rspec コマンドから実行できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rspec -r turnip/rspec features
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;出力結果には Cucumberのように雛形が出力されたりはしませんでした。
+なれていないとここからの作業は少し難しいかもしれません。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Pending:
+  Cucumber と Turnip と Spinach 配列の作成 長さが10の配列を作成 -&amp;gt; &amp;quot;string&amp;quot;を最
+後尾に追加 -&amp;gt; 配列の中身は&amp;quot;string&amp;quot;である
+    # No such step: &#39;長さが10の配列を作成&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;rspec の一部のように動くようになります。&lt;/p&gt;
+
+&lt;p&gt;spinach も使ってみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ spinach
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Cucumber との大きな違いは正規表現で特定の値を抽出がなくなっています。
+Turnip ではプレースホルダになりますが、 Spinach で利用できなくなっています。
+&lt;strong&gt;使わない&lt;/strong&gt;という思想のようです。&lt;/p&gt;
+
+&lt;p&gt;クラス定義になっており、使えるメソッドを増やすにはミックスインを利用することになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Feature: Cucumber と Turnip と Spinach
+    Could not find steps for `Cucumber と Turnip と Spinach` feature
+
+
+    Please create the file cucumber_turnip_spinach.rb at features/steps, with:
+
+    class Spinach::Features::CucumberTurnipSpinach &amp;lt; Spinach::FeatureSteps
+      step &#39;長さが10の配列を作成&#39; do
+        pending &#39;step not implemented&#39;
+      end
+
+      step &#39;&amp;quot;string&amp;quot;を最後尾に追加&#39; do
+        pending &#39;step not implemented&#39;
+      end
+
+      step &#39;配列の中身は&amp;quot;string&amp;quot;である&#39; do
+        pending &#39;step not implemented&#39;
+      end
+    end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;まとめ:077f29a11a792b7f6d209f7fe0a365be&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;簡単な比較しかしていませんが、spinach 面白いと思います。
+もうちょっと試して紹介したいと思います。
+Cucumberのシナリオテンプレートは使ってみると少し闇な感じがしていたので、使わないという割り着もよいと思います。
+テーブルなんかは Rspec を使うより優位性を感じますが、この場合使えません。&lt;/p&gt;
+
+&lt;p&gt;あとは、ふるまいを記述する人がふるまいに集中できる感じがします。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:077f29a11a792b7f6d209f7fe0a365be&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/12/gherkin/&#34;&gt;Cucumber のフィーチャの文法 - Gherkin - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/05/23/cucumber-with-phantomjs/&#34;&gt;cucumber で PhantomJS を使う - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/09/03/cucumber-js/&#34;&gt;Cucumber-js を試した。 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Cucumber-js を試した。</title>
+          <link>http://blog.eiel.info/blog/2013/09/03/cucumber-js/</link>
+          <pubDate>Tue, 03 Sep 2013 15:49:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/09/03/cucumber-js/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/hwebsys&#34;&gt;広島Webシステム開発勉強会&lt;/a&gt; で &lt;a href=&#34;https://github.com/cucumber/cucumber-js&#34;&gt;Cucumber-js&lt;/a&gt; を試してました。&lt;/p&gt;
+
+&lt;p&gt;先に雑感をかきます。&lt;/p&gt;
+
+&lt;p&gt;まだ完成度が高くない感じです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;アサーションが用意されてないので、使いやすくするには自分でなんとかしないといけないような感じでした。&lt;/li&gt;
+&lt;li&gt;step_definision が Ruby版より難しそうでした。&lt;/li&gt;
+&lt;li&gt;日本語への対応がまだできていませんでした。&lt;/li&gt;
+&lt;li&gt;色がまだつきません&lt;/li&gt;
+&lt;li&gt;コマンドラインオプションをまちがえるとコールスタックが表示されます。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;インストール:fc7f48da2ead1135f726a192fe868739&#34;&gt;インストール&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install -g cucumber
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;cucumber.js&lt;/code&gt; というコマンドがインストールされます。&lt;/p&gt;
+
+&lt;h3 id=&#34;試してみる:fc7f48da2ead1135f726a192fe868739&#34;&gt;試してみる&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;Feature: hogehoge
+
+  Scenario: hogehoge
+    Given hoge
+    Then goro
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;試しにこんな feature を書いてみました。&lt;/p&gt;
+
+&lt;p&gt;他に作成したのは &lt;code&gt;features/step_defnition/myStepDefinitions.js&lt;/code&gt; と &lt;code&gt;features/support/world.js&lt;/code&gt; です。&lt;/p&gt;
+
+&lt;p&gt;world.js で step で使える DSL を強化できますが今回は特になにもしていません。&lt;/p&gt;
+
+&lt;p&gt;Stepの定義は以下のように書きました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var myStepDefinitionsWrapper = function () {
+  this.World = require(&amp;quot;../support/world.js&amp;quot;).World;
+
+  this.Given(/^hoge$/, function(callback) {
+  // express the regexp above with the code you wish you had
+     callback();
+  });
+  this.Then(/^goro$/, function(callback) {
+  // express the regexp above with the code you wish you had
+     callback.fail(&amp;quot;gorogoro&amp;quot;);
+     callback();
+  });
+};
+
+module.exports = myStepDefinitionsWrapper;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ruby版に比べるとthisが目立ちやや不恰好です。
+&lt;code&gt;Then goro&lt;/code&gt; はわざと失敗するようにしています。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;cucumber.js&lt;/code&gt; を実行すると下記のような出力になります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.F
+
+(::) failed steps (::)
+
+gorogoro
+
+Failing scenarios:
+/Users/eiel/Programming/cucumber-js/features/myFeature.feature:3 # Scenario: hogehoge
+
+1 scenario (1 failed)
+2 steps (1 failed, 1 passed)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;callback が重要で 成功、失敗、ペンディングのどれにするとしても利用します。
+if で状態をチェック。問題があれば &lt;code&gt;callback.fail()&lt;/code&gt; 問題がなければ&lt;code&gt;callback()&lt;/code&gt; という流れになります。rsapec の &lt;code&gt;should&lt;/code&gt; のようなものが用意されてません。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/cucumber-js-Sample&#34;&gt;作成したサンプルリポジトリはGithubにupしてきました&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;まとめ:fc7f48da2ead1135f726a192fe868739&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;というわけでなかなか扱いづらそうでした。
+今度は mocha と chai あたりを試してみようと思います。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>cleditor の内容を javascirptで変更する in Cucumber</title>
+          <link>http://blog.eiel.info/blog/2013/05/31/cucumber-cleditor/</link>
+          <pubDate>Fri, 31 May 2013 19:20:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/05/31/cucumber-cleditor/</guid>
+          <description>&lt;p&gt;Cucumber の @javascript で実行しているシナリオに ]cleditor](&lt;a href=&#34;https://github.com/cleditor/cleditor/blob/master/jquery.cleditor.js&#34;&gt;https://github.com/cleditor/cleditor/blob/master/jquery.cleditor.js&lt;/a&gt;) という WYGSYG が利用されていて 普通に値を代入しただけだと反映されない問題に直面した。&lt;/p&gt;
+
+&lt;p&gt;caybara  のドライバーには poltergeist を使用しています。&lt;/p&gt;
+
+&lt;p&gt;バリデーションをかけていて、入力しないと進めないので、javascriptを使って入力することにした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;$(selector).data(&#39;cleditor&#39;).$area.html( content );
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;.data(&amp;lsquo;cleditor&amp;rsquo;).$area というところに情報が保存されていることがわかったので、そこのHTMLをさしかえます。
+Safari で実行した場合は画面表示は変更されないので注意です。&lt;/p&gt;
+
+&lt;p&gt;これを cucumber の step で実行したいので、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;description = &amp;quot;hogehoge&amp;quot;
+code = &amp;lt;&amp;lt;&amp;quot;JAVASCRIPT&amp;quot;
+$(&#39;#hogehoge&#39;).data(&#39;cleditor&#39;).$area.html(&#39;#{description}&#39;);
+JAVASCRIPT
+evaluate_script(code)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;として、 evalute_script を利用して実行しました。&lt;/p&gt;
+
+&lt;p&gt;data属性にデータを保存しておくのは一般的なのかな？この辺の事情はよくしりません。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>cucumber で PhantomJS を使う</title>
+          <link>http://blog.eiel.info/blog/2013/05/23/cucumber-with-phantomjs/</link>
+          <pubDate>Thu, 23 May 2013 01:59:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/05/23/cucumber-with-phantomjs/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://cukes.info/&#34;&gt;Cucumber&lt;/a&gt; で使うブラウザを &lt;a href=&#34;http://phantomjs.org/&#34;&gt;PhantomJS&lt;/a&gt; にしたい。&lt;/p&gt;
+
+&lt;p&gt;Cucumber -&amp;gt; Capybara -&amp;gt; Poltergeist -&amp;gt; PhantomJS という感じに利用します。&lt;/p&gt;
+
+&lt;p&gt;PhantomJS は画面のないブラウザと言うと、伝わりやすいでしょうか。&lt;/p&gt;
+
+&lt;p&gt;統合的なテストを行う場合、Rails プロジェクトでは Cucumber がよく使われています。
+Cucumberのシナリオに &lt;code&gt;@javascript&lt;/code&gt; というタグをつけると Selenium を利用して Firefox を制御してテストを行うことができます。
+非常に便利なのですが、処理が長かったり、また、X11の起動してない Linux などで動かそうとするとちょっと問題がおきます。
+そこで、画面の表示をしないブラウザでテストしたくなります。
+また、実際によく使うわれるのはレンダリングエンジンは Webkit です。&lt;/p&gt;
+
+&lt;p&gt;そのためのブラウザとしての有力候補が PhantomJS です。
+PhantomJS のレンダリングエンジンは Webkit で、必要であればスクリーンショットがとれます。
+Travis CI でも利用できるようです。(未確認)&lt;/p&gt;
+
+&lt;p&gt;利用までの手順としては&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;PhantomJS のインストール&lt;/li&gt;
+&lt;li&gt;Rails プロジェクトに Poltergeistを追加&lt;/li&gt;
+&lt;li&gt;featrue/support/env.rb を設定&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;となります。&lt;/p&gt;
+
+&lt;h3 id=&#34;phantomjs-のインストール:0431d6fc23db040417a221faa946fe58&#34;&gt;PhantomJS のインストール&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://phantomjs.org/download.html&#34;&gt;http://phantomjs.org/download.html&lt;/a&gt; から ダウンロードできます。
+Mac であれば Homebrew や Macport でインストール可能なようです。ダウンロードしても bin/phantomjs を 環境変数PATH に入っているところに配置するだけです。&lt;/p&gt;
+
+&lt;h3 id=&#34;rails-プロジェクトに-poltergeist-を追加:0431d6fc23db040417a221faa946fe58&#34;&gt;Rails プロジェクトに Poltergeist を追加&lt;/h3&gt;
+
+&lt;p&gt;Gemfile に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;group :test do
+  gem &#39;poltergeist&#39;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と追記すれば良いです。&lt;/p&gt;
+
+&lt;h3 id=&#34;feature-support-env-rb-を設定:0431d6fc23db040417a221faa946fe58&#34;&gt;feature/support/env.rb を設定&lt;/h3&gt;
+
+&lt;p&gt;設定しないと使えません。
+&lt;code&gt;feature/support/env.rb&lt;/code&gt; に以下を追記すればよいでしょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;capybara/poltergeist&#39;
+Capybara.javascript_driver = :poltergeist
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;@javascript&lt;/code&gt; つけるのがめんどくさい! って場合は、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;equire &#39;capybara/poltergeist&#39;
+Before do
+  Capybara.current_driver = :poltergeist
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とする方法もあります。&lt;/p&gt;
+
+&lt;h3 id=&#34;トラブルとか:0431d6fc23db040417a221faa946fe58&#34;&gt;トラブルとか&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;javascript がちょっとエラーがおきただけで、エラーになる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;js_errors&lt;/code&gt; などを設定すると無視できるようです。
+今のところは折角なので全部直しています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;クリックに失敗することがある。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;なにやらふたつの node をクリックしてしまって、エラーのようなものが起きてる箇所がでてます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;もし /^&amp;quot;(.*?)&amp;quot;をクリック$/ do |name|
+  click_on name
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のような、step を&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;もし /^&amp;quot;(.*?)&amp;quot;をクリック$/ do |name|
+  find(:link_or_button, name).trigger(&#39;click&#39;)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;にすると動く場面もありました。&lt;/p&gt;
+
+&lt;h3 id=&#34;もうちょっと詳しく:0431d6fc23db040417a221faa946fe58&#34;&gt;もうちょっと詳しく&lt;/h3&gt;
+
+&lt;p&gt;失敗する利用がわからなくて、pry などで停止させた時に Poltergeist を直接やりとりしたい場合は&lt;code&gt;page.driver&lt;/code&gt; でオブジェクトにアクセスできます。
+PhantomJS と直接やりとりしたい場合は &lt;code&gt;page.driver.server&lt;/code&gt; でよさそうです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jonleighton/poltergeist/blob/master/lib/capybara/poltergeist/driver.rb&#34;&gt;Capybara::Poltergeist::Driver&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jonleighton/poltergeist/blob/master/lib/capybara/poltergeist/server.rb&#34;&gt;Capybara::Poltergeist::Server&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;一応登場人物の整理:0431d6fc23db040417a221faa946fe58&#34;&gt;一応登場人物の整理&lt;/h3&gt;
+
+&lt;p&gt;Capybara はウェブブラウザの違いを吸収してブラウザの操作を記述するDSLです。バックエンドに何を使うとしても同じように書けます。&lt;/p&gt;
+
+&lt;p&gt;Poltergeist は CapybaraのDSLによる命令を、PhantomJS の命令に変換し、実行結果をもどす役目をします。違いを吸する部分です。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:0431d6fc23db040417a221faa946fe58&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;まだテストがすべて通ってない。JavaScript を使用していない シナリオからの移行はそれなりに大変です。
+でも、やるなら速いほうがいいと思います。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>cucumber で シナリオを Ruby のバージョンによって実行しなかったり</title>
+          <link>http://blog.eiel.info/blog/2013/04/11/cucumber-switch-ruby-version/</link>
+          <pubDate>Thu, 11 Apr 2013 01:48:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/04/11/cucumber-switch-ruby-version/</guid>
+          <description>
+
+&lt;p&gt;どんなにがんばっても ruby 1.8.7 では動かすことができない &lt;code&gt;cucumber&lt;/code&gt; のシナリオがあって、これを対応した時のメモ。&lt;/p&gt;
+
+&lt;p&gt;結論から書いておきます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@fails_on_1_8_7&lt;/code&gt; というタグを使って、失敗するシナリオをタグづけ&lt;/li&gt;
+&lt;li&gt;cucumber の profile に &lt;code&gt;ruby_1_8_7&lt;/code&gt; をつくり &lt;code&gt;--tags ~@failds_on_1_8_7&lt;/code&gt; を設定&lt;/li&gt;
+&lt;li&gt;rake 実行時に RUBY_VERSION をみて profile を ruby_1_8_7 になるように設定&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;です。&lt;/p&gt;
+
+&lt;p&gt;テストは Travis CI で実行します。Travis では rake が実行されるので、rake 実行時にprofile を切り替えるようにしました。
+もともとそのプロジェクトには ruby_1_9 というのと ruby_2_0 というのがあったのでそれらに合わせました。&lt;/p&gt;
+
+&lt;p&gt;具体的には &lt;a href=&#34;https://github.com/eiel/cucumber/commit/edfc124dd28abd92d41833bfdfd9018b754b4667&#34;&gt;cucumber/cucumber に出したpull request&lt;/a&gt; です。&lt;/p&gt;
+
+&lt;h2 id=&#34;ちょっと掘り下げておく:246a93b306e619fba49a96631e3eebde&#34;&gt;ちょっと掘り下げておく。&lt;/h2&gt;
+
+&lt;p&gt;cucumber には profile という機能があって、あらかじめ設定しておいたオプションを切り替える機能があります。
+&lt;code&gt;cucumber --profile ruby_1_8_7&lt;/code&gt; みたいに使います。&lt;/p&gt;
+
+&lt;p&gt;これを rake task に割り当てるには &lt;code&gt;Cucumber::Rake::Task&lt;/code&gt; のインスタンスのprofile に渡してやればいいです。
+&lt;code&gt;new&lt;/code&gt; したときのブロックの第1引数が &lt;code&gt;Cucumber::Rake::Task&lt;/code&gt; そのものです。&lt;/p&gt;
+
+&lt;p&gt;例:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Cucumber::Rake::Task.new do |t|
+  t.profile = &#39;ruby_1_8_7&#39;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;cucumber のプロジェクトではは、この設定は &lt;a href=&#34;https://github.com/cucumber/cucumber/blob/v1.2.5/gem_tasks/cucumber.rake&#34;&gt;gem_tasks/cucumber.rake&lt;/a&gt;にあります。&lt;/p&gt;
+
+&lt;p&gt;ちなみに &lt;code&gt;Cucumber::Rake::Task&lt;/code&gt; は &lt;a href=&#34;https://github.com/cucumber/cucumber/blob/v1.2.5/lib/cucumber/rake/task.rb&#34;&gt;lib/cucumber/rake/task.rb&lt;/a&gt;  に定義されています。&lt;/p&gt;
+
+&lt;p&gt;あとは travis が勝手に実行にしてくれる寸法です。&lt;/p&gt;
+
+&lt;p&gt;Cucumber のテストを Cucumber で書いてて紛らわしい例ですいません。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、このpull request が取り込まれると以下のブログ記事にある修正が不必要になります。steps で日本語が使えます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://319ring.net/blog/archives/2145&#34;&gt;CUCUMBERで日本語でSTEPからSTEPを呼び出す - 自転車で通勤しましょ♪ブログ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;関連記事:246a93b306e619fba49a96631e3eebde&#34;&gt;関連記事&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/12/gherkin/&#34;&gt;Cucumber のフィーチャの文法 - Gherkin&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Cucumber のフィーチャの文法 - Gherkin</title>
+          <link>http://blog.eiel.info/blog/2013/02/12/gherkin/</link>
+          <pubDate>Tue, 12 Feb 2013 14:13:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/12/gherkin/</guid>
+          <description>
+
+&lt;p&gt;Cucumber 利用していますか？&lt;/p&gt;
+
+&lt;p&gt;基本的な使い方はわかるんだけど、なんだかもっと上手く使えるんじゃないだろうか？と、もやもやしながら使っています。
+少くとも私の周りには Cucumber について情報交換できる人がいないです。&lt;/p&gt;
+
+&lt;p&gt;それでも、SlideShare や Speaker Deck なんかに公開されたスライドでよくみかけるので、使い込んでるところでは使い込まれているのだと思います。&lt;/p&gt;
+
+&lt;p&gt;Cucumber は Rails プロジェクト以外でも利用されているようで、範囲が広いです。もうちょっといろんな情報がWeb上に流れていても良い気がします。&lt;/p&gt;
+
+&lt;p&gt;私が知る限りでは Cucumber についてもっと詳しく書かれているのは &lt;a href=&#34;http://www.amazon.co.jp/gp/product/4798121932/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=4798121932&amp;amp;linkCode=as2&amp;amp;tag=eiel-22&#34;&gt;The Rspec Book&lt;/a&gt; です。&lt;/p&gt;
+
+&lt;p&gt;前置きはさておき、 Cucumber の &lt;code&gt;*.feature&lt;/code&gt; は &lt;a href=&#34;https://github.com/cucumber/cucumber/wiki/Gherkin&#34;&gt;Gherkin&lt;/a&gt; という 言語で書きます。
+その文法について調べたのでそのメモを整理しておきます。&lt;/p&gt;
+
+&lt;p&gt;ちなみにこの内容はソース読んだり、Wikiに書かれているものを参考したもので、仕様として記述されてない情報もあるので未来のバージョンでは予告なく変更される部分があるかもしれません。&lt;/p&gt;
+
+&lt;p&gt;こんな長くて不正確な記事読みたくないよ!という人は &lt;a href=&#34;https://github.com/cucumber/gherkin/wiki/BNF&#34;&gt;BNF&lt;/a&gt; を読むのが手っ取りです。
+というか、BNFが読める人は読みましょう。
+むしろ、もっとはやく読めばよかった。&lt;/p&gt;
+
+&lt;h2 id=&#34;具体例:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;具体例&lt;/h2&gt;
+
+&lt;p&gt;Gherukinのという言語で書いた文書の例を上げておきます。
+内容はシステムに関するものにしませんでした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;# language: ja
+@blog
+フィーチャ: ブログを書く
+  ブログを書くには本人のやる気と書く時間が必要です。
+  アウトプットは次のインプットに繋がるので積極的に行なうべきです。
+
+  # これはコメントでタグの後にはかけない
+  # @ではじまるのはタグ
+  @good
+  シナリオ: ブログが書ける
+    ブログが書ける場合はやる気と時間があるのです。
+
+    # ネタがないとかけないです。
+    前提 ネタがある
+    # 時間がないとかけないです
+    かつ 納期に終われていない
+    # 先輩とかいないですけど
+    もし 先輩にブログを書けと言われた
+    # オチがない
+    ならば ブログが書けている
+
+  @bad
+  シナリオ: デスマ中はブログが書けない
+     デスマ中ダトソレドコロジャナインダ!!
+
+     前提 ネタがある
+     かつ デスマ中
+     もし 先輩にブログを書けと言われた
+     ならば ブログが書けていない
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/gherkin.png&#34; width=&#34;400&#34; height=&#34;290&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;見てわかるように、ほぼ自然言語の雰囲気を残せます。
+&lt;strong&gt;これならプログラマ以外の人でも読み書きできそうだよね。&lt;/strong&gt;
+ってのがウリです。&lt;/p&gt;
+
+&lt;h2 id=&#34;要素:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;要素&lt;/h2&gt;
+
+&lt;p&gt;Gherkin は以下の要素で構成されます。
+&lt;small&gt;ここでは要素と呼んでますが、トークンの一部を抜粋しただけです。&lt;/small&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;コメント&lt;/li&gt;
+&lt;li&gt;タグ&lt;/li&gt;
+&lt;li&gt;フィーチャ&lt;/li&gt;
+&lt;li&gt;バックグラウンド&lt;/li&gt;
+&lt;li&gt;シナリオ&lt;/li&gt;
+&lt;li&gt;シナリオテンプレート&lt;/li&gt;
+&lt;li&gt;例&lt;/li&gt;
+&lt;li&gt;ステップ&lt;/li&gt;
+&lt;li&gt;ドックストリング&lt;/li&gt;
+&lt;li&gt;表&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;トップダウンに説明していきます。説明する前の用語がでてきますが、一通り読んでもどってくると良いです。&lt;/p&gt;
+
+&lt;h2 id=&#34;ファイル構成:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;ファイル構成&lt;/h2&gt;
+
+&lt;p&gt;Gherkin では ひとつのファイルにひとつの&lt;code&gt;フィーチャ&lt;/code&gt;しか記述できません。
+なので全体像としては&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;コメント&lt;/code&gt; (省略可能)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;タグ&lt;/code&gt; (省略可能)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;フィーチャ&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;となります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;タグ&lt;/code&gt;と&lt;code&gt;コメント&lt;/code&gt;の順番は入れかえることはできません。&lt;/p&gt;
+
+&lt;p&gt;具体的には:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;# comment
+@tag
+フィーチャ: フィーチャ名
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;コメント:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;コメント&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;#&lt;/code&gt; ではじまる行は コメント&lt;code&gt;になります。
+&lt;/code&gt;#` の前に空白があっても構いません。&lt;/p&gt;
+
+&lt;p&gt;プログラミング言語にあるような&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;@blog      # comment
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のようなことは&lt;strong&gt;できません。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;先頭にある &lt;code&gt;language: ja&lt;/code&gt;
+は特殊な&lt;code&gt;コメント&lt;/code&gt;でこのファイルで使用するキーワードの言語を指定します。
+&lt;code&gt;フィーチャ&lt;/code&gt; や &lt;code&gt;シナリオ&lt;/code&gt;,&lt;code&gt;前提&lt;/code&gt;、&lt;code&gt;かつ&lt;/code&gt;などがキーワードです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;コメント&lt;/code&gt;は書けるところがわりと限られてます。&lt;/p&gt;
+
+&lt;h2 id=&#34;タグ:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;タグ&lt;/h2&gt;
+
+&lt;p&gt;@ではじまる単語は タグになります。
+1行に複数かくこともできますし、複数行にわたってかくこともできます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;@blog @hoge
+@mogu
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;フィーチャ&lt;/code&gt;や&lt;code&gt;シナリオ&lt;/code&gt;の前で書けます。&lt;/p&gt;
+
+&lt;h2 id=&#34;フィーチャ:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;フィーチャ&lt;/h2&gt;
+
+&lt;p&gt;このファイルに記述する&lt;code&gt;フィーチャ&lt;/code&gt;(機能)に関して記述します。
+言語に日本語を利用している場合は
+&lt;code&gt;フィーチャ:&lt;/code&gt; または  &lt;code&gt;機能:&lt;/code&gt;ではじまります。
+つづけてその後ろには、その&lt;code&gt;フィーチャ&lt;/code&gt;の名前をかきます。&lt;/p&gt;
+
+&lt;p&gt;次の行には&lt;code&gt;フィーチャ&lt;/code&gt;に関する説明をかくことができます。
+説明はだいたい好きなように書けます。
+それ以降には&lt;code&gt;バックグラウンド&lt;/code&gt;と&lt;code&gt;シナリオ&lt;/code&gt;を n個かくことができます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;フィーチャ&lt;/code&gt;: 名前
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;説明&lt;/code&gt;(省略可能)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;バックグラウンド&lt;/code&gt;(省略可能)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;シナリオ1&lt;/code&gt; or &lt;code&gt;シナリオアウトライン&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;シナリオ2&lt;/code&gt; or &lt;code&gt;シナリオアウトライン&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;シナリオn&lt;/code&gt; or &lt;code&gt;シナリオアウトライン&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;フィーチャ&lt;/code&gt;と&lt;code&gt;説明&lt;/code&gt;の間には空行は置けますが&lt;code&gt;コメント&lt;/code&gt;などは書けません。
+具体的には:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;フィーチャ: フィーチャ名
+  フィーチャの説明
+
+  バックグラウンド:
+     前提 なにかがある
+
+  シナリオ: シナリオ名
+    .
+    .
+    .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のような感じです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;フィーチャ: hoge
+  説明
+  # comment
+  説明
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;などはエラーになります。&lt;/p&gt;
+
+&lt;h2 id=&#34;バックグラウンド:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;バックグラウンド&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;フィーチャ&lt;/code&gt;内の&lt;code&gt;シナリオ&lt;/code&gt;の前に実行したい&lt;code&gt;ステップ&lt;/code&gt;をかくことができます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;背景: 名前
+
+&lt;ul&gt;
+&lt;li&gt;ステップ1&lt;/li&gt;
+&lt;li&gt;ステップ2&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;ステップn&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という構造になります。&lt;/p&gt;
+
+&lt;h2 id=&#34;シナリオ:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;シナリオ&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;シナリオ&lt;/code&gt;はひとつのテストになります。
+&lt;code&gt;シナリオ&lt;/code&gt;はステップを複数持っていて、&lt;code&gt;ステップ&lt;/code&gt;の途中で失敗するとシナリオは失敗したことになります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;シナリオ&lt;/code&gt;も&lt;code&gt;フィーチャ&lt;/code&gt;と同様に説明が書けます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;コメント&lt;/code&gt; (省略可能)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;タグ&lt;/code&gt;(省略可能)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;シナリオ&lt;/code&gt;: 名前
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;説明&lt;/code&gt; (省略可能)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ステップ1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ステップ2&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ステップn&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という構造になります。&lt;/p&gt;
+
+&lt;h2 id=&#34;シナリオアウトライン:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;シナリオアウトライン&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;シナリオ&lt;/code&gt;の重複を減らすためには&lt;code&gt;シナリオアウトライン&lt;/code&gt;を使うことができます。
+シナリオ内に変数を埋めこんで、最後に変数に代入する値を&lt;code&gt;例&lt;/code&gt;として明示することで、&lt;code&gt;シナリオ&lt;/code&gt;になります。
+変数は &lt;code&gt;&amp;lt;変数名&amp;gt;&lt;/code&gt;として表現できます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;コメント(省略可能)&lt;/li&gt;
+&lt;li&gt;タグ(省略可能)&lt;/li&gt;
+&lt;li&gt;シナリオアウトライン: 名前
+
+&lt;ul&gt;
+&lt;li&gt;説明&lt;/li&gt;
+&lt;li&gt;ステップ1&lt;/li&gt;
+&lt;li&gt;ステップ2&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;.&lt;/li&gt;
+&lt;li&gt;ステップn&lt;/li&gt;
+&lt;li&gt;例:&lt;/li&gt;
+&lt;li&gt;表&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;具体例をあげておきます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;シナリオアウトライン: &amp;lt;種類&amp;gt;が書ける
+  &amp;lt;種類&amp;gt;が書ける場合はやる気と時間があるのです。
+
+  前提 ネタがある
+  かつ 納期に終われていない
+  もし &amp;lt;人&amp;gt;に&amp;lt;種類&amp;gt;を書けと言われた
+  ならば &amp;lt;種類&amp;gt;が書けている
+  例:
+    | 種類   | 人   |
+    | ブログ | 先輩 |
+    | 資料   | 営業 |
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;例の表の 1行目は変数名に対応しますが、Gherkinというより Cucumber の部分になる気がします。
+2行目に具体的な値を書きます。&lt;/p&gt;
+
+&lt;p&gt;ブログ が &amp;lt;種類&amp;gt; の部分に、先輩 が &amp;lt;人&amp;gt; の部分に 展開されます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;シナリオアウトライン&lt;/code&gt;の代わりに &lt;code&gt;シナリオテンプレート&lt;/code&gt; なども使えます&lt;/p&gt;
+
+&lt;p&gt;詳細は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cucumber --i18n ja
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ステップ:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;ステップ&lt;/h2&gt;
+
+&lt;p&gt;先頭が&lt;code&gt;前提&lt;/code&gt; &lt;code&gt;もし&lt;/code&gt; &lt;code&gt;ならば&lt;/code&gt; などの部分です。
+Cucumberでは対応する コード が実行されます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;コメント&lt;/code&gt; (省略可能)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ステップキーワード&lt;/code&gt;: 名前
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ドックストリング&lt;/code&gt; もしくは &lt;code&gt;表&lt;/code&gt; (省略可能)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という構造になります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ステップキーワード&lt;/code&gt;には&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;前提 (given)&lt;/li&gt;
+&lt;li&gt;もし (when)&lt;/li&gt;
+&lt;li&gt;ならば (then)&lt;/li&gt;
+&lt;li&gt;かつ (and)&lt;/li&gt;
+&lt;li&gt;しかし (but)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などがあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;*&lt;/code&gt; というのもありまして:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;* ネタがある
+* 納期に終われていない
+* 先輩にブログを書けと言われた
+* ならば ブログが書けている
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とかいても等価です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cucumber --i18n ja
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なども確認してみてください&lt;/p&gt;
+
+&lt;h2 id=&#34;ドックストリング:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;ドックストリング&lt;/h2&gt;
+
+&lt;p&gt;ステップに長い文字列を渡したい場合に利用します。
+&lt;code&gt;&#39;&#39;&#39;&lt;/code&gt;(クオート3つ)で挟むことでドックストリングになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;前提 ネタがある
+   &#39;&#39;&#39;
+   デスマ神がほげほげ
+   ネコ型の何かがもぐもぐ
+   &#39;&#39;&#39;
+かつ 納期に終われていない
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とすると &amp;ldquo;ネタがある&amp;rdquo; &lt;code&gt;ステップ&lt;/code&gt;ヘ &amp;ldquo;デスマ神がほげ…もぐもぐ&amp;rdquo; という文字列を渡すことができます。&lt;/p&gt;
+
+&lt;h2 id=&#34;表:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;表&lt;/h2&gt;
+
+&lt;p&gt;表は &amp;ldquo;&lt;code&gt;シナリオアウトライン&lt;/code&gt;の例&amp;rdquo; と &amp;ldquo;&lt;code&gt;ステップ&lt;/code&gt;への引数として表を使いたい&amp;rdquo; 場合に利用できます。&lt;/p&gt;
+
+&lt;p&gt;表は&lt;code&gt;|&lt;/code&gt;(パイプ)を利用してAscii Art で表を書きます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;シナリオアウトライン&lt;/code&gt;についてはもう書いているので省きます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ステップ&lt;/code&gt;で使用すると &lt;code&gt;Cucumber::Ast::Table&lt;/code&gt; というクラスのインスタンスが渡されます。ステップの実装で煮るなり焼くなりしあしょう。&lt;/p&gt;
+
+&lt;p&gt;一応具体例:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cucumber&#34;&gt;前提 なにかある
+  | 1 | 2 |
+  | 3 | 4 |
+もし なにかする
+  | 1 | 2 | 3 |
+  | 4 | 5 | 6 |
+ならば こういう結果になる
+  | 7 | 8 | 9 | 10 |
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;インデントについて:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;インデントについて&lt;/h2&gt;
+
+&lt;p&gt;インデント自体に意味はありませんが適切につけておくと読みやすいです。cucumberで実行した場合は自動的に整形されます。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:86b43392d5d2f5c8a8f67644afbfc1cc&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;無駄に時間がかかりました。何かの役に立てば良いなぁ。
+途中で対象読者を意識してないことに絶望していろいろブレてます。&lt;/p&gt;
+
+&lt;p&gt;間違いなどあればご連絡ください。&lt;/p&gt;
+
+&lt;p&gt;仕事してきます。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Cucumber の Capybara で 複数の同じ名前のリンクに対応するステップ</title>
+          <link>http://blog.eiel.info/blog/2013/01/27/capybara-link-or-button/</link>
+          <pubDate>Sun, 27 Jan 2013 00:12:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/27/capybara-link-or-button/</guid>
+          <description>
+
+&lt;p&gt;Cucumber のステップで&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;もし /^&amp;quot;(.+)&amp;quot;をクリック$/ do |name|
+  click_on name
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;というステップを書いていますが、&lt;code&gt;name&lt;/code&gt; に複数マッチしてしまうとエラーが発生しています。同じ名前にならないようにすればいいのですが、そうもいかない場合もあります。結局、以下の方法を用意しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;もし /^(\d+)番目の&amp;quot;(.*?)&amp;quot;をクリック_$/ do |n, name|
+  n = n.to_i - 1
+  all(:link_or_button, name)[n].click
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;何番目のリンクか指定することで回避しました。&lt;/p&gt;
+
+&lt;h2 id=&#34;もうちょっと詳しく:3c29b2d13f59a0711f26d17483c28d4a&#34;&gt;もうちょっと詳しく&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;click_button&lt;/code&gt;と同じことをやろうとすると &lt;code&gt;find(name)&lt;/code&gt; や &lt;code&gt;all(name)&lt;/code&gt; ではうまくいきません。調べてみると &lt;code&gt;XPath::HTML.link_or_button&lt;/code&gt; というメソッドを使用して、&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/selector.rb#L90-L93&#34;&gt;findに渡すXPathを生成してることがわかりました。&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;これをどうやって使うというと all の第一引数に使えばいいことがわかりました。&lt;/p&gt;
+
+&lt;h2 id=&#34;さらに詳しく:3c29b2d13f59a0711f26d17483c28d4a&#34;&gt;さらに詳しく&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;page.class # =&amp;gt; Capybara::Session
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;click_onメソッドやallメソッドのレシーバである page オブジェクトは Capybara::Session でした。pry で調べました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb&#34;&gt;Capybara::Session&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;    NODE_METHODS = [
+      :all, :first, :attach_file, :text, :check, :choose,
+      :click_link_or_button, :click_button, :click_link, :field_labeled,
+      :fill_in, :find, :find_button, :find_by_id, :find_field, :find_link,
+      :has_content?, :has_text?, :has_css?, :has_no_content?, :has_no_text?,
+      :has_no_css?, :has_no_xpath?, :resolve, :has_xpath?, :select, :uncheck,
+      :has_link?, :has_no_link?, :has_button?, :has_no_button?, :has_field?,
+      :has_no_field?, :has_checked_field?, :has_unchecked_field?,
+      :has_no_table?, :has_table?, :unselect, :has_select?, :has_no_select?,
+      :has_selector?, :has_no_selector?, :click_on, :has_no_checked_field?,
+      :has_no_unchecked_field?, :query, :assert_selector, :assert_no_selector
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;NODE_METHODS.each do |method|
+  define_method method do |*args, &amp;amp;block|
+    @touched = true
+    current_node.send(method, *args, &amp;amp;block)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L338-L343&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L338-L343&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これらの メソッドは動的に生成されるようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def current_node
+  scopes.last
+end
+
+def scopes
+  @scopes ||= [document]
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L351-L358&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L351-L358&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;current_node は document という変数に格納されたオブジェクトのようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def document
+  @document ||= Capybara::Node::Document.new(self, driver)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L334-L336&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/session.rb#L334-L336&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;documentは Capybara::Node::Document クラスのインスタンスだとわかりました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class Document &amp;lt; Base
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/document.rb#L11&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/document.rb#L11&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ここには all メソッドがなく Capbyra::Node::Base を継承しているようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;include Capybara::Node::Finders
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/base.rb#L27&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/base.rb#L27&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;この辺にありそうですね。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;      def click_link_or_button(locator)
+        find(:link_or_button, locator).click
+      end
+      alias_method :click_on, :click_link_or_button
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/actions.rb#L12-L15&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/actions.rb#L12-L15&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;cloick_on みつけました。このあたりを grep でみつけた時点で &lt;code&gt;all :link_or_button&lt;/code&gt; でいけそうなのはわかります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def all(*args)
+  query = Capybara::Query.new(*args)
+  elements = synchronize do
+    base.find(query.xpath).map do |node|
+      Capybara::Node::Element.new(session, node, self, query)
+    end
+  end
+  Capybara::Result.new(elements, query)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/finders.rb#L110-L118&#34;&gt;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/node/finders.rb#L110-L118&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;all みつけたー!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/query.rb#L14-L16&#34;&gt;Capybara::Query.initialize&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;第一引数がシンボルの時の処理がありました。&lt;/p&gt;
+
+&lt;h2 id=&#34;ごめん力尽きた:3c29b2d13f59a0711f26d17483c28d4a&#34;&gt;ごめん力尽きた。&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/selector.rb#L11-L13&#34;&gt;Capybara::Selector.add&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;生成したXpathをハッシュに保存しておく&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara/blob/2.0.2/lib/capybara/selector.rb#L7-L9&#34;&gt;Capybara::Selector.all&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;登録しておいたxpathを撮りだす。&lt;/p&gt;
+
+&lt;p&gt;という感じです。実際にはpryの show-method つかって探してるのでこんなに大変じゃないんだからね!&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Capybaraでtitleタグの内容が取得できなくなってしまった。</title>
+          <link>http://blog.eiel.info/blog/2012/11/16/capybara-title/</link>
+          <pubDate>Fri, 16 Nov 2012 11:07:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/16/capybara-title/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/jnicklas/capybara&#34;&gt;Capybara&lt;/a&gt;を2.0にしたら動かなくなった &lt;a href=&#34;http://cukes.info/&#34;&gt;Cucumber&lt;/a&gt; の step がありました。titleタグ のtextをとる部分。visible でない要素のtextは取得できなくなったんでしょうか。
+コードを追う余裕がなかったので、Nokogiriで対処した。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;target = find(&amp;quot;title&amp;quot;).text
+expect(target).to eq(title)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;を&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;target = Nokogiri::HTML.parse(page.source).css(&amp;quot;title&amp;quot;).text
+expect(target).to eq(title)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;に書き換えました。&lt;/p&gt;
+
+&lt;p&gt;ちょっと無理矢理。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://cukes.info/&#34;&gt;Cucumber&lt;/a&gt;についてやりとりする仲間がいないので、titleタグのテキストの中身なんて確認しなくていいよ!とか、そういうい話ができないのが寂しいですね。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>cucumber で表示した画面がXMLを出力しているか確認する</title>
+          <link>http://blog.eiel.info/blog/2012/11/07/cucumber-xml/</link>
+          <pubDate>Wed, 07 Nov 2012 15:27:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/07/cucumber-xml/</guid>
+          <description>&lt;p&gt;rspec でマッチャーがあればよいのですが、とりあえず心当たりがなかったので、適当にごまかしました。良いgemがあれば紹介して欲しいです。&lt;/p&gt;
+
+&lt;p&gt;page.source が サーバからの出力を返してくださるので、これを Nokogiri で parse させてエラーがないかどうかで確認しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;ならば /XMLを出力する/ do
+  errros = Nokogiri::XML(page.source).errors
+  expect(errors).to be_empty
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;どうせなら下記のように書きたいですね。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;ならば /XMLを出力する/ do
+  should render_xml
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;マッチャーを書いてみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;RSpec::Matchers.define :render_xml do
+  match do |actual|
+    Nokogiri::XML(actual.source).errors.empty?
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ほとんどそのままです。matcher つくるのは難しくないので気軽に作りたいです。&lt;/p&gt;
+
+&lt;p&gt;少しだけ解説。
+y
+cucumberの中では subject を省略した場合は page になります。なので、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;ならば /XMLを出力する/ do
+  page.should render_xml
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と書いたのと等しいです。なので、acutual には page オブジェクトがバインドされていますので、そこから source を取り出してチェックします。page オブジェクトには html というメソッドが存在しますが、ブラウザが解釈したあとのDOMをdumpしたような感じになってるので期待通りの動きをしませんでした。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

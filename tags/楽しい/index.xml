@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E6%A5%BD%E3%81%97%E3%81%84/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-06-23 09:40:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>DevLOVE広島　第一回（夏の陣） でエンジニアリングの楽しさについて喋らされた</title>
+          <link>http://blog.eiel.info/blog/2014/06/23/devlove-in-hiroshima-01/</link>
+          <pubDate>Mon, 23 Jun 2014 09:40:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/06/23/devlove-in-hiroshima-01/</guid>
+          <description>
+
+&lt;p&gt;いや、別に無理矢理だったとかわけではなく。
+依頼されて喋ることになったからこういうタイトルになった。&lt;/p&gt;
+
+&lt;p&gt;ということで、 &lt;a href=&#34;http://devlove-hiroshima.doorkeeper.jp/events/11247&#34;&gt;DevLOVE広島　第一回（夏の陣） &lt;/a&gt; に参加して「愛無双 - エンジニアリングの楽しさ」というタイトルでセッションをしてきた。&lt;/p&gt;
+
+&lt;p&gt;エンジニアリングの楽しさを語れということだったので、自由にはっちゃけてきた。&lt;/p&gt;
+
+&lt;p&gt;中身のないあるひどいセッションだったと思うけど、みんなが楽しめるようにがんばったつもりである。
+何度か会場に笑いとれていた気がするのでよかったことにしよう。&lt;/p&gt;
+
+&lt;p&gt;会場に電波がなかったせいであまり &lt;a href=&#34;http://togetter.com/li/682827&#34;&gt;Twitterにも感想が流れていない&lt;/a&gt; のでみんな感想ブログを垂れ流してもらえると自分が勉強になる。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;0c4650b0dca20131b4bb7abe6293b58c&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://dic.nicovideo.jp/a/i&#39;m%20so%20happy&#34;&gt;タイトルはご存知 jubeat knitのボス曲 I&amp;rsquo;m so Happy&lt;/a&gt;です。
+解禁にお財布が Broken するアレです。
+多くの人が Happy になれないアレです。
+ちょうど言いたいことにマッチしていたのでこのタイトルにしておきました。(他意はない)
+ちなみに、わしはぶち楽しいけぇ。&lt;/p&gt;
+
+&lt;h3 id=&#34;エンジニアリングの楽しさ:43327d2f5c73f159d6a4f5db7dc45691&#34;&gt;エンジニアリングの楽しさ&lt;/h3&gt;
+
+&lt;p&gt;技術的なネタがないし、30分もネタが浮かびそうになかったので、前半は「エンジリアリングの楽しさ」というのはなんだろうかと自分なりに考えた話をした。
+DevLoveには参加してないようなエンジニアリングというのがよくわからな人に届けばいいな、と思いながらつくった気がする。
+あとは「&lt;a href=&#34;https://twitter.com/eielh&#34;&gt;友人のツイート&lt;/a&gt;」が使いやすかったからこうしたという説もある。&lt;/p&gt;
+
+&lt;h3 id=&#34;楽しくある必要性:43327d2f5c73f159d6a4f5db7dc45691&#34;&gt;楽しくある必要性&lt;/h3&gt;
+
+&lt;p&gt;二番目は「楽しくある必要性」として、さてどうして僕がそんなにいろいろがんばれるか。という根本原理について話してみようと試みたがたぶんあまりうまくいってなく自分でも消化不良である。&lt;/p&gt;
+
+&lt;p&gt;ここで登場しているダチョウさんは、グーグルの画像検索で再利用可能なものを指定して検索した場合、一番使いたくなる画像らしいです。
+普段から撮影した写真を感情ごとに分類しておけばいいなと、今回とても感じた。&lt;/p&gt;
+
+&lt;p&gt;よーするにさ、こうしたいってのみつけと、どーしたらいいか考えてるだけだ。
+あと、できるだけ楽しいほうがいい。&lt;/p&gt;
+
+&lt;h3 id=&#34;僕の楽しい:43327d2f5c73f159d6a4f5db7dc45691&#34;&gt;僕の楽しい&lt;/h3&gt;
+
+&lt;p&gt;正直、楽しいものはよくわからない。わからないけど、出てきたものは楽しいものだ。
+そういう気持ちで、目的の被らないネタを選択して適当に紹介した。&lt;/p&gt;
+
+&lt;p&gt;「変態は褒め言葉」ということで&lt;a href=&#34;http://ja.wikipedia.org/wiki/%E5%A4%89%E6%85%8B&#34;&gt;蝶の写真&lt;/a&gt;を選択したけど、ネタが通じた気がしない。よーするにエンジニアはものをつくるため、ものの仕組みに詳しくなり、人によっては自分が自由に使いやすいようにしたりするのも楽しむよね。
+だから、エンジニアリングとはあまり関係ない例になってしまったが、わかりやすいのでキーボードの話をした。
+Aの左横が Cotrol の人がかなりいました。delete の人はいませんでした。&lt;/p&gt;
+
+&lt;p&gt;あとよくみればわかりますが Dvorak 仕様になっています。&lt;/p&gt;
+
+&lt;p&gt;GitHubですが、もっと整理しとけばよかったなと思いますが、今回の参加者は大きい企業にお勤めの方が多そうだったので話しておこうと思ったところです。
+それ以外に深い意味はありません。&lt;/p&gt;
+
+&lt;p&gt;あと勉強会をすることについてですが、この辺はスライドがあまり面白くないので、背景に&lt;a href=&#34;http://www.gaba-2000.com/&#34;&gt;我馬&lt;/a&gt; というラーメン屋のラーメンの写真を利用しました。
+狙ってやってるのはカリーつけ麺だけです。
+みそ菜麺はかなり好きだったのでまとめに使いました。&lt;/p&gt;
+
+&lt;p&gt;我馬は広島に店舗を構える博多の有名なラーメン店に似ているラーメン屋です。
+レギュラーメニューもとてもおいしいのですが、毎回新作が登場する季節のラーメンのこだわりがすごすぎて、よくいくラーメン屋です。
+広島へお越しの際は、一度行ってみてください。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:43327d2f5c73f159d6a4f5db7dc45691&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;スライドを作成するにあたりキーボード書いたり、写真選んだり、ツイート探したりと、それなりに時間をつかったのは久しぶりでした。&lt;/p&gt;
+
+&lt;p&gt;楽しんでもらえたのでしょうか。&lt;/p&gt;
+
+&lt;p&gt;そんなことは #知らんけど、そんなことはさておいて、わしらはぶち楽しいけぇ。&lt;/p&gt;
+
+&lt;h3 id=&#34;スペシャルサンクスとか:43327d2f5c73f159d6a4f5db7dc45691&#34;&gt;スペシャルサンクスとか&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/shuuheyhey&#34;&gt;@shuuheyhey&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/Toro_kun&#34;&gt;@Toro_kun&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/kakenavi&#34;&gt;@kakenavi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/eielh&#34;&gt;@eielh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://funaffect.jp/&#34;&gt;ファナフェクト株式会社&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;関連:43327d2f5c73f159d6a4f5db7dc45691&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/05/23/1st-anniversary-for-great-h/&#34;&gt;すごい広島 一周年 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/02/07/osh-2014/&#34;&gt;本当に障がい者でもオープンセミナー広島の実行委員長ができるのか？ - 答え: できた。 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/02/19/start-ltdd/&#34;&gt;LT駆動開発という勉強会をはじめるよ - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/05/13/how-to-enjoy-github/&#34;&gt;Github の楽しみ方 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

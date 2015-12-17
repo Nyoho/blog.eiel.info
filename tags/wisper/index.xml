@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/wisper/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-12-25 01:11:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Wisper 試した</title>
+          <link>http://blog.eiel.info/blog/2013/12/25/wisper/</link>
+          <pubDate>Wed, 25 Dec 2013 01:11:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/12/25/wisper/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/krisleech/wisper&#34;&gt;Wisper&lt;/a&gt; を試した。&lt;/p&gt;
+
+&lt;p&gt;Rails のプラグインで、依存性の管理や分離ができる。
+ActiveRecord の callback だと依存の記述がモデル上になって、
+Observer は本家から外れたような気がするし(うる覚え)、
+ActiveSupport::Notification じゃ依存性がゆるすぎる。
+でも、コントローラでかくにはちょっと処理が多すぎるし…って時に探してたらみつけたプラグイン。&lt;/p&gt;
+
+&lt;p&gt;やってることはどれも大差ない気がするんだけど、とりあえず、公式のサンプルコードをみてみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class BidsController &amp;lt; ApplicationController
+  def new
+    @bid = Bid.new
+  end
+
+  def create
+    @bid = Bid.new(params[:bid])
+
+    @bid.subscribe(PusherListener.new)
+    @bid.subscribe(ActivityListener.new)
+    @bid.subscribe(StatisticsListener.new)
+
+    @bid.on(:create_bid_successful) { |bid| redirect_to bid }
+    @bid.on(:create_bid_failed)     { |bid| render :action =&amp;gt; :new }
+
+    @bid.commit
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;create_bid_successful が発生したときはリダイレクトして、create_bid_failed が発生した時は new を render するというのをアクションでかける。
+ifの分岐がなくて、縦にコードが並んで複雑な分岐をする場合は読みやすい。
+また、Listener を登録することで機能追加ができる。
+create_bid_successful イベントがおきたときは、&lt;code&gt;PusherLister#create_bid_successful&lt;/code&gt; や &lt;code&gt;ActivityListener#create_bid_successful&lt;/code&gt;、&lt;code&gt;StatisticsListener#create_bid_successful&lt;/code&gt; なんかも呼ばれる。
+Set で保存されてるようなので順番は保証されない&lt;/p&gt;
+
+&lt;p&gt;メインの処理をモデルで集中できて少し脇道に逸れるようなものは Listener を書いて &lt;code&gt;subscribe&lt;/code&gt; していけばいいという感じである。&lt;/p&gt;
+
+&lt;p&gt;また、 &lt;a href=&#34;https://github.com/krisleech/wisper-async&#34;&gt;wisper-async&lt;/a&gt; っていうのがあって、脇道に逸れるものは非同期に実行したりできそう。&lt;/p&gt;
+
+&lt;p&gt;イベントを起こすには &lt;code&gt;Wisper::Publisher&lt;/code&gt; を &lt;code&gt;include&lt;/code&gt; しておいて &lt;code&gt;publish&lt;/code&gt; を呼ぶだけです。引数を渡したいときは一緒に渡します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;publish(:create_bid_successful, self)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;単体テストもしやすかったです。&lt;/p&gt;
+
+&lt;p&gt;個人的にはオブジェクトを subscribe すると反応しないイベントがある場合は警告してくれたら嬉しいなぁ、と思いながらちらちら見ている。
+メソッド名を間違えるとちょっとめんどくさい。&lt;/p&gt;
+
+&lt;p&gt;エラーが発生したとき、わかりにくかったのもちょっと欠点か。&lt;/p&gt;
+
+&lt;p&gt;規模が大きいアプリケーションには使えそうな感じがしました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

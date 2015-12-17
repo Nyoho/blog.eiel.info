@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/opendiff/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-06-26 21:10:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Mac で使える git mergetool をいろいろ試してみる - OpenDiff</title>
+          <link>http://blog.eiel.info/blog/2013/06/26/git-mergetool-opendiff/</link>
+          <pubDate>Wed, 26 Jun 2013 21:10:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/06/26/git-mergetool-opendiff/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt; の続きです。&lt;/p&gt;
+
+&lt;p&gt;Xcode に標準添付されていた opendiff を紹介します。
+&lt;a href=&#34;http://www.sourcetreeapp.com/&#34;&gt;Source Tree&lt;/a&gt; にもついてきていましたが、挙動が微妙に違いました。&lt;/p&gt;
+
+&lt;p&gt;設定は不要で&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git mergetool -t opendiff
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と入力すると利用できます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git mergetool&lt;/code&gt; だけで起動できるようにしたい場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global merge.tool opendiff
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;としておくとよいです。&lt;/p&gt;
+
+&lt;p&gt;日本語がまざっていると、  &lt;code&gt;file are not ascii&lt;/code&gt; と メッセージ がでますが、 proceed anyway をクリックすると問題なく動きます。&lt;/p&gt;
+
+&lt;p&gt;opendiff で起動しますが FileMerge というアプリケーションのようです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/opendiff.png&#34; alt=&#34;OpenDiff の画面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;左側に checkout しているブランチのファイル、
+右側に merge しようとするブランチのファイルが表示されます。
+下側に マージ結果が表示されます。&lt;/p&gt;
+
+&lt;p&gt;デフォルトで 右側のものが選択されていました。&lt;/p&gt;
+
+&lt;p&gt;競合箇所をクリックして、画面右下の actions から選択することで、どちらの変更を使うか、両方を使うかなどが選べます。&lt;/p&gt;
+
+&lt;p&gt;競合箇所は真ん中の矢印がでている部分ではないと機能しないようでした。&lt;/p&gt;
+
+&lt;p&gt;キーボードで移動したい場合は &lt;code&gt;command + d&lt;/code&gt; で次へ進み、 &lt;code&gt;command + shift + d&lt;/code&gt; で前へ戻ります。&lt;/p&gt;
+
+&lt;p&gt;下部の部分は 編集可能で、修正を加えることもできます。&lt;/p&gt;
+
+&lt;p&gt;修正が修正したら、閉じてコマンラインに&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Was the merge successful? [y/n]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と表示されているので、&lt;code&gt;y&lt;/code&gt; を入力して Enter です。なにか間違えた場合は、&lt;code&gt;n&lt;/code&gt;にすることでなかったことにできます。
+他にも競合するファイルがあれば、次のファイルがでてきます。&lt;/p&gt;
+
+&lt;p&gt;マージする前のファイルが .ファイル名に &lt;code&gt;.orig&lt;/code&gt; という文字が付加されて残っています。&lt;/p&gt;
+
+&lt;p&gt;日本語が使えているので、設定するのが面倒であればこれでもいいかなと思いますが、Action の選択がめんどくさかったです。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:20fe10435c754341b7e10155192d5928&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

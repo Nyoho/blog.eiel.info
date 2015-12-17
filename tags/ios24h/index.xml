@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/ios24h/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-06-17 18:01:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>iOS24h Vol.1でCocoaPodsの紹介をした</title>
+          <link>http://blog.eiel.info/blog/2012/06/17/ios24h-vol1/</link>
+          <pubDate>Sun, 17 Jun 2012 18:01:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/06/17/ios24h-vol1/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://ios24h.net/&#34;&gt;iOS24h&lt;/a&gt;という ustream番組で午前3時にCocoaPodsについてしゃべりました。&lt;/p&gt;
+
+&lt;p&gt;CocoaPodsはObjective-C用のBunlderみたいなものです。&lt;/p&gt;
+
+&lt;p&gt;スライドを下記にあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/iOS24h-vol1&#34;&gt;http://eiel.github.com/iOS24h-vol1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;impress.jsを使用してみたけどたいへん時間をつかったので次も使うか悩む…。
+気合をいれて臨んだ割に人がいなかったかなー。&lt;/p&gt;
+
+&lt;p&gt;その他の資料は&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/iOS24h-vol1&#34;&gt;https://github.com/eiel/iOS24h-vol1&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

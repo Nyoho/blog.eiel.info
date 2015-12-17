@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/ediff/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-06-29 19:27:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Mac で使える git mergetool をいろいろ試してみる - ediff</title>
+          <link>http://blog.eiel.info/blog/2013/06/29/git-mergetool-ediff/</link>
+          <pubDate>Sat, 29 Jun 2013 19:27:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/06/29/git-mergetool-ediff/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt; の続きです。&lt;/p&gt;
+
+&lt;p&gt;ediff は &lt;a href=&#34;http://www.gnu.org/software/emacs/&#34;&gt;Emacs&lt;/a&gt; に添付されているマージツールです。
+いつから添付されているのか調べてないですが最近のEmacsであれば標準で使えるはずです。&lt;/p&gt;
+
+&lt;p&gt;個人的には一番使いやすいと感じています。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git mergetool&lt;/code&gt; から ediff を起動するのはややめんどくさいです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/magit/magit&#34;&gt;magit&lt;/a&gt;を使用していれば、コンフリクトしているファイルにカーソルを合わせて &lt;code&gt;e&lt;/code&gt; を押すと起動できます。こちらのほうは設定いらずで楽ちんでした。&lt;/p&gt;
+
+&lt;p&gt;どうしても &lt;code&gt;git mergetool&lt;/code&gt; から使いたい場合は &lt;a href=&#34;http://d.akinori.org/2012/07/23/git-mergetool%E3%81%A7emacs%E3%81%AEediff-merge-files-with-ancestor%E3%82%92%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%99/&#34;&gt;git mergetoolでEmacsのediff-merge-files-with-ancestorを呼び出す - 工夫と趣向と分別と。&lt;/a&gt; を参考にするとできました。&lt;/p&gt;
+
+&lt;p&gt;具体的には上記の記事で紹介されてる &lt;a href=&#34;https://github.com/knu/emacsc&#34;&gt;emacsc&lt;/a&gt; をclone してきて設定しました。
+個人的な使い方の問題で emacsclient への引数を付加したかったので少しいじりました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/ediff.png&#34; alt=&#34;ediff の画面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ediff を起動するとこのような画面になります。
+配色設定を細かくやってないのでみづらいのは気にしないでください。&lt;/p&gt;
+
+&lt;p&gt;左が現在のブランチのファイルで、右がマージしようとするブランチのファイルになります。
+下部がマージ結果になります。下部は直接編集することもできます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;a&lt;/code&gt; を入力すると 左側を選択できて、 &lt;code&gt;b&lt;/code&gt; を入力すると右側を選択できて、下部に反映されます。&lt;/p&gt;
+
+&lt;p&gt;差分は2行あるのに、まとまってしまって不便に感じますが、どちらをベースするかという選択だと考えると良いことがわかりました。
+その後 &lt;code&gt;!&lt;/code&gt; を入力すると細かく差分が表示され &lt;code&gt;n&lt;/code&gt; や &lt;code&gt;p&lt;/code&gt; で競合箇所を移動して &lt;code&gt;a&lt;/code&gt; や &lt;code&gt;b&lt;/code&gt; で選ぶことができます。&lt;/p&gt;
+
+&lt;p&gt;編集が終了したら &lt;code&gt;q&lt;/code&gt; で終了できます。 magit から起動した場合は ステージングされないので注意してください。
+再度 &lt;code&gt;e&lt;/code&gt; を入力するとやりなおすこともできます。&lt;/p&gt;
+
+&lt;p&gt;emacs 上で動くとカスタマイズが気軽にできるところも嬉しいし、なによりキーボードで操作しやすいです。
+あえて問題を上げるなら ediff の設定がしてある配色を使わないと見にくいのと、emacs ユーザでない場合は覚えることが多すぎるということでしょう。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:7a9f455065511ac41f1329f68dde90ab&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

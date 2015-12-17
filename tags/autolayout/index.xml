@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/autolayout/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-05-19 12:04:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>AutoLayout TIPS - 真ん中に固定幅のスペース</title>
+          <link>http://blog.eiel.info/blog/2013/05/19/auto-layout-tips-1/</link>
+          <pubDate>Sun, 19 May 2013 12:04:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/05/19/auto-layout-tips-1/</guid>
+          <description>
+
+&lt;p&gt;AutoLayout になかなか慣れません。
+そうは言っても使わなければ、身につかない。
+&lt;del&gt;というか久しぶにりiOSのコード書いてるだけな気がする&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;今回挑戦したのはふたつのViewの間に固定幅をスペースをつくりたい。
+具体的には以下の感じ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/autolayout-fixed-center.png&#34; alt=&#34;autolayout&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;書いた VisualFormatLanguage はこんな感じ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;|-[_leftView]-40-[_rightView]-|
+[_leftView(==_rightView)]
+
+V:|-[_leftView]-|
+V:|-[_rightView]-|
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以下のように書いてもよい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;|-[_leftView(==_rightView)]-40-[_rightView]-|
+
+V:|-[_leftView]-|
+V:|-[_rightView]-|
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;やってみると簡単。&lt;/p&gt;
+
+&lt;p&gt;プログラムで気軽にレイアウトできる。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/AutoLayoutTip1&#34;&gt;具体的なソースコードは Github に アップしています。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/AutoLayoutTip1/blob/master/AutolayoutTip1/ALViewController.m#L44-L66&#34;&gt;主な処理はこの辺にあります。&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;簡単に解説:6b592a74ab34617953b7b70fed14874c&#34;&gt;簡単に解説&lt;/h3&gt;
+
+&lt;p&gt;頭に &lt;code&gt;V:&lt;/code&gt; がついているのは 縦方向に対する設定です。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;|-&lt;/code&gt; の部分は OS 標準の幅になります。ぴったりつけたいなら、&lt;code&gt;|-0-&lt;/code&gt; とします。&lt;/p&gt;
+
+&lt;p&gt;縦方向の左側 だけやってみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;V:|-0-[_leftView]-0-|
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;まとめ:6b592a74ab34617953b7b70fed14874c&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;なれるまで発想のセンスがいる気がします。&lt;/p&gt;
+
+&lt;p&gt;論理的な手順で、作りたいレイアウトをするのはまだまだまだ説明できそうにないです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>今後のiOSアプリケーションのために Auto Layout を学んだ - 内容編</title>
+          <link>http://blog.eiel.info/blog/2013/01/13/ios-autolayout-2/</link>
+          <pubDate>Sun, 13 Jan 2013 01:17:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/13/ios-autolayout-2/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;blog/2013/01/13/ios-autolayout/&#34;&gt;今後のiOSアプリケーションのために Auto Layout を学んだ - 準備編&lt;/a&gt; につづき勉強した内容をまとめていきたいと思います。&lt;/p&gt;
+
+&lt;p&gt;まずは Auto Layoutについて。概ね WWDC 2012 の session 202 のまとめだったり、使ってみた感じでのまとめです。仮説もいっぱい混ざってるので注意してください。&lt;/p&gt;
+
+&lt;h2 id=&#34;auto-layout-は制約ベースのレイアウトシステム:97ae7d72a595466c2285f09917dc50a4&#34;&gt;Auto Layout は制約ベースのレイアウトシステム&lt;/h2&gt;
+
+&lt;p&gt;Auto Layout は ふたつのViewの関係を設定していくことでレイアウトを構築します。
+例えば &lt;em&gt;ある特定のViewは親のView左から 自分の左端を 20pt あける&lt;/em&gt; のような制約をつくります。これらの制約を追加していくことで期待するレイアウトを構築します。&lt;/p&gt;
+
+&lt;p&gt;制約が無い場合はそれぞれデフォルトの振舞いがあります。
+動きをみつつ上書きしていくような形になります。&lt;/p&gt;
+
+&lt;p&gt;制約のでViewのサイズなのが自動的に決定していくのでコードで記述する場合は frame の設定が不要になる書き方ができます。&lt;/p&gt;
+
+&lt;h2 id=&#34;auto-resizing-maskの機能を再現することもできる:97ae7d72a595466c2285f09917dc50a4&#34;&gt;Auto Resizing Maskの機能を再現することもできる&lt;/h2&gt;
+
+&lt;p&gt;Auto Layout は 以前のレイアウトシステム(?)である Auto Resizing Mask の表現範囲より大きなもので、エミュレートすることができます。Auto Resizing Mask でできることはすべてできますし、コードから利用する場合は今までどおりの挙動をします。&lt;/p&gt;
+
+&lt;p&gt;また、デフォルトでは Auto Resizing Mask をエミュレートしています。エミュレートさせたくない場合は translatesAutoresizingMaskIntoConstraints プロパティを NO に設定します。&lt;/p&gt;
+
+&lt;h2 id=&#34;作成できる制約:97ae7d72a595466c2285f09917dc50a4&#34;&gt;作成できる制約&lt;/h2&gt;
+
+&lt;p&gt;制約はふたつのviewに対して &lt;code&gt;item1.attribute1 = multiplier x item2.attribute2 + constant&lt;/code&gt; という式を満たすように attribute1 を設定するようです。(たぶん) 等号の部分は不等号を指定することができます。制約はNSLayoutConstraint クラスの &lt;code&gt;constraintWithItem:attribute: relatedBy: toItem: attribute: multiplier: constant:&lt;/code&gt;メソッドで作成することができます。 VisualFormatという言語を使用するともう少し簡単に制約を生成することもできます。&lt;/p&gt;
+
+&lt;h3 id=&#34;visual-format-language:97ae7d72a595466c2285f09917dc50a4&#34;&gt;Visual Format Language&lt;/h3&gt;
+
+&lt;p&gt;この言語は アスキーアート的な書き方で制約を生成することができます。&lt;/p&gt;
+
+&lt;p&gt;例えば&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;|-20-[theView(200)]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;theView という名前のviewを
+- 親Viewの左端から 20 右に離す
+- theViewの width を 200
+という制約を作成することができます。&lt;/p&gt;
+
+&lt;p&gt;Visual Foramt を利用して制約を作成するには
+NSLayoutConstraintクラスの &lt;code&gt;constraintsWithVisualFormat:options:metrics:views&lt;/code&gt; メソッドを使用します。 metrics: の引数には Visual Format内で使用したい変数の NSDictionaryを。viewsにはVisual Foram内で使用したいViewの NSDictinaryを渡します。&lt;/p&gt;
+
+&lt;p&gt;先の例の 20 の部分を padding に変更したものであれば&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NSString* format = @&amp;quot;|-pading-[theView(200)]&amp;quot;;
+
+NSNumber* padding = @20;
+NSDictionary* metrics = NSDictionaryOfVariableBindings(padding);
+
+UIView* theView = [[UIView alloc] init];
+NSDictionary* views = NSDictionaryOfVariableBindings(theView);
+
+NSArray* constraints = [NSLayoutConstraint constraintsWithVisualFormat:format
+                                                               options:0
+                                                               metrics:metrics
+                                                               views:views]];
+[self.view addConstraints:constraints];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のような風になります。&lt;/p&gt;
+
+&lt;p&gt;Visual Formatの表現力には限界があるので設定できない制約もあります。&lt;/p&gt;
+
+&lt;h2 id=&#34;満たせない制約があった場合:97ae7d72a595466c2285f09917dc50a4&#34;&gt;満たせない制約があった場合&lt;/h2&gt;
+
+&lt;p&gt;レイアウトする際に登録された制約する際に、満たせないものがでてくるとデバッグ出力として制約の一覧が出力され、非常にすばやく問題があることを検知できます。&lt;/p&gt;
+
+&lt;h2 id=&#34;interfacebuilder-での-auto-layout:97ae7d72a595466c2285f09917dc50a4&#34;&gt;InterfaceBuilder での Auto Layout&lt;/h2&gt;
+
+&lt;p&gt;InterfaceBuilderを利用して画面を作成していくと 磁石のように吸いつく場所におくと強制的に制約が生成されます。基本的にはその上に新な制約を付与していく形になります。この制約はInterfaceBuilder上で設定できますが、Outletにしてコード上で参照することもできます。&lt;/p&gt;
+
+&lt;p&gt;なので、InterfaceBuilder上でもかなりのことができますが、すべてではありません。&lt;/p&gt;
+
+&lt;p&gt;注意点としては
+* Viewを移動すると制約が消えることがあります。というか、よく消えます。
+* pin で制約を追加すると思わぬ制約がついていて削除していくことになる場合があります。
+* Viewを移動したりサイズを変更したりが制約の影響を受けて変更できない場合があります。この場合は基準を変えたりするなど配置の仕方を工夫する必要があります。&lt;/p&gt;
+
+&lt;h2 id=&#34;制約の優先順位:97ae7d72a595466c2285f09917dc50a4&#34;&gt;制約の優先順位&lt;/h2&gt;
+
+&lt;p&gt;制約には priority が設定できますが、初期は高い値が設定されています。
+評価する順序に影響があるのではないかと予測しています。
+不等号などを含む制約を後回しにすると 制約がコンフリクトしない場合がでてくるので下げるだけで済むようになっているんじゃないかなぁ。と、ふと思いましたが定かではありません。&lt;/p&gt;
+
+&lt;h2 id=&#34;勉強会中に作成したコードの一部:97ae7d72a595466c2285f09917dc50a4&#34;&gt;勉強会中に作成したコードの一部&lt;/h2&gt;
+
+&lt;p&gt;VisualFormatを試すのに作成したプロジェクトを&lt;a href=&#34;https://github.com/eiel/AutoLayout-Visual-Format-Language-Sample&#34;&gt;github上に&lt;/a&gt;置いているので興味がある方はどうぞ。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:97ae7d72a595466c2285f09917dc50a4&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;最初はわけがわかりませんでしたが、使用してみると思っていたほど難しくありません。うまく使えば Universal アプリも作れなくもありません。大きく表現を変えたい場合は別々に画面を作成したほうがよいです。プログラムは書いたとおりに動いてくれますが、制約も書いたとおりにレイアウトしてくれることでしょう。&lt;/p&gt;
+
+&lt;p&gt;図とか書きたかったですが、WWDCの動画などを参照してみてください。InterfaceBuilder上での作業はとても参考になります。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

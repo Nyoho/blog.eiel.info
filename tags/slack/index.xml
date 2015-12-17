@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/slack/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-09-06 19:43:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>LT駆動開発で hubot をつかったオフィスに誰がいるかわかるコマンドを作成した話をした</title>
+          <link>http://blog.eiel.info/blog/2014/09/06/ltdd-07/</link>
+          <pubDate>Sat, 06 Sep 2014 19:43:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/09/06/ltdd-07/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki&#34;&gt;LT駆動開発07&lt;/a&gt; でLTしてきた。&lt;/p&gt;
+
+&lt;p&gt;今回は hubot をつかってオフィスに誰がいるのかわかるようにした。
+どうしてそんなことをしようとするのか、そして簡単に仕組みを紹介しました。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;78832e3017df013292f406657be3bf12&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;みんなが積極的に関わろうとするにはどうするのか。
+おもしろかったり便利だと思うことをやること。
+興味をもってもらうことだ。&lt;/p&gt;
+
+&lt;p&gt;オフィスには人がいたりいなかったりで、「誰かいたらいこうかなー」とか思うこともあるので完全に俺得である。&lt;/p&gt;
+
+&lt;p&gt;スライド内のデモ動画はこちらにあります。&lt;/p&gt;
+
+&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/zb9Y-ZjCW2c?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;結構みんなつかっていて、コンボも流行っている。
+そのコマンドは&lt;code&gt;突然のおるんか&lt;/code&gt;とかですね。&lt;/p&gt;
+
+&lt;p&gt;デモにいれておけばよかった。&lt;/p&gt;
+
+&lt;p&gt;仕組みはMACアドレスをつかっていて、みんなノートPCなのでなかなかうまくいっている。
+最初はデーモンをつくろうかと思っていたけど、なくても解決できそうなのでこうなった。&lt;/p&gt;
+
+&lt;p&gt;おまけで、他につくったコマンドを紹介しとく。&lt;/p&gt;
+
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/eNSgpdIUfVo?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;アリア社長とアリシアさんの画像は&lt;a href=&#34;http://www.moaibu.com/sozai/aria/index.htm&#34;&gt;こちらから拝借&lt;/a&gt;しております。
+ありがとうございます。&lt;/p&gt;
+
+&lt;p&gt;非常に癒される。&lt;/p&gt;
+
+&lt;h2 id=&#34;おまけ:71546956586175d61ecba28f023c94ef&#34;&gt;おまけ&lt;/h2&gt;
+
+&lt;p&gt;LT駆動では予備のスライドを用意しておくことが大事らしい。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;c84e2e2017de013292f306657be3bf12&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

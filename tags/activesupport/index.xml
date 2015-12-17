@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/activesupport/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-09-07 22:38:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Rails の自動読み込みの話</title>
+          <link>http://blog.eiel.info/blog/2013/09/07/autoload-rails/</link>
+          <pubDate>Sat, 07 Sep 2013 22:38:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/09/07/autoload-rails/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://hiroshimarb.github.io/blog/2013/09/07/hiroshimarb-34/&#34;&gt;広島Ruby勉強会 #034&lt;/a&gt;で使用したネタの文に書きなおしました。&lt;/p&gt;
+
+&lt;p&gt;「Rails の自動読み込み規約を支える技術」と若干煽っておりますが
+以下の内容はソースコードを読んで判断したことですべて正しいとは保証できないので参考にする程度にお願いします。&lt;/p&gt;
+
+&lt;p&gt;というわけで、Rails の自動読み込みの話をしたいと思います。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/25983089&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;https://www.slideshare.net/TomohikoHimura/rails-25983089&#34; title=&#34;Rails の自動読み込みを支える技術&#34; target=&#34;_blank&#34;&gt;Rails の自動読み込みを支える技術&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+### Rails のファイル読み込みの規約
+
+Rails には[設定より規約](http://ja.wikipedia.org/wiki/%E8%A8%AD%E5%AE%9A%E3%82%88%E3%82%8A%E8%A6%8F%E7%B4%84) という設計パラダイムが採用されています。
+ファイルの自動読み込みの規約は
+
+&gt; 読み込みされていないクラス/モジュールがあった場合、名前から読み込みするファイルを判断できる
+
+というような規約があります。
+
+例えば
+
+```
+Hoge       -&gt; &#39;hoge.rb&#39; を読み込む
+Hoge::Mogu -&gt; &#39;hoge/mogu.rb&#39; を読み込む
+HogeMogu   -&gt; &#39;hoge_mogu.rb&#39; を読み込む
+```
+
+といった感じになっています。
+この時、クラス名からファイル名の変換は `ActiveSupport::Inflector.underscore` が利用されます。
+
+Rails では、自動読み込みは `RAILS_ROOT/app/models` のような `RAILS_ROOT/app/` の中のディレクトリに対し行われます。
+`RAILS_ROOT/lib` とかに配置しても自動読み込みされません。
+
+これを実現しているモジュールは [ActiveSupport::Dependencies](https://github.com/rails/rails/blob/master/activesupport/lib/active_support/dependencies.rb) になります。
+
+### ActiveSupport::Dependencies
+
+Rails を使わない場合の使い方を紹介します。
+
+```ruby
+require &#39;active_support/dependencies.rb&#39;
+ActiveSupport::Dependencies.autoload_paths &lt;&lt; &#39;lib&#39;
+```
+
+このようにしておくとクラスやモジュールがない場合 `lib` の中から規約に沿ったファイルを読み込みします。
+`autoload_paths` に読み込みの対象となるディレクトリを指定します。
+実際に自作ライブラリで利用しないほうが良いです。
+こういった用途の場合は後述の `ActiveSupport::Autoload` などで読み込みするのが一般的なようです。
+Rails の`app` の中のように DSLを使った記述をシンプルにする場合に使うような印象を浮けました。
+
+Rails での `autoload_paths` の初期値は
+
+* &#34;RAILS_ROOT/app/assets&#34;
+* &#34;RAILS_ROOT/app/controllers&#34;
+* &#34;RAILS_ROOT/app/helpers&#34;
+* &#34;RAILS_ROOT/app/mailers&#34;
+* &#34;RAILS_ROOT/app/models&#34;
+* &#34;RAILS_ROOT/app/controllers/concerns&#34;
+* &#34;RAILS_ROOT/app/models/concerns&#34;
+
+また、自動再読込もこの `autoload_paths` の path のみに適用さます。
+
+#### 仕組み
+
+簡単に仕組みをメモしておきます。
+
+読み込みされていないクラスを使用すると ConstMissing という例外が発生します。
+この部分に介入して autoload_paths の中に規約に合うファイルがあるか確認します。
+存在する場合は読み込みします。
+存在しない場合は `ConstMissing` を発生させます。
+
+この自動読み込みの機能の動きを確認をする場合 Loggerを設定すると便利です。
+
+```ruby
+require &#39;active_support/dependencies.rb&#39;
+require &#39;logger&#39;
+ActiveSupport::Dependencies.logger = Logger.new($stderr)
+ActiveSupport::Dependencies.log_activity = true
+```
+
+とすれば標準エラー出力にログが出力されます。
+Rails の場合は Logger の設定がされているので、`log_activety` を設定するだけで大丈夫です。
+
+この自動読み込み機能は、
+`require &#39;active_support/dependencies.rb&#39;` しただけで有効になりますが、
+これは `ActiveSupport::Dependencies.hook!` が呼ばれるようになっているためです。
+
+停止したい場合は `ActiveSupport::Dependencies.unhook!` を呼ぶことで停止させることができます。
+
+#### その他知っていると便利かもしれないこと
+
+* ActiveSupport::Dependencies.warnings_on_first_load
+
+この値をtrue にするとはじめて読み込みしたクラスが log レベル warn でメッセージを書き込まみます。
+もう一度読まれた場合は Log には出力されません。
+
+* ActiveSupport::Dependencies.history
+
+この機能を使い読み込みしたクラスの一覧が入ります。
+Set で保存されているので順番は分かりません。
+
+* ActiveSupport::Dependencies.loaded
+
+この機能を使い読み込みしたクラスの一覧が入ります。
+history と違うのは clear されることがあることです。
+
+* ActiveSupport::Dependencies.mechanism
+
+ファイルを読み込みする際に load を利用するか require を利用するかを切り替えできます。
+デフォルトは load になっています。シンボルで設定します。
+また、環境変数 `NO_RELOAD` を設定しておくと `require` に切り替えられます。
+* ActiveSupport::Dependencies.explicitly_unloadable_constants
+
+自動読み込みを行わない定数名を設定できます。
+
+### ActiveSupport::Autoload
+
+`ActiveSupport::Dependencies` はライブラリ上では使われないようです。
+似たような機能を持つものとしては [ActiveSupport::Autoload](https://github.com/rails/rails/blob/master/activesupport/lib/active_support/dependencies/autoload.rb) があります。
+
+`lib/active_support.rb` や `lib/active_record.rb` など上げるとキリがありませんが、これらのファイルではたくさんの `autoload` が利用されています。
+
+そもそも ruby には `autoload` が実装されています。
+ただし、引数がふたつ必要になります。
+この `autoload` を `ActiveSupport::Autoload` で拡張されたものです。
+
+* Kernel.autoload(module, filename)
+* Module.autoload(module, filename)
+* ActiveSupport::Autoload#autoload(const_name, path = @@at_path)
+
+
+`autoload` は自動読み込みするきっかけになる名前と読み込みするファイルを渡します。そうです。Rails の規約に添えば2番目の引数が省略できるのです。
+
+ちなみに、Kernel のほうの `autoload` は変化しません。
+Module のほうが差し替えられ第2引数が省略できます。
+
+例:
+
+```ruby
+require &#39;active_support/dependencies/autoload&#39;
+
+module Hoge
+  extend ActiveSupport::Autoload
+  autoload :Mogu
+end
+
+Hoge::Mogu
+# &gt; LoadError: cannot load such file -- hoge/mogu
+```
+
+#### eager_autoload と auto_load!
+
+Rails のソースコードをみていると
+
+```ruby
+eager_autoload do
+  autoload :Hoge
+  autoload :Mogu
+end
+```
+
+のようになってることがあります。
+
+eager_autoload のブロックにかいておくと `auto_load!` メソッドで一括読み込みができます。
+どのような利点があるのかよくわかってません。
+
+しかも、`ActiveSupport::Autoload` って `active_support/dependencies/autload.rb` に定義されてるんですよね。なんでなんだろう。
+
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=B00P0UR1RU&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>広島Ruby勉強会 #32 で 発表したこと - ActiveSupport, jenkins</title>
+          <link>http://blog.eiel.info/blog/2013/07/08/hiroshimarb-32/</link>
+          <pubDate>Mon, 08 Jul 2013 01:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/07/08/hiroshimarb-32/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://hiroshimarb.github.io/blog/2013/07/06/hiroshimarb-32/&#34;&gt;広島Ruby勉強会 #032&lt;/a&gt; で、紹介したこととか、喋ったこととかまとめときます。&lt;/p&gt;
+
+&lt;p&gt;広島Ruby勉強会の各発表は &lt;a href=&#34;https://github.com/hiroshimarb/hiroshimarb.github.com/wiki/2013%E5%B9%B47%E6%9C%88%E3%81%AE%E6%B4%BB%E5%8B%95&#34;&gt;Github の Wiki&lt;/a&gt; に整理されてます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Rails のソースコード読んでるので面白そうなメソッドを紹介する - ActiveSupport Core Ext&lt;/li&gt;
+&lt;li&gt;すごい cron - Jenkins を試した&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://eielh-life.tumblr.com/post/54757403133/ruby-032&#34;&gt;勉強会自体の感想は別のところに書きました。&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;rails-のソースコード読んでるので面白そうなメソッドを紹介する-activesupport:bfbd4dd489d31bf77dd16b4d8e7e3033&#34;&gt;Rails のソースコード読んでるので面白そうなメソッドを紹介する - ActiveSupport&lt;/h2&gt;
+
+&lt;p&gt;ここ最近は&lt;a href=&#34;https://github.com/eiel/railsdoc.eiel.info/commits/master&#34;&gt;ほぼ毎日 Rails のソースコードを読んで簡単にメモをとっています。&lt;/a&gt;います。
+概ね毎日サボらずやれております。&lt;/p&gt;
+
+&lt;p&gt;この内容は &lt;a href=&#34;http://railsdoc.eiel.info/&#34;&gt;railsdoc.eiel.info&lt;/a&gt; で垂れ流しています。&lt;/p&gt;
+
+&lt;p&gt;まずは、ActiveSupport から攻めています。特に Core Ext の部分を読んでいます。ということで、4月から6月の間に読んだものの中で、適当に抜粋して紹介しました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://railsdoc.eiel.info/hiroshimarb/32/&#34;&gt;内容はこちら&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;その他には読んでいて気がついたことを残しています。&lt;/p&gt;
+
+&lt;h2 id=&#34;すごい-cron-jenkins-を試した:bfbd4dd489d31bf77dd16b4d8e7e3033&#34;&gt;すごい cron - Jenkins を試した&lt;/h2&gt;
+
+&lt;p&gt;ローカルに Jenkins インストールして、これ cron の代わりに使えることに気づいたので、使用してみました。
+その中で気づいたことや問題点についてお話をしました。
+おまけで ruby 関連の Jenkins の Plugin についてわかったことを話しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/23971945&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;http://www.slideshare.net/TomohikoHimura/jenkins-23971945&#34; title=&#34;すごい cron ? - Jenkins 試した&#34; target=&#34;_blank&#34;&gt;すごい cron ? - Jenkins 試した&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;具体的な設定方法は まだ公開してないです。ごめんなさい。
+また時間をとって書きたいと思います。&lt;/p&gt;
+
+&lt;p&gt;しかし、cron として使うにはメモリを食いすぎるので、Local に Jenkins が欲しくなったら…ぐらいで丁度いいかもしれません。&lt;/p&gt;
+
+&lt;p&gt;そもそも Jenkins を導入した動機ですが、実行に10分ぐらいかかるテストがあって、これを独立して実行したかったからです。
+あと、失敗したテストの一覧を残しておきかったからです。&lt;/p&gt;
+
+&lt;p&gt;というわけで、広島Ruby勉強会 は自由に発表の練習するところになりつつあります。気軽に何か発表しにいきましょう。&lt;/p&gt;
+
+&lt;p&gt;次回は &lt;a href=&#34;http://partake.in/events/9dacdbfc-8acf-4968-a0eb-5327a6937b7d#&#34;&gt;8月3日&lt;/a&gt; だそうです。&lt;/p&gt;
+
+&lt;h2 id=&#34;蛇足:bfbd4dd489d31bf77dd16b4d8e7e3033&#34;&gt;蛇足&lt;/h2&gt;
+
+&lt;p&gt;そういえば cron は 「クーロン」 って読むんじゃないの？ って聞かれたんですが、僕は 「クロン」 と読む派です。
+何が正しいの読み方なのでしょうか。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ActiveSupport::Concern - Railsのソースとか読みはじめた 2</title>
+          <link>http://blog.eiel.info/blog/2012/11/18/activesupport-concern2/</link>
+          <pubDate>Sun, 18 Nov 2012 23:42:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/18/activesupport-concern2/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog//2012/11/14/activesupport-concern/&#34;&gt;ActiveSupport::Concern - Railsのソースとか読みはじめた&lt;/a&gt;の続きになるのですが、&lt;/p&gt;
+
+&lt;p&gt;@netwillnet さんに。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;ActiveSupport::Concernはモジュールが少しだけ書きやすくなるというメリットよりも、複数のモジュール同士に依存関係があったときにモジュール内でその依存関係をうまく解消させられるところに真価があるのでは&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/netwillnet/status/270150759335723008&#34;&gt;https://twitter.com/netwillnet/status/270150759335723008&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;と素敵な突っ込みを頂いたので、rdocとソースコードと睨めっこしてきました。&lt;/p&gt;
+
+&lt;p&gt;睨めっこした結果の結論を書きたいと思います。&lt;/p&gt;
+
+&lt;p&gt;というわけで&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;A -&amp;gt; B -&amp;gt; C
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;という依存性があるモジュールを考えます。A には B が必要で。 B には C が必要という意味です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;module C
+  def c
+    &amp;quot;c&amp;quot;
+  end
+end
+
+module B
+  include C
+
+  def b
+    &amp;quot;b&amp;quot; + c
+  end
+end
+
+class A
+  include B
+
+  def a
+    &amp;quot;a&amp;quot; + b
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;A.new.a&lt;/code&gt; と実行すると &lt;code&gt;&amp;quot;abc&amp;quot;&lt;/code&gt; と出力されます。
+これと同じことをクラスメソッドで実現しようとしてみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;module C2
+  def c
+    &amp;quot;c&amp;quot;
+  end
+end
+
+module B2
+  def b
+    &amp;quot;b&amp;quot; + c
+  end
+end
+
+class A2
+  extend C2 # ここにかきたくない
+  extend B2
+
+  class &amp;lt;&amp;lt; self
+    def a
+      &amp;quot;a&amp;quot; + b
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;extend C2&lt;/code&gt; を &lt;code&gt;module B2&lt;/code&gt; の中で書きたいのですが、 A2に書かなければ動作させることができません。(がんばればできるけど、がんばりたくない)&lt;/p&gt;
+
+&lt;p&gt;こういうときに &lt;code&gt;ActiveSupport::Concern&lt;/code&gt; を利用すると下記のように書けました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;module C3
+  extend ActiveSupport::Concern
+
+  module ClassMethods
+    def c
+      &amp;quot;c&amp;quot;
+    end
+  end
+end
+
+module B3
+  extend ActiveSupport::Concern
+  include C3 # ここにかける
+
+  module ClassMethods
+    def b
+      &amp;quot;b&amp;quot; + c
+    end
+  end
+end
+
+class A3
+  include B3
+
+  class &amp;lt;&amp;lt; self
+    def a
+      &amp;quot;a&amp;quot; + b
+    end
+  end
+end
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;include C3&lt;/code&gt;を &lt;code&gt;module B3&lt;/code&gt;の内側でかくことができました。&lt;/p&gt;
+
+&lt;p&gt;Concernという名前は依存性の悩みから解消されるということなんでしょうか？まだよくわからないです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ActiveSupport::Concern - Railsのソースとか読みはじめた</title>
+          <link>http://blog.eiel.info/blog/2012/11/14/activesupport-concern/</link>
+          <pubDate>Wed, 14 Nov 2012 11:59:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/14/activesupport-concern/</guid>
+          <description>&lt;p&gt;Railsのソースをちょろちょろ読むようにしている。読んで学んだことをメモしておきたい。だいたい読んだ当時の最新リリースを参考にします。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/rails/rails/blob/v3.2.9/activesupport/lib/active_support/concern.rb&#34;&gt;ActiveSupport::Concern&lt;/a&gt; を読みました。&lt;/p&gt;
+
+&lt;p&gt;このモジュールはモジュールの定義を手助けします。
+クラスメソッドの定義場所をルール決めして &lt;code&gt;include&lt;/code&gt; するだけで済むようにしたり、クラスのコンテキストで実行したい処理を書く場所を用意してくれます。&lt;/p&gt;
+
+&lt;p&gt;具体的にいきます。
+以下のコードがあったとします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class ConcernSample
+
+  attr_accessor :hoge
+
+  def self.mogu
+    &amp;quot;mogu&amp;quot;
+  end
+
+  def goro
+    &amp;quot;goro&amp;quot;
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これを以下のようにするだけで同じ機能を提供できるようにしたいと思います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class ConcernSample
+  include Sample
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;処理を Sample モジュールにまとめたいということです。
+これができると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class ConcernSample
+  include Sample
+end
+
+class ConcernSample2
+  include Sample
+end
+
+class ConcernSample3
+  include Sample
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、似たような機能をもつクラスを量産できます。
+クラスに機能を追加するのが簡単になるという視点を持つとよいでしょう。&lt;/p&gt;
+
+&lt;p&gt;さて、Sample はどのように書くかということです。
+ここで &lt;code&gt;ActiveSupport::Concern&lt;/code&gt; を利用します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;active_support&#39;
+
+module Sample
+
+  extend ActiveSupport::Concern
+
+  included do
+    attr_accessor :hoge
+  end
+
+  module ClassMethods
+    def mogu
+      &amp;quot;mogu&amp;quot;
+    end
+  end
+
+  def goro
+    &amp;quot;goro&amp;quot;
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんな感じになります。
+クラスメソッドの定義の仕方を少し代えて横に並べてみると、非常に変化が少なくて済むのがわかると思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/concern.png&#34; alt=&#34;参考&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ActiveSupport::Concern&lt;/code&gt; を利用せずに実装するとこんな感じになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;module Sample
+  def self.included(base)
+    base.extend ClassMethods
+    base.class_exec do
+      attr_accessor :hoge
+    end
+  end
+
+  module ClassMethods
+    def mogu
+      &amp;quot;mogu&amp;quot;
+    end
+  end
+
+  def goro
+    &amp;quot;goro&amp;quot;
+  end
+end
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;def self.included&lt;/code&gt; がなくなり、モジュールの特異メソッドの利用がなくなるのと、&lt;code&gt;base.extend&lt;/code&gt; が不要になるところが若干便利になります。よく rails のコード内で出てくるので知っておきたいですね。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/NeXTSTEP2OSX&#34;&gt;@NeXTSTEP2OSさん&lt;/a&gt; から質問があって&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;サブクラスじゃダメなの？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;と、質問されました。&lt;/p&gt;
+
+&lt;p&gt;親クラスにも重複するコードをまとめることができますが、&lt;strong&gt;機能を追加する&lt;/strong&gt;という視点で考えた場合、module の場合はいくつも &lt;code&gt;include&lt;/code&gt; することができます。継承を利用した場合は、親クラスはひとつしか持つことができないため不便です。また、継承は&lt;code&gt;is-a&lt;/code&gt;の関係ではないところでは使うべきでないとされています。この &lt;code&gt;Concern&lt;/code&gt; が利用されている部分は &lt;code&gt;is-a&lt;/code&gt;の関係を持たない部分でコードの重複を避けるためやメソッドが多すぎるクラスでメソッドを分類するために利用されているようです。&lt;/p&gt;
+
+&lt;p&gt;利用例としてはたくさんのメソッドが定義されている &lt;a href=&#34;https://github.com/rails/rails/blob/v3.2.9/activerecord/lib/active_record/base.rb#L685-715&#34;&gt;ActiveRecord::Base&lt;/a&gt; クラスで &lt;code&gt;include&lt;/code&gt; されてるモジュールなどがあります。
+&lt;a href=&#34;https://github.com/rails/rails/blob/v3.2.9/activerecord/lib/active_record/persistence.rb#L6&#34;&gt;ActiveRecrod::Persistence&lt;/a&gt;などをみてみると利用されています。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Concern&lt;/code&gt;というクラスの名前の由来がよくわからない。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2012/11/18/activesupport-concern2/&#34;&gt;つづき&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

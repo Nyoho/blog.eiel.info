@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/kaleidoscope/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-06-29 22:58:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Mac で使える git mergetool をいろいろ試してみる - kaleidoscope</title>
+          <link>http://blog.eiel.info/blog/2013/06/29/git-mergetool-kaleidoscope/</link>
+          <pubDate>Sat, 29 Jun 2013 22:58:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/06/29/git-mergetool-kaleidoscope/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt; の続きです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.kaleidoscopeapp.com/&#34;&gt;Kaleidoscope&lt;/a&gt; を紹介します。&lt;/p&gt;
+
+&lt;p&gt;Cocoaアプリということで、万人にに勧めたいという理由で一番注目しております。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://click.linksynergy.com/fs-bin/click?id=TMdpJ425IWk&amp;subid=&amp;offerid=94348.1&amp;type=10&amp;tmpid=3910&amp;RD_PARM1=https%3A%2F%2Fitunes.apple.com%2Fjp%2Fapp%2Fkaleidoscope%2Fid587512244%3Fmt%3D12%2526uo%3D4&#34;&gt;Mac App Store で開く&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;有料アプリで金額は App Store では 6100円 です。&lt;/p&gt;
+
+&lt;p&gt;画面は圧倒的に綺麗でMacとの親和性が非常に高いです。
+画像の差分も見れたりするので difftool としても気になります。&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;ただし、私の環境のせいなのか、トライアルバージョンで試しているのかわかりませんが&lt;code&gt;git mergetool&lt;/code&gt; から上手く扱えない。
+製品版なら上手いこといくのか確認したいのです。&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;追記: 2013-07-10&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;tmux 上で実行していたら発生することがわかりました。
+値段的にも、インターフェイス的にも一番デザイナーさんに勧められるツールです。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;追記終了&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;設定はとても簡単です。
+ダウンロードして、起動後に メニューから integration&amp;hellip; を選択して設定します。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/kaleidoscope-config1.png&#34; alt=&#34;Kaleidscope 設定1&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/kaleidoscope-config2.png&#34; alt=&#34;Kaleidscope 設定2&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;install と configure をクリックすれば完了です。&lt;/p&gt;
+
+&lt;p&gt;ここからが問題なのですが、&lt;code&gt;git mergetool&lt;/code&gt; で起動しても画面が出ません。
+起動はするのですが、起動していた状態でないと画面がでませんでした。&lt;/p&gt;
+
+&lt;p&gt;起動をすれば下記のような画面が出ます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/kaleidoscope.png&#34; alt=&#34;Kaleidoscope&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;画面も3種類あり自由に切り替えたりすることができます。&lt;/p&gt;
+
+&lt;p&gt;左側がマージ前のファイルのもので、中央がマージ結果で、右がマージに指定したブランチのファイルの内容になります。&lt;/p&gt;
+
+&lt;p&gt;下部の右下のボタンで 競合場所を移動でき、下部中央のボタンでどちらを採用するか選択できます。&lt;/p&gt;
+
+&lt;p&gt;これらはキーボードショートカットで、コマンド + ↓、コマンド + ↑、で、コンフリクト箇所を移動することができ、コマンド + ←、コマンド→ でどちらを採用するか選択できます。
+カーソルキーを普段使う人であれば使いやすいと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;修正を終了するには終了すれば、プロンプトが書いてきますが、失敗しているような挙動をしていてちょっと困っております。トライアルだからなるのか、バグなのか。
+タブになっているのでコンフリクトしているファイルをまとめて開いて欲しいところです。&lt;del&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;使い勝手はよさそうなので、購入してみて、バグレポートするか悩んでいるところです。
+一番期待できるだけにちょっと残念です。&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;追記。直せたので再度試しました。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;コンフリクト修正後は保存して、ウィンドウを閉じれば次に進めます。&lt;/p&gt;
+
+&lt;p&gt;見た目、操作性を考えると、さすが有料アプリといったクオリティだと思いました。周りに薦めていけるツールでした。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:d1278cc32e05e08c83f993aa4a0aca71&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

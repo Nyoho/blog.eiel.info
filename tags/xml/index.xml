@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/xml/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-12-06 14:33:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>raptureXML でXMLのparse</title>
+          <link>http://blog.eiel.info/blog/2012/12/06/rapturexml/</link>
+          <pubDate>Thu, 06 Dec 2012 14:33:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/12/06/rapturexml/</guid>
+          <description>&lt;p&gt;XMLのパースしなきゃいけなくて、libxmlで処理するのめんどくさいなー。ということで、&lt;a href=&#34;http://ios.eiel.info/CocoaPods&#34;&gt;CocoaPod&lt;/a&gt;を探った結果、&lt;a href=&#34;https://github.com/ZaBlanc/RaptureXML&#34;&gt;RaptureXML&lt;/a&gt;を試してみることにしました。&lt;/p&gt;
+
+&lt;p&gt;URLから直接XMLを取得するイニシャライザがついていて、とても簡単に利用することができました。&lt;/p&gt;
+
+&lt;p&gt;CocoaPodsを使わない場合は libz と libxml2 をリンクしてやるようにして、RXMLElement.hとRXMLElement.mをプロジェクトに追加するだけで使えます。&lt;/p&gt;
+
+&lt;p&gt;だいたい以下のように利用してます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;NSURL* url = [NSURL URLWithString:@&amp;quot;http://eiel.info/hoge.xml&amp;quot;];
+RXMLElement* root = [RXMLElement elementFromURL:url];
+NSMutableArray* schedule = [NSMutableArray array];
+[root iterate:@&amp;quot;item&amp;quot; usingBlock: ^(RXMLElement *item) {
+    [schedule addObject:[[ALScheduleItem alloc] initWithRXMLElement:item]];
+}];
+i_schedule = [NSArray arrayWithArray:schedule];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;RXMLElementオブジェクトを配列に格納しておいて利用しようとしたら、失敗したのでモデルオブジェクトを用意してやりました。&lt;/p&gt;
+
+&lt;p&gt;値を取り出すには&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[element child:@&amp;quot;day&amp;quot;].text;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とやって取り出せます。DOMのインターフェイスになってますね。XPathも利用できるようです。
+ソースコードも500行程度でコンパクトでした。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

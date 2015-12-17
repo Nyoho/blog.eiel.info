@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/inputmethod/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-03-23 11:22:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>MacでInput Methodを作成するときの注意点。</title>
+          <link>http://blog.eiel.info/blog/2012/03/23/input-method-for-macosx/</link>
+          <pubDate>Fri, 23 Mar 2012 11:22:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/03/23/input-method-for-macosx/</guid>
+          <description>&lt;ul&gt;
+&lt;li&gt;Bundle IDが inputmethod を含んでいなければ言語とテキストの環境設定に表示されない。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

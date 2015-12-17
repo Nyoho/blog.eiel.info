@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/osh2015/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-01-10 12:00:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>LT駆動開発10でTest KitchenではじめるChef入門という話をした。OSH2015のステマかもしれない。</title>
+          <link>http://blog.eiel.info/blog/2015/01/10/chef-abc-on-test-kitchen/</link>
+          <pubDate>Sat, 10 Jan 2015 12:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/01/10/chef-abc-on-test-kitchen/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA10&#34;&gt;LT駆動開発10&lt;/a&gt;で「Test KitchenではじめるChef入門」という話をした。&lt;/p&gt;
+
+&lt;p&gt;ちなみにこの記事は&lt;a href=&#34;http://osh-web.github.io/2015/&#34;&gt;オープンセミナー2015@広島&lt;/a&gt;のステマ記事でもある。&lt;/p&gt;
+
+&lt;p&gt;また、&lt;a href=&#34;http://qiita.com/eielh/items/64e197f4f1eaf5ff6097&#34;&gt;「Test KitchenではじめるChef入門」はQiitaに投稿した記事である&lt;/a&gt;。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;ba236a70755b0132ffbd4aca611a7ac2&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Chefはちょいちょい使っていて、使いこなせてはいません。&lt;/p&gt;
+
+&lt;p&gt;Cookbookを作成するときの環境で、Vagrantfileでやるのがよいのか、knife-zeroを使うのがいいのかいろいろ悩んでいた。
+やっぱりテストコードを書きたいし、ますは&lt;a href=&#34;https://github.com/test-kitchen/test-kitchen&#34;&gt;Test Kitchen&lt;/a&gt;をいじっておこうと至るのは自然な道だと思う。&lt;/p&gt;
+
+&lt;p&gt;Test Kitchenをいじっていると、そのままの環境でCookbookを書くのが良さそうだということに気づいた。
+ならば、はじめからTest Kitchenを使いつつChefを学ぶのも良さそうだということで「Test KitchenではじめるChef入門」というネタを考えた。&lt;/p&gt;
+
+&lt;p&gt;詳細はQiitaの記事を参照して欲しい。&lt;/p&gt;
+
+&lt;p&gt;広島のみんなは&lt;a href=&#34;http://osh-2014.github.io/&#34;&gt;オープンセミナー2014@広島&lt;/a&gt;で&lt;a href=&#34;https://twitter.com/t_wada&#34;&gt;@t_wada&lt;/a&gt;さんに来てもらったことだし、何をはじめるにしてもテストコードをかく環境から導入したいはずだ。
+きっと、Chefのテスト環境にみんな興味があるはずだ。(確信)(そんなわけはない)&lt;/p&gt;
+
+&lt;p&gt;そういえば、&lt;a href=&#34;http://osh-web.github.io/2015/&#34;&gt;オープンセミナー2015@広島&lt;/a&gt;は2月14日が行なわれる。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://osh-web.doorkeeper.jp/events/18561&#34;&gt;事前申し込みはこちらからできる&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;そして、みんなすごいChefを試していると思うんだけど、Chefの調べものをしていると、きっと&lt;a href=&#34;https://twitter.com/sawanoboly&#34;&gt;@sawanoboly&lt;/a&gt;さんを何度もみかけるはずだ。
+代表的な記事をピックアップしてみよう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/sawanoboly/items/4f363909615d8a76e9e5&#34;&gt;Ruby - Chefのローカルモードチュートリアル + knife-zero + knife-sakura - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/sawanoboly/items/9f560bd63ad0712b17ba&#34;&gt;test-kitchenのつかいかた - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/sawanoboly/items/218a7b03ddec6be45e34&#34;&gt;Chefのローカルモードだけでリモートサーバを運用してみようと、Knife-Zeroを作った。Nodeの構成情報もとれるよ。 - Qiita&lt;/a&gt;
+ところで、オープンセミナー2015@広島の講師に&lt;a href=&#34;https://twitter.com/sawanoboly&#34;&gt;@sawanoboly&lt;/a&gt;さんがいるように見えるのは僕の気のせいだろか。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Chefに限らず構成管理ツールの利用箇所は幅が広がりつつある。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Packerをつかって各仮想環境のbox作成&lt;/li&gt;
+&lt;li&gt;Vagrantのプロビション&lt;/li&gt;
+&lt;li&gt;Dockerなどコンテナのプロビジョン&lt;/li&gt;
+&lt;li&gt;WerkerのBox作成&lt;/li&gt;
+&lt;li&gt;GitLabのインストーラ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あまり知らないけど、僕が知る限りでも、そこそこある。
+もっとあるんじゃないかと思う。
+構成管理ツールは運用する人たちののツールから開発をする人たちでも使われていくツールなるだろう。&lt;/p&gt;
+
+&lt;p&gt;せっかく&lt;a href=&#34;https://twitter.com/sawanoboly&#34;&gt;@sawanoboly&lt;/a&gt;さんがいらいしゃるので、いまのうちにChefをしっかりいじっておきたいよね。&lt;/p&gt;
+
+&lt;p&gt;他にも広島でChefをいじっている人いえば、&lt;a href=&#34;https://twitter.com/akira345&#34;&gt;@akira345&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/k2works&#34;&gt;@k2works&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/ogatomo&#34;&gt;@ogatomo&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/moobay&#34;&gt;@moobay9&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/pecosantoyobe&#34;&gt;@pecosantoyobe&lt;/a&gt;さんとかがいる。
+Ansibleなら&lt;a href=&#34;https://twitter.com/soudai1025&#34;&gt;@soudai&lt;/a&gt;さんとか&lt;a href=&#34;https://twitter.com/24motz&#34;&gt;@24motz&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/yukilab&#34;&gt;@yukilab&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/NeXTSTEP2OSX&#34;&gt;@NeXTSTEP2OSX&lt;/a&gt;さんとかがいじっていると聞いている。&lt;/p&gt;
+
+&lt;p&gt;たぶんTwitter IDを上げた人はほとんど参加するはずだ。間違いない。
+名前を上げなかった人でもきっと何かしらの構成管理ツールを使っている人がたくさんいて遊びに来るはずだ。
+&lt;a href=&#34;https://twitter.com/sawanoboly&#34;&gt;@sawanoboly&lt;/a&gt;さんが来るんだし、きっと間違いない。(自信なし)&lt;/p&gt;
+
+&lt;p&gt;さあ、みんなでオープンセミナー2015@広島に集まって情報交換しよう。
+構成管理に入門するタイミングとしては、この上はないはずだ。&lt;/p&gt;
+
+&lt;p&gt;そういえば以前こんな記事を書いている人がいましたね。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/01/04/lets-take-part-in-osh/&#34;&gt;オープンセミナー広島は広島のITエンジニアが集う場所 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;くりかえす。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://osh-web.github.io/2015/&#34;&gt;オープンセミナー2015@広島&lt;/a&gt;は2月14日だ。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://osh-web.doorkeeper.jp/events/18561&#34;&gt;事前申し込みはこちらからできる&lt;/a&gt;ぞい。&lt;/p&gt;
+
+&lt;p&gt;全く関係ないし、公式に受理されていないが、オープンセミナー2015@広島の懇親会の裏の名前はLT駆動開発11なる予定だ。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:3c166a901741b69349f74cc2dabda17c&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://akira-junkbox.blogspot.jp/2014/12/2015.html&#34;&gt;JunkBox～主に個人的防備録～: オープンセミナー2015@広島を開催します！&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

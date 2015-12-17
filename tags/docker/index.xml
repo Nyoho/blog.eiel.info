@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/docker/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-10-04 11:44:54 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Dockerコンテナの中からDockerコンテナを動かす話をした - LT駆動19</title>
+          <link>http://blog.eiel.info/blog/2015/10/04/ltdd-19-docker-bind-docker/</link>
+          <pubDate>Sun, 04 Oct 2015 11:44:54 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/10/04/ltdd-19-docker-bind-docker/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT駆動開発19&#34;&gt;LT駆動開発19&lt;/a&gt;で「Docker &amp;gt;&amp;gt;= Docker」という話した。
+「どっかーばいんどどっかー」と読む。
+cronの中でDockerコマンドがつかいたかった。そのcrondはDockerホストでは当然動かしたくない。Dockerコンテナ内におきたい。
+Remote APIでたたいてもいいけど、ちょっとしたものならコマンドが楽でよい。&lt;/p&gt;
+
+&lt;p&gt;dockerが使えるイメージはdockerがある。docker run サブコマンドは&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker run イメージ コマンド
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なので、イメージを節約して、dockerイメージをつかいまわすと、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker run docker docker run docker ls`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;という不思議な呪文になった。
+実際はDockerfileでRUNで指定したりするので、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker run docker docker run hoge
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とかですんだり、そもそも&lt;code&gt;docker run hoge&lt;/code&gt;で済むようにつくることになるだろう。&lt;/p&gt;
+
+&lt;p&gt;ちなみに&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker run docker &amp;quot;docker run docker ls&amp;quot;`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;だとうまくうごかない。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker run docker bin/sh -c &amp;quot;docker run docker ls&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とすると良い。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sh -c&lt;/code&gt; の中でdockerコマンドで複数のプログラムをうごかしてパイプで処理をつないだりもできる。
+そういう話をしました。&lt;/p&gt;
+
+&lt;p&gt;あと一番大事なことだけど、Docker Hostが動いているコンピュータ上のdockerコマンドは&lt;code&gt;/var/run/docker.sock&lt;/code&gt;をつかって通信しているようなので、&lt;code&gt;-v /var/run/docker.sock:/var/run/docker.sock&lt;/code&gt;を共有してやると、コンテナ内からHostと簡単に通信できる。
+これって安全なのかはよくしらない。&lt;/p&gt;
+
+&lt;p&gt;Dockerの中でDockerを起動すると Docker Docker A になりそうだけど、Docker A になるので、 「Docker &amp;gt;&amp;gt;= Docker」というタイトルにしてみました。いま気づいたけど、型が不一致である。「Docker &amp;gt;&amp;gt;= _ -&amp;gt; Docker」 とすべきだったのでは…。
+もうそれなら「Docker &amp;gt;&amp;gt; Docker」じゃん…。&lt;/p&gt;
+
+&lt;p&gt;スライドは即興でつくったので雑です。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;c9b2baf5752447559ac85dd46a1555ef&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発11で「 dockerをどこかで使う」という話をした</title>
+          <link>http://blog.eiel.info/blog/2015/02/14/ltdd-11/</link>
+          <pubDate>Sat, 14 Feb 2015 23:38:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/02/14/ltdd-11/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA11&#34;&gt;LT駆動開発11&lt;/a&gt;でライトニングトークをしました。&lt;/p&gt;
+
+&lt;p&gt;LT駆動開発11は&lt;a href=&#34;http://osh-web.github.io/2015/&#34;&gt;オープンセミナー2015@広島&lt;/a&gt;の懇親会内で行われました。&lt;/p&gt;
+
+&lt;p&gt;そういえば、「タイトルがつまらないと」言われましたが、Dockerなんていますごく盛り上がってるのにキャッチーなタイトルつけたら死んでしまいます。
+まさかり怖い。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;150b79fe25574978b0642df9aa2ba30c&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Dockerいろいろつかってますが、すごく楽しいです。
+Dockerつかってやりたいことも結構あります。&lt;/p&gt;
+
+&lt;p&gt;Docker自体はまだ使わないだろうとおもってたんですが、ちょっとDocker使いたくなってどっぷり使っています。&lt;/p&gt;
+
+&lt;p&gt;「Railsのアプリを開発するのにRubyをインストールする必要がなかったり、production環境でRailsアプリを動かすのにRubyやnodejsをインストールする必要がなかったり」
+その辺すごく良いとおもったので、そのあたりを強調した話をしました。&lt;/p&gt;
+
+&lt;p&gt;CI環境で使えないミドルウェアがあっても安心っすね。Werckerがあるけど。&lt;/p&gt;
+
+&lt;p&gt;僕自身そんなに頭は良くないので、シンプルに考えることができるようになるプロダクトは好きです。
+そのひとつはDockerでしょう。「Gitのコミットしてブランチが切っていれば良い」みたいな安心感があります。&lt;/p&gt;
+
+&lt;p&gt;そういえば、このスライドの内容は遊びでつくってるサービスでもやってるのでご自由に閲覧ください。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/parkmap-h/parkmap&#34;&gt;Github Parkmap-h/parkmap&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そういえば、時間があまらなかったので、もう一個スライドがあまってるのでどう消化するか悩み中です。(どうでもいい)&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>DockerでCMSの会 Vol.2に挑む - 準備編</title>
+          <link>http://blog.eiel.info/blog/2015/01/26/cms-hands-on-2-with-docker/</link>
+          <pubDate>Mon, 26 Jan 2015 18:01:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/01/26/cms-hands-on-2-with-docker/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://kawa-tani.com/cms-hands-on/&#34;&gt;CMSの会 Vol.2&lt;/a&gt;というイベントが2月7日(土)に広島で行われるらしい。
+&lt;a href=&#34;http://www.a-blogcms.jp/&#34;&gt;a-blog CMS&lt;/a&gt;,&lt;a href=&#34;http://concrete5-japan.org/&#34;&gt;concrete5&lt;/a&gt;,&lt;a href=&#34;https://ja.wordpress.org/&#34;&gt;Wordpress&lt;/a&gt;の3つのCMSを使って、同一のウェブサイトを作成して、個々の長所短所を学べるらしい。&lt;/p&gt;
+
+&lt;p&gt;こっちも確認しておくとよいだろう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://kawa-tani.com/blog/?p=447&#34;&gt;川谷制作所 » CMSの会Vol.2をやります&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;さて、参加するかどうかは不明だが、参加条件に環境を準備をしてくる必要がある。
+どうやって環境を用意するかと考えた結果。「&lt;strong&gt;ここはDockerしかない&lt;/strong&gt;」と思い、環境を整えてみた。&lt;/p&gt;
+
+&lt;p&gt;実際に参加してみるとどんな問題にぶつかるかわからないので、参加する場合に参考にする場合は注意しておいたほうが良いでしょう。
+事前にテキスト的なものがいただけたら確認はできるかもしれないが。&lt;/p&gt;
+
+&lt;p&gt;さて本題。&lt;/p&gt;
+
+&lt;p&gt;dockerがインストールされていれば以下のコマンドで環境を構築できる。
+Windowsは想定していない。(そろそろOSが欲しいが空いてる64bitマシンもない)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -d --name my-mysql -e MYSQL_ROOT_PASSWORD=&amp;quot;secret&amp;quot; eiel/mysql:concrete5
+docker run -d --name my-wordpress --link my-mysql:mysql  -p 8001:80 -v `pwd`/wordpress:/var/www/html eiel/wordpress
+docker run -d --name my-concrete5 --link my-mysql:mysql -p 8002:80 -v `pwd`/concrete5:/var/www/html eiel/concrete5
+docker run -d --name my-acms --link my-mysql:mysql  -p 8003:80 -v `pwd`/acms:/var/www/html eiel/acms
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;イメージをダウンロードするので時間がかかります。
+二度目からはダウンロードの必要がないのでだいぶはやくなります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;wordpress&lt;/li&gt;
+&lt;li&gt;concrete5&lt;/li&gt;
+&lt;li&gt;acms&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;の3つのディレクトリが作成されます。
+それぞれのCMSの作業ディレクトリとなっていて必要なものが準備されています。&lt;/p&gt;
+
+&lt;p&gt;CMSの動作を見るにはdockerの動いているホストのそれぞれのポートにアクセスすればOKです。&lt;/p&gt;
+
+&lt;p&gt;boot2dockerを使っている場合はまずIPを確認します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ boot2docker config | grep LowerIP
+LowerIP = &amp;quot;192.168.59.103&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;IPが192.168.59.109だったと仮定すると&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Wordpress &lt;a href=&#34;http://192.168.59.103:8001&#34;&gt;http://192.168.59.103:8001&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;concrete5 &lt;a href=&#34;http://192.168.59.103:8002&#34;&gt;http://192.168.59.103:8002&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;a-blog cMS &lt;a href=&#34;http://192.168.59.103:8003&#34;&gt;http://192.168.59.103:8003&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;でそれぞれ動作確認ができます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2015-01-27/cms2.png&#34; alt=&#34;cms2&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;動作を停止するには&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker stop my-wordpress my-concrete5 my-acms my-mysql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;です。&lt;/p&gt;
+
+&lt;p&gt;再度、起動するには&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker start my-wordpress my-concrete5 my-acms my-mysql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となります。&lt;/p&gt;
+
+&lt;p&gt;concrete5とa-blog CMSはデータベースの指定をしないといけません。
+以下の情報を使ってください。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ホスト名: mysql&lt;/li&gt;
+&lt;li&gt;ユーザ名: root&lt;/li&gt;
+&lt;li&gt;パスワード: secret&lt;/li&gt;
+&lt;li&gt;データベース: concrete5 (ablogの場合は acms)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;を指定してください。&lt;/p&gt;
+
+&lt;p&gt;a-blog CMSのインストール後に&lt;code&gt;setup&lt;/code&gt;ディレクトリの移動をしますが、&lt;code&gt;_setup&lt;/code&gt;にしてください。
+&lt;code&gt;_setup&lt;/code&gt;以外のものにすると&lt;code&gt;docker run&lt;/code&gt;をするときに&lt;code&gt;setup&lt;/code&gt;ディレクトリを作ってしまってまた移動させる必要があります。&lt;/p&gt;
+
+&lt;h3 id=&#34;やりなおす:bec45c93b06e5dd3cadbcaaa13d1d387&#34;&gt;やりなおす&lt;/h3&gt;
+
+&lt;p&gt;Dockerのイメージを取得したところからやりなおしたくなったら、以下でなおせます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker stop  my-wordpress my-concrete5 my-acms my-mysql | xargs docker rm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;もう一度起動する場合は代わりありません。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -d --name my-mysql -e MYSQL_ROOT_PASSWORD=&amp;quot;secret&amp;quot; eiel/mysql:concrete5
+docker run -d --name my-wordpress --link my-mysql:mysql  -p 8001:80 -v `pwd`/wordpress:/var/www/html eiel/wordpress
+docker run -d --name my-concrete5 --link my-mysql:mysql -p 8002:80 -v `pwd`/concrete5:/var/www/html eiel/concrete5
+docker run -d --name my-acms --link my-mysql:mysql  -p 8003:80 -v `pwd`/acms:/var/www/html eiel/acms
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;確実に10秒以上待つことになるのでのんびりお待ちください。&lt;/p&gt;
+
+&lt;h3 id=&#34;もっと詳しく:bec45c93b06e5dd3cadbcaaa13d1d387&#34;&gt;もっと詳しく&lt;/h3&gt;
+
+&lt;p&gt;それぞれのDockerfileは下記にあります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/docker-mysql&#34;&gt;https://github.com/eiel/docker-mysql&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/docker-wordpress-ja&#34;&gt;https://github.com/eiel/docker-wordpress-ja&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/docker-concrete5&#34;&gt;https://github.com/eiel/docker-concrete5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/docker-acms&#34;&gt;https://github.com/eiel/docker-acms&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;eiel/mysqlは5.6を利用した場合concrete5のインストールに失敗したので少しカスタマイズしてあります。
+sql-modeが&lt;code&gt;STRICT_TRANS_TABLES&lt;/code&gt;にならないように変更しています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考文献 &lt;a href=&#34;http://www.ah-2.com/2014/05/13/mysql56_mysql_install_db.html&#34;&gt;http://www.ah-2.com/2014/05/13/mysql56_mysql_install_db.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;wordpressは公式のものを流用していますが、 日本語版をインストールするように変更しています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考文献 &lt;a href=&#34;https://github.com/docker-library/wordpress&#34;&gt;https://github.com/docker-library/wordpress&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;concrete5はWordpressのものを参考に作成しています。
+-v をつけたときのパーミッションではまったのでapacheの起動ユーザを変更して対処しています。&lt;/p&gt;
+
+&lt;p&gt;基本的にはDocker公式のWordpressのDockerfileを参考にして作成しています。&lt;/p&gt;
+
+&lt;p&gt;eiel/wordpressは日本語版をインストールするように改造しています。
+eiel/cnocrete5とeiel/acmsはそれを参考にちょろちょろいじっています。&lt;/p&gt;
+
+&lt;p&gt;仮想マシンで何度も実行するのは大変だけどDockerはだいぶ楽ですね。
+そろそろ何か本番でつかっていきたいところです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Mac で docker 起動できない時。具体的にはDOCKER_HOSTを指定してない時</title>
+          <link>http://blog.eiel.info/blog/2014/07/10/docker-on-mack/</link>
+          <pubDate>Thu, 10 Jul 2014 18:27:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/10/docker-on-mack/</guid>
+          <description>&lt;p&gt;DOCKER_HOST を指定しとけって話。&lt;/p&gt;
+
+&lt;p&gt;個人的には Docker を外部マシンで起動して使えないか検討したいが、ここでは関係ない。&lt;/p&gt;
+
+&lt;p&gt;Macだと VirtuaBox 上で docker が動くので DOCKR_HOST を設定してないといけない。&lt;/p&gt;
+
+&lt;p&gt;その状態で使おうとすると下記のようになる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;http:///var/run/docker.sock/v1.13/containers/create: dial unix /var/run/docker.sock: no such file or directory
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;boot2docker up&lt;/code&gt; を実行すると設定すべき値を確認できる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ boot2docker up
+Waiting for VM to be started...
+
+Started.
+To connect the Docker client to the Docker daemon, please set:
+    export DOCKER_HOST=tcp://xx.xx.xx.xx:2375
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;表示された &lt;code&gt;export DOCKER_HOST=tcp://xx.xx.xx.xx:2375&lt;/code&gt; をコピペしとけばいい。&lt;/p&gt;
+
+&lt;p&gt;設定ファイルで export しとけって。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Docker Hub を少し試してきた</title>
+          <link>http://blog.eiel.info/blog/2014/07/10/abc-docker-hub/</link>
+          <pubDate>Thu, 10 Jul 2014 15:04:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/10/abc-docker-hub/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.docker.com/&#34;&gt;Docker&lt;/a&gt; 初心者です。
+難しいことはよくわかりません。&lt;/p&gt;
+
+&lt;p&gt;いまさら &lt;a href=&#34;https://hub.docker.com/&#34;&gt;Docker Hub&lt;/a&gt; で遊んだ。&lt;/p&gt;
+
+&lt;p&gt;ちなみに &lt;a href=&#34;http://great-h.github.io/events/event-060.html&#34;&gt;#すごい広島 60&lt;/a&gt; で遊んでたことらしいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;今回は何をしたのか:fa815a66b9e024206917c488bc425e45&#34;&gt;今回は何をしたのか&lt;/h3&gt;
+
+&lt;p&gt;docker さえインストールされていれば、以下のコマンドを実行できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker run eiel/banner
+######   #######   #####   #    #  #######  ######
+#     #  #     #  #     #  #   #   #        #     #
+#     #  #     #  #        #  #    #        #     #
+#     #  #     #  #        ###     #####    ######
+#     #  #     #  #        #  #    #        #   #
+#     #  #     #  #     #  #   #   #        #    #
+######   #######   #####   #    #  #######  #     #
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker run -e BANNER_ENV=&amp;quot;happy hacking&amp;quot; eiel/banner
+#     #     #     ######   ######   #     #
+#     #    # #    #     #  #     #   #   #
+#     #   #   #   #     #  #     #    # #
+#######  #     #  ######   ######      #
+#     #  #######  #        #           #
+#     #  #     #  #        #           #
+#     #  #     #  #        #           #
+
+
+#     #     #      #####   #    #  ###  #     #   #####
+#     #    # #    #     #  #   #    #   ##    #  #     #
+#     #   #   #   #        #  #     #   # #   #  #
+#######  #     #  #        ###      #   #  #  #  #  ####
+#     #  #######  #        #  #     #   #   # #  #     #
+#     #  #     #  #     #  #   #    #   #    ##  #     #
+#     #  #     #   #####   #    #  ###  #     #   #####
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;BANNER_ENV を設定すると出力を変えられます。&lt;/p&gt;
+
+&lt;p&gt;これの何が嬉しいかというと、&lt;strong&gt;banner コマンドの実行環境が簡単に用意できる&lt;/strong&gt;ことだと思います。
+redmine を実行するのに、 GitLab を実行するのに、Wordpressを実行するのに &lt;code&gt;docker run&lt;/code&gt; でリポジトリ名を指定するだけでできるとしたらとても嬉しいと思います。&lt;/p&gt;
+
+&lt;p&gt;(実際にはDbのデータどうすんの？とかある気がするけど、どうするのがいいのかよく知らないけど)&lt;/p&gt;
+
+&lt;p&gt;定時実行するスクリプトが Docker さえインストールしていれば実行できたりするわけですね。&lt;/p&gt;
+
+&lt;h3 id=&#34;docke-hub-はどこで使ってるのか:fa815a66b9e024206917c488bc425e45&#34;&gt;Docke Hub はどこで使ってるのか&lt;/h3&gt;
+
+&lt;p&gt;eiel/banner というイメージが Docker Hub にあいてあるので、&lt;code&gt;docker run eiel/banner&lt;/code&gt; を実行すると、まだローカルにイメージがなければ取得して実行できます。
+それだけ。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://registry.hub.docker.com/u/eiel/banner/&#34;&gt;このイメージはここにあります&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/docker-banner&#34;&gt;イメージを作成するのに Dockerfile をつかっており、コードは GitHub に up してあります。&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FROM eiel/gentoo-sample:banner
+MAINTAINER Tomohiko Himura &amp;lt;eiel.hal@gmail.com&amp;gt;
+
+ENV BANNER_ENV docker
+CMD banner $BANNER_ENV
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;このファイルをカレントディレクトリに置いて &lt;code&gt;docker build -t banner .&lt;/code&gt; とするとイメージを作ることができます。
+&lt;code&gt;docker run banner&lt;/code&gt; とすることで、同じことができるようになります。&lt;/p&gt;
+
+&lt;p&gt;Docker Hub は GitHub と連携して、&lt;code&gt;git push&lt;/code&gt; した際に、&lt;code&gt;docker build&lt;/code&gt; をして自動的にイメージをつくってくれる機能があります。
+これで docker ファイルを編集して GitHub に push するたびに最新のイメージを自動的に作成され、Docke Hub に置かれるようになります。素敵。&lt;/p&gt;
+
+&lt;p&gt;Docker Hub でリポジトリをつくる際に automated build を選び、GitHub のリポジトリを指定するだけでした。&lt;/p&gt;
+
+&lt;p&gt;複数のリポジトリに紐付けしたり、途中から別のリポジトリに紐付けしたりはできませんでした。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;CMD banner $BANNER_ENV&lt;/code&gt; と指定している部分が run に引数を指定しなかった時のコマンドになるそうです。&lt;/p&gt;
+
+&lt;h3 id=&#34;もうちょっと詳しく-リポジトリ連携:fa815a66b9e024206917c488bc425e45&#34;&gt;もうちょっと詳しく リポジトリ連携&lt;/h3&gt;
+
+&lt;p&gt;Dockerfile をみると &lt;code&gt;FROM eiel/gentoo-sample:banner&lt;/code&gt; となっています。
+元になるイメージが別にあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://registry.hub.docker.com/u/eiel/gentoo-sample/&#34;&gt;このイメージはこっちにあります。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;banner はタグです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/docker-sample-eiel-gentoo-banner/blob/master/Dockerfile]&#34;&gt;これも Dockerfile が GitHub にあります。&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FROM eiel/gentoo
+MAINTAINER Tomohiko Himura &amp;lt;eiel.hal@gmail.com&amp;gt;
+
+WORKDIR /usr
+ADD install-portage.sh .
+RUN sh /install-portage.sh
+RUN emerge banner
+CMD banner docker
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;emerge するために portage を追加して、emerge banner をしているだけです。&lt;/p&gt;
+
+&lt;p&gt;ADD するときに .tar.bz2 を展開できたら便利なのに…。&lt;/p&gt;
+
+&lt;p&gt;これも git push すると自動的にイメージが作成されます。
+ところで、 eiel/gentoo-sample:banner が更新されたら、先ほどの eie/banner のイメージも構築しなおして欲しいですよね。&lt;/p&gt;
+
+&lt;p&gt;Docker Hub に Repository Links という機能があるらしいので、
+eiel/banner のほうの Reposityr Links に eiel/gentoo-sample と追加すると eiel/gentoo-sample のイメージが新しくなると、eiel/banner も自動的にビルドされるようになりました。&lt;/p&gt;
+
+&lt;h3 id=&#34;さらに詳しく-eiel-gentoo-はどうやってつくったか:fa815a66b9e024206917c488bc425e45&#34;&gt;さらに詳しく eiel/gentoo はどうやってつくったか&lt;/h3&gt;
+
+&lt;p&gt;FROM に eiel/gentoo と指定されてます。
+これは Docker File を用意していません。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget http://ftp.iij.ad.jp/pub/linux/gentoo/releases/amd64/current-iso/stage3-amd64-$20140619.tar.bz2 -O - | bzcat | docker import - eiel/gentoo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;みたいな感じでつくりました。
+こちらはイメージを作成したあと docker push eiel/gentoo にアップロードしました。&lt;/p&gt;
+
+&lt;p&gt;こちらも Repository Links を設定しておくとベースシステムの Gentoo が更新されると、eiel/gentoo-sample/banner が更新され、 eiel/banner が更新されるはずです。(試してないけど)&lt;/p&gt;
+
+&lt;p&gt;stage3 の tarball を展開しただけだけどこんなのでいいのかは &lt;a href=&#34;https://github.com/naota/dockergentoo&#34;&gt;@naota さんのリポジトリをみてみたいと思う。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;個人的には portage をつっこんだイメージで emerge して 、portage をつっこんでないほうへもっていって使いたい。&lt;/p&gt;
+
+&lt;h3 id=&#34;蛇足:fa815a66b9e024206917c488bc425e45&#34;&gt;蛇足&lt;/h3&gt;
+
+&lt;p&gt;最初は sl コマンドをつかっていたのだけど run する時に &lt;code&gt;-t&lt;/code&gt; 必要なのでやめた。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:fa815a66b9e024206917c488bc425e45&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;GitHub にプルリクをだすと実行環境として必要なイメージが作成されて、作成したイメージの上でテストコードを実行して、イメージのIDが返ってきて、その上でアプリケーションの実行とかできて、そのままデプロイできると素敵そうですね。失敗した場合は動作確認ができたりとか。&lt;/p&gt;
+
+&lt;p&gt;知らんけど&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:fa815a66b9e024206917c488bc425e45&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.docker.com/reference/builder/&#34;&gt;Dockerfile - Docker Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.docker.com/reference/commandline/cli/&#34;&gt;Command line - Docker Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/naota/dockergentoo&#34;&gt;naota/dockergentoo · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/k2works/docker_practice#ruby-on-rails%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AEdockerfile%E3%82%92%E3%81%A4%E3%81%8F%E3%82%8B&#34;&gt;k2works/docker_practice · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

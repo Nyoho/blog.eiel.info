@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/redmine/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-05-10 17:00:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>redmine-1.4系に更新してruby1.9で動かそうとしてはまったこと</title>
+          <link>http://blog.eiel.info/blog/2012/05/10/redmine1-dot-4-on-ruby1-dot-9/</link>
+          <pubDate>Thu, 10 May 2012 17:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/05/10/redmine1-dot-4-on-ruby1-dot-9/</guid>
+          <description>&lt;p&gt;mysqlがよめないっていわれた。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;cannot load such file &amp;ndash; mysql (MissingSourceFile)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;bundle installすると mysql2がはいるのであたりまえなんだけど、なんでかなー。
+と考えた結果 &lt;code&gt;config/database.yml&lt;/code&gt;でadapterを&lt;code&gt;mysql&lt;/code&gt;にしてるからだ！と気づいて&lt;code&gt;mysql2&lt;/code&gt;にかきかえました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

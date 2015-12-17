@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/wtm/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-09-21 10:50:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>すごいHirohsimaの本について、OSC2014とWTM71で紹介した</title>
+          <link>http://blog.eiel.info/blog/2014/09/21/great-h-book-osc-2014-and-wtm71/</link>
+          <pubDate>Sun, 21 Sep 2014 10:50:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/09/21/great-h-book-osc-2014-and-wtm71/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;を紹介するための書籍(通称、薄い本)である、すごいHiroshimaの本というものを作成しました。
+作成した主の目的はオープンソースカンファレンスで展示をするためです。&lt;/p&gt;
+
+&lt;p&gt;作成した電子書籍は&lt;a href=&#34;http://great-h-book.eiel.info/&#34;&gt;すごいHiroshimaの本置場&lt;/a&gt;というところに置いています。
+ePubとPDFを提供しています。&lt;/p&gt;
+
+&lt;h3 id=&#34;osc2014広島編:017021d1665f9696038118823e7cad42&#34;&gt;OSC2014広島編&lt;/h3&gt;
+
+&lt;p&gt;せっかく電子書籍を作ったので、興味をもってもらうために、&lt;a href=&#34;http://www.ospn.jp/osc2014-hiroshima/&#34;&gt;オープンソースカンファレンス2014広島&lt;/a&gt;の&lt;a href=&#34;https://www.ospn.jp/osc2014-hiroshima/modules/eguide/event.php?eid=7&#34;&gt;LT駆動開発 ベストセッションズ – 凪のライトニングトーク&lt;/a&gt;の中でライトニングトークをしました。&lt;/p&gt;
+
+&lt;p&gt;題して、すごいHirohsimaの本のここがヒドいです。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;23114bc022a7013253c762b11b8dfdf5&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;少し、補足。&lt;/p&gt;
+
+&lt;p&gt;しつこいですが、&lt;a href=&#34;https://www.google.com/webhp?sourceid=chrome-instant&amp;amp;ion=1&amp;amp;espv=2&amp;amp;ie=UTF-8#q=%E6%88%91%E9%A6%AC&#34;&gt;我馬&lt;/a&gt;は広島のラーメン屋です。博多ラーメンを提供します。&lt;/p&gt;
+
+&lt;p&gt;私とすごい広島の章は実際には4人しか書いていません。
+一人で5役している人がいます。誰やねん。あ、でも一役は入れ替わる可能性も。&lt;/p&gt;
+
+&lt;h2 id=&#34;第71回-web-touch-meeting:017021d1665f9696038118823e7cad42&#34;&gt;第71回 WEB TOUCH MEETING&lt;/h2&gt;
+
+&lt;p&gt;OSC2014広島と同日に行なわれた&lt;a href=&#34;http://webtouchmeeting.doorkeeper.jp/events/15334&#34;&gt;WEB TOUCH MEETING 71&lt;/a&gt;で、Web製作者向けにこの書籍をつくるのに利用技術がどんなものなのか、すごい速さでざっくりと紹介しました。
+対象者をWebの初心者にすればよかったと少し反省しております。&lt;/p&gt;
+
+&lt;p&gt;速さ自体はやや意図的にやった部分はあるのですが、いろんな参加者がいて真ん中あたりの人を対象にしてしまった感じがあります。
+よくわからないけど、キーワードをひろってもらったりしてもらえた良いかなぁ。という感じでつくりました。&lt;/p&gt;
+
+&lt;p&gt;それよりも図はもっとがんばらなければ。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;5010f1e023630132a9090a763f010e40&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;スライドは前半のすごいHiroshimaの本のここがヒドいの部分はカットしてアップロードしています。&lt;/p&gt;
+
+&lt;p&gt;そして補足。&lt;/p&gt;
+
+&lt;p&gt;電子書籍をつくるためには&lt;a href=&#34;https://github.com/kmuto/review&#34;&gt;Re:VIEW&lt;/a&gt;を利用しました。はじめて挑戦する場合は&lt;a href=&#34;https://github.com/kmuto/review/blob/master/doc/quickstart.rdoc&#34;&gt;クイックスタートガイド&lt;/a&gt;を読めば良いと思います。&lt;/p&gt;
+
+&lt;p&gt;Re:VIEWは電子書籍をつくりたい場合でも、技術書を書きたい人向けのものっぽいです。プログラミングなどをしてない人には少し扱うのが難しいかもしれません。
+ただ、環境さえ用意できれば、使うこと自体はは難しくはないと思います。
+書くだけとかなら。&lt;/p&gt;
+
+&lt;p&gt;本の中でグラフをかくのに今回gnuplotを利用しました。
+gnuplotは理系の学生であれば利用したことが多いと思われるグラフ作成ツールです。コマンドラインから利用します。&lt;/p&gt;
+
+&lt;p&gt;Re:VIEWではgnuplotのコマンドを書く方法が用意されていて、PDFに変換する時はPDF用の画像をつくってくれて、ePubに変換する時はePub用に画像をつくってくれます。
+ありがたい。&lt;/p&gt;
+
+&lt;p&gt;この本をつくるにあたって、最初にしたことは、ePubとPDFに変換する部分を自動化したことです。
+もし途中で執筆に誰かが参加しようと思った時に作成されるものをわかりやすくしたり、本が生成されてるところを見せて、興味をもってもらおうと思ったというのが主な目的です。
+他にも執筆に集中してしまって、いざePubやPDFに変換する際にトラブルで間に合わないという自体を避けるなどの理由もあります。
+実際に文字化けとかグラフが生成されなかったり、予期していなかったエラーを事前に発見することができました。&lt;/p&gt;
+
+&lt;p&gt;Octokitは付録の「すごい広島の統計情報」「すごい広島の参加者」を作成するために、利用しています。すごい広島のサイトの情報がおいてあるGitHubのリポジトリ&lt;a href=&#34;https://github.com/great-h/great-h.github.io&#34;&gt;great-h.github.io&lt;/a&gt;から情報を取得して、gnuplot用のCSVを作成したり、Re:VIEWの&lt;code&gt;.re&lt;/code&gt;ファイル内に挿入する文字列を作成しています。&lt;/p&gt;
+
+&lt;p&gt;Octokitを使った例として、&lt;a href=&#34;http://blog.eiel.info/blog/2014/09/13/github-scouter/&#34;&gt;GitHub戦闘力&lt;/a&gt;があります。(GitHub戦闘力が完全にこれを作るときの副産物である)&lt;/p&gt;
+
+&lt;p&gt;蛇足ですが、この電子書籍には他にも最新の情報を取得して、更新している部分がいくつかあります。
+コミットの数なんかは随時変化していくので、ePubやPDFを作成する際に最新情報を使うようにしています。&lt;/p&gt;
+
+&lt;p&gt;対象読者に対して説明不足になってしまうのですが、この電子書籍はgit pushしたら自動生成するようにしています。
+これを実現しているのがCIサーバで今回利用したサービスが&lt;a href=&#34;http://wercker.com/&#34;&gt;Wercer&lt;/a&gt;です。
+CIサーバでできることは結局は自分のコンピュータできることと基本的に同じです。
+しかし、CIサーバを使うと基本的にクリーンな状態でePubやPDFを作成することができます。
+これがどんな時に嬉しいかというと、執筆者が増えた時に、ePubやPDFをつくるのに、自分が追加し忘れたファイルがないことを保証できます。
+(一部のファイルがキャッシュされたりはじますが…)
+また、ePubやPDFを生成するための手順をコードに落とす必要がでるため、作成方法が明確なります。&lt;/p&gt;
+
+&lt;p&gt;こういったことを早めにやっておくと、本を作成するための全体像を把握しやすくなります。&lt;/p&gt;
+
+&lt;p&gt;Werckerを使う際にRe:VIEWを使うための仮想マシン(box)も作成しました。
+この詳しい話は今回割愛しますが、リポジトリは晒しておきます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/wercker-box-review&#34;&gt;eiel/wercker-box-review&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Werckerで作成したePubやPDFはAmazon S3へアップロードしています。
+作成したファイルは&lt;code&gt;tmp/great-h-book-[バージョン番号]&lt;/code&gt;というファイル名にして保存しています。
+これらのファイルは1週間たつと削除されるようにしています。こちらはAmazon S3の機能です。
+ただ、masterブランチものをCIサーバに動かした場合は、&lt;code&gt;great-h-book&lt;/code&gt;というファイル名にして、消えないようにしてあります。
+(厳密にはファイル名はオブジェクト名ですが…)&lt;/p&gt;
+
+&lt;p&gt;Amazon S3はとても安価で信頼性も高いので、最近、成果物はなるべくS3におくようにしています。特に変更がもうないものを置くのが良いと思います。&lt;/p&gt;
+
+&lt;p&gt;最後に、ePubやPDFが生成されたことがみんなに伝わらないと意味がないので、Twitterに流すようにしています。この時にユニークなハッシュタグをつけるようにしています。
+&lt;a href=&#34;https://sites.google.com/site/yorufukurou/&#34;&gt;夜フクロウ&lt;/a&gt;は特定のキーワードを含むツイートを音声つきで通知する機能があるので、これも使ってます。
+とても便利です。&lt;/p&gt;
+
+&lt;p&gt;継続的デリバリなんて言葉を使いましたが、みんなで一緒になって何かをつくるときはみんが嬉しくなるようにやるのが大切だと思います。
+書く人も、確認する人も、作りたい人も、読む人もみんなチームだよね。&lt;/p&gt;
+
+&lt;p&gt;意外と長くなってしまった。
+関連する技術を深く掘り下げて紹介して欲しい要望があれば&lt;a href=&#34;http://ltdd.doorkeeper.jp/&#34;&gt;LT駆動&lt;/a&gt;や&lt;a href=&#34;http://webtouchmeeting.com/&#34;&gt;WEB TOUCH MEETING&lt;/a&gt;で紹介したいと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;リンク:017021d1665f9696038118823e7cad42&#34;&gt;リンク&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://oreilly-generator.com/&#34;&gt;O&amp;rsquo;Reilly Generator&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;関連:017021d1665f9696038118823e7cad42&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/09/20/osc-2014/&#34;&gt;オープンソースカンファレンス2014広島 - LT駆動開発 ベストセッションズ 凪のライトニングトーク&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

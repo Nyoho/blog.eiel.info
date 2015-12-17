@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/lt%E9%A7%86%E5%8B%95/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-09-05 23:37:56 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>モナドがくれたものという話をした - #LT駆動</title>
+          <link>http://blog.eiel.info/blog/2015/09/05/ltdd-18/</link>
+          <pubDate>Sat, 05 Sep 2015 23:37:56 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/09/05/ltdd-18/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA18&#34;&gt;LT駆動開発18 - 秋(not 安芸)の宮島&lt;/a&gt;で「モナドがくれたもの」というタイトルでLTしてきました。雑なLTです。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;3a6147ab3edb43948faee24621302505&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;モナドの利点を問われたので、似ているパティーン(パターン)が除去できるんだぜ。みじかくかけるんだぜ。
+「裏で毎回同じことやってくれてるんすよ。これはコンピュータの得意なことだよな。だけど、その内容はモナドの種類によって違うんだぜ」&lt;/p&gt;
+
+&lt;p&gt;的な話をしておきました。&lt;/p&gt;
+
+&lt;p&gt;動作確認につかったコードはここに投げておきます。&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/eiel/1c96044764224ed91e32.js&#34;&gt;&lt;/script&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Scalaをはじめる α &amp; β - #LT駆動 15</title>
+          <link>http://blog.eiel.info/blog/2015/06/06/ltdd-2015-06-scala/</link>
+          <pubDate>Sat, 06 Jun 2015 13:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/06/06/ltdd-2015-06-scala/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA15&#34;&gt;LT駆動開発15&lt;/a&gt;に参加してきました。&lt;/p&gt;
+
+&lt;p&gt;最近、Scalaを触っているので、仕事していると放置しがちな基本的な使い方を調べたりしています。&lt;/p&gt;
+
+&lt;p&gt;今回はα世界線とβ世界線の二本でお送りいたします。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;αはsbtを使わずにJARを使う方法を調べました&lt;/li&gt;
+&lt;li&gt;βはAppトレイトについて調べました&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;なんのJARを使うのか非常に悩んだのですがScalazにしておきました。
+Scalazを選ぶまでは早かったのですが、Scalazをつかった良いサンプルがつくれずに苦戦しました。&lt;/p&gt;
+
+&lt;p&gt;Appトレイトのほうは、&lt;a href=&#34;http://summit.scala-kansai.org/&#34;&gt;Scala関西 Summit 2015&lt;/a&gt;のLTに応募しようかと一瞬思ったのですが、まだ2ヶ月あるので止めておきました。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;6c59ed6f79234ddd96c99375a9947125&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;15aa34c211ee43268a0767d0ef29d13d&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;まあ、一番苦戦したのは scala HogeZ -cp &amp;lsquo;*.jar:.&amp;rsquo; とかいて、動かなかったことである。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ1:f7e5e48604ab3de1abbeb3a15a99706c&#34;&gt;まとめ1&lt;/h3&gt;
+
+&lt;p&gt;JARを使うときは classpath を指定すればよい。
+sbt使うと楽チン。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ2:f7e5e48604ab3de1abbeb3a15a99706c&#34;&gt;まとめ2&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;object Hoge {
+  //コード
+  def hoge() = //コード
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;みたいなのはJavaでいうと&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Hoge {
+  static {
+   // コード
+  }
+  public staic void hoge() { /* コード */ }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;みたいな感じになるらしい。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/scala/scala/blob/540b18fb68a0210b187e595622c31f20b2c6f581/src/compiler/scala/tools/nsc/transform/Constructors.scala#L474&#34;&gt;https://github.com/scala/scala/blob/540b18fb68a0210b187e595622c31f20b2c6f581/src/compiler/scala/tools/nsc/transform/Constructors.scala#L474&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;こういった特殊なものがあるならもっとしりたい&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:f7e5e48604ab3de1abbeb3a15a99706c&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/takahiro/hazimetefalseguan-shu-xing-puroguramingujiao-shi&#34;&gt;はじめての関数型プログラミング教室 // Speaker Deck&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://d.hatena.ne.jp/Kazuhira/20130320/1363791795&#34;&gt;sbtで、プロジェクト内のライブラリ依存関係を調べる - CLOVER&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.scala-lang.org/api/current/index.html#scala.App&#34;&gt;App - Scala Standard Library 2.11.6&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.scala-lang.org/api/current/index.html#scala.DelayedInit&#34;&gt;DelayedInit - Scala Standard Library 2.11.6&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/scala/scala/blob/v2.11.6/src/library/scala/DelayedInit.scala&#34;&gt;scala/DelayedInit.scala at v2.11.6 · scala/scala · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/scala/scala/blob/v2.11.6/src/library/scala/App.scala&#34;&gt;scala/App.scala at v2.11.6 · scala/scala · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;コード:f7e5e48604ab3de1abbeb3a15a99706c&#34;&gt;コード&lt;/h3&gt;
+
+&lt;script src=&#34;https://gist.github.com/eiel/77ffba73998ababb06b7.js&#34;&gt;&lt;/script&gt;
+
+&lt;h3 id=&#34;関連:f7e5e48604ab3de1abbeb3a15a99706c&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2015/05/13/scala-map/&#34;&gt;ScalaのMapの使い方がよくわからないので遊んだときのメモ | そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/08/17/scala-hello-world/&#34;&gt;Scala 入門しとく | そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://recruit.chatwork.com/ja/developer.html&#34;&gt;エンジニアの採用情報 | チャットワーク（ChatWork）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=gk02WpyN_Qo&#34;&gt;syrup16g - 冷たい掌 (MV) - YouTube&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>モナド則だけ見つめていたい - LT駆動開発14</title>
+          <link>http://blog.eiel.info/blog/2015/05/02/want-staring-monad-only-ltdd-14/</link>
+          <pubDate>Sat, 02 May 2015 13:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/05/02/want-staring-monad-only-ltdd-14/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA14&#34;&gt;LT駆動開発14&lt;/a&gt;に参加した。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://xenobladex.jp/&#34;&gt;ゼノブレイドクロス&lt;/a&gt;発売記念でモナドの話をしといた。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;b016eb833b804fca903db71dc869bae0&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Stateモナドを簡約して、Stateモナドを説明しようとおもったけどうまくいかなくてボツになりました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/eielh/items/3612e4233c9c4a2d80a0&#34;&gt;Haskell - Stateモナドを手で簡約してみたりしていた - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そんなわけで&lt;a href=&#34;http://ja.wikibooks.org/wiki/Haskell/%E5%9C%8F%E8%AB%96&#34;&gt;Haskell/圏論 - Wikibooks&lt;/a&gt;を元ネタにモナド則を辿ってみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;a -&amp;gt; M b&lt;/code&gt;って型の関数を並べるにはfmapしてjoinしてを間にはさむことがポイントな気がしたことがあったのでその話です。
+&lt;code&gt;a -&amp;gt; M b&lt;/code&gt;な関数を組み合わせると &lt;code&gt;M b -&amp;gt; M (M c)&lt;/code&gt; になって &lt;code&gt;M (M c) -&amp;gt; M (M (M d))&lt;/code&gt; とどんどんMが増えていってしまうのですが、モナドであれば&lt;code&gt;M d&lt;/code&gt;にできるわけです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;a -&amp;gt; M b&lt;/code&gt;ってなんなんだって話になってきますが&lt;code&gt;M a -&amp;gt; M b&lt;/code&gt;でも良いけど、&lt;code&gt;a -&amp;gt; M b&lt;/code&gt; のほうがあつかいやすいよね。だって&lt;code&gt;M&lt;/code&gt;は外せないんだから外れているものが受け取れたら便利じゃないですか。
+結果的に残ったものは &lt;strong&gt;何度も同じことをしないといけない部分&lt;/strong&gt;を隠すことができます。
+その内容を自由に取り替えできちゃうのがモナドの魅力なのだと思う。&lt;/p&gt;
+
+&lt;p&gt;そしてMに関する操作は裏でひそかに行われて、命令書を構築したり、失敗していたら何もしなかったり、可能性すべてを記録したり、単に設定した値をおけるだけだったり、するだけだと思われます。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:b742772047f9f19a088e8c7ef8bf510f&#34;&gt;関連&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/eielh/items/3612e4233c9c4a2d80a0&#34;&gt;Haskell - Stateモナドを手で簡約してみたりしていた - Qiita&lt;/a&gt;&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=B00T73HQHQ&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>「プログラマのためのGulp入門」というLTをするはずだった</title>
+          <link>http://blog.eiel.info/blog/2015/02/16/ltdd-11-gulp/</link>
+          <pubDate>Mon, 16 Feb 2015 00:04:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/02/16/ltdd-11-gulp/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT駆動開発11&#34;&gt;LT駆動開発11&lt;/a&gt;で「プログラマのためのGulp入門」というLTをするはずだったんだけど、
+思っていたより発表者がいたためお蔵入りしました。&lt;/p&gt;
+
+&lt;p&gt;次回に回してもよかったんだけど、正直まとまっていないし、そもそもLTに収まらないのが明らかだったので、今回はさっさとスライドを公開することにした。&lt;/p&gt;
+
+&lt;p&gt;そして内容をいそいそと現在Qiitaに書き下しております。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/eielh/items/0ed141c0bda3663872b7&#34;&gt;プログラマのためのGulp入門 - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;796230c2638345ca97398e5a42c70919&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;今回、用意したLTがDockerとGulpって僕はいったいどこへ向かっているのかさっぱりわからない。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発11で「 dockerをどこかで使う」という話をした</title>
+          <link>http://blog.eiel.info/blog/2015/02/14/ltdd-11/</link>
+          <pubDate>Sat, 14 Feb 2015 23:38:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/02/14/ltdd-11/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA11&#34;&gt;LT駆動開発11&lt;/a&gt;でライトニングトークをしました。&lt;/p&gt;
+
+&lt;p&gt;LT駆動開発11は&lt;a href=&#34;http://osh-web.github.io/2015/&#34;&gt;オープンセミナー2015@広島&lt;/a&gt;の懇親会内で行われました。&lt;/p&gt;
+
+&lt;p&gt;そういえば、「タイトルがつまらないと」言われましたが、Dockerなんていますごく盛り上がってるのにキャッチーなタイトルつけたら死んでしまいます。
+まさかり怖い。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;150b79fe25574978b0642df9aa2ba30c&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Dockerいろいろつかってますが、すごく楽しいです。
+Dockerつかってやりたいことも結構あります。&lt;/p&gt;
+
+&lt;p&gt;Docker自体はまだ使わないだろうとおもってたんですが、ちょっとDocker使いたくなってどっぷり使っています。&lt;/p&gt;
+
+&lt;p&gt;「Railsのアプリを開発するのにRubyをインストールする必要がなかったり、production環境でRailsアプリを動かすのにRubyやnodejsをインストールする必要がなかったり」
+その辺すごく良いとおもったので、そのあたりを強調した話をしました。&lt;/p&gt;
+
+&lt;p&gt;CI環境で使えないミドルウェアがあっても安心っすね。Werckerがあるけど。&lt;/p&gt;
+
+&lt;p&gt;僕自身そんなに頭は良くないので、シンプルに考えることができるようになるプロダクトは好きです。
+そのひとつはDockerでしょう。「Gitのコミットしてブランチが切っていれば良い」みたいな安心感があります。&lt;/p&gt;
+
+&lt;p&gt;そういえば、このスライドの内容は遊びでつくってるサービスでもやってるのでご自由に閲覧ください。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/parkmap-h/parkmap&#34;&gt;Github Parkmap-h/parkmap&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そういえば、時間があまらなかったので、もう一個スライドがあまってるのでどう消化するか悩み中です。(どうでもいい)&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発08でHiroshima.rbをふりかえった</title>
+          <link>http://blog.eiel.info/blog/2014/10/05/hiroshimarb-ltdd-08/</link>
+          <pubDate>Sun, 05 Oct 2014 10:45:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/10/05/hiroshimarb-ltdd-08/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA08&#34;&gt;LT駆動開発08&lt;/a&gt;で活動が不定期になるHiroshima.rbについてふりかえった。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;21da6e502e5c0132ee3d367ad875ef0d&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://hiroshimarb.github.io/&#34;&gt;Hiroshima.rb&lt;/a&gt;がリアルでのイベントを中止するらしいので、Hiroshima.rbについてふりかえることにした。&lt;/p&gt;
+
+&lt;p&gt;結局、Hiroshima.rbなんて毎日楽しく生きられるようにするためにはじめたものらしい。&lt;/p&gt;
+
+&lt;p&gt;そもそも、広島Ruby勉強会からRubyっていうテーマを外しただけのものが&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki&#34;&gt;LT駆動開発&lt;/a&gt;で、Hiroshima.rbの活動がなくなる。
+それもどうなのかって思ったので、月に二回集まる時間をつくっただけである。
+集まるだけのイベントは&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;があるのであり、負担になってるなら休止するだけなのである。&lt;/p&gt;
+
+&lt;p&gt;あと、およそ5年間の思い出を何か話したはずだが記憶にない。&lt;/p&gt;
+
+&lt;p&gt;まあ、なにかRubyのイベントときどきしたらいい。
+私がしてもよいし、誰か別の人でもよい。&lt;/p&gt;
+
+&lt;p&gt;それでは、&lt;a href=&#34;https://note.mu/eiel/n/naeb4c3c02c5f&#34;&gt;また、あした。&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;読む必要ないネタの解説:646879e461c717a7faaeb84ac8c55036&#34;&gt;読む必要ないネタの解説&lt;/h3&gt;
+
+&lt;p&gt;ネタに解説はいらない。&lt;/p&gt;
+
+&lt;p&gt;「生きているよりマシさ」ここ最近よく聞いている曲で、タイトルほどネガティブじゃなくて、「生きているほうがマシさ」なんじゃないかと勘違いするという話をした。実にどうでもいい。&lt;/p&gt;
+
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/FyD0jRsAqNk?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;この曲が好きな人たぶんこのフレーズが好きな人が多いでないかと思う。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;君と居られたのが嬉しい&lt;br&gt;
+間違いだったけど嬉しい&lt;br&gt;
+会えないのはちょっと寂しい&lt;br&gt;
+誰かの君になってもいい嬉しい&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;解釈の仕方は自由だけど、人によっては、「君」をどんな人に当て入めても合うんじゃないだろうかなぁ。&lt;/p&gt;
+
+&lt;p&gt;もう絶対会えない人がいて、その人にすごく感謝していたら、自分がしてもらったことを誰かにしたい。&lt;/p&gt;
+
+&lt;p&gt;そんな風に感じている。
+間違いだと思うのは、だいたいその人の主観による勘違いなのだけど、自覚しているのもやっぱり好きである。&lt;/p&gt;
+
+&lt;p&gt;何が言いたいかと言うと、「嬉しいとおもったことは連鎖したら良いな」と思う。
+Hiroshima.rbに感謝している人がいるのであれば、似たようなことをする人が出てくるんじゃないかと思う。&lt;/p&gt;
+
+&lt;p&gt;関係はないが、「死んでいる方がマシさ」とは歌うが、「死んだ方がマシさ」なんて一言も言ってない。
+そんな曖昧さに「生きたい」と思うかどうかは人それぞれなのであるような気がしているが、なんか、「だけど、生きようかな」って次の句を繋ぎたくなるのである。&lt;/p&gt;
+
+&lt;p&gt;まあ、目立たないように生きたいのは正直な気持ちである。(ておくれ)&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発08でWerckerのBOXの作り方の流れを軽く説明した</title>
+          <link>http://blog.eiel.info/blog/2014/10/05/wercker-box-ltdd-08/</link>
+          <pubDate>Sun, 05 Oct 2014 10:30:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/10/05/wercker-box-ltdd-08/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA08&#34;&gt;LT駆動開発08&lt;/a&gt;でWerckerのBOXの作り方を本当に軽く説明した。&lt;/p&gt;
+
+&lt;p&gt;本当は図を用意したかった。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;fc4873602e5b0132b2d742ff5e01ba23&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;何が話したかったかというとWerckerはboxなりstepなり自分でつくれるけど、それはGitHubなどに公開してWerckerでCIするとWerckerづ使えるようになるという循環している話がしたかった。&lt;/p&gt;
+
+&lt;p&gt;一言で言うと、&lt;strong&gt;CIで使うためにCIをする&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;BOXをつくっていて容量制限にひっかかったの懐しい思い出です。
+BOXやSTEPを作ること自体はシンプルなものでいいので一度やってみると面白いと思います。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>オープンソースカンファレンス2014広島 - LT駆動開発 ベストセッションズ 凪のライトニングトーク</title>
+          <link>http://blog.eiel.info/blog/2014/09/20/osc-2014/</link>
+          <pubDate>Sat, 20 Sep 2014 12:44:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/09/20/osc-2014/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.ospn.jp/osc2014-hiroshima/&#34;&gt;オープンソースカンファレンス2014広島&lt;/a&gt;の&lt;a href=&#34;https://www.ospn.jp/osc2014-hiroshima/modules/eguide/event.php?eid=7&#34;&gt;LT駆動開発 ベストセッションズ – 凪のライトニングトーク&lt;/a&gt;の中でライトニングトークをしてきました。&lt;/p&gt;
+
+&lt;p&gt;今回は&lt;a href=&#34;http://ltdd.doorkeeper.jp/&#34;&gt;LT駆動開発&lt;/a&gt;の説明を担当させていただきました。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;f83d11b022a50132ff8e7a94a7c4ee2d&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;LT駆動開発の説明もしましたが、LT駆動開発の中でよくあることを紹介しました。&lt;/p&gt;
+
+&lt;p&gt;以下補足&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;LT駆動の説明をする人を毎回変えるようにしているのは、参加主旨をみんなに考えて欲しいからです。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.gaba-2000.com/&#34;&gt;我馬&lt;/a&gt;は広島のラーメン屋です。博多ラーメンを提供しています。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;その他のLTについても随時公開される予定です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA-%E3%83%99%E3%82%B9%E3%83%88%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BA-%E2%80%93-%E5%87%AA%E3%81%AE%E3%83%A9%E3%82%A4%E3%83%88%E3%83%8B%E3%83%B3%E3%82%B0%E3%83%88%E3%83%BC%E3%82%AF&#34;&gt;詳しくはこちら&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ltdd.doorkeeper.jp/events/15063&#34;&gt;また、来月のLT駆動開発の申し込みはこちらになります。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;テーマは「おれたちのLT駆動はまだはじまったばかりだ」ということでLT駆動2期のスタートです。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:24e83adf4ada0d4b00690712441b1da0&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:4000/blog/2014/09/21/great-h-book-osc-2014-and-wtm71/&#34;&gt;すごいHirohsimaの本について、OSC2014とWTM71で紹介した&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発で hubot をつかったオフィスに誰がいるかわかるコマンドを作成した話をした</title>
+          <link>http://blog.eiel.info/blog/2014/09/06/ltdd-07/</link>
+          <pubDate>Sat, 06 Sep 2014 19:43:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/09/06/ltdd-07/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki&#34;&gt;LT駆動開発07&lt;/a&gt; でLTしてきた。&lt;/p&gt;
+
+&lt;p&gt;今回は hubot をつかってオフィスに誰がいるのかわかるようにした。
+どうしてそんなことをしようとするのか、そして簡単に仕組みを紹介しました。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;78832e3017df013292f406657be3bf12&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;みんなが積極的に関わろうとするにはどうするのか。
+おもしろかったり便利だと思うことをやること。
+興味をもってもらうことだ。&lt;/p&gt;
+
+&lt;p&gt;オフィスには人がいたりいなかったりで、「誰かいたらいこうかなー」とか思うこともあるので完全に俺得である。&lt;/p&gt;
+
+&lt;p&gt;スライド内のデモ動画はこちらにあります。&lt;/p&gt;
+
+&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/zb9Y-ZjCW2c?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;結構みんなつかっていて、コンボも流行っている。
+そのコマンドは&lt;code&gt;突然のおるんか&lt;/code&gt;とかですね。&lt;/p&gt;
+
+&lt;p&gt;デモにいれておけばよかった。&lt;/p&gt;
+
+&lt;p&gt;仕組みはMACアドレスをつかっていて、みんなノートPCなのでなかなかうまくいっている。
+最初はデーモンをつくろうかと思っていたけど、なくても解決できそうなのでこうなった。&lt;/p&gt;
+
+&lt;p&gt;おまけで、他につくったコマンドを紹介しとく。&lt;/p&gt;
+
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/eNSgpdIUfVo?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;アリア社長とアリシアさんの画像は&lt;a href=&#34;http://www.moaibu.com/sozai/aria/index.htm&#34;&gt;こちらから拝借&lt;/a&gt;しております。
+ありがとうございます。&lt;/p&gt;
+
+&lt;p&gt;非常に癒される。&lt;/p&gt;
+
+&lt;h2 id=&#34;おまけ:71546956586175d61ecba28f023c94ef&#34;&gt;おまけ&lt;/h2&gt;
+
+&lt;p&gt;LT駆動では予備のスライドを用意しておくことが大事らしい。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;c84e2e2017de013292f306657be3bf12&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発で UIDynamics を利用した万華鏡アプリを紹介した</title>
+          <link>http://blog.eiel.info/blog/2014/08/02/a8d2-kaeidscope/</link>
+          <pubDate>Sat, 02 Aug 2014 12:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/08/02/a8d2-kaeidscope/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://www.facebook.com/events/321060364724219/&#34;&gt;A8D:2&lt;/a&gt; というイベントが2014年8月3日に行なわれます。明日じゃねーか。&lt;/p&gt;
+
+&lt;p&gt;そんなことはさておいて、&lt;a href=&#34;http://augment8.org/&#34;&gt;Augment8&lt;/a&gt;というグループがあります。
+このグループは年に1回、普段作っているものをみんなに体験してもらう場をつくろうというイベントがあるらしく、Augment8 Day を省略して A8D というイベントをしているそうです。&lt;/p&gt;
+
+&lt;p&gt;デジタルなガジェットを一般の人に体験していただくイベントだ。&lt;/p&gt;
+
+&lt;p&gt;そのイベントに参加することになったので、このために作成したアプリを告知を兼ねて&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA06&#34;&gt;LT駆動開発06&lt;/a&gt;で紹介をしました。&lt;/p&gt;
+
+&lt;p&gt;というわけでまずスライド。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;4e0e1b60fb610131b3ca3a8923229263&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;つづいて、スライド内で利用している動画。&lt;/p&gt;
+
+&lt;p&gt;万華鏡のサンプル1&lt;/p&gt;
+
+&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/sMJtJsOGcPg&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;万華鏡のサンプル2&lt;/p&gt;
+
+&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/GXqg2EEn-d4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;UIDynamicsのサンプル&lt;/p&gt;
+
+&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/4AIo5x1DoZo&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;iOS7 からUIKitで物理エンジンが搭載されていて気軽に使えるようになったらしい。
+まだ試してなかったのだけど、普通の人にも楽しめそうなものとして万華鏡をつくってみた。
+iOSのCoreMotionを使いiOS端末を操作して画面に映る万華鏡が変化するという寸法です。&lt;/p&gt;
+
+&lt;p&gt;普段、iOSアプリをつくってるわけではないのでそんなに凝ったことはしていません。
+万華鏡といえば三角なのですが四角のものもあるそうで、手抜きで四角の万華鏡になっています。&lt;/p&gt;
+
+&lt;p&gt;Apple Swift で作成しているためアプリとして申請するのもできないし、体験できるようにソースコードを公開しておきますね。まだ勉強中でソースコードが汚いですね、わかります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Augment8/kaleidoscope&#34;&gt;Augment8/kaleidoscope · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;サブディスプレイに対応しているので、プロジェクタに写したり Apple TV で画面に写したりできます。&lt;/p&gt;
+
+&lt;p&gt;当日は丸いものにプロジェクトションマップもどきをしたりする予定です。
+操作用のiOS端末のために&lt;strong&gt;拡張パーツ&lt;/strong&gt;を用意しています。デザイン担当の&lt;a href=&#34;https://twitter.com/akigonn&#34;&gt;あきさん&lt;/a&gt;が作成しています。これを装着すると…つづきは当日のA8D:2にて体験してください。&lt;/p&gt;
+
+&lt;p&gt;デジタルならではなところは動的に反射している数が増えたり、中身が変化したり、マスクが変化したりと用意してみました。
+それなりに面白くなったでしょうか。
+魅せるためのスキル不足なため、本当に楽しめるものになったのかよくわからないので、みんなの反応が気になります。&lt;/p&gt;
+
+&lt;p&gt;今回のLT駆動における初挑戦は「動画をつかってみる」でした。
+スライドを公開する際に動画は別のところにアップロードしないといけないのがすこしつらい。&lt;/p&gt;
+
+&lt;p&gt;Swiftのコードを書いていて思ったことは、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ブロック構文がなかなか書きなれない&lt;/li&gt;
+&lt;li&gt;変数宣言で型から書きそうになる&lt;/li&gt;
+&lt;li&gt;なぜか&lt;code&gt;［&lt;/code&gt;を入力してしまう&lt;/li&gt;
+&lt;li&gt;なるべつ let で済ませたい病&lt;/li&gt;
+&lt;li&gt;selector 補完効かない。つらい。(文字列で渡すから当たり前)&lt;/li&gt;
+&lt;li&gt;ヘッダファイルいらないヒャッハー&lt;/li&gt;
+&lt;li&gt;CGFloat が絡む数値計算なんかよくわからない(すぐ型エラーに阻まれる)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などなどでしょうか。(咄嗟に思いついたものだけ書いた)&lt;/p&gt;
+
+&lt;p&gt;UIDynamics で ビヘイビアのインスタンスを節約しようとするとランタイムエラーではまったりしたのも良い思い出です。アニメータごとにインスタンスをつくりましょう。&lt;/p&gt;
+
+&lt;p&gt;Viewを触れるようにしてみたけど、移動したViewは元の位置にもどるという残念な結果にもなりました。&lt;/p&gt;
+
+&lt;p&gt;最後になりますが、調整するのに&lt;a href=&#34;https://bauhaus-web.jp/&#34;&gt;BAUHAUS&lt;/a&gt;の&lt;a href=&#34;https://twitter.com/uehaso&#34;&gt;上原さん&lt;/a&gt;や&lt;a href=&#34;http://funaffect.jp/&#34;&gt;ファナフェクト&lt;/a&gt;の方々にアドバイスをちょろっともらったりしました。さんきゅーです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発で とある我馬の非公式というLTをした</title>
+          <link>http://blog.eiel.info/blog/2014/08/02/gaba-ltdd/</link>
+          <pubDate>Sat, 02 Aug 2014 11:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/08/02/gaba-ltdd/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA06&#34;&gt;LT駆動開発06&lt;/a&gt; でライトニングトークをした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.gaba-2000.com/&#34;&gt;我馬&lt;/a&gt;というラーメン屋のウェブサイトが更新情報のフィード配信してないので、勝手に応援しているという話をしました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gaba.eiel.info/&#34;&gt;とある我馬の非公式(ファンサイト)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;af32c140fc3e01312f2926529f74da74&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;折角なのでフィードの存在を知らない人もいるかもしれないので、簡単に説明しつつ、どうやってフィードをつくったのか説明しました。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、季節のラーメンはアツいので広島には3ヶ月に一度程度いらっしゃると良いと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:77a32f3198ef37442d00c5e329cdbc18&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gaba.eiel.info/&#34;&gt;とある我馬の非公式(ファンサイト)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.gaba-2000.com/&#34;&gt;我馬&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/gaba&#34;&gt;eiel/gaba · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/gaba.eiel.info&#34;&gt;eiel/gaba.eiel.info · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>通知環境としてidobataを試した話をLT駆動開発04でした</title>
+          <link>http://blog.eiel.info/blog/2014/06/07/notification-development/</link>
+          <pubDate>Sat, 07 Jun 2014 23:34:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/06/07/notification-development/</guid>
+          <description>
+
+&lt;p&gt;今月も&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA04&#34;&gt;LT駆動開発04&lt;/a&gt;でライトニングトークしてきました。&lt;/p&gt;
+
+&lt;p&gt;結構今回雑…。喋りもグダってた。見直しとか、リハっぽいこともしてないから…。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;b2e78510d07b0131bebd268a39862ac0&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://circleci.com/&#34;&gt;CircleCI&lt;/a&gt;の通知をしたいなーってことで &lt;a href=&#34;https://idobata.io/&#34;&gt;idobata&lt;/a&gt; のクライアント使えばできそうなので、 &lt;a href=&#34;https://hubot.github.com/&#34;&gt;hubot&lt;/a&gt; をつかって idobata に情報を送信してみたよ!という話をしました。&lt;/p&gt;
+
+&lt;p&gt;なんか開発で BOT を使うの良さってのがやっとわかってきたので、その話もちらっとした気がします。しかし、中身がないな…。&lt;/p&gt;
+
+&lt;p&gt;気になってるのは CircleCI の Web Hook から飛んでくるJSONの情報が整理されてなくて調べるのがめんどくさいなーって思ってたりします。なんかライブラリはないのだろうか。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:fdd903ceba3839837355b0b2f8cef221&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/05/27/message-send-from-hubot-httpd-to-idobata/&#34;&gt;hubot で起動しているウェブサーバを経由して idobata へ投稿してみる&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発03で「S3にスライドを保存することにした」という発表者をしてきた。</title>
+          <link>http://blog.eiel.info/blog/2014/05/03/ltdd-03-s3/</link>
+          <pubDate>Sat, 03 May 2014 23:29:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/05/03/ltdd-03-s3/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA03&#34;&gt;LT駆動開発03&lt;/a&gt; でLTをしてきました。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;0917d000b4c40131d8ee7625813d8974&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;最近、本当にSSDの容量不足が深刻で仮想マシンなんて作った日にはさっさと用事を済ませて消さないとやばい状態が続いています。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、滅多に使うことのないけど、残しておいたら役に立ちそうなファイルはS3に保存してみることにしました。
+それだけだとつまらないので、ついでに一般公開しました。&lt;/p&gt;
+
+&lt;p&gt;index.html を作るのに手動で作るのはめんどくさいので、
+S3のバケットに保存しているオブジェクトの一覧をAPI経由で取得して、この情報を元に index.html を作成して、アップロードして、静的サイトとして公開しています。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;一覧の取得&lt;/li&gt;
+&lt;li&gt;index.html の作成&lt;/li&gt;
+&lt;li&gt;index.html のアップロード&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;を自動化しています。&lt;/p&gt;
+
+&lt;p&gt;実際のページとソースコードはこちらに。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://keynotes.eiel.info/&#34;&gt;http://keynotes.eiel.info/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/keynotes-eiel&#34;&gt;GitHub - eiel/keynotes-eiel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;S3を使った静的サイトの運用もちょっと試してみたかったので良い機会でした。まだ、調査が必要そうですけども。&lt;/p&gt;
+
+&lt;p&gt;自動化はしていない部分であるスライドのアップロードには &lt;a href=&#34;http://s3tools.org/s3cmd&#34;&gt;s3cmd&lt;/a&gt; を利用しています。&lt;/p&gt;
+
+&lt;p&gt;後半はHaskellの話です。
+HaskellのAWSのAPIを叩くには &lt;a href=&#34;https://hackage.haskell.org/package/aws&#34;&gt;aws&lt;/a&gt; ライブラリを使用しました。他にも &lt;a href=&#34;https://hackage.haskell.org/package/aws-sdk&#34;&gt;aws-sdk&lt;/a&gt; というライブラリもあるようですが、対応しているサービスが違っているようでした。&lt;/p&gt;
+
+&lt;p&gt;元々 Ruby を使ってつくってたのですが、なんとなく理由もなく Haskell でやりたくなってHaskellでやってみましたが、意外と簡単にできました。
+Haskell 良いですね。&lt;/p&gt;
+
+&lt;p&gt;あとレコード型が実に使いこなせてないことに気づいたので勉強してこようと思いました。&lt;/p&gt;
+
+&lt;p&gt;まだ、 keynotes.eiel.info に特化しているのでそのうち汎用性を上げたいと思います。&lt;/p&gt;
+
+&lt;p&gt;スライドですが、&lt;a href=&#34;http://memo.sanographix.net/post/82160791768&#34;&gt;azusa テンプレート&lt;/a&gt;をかなり参考にさせていただきました。
+というか、色は少し自分好みに変えただけですね。
+赤はもうちょっと明るい色を使うほうがいいなって思う反省点がありました。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、今日はこの辺で。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連リンク:b3783079e786d24bd78477f1a8b31e09&#34;&gt;関連リンク&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/02/19/start-ltdd/&#34;&gt;LT駆動開発という勉強会をはじめるよ - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/hakyll/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-01-06 15:45:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>pandocのインストールに失敗する</title>
+          <link>http://blog.eiel.info/blog/2014/01/06/failure-install-pandoc/</link>
+          <pubDate>Mon, 06 Jan 2014 15:45:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/01/06/failure-install-pandoc/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://jaspervdj.be/hakyll/&#34;&gt;hakyll&lt;/a&gt; のアップデートしてたら pandoc のビルドにこけた。&lt;/p&gt;
+
+&lt;p&gt;エラーの内容は下記のとおり。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;src/Text/Pandoc/Readers/Haddock/Lex.x:149:46:
+    Couldn&#39;t match type `(AlexPosn, Char, String)&#39;
+                  with `(AlexPosn, t0, t1, [Char])&#39;
+    Expected type: (AlexPosn, t0, t1, [Char])
+      Actual type: AlexInput
+    In the first argument of `go&#39;, namely inp&#39;
+    In the expression: go inp&#39; sc
+    In a case alternative: AlexSkip inp&#39; len -&amp;gt; go inp&#39; sc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ぐぐったら以下が出てきた&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jgm/pandoc/issues/815&#34;&gt;https://github.com/jgm/pandoc/issues/815&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;というわけで下記を実行してみた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cabal install alex
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;再度 install してみたら成功した。&lt;/p&gt;
+
+&lt;p&gt;失敗したファイルが &lt;code&gt;*.x&lt;/code&gt; なファイルだけどコンパイル前に alex で処理されるんだろうか…よくわからない。そのうち調べたい。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>広島Ruby勉強会 #031 で 「Hakyllで遊んだ」のでざくっと紹介した。</title>
+          <link>http://blog.eiel.info/blog/2013/04/07/hiroshimarb-31/</link>
+          <pubDate>Sun, 07 Apr 2013 01:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/04/07/hiroshimarb-31/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://hiroshimarb.github.io/blog/2013/04/06/hiroshimarb-31/&#34;&gt;広島Ruby勉強会 #031&lt;/a&gt; で かるくLT しました。&lt;/p&gt;
+
+&lt;p&gt;内容は &lt;a href=&#34;http://jaspervdj.be/hakyll/&#34;&gt;Hakyll&lt;/a&gt; についてです。&lt;/p&gt;
+
+&lt;p&gt;なのですが、Rubyのリファレンスからメソッドの紹介をしているのですが、今回は ActiveSupport で追加される メソッド。Array 編をしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://railsdoc.eiel.info/&#34;&gt;その資料はこちらに。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;この資料をどこにどうやって置こうかな？と思っていたので、ついでにHakyllを試してみました。そこで学んだこととかを紹介しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/18303056&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;http://www.slideshare.net/TomohikoHimura/hakyll-18303056&#34; title=&#34;Hakyllで遊んでみた。&#34; target=&#34;_blank&#34;&gt;Hakyllで遊んでみた。&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;このサイトのソースコードは &lt;a href=&#34;https://github.com/eiel/railsdoc.eiel.info&#34;&gt;Github&lt;/a&gt; に丸投げしていたりします。&lt;/p&gt;
+
+&lt;p&gt;このスライドに書いてないことでは、コンパイルを毎回するのがめんどくさかったので、ghci から 引数付きで main 関数を実行する方法を調べました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;System.Environment&lt;/code&gt; に定義されてる &lt;code&gt;withArgs&lt;/code&gt; を使えばできました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;withArgs :: [String] -&amp;gt; IO a -&amp;gt; IO a&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;利用例:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;withArgs [&amp;quot;build&amp;quot;] main
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第1引数にコマンド引数をリストで渡してしまえば、良いようです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

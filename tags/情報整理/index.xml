@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E6%83%85%E5%A0%B1%E6%95%B4%E7%90%86/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-03-13 00:57:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Wikiやメモをかくときに考えてること</title>
+          <link>http://blog.eiel.info/blog/2013/03/13/how-to-write-note/</link>
+          <pubDate>Wed, 13 Mar 2013 00:57:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/03/13/how-to-write-note/</guid>
+          <description>
+
+&lt;p&gt;私がメモをとるときに意識してることを書いておきたいと思います。&lt;/p&gt;
+
+&lt;p&gt;といっても、大したことではないです。&lt;/p&gt;
+
+&lt;p&gt;Wiki を書くときのポリシーについて、書こうと思ったのですが、こういう形に落ちつきました。&lt;/p&gt;
+
+&lt;p&gt;最初に一言でまとめておきます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ログ&lt;/code&gt;を書いているのか &lt;code&gt;まとめ&lt;/code&gt;を書いているのか を意識する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;物事を整理するには、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;情報収集&lt;/li&gt;
+&lt;li&gt;まとめる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という2段階のプロセスを踏みます。
+情報収集のアウトプットが&lt;code&gt;ログ&lt;/code&gt;で、まとめることのアウトプットが&lt;code&gt;まとめ&lt;/code&gt;です。&lt;/p&gt;
+
+&lt;h2 id=&#34;なんのためにメモをとるんだっけ:18bdf0f5c1da7dbff222ae84d2033eea&#34;&gt;なんのためにメモをとるんだっけ？&lt;/h2&gt;
+
+&lt;p&gt;忘れても大丈夫なようにするためです。&lt;/p&gt;
+
+&lt;p&gt;決めたことの証拠にもなります。&lt;/p&gt;
+
+&lt;h2 id=&#34;ログ-とは:18bdf0f5c1da7dbff222ae84d2033eea&#34;&gt;&lt;code&gt;ログ&lt;/code&gt; とは&lt;/h2&gt;
+
+&lt;p&gt;時系列順に並んだメモです。&lt;/p&gt;
+
+&lt;p&gt;時系列に並んでいなくてもいいですが、時系列に並んでるほうが扱いやすいです。
+&lt;code&gt;ログ&lt;/code&gt;は基本的に一度書いたものは、変更しません。忘れても大丈夫でないと困るからです。変更されてしまうと、変更前の情報がわかりません。&lt;/p&gt;
+
+&lt;p&gt;人の話を聞いたり、読書メモをとったりするのに、マインドマップのようなものを使っていたこともあるのですが、正直間に合いません。スペースが足りません。
+なので、時系列順というのは書きやすいです。
+また、時系列順であれば見直す場合も読みやすいです。&lt;/p&gt;
+
+&lt;p&gt;紙にメモをしている場合であれば、矢印をつけたり、色をつけたりをしても良いかもしれませんが、迷うようであればあとまわしにしています。&lt;/p&gt;
+
+&lt;p&gt;一時期、メモをとるのに工夫をしすぎていて、
+メモの最中にあとでわかりやすいよに文章の位置を入れかえたり、などなど
+していてとメモが取れる量が減ってしまったりしました。
+そうすると、必然的に重要なことだけメモろうとなります。
+でも、なにが重要なのかその場で判断できないことのほうが多く、真っ白なままのノートができたりします。&lt;/p&gt;
+
+&lt;p&gt;もともと何かのまとめであったものが、ログになる場合もあります。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ-とは:18bdf0f5c1da7dbff222ae84d2033eea&#34;&gt;&lt;code&gt;まとめ&lt;/code&gt; とは&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;まとめ&lt;/code&gt;は必要な情報が必要な時にすぐに取り出せるようにしている情報です。使いやすくなるように工夫したりしましょう。
+忘れた事を思い出すためのショートカットです。大事なことだけ伝えるためのショートカットにもなります。&lt;/p&gt;
+
+&lt;p&gt;一度書いたあとも何度も何度も修正していくこともあります。
+&lt;code&gt;ログ&lt;/code&gt;さえあれば&lt;code&gt;まとめ&lt;/code&gt;を再構築できるはずなのでどんどん修正できます。&lt;/p&gt;
+
+&lt;p&gt;書式は様々です。Wikiであったり、blogであったり、マインドマップだったり適材適所です。&lt;/p&gt;
+
+&lt;p&gt;修正されなくなったまとめはログとして再利用される場合があると思います。&lt;/p&gt;
+
+&lt;h2 id=&#34;ログ-と-まとめ:18bdf0f5c1da7dbff222ae84d2033eea&#34;&gt;&lt;code&gt;ログ&lt;/code&gt;と&lt;code&gt;まとめ&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;頻繁に閲覧することになるのは &lt;code&gt;まとめ&lt;/code&gt; です。
+利便性のためにまとめはあるため、時折、修正を行い利便性を維持する必要があります。
+結果、修正をしていくうちに、その結論にいたった理由や情報が失われる恐れがあります。これを補完するためにログが必要になります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ログ&lt;/code&gt;は情報が失われていませんので、&lt;code&gt;ログ&lt;/code&gt;があればすべてがわかります。
+時系列に並んでいればどうしてそういう結論になったのか追いやすいです。
+しかし、&lt;code&gt;ログ&lt;/code&gt; は情報量が &lt;code&gt;まとめ&lt;/code&gt; に比べて多いです。ノイズも多いです。
+ログをすべて追うには時間がかかります。
+必要な情報が分散していれば、いったりきたりしたりすることにもなります。
+このために&lt;code&gt;まとめ&lt;/code&gt;が必要になります。&lt;/p&gt;
+
+&lt;p&gt;まとめは過程が欠落してしまい、ログは長すぎるのです。&lt;/p&gt;
+
+&lt;p&gt;ということで、覚えておかなければならないことがあるのであれば。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ログ&lt;/code&gt;があるなら&lt;code&gt;まとめ&lt;/code&gt;をかいて、より便利に。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ログ&lt;/code&gt;がないのであれば&lt;code&gt;ログ&lt;/code&gt;を作る。でないと&lt;code&gt;まとめ&lt;/code&gt;が書けない、なおせない。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ということになります。&lt;/p&gt;
+
+&lt;h2 id=&#34;wikiをかくときのこと:18bdf0f5c1da7dbff222ae84d2033eea&#34;&gt;Wikiをかくときのこと&lt;/h2&gt;
+
+&lt;p&gt;Wiki はどちらかというと &lt;code&gt;まとめ&lt;/code&gt;を書くのに適したツールです。
+リンクを貼ることもできるので、&lt;code&gt;ログ&lt;/code&gt;へのリンクを用意しておくと良いです。
+必要な情報が取り出しやすいようにメンテナンスもしましょう。&lt;/p&gt;
+
+&lt;p&gt;また、&lt;code&gt;ログ&lt;/code&gt;がない情報もあるかもしれません。
+&lt;code&gt;ログ&lt;/code&gt;なのか、そうでないかでページをわけていきましょう。
+同じ情報でも、別々に記述する場合があります。
+まとめのほうは更新するのでなくなる可能性がありますし、
+&lt;code&gt;ログ&lt;/code&gt;のほうはそのまま残ります。
+Wiki自体に履歴、差分機能があれば、気にしなくてよいかもしれません。&lt;/p&gt;
+
+&lt;p&gt;Wikiの場合はページあたりの情報量も意識するようにしています。
+1ページあたりの情報がおおくなってきたら、別のページに分割します。
+プログラミングで、長い関数を複数の短い関数に分離するのと同じ感覚です。
+&lt;code&gt;ログ&lt;/code&gt;さえきっちりしていれば、書き換えることに不安はないはずです。&lt;/p&gt;
+
+&lt;h2 id=&#34;サイボウズ-live-をかくときのこと:18bdf0f5c1da7dbff222ae84d2033eea&#34;&gt;サイボウズ live をかくときのこと&lt;/h2&gt;
+
+&lt;p&gt;サイボウズ live では 掲示板ではトピックを作り、議論することができます。
+コメントは必然的に時系列に並びます。会話形式表示もできます。
+ログとして使いやすいです。&lt;/p&gt;
+
+&lt;p&gt;また、トピックの本文は修正することができます。
+修正した際に通知することもできますので、これをまとめに使っています。&lt;/p&gt;
+
+&lt;h2 id=&#34;メールで議論をしている場合:18bdf0f5c1da7dbff222ae84d2033eea&#34;&gt;メールで議論をしている場合&lt;/h2&gt;
+
+&lt;p&gt;メールはログです。&lt;/p&gt;
+
+&lt;p&gt;まとめを書いたあとにレスがついたりすると、カオスです。
+過去のメールを頻繁に確認するようになりはじめたら、
+どこか別のところにまとめるようにしています。
+成果物がまとめになる場合もあります。&lt;/p&gt;
+
+&lt;h2 id=&#34;blog:18bdf0f5c1da7dbff222ae84d2033eea&#34;&gt;blog&lt;/h2&gt;
+
+&lt;p&gt;blog は書くときはまとめですが、公開後は今後、ログとして再利用するつもりでいます。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:18bdf0f5c1da7dbff222ae84d2033eea&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;書いてみたら非常に当たり前な感じになりました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ログ&lt;/code&gt;を書いているときは、情報を取り零さないように集中します。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;まとめ&lt;/code&gt;を書いてるときは、より便利に見易くなるように表現方法を工夫します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2ちゃんねるなんかでも、スレの最初にこれまでのまとめがありますね。今北産業なんかは中間のまとめですね。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ログ&lt;/code&gt;は単に時系列にかくだけでなく、カテゴリ分けされる場合もあります。
+このあたりはセンスが問われますが、追う際に一本道になるようになっていると読みやすいです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

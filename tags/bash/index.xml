@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/bash/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-11-25 11:23:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>部分一致 - Bash</title>
+          <link>http://blog.eiel.info/blog/2012/11/25/match-partial-bash/</link>
+          <pubDate>Sun, 25 Nov 2012 11:23:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/25/match-partial-bash/</guid>
+          <description>&lt;p&gt;シェルスクリプトで部分一致を確認したい場合どうするんだろーっと思って考えた結果 grep の終了ステータスで確認すればいいんじゃないかということで。以下のように書いた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;search_term=&amp;quot;openssl&amp;quot;
+target=&amp;quot;openssl-1.0.0&amp;quot;
+
+if echo $target | grep &amp;quot;$search_Term&amp;quot; &amp;gt; /dev/null; then
+  echo &amp;quot;goro&amp;quot;
+fi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;せっかくなので簡単に解説&lt;/p&gt;
+
+&lt;p&gt;shellの if は終了ステータスに応じて分岐します。
+終了ステータスは $? に代入されています。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;echo $target | grep &amp;quot;$search_Term&amp;quot; &amp;gt; /dev/null; echo $?&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;とすればどんなステータスを返すのか確認できます。
+grep は match しなければ 終了ステータス 1 を返すので 確認したい文字を流し込んでチェックして、余計な内容を表示しないように /dev/nullにリダイレクトしてます。&lt;/p&gt;
+
+&lt;p&gt;もっと良い方法があれば教えていただきたい。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

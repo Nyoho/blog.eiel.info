@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/gentoo-prefix/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-01-14 23:26:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Gentoo Prefix 環境で git がビルドできないので bug報告してみた</title>
+          <link>http://blog.eiel.info/blog/2013/01/14/write-patch-gentoo-prefix-of-git/</link>
+          <pubDate>Mon, 14 Jan 2013 23:26:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/14/write-patch-gentoo-prefix-of-git/</guid>
+          <description>
+
+&lt;p&gt;結構前からわかっていたんだけども、&lt;a href=&#34;http://www.gentoo.org/proj/en/gentoo-alt/prefix/&#34;&gt;Gentoo Prefix&lt;/a&gt; on Mac OSX で USE=&amp;ldquo;subversion&amp;rdquo; していると gitのビルドに失敗していた。
+なので、ビルドできるようにして、パッチを書いて &lt;a href=&#34;https://bugs.gentoo.org/&#34;&gt;Gentoo Bugzila&lt;/a&gt; へバグ報告してみた。&lt;/p&gt;
+
+&lt;p&gt;Gentoo Prefix というのは Gentoo Linuxのパッケージ管理である portage を /以外のところにインストールしていろんな環境で利用できるようにしているものです。役割的には MacPorts や Homebrew と同じように Mac で Unixツールをインストールするのに利用しています。&lt;/p&gt;
+
+&lt;h2 id=&#34;どんなエラーがでていたか:a09383aa04f644d1924730a9dad2aa4c&#34;&gt;どんなエラーがでていたか&lt;/h2&gt;
+
+&lt;p&gt;USE=&amp;ldquo;subversion&amp;rdquo; emerge gitすると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    LINK svn-fe
+Undefined symbols for architecture x86_64:
+  &amp;quot;_libintl_ngettext&amp;quot;, referenced from:
+      _show_date_relative in libgit.a(date.o)
+  &amp;quot;_libintl_gettext&amp;quot;, referenced from:
+      _show_date_relative in libgit.a(date.o)
+      _warn_on_inaccessible in libgit.a(wrapper.o)
+      _xgetpwuid_self in libgit.a(wrapper.o)
+ld: symbol(s) not found for architecture x86_64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;svn-fe をビルドに失敗していました。&lt;/p&gt;
+
+&lt;p&gt;いろいろ調べてみると OSX 上では -lintl をつければビルドできることがわかりました。git をビルドするための Makefile はかなり凝ったものが使われてるのですが、その判定が svn-fe の Makefile にないため -lintl が自動でついていませんでした。&lt;/p&gt;
+
+&lt;h2 id=&#34;どんなパッチをかいたか:a09383aa04f644d1924730a9dad2aa4c&#34;&gt;どんなパッチをかいたか&lt;/h2&gt;
+
+&lt;p&gt;CHOST で darwin がある場合 contrib/svn-fe/Makefile をかきかえるようなその場しのぎでかいてみました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;diff --git a/dev-vcs/git/git-1.8.1.ebuild b/dev-vcs/git/git-1.8.1.ebuild
+index 1bfa55a..3338847 100644
+--- a/dev-vcs/git/git-1.8.1.ebuild
++++ b/dev-vcs/git/git-1.8.1.ebuild
+@@ -241,6 +241,12 @@ src_prepare() {
+                -e &#39;/$(INSTALL)/s/ $(libexecdir)/ $(DESTDIR)$(libexecdir)/g&#39; \
+                -e &#39;/$(INSTALL)/s/ $(man1dir)/ $(DESTDIR)$(man1dir)/g&#39;  \
+                contrib/subtree/Makefile
++
++       if [[ $CHOST == *-darwin* ]]; then
++               sed -i \
++               -e &#39;s:EXTLIBS =:EXTLIBS = -lintl:&#39; \
++               contrib/svn-fe/Makefile
++       fi
+ }
+ 
+ git_emake() {
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;いろいろみていると &lt;code&gt;sed -i&lt;/code&gt; で改行を入れてから sed の命令をかいていくスタイルが多いのでそれに従いました。&lt;/p&gt;
+
+&lt;h2 id=&#34;どこに投稿したか:a09383aa04f644d1924730a9dad2aa4c&#34;&gt;どこに投稿したか&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://bugs.gentoo.org/show_bug.cgi?id=452044#c0&#34;&gt;https://bugs.gentoo.org/show_bug.cgi?id=452044#c0&lt;/a&gt; に登録されています。
+登録方法は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;アカウントを作成&lt;/li&gt;
+&lt;li&gt;new をクリック&lt;/li&gt;
+&lt;li&gt;Gentoo/Alt をクリック&lt;/li&gt;
+&lt;li&gt;類似バグがないか検索&lt;/li&gt;
+&lt;li&gt;component は Prefix Support を選択&lt;/li&gt;
+&lt;li&gt;Opereting System は OS X を選択&lt;/li&gt;
+&lt;li&gt;summaryとdescription を記述&lt;/li&gt;
+&lt;li&gt;登録&lt;/li&gt;
+&lt;li&gt;パッチを追加&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という感じでした。&lt;/p&gt;
+
+&lt;p&gt;component には Mac OSX という項目がありますが、&lt;code&gt;DEAD. Do not use. See bug #214926.&lt;/code&gt;の表示され、*使用するな!*ということみたいなので Prefix Support を選択しました。&lt;/p&gt;
+
+&lt;h2 id=&#34;他に学んだこと:a09383aa04f644d1924730a9dad2aa4c&#34;&gt;他に学んだこと&lt;/h2&gt;
+
+&lt;h3 id=&#34;emereg-file名-で-emerge-するには:a09383aa04f644d1924730a9dad2aa4c&#34;&gt;emereg &lt;em&gt;file名&lt;/em&gt; で emerge するには&lt;/h3&gt;
+
+&lt;p&gt;manifest が再計算されている必要があるようです。&lt;/p&gt;
+
+&lt;p&gt;ebuild があるディレクトリで&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;repoman digest&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;または&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ebuild &lt;em&gt;file名&lt;/em&gt; digest&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;で再計算されます。&lt;/p&gt;
+
+&lt;p&gt;また、ebuild ファイルは PORTDIR_OVERLAY を指定したディレクトリにいれておかないとダメみたいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;emergeの特定ステップのみ実行する:a09383aa04f644d1924730a9dad2aa4c&#34;&gt;emergeの特定ステップのみ実行する&lt;/h3&gt;
+
+&lt;p&gt;書いたpatch は prepare というコンパイルをはじめる前の段階に処理を追加しています。
+なので パッチの動作確認だけであれば、そこまでで十分です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ebuild &lt;em&gt;file名&lt;/em&gt; prepare&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;とすれば、そこまで処理することができます。
+また、prepareが成功しているともう一度実行することができないので、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ebuild &lt;em&gt;file名&lt;/em&gt; clean&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;をした上で実行しないと反映されませんでした。
+また、 ebuild を書き換えると&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ebuild &lt;em&gt;file名&lt;/em&gt; digest&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;の実行が必要になります。これらをまとめて実行するには&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ebuild &lt;em&gt;file名&lt;/em&gt; digest clean prepare&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;とすればいいことがわかりました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/jenkins/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-07-23 11:45:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Mac で jenkins</title>
+          <link>http://blog.eiel.info/blog/2013/07/23/jenkins-on-mac/</link>
+          <pubDate>Tue, 23 Jul 2013 11:45:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/07/23/jenkins-on-mac/</guid>
+          <description>
+
+&lt;p&gt;Mac で ローカルに「すごい cron」的に使うために Jenkins を入れて遊んでいます。
+その辺の理由は &lt;a href=&#34;http://blog.eiel.info/blog/2013/07/08/hiroshimarb-32/&#34;&gt;広島Ruby勉強会 #32&lt;/a&gt; でも話しました。&lt;/p&gt;
+
+&lt;p&gt;特に動作に関連する点で気になった部分をメモしておきます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;アップデートの方法&lt;/li&gt;
+&lt;li&gt;再起動する方法&lt;/li&gt;
+&lt;li&gt;Jenkins を止める方法&lt;/li&gt;
+&lt;li&gt;日本語が化けるのを直す&lt;/li&gt;
+&lt;li&gt;127.0.0.1 でのみアクセス可能にする&lt;/li&gt;
+&lt;li&gt;実行ユーザの変更&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;インストールには Native Package を利用しました。
+&lt;a href=&#34;http://jenkins-ci.org/&#34;&gt;http://jenkins-ci.org/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;アップデートの方法:6356b0d1136fba0dd76a225c8face55d&#34;&gt;アップデートの方法&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;/Applacations/Jenkins/jenkins.war&lt;/code&gt; を差し替えて、再起動すればOK。
+最新版がある場合は「Jenkinsの管理」の画面にリンクがあるので簡単にダウンロードできます。&lt;/p&gt;
+
+&lt;h3 id=&#34;jenkins-を再起動する:6356b0d1136fba0dd76a225c8face55d&#34;&gt;Jenkins を再起動する&lt;/h3&gt;
+
+&lt;p&gt;プラグインのインストールした時に再起動するを選択できるけど再起動しない。これは私の環境なのかもしれませんが、よくわかりません。&lt;/p&gt;
+
+&lt;p&gt;仕方ないのでシャットダウンの準備ができてる状態にして、プロセスを kill しています。
+あとは &lt;code&gt;launchd&lt;/code&gt; が自動的に起動してくれます。
+「Activity Moniter」で java を検索して kill するのが一般的でしょうか。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;launchd&lt;/code&gt; をunload して loadしてもよいです。
+その場合は以下のようにします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
+sudo launchctl   load /Library/LaunchDaemons/org.jenkins-ci.plist
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;jenkins-を止める方法:6356b0d1136fba0dd76a225c8face55d&#34;&gt;Jenkins を止める方法&lt;/h3&gt;
+
+&lt;p&gt;Native Package でインストールすると launchd に登録され、起動時に自動的に起動するようになります。&lt;/p&gt;
+
+&lt;p&gt;これを止めるには以下のコマンドを使います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;アンインストールしようとして &lt;code&gt;/Applications/Jenkins&lt;/code&gt; を捨ててしまうと、launchd が jenkins を起動しようとするため、エラーが黙々とログに溜まります。&lt;/p&gt;
+
+&lt;h3 id=&#34;日本語が化けるのを直す:6356b0d1136fba0dd76a225c8face55d&#34;&gt;日本語が化けるのを直す&lt;/h3&gt;
+
+&lt;p&gt;出力にある日本語が化けてたので、 file.encoding=UTF-8 を設定しました。
+&lt;code&gt;/Library/Application Support/Jenkins/jenkins-runner.sh&lt;/code&gt; を編集します。
+javaArgs の初期値に追加しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;javaArgs=&amp;quot;-Dfile.encoding=UTF-8&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;本当はこのファイルを書き換えたくないけど、妙案が浮かばなかった。
+アップデートする際に書き換えるファイルが &lt;code&gt;jenkins.war&lt;/code&gt; なので気にしないことにした。&lt;/p&gt;
+
+&lt;h3 id=&#34;127-0-0-1-でのみアクセス可能にする:6356b0d1136fba0dd76a225c8face55d&#34;&gt;127.0.0.1 でのみアクセス可能にする&lt;/h3&gt;
+
+&lt;p&gt;このままだと 同じネットワーク上にいる人がアクセスできてしまう。
+セキュリティ設定しないと、Jenkinsの性質上、相手に好きなようにローカルPC を操作されてしまいます。&lt;/p&gt;
+
+&lt;p&gt;自分だけアクセスできるようにします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo touch /Library/Preferences/org.jenkins-ci
+sudo defaults write /Library/Preferences/org.jenkins-ci httpListenAddress -string 127.0.0.1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;起動スクリプトが httpListenAddress を defaults で設定しておくと読むようになっています。他にも ポート変更などができます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.jenkins-ci.org/display/JENKINS/Thanks+for+using+OSX+Installer&#34;&gt;参考: Jenkins Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;認証を付けるという手もあると思いますが、こちらのほうが安全だし、ログインの手間がありません。&lt;/p&gt;
+
+&lt;h3 id=&#34;実行ユーザの変更:6356b0d1136fba0dd76a225c8face55d&#34;&gt;実行ユーザの変更&lt;/h3&gt;
+
+&lt;p&gt;cron の代わりに利用しているため、自分の権限で仕事してくれないと困る場面があります。
+あまり良くはないですが、仕方なく変更しています。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;launchd&lt;/code&gt; で実行ユーザを指定できるので、&lt;code&gt;/Library/LaunchDaemons/org.jenkins-ci.plist&lt;/code&gt; を編集します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;key&amp;gt;UserName&amp;lt;/key&amp;gt;
+&amp;lt;string&amp;gt;ユーザ名&amp;lt;/string&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;の部分を編集します。&lt;/p&gt;
+
+&lt;p&gt;あとは &lt;code&gt;JENKINS_HOME&lt;/code&gt; に設定しているディレクトリの所有者が違うのであれば、変更しておきましょう。&lt;/p&gt;
+
+&lt;p&gt;「日本語が化けるのを直す」のところと同様にあまりいじりたくないですが、気にしないことにしました。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ的な:6356b0d1136fba0dd76a225c8face55d&#34;&gt;まとめ的な&lt;/h3&gt;
+
+&lt;p&gt;メモリやらCPUパワーがあまってないマシンではおすすめできませんが、それなりに便利です。
+とりあえず試しておくのに、知っておきたくなりそうな情報を混じえながら個人的なメモをまとめてみました。
+使い方がわかってきたらチームのワークフローに混ぜていきたいところですね。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>広島Ruby勉強会 #32 で 発表したこと - ActiveSupport, jenkins</title>
+          <link>http://blog.eiel.info/blog/2013/07/08/hiroshimarb-32/</link>
+          <pubDate>Mon, 08 Jul 2013 01:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/07/08/hiroshimarb-32/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://hiroshimarb.github.io/blog/2013/07/06/hiroshimarb-32/&#34;&gt;広島Ruby勉強会 #032&lt;/a&gt; で、紹介したこととか、喋ったこととかまとめときます。&lt;/p&gt;
+
+&lt;p&gt;広島Ruby勉強会の各発表は &lt;a href=&#34;https://github.com/hiroshimarb/hiroshimarb.github.com/wiki/2013%E5%B9%B47%E6%9C%88%E3%81%AE%E6%B4%BB%E5%8B%95&#34;&gt;Github の Wiki&lt;/a&gt; に整理されてます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Rails のソースコード読んでるので面白そうなメソッドを紹介する - ActiveSupport Core Ext&lt;/li&gt;
+&lt;li&gt;すごい cron - Jenkins を試した&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://eielh-life.tumblr.com/post/54757403133/ruby-032&#34;&gt;勉強会自体の感想は別のところに書きました。&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;rails-のソースコード読んでるので面白そうなメソッドを紹介する-activesupport:bfbd4dd489d31bf77dd16b4d8e7e3033&#34;&gt;Rails のソースコード読んでるので面白そうなメソッドを紹介する - ActiveSupport&lt;/h2&gt;
+
+&lt;p&gt;ここ最近は&lt;a href=&#34;https://github.com/eiel/railsdoc.eiel.info/commits/master&#34;&gt;ほぼ毎日 Rails のソースコードを読んで簡単にメモをとっています。&lt;/a&gt;います。
+概ね毎日サボらずやれております。&lt;/p&gt;
+
+&lt;p&gt;この内容は &lt;a href=&#34;http://railsdoc.eiel.info/&#34;&gt;railsdoc.eiel.info&lt;/a&gt; で垂れ流しています。&lt;/p&gt;
+
+&lt;p&gt;まずは、ActiveSupport から攻めています。特に Core Ext の部分を読んでいます。ということで、4月から6月の間に読んだものの中で、適当に抜粋して紹介しました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://railsdoc.eiel.info/hiroshimarb/32/&#34;&gt;内容はこちら&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;その他には読んでいて気がついたことを残しています。&lt;/p&gt;
+
+&lt;h2 id=&#34;すごい-cron-jenkins-を試した:bfbd4dd489d31bf77dd16b4d8e7e3033&#34;&gt;すごい cron - Jenkins を試した&lt;/h2&gt;
+
+&lt;p&gt;ローカルに Jenkins インストールして、これ cron の代わりに使えることに気づいたので、使用してみました。
+その中で気づいたことや問題点についてお話をしました。
+おまけで ruby 関連の Jenkins の Plugin についてわかったことを話しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/23971945&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;http://www.slideshare.net/TomohikoHimura/jenkins-23971945&#34; title=&#34;すごい cron ? - Jenkins 試した&#34; target=&#34;_blank&#34;&gt;すごい cron ? - Jenkins 試した&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;具体的な設定方法は まだ公開してないです。ごめんなさい。
+また時間をとって書きたいと思います。&lt;/p&gt;
+
+&lt;p&gt;しかし、cron として使うにはメモリを食いすぎるので、Local に Jenkins が欲しくなったら…ぐらいで丁度いいかもしれません。&lt;/p&gt;
+
+&lt;p&gt;そもそも Jenkins を導入した動機ですが、実行に10分ぐらいかかるテストがあって、これを独立して実行したかったからです。
+あと、失敗したテストの一覧を残しておきかったからです。&lt;/p&gt;
+
+&lt;p&gt;というわけで、広島Ruby勉強会 は自由に発表の練習するところになりつつあります。気軽に何か発表しにいきましょう。&lt;/p&gt;
+
+&lt;p&gt;次回は &lt;a href=&#34;http://partake.in/events/9dacdbfc-8acf-4968-a0eb-5327a6937b7d#&#34;&gt;8月3日&lt;/a&gt; だそうです。&lt;/p&gt;
+
+&lt;h2 id=&#34;蛇足:bfbd4dd489d31bf77dd16b4d8e7e3033&#34;&gt;蛇足&lt;/h2&gt;
+
+&lt;p&gt;そういえば cron は 「クーロン」 って読むんじゃないの？ って聞かれたんですが、僕は 「クロン」 と読む派です。
+何が正しいの読み方なのでしょうか。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>認証必須環境におけるJenkinsのスクリプトトリガーによるビルドの実行</title>
+          <link>http://blog.eiel.info/blog/2012/11/19/jenkins-build-for-trigger-script/</link>
+          <pubDate>Mon, 19 Nov 2012 18:18:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/19/jenkins-build-for-trigger-script/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://jenkins-ci.org/&#34;&gt;Jenkins&lt;/a&gt;は便利に使わせていただいているのですが、git push をhookして&lt;code&gt;ビルドの開始&lt;/code&gt;をできるようにしていないまま運用していて、重い腰をあげてやっと設定することにしました。&lt;/p&gt;
+
+&lt;p&gt;公開しているサーバやイントラにあるサーバであれば&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;http://YOURHOST/jenkins/job/PROJECTNAME/build&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;ヘ wget してしまえば良いので簡単です。インターネット上に置いているとそうもいかないので、認証を必須にします。&lt;/p&gt;
+
+&lt;p&gt;認証を必須にしている場合は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ユーザID (USER)&lt;/li&gt;
+&lt;li&gt;API Token (APITOKEN)&lt;/li&gt;
+&lt;li&gt;Project Token (PROJECTTOKEN)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;が必要になります。&lt;/p&gt;
+
+&lt;p&gt;API Tokenと Project の Tokenが別のものだと気がつかずに無駄にはまりました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ wget --auth-no-challenge --http-user=USER --http-password=APITOKEN &#39;http://jenkins.yourcompany.com/job/your_job/build?token=PROJECTTOKEN&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とすることで上手くいきました。&lt;/p&gt;
+
+&lt;p&gt;最終的には&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ wget -q --auth-no-challenge --http-user=USER --http-password=APITOKEN &#39;http://jenkins.yourcompany.com/job/your_job/build?token=PROJECTTOKEN&#39; -O - &amp;gt; /dev/null
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で回してます。&lt;/p&gt;
+
+&lt;p&gt;USER はユーザのIDをそのまま使えばよいです。
+APITOKEN はユーザの設定画面にあります。
+PROJECTTOKEN はプロジェクトの設定画面で自分で設定します。&lt;/p&gt;
+
+&lt;h1 id=&#34;参考文献:debc6d162eacc4a63bc2d34bf514a529&#34;&gt;参考文献&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://wiki.jenkins-ci.org/display/JENKINS/Authenticating+scripted+clients&#34;&gt;https://wiki.jenkins-ci.org/display/JENKINS/Authenticating+scripted+clients&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>CentOSにJenkinsを入れてみた</title>
+          <link>http://blog.eiel.info/blog/2012/09/04/jenkins-on-centos/</link>
+          <pubDate>Tue, 04 Sep 2012 22:25:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/09/04/jenkins-on-centos/</guid>
+          <description>&lt;p&gt;ちょっと前に(だいぶ前?)にCentOSに &lt;a href=&#34;http://jenkins-ci.org/&#34;&gt;Jenkins&lt;/a&gt; をインストールしてみた。その方法のメモ。&lt;/p&gt;
+
+&lt;p&gt;Jenkinsは継続的インテグレーションを行うためのツールで、
+ビルドやテストの自動実行を行い、カバレッジなどの統計データを生成したりするツールです。大規模なプロジェクトになってくるとローカル環境ですべてのテストを実行するのが難しくなってきたりすると便利です。&lt;/p&gt;
+
+&lt;p&gt;具体的なインストール方法ですが&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo yum install java-1.6.0-openjdk
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+sudo yum install jenkins
+sudo cp -p /etc/sysconfig/jenkins /etc/sysconfig/jenkins.orig
+sudo /sbin/chkconfig jenkins on
+sudo /etc/init.d/jenkins start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;といった感じです。JREを何使えばよいのか迷いましたが openJDKにしてみました。
+あとは デフォルトーでは ポート &lt;code&gt;8080&lt;/code&gt; で動作するので、 &lt;a href=&#34;http://localhost:8080&#34;&gt;http://localhost:8080&lt;/a&gt; へアクセスしたりすればよいです。
+&lt;code&gt;/etc/sysconfig/jenkins&lt;/code&gt; をいじりたい場合(ポートを変えたいなど)に備えてコピーもしてあります。&lt;/p&gt;
+
+&lt;p&gt;Jenkinsに関連するデータは &lt;code&gt;/var/lib/jenkins/&lt;/code&gt; に配置されます。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

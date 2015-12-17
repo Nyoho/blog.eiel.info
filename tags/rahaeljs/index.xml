@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/rahaeljs/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-09-11 18:42:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Raphaelで遊んでみた。</title>
+          <link>http://blog.eiel.info/blog/2013/09/11/raphaeljs/</link>
+          <pubDate>Wed, 11 Sep 2013 18:42:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/09/11/raphaeljs/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/events/event-17.html&#34;&gt;すごい広島 #17&lt;/a&gt; でやったこと。
+&lt;a href=&#34;http://raphaeljs.com/&#34;&gt;Raphael.js&lt;/a&gt; で遊んでみました。
+Raphael.js は JavaScript で SVG を作成できるライブラリ。&lt;/p&gt;
+
+&lt;p&gt;今日作成した&lt;a href=&#34;https://github.com/eiel/raphael-sample&#34;&gt;サンプルコードはGitHub&lt;/a&gt;にup してます。stepごとに タグを作成しているので、STEP1 のコードがみたい時は &lt;code&gt;git checkout step-1&lt;/code&gt; としてください。
+&lt;code&gt;step-5&lt;/code&gt; まであります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;checkout&lt;/code&gt; したタグで &lt;code&gt;rake server&lt;/code&gt; を実行すると、ローカルサーバが起動します。
+&lt;a href=&#34;http://localhost.com:8000&#34;&gt;http://localhost.com:8000&lt;/a&gt; にアクセスしてみてください。&lt;/p&gt;
+
+&lt;h3 id=&#34;step1-とりあえず試す:51116917c9be36d7ead5eccdc6eac9da&#34;&gt;STEP1 とりあえず試す。&lt;/h3&gt;
+
+&lt;p&gt;Raphael オブジェクトを作成すると自動的にSVGオブジェクトが挿入される。
+絶対座標で挿入されるので、DOMの構築を待つ必要はなかった。&lt;/p&gt;
+
+&lt;p&gt;まずは円を描いてみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var paper = Raphael(10, 50, 320, 200);
+
+// 円を書く at x = 50, y = 40,  半径 10
+var circle = paper.circle(50, 40, 10);
+// 赤色でぬりつぶす
+circle.attr(&amp;quot;fill&amp;quot;, &amp;quot;#e00&amp;quot;);
+
+// 黒で境界線をかく
+circle.attr(&amp;quot;stroke&amp;quot;, &amp;quot;#000&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;step2-svg-を二つ作成してみる:51116917c9be36d7ead5eccdc6eac9da&#34;&gt;STEP2 SVG を二つ作成してみる。&lt;/h3&gt;
+
+&lt;p&gt;Rahael を二度呼べば構築できる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var paper = Raphael(10, 50, 320, 200);
+
+// 円を書く at x = 50, y = 40,  半径 10
+var circle = paper.circle(50, 40, 10);
+// 赤色でぬりつぶす
+circle.attr(&amp;quot;fill&amp;quot;, &amp;quot;#e00&amp;quot;);
+
+// 黒で境界線をかく
+circle.attr(&amp;quot;stroke&amp;quot;, &amp;quot;#000&amp;quot;);
+
+paper = Raphael(10, 240, 320, 200);
+
+circle = paper.circle(50, 40, 40);
+circle.attr(&amp;quot;fill&amp;quot;, &amp;quot;#00e&amp;quot;);
+circle.attr(&amp;quot;stroke&amp;quot;, &amp;quot;#000&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;step3-アニメーションしてみる:51116917c9be36d7ead5eccdc6eac9da&#34;&gt;STEP3 アニメーションしてみる&lt;/h3&gt;
+
+&lt;p&gt;2秒かけて移動させてみる&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var paper = Raphael(10, 50, 320, 200);
+
+var circle = paper.circle(50, 40, 10);
+circle.attr(&amp;quot;fill&amp;quot;, &amp;quot;#e00&amp;quot;);
+circle.attr(&amp;quot;stroke&amp;quot;, &amp;quot;#000&amp;quot;);
+
+// 2000ms かけて x座標 320 まで移動
+circle.animate({&#39;cx&#39;: 320}, 2000);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;element に対し animate メソッドでアニメーションできた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://raphaeljs.com/reference.html#Element.animate&#34;&gt;Element.animate&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;第1引数にはアニメーション後の element の情報を指定する。&lt;/p&gt;
+
+&lt;p&gt;第2引数には アニメーションの実行時間を設定できる。
+設定しないと 0 になり、一瞬で移動してしまう。&lt;/p&gt;
+
+&lt;p&gt;第1引数に指定できるパラメータは Element.attr を見ればよさそう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://raphaeljs.com/reference.html#Element.attr&#34;&gt;Element.attr&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;step4-クリックイベントでアニメーションしてみる:51116917c9be36d7ead5eccdc6eac9da&#34;&gt;STEP4 クリックイベントでアニメーションしてみる&lt;/h3&gt;
+
+&lt;p&gt;円をクリックでアニメーションしてみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var paper = Raphael(10, 50, 320, 200);
+
+var circle = paper.circle(50, 40, 10);
+circle.attr(&amp;quot;fill&amp;quot;, &amp;quot;#e00&amp;quot;);
+circle.attr(&amp;quot;stroke&amp;quot;, &amp;quot;#000&amp;quot;);
+
+circle.click(function () {
+  circle.animate({&#39;cx&#39;: 320}, 2000);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;step5-パスでも使ってみる:51116917c9be36d7ead5eccdc6eac9da&#34;&gt;STEP5 パスでも使ってみる。&lt;/h3&gt;
+
+&lt;p&gt;好きな図形を書きたいので、パスをつかってみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var paper = Raphael(10, 50, 320, 200);
+
+// (10, 20) へ移動
+// (30, 40) へ線をひく
+// (10, 40) へ線をひく
+// (10, 20) へ線をひく
+var path = paper.path(&amp;quot;M 10 20  L 30 40  L 10 40  L 10 20&amp;quot;);
+path.attr(&#39;stroke&#39;,&amp;quot;#000&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Paper.path を利用すると描けた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://raphaeljs.com/reference.html#Paper.path&#34;&gt;Paper.path&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;文字列で指定する。
+&lt;a href=&#34;http://www.w3.org/TR/SVG/paths.html#PathData&#34;&gt;SVG path string Format&lt;/a&gt; というルールに従う。&lt;/p&gt;
+
+&lt;h3 id=&#34;感想:51116917c9be36d7ead5eccdc6eac9da&#34;&gt;感想&lt;/h3&gt;
+
+&lt;p&gt;リファレンスだけでもプログラミングが充分できるほどインターフェースがシンプルでした。動的に走査できるので、ちょっと遊べそうです。とても簡単。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

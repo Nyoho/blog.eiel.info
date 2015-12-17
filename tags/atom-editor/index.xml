@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/atom-editor/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-07-07 16:38:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>コミットメッセージの先頭に絵文字いれるのが流行ってんだろうか</title>
+          <link>http://blog.eiel.info/blog/2014/07/07/emoji-for-git-commit-message/</link>
+          <pubDate>Mon, 07 Jul 2014 16:38:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/07/emoji-for-git-commit-message/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://atom.io&#34;&gt;Atom Editor&lt;/a&gt; の Contributringをみてみると、「コミットメッセージの先頭に関係ある絵文字をいれろ」的なことが書いてある。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://atom.io/docs/v0.108.0/contributing#git-commit-messages&#34;&gt;Git Commit Message - contributing - Atom&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;https://a248.e.akamai.net/assets.github.com/images/icons/emoji/lipstick.png&#34; alt=&#34;:lipstick:&#34; /&gt; &lt;code&gt;:lipstick:&lt;/code&gt; when improving the format/structure of the code&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://a248.e.akamai.net/assets.github.com/images/icons/emoji/racehorse.png&#34; alt=&#34;:racehorse:&#34; /&gt; &lt;code&gt;:racehorse:&lt;/code&gt; when improving performance&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://a248.e.akamai.net/assets.github.com/images/icons/emoji/non-potable_water.png&#34; alt=&#34;:non-potable_water:&#34; /&gt; &lt;code&gt;:non-potable_water:&lt;/code&gt; when plugging memory leaks&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://a248.e.akamai.net/assets.github.com/images/icons/emoji/memo.png&#34; alt=&#34;:memo:&#34; /&gt; &lt;code&gt;:memo:&lt;/code&gt; when writing docs&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://a248.e.akamai.net/assets.github.com/images/icons/emoji/penguin.png&#34; alt=&#34;:penguin:&#34; /&gt; &lt;code&gt;:penguin:&lt;/code&gt; when fixing something on Linux&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://a248.e.akamai.net/assets.github.com/images/icons/emoji/apple.png&#34; alt=&#34;:apple:&#34; /&gt; &lt;code&gt;:apple:&lt;/code&gt; when fixing something on Mac OS&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://a248.e.akamai.net/assets.github.com/images/icons/emoji/checkered_flag.png&#34; alt=&#34;:checkered_flag:&#34; /&gt; &lt;code&gt;:checkered_flag:&lt;/code&gt; when fixing something on Windows&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://a248.e.akamai.net/assets.github.com/images/icons/emoji/bug.png&#34; alt=&#34;:bug:&#34; /&gt; &lt;code&gt;:bug:&lt;/code&gt; when fixing a bug&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://a248.e.akamai.net/assets.github.com/images/icons/emoji/fire.png&#34; alt=&#34;:fire:&#34; /&gt; :&lt;code&gt;fire:&lt;/code&gt; when removing code or files&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://a248.e.akamai.net/assets.github.com/images/icons/emoji/green_heart.png&#34; alt=&#34;:green_heart:&#34; /&gt; &lt;code&gt;:green_heart:&lt;/code&gt; when fixing the CI build&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://a248.e.akamai.net/assets.github.com/images/icons/emoji/white_check_mark.png&#34; alt=&#34;:white_check_mark:&#34; /&gt; &lt;code&gt;:white_check_mark:&lt;/code&gt; when adding tests&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://a248.e.akamai.net/assets.github.com/images/icons/emoji/lock.png&#34; alt=&#34;:lock:&#34; /&gt; &lt;code&gt;:lock:&lt;/code&gt; when dealing with security&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;あまり絵文字を使うのは得意ではないけど、タグ的に使うのは他にどんなのがあるんだろうなぁ。&lt;/p&gt;
+
+&lt;p&gt;一応適当に日本語にしとこう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;:lipstick:&lt;/code&gt; コードの構造やフォーマットを変更した時&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:racehorse:&lt;/code&gt; パフォーマンスを改善した時&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:non-potable_water:&lt;/code&gt;メモリーリークの直した時&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:memo:&lt;/code&gt; ドキュメントを書いた時&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:penguin:&lt;/code&gt; Linux に関連する修正をした時&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:apple:&lt;/code&gt; Mac に関連する修正をした時&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:checkered_flag:&lt;/code&gt; Windows に関連する修正をした時&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:bug:&lt;/code&gt; バグを修正した時&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:fire:&lt;/code&gt; ファイルやコードを削除した時&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:green_heart:&lt;/code&gt; CIビルドの修正をした時&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:white_check_mark:&lt;/code&gt; テストを追加した時&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:lock:&lt;/code&gt; セキュリティを扱う時&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;いっそ &lt;code&gt;:linux:&lt;/code&gt; とか &lt;code&gt;:mac:&lt;/code&gt; とかの絵文字があるほうがいい感もしなくもないけど、どーなんですかね。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考:5fcd81bd6e7411f5a3617f31bdae1a31&#34;&gt;参考&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://atom.io/docs/v0.108.0/contributing#git-commit-messages&#34;&gt;Git Commit Message - contributing - Atom&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.emoji-cheat-sheet.com/&#34;&gt;Emoji Cheet Sheet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Atom で キーバインディングを使うには key-binding-resolver を使えばいいらしい</title>
+          <link>http://blog.eiel.info/blog/2014/07/07/key-binding-resolver-on-atom-editor/</link>
+          <pubDate>Mon, 07 Jul 2014 16:29:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/07/key-binding-resolver-on-atom-editor/</guid>
+          <description>&lt;p&gt;キーに割り当ててるコマンドを探す場合、emacs だと &lt;code&gt;Ctrl-h k&lt;/code&gt; を使うけど、&lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt; なら Key Binding Resolver を使えばいいらしい。
+Macならデフォルトでは &lt;code&gt;cmd+.&lt;/code&gt; にバインディングされてる。&lt;/p&gt;
+
+&lt;p&gt;helm-describe-bindings に比べると不便だけどないよりましだと思う。
+わがままをいうとコマンド名をコピーできるようにして欲しい。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Atom Editor で markdownモードのスニペットの追加</title>
+          <link>http://blog.eiel.info/blog/2014/07/07/github-markdown-on-atom-editor/</link>
+          <pubDate>Mon, 07 Jul 2014 15:20:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/07/github-markdown-on-atom-editor/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://atom.io/&#34;&gt;Atom Editor&lt;/a&gt;をときどき試している。
+markdownモードにスニペットを追加する方法がなかなかわからなくて困ったのでメモ。&lt;/p&gt;
+
+&lt;p&gt;最初に指定する文法名がわからなかった。&lt;code&gt;.source.gfm&lt;/code&gt;を指定すれば良かった。
+この &lt;code&gt;.source.gfm&lt;/code&gt; の簡単な調べ方がよくわからない。&lt;/p&gt;
+
+&lt;p&gt;gfm は GitHub Flaver Markdown の略だと思われる。&lt;/p&gt;
+
+&lt;p&gt;参考例をあげておきます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&#39;.source.gfm&#39;:
+  &#39;Sample Snippet Hoge&#39;:
+    &#39;prefix&#39;: &#39;hoge&#39;
+    &#39;body&#39;: &#39;hogehoge&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;atom.syntax.grammarsByScopeName&lt;/code&gt; にいろんな名前がとれたけど、全然効率よくない。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

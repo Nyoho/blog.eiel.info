@@ -1,0 +1,3832 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="GnuPG で遊ぶ - 暗号化してみる | そんなこと覚えてない">
+<meta property="og:url" content="http://blog.eiel.info/blog/2013/07/31/gpg/">
+<meta property="og:description" content="GnuPG 使う機会が無い。無さすぎるよ。使わないと忘れそうなので、たまには遊ぶ。ついでに広まればいいな。ということで、整理しながら試す。 そうそう、これは すごい広島 #011 で遊んだことです。 GPGとは GNU Privacy Guard という暗号化ソフト。ざっくりとは Wikipedia の GPGとかみてみると良いかも。 PGPの実装のひとつです。 これを使うと暗号化とか署名とかできる。 暗号化すると特定の人しか解読できないファイルが作成できる 署名すると特定の人が作成したことを示せる メールの暗号化にも使える。しかし、私は暗号化されたメールを受信したことがない。 GnuPGの使い方 あたりを見ながら復習。 GPG がインストールされているか確認する $ gpg --version gpg (GnuPG) 2.0.20 libgcrypt 1.5.3 Copyright (C) 2013 Free Software Foundation, Inc. License GPLv3&#43;: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt; This is free software: you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law. Home: xxxx サポートしているアルゴリズム: 公開鍵: RSA, ELG, DSA 暗号方式: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH, CAMELLIA128, CAMELLIA192, CAMELLIA256 ハッシュ: MD5, SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224 圧縮: 無圧縮, ZIP, ZLIB 入ってるとこんな感じ。 暗号化してみる 暗号化する場合 暗号化するための鍵を取得する 暗号化する 読みたい人に送りつける 読む人が自分の鍵で複合する 暗号化するための鍵が必要になります。 暗号化してメールを送って欲しい人は「公開鍵」という種類の鍵を鍵を公開しています。なので、これを取得すれば暗号化できます。 復号化するほうは「公開鍵」とペアになっている「秘密鍵」を使います。 これは復号化する人しか持っていないので、メールの暗号化が成立するわけです。 実際にやってみる 実際にやってみたいと思います。 メインのコンピュータで自分の鍵を作成する 自分の公開鍵を公開する 別のコンピュータで、公開鍵を取得する 別のコンピュータで暗号化したファイルを作成する メインのコンピュータにファイルを送る メインのコンピュータで復号する というシナリオでやります。 メインのコンピュータでの実行は main $ をつけて、別のマシンの場合は sub $ をつけて明示しておきます。 サブのコンピュータを用意する簡単な方法は仮想マシンでしょうか。 メインのコンピュータで自分の鍵を作成する 鍵がないことには始まらないので作成します。--key-gen オプションを使用します。 すでに作成しているので、実際には使用しない鍵で例をあげます。 main $ gpg --gen-key ご希望の鍵の種類を選択してください: (1) RSA and RSA (default) (2) DSA and Elgamal (3) DSA (署名のみ) (4) RSA (署名のみ) 選択?">
+
+
+<meta property="og:site_name" content="そんなこと覚えてない">
+
+<title>
+    
+    GnuPG で遊ぶ - 暗号化してみる | そんなこと覚えてない
+    
+</title>
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
+<link rel="stylesheet" href="http://blog.eiel.info/css/base.css">
+<link rel="stylesheet" href="http://blog.eiel.info/css/styles.css">
+<link rel="stylesheet" href="http://blog.eiel.info/css/custom.css">
+
+
+<link rel="shortcut icon" href="http://blog.eiel.info/assets/favicon.ico">
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.eiel.info/index.xml">
+
+
+
+<div class="wrap">
+    <div class="masthead">
+        <div class="container">
+            <h3 class="masthead-title">
+                <a href="http://blog.eiel.info" title="Home">そんなこと覚えてない</a>
+            </h3>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="container content">
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<article class="post post-single">
+    <span class="post-date">2013 7月31日 19:26</span>
+    <h1 class="post-title">GnuPG で遊ぶ - 暗号化してみる</h1>
+
+    <div class="eyecatch">
+        
+        <img src="http://blog.eiel.info/images/nopicture.png" alt="no_picture">
+        
+    </div>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6107701565367276"
+         data-ad-slot="8772992744"
+         data-ad-format="auto"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <div class="post-content">
+        
+
+<p>GnuPG 使う機会が無い。無さすぎるよ。使わないと忘れそうなので、たまには遊ぶ。ついでに広まればいいな。ということで、整理しながら試す。</p>
+
+<p>そうそう、これは <a href="http://great-h.github.io/events/event-011.html">すごい広島 #011</a> で遊んだことです。</p>
+
+<h3 id="gpgとは:57bbd94ea7d6f1e7f7f5c97174866510">GPGとは</h3>
+
+<p><a href="http://www.gnupg.org/">GNU Privacy Guard</a> という暗号化ソフト。ざっくりとは <a href="http://ja.wikipedia.org/wiki/GNU_Privacy_Guard">Wikipedia の GPG</a>とかみてみると良いかも。</p>
+
+<p><a href="http://ja.wikipedia.org/wiki/Pretty_Good_Privacy">PGPの実装のひとつ</a>です。
+これを使うと暗号化とか署名とかできる。</p>
+
+<ul>
+<li>暗号化すると特定の人しか解読できないファイルが作成できる</li>
+<li>署名すると特定の人が作成したことを示せる</li>
+</ul>
+
+<p>メールの暗号化にも使える。しかし、私は暗号化されたメールを受信したことがない。</p>
+
+<p><a href="http://gnupg.hclippr.com/howto.html">GnuPGの使い方</a> あたりを見ながら復習。</p>
+
+<h3 id="gpg-がインストールされているか確認する:57bbd94ea7d6f1e7f7f5c97174866510">GPG がインストールされているか確認する</h3>
+
+<pre><code>$ gpg --version
+gpg (GnuPG) 2.0.20
+libgcrypt 1.5.3
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Home: xxxx
+サポートしているアルゴリズム:
+公開鍵: RSA, ELG, DSA
+暗号方式: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256,
+      TWOFISH, CAMELLIA128, CAMELLIA192, CAMELLIA256
+ハッシュ: MD5, SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224
+圧縮: 無圧縮, ZIP, ZLIB
+</code></pre>
+
+<p>入ってるとこんな感じ。</p>
+
+<h3 id="暗号化してみる:57bbd94ea7d6f1e7f7f5c97174866510">暗号化してみる</h3>
+
+<p>暗号化する場合</p>
+
+<ul>
+<li>暗号化するための鍵を取得する</li>
+<li>暗号化する</li>
+<li>読みたい人に送りつける</li>
+<li>読む人が自分の鍵で複合する</li>
+</ul>
+
+<p>暗号化するための鍵が必要になります。
+暗号化してメールを送って欲しい人は「公開鍵」という種類の鍵を鍵を公開しています。なので、これを取得すれば暗号化できます。</p>
+
+<p>復号化するほうは「公開鍵」とペアになっている「秘密鍵」を使います。
+これは復号化する人しか持っていないので、メールの暗号化が成立するわけです。</p>
+
+<h3 id="実際にやってみる:57bbd94ea7d6f1e7f7f5c97174866510">実際にやってみる</h3>
+
+<p>実際にやってみたいと思います。</p>
+
+<ul>
+<li>メインのコンピュータで自分の鍵を作成する</li>
+<li>自分の公開鍵を公開する</li>
+<li>別のコンピュータで、公開鍵を取得する</li>
+<li>別のコンピュータで暗号化したファイルを作成する</li>
+<li>メインのコンピュータにファイルを送る</li>
+<li>メインのコンピュータで復号する</li>
+</ul>
+
+<p>というシナリオでやります。</p>
+
+<p>メインのコンピュータでの実行は <code>main $</code> をつけて、別のマシンの場合は <code>sub $</code> をつけて明示しておきます。
+サブのコンピュータを用意する簡単な方法は仮想マシンでしょうか。</p>
+
+<h4 id="メインのコンピュータで自分の鍵を作成する:57bbd94ea7d6f1e7f7f5c97174866510">メインのコンピュータで自分の鍵を作成する</h4>
+
+<p>鍵がないことには始まらないので作成します。<code>--key-gen</code> オプションを使用します。</p>
+
+<p>すでに作成しているので、実際には使用しない鍵で例をあげます。</p>
+
+<pre><code>main $ gpg --gen-key
+ご希望の鍵の種類を選択してください:
+   (1) RSA and RSA (default)
+   (2) DSA and Elgamal
+   (3) DSA (署名のみ)
+   (4) RSA (署名のみ)
+選択? 1
+
+SA keys may be between 1024 and 4096 bits long.
+What keysize do you want? (2048)
+要求された鍵長は2048ビット
+鍵の有効期限を指定してください。
+         0 = 鍵は無期限
+      &lt;n&gt;  = 鍵は n 日間で満了
+      &lt;n&gt;w = 鍵は n 週間で満了
+      &lt;n&gt;m = 鍵は n か月間で満了
+      &lt;n&gt;y = 鍵は n 年間で満了
+鍵の有効期間は? (0)
+これで正しいですか? (y/N) y
+あなたの鍵を同定するためにユーザーIDが必要です。
+このソフトは本名、コメント、電子メール・アドレスから
+次の書式でユーザーIDを構成します:
+    &quot;Heinrich Heine (Der Dichter) &lt;heinrichh@duesseldorf.de&gt;&quot;
+
+本名: Tomohiko Himura
+電子メール・アドレス: eiel at eiel.info
+コメント: eiel
+次のユーザーIDを選択しました:
+    “Tomohiko Himura (eiel) &lt;eiel at eiel.inof&gt;”
+名前(N)、コメント(C)、電子メール(E)の変更、またはOK(O)か終了(Q)? O
+秘密鍵を保護するためにパスフレーズがいります。
+
+今から長い乱数を生成します。キーボードを打つとか、マウスを動かす
+とか、ディスクにアクセスするとかの他のことをすると、乱数生成子で
+乱雑さの大きないい乱数を生成しやすくなるので、お勧めいたします。
+......+++++
+.+++++
+今から長い乱数を生成します。キーボードを打つとか、マウスを動かす
+とか、ディスクにアクセスするとかの他のことをすると、乱数生成子で
+乱雑さの大きないい乱数を生成しやすくなるので、お勧めいたします。
+.+++++
+十分な長さの乱数が得られません。OSがもっと乱雑さを収集
+できるよう、何かしてください! (あと75バイトいります)
+.gpg: 鍵CB547A37を絶対的に信用するよう記録しました
+公開鍵と秘密鍵を作成し、署名しました。
+</code></pre>
+
+<p>例に使用したメールアドレスは存在しません。あと <code>@</code> を <code>at</code> に置き換えてます。</p>
+
+<p>作成した「公開鍵」があることを確認します。<code>--list-keys</code> オプションを使用します。鍵IDは <code>CB547A37</code> になります。</p>
+
+<pre><code>main $ gpg --list-keys
+pub   2048R/CB547A37 2013-07-31
+uid                  Tomohiko Himura (eiel) &lt;eiel@eiel.info&gt;
+sub   2048R/C2A0FFF5 2013-07-31
+</code></pre>
+
+<p>秘密鍵があることを確認します。<code>--list-secret-keys</code> オプションを使用します。</p>
+
+<pre><code>main $ gpg --list-secret-keys
+/home/eiel/.gnupg/secring.gpg
+-----------------------------
+sec   2048R/CB547A37 2013-07-31
+uid                  Tomohiko Himura (eiel) &lt;eiel@eiel.info&gt;
+ssb   2048R/C2A0FFF5 2013-07-31
+</code></pre>
+
+<p>みたいな出力がでました。</p>
+
+<p><code>sec   2048R/CA566D81 2009-11-21</code>
+ というのは 秘密鍵で 2048 の RSA の鍵で、 鍵ID が <code>CA566D81</code> というように読めそうです。
+公開鍵の場合は pub がついているようです。
+ssb や sub はなんなのでしょうか。
+どこを見ればわかるのか知りたいです。</p>
+
+<h4 id="自分の公開鍵を公開する:57bbd94ea7d6f1e7f7f5c97174866510">自分の公開鍵を公開する</h4>
+
+<p>鍵を公開するのには 鍵サーバというものが提供されています。
+<code>--send-keys</code> オプションを使うと簡単に登録できます。</p>
+
+<pre><code>main $ gpg --send-keys CB547A37
+</code></pre>
+
+<p>間違えて送ってしまったものを削除するには <code>--gen-revoke</code> で執行証明書を作成して、<code>revoke.asc</code> に保存している場合は</p>
+
+<pre><code>main $ gpg --send-keys CB547A37 &lt; revoke.asc
+</code></pre>
+
+<p>で削除できました。
+正しいやりかたかどうかよくわからないので、ざっくりと書いておきます。</p>
+
+<p>公開されている鍵を探してみます。
+相手のメールアドレスがだいたいわかれば検索できます。
+以下は以前公開したものを利用してます。
+都合によりさきほど作成したものと違います。</p>
+
+<pre><code>sub $ gpg --search-keys eiel.hal
+gpg: “eiel.hal”をhkpサーバーkeys.gnupg.netから検索
+(1)	Tomohiko Himura &lt;eiel.hal@gmail.com&gt;
+	Tomohiko Himura &lt;tomohiko.himura@gmail.com&gt;
+	  2048 bit RSA key CA566D81, 作成: 2009-11-21
+</code></pre>
+
+<p><code>--search-keys</code> オプションで鍵サーバから検索できます。鍵のID は <code>CA566D81</code>です。
+検索で見つけられない場合は、Webサイトなどで公開している場合があります。
+鍵を見つけたので、鍵を取得します。</p>
+
+<pre><code>sub $ gpg --recv-keys CA566D81
+</code></pre>
+
+<p>これで鍵が取得できました。確認してみます。
+<code>--list-keys</code> オプション` を使用します。</p>
+
+<pre><code>pub   2048R/CA566D81 2009-11-21
+uid                  Tomohiko Himura &lt;eiel.hal at gmail.com&gt;
+uid                  Tomohiko Himura &lt;tomohiko.himura at gmail.com&gt;
+sub   2048R/72D733CE 2009-11-21
+</code></pre>
+
+<p>間違えた時のために消す方法も確認します。
+<code>--delete-keys</code> を使います。</p>
+
+<pre><code>sub $ gpg --delete-keys CA566D81
+</code></pre>
+
+<h4 id="別のコンピュータで暗号化したファイルを作成する:57bbd94ea7d6f1e7f7f5c97174866510">別のコンピュータで暗号化したファイルを作成する</h4>
+
+<p>暗号化してみます。
+まずは、暗号化するファイルを用意します。
+<code>hoge.txt</code> としたことにします。次に <code>-e</code> 使うことで暗号化を示し、<code>-r</code> で、どの鍵を使うか設定します。</p>
+
+<pre><code>sub $ gpg -e -r CA566D81 hoge.txt
+</code></pre>
+
+<p>とすると、<code>hoge.txt.gpg</code> というファイルが作成されました。
+中身を見て確認すると暗号されていると思います。</p>
+
+<p>信用できてない鍵を使用している旨が出ます。
+鍵の信頼性を上げる方法は宿題にしました。</p>
+
+<p><code>-r</code> には メールアドレスでもOKでした。</p>
+
+<pre><code>gpg -e -r eiel.hal@gmail.com hoge.txt
+</code></pre>
+
+<h4 id="メインのコンピュータにファイルを送る:57bbd94ea7d6f1e7f7f5c97174866510">メインのコンピュータにファイルを送る</h4>
+
+<p>なんとかして取得しましょう。
+私は scp で取得しました。</p>
+
+<h4 id="メインのコンピュータで復号する:57bbd94ea7d6f1e7f7f5c97174866510">メインのコンピュータで復号する</h4>
+
+<p>復号します。
+オプションはいりません。</p>
+
+<pre><code>main $ gpg hoge.txt.gpg
+</code></pre>
+
+<p><code>hoge.txt</code> が作成されています。</p>
+
+<p>試しに、別のコンピュータで復号してみました。</p>
+
+<pre><code>gpg hoge.txt.gpg
+gpg: 2048-ビットRSA鍵, ID 72D733CE, 日付2009-11-21に暗号化されました
+      “Tomohiko Himura &lt;eiel.hal@gmail.com&gt;”
+gpg: 復号に失敗しました: 秘密鍵が得られません
+</code></pre>
+
+<p>見事に失敗しました。</p>
+
+<p>署名も似たような感じにできると思います。</p>
+
+<h3 id="複数人が復号できるファイルを作ってみる:57bbd94ea7d6f1e7f7f5c97174866510">複数人が復号できるファイルを作ってみる</h3>
+
+<p><code>-r</code> を複数指定すればできた。</p>
+
+<pre><code>$ gpg -e -r メールアドレス -r メールアドレス2 hoge.txt
+
+</code></pre>
+
+<h3 id="まとめ:57bbd94ea7d6f1e7f7f5c97174866510">まとめ</h3>
+
+<p>暗号化したいなら相手の公開鍵が必要です。公開鍵を公開しないと暗号メールも届くことはないでしょう。たぶん。</p>
+
+<p>自分で暗号化して、自分だけ復号化したい場合は、ひとつのコンピュータだけでできます。
+今回は復号できないのを確認できるように、別々のコンピュータで確認しました。</p>
+
+<p>メールで使う場合はメールクライアントが自動でやってくれるようにできると思います。流れがわかっているほうが安心して使えると思います。
+今度は鍵の信頼性を上げる方法や署名の方法を試してみたいです。</p>
+
+    </div>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6107701565367276"
+         data-ad-slot="8772992744"
+         data-ad-format="auto"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <aside>
+        <div class="post-share">
+            <h3>Share</h3>
+            <a id="share-fb" href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2fblog.eiel.info%2fblog%2f2013%2f07%2f31%2fgpg%2f&t=GnuPG%20%e3%81%a7%e9%81%8a%e3%81%b6%20-%20%e6%9a%97%e5%8f%b7%e5%8c%96%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="http://blog.eiel.info/images/sharebutton/facebook.png" alt="Facebook"/></a>
+            <a id="share-twitter" href="http://twitter.com/intent/tweet?url=http%3a%2f%2fblog.eiel.info%2fblog%2f2013%2f07%2f31%2fgpg%2f&text=GnuPG%20%e3%81%a7%e9%81%8a%e3%81%b6%20-%20%e6%9a%97%e5%8f%b7%e5%8c%96%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="http://blog.eiel.info/images/sharebutton/twitter.png" alt="Twitter"/></a>
+            <a id="share-googleplus" href="https://plus.google.com/share?url=http%3a%2f%2fblog.eiel.info%2fblog%2f2013%2f07%2f31%2fgpg%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="http://blog.eiel.info/images/sharebutton/googleplus.png" alt="Google+"/></a>
+            <a id="share-hatena" href="http://b.hatena.ne.jp/add?mode=confirm&URL=http%3a%2f%2fblog.eiel.info%2fblog%2f2013%2f07%2f31%2fgpg%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="http://blog.eiel.info/images/sharebutton/hatena.png" alt="Hatena"/></a>
+            <a id="share-pocket" href="http://getpocket.com/edit?url=http%3a%2f%2fblog.eiel.info%2fblog%2f2013%2f07%2f31%2fgpg%2f&title=GnuPG%20%e3%81%a7%e9%81%8a%e3%81%b6%20-%20%e6%9a%97%e5%8f%b7%e5%8c%96%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="http://blog.eiel.info/images/sharebutton/pocket.png" alt="Pocket"/></a>
+        </div>
+
+        
+        
+
+        
+        <div class="post-related">
+            <h3>Related Post</h3>
+            <ul class="post-tags">
+                
+                <li>
+                    <a href="http://blog.eiel.info/tags/gpg">
+                        <i class="fa fa-tags"></i>
+                        gpg
+                    </a>
+                </li>
+                
+            </ul>
+
+            <ul>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul>
+        </div>
+        
+    </aside>
+
+    
+    <footer>
+        <div class="move">
+            <div class="prev">
+                
+                <a href="http://blog.eiel.info/blog/2013/08/01/rails-new-template/">
+                    <i class="fa fa-chevron-left"></i>
+                    rails new した時の追加処理をかく
+                </a>
+                
+            </div>
+            <div class="next">
+                
+                <a href="http://blog.eiel.info/blog/2013/07/29/wavepad/">
+                    Mac で WMA ファイル MP3 に変換するのに wavePad を利用した
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+                
+            </div>
+        </div>
+
+        
+        
+        
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+ 
+var disqus_shortname = 'blogeiel'; 
+
+ 
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        
+        
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6107701565367276"
+         data-ad-slot="8772992744"
+         data-ad-format="auto"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+
+<script language="javascript" type="text/javascript" src="http://b.hatena.ne.jp/js/widget.js" charset="utf-8"></script>
+<script language="javascript" type="text/javascript">
+Hatena.BookmarkWidget.url   = "blog.eiel.info";
+Hatena.BookmarkWidget.title = "人気エントリー";
+Hatena.BookmarkWidget.sort  = "count";
+Hatena.BookmarkWidget.num   = 5;
+Hatena.BookmarkWidget.theme = "default";
+Hatena.BookmarkWidget.load();
+</script>
+
+<script language="javascript" type="text/javascript" src="http://b.hatena.ne.jp/js/widget.js" charset="utf-8"></script>
+<script language="javascript" type="text/javascript">
+Hatena.BookmarkWidget.url   = "blog.eiel.info";
+Hatena.BookmarkWidget.title = "新着エントリー";
+Hatena.BookmarkWidget.sort  = "hot";
+Hatena.BookmarkWidget.num   = 5;
+Hatena.BookmarkWidget.theme = "default";
+Hatena.BookmarkWidget.load();
+</script>
+    </footer>
+
+</article>
+
+
+    </div>
+</div>
+
+
+<aside class="sidebar-wrapper">
+    <div class="container">
+        
+        <div class="tags tag-cloud">
+            <h2>Tags</h2>
+            <ul class="post-tags">
+                
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/a8d">
+                        a8d
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ablog">
+                        ablog
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/acativerecord">
+                        acativerecord
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/actiondispatch">
+                        actiondispatch
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/actionpack">
+                        actionpack
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/actionview">
+                        actionview
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/actirerecord">
+                        actirerecord
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/active_model">
+                        active_model
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/active_support">
+                        active_support
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/activemodel">
+                        activemodel
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/activerecord">
+                        activerecord
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/activesupport">
+                        activesupport
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ajax">
+                        ajax
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/angularjs">
+                        angularjs
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/api">
+                        api
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/apt">
+                        apt
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/araxis">
+                        araxis
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/arel">
+                        arel
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/atom">
+                        atom
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/atom-editor">
+                        atom-editor
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/autolayout">
+                        autolayout
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/aws">
+                        aws
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/bash">
+                        bash
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/bdd">
+                        bdd
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/bot">
+                        bot
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/browserify">
+                        browserify
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/bundle">
+                        bundle
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/c">
+                        c
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/capistrano">
+                        capistrano
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/capybara">
+                        capybara
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/centos">
+                        centos
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/chatwork">
+                        chatwork
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/chef">
+                        chef
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ci">
+                        ci
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/cleditor">
+                        cleditor
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/cocoapods">
+                        cocoapods
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/codekata">
+                        codekata
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/color">
+                        color
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/css">
+                        css
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/cucumber">
+                        cucumber
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/dart">
+                        dart
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/database">
+                        database
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/debian">
+                        debian
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/debug">
+                        debug
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/deltawalker">
+                        deltawalker
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/devise">
+                        devise
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/devlove">
+                        devlove
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/docker">
+                        docker
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ediff">
+                        ediff
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/el-get">
+                        el-get
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/emacs">
+                        emacs
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/facebook">
+                        facebook
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/fizzbuzz">
+                        fizzbuzz
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/funtoo">
+                        funtoo
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gdb">
+                        gdb
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gentoo">
+                        gentoo
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gentoo-prefix">
+                        gentoo-prefix
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gherkin">
+                        gherkin
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/git">
+                        git
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/github">
+                        github
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gitolite">
+                        gitolite
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gitx">
+                        gitx
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gmail">
+                        gmail
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gpg">
+                        gpg
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/grub">
+                        grub
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/gulp">
+                        gulp
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/hakyll">
+                        hakyll
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/haskell">
+                        haskell
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/helm">
+                        helm
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/heroku">
+                        heroku
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/hiroshima.rb">
+                        hiroshima.rb
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/html">
+                        html
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/html5">
+                        html5
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/hubot">
+                        hubot
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/hwebsys">
+                        hwebsys
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/i18n">
+                        i18n
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/iam">
+                        iam
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/idobata">
+                        idobata
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/inputmethod">
+                        inputmethod
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ios">
+                        ios
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ios24h">
+                        ios24h
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/javascript">
+                        javascript
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/jekyll">
+                        jekyll
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/jenkins">
+                        jenkins
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/kaleidoscope">
+                        kaleidoscope
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/linux">
+                        linux
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/liquid">
+                        liquid
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/lisp">
+                        lisp
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ltdd">
+                        ltdd
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/lt%E9%A7%86%E5%8B%95">
+                        lt駆動
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/lt%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA">
+                        lt駆動開発
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/mac">
+                        mac
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/magit">
+                        magit
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/markdown">
+                        markdown
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/materialdesign">
+                        materialdesign
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/microdata">
+                        microdata
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/migemo">
+                        migemo
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/monad">
+                        monad
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/nginx">
+                        nginx
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/nodejs">
+                        nodejs
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/npm">
+                        npm
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/objective-c">
+                        objective-c
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/opendiff">
+                        opendiff
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/osc">
+                        osc
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/osh">
+                        osh
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/osh2015">
+                        osh2015
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/output">
+                        output
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/p4merge">
+                        p4merge
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/packer">
+                        packer
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/pandoc">
+                        pandoc
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/phantomjs">
+                        phantomjs
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/poltergeist">
+                        poltergeist
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/polymer">
+                        polymer
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/postgis">
+                        postgis
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/postgres">
+                        postgres
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/postgresql">
+                        postgresql
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/pry">
+                        pry
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/python">
+                        python
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/qiita">
+                        qiita
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/rack">
+                        rack
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/rahaeljs">
+                        rahaeljs
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/rails">
+                        rails
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/rails3">
+                        rails3
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/rails4">
+                        rails4
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/railtie">
+                        railtie
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/rbenv">
+                        rbenv
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/redis">
+                        redis
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/redmine">
+                        redmine
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/review">
+                        review
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/route53">
+                        route53
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/rspec">
+                        rspec
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/rspec-html-matchers">
+                        rspec-html-matchers
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ruboty">
+                        ruboty
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/ruby">
+                        ruby
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/s3">
+                        s3
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/sacala">
+                        sacala
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/scala">
+                        scala
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/scalaz">
+                        scalaz
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/selenium">
+                        selenium
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/sensu">
+                        sensu
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/sh">
+                        sh
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/sitespec">
+                        sitespec
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/skk">
+                        skk
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/slack">
+                        slack
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/slim">
+                        slim
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/state%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3">
+                        stateパターン
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/swift">
+                        swift
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/tdd">
+                        tdd
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/tkdiff">
+                        tkdiff
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/tmux">
+                        tmux
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/travis">
+                        travis
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/tumx">
+                        tumx
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/twilio">
+                        twilio
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/twitter">
+                        twitter
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/uitabbarcontroller">
+                        uitabbarcontroller
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/vagrant">
+                        vagrant
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/vim">
+                        vim
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/wercker">
+                        wercker
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/windows8">
+                        windows8
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/wisper">
+                        wisper
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/wtm">
+                        wtm
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/xcode">
+                        xcode
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/xml">
+                        xml
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/xxdiff">
+                        xxdiff
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/zeus">
+                        zeus
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/zsh">
+                        zsh
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%81%99%E3%81%94%E3%81%84%E5%90%88%E5%90%8C%E5%8B%89%E5%BC%B7%E4%BC%9A">
+                        すごい合同勉強会
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%81%99%E3%81%94%E3%81%84%E5%BA%83%E5%B3%B6">
+                        すごい広島
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88">
+                        イベント
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%A8%E3%83%83%E3%82%BB%E3%82%A4">
+                        エッセイ
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF">
+                        エディタ
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E5%8B%89%E5%BC%B7%E4%BC%9A">
+                        オンライン勉強会
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%82%BB%E3%83%9F%E3%83%8A%E3%83%BC">
+                        オープンセミナー
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AA%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0">
+                        コードリーディング
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%A0">
+                        スクラム
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E3%82%A2%E3%83%83%E3%83%97">
+                        スタートアップ
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89">
+                        スライド
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%83%8D%E3%82%BF">
+                        ネタ
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%83%92%E3%83%AD%E3%83%8F%E3%82%BF">
+                        ヒロハタ
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%83%A2%E3%83%8A%E3%83%89">
+                        モナド
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%E5%B1%8B">
+                        ラーメン屋
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%83%AA%E3%83%95%E3%82%A1%E3%82%AF%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0">
+                        リファクタリング
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%90%E3%82%B9">
+                        リーンキャンバス
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E3%82%A2%E3%83%83%E3%83%97">
+                        リーンスタートアップ
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E4%BB%95%E4%BA%8B%E3%81%97%E3%82%8D">
+                        仕事しろ
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E4%BC%9D%E3%81%88%E3%82%8B">
+                        伝える
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E5%86%85%E5%8C%85%E8%A1%A8%E8%A8%98">
+                        内包表記
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E5%8B%89%E5%BC%B7%E4%BC%9A">
+                        勉強会
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E5%9C%B0%E5%9F%9F">
+                        地域
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E5%9E%8B%E3%82%AF%E3%83%A9%E3%82%B9">
+                        型クラス
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E5%B2%A1%E5%B1%B1">
+                        岡山
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E5%B2%A1%E5%B1%B1git%E5%8B%89%E5%BC%B7%E4%BC%9A">
+                        岡山git勉強会
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E5%BA%83%E5%B3%B6">
+                        広島
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E5%BA%83%E5%B3%B6ruby%E5%8B%89%E5%BC%B7%E4%BC%9A">
+                        広島ruby勉強会
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E6%83%85%E5%A0%B1%E6%95%B4%E7%90%86">
+                        情報整理
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E6%9B%B8%E8%A9%95">
+                        書評
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E6%A5%BD%E3%81%97%E3%81%84">
+                        楽しい
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E8%80%83%E3%81%88%E6%96%B9">
+                        考え方
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E8%89%B2">
+                        色
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2">
+                        読書メモ
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E9%96%A2%E6%95%B0%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80">
+                        関数プログラミング入門
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="http://blog.eiel.info/tags/%E9%9F%B3%E5%A3%B0%E7%B7%A8%E9%9B%86">
+                        音声編集
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        
+        
+        <div id="profile">
+            <div class="eyecatch">
+                <img id="photo" src="/images/nopicture.png" alt="profile">
+            </div>
+            <a href="http://eiel.info/">Website</a>
+            <div class="data">
+                
+                <a href="https://www.facebook.com/eielh" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                
+                
+                <a href="https://twitter.com/eileh" target="_blank"><i class="fa fa-twitter-square"></i></a>
+                
+                
+                <a href="https://github.com/eiel" target="_blank"><i class="fa fa-github-square"></i></a>
+                
+                <pre id="description">
+                </pre>
+                <ul id="urls" class="post-tags"></ul>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+<footer class="copy">
+    <p>&copy; 2015  Tomohiko Himura </p>
+    <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>, Theme <a href="https://github.com/dim0627/hugo_theme_aglaus" target="_blank">Aglaus</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
+</footer>
+
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script src="http://blog.eiel.info/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-34566858-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+<script>
+$(function() {
+    var url = "https://ja.gravatar.com/eiel.hal@gmail.com.json?callback=?";
+    $.getJSON(url)
+        .done(function(data) {
+            var entry = data.entry[0];
+            $("#photo").attr("src", entry.photos[0].value);
+            $("#username").html(entry.name.familyName + " " + entry.name.givenName);
+            $("#description").html(entry.aboutMe);
+            entry.urls.forEach(function(el){
+                $("#urls").append($("<li><a href='" + el.value + "'>" + el.title + "</a></li>"));
+            });
+            $("#profile").show();
+        });
+});
+</script>
+

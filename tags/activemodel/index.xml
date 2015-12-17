@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/activemodel/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-03-20 15:00:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>ActiveModelを利用してフォームを作成した時の型変換</title>
+          <link>http://blog.eiel.info/blog/2013/03/20/activerecord-value-to-type/</link>
+          <pubDate>Wed, 20 Mar 2013 15:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/03/20/activerecord-value-to-type/</guid>
+          <description>
+
+&lt;p&gt;対応するレコードがないフォームを使う場合、ActiveModelを使用することで、シンプルなビューを構築しつつ、処理はモデルにかけます。&lt;/p&gt;
+
+&lt;p&gt;しかし、ActiveModelのノウハウってあんまり落ちていません。
+それなりに ActiveRecord に対する理解も必要で、難しいですね。
+ハマったことなど共有していきたいと思います。&lt;/p&gt;
+
+&lt;p&gt;フォームからのデータは文字列ですが、ActiveRecord にはコラム自体には型があるため、型変換を自動的に行ってくれます。
+これを無意識に使用していると ActiveModelではまります。&lt;/p&gt;
+
+&lt;p&gt;具体的には以下のテーブルがあったとします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class CreateUsers &amp;lt; ActiveRecord::Migration
+  def change
+    create_table :users do |t|
+      t.string :name
+      t.integer :age
+      t.boolean :is_person
+      t.timestamps
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;利用例を見てみましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;user = User.new(age: &#39;20&#39;)
+user.age                        # =&amp;gt; 20
+user.age.class                  # =&amp;gt; Fixnum
+
+user = User.new(is_person: &amp;quot;1&amp;quot;)
+user.is_person                  # =&amp;gt; true
+user.is_person.class            # =&amp;gt; TrueClass
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;文字列から作成しているけども、自動的に数値や、真偽値へと変換されています。&lt;/p&gt;
+
+&lt;p&gt;ActiveModel を使用する場合は以下のように実装しておくとよさそうです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class User2
+  attr_reader :age, :is_person
+  include ActiveRecord::ConnectionAdapters
+
+  def initialize(attributes = {})
+    attributes.each do |key, value|
+      send(&amp;quot;#{key}=&amp;quot;,value)
+    end
+  end
+
+  def age=(age)
+    @age = age.to_i
+  end
+
+  def is_person=(is_person)
+    @is_person = Column.value_to_boolean(is_person)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;代入する時に値を修正するのが インスタンス変数に直接アクセスした場合にも型が保証できて良いです。&lt;/p&gt;
+
+&lt;p&gt;「別に文字列でもいいよ。」なんてこともあると思いますが、
+数値だとおもってうっかり使うと &lt;code&gt;&#39;20&#39; * 3 -&amp;gt; &#39;202020&#39;&lt;/code&gt; となって欲しい &lt;code&gt;40&lt;/code&gt;とは大きく違います。
+チェックボックスを利用すると &lt;code&gt;&amp;quot;1&amp;quot;&lt;/code&gt; などなど、値として降ってきます。&lt;/p&gt;
+
+&lt;p&gt;特に 真偽値への変換ですが、とりあえずわからなかったので、自前でごまかしていたのですが、調べました。
+&lt;code&gt;ActiveRecord::ConnectionAdapters::Column&lt;/code&gt; にさままな型変換のメソッドが実装されています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/rails/rails/blob/v3.2.13/activerecord/lib/active_record/connection_adapters/column.rb&#34;&gt;https://github.com/rails/rails/blob/v3.2.13/activerecord/lib/active_record/connection_adapters/column.rb&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;その中の &lt;code&gt;value_to_boolean&lt;/code&gt; を使用しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def value_to_boolean(value)
+  if value.is_a?(String) &amp;amp;&amp;amp; value.blank?
+    nil
+  else
+    TRUE_VALUES.include?(value)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;true&lt;/code&gt; になる値は以下のように定義されてます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[true, 1, &#39;1&#39;, &#39;t&#39;, &#39;T&#39;, &#39;true&#39;, &#39;TRUE&#39;, &#39;on&#39;, &#39;ON&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;他にも&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;value_to_integer&lt;/li&gt;
+&lt;li&gt;value_to_decimal&lt;/li&gt;
+&lt;li&gt;string_to_time&lt;/li&gt;
+&lt;li&gt;string_to_date&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などのメソッドがありました。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:373a133d85b51f8db7edc035cb738400&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;単体テストをかくときには文字列を渡すようにしたほうが良いかもしれません。
+しかし、このような状況下になることはあまりないので、そんなに気にしなくても良いかなーという感じです。&lt;/p&gt;
+
+&lt;p&gt;テーブルつくれることならテーブルを作るほうが手軽そうです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gist.github.com/eiel/5202625&#34;&gt;サンプルコード&lt;/a&gt; はこちらに置いてます。&lt;/p&gt;
+
+&lt;p&gt;ActiveModel を使用するには 積極的にActiveRecord への理解を深める必要があります。
+ソースコードもそこまで複雑ではないと思いますので、Rdocやソースコードも読んでいきたいですね。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

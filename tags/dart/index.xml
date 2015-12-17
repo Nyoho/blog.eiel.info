@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/dart/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-11-27 20:32:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Dart で遊んだ</title>
+          <link>http://blog.eiel.info/blog/2013/11/27/dart/</link>
+          <pubDate>Wed, 27 Nov 2013 20:32:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/11/27/dart/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://www.dartlang.org&#34;&gt;Dart&lt;/a&gt; の 1.0 がリリースされたらしい。
+ということで、2013年11月の&lt;a href=&#34;http://twitter.com/hwebsys&#34;&gt;広島Webシステム開発&lt;/a&gt;で遊びました。&lt;/p&gt;
+
+&lt;p&gt;基本的には &lt;a href=&#34;https://www.dartlang.org/codelabs/darrrt/&#34;&gt;Try Dart&lt;/a&gt; を写経しました。&lt;/p&gt;
+
+&lt;p&gt;ウェブサイトから「Dart Editor」や「dart VMを組み込んだ chromium」や「JavaScriptに変換する dart2js」などなど一式含んだファイルをダウンロードできます。
+Dart Editor を使えばすぐに Dart をはじめることができます。
+ウェブアプリケーションも作成できますし、コンソールアプリケーションも作成できます。
+コンソールアプリケーションは &lt;code&gt;dart&lt;/code&gt; という実行ファイルが添付されているのでここから実行できます。&lt;/p&gt;
+
+&lt;p&gt;また、添付されている chromium も Dart VM を組み込みした特別なものみたいなので、Dartがいろんなブラウザで動くようになるのもまだまだ先になりそうです。
+JavaScript に変換できるので、Dartで作成したアプリケーション自体は動かすことができるようですが、試していません。&lt;/p&gt;
+
+&lt;p&gt;あとは &lt;a href=&#34;https://www.dartlang.org/codelabs/darrrt/&#34;&gt;Try Dart&lt;/a&gt; を試していて気づいたこと書いていきたいと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;セミコロンは必須:16516880e9718d93ea0009140735fe71&#34;&gt;セミコロンは必須&lt;/h3&gt;
+
+&lt;p&gt;セミコロンかくのめんどくさい。&lt;/p&gt;
+
+&lt;h3 id=&#34;dart-editor:16516880e9718d93ea0009140735fe71&#34;&gt;Dart Editor&lt;/h3&gt;
+
+&lt;p&gt;括弧とか「閉じ括弧」が補完されるようなものは入力が終わったときに TAB を押すと良い感じになるのを知った。
+たぶん、eclipse はだいたいこのような挙動なのだろう。&lt;/p&gt;
+
+&lt;h3 id=&#34;添付chromium-でも-bootstrap-に-javascript-が必要:16516880e9718d93ea0009140735fe71&#34;&gt;添付chromium でも bootstrap に JavaScript が必要&lt;/h3&gt;
+
+&lt;p&gt;Dartでつくったウェブアプリケーションは HTML に packages/browser/dart.js という JavaScript を読み込んでいて JavaScript から Dart エントリポイントが呼び出されるようです。「なんだって!」って気分でした。&lt;/p&gt;
+
+&lt;h3 id=&#34;他の-google-技術との親和性:16516880e9718d93ea0009140735fe71&#34;&gt;他の Google 技術との親和性&lt;/h3&gt;
+
+&lt;p&gt;例えば &lt;a href=&#34;http://www.polymer-project.org&#34;&gt;Polymer&lt;/a&gt; がすでに &lt;a href=&#34;https://www.dartlang.org/polymer-dart/&#34;&gt;Polymer.dart&lt;/a&gt; としてポーティングされてたりする。
+Polymer はチュートリアルにも登場する勢い。
+&lt;a href=&#34;https://github.com/angular/angular.dart.tutorial/wiki&#34;&gt;Angular&lt;/a&gt;もすでに利用できるみたい。&lt;/p&gt;
+
+&lt;h3 id=&#34;演算子:16516880e9718d93ea0009140735fe71&#34;&gt;&lt;code&gt;..&lt;/code&gt; 演算子&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;..&lt;/code&gt; という演算子がいる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;genButton..disabled = false
+         ..text = &#39;Aye! Gimme a name!&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;.&lt;/code&gt; とほとんど同じなのだけど、&lt;code&gt;..&lt;/code&gt; を使うとメソッドの戻り値を無視して &lt;code&gt;genButton&lt;/code&gt; を返す感じになるようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;genButton.disabled = false;
+genButton.text = &#39;Aye! Gimme a name!&#39;;
+genButton
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と書いているのとほとんど同じ状態のようです。&lt;/p&gt;
+
+&lt;p&gt;代入するメソッドは void を返すのでメソッドチェーンできませんが、&lt;code&gt;..&lt;/code&gt; があればメソッドチェーンできるようです。&lt;/p&gt;
+
+&lt;h3 id=&#34;import-show:16516880e9718d93ea0009140735fe71&#34;&gt;import show&lt;/h3&gt;
+
+&lt;p&gt;import する時に名前空間をちらかさないようにできるみたいです。&lt;/p&gt;
+
+&lt;p&gt;具体例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import &#39;dart:math&#39; show Random;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;dart:math から Random というクラスかなにか知らないけど、そこだけ取り出せるようです。
+Haskell にも同様の機能がありましたね。&lt;/p&gt;
+
+&lt;h3 id=&#34;ファクトリメソッドが書きやすいらしい:16516880e9718d93ea0009140735fe71&#34;&gt;ファクトリメソッドが書きやすいらしい。&lt;/h3&gt;
+
+&lt;p&gt;写経した中に、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;PirateName.fromJSON(String jsonString) {
+  Map storedName = JSON.decode(jsonString);
+  _firstName = storedName[&#39;f&#39;];
+  _appellation = storedName[&#39;a&#39;];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;という部分があってクラスメソッドのように見えるんだけど、これから作成するインスタンスのフィールドにアクセスできてる。
+別のサンプルで factory というキーワードをみかけたので、そういった機能なのだと思いつつ眺めていた。&lt;/p&gt;
+
+&lt;h3 id=&#34;ローカルストレージがあつかいやすい:16516880e9718d93ea0009140735fe71&#34;&gt;ローカルストレージがあつかいやすい？&lt;/h3&gt;
+
+&lt;p&gt;言われるがままに写経してたけども、ローカルストレージを使うサンプルがあっさりと実装できた。JavaScriptでかくとどうなるのか調べて比較したいけど、そんな余裕はなかった。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:16516880e9718d93ea0009140735fe71&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;まだまだ実際には使いづらいですが、外堀は着々と進んでいる印象を持ちました。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:16516880e9718d93ea0009140735fe71&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/05/31/polymer/&#34;&gt;Polymer という Web Componets のラッパーを試した&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2012/07/26/angularjs-abc/&#34;&gt;AngularJSで遊んだときのメモ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

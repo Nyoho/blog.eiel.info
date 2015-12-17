@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/helm/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-04-04 11:25:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Helmをインストールしてみた</title>
+          <link>http://blog.eiel.info/blog/2012/04/04/install-helm/</link>
+          <pubDate>Wed, 04 Apr 2012 11:25:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/04/04/install-helm/</guid>
+          <description>&lt;p&gt;anythingのフォークである&lt;a href=&#34;https://github.com/emacs-helm/helm&#34;&gt;helm&lt;/a&gt;を試してみた。
+試した環境は GNU Emacs 24.0.94.1 (x86_64-apple-darwin11.3.0, NS apple-appkit-1138.32) of 2012-03-25&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;具合がわるくなってしまう設定&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;(set-file-name-coding-system &#39;utf-8-hfs)
+(setq local-coding-system &#39;utf-8-hfs)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;utf-8-hfsを設定してるとhelmのロードがおわらなくなった。何かを収集中に無限ループに落ちいる模様。anythingにできて、helmにできないことはまだまだたくさんあるので、しばらくanythingと共存させてみます。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/chatwork/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-10-01 01:01:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>ChatworkをOperaで使うのはやめといたほうがいい。</title>
+          <link>http://blog.eiel.info/blog/2014/10/01/chatwork-on-opera/</link>
+          <pubDate>Wed, 01 Oct 2014 01:01:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/10/01/chatwork-on-opera/</guid>
+          <description>&lt;p&gt;ずっとOperaでChatworkをつかっていた。
+通知が微妙だなぁって思ってた。
+Chromeで開いてみてみた。
+不満に思うことがおきなかった。
+Chromeでひらくべきだとおもった。&lt;/p&gt;
+
+&lt;p&gt;そもそも僕はひらきっぱなしにしたいサイトはOperaで開いている。
+デフォでタブが固定できるのが主な理由で、あとは開きっぱなしのものは閲覧用のブラウザと分離したいからだ。
+なので、Operaでちゃっと動いてくれると実はすごく嬉しい。&lt;/p&gt;
+
+&lt;p&gt;Operaで開いていてよく困るのが通知音がしないことが多いことだ。
+特に開いているチャットは通知音がならない。
+フォーカス管理まわりの挙動が違うんじゃないかと思う。&lt;/p&gt;
+
+&lt;p&gt;こんなことしてる人はあまりいないと思うけど、記録に残すことにした。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

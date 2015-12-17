@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/debug/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-07-05 14:44:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>ruby-debugからpryを起動する</title>
+          <link>http://blog.eiel.info/blog/2012/07/05/debugger-on-pry/</link>
+          <pubDate>Thu, 05 Jul 2012 14:44:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/07/05/debugger-on-pry/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/pry/pry&#34;&gt;Pry&lt;/a&gt;便利です。&lt;/p&gt;
+
+&lt;p&gt;スクリプト上で debugger をかいておくとそこでデバッガ(rdb)を起動できますが、&lt;code&gt;debugger-pry&lt;/code&gt;をインストールしておくと&lt;code&gt;pry&lt;/code&gt;コマンドが追加されて&lt;code&gt;pry&lt;/code&gt;を起動できます。
+Gemfileに書く場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;gem &amp;quot;debugger-pry&amp;quot;, :require =&amp;gt; &amp;quot;debugger/pry&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最近のRailsのGemfile&lt;/p&gt;
+
+&lt;p&gt;{% gist 3051612 %}&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

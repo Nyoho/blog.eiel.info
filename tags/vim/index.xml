@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/vim/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-07-03 20:08:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Mac で使える git mergetool をいろいろ試してみる - Vimdiff2</title>
+          <link>http://blog.eiel.info/blog/2013/07/03/git-mergetool-vimdiff2/</link>
+          <pubDate>Wed, 03 Jul 2013 20:08:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/07/03/git-mergetool-vimdiff2/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt; の続きです。&lt;/p&gt;
+
+&lt;p&gt;Vimdiff2を紹介してみます。
+emacs使いですが、
+vimさえ入っていれば、設定不要で、「気軽に使えるかなぁ。」という目論見です。
+vimdiff2 とかいてみましたか、vim の起動方法が違うだけのような感じでした。
+よくわかりません。
+vimdiff でも起動できます。&lt;/p&gt;
+
+&lt;p&gt;設定は不要で、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git mergetool -t vimdiff2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とすると起動できます。&lt;/p&gt;
+
+&lt;p&gt;また、常に vimdiff2 を利用したい場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global --global merge.tool vimdiff2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;としておけばよいです。&lt;/p&gt;
+
+&lt;p&gt;ヘルプを見るには vim を起動した状態で&lt;/p&gt;
+
+&lt;p&gt;`&lt;code&gt;
+:h vimdiff
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;で help が出せました。
+&lt;a href=&#34;http://twitter.com/pecosantoyobe&#34;&gt;pecosantoyobe&lt;/a&gt;に教えてもらいました。
+ありがとうございます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/vimdiff2.png&#34; alt=&#34;vimdiff の画面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;画面左が現在のブランチのファイルの内容で、画面右がマージするブランチのファイル内容です。
+中央にはコンフリクトしたファイルの内容がでており、修正することができます。&lt;/p&gt;
+
+&lt;p&gt;次のコンフリクト場所に移動するには &lt;code&gt;]c&lt;/code&gt; で移動することができます。
+前のコンフリクト場所に移動するには &lt;code&gt;[c&lt;/code&gt; で移動することができます。&lt;/p&gt;
+
+&lt;p&gt;コンフリクト場所に移動して、&lt;code&gt;:diffget L&lt;/code&gt; と入力すると 左の内容を取り込むことができ、&lt;code&gt;:diffget R&lt;/code&gt; と入力すると右の内容を取り込むことができます。&lt;/p&gt;
+
+&lt;p&gt;移動も含めてショートカットを用意すると、とても便利そうです。&lt;/p&gt;
+
+&lt;p&gt;終了の仕方がよくわかりませんでした。
+&lt;code&gt;ZZZZZZ&lt;/code&gt; として終了しました。
+もっとよい方法があるような気がします。&lt;/p&gt;
+
+&lt;p&gt;終了すると次のファイルが自動的に開きました。
+とても便利でした。&lt;/p&gt;
+
+&lt;p&gt;なんとなく emacs に渡せないときに使いたいと思います。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:770eec7d0b144f9190270d0a703e4a58&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>tmux で copy-mode でのキーバインドについて</title>
+          <link>http://blog.eiel.info/blog/2013/02/17/tmux-copy-mode/</link>
+          <pubDate>Sun, 17 Feb 2013 12:45:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/17/tmux-copy-mode/</guid>
+          <description>&lt;p&gt;tmuxのコピーモードでのキーバインドはデフォルトで emacs like になっています。&lt;/p&gt;
+
+&lt;p&gt;なぜか、一部のマシンでのみ vi like になってたので、&lt;code&gt;man tmux&lt;/code&gt; をみてみた。
+&amp;gt;  the default is emacs, unless VISUAL or EDITOR contains ‘vi’.&lt;/p&gt;
+
+&lt;p&gt;デフォルトは emacs だけど環境変数 VISUAL か EDITOR に &amp;lsquo;vi&amp;rsquo; を含んでいれば vi like になるそうです。&lt;/p&gt;
+
+&lt;p&gt;環境変数に影響されずに固定したい場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;set-window-option -g mode-keys emacs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とか&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;set-window-option -g mode-keys vi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とか、書いておきましょう。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

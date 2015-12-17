@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E5%B2%A1%E5%B1%B1git%E5%8B%89%E5%BC%B7%E4%BC%9A/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-02-23 21:24:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>岡山Git勉強会 - 20130223 - Git 仕組み入門 という話をしてきた</title>
+          <link>http://blog.eiel.info/blog/2013/02/23/okagit-20130223/</link>
+          <pubDate>Sat, 23 Feb 2013 21:24:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/23/okagit-20130223/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://local.aguuu.com/events/11120&#34;&gt;岡山Git勉強会 20130223&lt;/a&gt; で &lt;code&gt;Git 仕組み 入門&lt;/code&gt;という話をしてきました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://togetter.com/li/460974&#34;&gt;トゥギャッター&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://sekico.co/zaseki/95&#34;&gt;セキココ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;もっと簡単な内容にできるかな？っと思ってやってみたのですが、やっぱり難しめだったみたいです。
+スライドだけでもある程度理解できるように細かめにつくってみました。
+やりすぎた感が漂います。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/16716062&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;http://www.slideshare.net/TomohikoHimura/git-16716062&#34; title=&#34;Git 仕組み 入門&#34; target=&#34;_blank&#34;&gt;Git 仕組み 入門&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/okagit-object&#34;&gt;スライドをつくる際のメモなどもupしています。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;この辺りの話を聞いたことがない方は手を動かしてみてはどうでしょうか。&lt;/p&gt;
+
+&lt;h3 id=&#34;話し忘れたこと:43d1df66e254d4a4856c488e0588fa1e&#34;&gt;話し忘れたこと&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;日頃使うツールはしっかり理解したほうがいいと思う&lt;/li&gt;
+&lt;li&gt;tree  オブジェクトに登場した mode は 666 とかよくパーミッションがどうこう言われるアレです。&lt;/li&gt;
+&lt;li&gt;このあたりの仕組みが入門書に出てくるあたりも Git の魅力なだと思います。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;内容にあまり関係ないこと:43d1df66e254d4a4856c488e0588fa1e&#34;&gt;内容にあまり関係ないこと&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;keynote の機能をいろいろためした&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;もっとはやく勉強しておけばよかった。マスタースライドでスライドのテンプレートをつくっていじると、スライドのデザインをまとめていじれる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;背景色をうっすら変えてみた。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;お洒落感が出るのか試してみたかった。結果はよくわからない。
+ディスプレイでみるとわかる違いはプロジェクターでわかるかどうか怪しい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;keynote で アウトラインからスライドを作ると効率よさげ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;前述のマスタースライドの機能がわかっていれば、わりといけます。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:43d1df66e254d4a4856c488e0588fa1e&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;話をするのは苦手で、相変わらず、反省点の多いセッションですが、話を聞いていただいてありがとうございました。良い経験になりました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

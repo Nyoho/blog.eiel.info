@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/vagrant/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-07-16 23:14:57 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>AtlasでPackerが実行できるようになってて感動した</title>
+          <link>http://blog.eiel.info/blog/2015/07/16/atlas-packer-vagrant/</link>
+          <pubDate>Thu, 16 Jul 2015 23:14:57 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/07/16/atlas-packer-vagrant/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/events/event-113.html&#34;&gt;すごい広島113&lt;/a&gt;で遊んでたこと。&lt;/p&gt;
+
+&lt;p&gt;テスト環境を提供しないといけなくて、Dockerつかいたかったけど、今回はVagrantのBoxでベースを提供することにした。
+Packerつかうと時間がかかるのでvagrant packageでつくって、Vagrant Cloudにおいたりしてました。&lt;/p&gt;
+
+&lt;p&gt;ちょっと久しぶりにPackerでboxをつくるかーって&lt;a href=&#34;https://atlas.hashicorp.com/&#34;&gt;Atlas&lt;/a&gt;にいってみたら、Web上に表示されたチュートリアルにそってコマンドラインで作業するだけでBoxがつくれるようになってました。
+しかも、Packerの実行をAtlasがやってくれます。しかも、VirtualboxとVMwareのイメージ両方つくってくれます。
+しかも、勝手にBoxesに登録されます。
+素敵です。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Atlasにサインインする&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Build Vagrant Boxes with Packer and Atlas&lt;/code&gt;というメニューがあってクリックする&lt;/li&gt;
+&lt;li&gt;packerのバージョンの確認をさせられる。0.8.0より最新かどうか。&lt;/li&gt;
+&lt;li&gt;PackeのTemplaterをもってるかきかれます。もってなかったら &lt;a href=&#34;https://github.com/hashicorp/atlas-packer-vagrant-tutorial&#34;&gt;atlas-packer-vagrant-tutorial&lt;/a&gt;が使えると教えてくれます。&lt;/li&gt;
+&lt;li&gt;API TOKENが生成されるので、環境変数に登録します&lt;/li&gt;
+&lt;li&gt;packer push をつかって template.jsonとscriptをAtlasに送信します&lt;/li&gt;
+&lt;li&gt;進行状況をAtlasで閲覧できます。だいたい30分ぐらいかかります。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;そうすると、boxができて、Atlasから取得できるようになります。
+ここから配布していると vagrant box update でboxが更新できたりとなかなか嬉しいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;他に遊んだこと:1247e1560615377b9ea7b5177fc320aa&#34;&gt;他に遊んだこと&lt;/h3&gt;
+
+&lt;p&gt;tutorialのものはUbuntu12.04だったので&lt;a href=&#34;https://github.com/eiel/atlas-packer-vagrant-rails/commit/03d5c05b48ec02bae24bbf58d8ebd4f7c380762d&#34;&gt;14.04&lt;/a&gt;にかえたりしました。&lt;/p&gt;
+
+&lt;p&gt;railsが実行できる環境つくって遊びました。
+&lt;a href=&#34;https://github.com/eiel/atlas-packer-vagrant-rails/commit/054deb74f7d6ab4a034304f3f78deee1df386bd5&#34;&gt;mysqlとrubyをいれてるだけです&lt;/a&gt;。2.1.6なのは大人の事情です。&lt;/p&gt;
+
+&lt;p&gt;公開するboxは一度公開したバージョンの場合、最終的なPackerの実行が失敗します。
+成果物が登録できないからです。
+メタデータを修正して、新しいバージョンに変えるようにしてください。&lt;/p&gt;
+
+&lt;p&gt;具体的には&lt;a href=&#34;https://github.com/eiel/atlas-packer-vagrant-rails/commit/683741aa9f6055e70c0822bf2520d4b59ecaca4f&#34;&gt;この辺を参考にしてください&lt;/a&gt;。versionを0.0.4にしています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://atlas.hashicorp.com/eiel/boxes/rails-mysql&#34;&gt;実際につくったVagarantのBoxはこちらにあります。&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vagrant init eiel/rails-ymqsl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とかすると使えます。&lt;/p&gt;
+
+&lt;p&gt;Vagrantのboxをつくるのに、Packerをつかうとローカルマシンが占有されてつらかったのですが、Atlas上でビルドできるようになってたいへん幸せです。&lt;/p&gt;
+
+&lt;p&gt;継続的デリバリー感がします。とても楽しいので一度遊んでみてください。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>VagrantでX転送</title>
+          <link>http://blog.eiel.info/blog/2014/12/10/vagrant-xforward/</link>
+          <pubDate>Wed, 10 Dec 2014 20:47:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/10/vagrant-xforward/</guid>
+          <description>&lt;p&gt;以下をかいておけばよい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;config.ssh.forward_x11 = true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとは普通に&lt;code&gt;vagrant ssh&lt;/code&gt;して、Xクライアントを動かせばよい。&lt;/p&gt;
+
+&lt;p&gt;サーバ側にある程度必要なライブラリがない場合はディスプレイがないと言われてしまう。
+CentOSなら以下をいれとくとよい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;yum -y groupinstall &amp;quot;X Window System&amp;quot; vlgothic-fonts
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

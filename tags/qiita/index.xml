@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/qiita/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-12-24 18:35:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Oiitaと技術系ブログを書き分けることにした理由</title>
+          <link>http://blog.eiel.info/blog/2014/12/24/reason-for-written-qiita/</link>
+          <pubDate>Wed, 24 Dec 2014 18:35:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/24/reason-for-written-qiita/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/&#34;&gt;Qiita&lt;/a&gt;をどのように使うのか迷っていたのだけど、答えが出たのでQiitaも使うことにした。
+結論から書くと「&lt;strong&gt;読者のことを考えた上で書き分ける&lt;/strong&gt;」ことにした。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、昨日はじめてQiitaに投稿した。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/eielh/items/8b9f86a980b08125eb93&#34;&gt;oh-my-fishではじめるfish - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;読者にとって、書いた内容がQiitaのほうが読みやすいのであればQiitaに書くことにした。
+そうではなく、そこから漏れてしまったことはこのブログに書くことにする。&lt;/p&gt;
+
+&lt;p&gt;「読者のことを考える」は文章を書く上でとても大切なことです。
+数学文書作法で、&lt;a href=&#34;http://twitter.com/hyuki&#34;&gt;結城先生&lt;/a&gt;がとても大切なこととして説明されています。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=448009525X&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=4480095268&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;この記事の目次。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Qiitaに書いたほうが良いこと&lt;/li&gt;
+&lt;li&gt;Qiitaに書いても広告収入は増えないけど&lt;/li&gt;
+&lt;li&gt;その他雑多なこと&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;qiitaに書いたほうが良いこと:0d118b3fff807f1aa2e968604181be64&#34;&gt;Qiitaに書いたほうが良いこと&lt;/h3&gt;
+
+&lt;p&gt;Qiitaに書いたほうが良いものはなんだろうか。&lt;/p&gt;
+
+&lt;p&gt;Oiitaはプログラミングに関する知識を記録、共有するサービスです。
+ということは、プログラミングに関する知識を閲覧するのに、私が何もしなくても、日々読みやすくなっていくと考えることができます。
+自分のブログをもっと読みやすくしていくこともできますが、この労力を捻出することはなかなか難しいです。&lt;/p&gt;
+
+&lt;p&gt;しかし、このブログにいつも書いていたことが、Qiitaでも書けるかというと、そうでもない記事もいくつかあることに気づきました。
+本記事もそうだし、どこそこでLTしたなんかもそうだし、あれを作った、というのもQiitaには書ける気がしない。&lt;/p&gt;
+
+&lt;p&gt;書きたいことが浮かんだ時に、何を伝えたいのか明確だったらQiita書くと思う。&lt;/p&gt;
+
+&lt;p&gt;Qiitaでタグをフォロしている人はどんな情報を読みたいだろうか。
+そのタグに関する有益な情報を読みたいはずです。&lt;/p&gt;
+
+&lt;p&gt;少し話はずれるけど、&lt;a href=&#34;note.mu/eiel&#34;&gt;note&lt;/a&gt;に文章を投稿する場合も同様で、何か伝えたいことがあってすごく強い時でジャンルが技術系ではない場合に使っています。&lt;/p&gt;
+
+&lt;p&gt;書く場所を変えることで、文章を書く時の気持ちを切り換えもできます。&lt;/p&gt;
+
+&lt;h3 id=&#34;qiitaに書いても広告収入は増えないけど:0d118b3fff807f1aa2e968604181be64&#34;&gt;Qiitaに書いても広告収入は増えないけど&lt;/h3&gt;
+
+&lt;p&gt;そもそもなぜQiitaに書かないのかを考えると、どっちでもいいならこのブログに書けば広告収入が増える可能性があるからだろう。&lt;/p&gt;
+
+&lt;p&gt;これからQiitaに書くだろう記事をこのブログに書けば、このブログからの広告収入は増えるだろう。
+しかし、技術系の広告収入なんて雀の涙で、せいぜいサーバの運用費ぐらいにしかならない。&lt;/p&gt;
+
+&lt;p&gt;あまり気にすることではない。&lt;/p&gt;
+
+&lt;p&gt;読者のことを考えて良いと思う選択をするほうが、いつかもっと大きな利益になって還元されるんじゃないだろうか。
+目先のメリットに囚われるな。&lt;/p&gt;
+
+&lt;p&gt;そもそも広告収入で生活したいならもっと別のことをすべきだし、そっちのほうが効率が良いはずだ。&lt;/p&gt;
+
+&lt;h3 id=&#34;その他雑多なこと:0d118b3fff807f1aa2e968604181be64&#34;&gt;その他雑多なこと&lt;/h3&gt;
+
+&lt;p&gt;過去に書いた記事を整理してQiitaに書きなおしたりすることもあると思う。
+その際には自分のブログから引用にしたり参考文献にはったりすることもできる。
+ハイパーメディアの特徴を生かせたら良いと思う。&lt;/p&gt;
+
+&lt;p&gt;Qiitaだけでなくて他のサービスも使い方にも悩む。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ja.stackoverflow.com/&#34;&gt;スタックオーバーフロー&lt;/a&gt;を今から調べたいことを質問しておいて、作業をすすめるとアドバイスしてくれる人がいて捗りそうな気がしている。
+「アドバイスがくる前に解決したら自分で回答する」みたいな使い方もありなのか検討していたりする。&lt;/p&gt;
+
+&lt;p&gt;ますますブログにかくことがなくなりそうではある。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:0d118b3fff807f1aa2e968604181be64&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;整理されたドキュメントや何か伝えたいことがあればQiitaも使っていこうと思う。
+そこから漏れてしまう書いておきたい技術メモはこのブログにかいていく。&lt;/p&gt;
+
+&lt;p&gt;現時点でQiitaに書かないこと。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;どこかのイベントでセッションをしたこと&lt;/li&gt;
+&lt;li&gt;バグをみつけた、一時的な回避方法&lt;/li&gt;
+&lt;li&gt;ライブラリやウェブサービスやウェブアプリケーションを作成した&lt;/li&gt;
+&lt;li&gt;ちょっと確認しただけの書き捨てたメモ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ということで、Qiitaさんには読み手も書き手も便利なサービスになっていくことを期待したいと思います。&lt;/p&gt;
+
+&lt;p&gt;何をするにしても「読者のことを考える」ことを大切にしたいですね。&lt;/p&gt;
+
+&lt;p&gt;もちろん文章を書く以外では「相手のことを考える」ことを大切にしたい。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/gitolite/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-08-23 22:32:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>gitolite で tag への権限付与</title>
+          <link>http://blog.eiel.info/blog/2013/08/23/gitolite-tag/</link>
+          <pubDate>Fri, 23 Aug 2013 22:32:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/08/23/gitolite-tag/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/sitaramc/gitolite&#34;&gt;gitolite&lt;/a&gt; でリポジトリを管理しております。
+git の使い方わかってない子もいるのでわりと push できるブランチを制限してるリポジトリがあります。
+タグを push しようとしたら拒否された。&lt;/p&gt;
+
+&lt;p&gt;というわけで許可を与える方法を調べた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;RW+    refs/tags/    = eiel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;refs/tags/&lt;/code&gt; にたいして行えばよいみたいです。&lt;/p&gt;
+
+&lt;p&gt;補足しとくと形式は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[許可属性]  [ブランチなど正規表現]  = [ユーザまたはグループ]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;という感じです。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考:1d395e4416c83d54a5193b36dbaab320&#34;&gt;参考&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sitaramc/gitolite&#34;&gt;gitolite - GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

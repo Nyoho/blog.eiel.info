@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/nodejs/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-10-30 11:13:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>nodejsのモジュールをブラウザで使えるようにするbrowserifyでちょっと遊んだ</title>
+          <link>http://blog.eiel.info/blog/2014/10/30/browserify/</link>
+          <pubDate>Thu, 30 Oct 2014 11:13:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/10/30/browserify/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://browserify.org/&#34;&gt;Browserify&lt;/a&gt;で少し遊んだ。&lt;/p&gt;
+
+&lt;p&gt;npmにあるライブラリをクライアントサイドで使いたいなぁ、という時に便利な子がBrowserifyさんです。
+HTML側に複数のscriptタグを書かなくてよくなり、&lt;code&gt;&amp;lt;script src=&amp;quot;bundle.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;のみ記述しておけば良いので管理が楽です。
+(当然&lt;code&gt;bundle.js&lt;/code&gt;以外の名前にすることもできます)&lt;/p&gt;
+
+&lt;p&gt;requirejsの代わりに使うこともできるし、gulpやらを組み合わせてminifyなどもできるでしょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;とりあえず試すには:564bac21602d3e06fe43c7d8c37025b3&#34;&gt;とりあえず試すには&lt;/h3&gt;
+
+&lt;p&gt;QUERY_STRINGをクライアントサイドで処理するのを試した。
+ライブラリには&lt;a href=&#34;https://www.npmjs.org/package/qs&#34;&gt;qs&lt;/a&gt;を利用。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;nodejsをインストール&lt;/li&gt;
+&lt;li&gt;npm install -g browserify&lt;/li&gt;
+&lt;li&gt;npm install qs&lt;/li&gt;
+&lt;li&gt;qsを使うコードをかく&lt;/li&gt;
+&lt;li&gt;browserfyを実行&lt;/li&gt;
+&lt;li&gt;生成されたjsを使う&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;nodejsのインストールは省略。&lt;/p&gt;
+
+&lt;p&gt;browserifyコマンドを利用するために&lt;code&gt;npm intsall -g browseriy&lt;/code&gt;する。&lt;/p&gt;
+
+&lt;p&gt;今回はqsを使うので&lt;code&gt;npm install qs&lt;/code&gt; をする。&lt;/p&gt;
+
+&lt;p&gt;以下のコードは&lt;code&gt;main.js&lt;/code&gt;に書いた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var qs = require(&#39;qs&#39;);
+
+console.log(qs.parse(&#39;aaa=bbb&amp;amp;ccc=ddd&#39;));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;出力は以下のようになった。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ aaa: &#39;bbb&#39;, ccc: &#39;ddd&#39; }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これをブラウザ上でもうごくようにするためにbrowserifyを使う。&lt;/p&gt;
+
+&lt;p&gt;以下のコマンドでbundle.jsを作成する。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ browserify main.js -o bundle.js
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;qsの中身を&lt;code&gt;bundle.js&lt;/code&gt;の中に加えて&lt;code&gt;require&lt;/code&gt;を使える状態にもなってるらしいけど確認してない。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;index.html&lt;/code&gt;を作成してブラウザで開くとコンソールで開いてみると同じ出力がでている。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;script src=&amp;quot;bundle.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;もうちょっとちゃんとquery-stringを解析してみる:564bac21602d3e06fe43c7d8c37025b3&#34;&gt;もうちょっとちゃんとQUERY_STRINGを解析してみる&lt;/h3&gt;
+
+&lt;p&gt;さっきのは固定値だったので、ちゃんとURLから取得する。
+&lt;code&gt;location.search&lt;/code&gt;の値を使った。&lt;/p&gt;
+
+&lt;p&gt;main.js を以下のようにして、HTML上にも表示した。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var qs = require(&#39;qs&#39;);
+
+var queryString = location.search || &amp;quot;&amp;quot;;
+queryString = queryString.substr(1, queryString.length);
+var params = qs.parse(queryString);
+var json_text = JSON.stringify(params);
+document.getElementsByTagName(&amp;quot;body&amp;quot;)[0].innerText = json_text;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;gulpと連携して変更検知して自動生成する:564bac21602d3e06fe43c7d8c37025b3&#34;&gt;gulpと連携して変更検知して自動生成する。&lt;/h3&gt;
+
+&lt;p&gt;以下に書いてある。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/gulpjs/gulp/blob/master/docs/recipes/fast-browserify-builds-with-watchify.md&#34;&gt;gulp/fast-browserify-builds-with-watchify&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;bundel.js&lt;/code&gt;に補助の情報としてファイルの場所が表示されていたが絶対パスでリリースには使いづらかったので、&lt;code&gt;watchify.args.fullPaths = false;&lt;/code&gt;にしてみた。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;main.js&lt;/code&gt;をsrcディレクトリ移動して、出力先をdistディレクトリに変更しています。&lt;/p&gt;
+
+&lt;p&gt;gulpfile.jsは以下のとおり。ほとんどそのまま。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var gulp = require(&#39;gulp&#39;);
+var gutil = require(&#39;gulp-util&#39;);
+var source = require(&#39;vinyl-source-stream&#39;);
+var watchify = require(&#39;watchify&#39;);
+var browserify = require(&#39;browserify&#39;);
+
+gulp.task(&#39;watch&#39;, function() {
+  watchify.args.fullPaths = false;
+  var bundler = watchify(browserify(&#39;./src/main.js&#39;, watchify.args));
+
+  // Optionally, you can apply transforms
+  // and other configuration options on the
+  // bundler just as you would with browserify
+  bundler.transform(&#39;brfs&#39;);
+
+  bundler.on(&#39;update&#39;, rebundle);
+
+  function rebundle() {
+    return bundler.bundle()
+      // log errors if they happen
+      .on(&#39;error&#39;, gutil.log.bind(gutil, &#39;Browserify Error&#39;))
+      .pipe(source(&#39;bundle.js&#39;))
+      .pipe(gulp.dest(&#39;./dist&#39;));
+  }
+
+  return rebundle();
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/substack/watchify&#34;&gt;watchfy&lt;/a&gt;は&lt;code&gt;browserify&lt;/code&gt;のwatchモードにするためのものらしい。&lt;/p&gt;
+
+&lt;p&gt;gulp で実行できるようにするには、以下のようなことをした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install -g gulp
+$ npm install --save-dev gulp gulp-util vinyl-source-stream watchify browserify brfs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;brfsはまだよくわかってない。&lt;/p&gt;
+
+&lt;p&gt;あとはgulpを起動すればよい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gulp watch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;作成したものはGitHubに投げています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/browserify-sample&#34;&gt;eiel/browserify-sample · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;こちらは&lt;code&gt;npm run watch&lt;/code&gt;でうごくようにしてあります。
+以下のコマンドを実行すると動作確認ができます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install
+$ npm run watch
+$  # index.htmlをブラウザでひらく。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;package.json&lt;/code&gt; の scripts を使うと&lt;code&gt;npm install -g gulp&lt;/code&gt;なしでも動かせるらしいので試した。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;  &amp;quot;scripts&amp;quot;: {
+    &amp;quot;test&amp;quot;: &amp;quot;echo \&amp;quot;Error: no test specified\&amp;quot; &amp;amp;&amp;amp; exit 1&amp;quot;,
+    &amp;quot;watch&amp;quot;: &amp;quot;gulp watch&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>hubot で起動しているウェブサーバを経由して idobata へ投稿してみる</title>
+          <link>http://blog.eiel.info/blog/2014/05/27/message-send-from-hubot-httpd-to-idobata/</link>
+          <pubDate>Tue, 27 May 2014 16:24:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/05/27/message-send-from-hubot-httpd-to-idobata/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://hubot.github.com/&#34;&gt;hubot&lt;/a&gt; をつかって &lt;a href=&#34;https://idobata.io/&#34;&gt;idobata&lt;/a&gt; 用のBOTを作っていた。
+&lt;a href=&#34;https://dashboard.heroku.com/apps&#34;&gt;heroku&lt;/a&gt; にホスティングして HTTPアクセスをすると idobata へメッセージが流れるようにしたい。&lt;/p&gt;
+
+&lt;p&gt;最終目的は CircleCI から WebHooks に登録しておいて、ビルドが終了したら通知したい、だったりするけど今回はそこはおいておく。&lt;/p&gt;
+
+&lt;p&gt;チャットへメッセージを送るには &lt;code&gt;robot#send&lt;/code&gt; を呼べばよくて、第1引数が envelope で 第2引数以降が文字列。
+idobata-adapter の場合は第1引数の message.data.room_id に投稿する ROOM_ID が必要になる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/idobata/hubot-idobata/blob/v0.0.3/src/idobata.coffee#L13-L14&#34;&gt;参考 - hubot-idobata&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;robot.send_room &#39;hogehoge&#39;&lt;/code&gt; みたいな感じに投稿できるようにメソッドを加えるならこんな感じになった。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ROOM_ID = process.env.HUBOT_IDOBATA_DEFAULT_ROOM_ID
+
+module.exports = (robot) -&amp;gt;
+  robot.send_room = (msg) -&amp;gt;
+    envelope = { message: { data: {room_id: ROOM_ID } } }
+    @send envelope, msg
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ROOM_ID を取得しないといけないので、登録したBOTに &lt;code&gt;room_id&lt;/code&gt; を返すような機能を追加しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;robot.respond /ROOM_ID/i, (msg) -&amp;gt;
+  room_id = msg.message.data.room_id
+  robot.logger.debug room_id
+  msg.send room_id
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ROOM_ID がわかったら 環境変数 HUBOT_IDOBATA_DEFAULT_ROOM_ID を設定しておく。
+あとは &lt;code&gt;robot.router.get&lt;/code&gt; とか &lt;code&gt;robot.router.post&lt;/code&gt; をつかって処理を作成すればいよい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;robot.router.post &amp;quot;/hubot/ping&amp;quot;, (req, res) -&amp;gt;
+  robot.send_room &#39;pong&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ローカルで実行する場合は 8080 ポート。
+heroku へは push するだけで使える。&lt;/p&gt;
+
+&lt;p&gt;/hubot/ping にアクセスするとチャットに pong と書き込みがされます。&lt;/p&gt;
+
+&lt;p&gt;hubot 自体のソースコードはそんなに長くないので、いじりながらソースよめばなんとか使えるようになりそうでした。&lt;/p&gt;
+
+&lt;h3 id=&#34;補足:3e0f256f778db620819538f6e47ca8ff&#34;&gt;補足&lt;/h3&gt;
+
+&lt;p&gt;robot.respond とか、使った場合は コールバック引数 msg があるのでこいつの &lt;code&gt;send&lt;/code&gt; を利用するだけでチャットにかきこみができる。
+msg は &lt;a href=&#34;https://github.com/github/hubot/blob/v2.7.2/src/response.coffee&#34;&gt;Response&lt;/a&gt; クラスのインスタンスでサーバからうけとった情報を message プロパティに保存されてて、この情報で envelope.message から取り出せる。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/github/hubot/blob/v2.7.2/src/response.coffee#L21-L22&#34;&gt;Response#send は以下のように実装されていて&lt;/a&gt;、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;send: (strings...) -&amp;gt;
+  @robot.adapter.send @envelope, strings...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;@robot.adapter.send へいくので、それぞれの adapter の send メソッドをみてみればいい。&lt;/p&gt;
+
+&lt;p&gt;前述しているけど、&lt;a href=&#34;https://github.com/idobata/hubot-idobata/blob/v0.0.3/src/idobata.coffee#L13-L14&#34;&gt;idobataの場合は&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;send: (envelope, strings...) -&amp;gt;
+  @_postMessage string, envelope.message.data.room_id for string in strings
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となってて message.data.room_id が必要なことがわかる。&lt;/p&gt;
+
+&lt;p&gt;試したコードの全体をはっとく。
+script ディレクトリに保存しておけばよいだけです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ROOM_ID = process.env.HUBOT_IDOBATA_DEFAULT_ROOM
+
+module.exports = (robot) -&amp;gt;
+  robot.send_room = (msg) -&amp;gt;
+    @send { message: { data: {room_id: ROOM_ID } } }, msg
+
+  robot.respond /ROOM_ID/i, (msg) -&amp;gt;
+    room_id = msg.message.data.room_id
+    robot.logger.debug room_id
+    msg.send room_id
+
+  robot.router.post &amp;quot;/hubot/circle&amp;quot;, (req, res) -&amp;gt;
+    robot.send_room &amp;quot;finished build&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;/hubot/circle&lt;/code&gt; を CircleCI から叩かせるつもり。
+&lt;code&gt;req&lt;/code&gt; に CircleCI からの情報がはいってくるので、ちょっと料理する予定。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:3e0f256f778db620819538f6e47ca8ff&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/idobata/hubot-idobata&#34;&gt;idobata/hubot-idobata · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/github/hubot/blob/master/docs/deploying/heroku.md&#34;&gt;hubot/docs/deploying/heroku.md at master · github/hubot · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

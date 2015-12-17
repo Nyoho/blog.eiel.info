@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E3%83%8D%E3%82%BF/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-09-13 22:38:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>GitHub戦闘力を提案してみた - 座駆動LT大会</title>
+          <link>http://blog.eiel.info/blog/2014/09/13/github-scouter/</link>
+          <pubDate>Sat, 13 Sep 2014 22:38:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/09/13/github-scouter/</guid>
+          <description>
+
+&lt;p&gt;座駆動LT大会で「戦闘力」というLTをしてきました。&lt;/p&gt;
+
+&lt;p&gt;座駆動LT大会とは、岡山にはRyouteiという素晴しいお店があり、そこの座スタジアムという部屋は非常にLTに適した場所です。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;大都会岡山が誇る最強の懇親会会場「Ryoutei 座・スタジアム」でLT大会を開催します！&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;というわけで、今回参加してきた時のスライドを紹介します。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;9f557cd01d560132ff4612198c64cd5d&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;戦闘力といえば、Vim戦闘力やEmacs戦闘力がありますが、GitHub戦闘力を適当に定義してみました。
+スターの数がGitHub戦闘力と言われているのもみかけましたが、折角なのでいろいろ考えてみました。&lt;/p&gt;
+
+&lt;p&gt;実は&lt;a href=&#34;http://www.ospn.jp/osc2014-hiroshima/&#34;&gt;オープンソースカンフェレンス2014広島&lt;/a&gt;のために制作しているものの中でGitHub APIを使用してつくっていたものがあり、そのノウハウで、そのついでに作成したのが今回の&lt;code&gt;github_scouter&lt;/code&gt;です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/github_scouter&#34;&gt;eiel/github_scouter · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;オープンソースカンファレンスは今週末の土曜日、2014年9月20日に予定されています。
+予約数があまり多くないらしいので、今後も継続して欲しいと考えている方は参加や告知を協力していただけると助かります。&lt;/p&gt;
+
+&lt;p&gt;ちなみに私は&lt;a href=&#34;https://www.ospn.jp/osc2014-hiroshima/modules/eguide/event.php?eid=7&#34;&gt;LT駆動開発ベストセッションズ&lt;/a&gt;でLTをする予定です。&lt;/p&gt;
+
+&lt;p&gt;閑話休題。
+今回はGitHub戦闘力を攻撃力、知力、すばやさの3種類に分けて戦闘力を定義しました。&lt;/p&gt;
+
+&lt;p&gt;攻撃力は所有リポジトリを元に算出しました。&lt;/p&gt;
+
+&lt;p&gt;知力はさまざまな言語を利用していると高くなるようにしました。&lt;/p&gt;
+
+&lt;p&gt;すばやさはOrganizationの情報を元にチーム力の高さとして算出しました。&lt;/p&gt;
+
+&lt;p&gt;と、非常にどうでもいい戦闘力ですが、みなさんも御自分の戦闘力を算出してみてはいかがでしょうか。
+また、APIの利用しすぎにご注意ください。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;ja&#34;&gt;&lt;p&gt;.&lt;a href=&#34;https://twitter.com/eielh&#34;&gt;@eielh&lt;/a&gt; 「わたしの戦闘力は168Gです」 &lt;a href=&#34;https://twitter.com/hashtag/zadrvnlt?src=hash&#34;&gt;#zadrvnlt&lt;/a&gt;&lt;/p&gt;&amp;mdash; (っ’ヮ’c) ＜ 君のほうがかわいいよ (@ryosms) &lt;a href=&#34;https://twitter.com/ryosms/status/510772214694572032&#34;&gt;2014, 9月 13&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+かけ算バージョンは表計算で出したので、コマンドを用意していません。
+0にならないように1を加えてからかけ算しています。&lt;/p&gt;
+
+&lt;p&gt;今後、計算式を定義しなおしてVersion2も検討したいと考えているのはまた別の話です。&lt;/p&gt;
+
+&lt;h1 id=&#34;追記:0769bc5dcffbc42073a9913880f78a40&#34;&gt;追記&lt;/h1&gt;
+
+&lt;p&gt;Gem化して欲しいって要望があったのでしておきました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gem install github_scouter
+$ github_scouter [GitHub ID]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で利用できます。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>rackup で ruboty</title>
+          <link>http://blog.eiel.info/blog/2014/06/08/ruboty-with-web/</link>
+          <pubDate>Sun, 08 Jun 2014 10:31:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/06/08/ruboty-with-web/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://r7kamura.hatenablog.com/entry/2014/05/31/190240&#34;&gt;ruboty&lt;/a&gt; を heroku で動かすついでに web アプリケーションとして扱いたい。
+その場しのぎで書いたコードを紹介する。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;config.ru&lt;/code&gt; の中で別スレッドを起動して Ruboty#run を走らせた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;# Rackアプリになるように call メソッドを実装
+module Ruboty::Web
+  def call(env)
+    [200, {&#39;Content-type&#39; =&amp;gt; &#39;text/html&#39;}, [&#39;hello, world&#39;]]
+  end
+end
+Ruboty::Robot.include(Ruboty::Web)
+
+Thread.new do
+  robot.run   # bot起動
+end
+
+run robot  # rack アプリを構築
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;heroku では 1X dynos でもスレッドが 256 個ぐらい起動できるっぽいしきっと大丈夫だろう。いや、わからんけど。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考: &lt;a href=&#34;https://devcenter.heroku.com/articles/limits&#34;&gt;Limits | Heroku Dev Center&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;シグナル処理も追加したほうが良い気がするけど、とりあえず気にしない。&lt;/p&gt;
+
+&lt;p&gt;そのうちウェブアプリを構築しやすくする方法を考えたい。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:a71c96431c9f899855c73bf2ad2244ca&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/05/27/message-send-from-hubot-httpd-to-idobata/&#34;&gt;hubot で起動しているウェブサーバを経由して idobata へ投稿してみる&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Twilio を使って、着信でモールス信号してみた。</title>
+          <link>http://blog.eiel.info/blog/2014/03/15/twilio-abc/</link>
+          <pubDate>Sat, 15 Mar 2014 02:54:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/03/15/twilio-abc/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://twiliomeetup.doorkeeper.jp/events/9078&#34;&gt;Twilio API 勉強会&lt;/a&gt;に遊びにいった。&lt;/p&gt;
+
+&lt;p&gt;勉強会では基本的なことを学んだ。
+電話をかけたときの動作を登録したり、電話をかけたりしました。&lt;/p&gt;
+
+&lt;p&gt;せっかくなので、なにか作ってみることにした。&lt;/p&gt;
+
+&lt;p&gt;以下、完全にネタです。実用性皆無です。
+あとサービスにどれくらい負荷がかかるのかよくわからないので、試す場合はほどほどにしましょう。
+たぶん、もう二度と試さない。&lt;/p&gt;
+
+&lt;p&gt;着信する長さが一応調整できるのでモールス信号してみました。&lt;/p&gt;
+
+&lt;p&gt;コードは以下の感じ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;twilio-ruby&#39;
+require &#39;morse&#39;
+
+account_sid = &#39;account_sid を設定する&#39;
+auth_token = &#39;auth_tokenを設定する&#39;
+@client ||= Twilio::REST::Client.new account_sid, auth_token
+
+TWILIO_NUMBER = &#39;Twilio で作成した電話番号を登録する&#39;
+MY_NUMBER = &#39;自分の電話番号を設定する&#39;
+
+def call(n)
+  call = @client.account.calls.create(
+    from: TWILIO_NUMBER,
+    to: MY_NUMBER,
+    url: &#39;http://example.com/&#39;,
+    timeout: n,
+  )
+  puts &amp;quot;create call #{call.sid}&amp;quot;
+  loop do
+    call = @client.account.calls.get(call.sid)
+    puts &amp;quot;call status #{call.status}&amp;quot;
+    case call.status
+    when &#39;no-answer&#39;, &#39;completed&#39;
+      sleep(1)
+      break
+    when &#39;failed&#39;,&#39;canceled&#39;
+      break
+    when &#39;queued&#39;,&#39;ringing&#39;,&#39;in-progress&#39;,&#39;busy&#39;
+      sleep(0.5)
+    end
+  end
+end
+
+morse = Morse.encode(ARGV[0])
+puts &amp;quot;word: #{ARGV[0]}&amp;quot;
+puts &amp;quot;morse: #{morse}&amp;quot;
+morse.each_char do |c|
+  case c
+  when &#39;.&#39;
+    call(1)
+  when &#39;-&#39;
+    call(3)
+  when &#39; &#39;
+    sleep(1)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;使い方&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ruby 作成したファイル hello
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;実行例&lt;/p&gt;
+
+&lt;p&gt;動画とりたいけど、とってない。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ruby twilio-sample.rb a
+word: a
+morse: .-
+create call CA9ec2867270b920fcebbe47583ee0b9d2
+call status ringing
+call status ringing
+call status ringing
+call status ringing
+call status no-answer
+create call CAdf11adbe89a3d995369e97531f4b22f9
+call status ringing
+call status ringing
+call status ringing
+call status ringing
+call status ringing
+call status no-answer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;簡単に解説。&lt;/p&gt;
+
+&lt;p&gt;まず、call メソッド。引数 n でn秒間着信する電話をかけます。&lt;/p&gt;
+
+&lt;p&gt;仕組みは電話をかけると sid が振られます。
+sid をつかって twilio に問い合せると状態が取得できます。
+コールが終わっているか確認し、終わっていたら処理が戻るようにしています。こうすることで call メソッドを並べていけるようにしました。
+キューに入れることができればこんなことしなくていいのに…。
+よくわからなかった。&lt;/p&gt;
+
+&lt;p&gt;あとは好きな文字をモールス符号に変換して、あとは短いところを 1秒、長いところを3秒になるようにしてみました。&lt;/p&gt;
+
+&lt;p&gt;そんなに応答速度がいいわけではないので、時間かかるし、コール時間も安定しない。サービスにどれくらい負荷がかかるのかわからないので、良い子は何度も何度も実行しないほうがいいと思う。&lt;/p&gt;
+
+&lt;h3 id=&#34;蛇足:317e528a0b0afc2ff38b76f842a94944&#34;&gt;蛇足&lt;/h3&gt;
+
+&lt;p&gt;終わった後、おうちに帰ってなんか少しだけネタなことしてみようと思い、電話をかける部分で遊ぶことにした。&lt;/p&gt;
+
+&lt;p&gt;通話してしまうと、電話代かかりますしね。(トライアル期間なので大丈夫ですが)&lt;/p&gt;
+
+&lt;p&gt;しかし、ローカルで遊ぼうと思うとできることが限界があります。
+Twilio からローカルマシンにコールバックする方法が基本的にないからです。
+コールバックを受けるには公開サーバを用意する必要があります。&lt;/p&gt;
+
+&lt;p&gt;静的ファイルだけでも繰り返しや分岐はできます。
+しかし、状態が保存できないため、表現力に限界が。&lt;/p&gt;
+
+&lt;p&gt;電話をかけた情報などはローカルでも取得可能なので、電話をかけることで遊ぶことにしました。&lt;/p&gt;
+
+&lt;p&gt;本来の使い方とは違うし無駄に負荷がかかるような気がするので、こういった遊びはほどほどにしましょう。&lt;/p&gt;
+
+&lt;p&gt;一応、規約には目を通してみたけど、極端に負荷をかけなければ大丈夫そう。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:317e528a0b0afc2ff38b76f842a94944&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://jp.twilio.com/docs/api/rest/call&#34;&gt;Twilio Docs - API REST Call&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://jp.twilio.com/docs/api/rest/making-calls&#34;&gt;Twilio Docs - API REST Making Calls&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>そういえば彼氏募集というネタリポジトリがありましたね。真似するならこんな感じかなぁ。</title>
+          <link>http://blog.eiel.info/blog/2014/02/08/i-need-a-girlfriend/</link>
+          <pubDate>Sat, 08 Feb 2014 17:19:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/02/08/i-need-a-girlfriend/</guid>
+          <description>
+
+&lt;p&gt;最近、C++界や、ひろし魔界で暴れているらしい&lt;a href=&#34;https://twitter.com/PG_nonen&#34;&gt;まさかず氏&lt;/a&gt;が&lt;a href=&#34;https://github.com/norinori2222/boyfriend_require&#34;&gt;彼氏募集のリポジトリ&lt;/a&gt;を真似して&lt;a href=&#34;https://github.com/minamiyama1994/girlfriend_require&#34;&gt;彼女募集のリポジトリ&lt;/a&gt;を作成してました。&lt;/p&gt;
+
+&lt;p&gt;条件さえ揃えば真似してもよかったのですが、条件が揃ってなかったので真似してませんでした。
+気がついたら条件が揃ってたので真似してみることにしてみました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/need_a_girlfriend&#34;&gt;﻿eiel/need_a_girlfriend - GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;やったこと&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;fork したけど 空のブランチつくって、fork元とはコード的には関係をなくした&lt;/li&gt;
+&lt;li&gt;Haskell で DSL したかった。結局、Writer モナドの上に構築した。&lt;/li&gt;
+&lt;li&gt;source ブランチを push すると travis で &lt;code&gt;README.md&lt;/code&gt; を生成して master ブランチに自動で push する&lt;/li&gt;
+&lt;li&gt;リポジトリの名前を変更した&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;fork-したけど-空のブランチつくって-fork元とはコード的には関係をなくした:a0a1f37e986eb43a89ced5b8b8d20f10&#34;&gt;fork したけど 空のブランチつくって、fork元とはコード的には関係をなくした&lt;/h3&gt;
+
+&lt;p&gt;fork したので、その上から上書きしてもよかったのですが、だいぶ違うし、ゼロからつくりたいけど fork したことは残したいよね。&lt;/p&gt;
+
+&lt;p&gt;ということで空のブランチをつくってから作りました。
+&lt;code&gt;git checkout --orphan &amp;lt;branch名&amp;gt;&lt;/code&gt; で空のブランチが作れます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2014-02-08-network.png&#34; alt=&#34;ネットワーク&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;haskell-で-dsl-したかった:a0a1f37e986eb43a89ced5b8b8d20f10&#34;&gt;Haskell で DSL したかった。&lt;/h3&gt;
+
+&lt;p&gt;README.md は手書きせずにプログラムから生成するようにしてみました。
+&lt;a href=&#34;https://twitter.com/PG_nonen&#34;&gt;まさかず氏&lt;/a&gt;を真似ただけである。&lt;/p&gt;
+
+&lt;p&gt;Haskell で DSL 作るのにはどうしたらいいんだろうなぁ。たぶんモナド作ればいいんだろうと、コード書きはじめたけど、途中でよくわからなくなった。
+それはそれで別に勉強すればいいやということから途中から Writer モナドでつくりました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;background = do
+  h1 &#39;背景&#39;
+  p &#39;ほげほげごろごろ&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;みたいに書きたかった。というか、このように書いてから h1 や p 関数を実装しました。&lt;/p&gt;
+
+&lt;p&gt;Writer モナド は tell 関数を呼びだしておくと、 runWriter した時に最終結果と tell した内容が引き出せるようです。&lt;/p&gt;
+
+&lt;p&gt;上記の例だと以下のような値が返るように作ってます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;((),[&amp;quot;# &amp;quot;,&amp;quot;背景&amp;quot;,&amp;quot;\n&amp;quot;,&amp;quot;\n&amp;quot;,&amp;quot;ほげほげごろごろ&amp;quot;,&amp;quot;\n&amp;quot;,&amp;quot;\n&amp;quot;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとはリストの内容を標準出力に書きだしました。
+リストを後ろにくっつけていくからパフォーマンスがなんか気になるけどどうなんだろう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/need_a_girlfriend/blob/master/need_a_girlfriend.hs&#34;&gt;あとはコードでも見てください。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Writer モナド書き換える際、main関数は &lt;a href=&#34;https://github.com/eiel/need_a_girlfriend/blob/master/need_a_girlfriend.hs#L3&#34;&gt;&lt;code&gt;runWriter&lt;/code&gt;&lt;/a&gt; の部分をちょっと書き換えたかなーぐらいなものでモナドの使いやすさを感じたような気がします。&lt;/p&gt;
+
+&lt;h3 id=&#34;source-ブランチを-push-すると-travis-で-reame-md-を生成して-master-ブランチに自動で-push-する:a0a1f37e986eb43a89ced5b8b8d20f10&#34;&gt;source ブランチを push すると travis で &lt;code&gt;REAME.md&lt;/code&gt; を生成して master ブランチに自動で push する&lt;/h3&gt;
+
+&lt;p&gt;基本的には&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tricknotes.hateblo.jp/entry/2013/06/17/020229&#34;&gt;Middleman で作った web サイトを Travis + GitHub pages でお手軽に運用する - tricknotesのぼうけんのしょ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;を参考にしました。他の方法も試したけどなかなか手強いので結局この方法にしました。&lt;/p&gt;
+
+&lt;p&gt;手順的には travis 上でリポジトリを選択して、処理を &lt;code&gt;.travis.yml&lt;/code&gt;を記述します。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;.travis.yml&lt;/code&gt; に書いた処理の最後で push しますが、 &lt;code&gt;-q&lt;/code&gt; やら &lt;code&gt;2&amp;gt;/dev/null&lt;/code&gt; がついてるせいでなんで失敗してるのか気づきにくいのがちょっと難点でした。
+つけないと TORKEN が漏れてしまう。&lt;/p&gt;
+
+&lt;p&gt;参考程度に書いた yaml を貼っておきます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;language: haskell
+install: cabal install mtl
+script: ghc need_a_girlfriend.hs
+after_success:
+  - git remote add deploy https://$GH_TOKEN@github.com/eiel/need_a_girlfriend.git
+  - git fetch deploy master
+  - git checkout master
+  - git merge source --no-edit
+  - ./need_a_girlfriend &amp;gt; README.md
+  - git add README.md
+  - &#39;git commit -m &amp;quot;Generate Travis JOB $TRAVIS_JOB_NUMBER
+
+https://travis-ci.org/eiel/need_a_girlfriend/builds/$TRAVIS_BUILD_ID&amp;quot;&#39;
+  - &#39;[ &amp;quot;x$TRAVIS_BRANCH&amp;quot; == &amp;quot;xsource&amp;quot; ] &amp;amp;&amp;amp; git push -q deploy master 2&amp;gt;/dev/null&#39;
+branches:
+  except:
+    - master
+env:
+  global:
+    - secure: &amp;quot;KJG63ZK8zdEboimt/+UOVDUu+cECmvSgsCyEUEQVjMnazxpEaNQbP+lEQv9TWki6eRtr71+vt3LU7H4H8Wm/jURV2WiYe31ZeE7wvRcjjaHRWHYfeTJ5OyBJhCJoauKBAwL/jIFSTDt3IEgGIW42WPwagGexHKm+Vh/0ETK1CNc=&amp;quot;
+    - GIT_COMMITTER_NAME=&amp;quot;name&amp;quot;
+    - GIT_COMMITTER_EMAIL=&amp;quot;email@example.com&amp;quot;
+    - GIT_AUTHOR_NAME=&amp;quot;name&amp;quot;
+    - GIT_AUTHOR_EMAIL=&amp;quot;email@example.com&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;after_success が script の実行に成功した場合に実行されます。&lt;/p&gt;
+
+&lt;p&gt;source ブランチの時にしか push しないような処理をいれてあります。
+master ブランチの際は after_success がそもそも走らないようにしています。&lt;/p&gt;
+
+&lt;p&gt;コミットメッセージを作るのに環境変数から情報を得ています。
+どんな環境変数があるかは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.travis-ci.com/user/ci-environment/&#34;&gt;Travis CI: The Build Environment&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;に書いてあります。
+環境変数は travis の画面上では展開しない仕様になってるみたいです。&lt;/p&gt;
+
+&lt;p&gt;その他の参考文献&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.travis-ci.com/user/languages/haskell/&#34;&gt;Travis CI: Building a Haskell Project&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.travis-ci.com/user/deployment/custom/&#34;&gt;Travis CI: Custom Deployment&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;リポジトリの名前を変更した:a0a1f37e986eb43a89ced5b8b8d20f10&#34;&gt;リポジトリの名前を変更した&lt;/h3&gt;
+
+&lt;p&gt;「require ってなんか違う気がするんだよなー」って感覚がしたので調べたら一般的には I need a boyfriend とか I need a girlfriend と書いてる例があったので、リポジトリ名は need_a_girlfriend にしました。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;eiel / need_a_girlfriend&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;となるので、なんか文法的にも良さげな気がします。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:a0a1f37e986eb43a89ced5b8b8d20f10&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;しかし、元のリポジトリの条件の多さにはびっくりする。
+お互い悪いところは相性みながらちょっとづつ調整できないものなのでしょうか。
+これだけは譲れないものはひとつかふたくぐらいあれば充分じゃないんでしょうか。
+私にはよくわからないですけど。&lt;/p&gt;
+
+&lt;p&gt;日々、成長するのを放棄した人間にはなりたくないかなぁ。&lt;/p&gt;
+
+&lt;p&gt;そんなことはともかく&lt;a href=&#34;https://twitter.com/PG_nonen&#34;&gt;まさかず氏&lt;/a&gt;はすごくがんばっていると思うので素敵な彼女ができるように応援したいですね。&lt;/p&gt;
+
+&lt;p&gt;ではでは。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ruby-build の プルリクエスト バトル</title>
+          <link>http://blog.eiel.info/blog/2013/02/24/ruby-build-battle/</link>
+          <pubDate>Sun, 24 Feb 2013 23:14:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/24/ruby-build-battle/</guid>
+          <description>
+
+&lt;p&gt;ネタです。&lt;/p&gt;
+
+&lt;p&gt;最近もろもろな事情で Ruby がリリースされることが多かったですが、ruby-build の更新を待っていた人はどれくらいいるでしょうか。&lt;/p&gt;
+
+&lt;p&gt;みんな待ちきれなくて自分で ruby-build のレシピを書いたんではないでしょうか？
+そして「俺がと プル リクエストをおくるんだ!!」と燃えたのではないでしょうか？
+これを Ruby のリリースがあるたびに発生する &lt;code&gt;ruby-bulild プルリクエストバトル&lt;/code&gt;だと勝手に想像して楽しんでいます。こんばんは。&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;僕の場合はだいたいなぜか &lt;code&gt;rbenv&lt;/code&gt; のほうをみにいって、「まだ更新がないないなー」っておもってレシピをかくんですが、書いたあとに &lt;code&gt;ruby-build&lt;/code&gt; だったと気づく馬鹿なことをしているだけだったりしますが&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;今日も &lt;a href=&#34;http://www.ruby-lang.org/ja/news/2013/02/24/ruby-2-0-0-p0-is-released/&#34;&gt;Ruby 2.0 のリリース&lt;/a&gt; がありましたが、このプルリクエスト バトル の行方はどうなったのでしょうか。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sstephenson/ruby-build/pull/299&#34;&gt;https://github.com/sstephenson/ruby-build/pull/299&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sstephenson/ruby-build/pull/301&#34;&gt;https://github.com/sstephenson/ruby-build/pull/301&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;同じ Issue を立てないように気をつけたいですね。&lt;/p&gt;
+
+&lt;p&gt;それと Ruby 20周年おめでとうございます。&lt;/p&gt;
+
+&lt;h2 id=&#34;ついでにレシピの書き方:b4fffd22545e14a7e3b00e59a4fcbbfa&#34;&gt;ついでにレシピの書き方&lt;/h2&gt;
+
+&lt;p&gt;ネタだけで終わるのもあれなので。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;~/.rbenv&lt;/code&gt; にインストールしている場合は &lt;code&gt;~/.rbenv/plugins/ruby-build/share/ruby-build/&lt;/code&gt; にレシピが配置されています。&lt;/p&gt;
+
+&lt;p&gt;今回の 2.0 の場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;install_package &amp;quot;openssl-1.0.1e&amp;quot; &amp;quot;https://www.openssl.org/source/openssl-1.0.1e.tar.gz#66bf6f10f060d561929de96f9dfe5b8c&amp;quot; mac_openssl --if has_broken_mac_openssl
+install_package &amp;quot;ruby-2.0.0-p0&amp;quot; &amp;quot;ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p0.tar.gz#50d307c4dc9297ae59952527be4e755d&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とか前のバージョンを参考にして書けばよいです。簡単ですね。&lt;/p&gt;
+
+&lt;h2 id=&#34;なんでこんなことかいたのか:b4fffd22545e14a7e3b00e59a4fcbbfa&#34;&gt;なんでこんなことかいたのか&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;なんで push してないんだー。って怒られたので&lt;/li&gt;
+&lt;li&gt;Ruby 2.0 リリース &amp;amp; 20 周年 おめでとー。とかそういう記事書きたいじゃないですか&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

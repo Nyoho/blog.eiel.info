@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/ablog/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-12-08 15:26:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>LT駆動開発09で「Vagrantを使ったa-blog CMSの環境で思ったことを話した</title>
+          <link>http://blog.eiel.info/blog/2014/12/08/ltdd-09-vagrant-ablog/</link>
+          <pubDate>Mon, 08 Dec 2014 15:26:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/08/ltdd-09-vagrant-ablog/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA09&#34;&gt;LT駆動開発09&lt;/a&gt;でLTをした。&lt;/p&gt;
+
+&lt;p&gt;ちょっと前に&lt;a href=&#34;http://www.a-blogcms.jp/&#34;&gt;a-blog CMS&lt;/a&gt;の作業環境を&lt;a href=&#34;https://www.vagrantup.com/&#34;&gt;Vagrant&lt;/a&gt;で作成したのでその時に思ったことを話しただけである。
+おまけでVagrantについての解説をしたがきっと必要のない情報だろう。中身がない。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;4d02497060470132157b26e128a6f114&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Vagrantは簡単に開発環境を作成するツールらしいです。
+Vagrantfileがあれば環境が何度でも構築できるのがポイントだろう。
+あと設定が楽チンである。&lt;/p&gt;
+
+&lt;p&gt;a-blog CMSをchefでインストールするには&lt;a href=&#34;https://github.com/ogom/cookbook-acms&#34;&gt;ogom/cookbook-acms&lt;/a&gt;をいじったものを使用している。
+いじったものは公開していなくてさーせん。&lt;/p&gt;
+
+&lt;p&gt;どんな問題があったかというとローカルで編集したファイルが全然反映されない問題がおきてつらかった。
+あとは他の人がプロジェクトをクローンして&lt;code&gt;vagrant up&lt;/code&gt;しても実行できない問題がおきた。
+それについて説明しただけである。&lt;/p&gt;
+
+&lt;p&gt;というわけで、作業用のコードとCMSのコードは分離して配置できるといい気がするという話をしただけである。
+a-blog CMS だと &lt;code&gt;config.server.php&lt;/code&gt; でテーマディレクトリ位置は変えられるようなのでうまく使うと良さそうだと気づいが次に使う機会がない限りにそのままである。&lt;/p&gt;
+
+&lt;p&gt;中身がない。&lt;/p&gt;
+
+&lt;p&gt;ついでにVagrantのBOXは&lt;a href=&#34;https://vagrantcloud.com/&#34;&gt;Vagrant Cloud&lt;/a&gt;のものを使いたいけど、&lt;a href=&#34;https://github.com/opscode/bento&#34;&gt;bento&lt;/a&gt;で作成されているBOXを使いたいという話をした。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

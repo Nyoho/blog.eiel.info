@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E3%82%A8%E3%83%83%E3%82%BB%E3%82%A4/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-02-06 13:36:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Git がわからなくても Github を利用しよう</title>
+          <link>http://blog.eiel.info/blog/2013/02/06/how-to-use-github/</link>
+          <pubDate>Wed, 06 Feb 2013 13:36:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/06/how-to-use-github/</guid>
+          <description>
+
+&lt;p&gt;みなさん &lt;a href=&#34;https://github.com/&#34;&gt;Github&lt;/a&gt; を利用していますか？&lt;/p&gt;
+
+&lt;p&gt;「Git がわからないから…」と、そんな理由で使わないのはもったいないです。&lt;/p&gt;
+
+&lt;p&gt;Webや開発に携わる人間であれば、例えプログラムを書かなくても、Github へアクセスする機会は増えているのではないでしょうか。&lt;/p&gt;
+
+&lt;p&gt;Webの人であれば jQueryのプラグインを探したり、サンプルコードが Github においてあったりすると思います。&lt;/p&gt;
+
+&lt;p&gt;しかし、いきなり使いこなすのは難しいので、まずは以下のことをはじめてみることをおすすめします。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;アカウントを作る&lt;/li&gt;
+&lt;li&gt;知り合いや気になる人をフォローする&lt;/li&gt;
+&lt;li&gt;自分が利用しているリポジトリや気になるリポジトリにスターを付ける&lt;/li&gt;
+&lt;li&gt;News Feed を読む&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;日本人がやってるネタリポジトリの Issues やPull Requestsに絡む&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Gitを利用しなければいけない機能はとりたててありません。&lt;small&gt;(Pull Requestには突っ込まないで)&lt;/small&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;アカウントを作る:43d506de6b4a65e51ca9ab597ec3c938&#34;&gt;アカウントを作る&lt;/h2&gt;
+
+&lt;p&gt;まず、アカウントがないと何もできません。作りましょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/&#34;&gt;Githubのトップページ&lt;/a&gt;に &amp;ldquo;Sign up for free&amp;rdquo; というボタンから作成することができます。&lt;/p&gt;
+
+&lt;h2 id=&#34;知り合いや気になる人をフォローする:43d506de6b4a65e51ca9ab597ec3c938&#34;&gt;知り合いや気になる人をフォローする&lt;/h2&gt;
+
+&lt;p&gt;友達や気になる人をフォローしましょう。相手がフォロー返しをしてこなくても気にすることはないです。&lt;code&gt;News Feed を読む&lt;/code&gt; ための布石にすぎません。&lt;/p&gt;
+
+&lt;p&gt;フォローすると News Feed にフォローした人の活動が表示されるようになります。これを見るのが目的なので、自分が興味のある活動をしている人がおすすめです。
+あまり活動的な人をフォローするとフィードがどんどん流れてしまうので、初心者にはおすすめできません。&lt;/p&gt;
+
+&lt;p&gt;フォローする相手がいない場合は、あまり活発でない リポジトリをウォッチするという手もあります。&lt;/p&gt;
+
+&lt;p&gt;フォローするには &lt;code&gt;https//github.com/ユーザ名&lt;/code&gt; にアクセスして、画面右上のほうに Followというボタンがあるのでそれをクリックします。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/follow.png&#34; alt=&#34;フォローする&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;例えば、私をフォローしたい場合は、&lt;a href=&#34;http://github.com/eiel&#34;&gt;http://github.com/eiel&lt;/a&gt; にアクセスします。&lt;/p&gt;
+
+&lt;h2 id=&#34;自分が利用しているリポジトリや気になるリポジトリにスターを付ける:43d506de6b4a65e51ca9ab597ec3c938&#34;&gt;自分が利用しているリポジトリや気になるリポジトリにスターを付ける&lt;/h2&gt;
+
+&lt;p&gt;スターというのは、&lt;code&gt;お気に入り&lt;/code&gt;、&lt;code&gt;ブックマーク&lt;/code&gt;、&lt;code&gt;いいね!&lt;/code&gt;のような機能です。ソーシャルブックマークの効果を感じていれば、説明は不要だと思います。&lt;/p&gt;
+
+&lt;p&gt;スターをつけると、自分の活動に &lt;code&gt;このリポジトリにスターをつけました&lt;/code&gt; と流れるので、あなたをフォローしている人が目にすることになります。
+そうすると、そのリポジトリを見にいく人が増えますので、そのリポジトリがより活発になる可能性が高くなります。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;応援したい!!&lt;/strong&gt; と思えば、すかさず押してしまっても良いでしょう。&lt;/p&gt;
+
+&lt;h2 id=&#34;news-feed-を読む:43d506de6b4a65e51ca9ab597ec3c938&#34;&gt;News Feed を読む&lt;/h2&gt;
+
+&lt;p&gt;ここが本記事の主旨です。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;News Feed を読みましょう。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;News Feed はログインした状態で、&lt;a href=&#34;https://github.com/&#34;&gt;Githubのトップ&lt;/a&gt;にアクセスすると閲覧できます。&lt;/p&gt;
+
+&lt;p&gt;友人もフォローしたし、スターをつけることを学びました。
+友人がスターを付けたことがわかるはずです。
+そのときはどんなリポジトリなのか見にいきましょう。
+トレンドや面白いものが見つかるかもしれません。&lt;/p&gt;
+
+&lt;p&gt;News Feed は RSSリーダでも読むことができます。&lt;/p&gt;
+
+&lt;p&gt;画面右上にリンクがありますので、簡単にできると思います。URLにアクセストークンを含むので、&lt;strong&gt;Web上の RSSリーダで閲覧する場合は自己責任でお願いします。&lt;/strong&gt;
+自分の活動が流れるわけではないのであまり気にすることでもないかもしれません。&lt;/p&gt;
+
+&lt;h2 id=&#34;日本人がやってるネタリポジトリの-issue-やpull-request-に絡む:43d506de6b4a65e51ca9ab597ec3c938&#34;&gt;&lt;strong&gt;日本人がやってるネタリポジトリの Issue やPull Request に絡む&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;上記の機能以外で挑戦してみて欲しいのは &lt;code&gt;Issue&lt;/code&gt; や &lt;code&gt;Pull Request&lt;/code&gt; という機能です。
+Github の中で特に魅力的な機能です。&lt;/p&gt;
+
+&lt;p&gt;Isuueはバグを報告するところです。質問するためにも利用されていますし、TODOリストにも使います。&lt;/p&gt;
+
+&lt;p&gt;Pull Request は&lt;strong&gt;「ここを修正したのだけど、取り込んでくれませんか？」&lt;/strong&gt;と伝えるところです。
+Issueに上がってるものを修正したり、追加機能を思いついたときに利用します。&lt;/p&gt;
+
+&lt;p&gt;これらの機能を試すには、いきなり英語の開発プロジェクトに行くにはハードルが高いです。挑戦してみたいなら遊びでやってるようなものが絡みやすいです&lt;/p&gt;
+
+&lt;p&gt;私が関わるものであれば&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hiroshimarb/hiroshimarb-gem&#34;&gt;Hiroshimarb-gem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/StudySessions&#34;&gt;全国の勉強会を整理しよう&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などがあります。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめとか:43d506de6b4a65e51ca9ab597ec3c938&#34;&gt;まとめとか&lt;/h2&gt;
+
+&lt;p&gt;News Feed を見ているだけでも、いろんなことに挑戦したくなったり、もっと便利に使いたくなるようになります。
+Git 自体の勉強はその時にはじめていけばよいと思います。&lt;/p&gt;
+
+&lt;p&gt;Git のコマンドラインインターフェイスもどんどん丁寧になっており、&lt;small&gt;英語さえ読めば&lt;/small&gt;怖いこともありません。
+GUIツールもどんどん便利になっていますが、痒いところに届きにくいですので、余裕がある方はコマンドラインからの利用から入門をおすすめします。&lt;/p&gt;
+
+&lt;p&gt;Githubは開発者のSNSともいえる場所です。一歩進んだ開発者をめざすには必見のサイトではないでしょうか。&lt;/p&gt;
+
+&lt;h2 id=&#34;関連:43d506de6b4a65e51ca9ab597ec3c938&#34;&gt;関連&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/06/how-to-use-github/&#34;&gt;Github の楽しみ方 &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/11/21/github-notifications-is-not-spam/&#34;&gt;GitHub からの通知が迷惑メールになった - 見ないリポジトリは unwatch しよう&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=477416366X&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>コード補完に便りにし過ぎてはいけない。</title>
+          <link>http://blog.eiel.info/blog/2012/11/08/not-code-completion/</link>
+          <pubDate>Thu, 08 Nov 2012 11:02:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/08/not-code-completion/</guid>
+          <description>&lt;p&gt;ふと思っただけなのですが、コード補完に便りにし過ぎるのはダメなんではないだろうか。しかし、まず前提条件を付けたい。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;コード補完はしまくれ!!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;コード補完などの補完機能を利用していない人はいますぐ使いましょう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Emacs なら M-/&lt;/li&gt;
+&lt;li&gt;vim なら C-p, C-n&lt;/li&gt;
+&lt;li&gt;Sublime Text 2 なら C-Space&lt;/li&gt;
+&lt;li&gt;TextMate 2 なら ESC&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などなどでデフォルトでもある程度できます。メソッド補完などをしたくなればカスタマイズしていきましょう。&lt;/p&gt;
+
+&lt;p&gt;コード補完はとても便利なのですが便りすぎるといくつかの問題が出てきます。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;つづりがわからなくて補完がないと文章やコードが書けない。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;補完のおかげで生産性は上がり、効率も上がるのですが、地力が落ちてしまいます。どちらかというと地力を高めつつも生産性を上げるほうが最終的な作業効率も伸びてくるはずです。&lt;/p&gt;
+
+&lt;p&gt;楽をするというのは、&lt;strong&gt;&amp;ldquo;日々の作業は楽をする。しかし、脳の力もついでに鍛える。&amp;rdquo;&lt;/strong&gt;というのを大事にしたい。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

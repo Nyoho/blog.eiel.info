@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/color/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-12-14 15:03:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>黒背景に青文字はやめろという話を合同勉強会in大都会で話をした。</title>
+          <link>http://blog.eiel.info/blog/2014/12/14/gbdaitokai2014-winter-color/</link>
+          <pubDate>Sun, 14 Dec 2014 15:03:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/14/gbdaitokai2014-winter-color/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://gbdaitokai.doorkeeper.jp/events/15289&#34;&gt;合同勉強会 in 大都会岡山 -2014 Winter-&lt;/a&gt;に参加して、「黒背景に青文字はやめろ」という話をした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://togetter.com/li/757033&#34;&gt;その様子をみたいならTogetterがある&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;なんか色の勉強する機会が欲しいと思って出オチなタイトルを設定してみた。
+しかし、あんまり調べたことがそんなに反映されていない。
+ちゃんと咀嚼できなかったのとそんなに時間をとれなかったのが原因である。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;6bc3a81065840132d6705e4dc25c732c&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;終わる終わる詐欺です。どうもありがとうございます。&lt;/p&gt;
+
+&lt;p&gt;後半は完全に「&lt;a href=&#34;http://blog.eiel.info/blog/2013/03/13/cielch/&#34;&gt;エディタの文字色に悩む日々 - CIELCH&lt;/a&gt;」の使いまわしではあるが、書いてないことも喋ったりしたし、気にしないことにしよう。&lt;/p&gt;
+
+&lt;p&gt;まあ、HSBの明度は人間の感覚には合わされてないので、感覚で調整するには使えるけどプログラムで処理するにはあまりつかいやすくない。
+知っていると若干色づくりに役に立つかもしれない。&lt;/p&gt;
+
+&lt;p&gt;そういえばPCメガネは青色をカットするけど、青色が文字の読みやすさには影響を与えずに光を弱くできるという機能があるのかと言えるのかもしれないと思ったけど、根拠がないので言わなかった。
+そのあたりはディスプレイの設定でカバーできる気もしなくもない。
+しかし、画面ってだいたい白いしな。まぶしいぜ。&lt;/p&gt;
+
+&lt;p&gt;というわけで、中身があったのかなかったのか自分ではよくわからない始末である。&lt;/p&gt;
+
+&lt;p&gt;まとめると、黒と青の組み合わせ、白と黄の組み合わせが読みにくいという話でした。&lt;/p&gt;
+
+&lt;p&gt;そういえば、今回作成したiTermのカラースキームは&lt;a href=&#34;https://github.com/eiel/color-schemes&#34;&gt;eiel/color-schemes · GitHub&lt;/a&gt;においている。
+ハイライト色を暗めにとっていて、場合によっては使いにくいかもしれない。
+世の中にはいろんなカラースキームが公開されているので、そっちを使うほうがいいかもしれない。&lt;/p&gt;
+
+&lt;p&gt;今年はたくさんセッションをしたけど、これが最後だと思われる。
+来年も考えたことはてきとうにまとめていこう。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:1822aa27a6afcb00d837c683b3b04087&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.jsa.or.jp/stdz/instac/commitee-acc/WG2/Docs/web-tech-repo/technical-report.html&#34;&gt;X 8341-3:2004 「高齢者・障害者等配慮設計指針－情報通信における機器，ソフトウェア及びサービス－ 第３部：ウェブコンテンツ」技術解説　第1.1版　委員会ワーキングドラフト（7月22日版）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.zspc.com/documents/wcag10/&#34;&gt;ウェブコンテンツ・アクセシビリティ・ガイドライン 1.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.kanzaki.com/docs/html/color-check&#34;&gt;色の組み合わせチェック - 読みやすい前景色と背景色&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.xrite.com/documents/literature/ja/L10-001_Understand_Color_ja.pdf&#34;&gt;カラーコミュニケーションガイド 色を正しく伝えるために&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.konicaminolta.jp/instruments/knowledge/color/index.html&#34;&gt;色色雑学-楽しく学べる知恵袋 | コニカミノルタ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://w3.kcua.ac.jp/~fujiwara/infosci/&#34;&gt;情報科学講義資料 - グラフィックス&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://hackage.haskell.org/package/colour&#34;&gt;colour: A model for human colour/color perception | Hackage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/03/13/cielch/&#34;&gt;エディタの文字色に悩む日々 - CIELCH - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/actionpack/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-09-04 19:03:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>AbstractController を継承して遊ぶ</title>
+          <link>http://blog.eiel.info/blog/2013/09/04/extend-abstract-controller/</link>
+          <pubDate>Wed, 04 Sep 2013 19:03:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/09/04/extend-abstract-controller/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/events/event-016.html&#34;&gt;すごい広島 #16&lt;/a&gt; で遊んだこと&lt;/p&gt;
+
+&lt;p&gt;Rails で AbstractContrller::Base を継承して &lt;strong&gt;オレオレ コントローラ&lt;/strong&gt; を作りたいと思います。&lt;/p&gt;
+
+&lt;p&gt;どうしてこれをしたいかというと View です。
+コントローラ名とアクションに対応した View がレンダリングできるのが魅力的です。&lt;/p&gt;
+
+&lt;p&gt;状況としてはメールを送るわけではないので ActionMailer 使えないし、すぐに画面に表示するわけではないので ActionController はちょっと…という感じなわけです。
+どんな状況かというとDBに保存する長文を作成したい時です。&lt;/p&gt;
+
+&lt;p&gt;書いたビューはこんな感じ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;こんにちは &amp;lt;%= @user %&amp;gt;さん
+
+&amp;lt;%= goodbye_helper @user %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ヘルパーも使えるようにしてみます。
+ファイル名は &lt;code&gt;app/views/hoge_template/goro.text.erb&lt;/code&gt; でコントローラ名が &lt;code&gt;hoge_template&lt;/code&gt; アクション名 &lt;code&gt;goro&lt;/code&gt; テンプレートエンジンは &lt;code&gt;erb&lt;/code&gt; です。&lt;/p&gt;
+
+&lt;p&gt;利用には以下のように使います。
+&lt;code&gt;rails c&lt;/code&gt; の中でやったり、モデルの中で使えます。
+もちろんコントローラ上でも。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;template = HogeTemplate.new
+template.process(:goro)
+template.render
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;renderの戻り値がテンプレートの出力結果になります。&lt;/p&gt;
+
+&lt;p&gt;最終的な出力目標は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;こんにちは  おなまえさん
+
+おなまえさん、おやすみ
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;を目指します。
+&lt;code&gt;@uesr&lt;/code&gt; には &lt;code&gt;おなまえ&lt;/code&gt; が入っています。
+&lt;code&gt;goobye_helper&lt;/code&gt; はお別れのあいさつをしてくれるように実装します。&lt;/p&gt;
+
+&lt;p&gt;作成するコントローラ的な役割をする HogeTemplate はこのように書きたいはずです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class HogeTemplate &amp;lt; ActionTemplate
+  def goro
+    @user = &amp;quot;おなまえ&amp;quot;
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Helper は以下のように書きたいです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;module ApplicationHelper
+  def goodbye_helper(user)
+    &amp;quot;#{user}さん、おやすみ&amp;quot;
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;このようにできる ActionTemplate クラスを作るのが目的です。&lt;/p&gt;
+
+&lt;p&gt;その ActienTemplate クラスは下記で動作させることができました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class ActionTemplate &amp;lt; AbstractController::Base
+  include AbstractController::Rendering
+  include ActionController::Helpers
+
+  helpers_path &amp;lt;&amp;lt; &#39;app/helpers&#39;
+  helper :all
+
+  view_paths &amp;lt;&amp;lt; &#39;app/views&#39;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;helpers_path&lt;/code&gt; や &lt;code&gt;view_paths&lt;/code&gt; で読み込み場所を調整できます。
+これはうまくやれば省略できそうなのですがそこまでまだいけていません。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/ActienTemplate&#34;&gt;サンプルリポジトリはこちら。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;ActionTemplate&lt;/code&gt; を &lt;code&gt;app/models&lt;/code&gt; に保存していますが、これは説明用です。
+専用のディレクトリを作成して autoload_path へ追加したいですが、複雑になるので省略しました。&lt;/p&gt;
+
+&lt;p&gt;使い道があるかどうかわかりませんが、試したので整理してみました。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連リンク:bcb28a1437c95f61b27873bb44edcf92&#34;&gt;関連リンク&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/07/18/action-view/&#34;&gt;ActionView を単体で使ってみる&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>TagHelperっていうのがあるんだけど、周りの人が使ってない - Rails</title>
+          <link>http://blog.eiel.info/blog/2012/11/22/rails-tag-helper/</link>
+          <pubDate>Thu, 22 Nov 2012 10:35:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/11/22/rails-tag-helper/</guid>
+          <description>&lt;p&gt;Railsのhelperに &lt;a href=&#34;http://rubydoc.info/gems/actionpack/3.2.8/ActionView/Helpers/TagHelper&#34;&gt;TagHelper&lt;/a&gt; っていうのが &lt;code&gt;text_area_tag&lt;/code&gt; のようなフォームを作成するような Helper がありますが、その内部で使用するようなメソッドが定義されています。&lt;/p&gt;
+
+&lt;p&gt;主に &lt;code&gt;tag&lt;/code&gt;, &lt;code&gt;content_tag&lt;/code&gt; になるのですが、自分でHTMLのタグを生成するようなヘルパーを生成したときこれを使うと便利です。&lt;/p&gt;
+
+&lt;p&gt;例えば &lt;code&gt;hoge&lt;/code&gt;的なものを表現するタグを生成するhoge_tagという抽象化をしたいときにざっくりな実装をすると以下のようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def hoge_tag(content)
+  %Q{&amp;lt;div class=&amp;quot;hoge&amp;quot;&amp;gt;#{content}&amp;lt;/div&amp;gt;}.html_safe
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;hoge_tag &amp;quot;hogehoge&amp;quot; # =&amp;gt; &amp;quot;&amp;lt;div class=\&amp;quot;hoge goro\&amp;quot;&amp;gt;hogehoge&amp;lt;/div&amp;gt;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;しかし、つかっていくと個別に class属性を追加したくなる場合が多々ありますし、content の escape などもしないといけないです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def hoge_tag(content, *classes)
+  classes = [&amp;quot;hoge&amp;quot;] + classes
+  class_string = classes.join(&amp;quot; &amp;quot;)
+  %Q{&amp;lt;div class=&amp;quot;#{class_string}&amp;quot;&amp;gt;#{content}&amp;lt;/div&amp;gt;}.html_safe
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;hoge_tag &amp;quot;hogehoge&amp;quot;, &amp;quot;goro&amp;quot; # =&amp;gt; &amp;quot;&amp;lt;div class=\&amp;quot;hoge goro\&amp;quot;&amp;gt;hogehoge&amp;lt;/div&amp;gt;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;もちろん、class属性だけじゃなくていろいろ指定したくなります。
+&lt;code&gt;text_area_tag&lt;/code&gt; なんかと同じようにoptionsで受けるようにしたい。こうなっとときに 「&lt;strong&gt;ソースを読もう!!&lt;/strong&gt;」 という発想が出るようになると良いと思います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def hoge_tag(content, options = nil)
+  classes = options[:class]
+  classes = [classes] unless Array === classes
+  options[:class] = [&amp;quot;hoge&amp;quot;] + classes
+  content_tag :hoge, content, options
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;hoge_tag &amp;quot;hogehoge&amp;quot;, class: &amp;quot;goro&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;content_tag はブロックを受けとったり, escapeの可否などの指定もできます。
+ブロックをうけとるようなものはテンプレートエンジン内ではなかなかあばれてくれます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;%= content_tag :hoge do %&amp;gt;
+  &amp;quot;hogehoge&amp;quot;
+&amp;lt;% end %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;といった書き方ができます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt;,&lt;code&gt;&amp;lt;img /&amp;gt;&lt;/code&gt;のような内部にコンテントを持たないタグを生成する場合は &lt;code&gt;tag&lt;/code&gt;というメソッドを使うと良いです。&lt;/p&gt;
+
+&lt;p&gt;Viewを書きはじめる前に &lt;a href=&#34;http://rubydoc.info/gems/actionpack/3.2.8/ActionView/Helpers&#34;&gt;Helperの一覧&lt;/a&gt;をみておくのも良いと思います。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

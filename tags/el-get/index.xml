@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/el-get/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-08-07 19:07:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>自分の el-get のワークフローについて整理する</title>
+          <link>http://blog.eiel.info/blog/2013/08/07/el-get/</link>
+          <pubDate>Wed, 07 Aug 2013 19:07:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/08/07/el-get/</guid>
+          <description>
+
+&lt;p&gt;この記事は &lt;a href=&#34;http://great-h.github.io/events/event-012.html&#34;&gt;すごい広島 #12&lt;/a&gt; で書きました。&lt;/p&gt;
+
+&lt;p&gt;Emacs のパッケージ管理に &lt;code&gt;el-get&lt;/code&gt; を利用しています。
+他にもいろいろありますが、どれもしっかりと使いこなせないまま &lt;code&gt;el-get&lt;/code&gt; におちついています。
+ぶっちゃけ、&lt;code&gt;el-get&lt;/code&gt; 使いこなせていません。
+使いこなせてないので不安な箇所があったので確認してまとめました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;el-get&lt;/code&gt; を使いこなせてないのに、これに落ち着いている理由は&lt;code&gt;Distributed Setup&lt;/code&gt; という機能を利用しているからです。
+これを使うと インストールしているパッケージがない場合自動でインストールしてくれます。&lt;/p&gt;
+
+&lt;p&gt;例えば、&lt;code&gt;helm&lt;/code&gt; というパッケージを利用していて、emacsの設定ファイルを git などで共有しているとします。普段利用していない別のマシンで設定ファイルをコピーしてきます。
+これで Emacs を起動すると、起動時にエラーが出てしまいます。
+もし el-get の &lt;code&gt;Distributed Setup&lt;/code&gt; の機能を利用していればインストールしていないパッケージをダウンロードしてくれます。
+ドロップボックスで共有している場合は不要なのですが、そういった使い方をしていない場合は有効です。&lt;/p&gt;
+
+&lt;p&gt;この方法を使っている場合の設定方法とパッケージの更新方法について書いておきます。&lt;/p&gt;
+
+&lt;h3 id=&#34;設定方法:22ead55274344014ce95e0770135fcd9&#34;&gt;設定方法&lt;/h3&gt;
+
+&lt;p&gt;その設定方法は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-common-lisp&#34;&gt;(el-get &#39;sync &#39;helm)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、書いておきます。
+基本的にはこれでOKです。&lt;/p&gt;
+
+&lt;p&gt;一緒に yasnippet をインストールしたいのであれば リストにすればよいです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-common-lisp&#34;&gt;(el-get &#39;sync &#39;(helm yasnippet))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;たぶんリストにしなくても大丈夫。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-common-lisp&#34;&gt;(el-get &#39;sync &#39;helm &#39;yasnippet)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;別々にやっても大丈夫。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-common-lisp&#34;&gt;(el-get &#39;sync &#39;yasnippet)
+(el-get &#39;sync &#39;helm)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;すでにインストールしてしまっていて、動作を確認したい場合は &lt;code&gt;el-get-remove&lt;/code&gt;コマンドで削除して、再評価することで動作確認できます。
+&lt;code&gt;rm&lt;/code&gt; コマンドなどで削除してしまった場合は el-get から見ると削除したことになっていないので注意してください。
+その場合でも &lt;code&gt;el-get-remove&lt;/code&gt; を呼べば大丈夫です。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;el-get&lt;/code&gt; 関数はダウンロードしていないパッケージの場合はダウンロードするという動作をします。
+第1引数の &amp;lsquo;sync というを付けておくと同期実行になります。
+ファイルのダウンロードを待つことになります。
+nil にすることで非同期にも実行できます。
+設定を el-getの hook に書いたりする必要がでてくると考えられますが試してません。同期実行するほうが設定しやすいと思います。&lt;/p&gt;
+
+&lt;p&gt;第2引数以降にはパッケージ名を指定することになります。
+パッケージ名&lt;code&gt;el-get-list-package&lt;/code&gt;コマンドなどで確認できます。
+パッケージ名を省略した場合は インストール済のパッケージのリストが入るようです。
+&lt;code&gt;el-get&lt;/code&gt; 関数は他にも load-path を通したりもするようです。&lt;/p&gt;
+
+&lt;p&gt;あとは &lt;code&gt;el-get&lt;/code&gt; の自動でインストールするコードを加えて&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-common-lisp&#34;&gt;(add-to-list &#39;load-path &amp;quot;~/.emacs.d/el-get/el-get&amp;quot;)
+(unless (require &#39;el-get nil &#39;noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       &amp;quot;https://raw.github.com/dimitri/el-get/master/el-get-install.el&amp;quot;)
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+(el-get &#39;sync &#39;helm)
+;; helm の設定
+(el-get &#39;sync &#39;yasnippet)
+;; yasnippet の設定
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;という感じにしておくと設定ファイルをコピーするだけで設定が完了します。
+&lt;small&gt;とはいえ、だいたいなにかがトラブりますが。&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;この方法を使っている場合は &lt;code&gt;el-get-install&lt;/code&gt; はとりあえず試してみたいパッケージをインストールするという感じで使えます。
+「他の環境でも使いたいなぁ」とか、設定いじりたいなぁ。となれば追記すれば良いのではないかと思います。
+パッケージを更新をした場合は hook により設定が上書きされるんじゃないかと気になっていたりもしますが、未確認です。&lt;/p&gt;
+
+&lt;h3 id=&#34;パッケージの更新:22ead55274344014ce95e0770135fcd9&#34;&gt;パッケージの更新&lt;/h3&gt;
+
+&lt;p&gt;パッケージの更新するには &lt;code&gt;el-get-update&lt;/code&gt; でパッケージごとに更新するか、
+&lt;code&gt;el-get-update-all&lt;/code&gt; でまとめて更新できます。
+適当な頻度で実行すればよいと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:22ead55274344014ce95e0770135fcd9&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;よくわかってないけど、自分が最低限必要なことはできているという使い方をしています。
+&lt;code&gt;(el-get &#39;sync)&lt;/code&gt; まわりの部分について確認したので、記事にしました。
+もうちょっと使いこなしたい。&lt;/p&gt;
+
+&lt;p&gt;もっと詳しいことは info などを読むのが良いと思います。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/dimitri/el-get/blob/4.stable/el-get.info&#34;&gt;github elget/elget.info&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

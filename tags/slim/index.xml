@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/slim/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-07-28 15:52:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>ActionView 単体で slim を使ってみる</title>
+          <link>http://blog.eiel.info/blog/2014/07/28/action-view-with-slim/</link>
+          <pubDate>Mon, 28 Jul 2014 15:52:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/28/action-view-with-slim/</guid>
+          <description>
+
+&lt;p&gt;「&lt;a href=&#34;http://blog.eiel.info/blog/2014/07/18/action-view/&#34;&gt;ActionView を単体で使ってみる&lt;/a&gt;」というのを書いたので、ついでにいろいろ試してみる。その1。&lt;/p&gt;
+
+&lt;p&gt;誰が得するのか謎だけど ActionView だけで slim を使うことを試みてみました。
+&lt;code&gt;action_view&lt;/code&gt;を require して、 &lt;code&gt;action_pack&lt;/code&gt; を require して、 &lt;code&gt;slim&lt;/code&gt; を require すれば使えます。&lt;/p&gt;
+
+&lt;p&gt;用意したファイル&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;views/prefix/slim.html.slim&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;p
+  | Hello, #{@name}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;views/layout/appliacation.html.erb&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;--
+&amp;lt;%= yield %&amp;gt;
+--
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;action_view&#39;
+require &#39;action_pack&#39;
+require &#39;slim&#39;
+
+lookup_context = ActionView::LookupContext.new(&#39;./views&#39;)
+lookup_context.cache = false   # ActionPachk を読まなくて済む魔法
+
+view_context = ActionView::Base.new(lookup_context)
+view_context.assign(name: &#39;eiel&#39;)
+ret = view_context.render(template: &#39;slim&#39;,
+                          prefixes: &#39;prefix&#39;,
+                          
+puts ret
+
+=begin
+--
+&amp;lt;p&amp;gt;Hello, eiel&amp;lt;/p&amp;gt;
+--
+=end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;slim は &lt;a href=&#34;https://github.com/judofyr/temple&#34;&gt;temple&lt;/a&gt; という gem を使ってRailsに対応してました。
+ActionPack はバージョン確認に利用しているだけなので、ちょっといじればなんとかなりそうですけど。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/judofyr/temple/blob/v0.6.8/lib/temple/templates/rails.rb&#34;&gt;Temple::Templates::Rails&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;もう少し詳しく:7dcde33f55e4e3742902be6a8bf43ee6&#34;&gt;もう少し詳しく&lt;/h3&gt;
+
+&lt;p&gt;誰得感がひどいのでもうちょっと書いてみる。&lt;/p&gt;
+
+&lt;p&gt;Railsとの連携の処理の部分は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Temple::Templates::Rails(Slim::Engine,
+  :register_as =&amp;gt; :slim,
+  # Use rails-specific generator. This is necessary
+  # to support block capturing and streaming.
+  :generator =&amp;gt; Temple::Generators::RailsOutputBuffer,
+  # Disable the internal slim capturing.
+  # Rails takes care of the capturing by itself.
+  :disable_capture =&amp;gt; true,
+  :streaming =&amp;gt; defined?(::Fiber))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/slim-template/slim/blob/master/lib/slim/template.rb#L9-L17&#34;&gt;Slim::Template&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そうすると &lt;code&gt;Temple::Template#method_missing&lt;/code&gt; が呼ばれてます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def self.method_missing(name, engine, options = {})
+  const_get(name).create(engine, options)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/judofyr/temple/blob/v0.6.8/lib/temple/templates.rb#L7-L9&#34;&gt;Temple::Temlate#method_missing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;変数を置き換えてみると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Temple::Templates::Rails.create(Slim::Engin,
+  register_as: :slim,
+  generator: Temple::Generators::RailsOutputBuffers,
+  disable_caputre: true,
+  streaming: defined?(::Fiber))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と &lt;a href=&#34;https://github.com/judofyr/temple/blob/v0.6.8/lib/temple/mixins/template.rb#L17-L25&#34;&gt;Temple::Templates::Rails.create&lt;/a&gt; が  &lt;code&gt;register_as: :slim&lt;/code&gt; 呼ばれることがわかります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def create(engine, options)
+  register_as = options.delete(:register_as)
+  template = Class.new(self)
+  template.disable_option_validator!
+  template.default_options[:engine] = engine
+  template.default_options.update(options)
+  template.register_as(*register_as) if register_as
+  template
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そうすると &lt;a href=&#34;https://github.com/judofyr/temple/blob/v0.6.8/lib/temple/templates/rails.rb#L41-L45&#34;&gt;Temple::Templates::Rails.register_as&lt;/a&gt; が &lt;code&gt;ActionViewActionView::Template.register_template_handler&lt;/code&gt; を呼びだされて、ActionView で利用できるようになります。&lt;/p&gt;
+
+&lt;p&gt;names には &lt;code&gt;[:slim]&lt;/code&gt; が束縛されることになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def self.register_as(*names)
+  names.each do |name|
+    ActionView::Template.register_template_handler name.to_sym, new
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;まとめ:7dcde33f55e4e3742902be6a8bf43ee6&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;ActionViewにテンプレートエンジンを追加するには &lt;code&gt;ActionView::Template.register_template_handler&lt;/code&gt; 使うことがわかりました。&lt;/p&gt;
+
+&lt;p&gt;ちなみに Rails のリポジトリを検索するとこんな感じでした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;base.register_default_template_handler :erb, ERB.new
+base.register_template_handler :builder, Builder.new
+base.register_template_handler :raw, Raw.new
+base.register_template_handler :ruby, :source.to_proc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rails/rails/blob/v4.1.4/actionview/lib/action_view/template/handlers.rb#L10-L13&#34;&gt;ソースコード&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;関連:7dcde33f55e4e3742902be6a8bf43ee6&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/07/18/action-view/&#34;&gt;ActionView を単体で使ってみる&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

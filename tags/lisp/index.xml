@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/lisp/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-12-08 15:49:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Lispインタープリタ勉強会に参加したので - LT駆動開発09</title>
+          <link>http://blog.eiel.info/blog/2014/12/08/ltdd-09-mylisp/</link>
+          <pubDate>Mon, 08 Dec 2014 15:49:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/08/ltdd-09-mylisp/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA09&#34;&gt;LT駆動開発09&lt;/a&gt;でLTをした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.doorkeeper.jp/events/16621&#34;&gt;Lispインタープリタ勉強会&lt;/a&gt;に参加したのでLispを実装しなければいけない気がしたので、勉強したことを参考に作成しはじめてみた。
+インタプリタと書くか、インタープリターと書くか、インタープリタと書くかブレまくっていたのは秘密である。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;22a8e5b060470132ec2f1eb00375a1f0&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;書いたコードはGistにあるんだ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/eiel/af120e6f44febc875702&#34;&gt;Gist - Lisp インタープリタ勉強で学んだことを試した。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;勉強会でlesson0として、用意してあったJavaScriptのコードを参考にした。
+これは四則演算がすることができて、
+JavaScriptの配列リテラルを使ってLISPのコードをかく。
+この配列を評価できる評価機をつくる。&lt;/p&gt;
+
+&lt;p&gt;配列リテラルを評価したものが、それ自身がASTなので割と簡単にLISPの評価機が作れる。
+ASTなんだけどLispのプログラムのように見えるからLispをつくった気分になる。
+そのスタート部分を作成しただけである。
+といいつつも、和しか実装していない。&lt;/p&gt;
+
+&lt;p&gt;しかし、Haskellのリストは同じ型の値しかリストには入れなれないので実際リストで書いてみると、値をつくる必要があり、LISP感は下がる。やはりパーサを書かねばならないのである。&lt;/p&gt;
+
+&lt;p&gt;やることはそんなに難しくないし、手を動かしてみると学ぶことはたくさんある。
+勉強会に参加したかどうかはおいておいて、自分だけのLISPを作るべきである。&lt;/p&gt;
+
+&lt;p&gt;HaskellでLISPを作るなら良さ気な文献があるのでそちらをやるのもよい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ja.wikibooks.org/wiki/48%E6%99%82%E9%96%93%E3%81%A7Scheme%E3%82%92%E6%9B%B8%E3%81%93%E3%81%86&#34;&gt;48時間でSchemeを書こう - Wikibooks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

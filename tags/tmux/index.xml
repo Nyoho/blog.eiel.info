@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/tmux/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-10-28 14:27:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Macで open . が失敗する</title>
+          <link>http://blog.eiel.info/blog/2014/10/28/failture-open-directory/</link>
+          <pubDate>Tue, 28 Oct 2014 14:27:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/10/28/failture-open-directory/</guid>
+          <description>
+
+&lt;p&gt;&lt;code&gt;open .&lt;/code&gt;をしようとしたら &lt;code&gt;LSOpenURLsWithRole() failed&lt;/code&gt;が発生した。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ open .
+LSOpenURLsWithRole() failed with error -600 for the file
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;tmux のペインを全部消して開きなおしたら治った。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:4d9c9a8755e21d7b8dfd07ea9f5e7d9c&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://superuser.com/questions/746606/open-safari-and-finder-failed-in-tmux&#34;&gt;osx - open Safari and Finder failed in tmux - Super User&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

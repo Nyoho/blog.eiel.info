@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/tumx/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-02-17 12:45:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>tmux で copy-mode でのキーバインドについて</title>
+          <link>http://blog.eiel.info/blog/2013/02/17/tmux-copy-mode/</link>
+          <pubDate>Sun, 17 Feb 2013 12:45:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/17/tmux-copy-mode/</guid>
+          <description>&lt;p&gt;tmuxのコピーモードでのキーバインドはデフォルトで emacs like になっています。&lt;/p&gt;
+
+&lt;p&gt;なぜか、一部のマシンでのみ vi like になってたので、&lt;code&gt;man tmux&lt;/code&gt; をみてみた。
+&amp;gt;  the default is emacs, unless VISUAL or EDITOR contains ‘vi’.&lt;/p&gt;
+
+&lt;p&gt;デフォルトは emacs だけど環境変数 VISUAL か EDITOR に &amp;lsquo;vi&amp;rsquo; を含んでいれば vi like になるそうです。&lt;/p&gt;
+
+&lt;p&gt;環境変数に影響されずに固定したい場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;set-window-option -g mode-keys emacs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とか&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;set-window-option -g mode-keys vi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とか、書いておきましょう。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

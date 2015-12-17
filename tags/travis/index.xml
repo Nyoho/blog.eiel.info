@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/travis/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-02-08 17:19:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>そういえば彼氏募集というネタリポジトリがありましたね。真似するならこんな感じかなぁ。</title>
+          <link>http://blog.eiel.info/blog/2014/02/08/i-need-a-girlfriend/</link>
+          <pubDate>Sat, 08 Feb 2014 17:19:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/02/08/i-need-a-girlfriend/</guid>
+          <description>
+
+&lt;p&gt;最近、C++界や、ひろし魔界で暴れているらしい&lt;a href=&#34;https://twitter.com/PG_nonen&#34;&gt;まさかず氏&lt;/a&gt;が&lt;a href=&#34;https://github.com/norinori2222/boyfriend_require&#34;&gt;彼氏募集のリポジトリ&lt;/a&gt;を真似して&lt;a href=&#34;https://github.com/minamiyama1994/girlfriend_require&#34;&gt;彼女募集のリポジトリ&lt;/a&gt;を作成してました。&lt;/p&gt;
+
+&lt;p&gt;条件さえ揃えば真似してもよかったのですが、条件が揃ってなかったので真似してませんでした。
+気がついたら条件が揃ってたので真似してみることにしてみました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/need_a_girlfriend&#34;&gt;﻿eiel/need_a_girlfriend - GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;やったこと&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;fork したけど 空のブランチつくって、fork元とはコード的には関係をなくした&lt;/li&gt;
+&lt;li&gt;Haskell で DSL したかった。結局、Writer モナドの上に構築した。&lt;/li&gt;
+&lt;li&gt;source ブランチを push すると travis で &lt;code&gt;README.md&lt;/code&gt; を生成して master ブランチに自動で push する&lt;/li&gt;
+&lt;li&gt;リポジトリの名前を変更した&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;fork-したけど-空のブランチつくって-fork元とはコード的には関係をなくした:a0a1f37e986eb43a89ced5b8b8d20f10&#34;&gt;fork したけど 空のブランチつくって、fork元とはコード的には関係をなくした&lt;/h3&gt;
+
+&lt;p&gt;fork したので、その上から上書きしてもよかったのですが、だいぶ違うし、ゼロからつくりたいけど fork したことは残したいよね。&lt;/p&gt;
+
+&lt;p&gt;ということで空のブランチをつくってから作りました。
+&lt;code&gt;git checkout --orphan &amp;lt;branch名&amp;gt;&lt;/code&gt; で空のブランチが作れます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2014-02-08-network.png&#34; alt=&#34;ネットワーク&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;haskell-で-dsl-したかった:a0a1f37e986eb43a89ced5b8b8d20f10&#34;&gt;Haskell で DSL したかった。&lt;/h3&gt;
+
+&lt;p&gt;README.md は手書きせずにプログラムから生成するようにしてみました。
+&lt;a href=&#34;https://twitter.com/PG_nonen&#34;&gt;まさかず氏&lt;/a&gt;を真似ただけである。&lt;/p&gt;
+
+&lt;p&gt;Haskell で DSL 作るのにはどうしたらいいんだろうなぁ。たぶんモナド作ればいいんだろうと、コード書きはじめたけど、途中でよくわからなくなった。
+それはそれで別に勉強すればいいやということから途中から Writer モナドでつくりました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;background = do
+  h1 &#39;背景&#39;
+  p &#39;ほげほげごろごろ&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;みたいに書きたかった。というか、このように書いてから h1 や p 関数を実装しました。&lt;/p&gt;
+
+&lt;p&gt;Writer モナド は tell 関数を呼びだしておくと、 runWriter した時に最終結果と tell した内容が引き出せるようです。&lt;/p&gt;
+
+&lt;p&gt;上記の例だと以下のような値が返るように作ってます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;((),[&amp;quot;# &amp;quot;,&amp;quot;背景&amp;quot;,&amp;quot;\n&amp;quot;,&amp;quot;\n&amp;quot;,&amp;quot;ほげほげごろごろ&amp;quot;,&amp;quot;\n&amp;quot;,&amp;quot;\n&amp;quot;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとはリストの内容を標準出力に書きだしました。
+リストを後ろにくっつけていくからパフォーマンスがなんか気になるけどどうなんだろう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/need_a_girlfriend/blob/master/need_a_girlfriend.hs&#34;&gt;あとはコードでも見てください。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Writer モナド書き換える際、main関数は &lt;a href=&#34;https://github.com/eiel/need_a_girlfriend/blob/master/need_a_girlfriend.hs#L3&#34;&gt;&lt;code&gt;runWriter&lt;/code&gt;&lt;/a&gt; の部分をちょっと書き換えたかなーぐらいなものでモナドの使いやすさを感じたような気がします。&lt;/p&gt;
+
+&lt;h3 id=&#34;source-ブランチを-push-すると-travis-で-reame-md-を生成して-master-ブランチに自動で-push-する:a0a1f37e986eb43a89ced5b8b8d20f10&#34;&gt;source ブランチを push すると travis で &lt;code&gt;REAME.md&lt;/code&gt; を生成して master ブランチに自動で push する&lt;/h3&gt;
+
+&lt;p&gt;基本的には&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tricknotes.hateblo.jp/entry/2013/06/17/020229&#34;&gt;Middleman で作った web サイトを Travis + GitHub pages でお手軽に運用する - tricknotesのぼうけんのしょ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;を参考にしました。他の方法も試したけどなかなか手強いので結局この方法にしました。&lt;/p&gt;
+
+&lt;p&gt;手順的には travis 上でリポジトリを選択して、処理を &lt;code&gt;.travis.yml&lt;/code&gt;を記述します。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;.travis.yml&lt;/code&gt; に書いた処理の最後で push しますが、 &lt;code&gt;-q&lt;/code&gt; やら &lt;code&gt;2&amp;gt;/dev/null&lt;/code&gt; がついてるせいでなんで失敗してるのか気づきにくいのがちょっと難点でした。
+つけないと TORKEN が漏れてしまう。&lt;/p&gt;
+
+&lt;p&gt;参考程度に書いた yaml を貼っておきます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;language: haskell
+install: cabal install mtl
+script: ghc need_a_girlfriend.hs
+after_success:
+  - git remote add deploy https://$GH_TOKEN@github.com/eiel/need_a_girlfriend.git
+  - git fetch deploy master
+  - git checkout master
+  - git merge source --no-edit
+  - ./need_a_girlfriend &amp;gt; README.md
+  - git add README.md
+  - &#39;git commit -m &amp;quot;Generate Travis JOB $TRAVIS_JOB_NUMBER
+
+https://travis-ci.org/eiel/need_a_girlfriend/builds/$TRAVIS_BUILD_ID&amp;quot;&#39;
+  - &#39;[ &amp;quot;x$TRAVIS_BRANCH&amp;quot; == &amp;quot;xsource&amp;quot; ] &amp;amp;&amp;amp; git push -q deploy master 2&amp;gt;/dev/null&#39;
+branches:
+  except:
+    - master
+env:
+  global:
+    - secure: &amp;quot;KJG63ZK8zdEboimt/+UOVDUu+cECmvSgsCyEUEQVjMnazxpEaNQbP+lEQv9TWki6eRtr71+vt3LU7H4H8Wm/jURV2WiYe31ZeE7wvRcjjaHRWHYfeTJ5OyBJhCJoauKBAwL/jIFSTDt3IEgGIW42WPwagGexHKm+Vh/0ETK1CNc=&amp;quot;
+    - GIT_COMMITTER_NAME=&amp;quot;name&amp;quot;
+    - GIT_COMMITTER_EMAIL=&amp;quot;email@example.com&amp;quot;
+    - GIT_AUTHOR_NAME=&amp;quot;name&amp;quot;
+    - GIT_AUTHOR_EMAIL=&amp;quot;email@example.com&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;after_success が script の実行に成功した場合に実行されます。&lt;/p&gt;
+
+&lt;p&gt;source ブランチの時にしか push しないような処理をいれてあります。
+master ブランチの際は after_success がそもそも走らないようにしています。&lt;/p&gt;
+
+&lt;p&gt;コミットメッセージを作るのに環境変数から情報を得ています。
+どんな環境変数があるかは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.travis-ci.com/user/ci-environment/&#34;&gt;Travis CI: The Build Environment&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;に書いてあります。
+環境変数は travis の画面上では展開しない仕様になってるみたいです。&lt;/p&gt;
+
+&lt;p&gt;その他の参考文献&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.travis-ci.com/user/languages/haskell/&#34;&gt;Travis CI: Building a Haskell Project&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.travis-ci.com/user/deployment/custom/&#34;&gt;Travis CI: Custom Deployment&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;リポジトリの名前を変更した:a0a1f37e986eb43a89ced5b8b8d20f10&#34;&gt;リポジトリの名前を変更した&lt;/h3&gt;
+
+&lt;p&gt;「require ってなんか違う気がするんだよなー」って感覚がしたので調べたら一般的には I need a boyfriend とか I need a girlfriend と書いてる例があったので、リポジトリ名は need_a_girlfriend にしました。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;eiel / need_a_girlfriend&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;となるので、なんか文法的にも良さげな気がします。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:a0a1f37e986eb43a89ced5b8b8d20f10&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;しかし、元のリポジトリの条件の多さにはびっくりする。
+お互い悪いところは相性みながらちょっとづつ調整できないものなのでしょうか。
+これだけは譲れないものはひとつかふたくぐらいあれば充分じゃないんでしょうか。
+私にはよくわからないですけど。&lt;/p&gt;
+
+&lt;p&gt;日々、成長するのを放棄した人間にはなりたくないかなぁ。&lt;/p&gt;
+
+&lt;p&gt;そんなことはともかく&lt;a href=&#34;https://twitter.com/PG_nonen&#34;&gt;まさかず氏&lt;/a&gt;はすごくがんばっていると思うので素敵な彼女ができるように応援したいですね。&lt;/p&gt;
+
+&lt;p&gt;ではでは。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>travisを利用してみる</title>
+          <link>http://blog.eiel.info/blog/2012/09/21/travis/</link>
+          <pubDate>Fri, 21 Sep 2012 17:51:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/09/21/travis/</guid>
+          <description>
+
+&lt;p&gt;githubで公開してるリポジトリを継続的インテグレーションを行えるサービスとして &lt;a href=&#34;http://travis-ci.org/&#34;&gt;travis&lt;/a&gt; というのがあるので、&lt;a href=&#34;http://travis-ci.org/&#34;&gt;hiroshimarb-gem&lt;/a&gt;で利用してみることにした&lt;/p&gt;
+
+&lt;p&gt;githubのアカウントがあればログインができるのでアカウントの作成は手軽でした。&lt;/p&gt;
+
+&lt;h2 id=&#34;リポジトリの指定:c56930a3760ec07c4fc95b46ac55be17&#34;&gt;リポジトリの指定&lt;/h2&gt;
+
+&lt;p&gt;リポジトリを指定するにはプロフィールからいけばよいです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/travis-profile.png&#34; alt=&#34;ここ&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;いろいろでるので利用するリポジトリをONにすればよいみたいです。&lt;/p&gt;
+
+&lt;h2 id=&#34;travisの設定:c56930a3760ec07c4fc95b46ac55be17&#34;&gt;travisの設定&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;.travis.yml&lt;/code&gt;用意する必要があります。&lt;/p&gt;
+
+&lt;h2 id=&#34;参考文献:c56930a3760ec07c4fc95b46ac55be17&#34;&gt;参考文献&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://about.travis-ci.org/docs/user/getting-started/&#34;&gt;Travis CI Getting started&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/actirerecord/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-04-08 01:51:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Rails で外部キー制約</title>
+          <link>http://blog.eiel.info/blog/2013/04/08/foreign-key-constrait-on-rails/</link>
+          <pubDate>Mon, 08 Apr 2013 01:51:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/04/08/foreign-key-constrait-on-rails/</guid>
+          <description>&lt;p&gt;外部キー制約は好きですか？&lt;/p&gt;
+
+&lt;p&gt;O/RマッパーしててもなるべくDBの力は借りたいです。
+ということで、&lt;a href=&#34;https://www.ruby-toolbox.com/&#34;&gt;Ruby Toolbox&lt;/a&gt;で foreign を検索して、ちらちら見て一番人気の&lt;a href=&#34;https://github.com/matthuhiggins/foreigner&#34;&gt;foreigner&lt;/a&gt;を選びました。基本的にはデータベースに丸投げなので Rails4 でもいまのとこ問題なく使えております。&lt;/p&gt;
+
+&lt;p&gt;インストールは &lt;code&gt;Gemfile&lt;/code&gt; に:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;gem &#39;foreigner&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と追加して &lt;code&gt;bundle install&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;あとはマイグレーションで:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;create_table :comments do |t|
+  t.references :post, null: false, index: true
+  t.foreign_key :posts, dependent: :delete
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;としておきました。&lt;/p&gt;
+
+&lt;p&gt;ついでに確認。&lt;/p&gt;
+
+&lt;p&gt;存在しない 外部キーを指定すると保存を失敗する確認。postgresの例:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Comment.create(post_id: 1)
+# =&amp;gt; PG::Error: ERROR:  insert or update on table &amp;quot;comments&amp;quot; violates foreign key constraint &amp;quot;comments_post_id_fk&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;キーを指定して、親になるオブジェクトを削除すると消える確認:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Comment.create(post_id: Post.create)
+Comment.count
+# =&amp;gt; 1
+Post.count
+# =&amp;gt; 1
+Post.first.destroy
+Post.count
+# =&amp;gt; 0
+Comment.count
+# =&amp;gt; 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ほむ。良い感じですね。&lt;/p&gt;
+
+&lt;p&gt;しかし、Rails4 からは scheme.rb の hash形式が変わってるけどそこには対応してませんでした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;add_foreign_key &amp;quot;comments&amp;quot;, &amp;quot;posts&amp;quot;, :name =&amp;gt; &amp;quot;comments_post_id_fk&amp;quot;, :dependent =&amp;gt; :delete
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;パッチがきてなかったら プルリクエストしてみようかな。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

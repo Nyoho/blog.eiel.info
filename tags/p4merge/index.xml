@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/p4merge/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-06-29 18:58:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Mac で使える git mergetool をいろいろ試してみる - p4merge</title>
+          <link>http://blog.eiel.info/blog/2013/06/29/git-mergetool-p4merge/</link>
+          <pubDate>Sat, 29 Jun 2013 18:58:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/06/29/git-mergetool-p4merge/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt; の続きです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.perforce.com/product/components/perforce-visual-merge-and-diff-tools&#34;&gt;p4Merge&lt;/a&gt; を紹介します。&lt;/p&gt;
+
+&lt;p&gt;先に問題点などを書いておくと、日本語が利用されていると表示がずれてしまいます。
+Qt が利用されているので Cocoa アプリに比べると動きは悪いですが、インターフェイスは使いやすいです。&lt;/p&gt;
+
+&lt;p&gt;インストールには、サイト下部の Download now をクリック後にOSなどを選択してダウンロードします。
+ダウンロード後は&lt;code&gt;/Application&lt;/code&gt; に配置します。&lt;/p&gt;
+
+&lt;p&gt;設定は以下のコマンドでできます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global mergetool.p4merge.path /Applications/p4merge.app/Contents/MacOS/p4merge
+git config --global mergetool.p4merge.keepTemporaries false
+git config --global mergetool.p4merge.trustExitCode false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとはコンフリクトした際に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git mergetool -t p4merge
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と入力すると利用できます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git mergetool&lt;/code&gt; だけで起動できるようにしたい場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global merge.tool p4merge
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;としておくとよいです。&lt;/p&gt;
+
+&lt;p&gt;起動すると下記のような画面です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/p4merge.png&#34; alt=&#34;p4merge画面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;画面中部に 左から&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;マージしたいブランチのファイルの内容&lt;/li&gt;
+&lt;li&gt;枝わかれした時のファイルの内容&lt;/li&gt;
+&lt;li&gt;現在のファイルの内容&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;になってます。他とは左右が逆なので注意が必要です。&lt;/p&gt;
+
+&lt;p&gt;画面下部にはマージ結果の情報が出ています。
+下部の右側のボタンを押すことでどちらの変更を使うか選択できます。
+両方を選ぶことはできませんでした。
+また、選択後に編集することもでき、アンドゥもすることができます。&lt;/p&gt;
+
+&lt;p&gt;ツールバー一番端で最初からやりなおすこともできて、良いと思いました。&lt;/p&gt;
+
+&lt;p&gt;編集後は p4merge を終了することで、次のファイルへ移行として同じ作業を繰返します。&lt;/p&gt;
+
+&lt;p&gt;マージする前のファイルが .ファイル名に &lt;code&gt;.orig&lt;/code&gt; という文字が付加されて残っています。&lt;/p&gt;
+
+&lt;p&gt;日本語を使うと表示がずれてしまうので、日本語さえさえ使わなければ使いやすいツールでした。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:4619e1504aeccce1e809c001d0b784b8&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/06/26/git-mergetool/&#34;&gt;Mac で使える git mergetool をいろいろ試してみる - 準備編&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

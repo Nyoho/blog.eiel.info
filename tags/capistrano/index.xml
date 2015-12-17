@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/capistrano/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-08-31 11:15:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>database.ymlが.gitignoreに入っている環境でのcapistranoを使ったデプロイ</title>
+          <link>http://blog.eiel.info/blog/2012/08/31/capistrano-and-database-dot-yml/</link>
+          <pubDate>Fri, 31 Aug 2012 11:15:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/08/31/capistrano-and-database-dot-yml/</guid>
+          <description>
+
+&lt;p&gt;[2012-09-20日追記] 以下の記事の内容ですが、gemが用意されてました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/amfranz/capistrano_database_yml&#34;&gt;https://github.com/amfranz/capistrano_database_yml&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Railsプロジェクトで、ひとりで開発している場合は除いて、&lt;code&gt;.gitignore&lt;/code&gt;に&lt;code&gt;config/database.yml&lt;/code&gt;を追加することがよくよくあります。この場合、&lt;code&gt;config/database.yml&lt;/code&gt;をどこかのタイミングで作ってやらなければなりません。この対処法は&lt;a href=&#34;http://www.simonecarletti.com/blog/2009/06/capistrano-and-database-yml/&#34;&gt;この記事&lt;/a&gt;で説明されてます。&lt;/p&gt;
+
+&lt;h2 id=&#34;概略:9415db707fd2c7b112b3a5ad42f3ce87&#34;&gt;概略&lt;/h2&gt;
+
+&lt;p&gt;英語だったりするので簡単に説明をかいておきます。
+前述の記事の作業を行うと&lt;code&gt;cap&lt;/code&gt;コマンドにふたつのタスクが追加されます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;cap db:setup&lt;/li&gt;
+&lt;li&gt;cap db:symlink&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;db:setup&lt;/code&gt;は&lt;code&gt;shared_path&lt;/code&gt;に&lt;code&gt;config/database.yml&lt;/code&gt;に生成してくれます。すでにあると上書きされるので注意が必要です。
+&lt;code&gt;db:symlink&lt;/code&gt;は &lt;code&gt;db:setup&lt;/code&gt;で生成した&lt;code&gt;config/database.yml&lt;/code&gt;へsymlinkを貼ります。なので、&lt;code&gt;#{shared_path}/config/database.yml&lt;/code&gt;手で編集しておけば良いということになります。&lt;/p&gt;
+
+&lt;h2 id=&#34;試したときに困ったことなど:9415db707fd2c7b112b3a5ad42f3ce87&#34;&gt;試したときに困ったことなど&lt;/h2&gt;
+
+&lt;p&gt;記載されているコードをコピーして、&lt;code&gt;capistrano_database.rb&lt;/code&gt;を作成するのですが、このファイルをどこに作成すべきなのか記述されていないので、&lt;code&gt;lib&lt;/code&gt;上に作成しました。
+&lt;code&gt;lib&lt;/code&gt;は&lt;code&gt;LOAD_PATH&lt;/code&gt;が通ってないのに気付かなくて迷惑をかけました。
+&lt;code&gt;config/deploy.rb&lt;/code&gt;に &lt;code&gt;require &amp;quot;capistrano_database&amp;quot;&lt;/code&gt;とするところを&lt;code&gt;require &amp;quot;./lib/capistrano_database&amp;quot;&lt;/code&gt;として回避しました。
+ところが、cucumberの実行時のオプションに&lt;code&gt;--require lib&lt;/code&gt;をつけているせいだと思いますが、cucumberの実行時に読み込まれてしまい不具合がでてしまったので、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Capistrano::Configuration.instance.load do
+  ....
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;の部分を&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;if instance = Capistrano::Configuration.instance
+  instance.load do
+    ...
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のように変更して回避しました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

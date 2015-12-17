@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/devise/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-02-20 14:00:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Devise で登録時にConfirmation Token が不正な値というエラー</title>
+          <link>http://blog.eiel.info/blog/2014/02/20/confirmation-token-error-indevise/</link>
+          <pubDate>Thu, 20 Feb 2014 14:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/02/20/confirmation-token-error-indevise/</guid>
+          <description>
+
+&lt;p&gt;Devise で確認メールで確認してから有効にする機能 Confirmable の機能をつかってたのだけど、トークンが不正というエラーがおきた。&lt;/p&gt;
+
+&lt;p&gt;この問題は devise 3.1.0 より前で、確認のために送信されるメールの内容をカスタマイズしていれば起きてるんじゃないかと思う。&lt;/p&gt;
+
+&lt;p&gt;DBに格納される Token の値が HMAC されるようになったらしい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/plataformatec/devise/commit/143794d701bcd7b8c900c5bb8a216026c3c68afc&#34;&gt;Use HMAC on tokens stored in the DB ·  143794d · plataformatec/devise · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そのため、画面をカスタマイズしている場合、token の取得方法が変えないといけないっぽい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-diff&#34;&gt;-&amp;lt;p&amp;gt;&amp;lt;%= link_to &#39;Confirm my account&#39;, confirmation_url(@resource, :confirmation_token =&amp;gt; @resource.confirmation_token) %&amp;gt;&amp;lt;/p&amp;gt;
++&amp;lt;p&amp;gt;&amp;lt;%= link_to &#39;Confirm my account&#39;, confirmation_url(@resource, :confirmation_token =&amp;gt; @token) %&amp;gt;&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;確認メールだけでなく &lt;code&gt;app/views/devise/mailer&lt;/code&gt; 内のファイル全部変えないといけない気がする。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;confirmation_instructions.html.erb&lt;/li&gt;
+&lt;li&gt;reset_password_instructions.html.erb&lt;/li&gt;
+&lt;li&gt;unlock_instructions.html.erb&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あたりですね。&lt;/p&gt;
+
+&lt;h3 id=&#34;蛇足:fa9d61f5264beb87c65f061b161f485f&#34;&gt;蛇足&lt;/h3&gt;
+
+&lt;p&gt;v3.1.0 ってリリースされたの9月なんだが…さっき気づいたということは…。とおもって Gemfie.lock を git log &amp;ndash;patch Gemfile.lock して devise 検索したら、デプロイされたのは最近だった。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考:fa9d61f5264beb87c65f061b161f485f&#34;&gt;参考&lt;/h3&gt;
+
+&lt;p&gt;直してから探したやつだけど。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/18626544/devise-confirmation-token-is-invalid-when-user-signs-up&#34;&gt;ruby on rails - Devise &amp;ldquo;Confirmation token is invalid&amp;rdquo; when user signs up - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;関連:fa9d61f5264beb87c65f061b161f485f&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2012/12/30/modify-email-on-devise/&#34;&gt;Devise で email 変更する。 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Devise で email 変更する。</title>
+          <link>http://blog.eiel.info/blog/2012/12/30/modify-email-on-devise/</link>
+          <pubDate>Sun, 30 Dec 2012 14:41:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/12/30/modify-email-on-devise/</guid>
+          <description>&lt;p&gt;Railsの plugin で 認証を行なう &lt;a href=&#34;https://github.com/plataformatec/devise&#34;&gt;devise&lt;/a&gt; という gem があります。
+このユーザ認証で &lt;code&gt;実際にユーザにメールを送信して、登録を完了する&lt;/code&gt;という機能を提供するのに  confirmable という機能があります。&lt;/p&gt;
+
+&lt;p&gt;このConfirmableという機能を使用していると管理者が ユーザのメールアドレスを変更してあげる必要がある場合、代えるときもメールがユーザに送信されます。これが便利なときもあったりテスト時にこまったりすることがあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;devise :confirmable&lt;/code&gt; した モデルには &lt;code&gt;skip_confirmation!&lt;/code&gt; &lt;code&gt;skip_reconfirmation!&lt;/code&gt; というメソッドが追加されてるので、これらを呼び出すことで回避することができます。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、これらのメソッドの中身をみると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;def skip_confirmation!
+  self.confirmed_at = Time.now.utc
+end
+
+def skip_reconfirmation!
+  @bypass_postpone = true
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となってます。&lt;/p&gt;
+
+&lt;p&gt;confirmed_at に値がはいっていれば有効で、@bypass_postpone が true で メールの送信が回避できそうですね。このあたりの実装はversionによって変更される恐れがあるので直接利用するには注意が必要です。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/selenium/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-08-25 16:20:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Haskell で Selenium</title>
+          <link>http://blog.eiel.info/blog/2014/08/25/hs-webdriver/</link>
+          <pubDate>Mon, 25 Aug 2014 16:20:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/08/25/hs-webdriver/</guid>
+          <description>&lt;p&gt;たまには Haskell が書きたかったので、コマンドラインからあるウェブサービスに書き込みできるようにしたが失敗した。&lt;/p&gt;
+
+&lt;p&gt;失敗したというか画面を進めていくと止まってしまう。
+なにやらアラートがでて処理ができていない感じなのだろうか。
+Rubyでやっても停止するので、Haskellの問題ではない。&lt;/p&gt;
+
+&lt;p&gt;一応、最低限の使い方がわかったのでメモしとく。&lt;/p&gt;
+
+&lt;p&gt;利用したのは、&lt;a href=&#34;http://hackage.haskell.org/package/webdriver&#34;&gt;hs-webdriver&lt;/a&gt; と &lt;a href=&#34;http://phantomjs.org/&#34;&gt;phantomJS&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;phantomJS は &amp;ndash;webdriver オプションを使用することで、SeleniumのServerとして使えるようになる。
+Haskellでは Selenium と対話するための webdriverというライブラリがあって制御することが可能。&lt;/p&gt;
+
+&lt;p&gt;Google にアクセスしてスクリーンショットを作成するプログラムをかいてみた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{-# LANGUAGE OverloadedStrings #-}
+import Test.WebDriver
+import Control.Monad.IO.Class
+import qualified Data.ByteString.Lazy.Char8 as B
+
+main :: IO ()
+main =
+  runSession defaultConfig $ do
+    openPage &amp;quot;http://google.co.jp/&amp;quot;
+    screenshotWriteFile &amp;quot;google.png&amp;quot;
+
+screenshotWriteFile::  FilePath -&amp;gt; WD ()
+screenshotWriteFile name = do
+  string &amp;lt;- screenshot
+  liftIO . B.writeFile name  $ string
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;事前に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ phantomjs --webdriver=4444
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;としてから実行する。&lt;/p&gt;
+
+&lt;p&gt;実行すると google.png というファイルが生成されている。&lt;/p&gt;
+
+&lt;p&gt;screenshot は ByteString を返すので保存しやすいように screenshotWriteFile という関数を定義して保存しやすくした。
+これは webdriver が base64 形式で情報を返してくるのでエンコードした情報を返す模様。&lt;/p&gt;
+
+&lt;p&gt;ブラウザを操作するための関数は&lt;a href=&#34;https://hackage.haskell.org/package/webdriver-0.6.0.1/docs/Test-WebDriver-Commands.html&#34;&gt;Test.WebDriver.Commands&lt;/a&gt;を見ればかいてある。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

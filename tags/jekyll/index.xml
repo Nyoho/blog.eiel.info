@@ -1,0 +1,771 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/jekyll/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-05-08 09:50:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>GitHub Pages で jekyll を使うなら safe: false で開発したほうが良いかもしれない</title>
+          <link>http://blog.eiel.info/blog/2014/05/08/jekyll-on-github-devel-safe-false/</link>
+          <pubDate>Thu, 08 May 2014 09:50:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/05/08/jekyll-on-github-devel-safe-false/</guid>
+          <description>
+
+&lt;p&gt;3月ぐらいから GitHub Pages でも使える Jekyll のプラグインが一部使えるようになりました。
+最新の &lt;a href=&#34;https://github.com/github/pages-gem&#34;&gt;github-pages gem&lt;/a&gt; の v18 だと&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jekyll/jemoji&#34;&gt;jemoji&lt;/a&gt; - GitHubの絵文字が使える&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jekyll/jekyll-mentions&#34;&gt;jekyll-mentions&lt;/a&gt; - &lt;code&gt;@github-id&lt;/code&gt; と、書くと自動でユーザへのリンクになる&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jekyll/jekyll-redirect-from&#34;&gt;jekyll-redirect-from&lt;/a&gt; - 別のページからこのページに飛ばせる&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jekyll/jekyll-sitemap&#34;&gt;jekyll-sitemap&lt;/a&gt; - &lt;code&gt;sitemap.xml&lt;/code&gt; が自動生成される&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;が使えます。&lt;/p&gt;
+
+&lt;p&gt;ローカルで開発する場合、&lt;code&gt;_config.yml&lt;/code&gt; に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;safe: true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と記述してしまうと、これらのプラグインが動作しません。
+GitHubに push すると動作してました。&lt;/p&gt;
+
+&lt;p&gt;ただし、GitHub上では &lt;code&gt;safe: true&lt;/code&gt; の状態で動いてるはずなので、注意が必要です。(実際に確認はしてないけど)&lt;/p&gt;
+
+&lt;p&gt;github-pages v19 で Jekyll が 2.0.2 になるのでこれはこれでまた違ってくるかもしれませんが、確認していません。(まだリリースされてない)
+そういえば、SASS とか CoffeeScript が使えるようになりそうなので非常に期待したい v19 です。&lt;/p&gt;
+
+&lt;p&gt;ローカルやTravisで生成すればだいたいのことができますが GitHub で生成できるとGitHub 入門として使いやすいですし、どんどん機能拡張されると良いですねー。&lt;/p&gt;
+
+&lt;h3 id=&#34;補足:7862db9e748a2cbd4163d6e30c890c9c&#34;&gt;補足&lt;/h3&gt;
+
+&lt;p&gt;プラグインを利用するには &lt;code&gt;_config.yml&lt;/code&gt; に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gems:
+  - jekyll-mentions
+  - jekyll-redirect-from
+  - jemoji
+  - jekyll-sitemap
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;の記載が必要です。&lt;/p&gt;
+
+&lt;p&gt;当然不要なものがあれば削ちゃってください。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:7862db9e748a2cbd4163d6e30c890c9c&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://help.github.com/articles/using-jekyll-with-pages&#34;&gt;Using Jekyll with Pages · GitHub Help&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;関連:7862db9e748a2cbd4163d6e30c890c9c&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます - そんなこと覚えてない&lt;/a&gt;
+&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/18/jekyll-on-github/&#34;&gt;Github で Jekyll を使う時に調べたこと - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/08/13/github-pages-gem/&#34;&gt;github-pages Gem というのが用意された - Github Page で使う gem のバージョンをあわせてくれる - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Jekyll 使うときは exclude: vendor しとけって話らしい。</title>
+          <link>http://blog.eiel.info/blog/2014/01/22/exclude-vendor-on-jekyll/</link>
+          <pubDate>Wed, 22 Jan 2014 02:28:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/01/22/exclude-vendor-on-jekyll/</guid>
+          <description>&lt;p&gt;素の&lt;a href=&#34;http://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt; なんて使う人はあまりいないと思うけど一応書いておこう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/great-h/great-h.github.io/issues/586&#34;&gt;以前から jekyll build が失敗するっていう話をしてる人がいて&lt;/a&gt;自分の環境じゃ、おきてなかったんだけど、&lt;code&gt;bundle install --path vendor/bundle&lt;/code&gt; してるのが原因だったらしい。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;_config.yml に exclude: [&#39;vendor&#39;]&lt;/code&gt; するのがよいでしょう。&lt;/p&gt;
+
+&lt;p&gt;ついでに以下のような感じにした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;exclude: [&#39;Gemfile&#39;,&#39;Gemfile.lock&#39;,&#39;Rakefile&#39;,&#39;vendor&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/great-h/great-h.github.io/commit/8c99dc2d0ae37289ce65270587636f3da7447366&#34;&gt;具体的なコミットはこちら&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;素のJekyllから拡張してる場合は注意。
+&lt;a href=&#34;http://middlemanapp.com/&#34;&gt;middleman&lt;/a&gt; などなどを使うことをおすすめしとこう。&lt;/p&gt;
+
+&lt;p&gt;自分が発見したネタじゃないけど記録しておいた。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>pygements を利用してると jekyll serve --watch のファイル生成が遅いらしい</title>
+          <link>http://blog.eiel.info/blog/2013/08/30/jekyll-watch-very-slow/</link>
+          <pubDate>Fri, 30 Aug 2013 22:25:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/08/30/jekyll-watch-very-slow/</guid>
+          <description>
+
+&lt;p&gt;以下の質問を受けた。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p&gt;反映されるのに、なんでこんなに時間がかかるのじゃ。&amp;#10;Jekyll on Vimeo&amp;#10;&lt;a href=&#34;https://t.co/RrU2ABliHw&#34;&gt;https://t.co/RrU2ABliHw&lt;/a&gt;&lt;/p&gt;&amp;mdash; Terasawa Shuuhei (@shuuheyhey) &lt;a href=&#34;https://twitter.com/shuuheyhey/statuses/373403280669294593&#34;&gt;August 30, 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;--watch&lt;/code&gt; を使うと &lt;code&gt;jekyll build&lt;/code&gt; の部分が異常に遅くなるらしい。
+初回は遅くないのですが、ファイル変更を検知した時が遅い。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://twitter.com/shuuheyhey&#34;&gt;@shuuheyhey&lt;/a&gt; pygments: falseにすると速いんですけど、それだとシンタックスハイライトが効かないという…。&lt;/p&gt;&amp;mdash; Hideki Abe (@_hideki_a) &lt;a href=&#34;https://twitter.com/_hideki_a/statuses/373420587772694530&#34;&gt;August 30, 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;pygments を有効にしていると遅くなるらしい。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;--watch&lt;/code&gt; を使うとファイルの生成する部分がメインスレッドでないのがあやしい。pygements は &lt;code&gt;popen&lt;/code&gt; とかつかって実行されるっぽいし。
+とはいえ、原因を特定するまではいけなかった。&lt;/p&gt;
+
+&lt;p&gt;仕方ないので無理矢理ごまかす方法を考えた。&lt;/p&gt;
+
+&lt;p&gt;以下のような &lt;code&gt;Rakefile&lt;/code&gt; を用意してみた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;directory_watcher&#39;
+require &#39;jekyll&#39;
+
+desc &#39;preview&#39;
+task preview: [:watch]  do
+  sh &#39;bundle exec jekyll serve&#39;
+end
+
+task :watch do
+  options = Jekyll.configuration({})
+  source = options[&#39;source&#39;]
+  destination = options[&#39;destination&#39;]
+
+  dw = DirectoryWatcher.new(source, :glob =&amp;gt; Jekyll::Command.globs(source, destination), :pre_load =&amp;gt; true)
+  dw.interval = 1
+
+  dw.add_observer do |*args|
+    t = Time.now.strftime(&amp;quot;%Y-%m-%d %H:%M:%S&amp;quot;)
+    print Jekyll.logger.formatted_topic(&amp;quot;Regenerating:&amp;quot;) + &amp;quot;#{args.size} files at #{t} &amp;quot;
+    sh &#39;bundle exec jekyll build&#39;
+    puts  &amp;quot;...done.&amp;quot;
+  end
+  dw.start
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ほとんど &lt;code&gt;Jekyll::Commands::Build&lt;/code&gt; からもってきた。
+ファイルの変更を検知して &lt;code&gt;jekyll build&lt;/code&gt; を実行しています。&lt;/p&gt;
+
+&lt;p&gt;問題が起きる最小セットをつくってのJekyll 本家に Issue を作成したいと思う。&lt;/p&gt;
+
+&lt;h3 id=&#34;おまけ:2f906389397dca6d2d858ca1a1a72161&#34;&gt;おまけ&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/08/28/browse-open-when-rake-preview/&#34;&gt;ローカルサーバ起動と同時にブラウザで開く。 - Jekyll とかで。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;で紹介したのを組み合せるとにこんな感じになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;bundler/setup&#39;
+require &#39;thread&#39;
+require &#39;launchy&#39;
+require &#39;directory_watcher&#39;
+require &#39;jekyll&#39;
+
+desc &#39;preview&#39;
+task preview: [:watch]  do
+
+  Thread.new do
+    sleep 2
+    Launchy.open &#39;http://localhost:4000/&#39;
+  end
+
+  sh &#39;bundle exec jekyll serve&#39;
+end
+
+task :watch do
+  options = Jekyll.configuration({})
+  source = options[&#39;source&#39;]
+  destination = options[&#39;destination&#39;]
+
+  dw = DirectoryWatcher.new(source, :glob =&amp;gt; Jekyll::Command.globs(source, destination), :pre_load =&amp;gt; true)
+  dw.interval = 1
+
+  dw.add_observer do |*args|
+    t = Time.now.strftime(&amp;quot;%Y-%m-%d %H:%M:%S&amp;quot;)
+    print Jekyll.logger.formatted_topic(&amp;quot;Regenerating:&amp;quot;) + &amp;quot;#{args.size} files at #{t} &amp;quot;
+    sh &#39;bundle exec jekyll build&#39;
+    puts  &amp;quot;...done.&amp;quot;
+  end
+  dw.start
+end
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ローカルサーバ起動と同時にブラウザで開く。 - Jekyll とかで。</title>
+          <link>http://blog.eiel.info/blog/2013/08/28/browse-open-when-rake-preview/</link>
+          <pubDate>Wed, 28 Aug 2013 20:01:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/08/28/browse-open-when-rake-preview/</guid>
+          <description>
+
+&lt;p&gt;この記事は &lt;a href=&#34;http://great-h.github.io/events/event-015.html&#34;&gt;すごい広島 #015&lt;/a&gt; で書いております。&lt;/p&gt;
+
+&lt;p&gt;GitHub Pages などを使っていて、プッシュする前に ローカルサーバで確認すると思います。以前、&lt;a href=&#34;http://blog.eiel.info/blog/2013/05/29/jekyll-preview/&#34;&gt;Github Page で公開する サイトを ローカルで Preview するのに使ってる方法&lt;/a&gt; で、その方法を紹介しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rake preview
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、ローカルサーバを起動するようにしています。&lt;/p&gt;
+
+&lt;p&gt;今回は、この &lt;code&gt;rake preview&lt;/code&gt; コマンドを実行した時に自動的にブラウザを起動して &lt;code&gt;http://localhost:4000/&lt;/code&gt; へアクセスするようにしてみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Rakefile&lt;/code&gt; をこんな風に書きました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;bundler/setup&#39;
+require &#39;thread&#39;
+require &#39;launchy&#39;
+
+desc &#39;preview&#39;
+task :preview do
+  Thread.new do
+    sleep 1
+    Launchy.open &#39;http://localhost:4000/&#39;
+  end
+
+  sh &#39;bundle exec jekyll serve --watch&#39;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;別のスレッドで &lt;a href=&#34;https://github.com/copiousfreetime/launchy&#34;&gt;Launchy&lt;/a&gt; を使って起動しているだけです。&lt;/p&gt;
+
+&lt;p&gt;ちなみに &lt;code&gt;Gemfile&lt;/code&gt; はこんな感じ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;source &#39;https://rubygems.org&#39;
+
+gem &#39;github-pages&#39;
+gem &#39;launchy&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;関連:0da6321b28ab0d8a5a7f568b5d652d98&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/05/29/jekyll-preview/&#34;&gt;Github Page で公開する サイトを ローカルで Preview するのに使ってる方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/08/13/github-pages-gem/&#34;&gt;Github-pages Gem というのが用意された - Github Page で使う Gem のバージョンをあわせてくれる&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/08/30/jekyll-watch-very-slow/&#34;&gt;Pygements を利用してると Jekyll Serve &amp;ndash;watch のファイル生成が遅いらしい&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>github-pages Gem というのが用意された - Github Page で使う gem のバージョンをあわせてくれる</title>
+          <link>http://blog.eiel.info/blog/2013/08/13/github-pages-gem/</link>
+          <pubDate>Tue, 13 Aug 2013 00:54:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/08/13/github-pages-gem/</guid>
+          <description>
+
+&lt;p&gt;Github Page は Jekyll プロジェクトを push すれば HTML に変換してくれます。
+これを使う場合、Github 側とローカルで確認するときの Gem のバージョンを揃えておきたいです。
+そのために Gemfile を記述しますが、&lt;code&gt;github-pages&lt;/code&gt; という gem が用意されました。
+というわけで、試してみた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;source &#39;https://rubygems.org&#39;
+
+gem &#39;github-pages&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;bundle install&lt;/code&gt; とか実行せばあ必要な &lt;code&gt;gem&lt;/code&gt; が手に入ります。
+以前は、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;source &#39;https://rubygems.org&#39;
+ruby &#39;1.9.3&#39;
+
+gem &#39;jekyll&#39;,     &#39;=1.1.2&#39;
+gem &#39;liquid&#39;,     &#39;=2.5.1&#39;
+gem &#39;redcarpet&#39;,  &#39;=2.2.2&#39;
+gem &#39;maruku&#39;,     &#39;=0.6.1&#39;
+gem &#39;rdiscount&#39;,  &#39;=1.6.8&#39;
+gem &#39;RedCloth&#39;,   &#39;=4.2.9&#39;
+gem &#39;kramdown&#39;,   &#39;=1.0.2&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のように書く必要ありました。
+とてもすっきりしています。
+利用する gem が更新されても &lt;code&gt;bundle update&lt;/code&gt; ですむので、とても嬉しいですね。&lt;/p&gt;
+
+&lt;h3 id=&#34;もっと具体的に:5a8456fbdbb2111216d0f99b4a903cbf&#34;&gt;もっと具体的に&lt;/h3&gt;
+
+&lt;p&gt;依存している Gem の情報は gemspec にあります。
+github-pages gem をインストールに必要な gem が記載されています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/github/pages-gem/blob/master/github-pages.gemspec#L17-L24&#34;&gt;github/pages-gem/github-pages.gemspec&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;この github-pages gem に依存関係を記述されているので、利用者は Gemfile に記述する必要がなくなりました。
+Ruby 1.9.3 で使用することになっています。
+2.0 で実行すると失敗するので注意しましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:5a8456fbdbb2111216d0f99b4a903cbf&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/18/jekyll-on-github/&#34;&gt;Github で Jekyll を使う時に調べたこと&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;blog/2013/08/28/browse-open-when-rake-preview/&#34;&gt;ローカルサーバ起動と同時にブラウザで開く。 - Jekyll とかで。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Jekyll を使ったGithub Pages で関数呼び出し的なことをする</title>
+          <link>http://blog.eiel.info/blog/2013/06/19/jekyll-on-function/</link>
+          <pubDate>Wed, 19 Jun 2013 21:32:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/06/19/jekyll-on-function/</guid>
+          <description>
+
+&lt;p&gt;この記事は &lt;a href=&#34;http://great-h.github.io/events/event-005.html&#34;&gt;すごい広島 #005&lt;/a&gt; で試したことです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://pages.github.com/&#34;&gt;Github Pages&lt;/a&gt; で Jekyll を使う場合は機能拡張などすることが基本的にできません。&lt;/p&gt;
+
+&lt;p&gt;関数のように汎用のHTMLを作成して、引数で動作を変えるようなことがしたい。
+本来ではあれば &lt;a href=&#34;http://liquidmarkup.org/&#34;&gt;Liquid&lt;/a&gt; のカスタムタグなどが使えるのですが、&lt;a href=&#34;http://jekyllrb.com/&#34;&gt;jekyll&lt;/a&gt; が safe モードで動いているので、カスタムタグを作成することができません。&lt;/p&gt;
+
+&lt;p&gt;しかし、 liquid の &lt;code&gt;includeタグ&lt;/code&gt; を利用することでそれっぽいことができます。&lt;/p&gt;
+
+&lt;p&gt;流れは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;あらかじめ変数をセットしておく&lt;/li&gt;
+&lt;li&gt;include を使う
+
+&lt;ul&gt;
+&lt;li&gt;セットしておいた変数で分岐したり、表示内容として利用する&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;となります。&lt;/p&gt;
+
+&lt;h1 id=&#34;変数:79fe50412cbb3e59f64ffd395b234641&#34;&gt;変数&lt;/h1&gt;
+
+&lt;p&gt;変数をセットするには FrontFormatter を利用するか、liquidの &lt;code&gt;assignタグ&lt;/code&gt; か &lt;code&gt;caputerタグ&lt;/code&gt;を利用することになります。&lt;/p&gt;
+
+&lt;h2 id=&#34;frontformatterを使う:79fe50412cbb3e59f64ffd395b234641&#34;&gt;FrontFormatterを使う&lt;/h2&gt;
+
+&lt;p&gt;FrontFormatter は ページの先頭に書く yaml の部分です。&lt;/p&gt;
+
+&lt;p&gt;例:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;title:  &amp;quot;すごい広島 #5&amp;quot;
+date:   2013-06-19 19:00:00
+place: tullys
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;page.place&lt;/code&gt; という変数を追加して &lt;code&gt;tullys&lt;/code&gt; という文字列をセットできます。&lt;/p&gt;
+
+&lt;h2 id=&#34;assign-を使う:79fe50412cbb3e59f64ffd395b234641&#34;&gt;assign を使う&lt;/h2&gt;
+
+&lt;p&gt;Liquid の assign タグを利用して&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ % assign place = tullys % }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;place&lt;/code&gt; という変数を追加して &lt;code&gt;tullys&lt;/code&gt; という文字列をセットできます。
+FrontFormatter には page のメンバになっていましたが、こちらは直接参照できます。&lt;/p&gt;
+
+&lt;h2 id=&#34;capture-を使う:79fe50412cbb3e59f64ffd395b234641&#34;&gt;capture を使う&lt;/h2&gt;
+
+&lt;p&gt;capture を用いると長い文字列を変数にセットするのに便利です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ % capture place % }
+tullys
+{ % endcapture % }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これも同様に place という変数を追加して &lt;code&gt;\ntullys\n&lt;/code&gt; という文字列をセットできます。(改行を含みます)&lt;/p&gt;
+
+&lt;h1 id=&#34;include-タグ:79fe50412cbb3e59f64ffd395b234641&#34;&gt;include タグ&lt;/h1&gt;
+
+&lt;p&gt;これは SSI の include のように外部のファイルを読込みして、その場に挿入できる liquid のタグです。
+同様の機能が PHP なんかにもありますね。&lt;/p&gt;
+
+&lt;p&gt;include するためのファイルは &lt;code&gt;_includes&lt;/code&gt; におくことになります。
+&lt;code&gt;PROJECT_ROOT/_includes/place/go&lt;/code&gt;というファイルを作成して、中身を作成します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;b&amp;gt;ある場所に行きます。&amp;lt;/b&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これをあるページで&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ % include place/go % }
+{ % include place/go % }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と記述すれば&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;b&amp;gt;ある場所に行きます。&amp;lt;/b&amp;gt;
+&amp;lt;b&amp;gt;ある場所に行きます。&amp;lt;/b&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、出力されます。&lt;/p&gt;
+
+&lt;h1 id=&#34;変数と-include-を組み合わせる:79fe50412cbb3e59f64ffd395b234641&#34;&gt;変数と include を組み合わせる&lt;/h1&gt;
+
+&lt;p&gt;includeを無理矢理関数のように利用してみます。&lt;/p&gt;
+
+&lt;p&gt;上記の &lt;code&gt;PROJECT_ROOT/_includes/go&lt;/code&gt; を以下のようにします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;b&amp;gt;{{ place }}に行きます。&amp;lt;/b&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そして、assign で値をセットしてから include します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ % assign place = &amp;quot;広島&amp;quot; % }
+{ % include place/go % }
+{ % include place/go % }
+{ % assign place = &amp;quot;日本&amp;quot; % }
+{ % include place/go % }
+{ % include place/go % }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;結果は以下のようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+&amp;lt;b&amp;gt;広島に行きます。&amp;lt;/b&amp;gt;
+&amp;lt;b&amp;gt;広島に行きます。&amp;lt;/b&amp;gt;
+
+&amp;lt;b&amp;gt;日本に行きます。&amp;lt;/b&amp;gt;
+&amp;lt;b&amp;gt;日本に行きます。&amp;lt;/b&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こうすることで繰返し項目を少しだけ DRY に記述できます。&lt;/p&gt;
+
+&lt;h1 id=&#34;注意点:79fe50412cbb3e59f64ffd395b234641&#34;&gt;注意点&lt;/h1&gt;
+
+&lt;p&gt;レイアウトで include する場合、ページから変数を設定するには、FrontFormmater を使用しないとうまくいきません。&lt;/p&gt;
+
+&lt;p&gt;レイアウト -&amp;gt; ページ内部 という順番で処理されるためです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;includeする&lt;/li&gt;
+&lt;li&gt;変数を設定する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という動作になるため、期待した動作になりません。&lt;/p&gt;
+
+&lt;p&gt;また、 include の引数に変数を使う方法はみつけることができませんでした。
+代わりに &lt;code&gt;caseタグ&lt;/code&gt; や &lt;code&gt;ifタグ&lt;/code&gt; で地道にがんばることになります。&lt;/p&gt;
+
+&lt;p&gt;Github  Pages を共同編集するわけではないなら、ローカルでHTMLを生成してから push するほうがいろいろ便利そうです。
+プログラマ的には slim なども利用できる &lt;a href=&#34;http://middlemanapp.com/&#34;&gt;Middleman&lt;/a&gt; などが注目を浴びていきそうですね。&lt;/p&gt;
+
+&lt;h1 id=&#34;参考文献:79fe50412cbb3e59f64ffd395b234641&#34;&gt;参考文献&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Shopify/liquid/wiki/Liquid-for-Designers&#34;&gt;Liquid for Designers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;関連記事:79fe50412cbb3e59f64ffd395b234641&#34;&gt;関連記事&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/18/jekyll-on-github/&#34;&gt;Github で Jekyll を使う時に調べたこと&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Github Page で公開する サイトを ローカルで preview するのに使ってる方法</title>
+          <link>http://blog.eiel.info/blog/2013/05/29/jekyll-preview/</link>
+          <pubDate>Wed, 29 May 2013 21:52:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/05/29/jekyll-preview/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/events/event-002.html&#34;&gt;すごい広島 #2&lt;/a&gt; でしたことを書きます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://eielh-life.tumblr.com/post/51639356116/2&#34;&gt;日記のほうはこちら&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2013年8月23日追記。下記の方法を改良したものがあります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/08/28/browse-open-when-rake-preview/&#34;&gt;ローカルサーバ起動と同時にブラウザで開く。 - Jekyll とかで。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以上、追記終了。&lt;/p&gt;
+
+&lt;p&gt;私は、Jekyllを使用したサイトをプレビューする際に、jekyll のインターフェイスが変化しても、または、jekyll 以外のものを使用しているときのことも考えて、 &lt;code&gt;rake preview&lt;/code&gt; でサイトのプレビューをできるようにしています。&lt;/p&gt;
+
+&lt;p&gt;「Octopressでも、Hakyll でも Jekyll でも &lt;code&gt;rake preview&lt;/code&gt; にしたいんだ!!」&lt;/p&gt;
+
+&lt;p&gt;具体的には以下のような、Rakefile を作成しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;desc &#39;preview する。 http://localhost:4000/&#39;
+task :preview do
+  sh &#39;bundle exec jekyll serve --watch&#39;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Jekyll は v1.0.0 で preview するためのコマンド名が変わりました。&lt;/p&gt;
+
+&lt;p&gt;あとは、他の人が gem のインストールのを軽減するために、Gemfile も書きました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;source &#39;https://rubygems.org&#39;
+
+gem &#39;jekyll&#39;,     &#39;=1.0.2&#39;
+gem &#39;liquid&#39;,     &#39;=2.5.0&#39;
+gem &#39;redcarpet&#39;,  &#39;=2.2.2&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで、ruby と bundler さえ入っている人は &lt;code&gt;bundle instnall&lt;/code&gt; というコマンドを実行すれば、サイトのプレビューができるようになります。&lt;/p&gt;
+
+&lt;p&gt;bundler は &lt;code&gt;gem install bundler&lt;/code&gt; でインストールしておきましょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/great-h/great-h.github.io/pull/31&#34;&gt;具体的なコミットはこちらに&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:a6a66ea74ef9d9b45cfb216612dcf840&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;blog/2013/08/28/browse-open-when-rake-preview/&#34;&gt;ローカルサーバ起動と同時にブラウザで開く。 - Jekyll とかで。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>広島Ruby勉強会 #30で Liquidの簡単な説明をした</title>
+          <link>http://blog.eiel.info/blog/2013/03/02/abc-liquid/</link>
+          <pubDate>Sat, 02 Mar 2013 21:04:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/03/02/abc-liquid/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://hiroshimarb.github.com/blog/2013/02/08/hiroshimarb-30/&#34;&gt;広島Ruby勉強会 #030&lt;/a&gt;で Jekyl の中で使用されている テンプレートエンジン Liquid のざっくりとした説明をする LT しました。&lt;/p&gt;
+
+&lt;p&gt;大したネタもないし、そんなに凝ったこともしてないですが、公開しておきます。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/16879154&#34; width=&#34;476&#34; height=&#34;400&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Github で Jekyll を使う時に調べたこと</title>
+          <link>http://blog.eiel.info/blog/2013/02/18/jekyll-on-github/</link>
+          <pubDate>Mon, 18 Feb 2013 00:46:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/18/jekyll-on-github/</guid>
+          <description>
+
+&lt;p&gt;Github で Jekyll を使うときにできることとか調べたので整理しておきます。
+今日の成果物。
+この記事をいきなりポーンと書いても仕方ない気がして前の記事を書きました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Jekyll を利用するかしないかの判断材料などに利用してください。&lt;/p&gt;
+
+&lt;p&gt;利用できる マークアップ&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;HTML&lt;/li&gt;
+&lt;li&gt;Markdown&lt;/li&gt;
+&lt;li&gt;Textile&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;関連する gem&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://liquidmarkup.org/&#34;&gt;liquid&lt;/a&gt;- テンプレートエンジン&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/vmg/redcarpet&#34;&gt;redcarpet&lt;/a&gt; - 高機能高速動作な Markdown&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/bhollis/maruku&#34;&gt;maruku&lt;/a&gt;    - 高機能な Markdown&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rtomayko/rdiscount&#34;&gt;rdiscount&lt;/a&gt; - 高速動作な Markdown&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://redcloth.org/&#34;&gt;RedCloth&lt;/a&gt;  - Textile&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://pygments.org/&#34;&gt;Pygemnts.rb&lt;/a&gt; - シンタックスハイライト&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;できること&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Layoutの利用 - ネスト可能&lt;/li&gt;
+&lt;li&gt;includeの利用 - Jekyll Boostrap がかなり利用してる様子&lt;/li&gt;
+&lt;li&gt;記事の作成
+
+&lt;ul&gt;
+&lt;li&gt;atom.xmlや記事一覧の作成 - site.posts 変数から参照可能&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;シンタックスハイライト&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;できなかったこと&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Rubyのコードを書いて改造&lt;/li&gt;
+&lt;li&gt;pluginの利用
+
+&lt;ul&gt;
+&lt;li&gt;対応するファイルのないものを自動生成&lt;/li&gt;
+&lt;li&gt;拡張タグ&lt;/li&gt;
+&lt;li&gt;利用できるタグの追加&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;gem を読み込んで情報源などにする&lt;/li&gt;
+&lt;li&gt;Scss, Sass, Less などメタCSSの利用&lt;/li&gt;
+&lt;li&gt;CoffeeScript などの利用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Jekyll Bootstrap がしてること&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;include を駆使して
+
+&lt;ul&gt;
+&lt;li&gt;デファルト値を設定したり&lt;/li&gt;
+&lt;li&gt;_config.yml で登録した値で分岐したり&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;プログラムをかいてカスマイズはできそうにない:c7540de9ca42c88091d7129738a9e5bd&#34;&gt;プログラムをかいてカスマイズはできそうにない&lt;/h2&gt;
+
+&lt;p&gt;Github で Jekyll が動作する際に &lt;code&gt;--safe&lt;/code&gt; オプションがつくため _plugins ディレクトリ内のファイルは実行されませんでした。
+他にコードを読ませる手段が非合法な方法を探さないとできそうにないです。&lt;/p&gt;
+
+&lt;p&gt;知っていたら教えてください。&lt;/p&gt;
+
+&lt;p&gt;もし Jekyll を Rubyでカスタマイズして使って、Github Pages で公開したいのであればローカルでJekyll を動かして生成されたものを push しましょう。
+github の push をフックして、別のサーバで動作させるのもありかもしれません。&lt;/p&gt;
+
+&lt;p&gt;なので、基本的には liquid redcarpet pygemnts を利用してページを作成していくことなります。&lt;/p&gt;
+
+&lt;h2 id=&#34;jekyll:c7540de9ca42c88091d7129738a9e5bd&#34;&gt;Jekyll&lt;/h2&gt;
+
+&lt;p&gt;Jekyll についての詳しいことは &lt;a href=&#34;http://melborne.github.com/2012/05/13/first-step-of-jekyll/&#34;&gt;30分のチュートリアルでJekyllを理解する&lt;/a&gt; という記事が非常に良いです。&lt;/p&gt;
+
+&lt;h2 id=&#34;liquid:c7540de9ca42c88091d7129738a9e5bd&#34;&gt;liquid&lt;/h2&gt;
+
+&lt;p&gt;テンプレートエンジンです。
+タグを使用する場合は &lt;code&gt;｛｛ 変数 ｝｝&lt;/code&gt; を使い、変数を参照する場合は &lt;code&gt;｛% タグ %｝&lt;/code&gt; を使います。(エスケープできないので全角を使用)&lt;/p&gt;
+
+&lt;p&gt;｛% 変数 %｝ でも 変数の参照ができますが、未定義の場合はエラーになります。&lt;/p&gt;
+
+&lt;p&gt;タグには ループをする &lt;code&gt;for&lt;/code&gt; や 分岐を行う &lt;code&gt;if&lt;/code&gt; 、SSIにあるような 外部ファイルを読み込む &lt;code&gt;include&lt;/code&gt;などが使えます。
+変数の利用や フィルター という文字列を加工する機能もあります。&lt;/p&gt;
+
+&lt;p&gt;詳しいことは公式の&lt;a href=&#34;https://github.com/Shopify/liquid/wiki/Liquid-for-Designers&#34;&gt;ドキュメント&lt;/a&gt;を参照してください。&lt;/p&gt;
+
+&lt;p&gt;変数は Hash であれば ドットでアクセスできます。&lt;/p&gt;
+
+&lt;p&gt;カスタムタグなど作る機能は用意されれてますが、Github Pages では利用できません。&lt;/p&gt;
+
+&lt;h2 id=&#34;redcarpet:c7540de9ca42c88091d7129738a9e5bd&#34;&gt;redcarpet&lt;/h2&gt;
+
+&lt;p&gt;マークダウンを使う場合、選択肢がありますが、これが一番よさそうです。
+C言語のライブラリ sundown のラッパーで 高速に動作し、&lt;a href=&#34;http://michelf.ca/projects/php-markdown/extra/&#34;&gt;PHP Extars&lt;/a&gt; という Markdown の拡張文法に対応しており、&lt;code&gt;_config.yml&lt;/code&gt; で、利用の可否を設定できます。&lt;/p&gt;
+
+&lt;p&gt;例: &lt;code&gt;_config.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;markdown: redcarpet
+redcarpet:
+  extensions: [tables,autolink,strikethrough]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;といった感じに設定できます。&lt;/p&gt;
+
+&lt;p&gt;設定できる拡張は わかりにくいですが、 &lt;a href=&#34;https://github.com/vmg/redcarpet&#34;&gt;README&lt;/a&gt; の extensiots に書かれています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;no_intra_emphasis&lt;/li&gt;
+&lt;li&gt;tables&lt;/li&gt;
+&lt;li&gt;fenced_code_blocks&lt;/li&gt;
+&lt;li&gt;autolink&lt;/li&gt;
+&lt;li&gt;strikethrough&lt;/li&gt;
+&lt;li&gt;lax_spacing&lt;/li&gt;
+&lt;li&gt;space_after_headers&lt;/li&gt;
+&lt;li&gt;superscript&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;があります。&lt;/p&gt;
+
+&lt;h2 id=&#34;pygemnts:c7540de9ca42c88091d7129738a9e5bd&#34;&gt;pygemnts&lt;/h2&gt;
+
+&lt;p&gt;シンタックスハイライトをするためのものです。&lt;/p&gt;
+
+&lt;p&gt;対応言語は&lt;a href=&#34;http://pygments.org/languages/&#34;&gt;ここ&lt;/a&gt;に書かれています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  ```ruby
+  def hoge
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;
+のように使用します。
+
+## Jekyll Bootstrap
+
+Jekyll Bootstrap は「まずはじめたい。」ときにも良いですし、参考にしても役に経ちます。素のJekyll からはじめたい場合は参考になります。
+
+## その他
+
+動作確認をする場合は `_config.yml` に
+
+```yaml
+safe: true
+lsi: false
+pygments: true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、書いておき、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ jekyll --auto --server
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;として、ブラウザで確認するのがよいです。
+&lt;code&gt;jekyll bootstrap&lt;/code&gt;や&lt;code&gt;Octopress&lt;/code&gt; には &lt;code&gt;rake preview&lt;/code&gt; があります。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:c7540de9ca42c88091d7129738a9e5bd&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;冒頭にまとめてます。&lt;/p&gt;
+
+&lt;p&gt;Jekyll とか liquid のソースコード読んでみたけど、カスタマイズの仕方もわかったけど、Github Pages 上で動かす分には無意味になった。&lt;/p&gt;
+
+&lt;p&gt;Jekyllをローカルで走らせるか、Scssなどはpushする前に自分で変換する。などの手法をとることになります。
+この辺を自動化しているのが &lt;a href=&#34;http://octopress.org/&#34;&gt;Octopress&lt;/a&gt; になります。&lt;/p&gt;
+
+&lt;p&gt;蛇足ですが Jekyll の同様のツールで Haskellでカスタマイズする &lt;a href=&#34;http://jaspervdj.be/hakyll/&#34;&gt;Hakyll&lt;/a&gt; というものもあります。
+Jekyll はある程度ルールがありますが、 Hakyll はもっと自由度が高いツールになります。&lt;/p&gt;
+
+&lt;h2 id=&#34;関連:c7540de9ca42c88091d7129738a9e5bd&#34;&gt;関連&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/06/how-to-use-github/&#34;&gt;Git がわからなくても Github を利用しよう&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

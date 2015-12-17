@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/scala/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-12-06 21:50:42 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>内包表記とPythonと… - #LT駆動 21</title>
+          <link>http://blog.eiel.info/blog/2015/12/06/ltdd-21-python-option/</link>
+          <pubDate>Sun, 06 Dec 2015 21:50:42 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/12/06/ltdd-21-python-option/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA21&#34;&gt;LT駆動開発21&lt;/a&gt;でLTしてきました。
+タイトル「内包表記とPythonと…Option」です。
+PyCon Mini Hiroshima用に用意してたネタですが、参加できなかったので放出しました。
+Pythonの内包表記でScalaのOptionのようなものをつくってみました。&lt;/p&gt;
+
+&lt;p&gt;Pythonの内包表記はScalaではfor式で表現ができます。
+Scalaではリスト以外のものでもfor式が使えます。
+代表格として&lt;code&gt;Option&lt;/code&gt;が上げられます。
+ということで、PythonにもOptionクラスをつくり内包表記で利用できるようにしてみました。
+スライドに登場するように内包表記に対応するために、&lt;code&gt;__iter__&lt;/code&gt;と&lt;code&gt;next&lt;/code&gt;メソッドを実装をしています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Option:
+    def __init__(self, value):
+        self.value = value
+    def __iter__(self):
+        return self
+    def next(self):
+        if self.value == None:
+            raise StopIteration
+        else:
+            ret = self.value
+        self.value = None
+            return ret
+    def __str__(self):
+          if self.value == None:
+               return &amp;quot;Nothing&amp;quot;
+          else:
+               return &amp;quot;Some(%d)&amp;quot; % self.value
+
+def add(x, y):
+  return [ x_+ y_ 
+    for x_ in x 
+    for y_ in y
+  ]
+
+add(Option(1), Option(2))    # =&amp;gt; [3]
+add(Option(1), Option(None))  # =&amp;gt; []
+add(Option(None), Option(2))  # =&amp;gt; []
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;LT駆動はゆるふわに個々が学んだことを発表していてとても楽しいです。気軽に参加してみてください。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;c891be7c13ac4b8b8076e321e11b352d&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Scalaをはじめる α &amp; β - #LT駆動 15</title>
+          <link>http://blog.eiel.info/blog/2015/06/06/ltdd-2015-06-scala/</link>
+          <pubDate>Sat, 06 Jun 2015 13:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/06/06/ltdd-2015-06-scala/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA15&#34;&gt;LT駆動開発15&lt;/a&gt;に参加してきました。&lt;/p&gt;
+
+&lt;p&gt;最近、Scalaを触っているので、仕事していると放置しがちな基本的な使い方を調べたりしています。&lt;/p&gt;
+
+&lt;p&gt;今回はα世界線とβ世界線の二本でお送りいたします。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;αはsbtを使わずにJARを使う方法を調べました&lt;/li&gt;
+&lt;li&gt;βはAppトレイトについて調べました&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;なんのJARを使うのか非常に悩んだのですがScalazにしておきました。
+Scalazを選ぶまでは早かったのですが、Scalazをつかった良いサンプルがつくれずに苦戦しました。&lt;/p&gt;
+
+&lt;p&gt;Appトレイトのほうは、&lt;a href=&#34;http://summit.scala-kansai.org/&#34;&gt;Scala関西 Summit 2015&lt;/a&gt;のLTに応募しようかと一瞬思ったのですが、まだ2ヶ月あるので止めておきました。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;6c59ed6f79234ddd96c99375a9947125&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;15aa34c211ee43268a0767d0ef29d13d&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;まあ、一番苦戦したのは scala HogeZ -cp &amp;lsquo;*.jar:.&amp;rsquo; とかいて、動かなかったことである。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ1:f7e5e48604ab3de1abbeb3a15a99706c&#34;&gt;まとめ1&lt;/h3&gt;
+
+&lt;p&gt;JARを使うときは classpath を指定すればよい。
+sbt使うと楽チン。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ2:f7e5e48604ab3de1abbeb3a15a99706c&#34;&gt;まとめ2&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;object Hoge {
+  //コード
+  def hoge() = //コード
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;みたいなのはJavaでいうと&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Hoge {
+  static {
+   // コード
+  }
+  public staic void hoge() { /* コード */ }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;みたいな感じになるらしい。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/scala/scala/blob/540b18fb68a0210b187e595622c31f20b2c6f581/src/compiler/scala/tools/nsc/transform/Constructors.scala#L474&#34;&gt;https://github.com/scala/scala/blob/540b18fb68a0210b187e595622c31f20b2c6f581/src/compiler/scala/tools/nsc/transform/Constructors.scala#L474&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;こういった特殊なものがあるならもっとしりたい&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:f7e5e48604ab3de1abbeb3a15a99706c&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/takahiro/hazimetefalseguan-shu-xing-puroguramingujiao-shi&#34;&gt;はじめての関数型プログラミング教室 // Speaker Deck&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://d.hatena.ne.jp/Kazuhira/20130320/1363791795&#34;&gt;sbtで、プロジェクト内のライブラリ依存関係を調べる - CLOVER&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.scala-lang.org/api/current/index.html#scala.App&#34;&gt;App - Scala Standard Library 2.11.6&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.scala-lang.org/api/current/index.html#scala.DelayedInit&#34;&gt;DelayedInit - Scala Standard Library 2.11.6&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/scala/scala/blob/v2.11.6/src/library/scala/DelayedInit.scala&#34;&gt;scala/DelayedInit.scala at v2.11.6 · scala/scala · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/scala/scala/blob/v2.11.6/src/library/scala/App.scala&#34;&gt;scala/App.scala at v2.11.6 · scala/scala · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;コード:f7e5e48604ab3de1abbeb3a15a99706c&#34;&gt;コード&lt;/h3&gt;
+
+&lt;script src=&#34;https://gist.github.com/eiel/77ffba73998ababb06b7.js&#34;&gt;&lt;/script&gt;
+
+&lt;h3 id=&#34;関連:f7e5e48604ab3de1abbeb3a15a99706c&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2015/05/13/scala-map/&#34;&gt;ScalaのMapの使い方がよくわからないので遊んだときのメモ | そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/08/17/scala-hello-world/&#34;&gt;Scala 入門しとく | そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://recruit.chatwork.com/ja/developer.html&#34;&gt;エンジニアの採用情報 | チャットワーク（ChatWork）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=gk02WpyN_Qo&#34;&gt;syrup16g - 冷たい掌 (MV) - YouTube&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>scalaz に入門する</title>
+          <link>http://blog.eiel.info/blog/2013/08/23/scalaz/</link>
+          <pubDate>Fri, 23 Aug 2013 23:06:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/08/23/scalaz/</guid>
+          <description>
+
+&lt;p&gt;Scalaz をおすすめされた。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p&gt;ひむひむはScalazでいいと思うの&lt;/p&gt;&amp;mdash; 航空母艦 (@razon) &lt;a href=&#34;https://twitter.com/razon/statuses/370906437104324608&#34;&gt;August 23, 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;とりあえず、入門してみよう。&lt;/p&gt;
+
+&lt;h3 id=&#34;scalaz-って何:c1d3bef59e022a41d7645a62fbc82815&#34;&gt;scalaz って何&lt;/h3&gt;
+
+&lt;p&gt;Scala がより関数型言語の力を得るらしい。よくわからん。
+モナドとか使える。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/scalaz/scalaz&#34;&gt;https://github.com/scalaz/scalaz&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;sbt-を入れる:c1d3bef59e022a41d7645a62fbc82815&#34;&gt;sbt を入れる&lt;/h3&gt;
+
+&lt;p&gt;sbt ってのを使っていれば…、て記述がたくさんある。
+ruby でいうと bundler に近いものなのでしょうか。ちょっと違うけど。
+makefile みたいなもんだろうか。これもちょっと違うよーな。&lt;/p&gt;
+
+&lt;p&gt;インストールですが、Gentoo Prefix で入れたい。
+Gentoo なら Overlay がある。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/whiter4bbit/overlays]&#34;&gt;https://github.com/whiter4bbit/overlays&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;layman します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;layman -f --overlays https://github.com/whiter4bbit/overlays/raw/master/layman.xml --add gentoo-scala-tools
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;設定できたら、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;emerge sbt-bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;でいけた。&lt;/p&gt;
+
+&lt;h3 id=&#34;sbt-をつかって-scalaz:c1d3bef59e022a41d7645a62fbc82815&#34;&gt;sbt をつかって scalaz&lt;/h3&gt;
+
+&lt;p&gt;プロジェクトフォルダを用意して build.sbt を作成する。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://scalajp.github.io/sbt-getting-started-guide-ja/hello/&#34;&gt;Hello, World - はじめる sbt&lt;/a&gt; を参考にした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;name := &amp;quot;scalaz-helloworld&amp;quot;
+
+version := &amp;quot;1.0&amp;quot;
+
+scalaVersion := &amp;quot;2.9.2&amp;quot;
+
+libraryDependencies += &amp;quot;org.scalaz&amp;quot; %% &amp;quot;scalaz-core&amp;quot; % &amp;quot;7.0.3&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;name は プロジェクトの名前。 version はプロジェクトの成果物のバージョン番号。
+scalaVersion は利用する scala のバージョン。
+最後のは scalaz のための設定。&lt;/p&gt;
+
+&lt;p&gt;ここまできたら scala の対話環境を起動できるみたい&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sbt
+console
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;scalaz-遊んでみる:c1d3bef59e022a41d7645a62fbc82815&#34;&gt;scalaz 遊んでみる。&lt;/h3&gt;
+
+&lt;p&gt;どこから手をつけたらいいのかさっぱりわからない。
+なにをすればいいかわからない。&lt;/p&gt;
+
+&lt;p&gt;最近 Haskell してないので、なにをしたらいいのかも浮かばない。
+仕方ないので Listモナド で遊ぶことにした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;scala&amp;gt; import scalaz._
+scala&amp;gt; import std.list._
+
+sacala&amp;gt; List(1,2,3) &amp;gt;&amp;gt; List(1,2,3)
+res0 List[Int] = List(1, 2, 3, 1, 2, 3, 1, 2, 3)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Haskell でかくと以下と等価。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;[1..3] &amp;gt;&amp;gt; [1..3] -- =&amp;gt; [1,2,3,1,2,3,1,2,3] :: [Intger]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;まとめ:c1d3bef59e022a41d7645a62fbc82815&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;とりあえずインストールして、Hello Worlrd 的なことができた。&lt;/p&gt;
+
+&lt;p&gt;Scala の文法がそもそもわからなので暗号だらけである。
+やっぱり先に基本文法を抑えないとどうしようもないような気がします。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Scala 入門しとく</title>
+          <link>http://blog.eiel.info/blog/2013/08/17/scala-hello-world/</link>
+          <pubDate>Sat, 17 Aug 2013 13:48:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/08/17/scala-hello-world/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.scala-lang.org/&#34;&gt;Scala&lt;/a&gt; はじめるはじめる詐欺をしていたので、はじめることにしました。&lt;/p&gt;
+
+&lt;h3 id=&#34;インストール:fcc07b011dff7e26a22268b2233c4b02&#34;&gt;インストール&lt;/h3&gt;
+
+&lt;p&gt;Gentoo Prefix で&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;emerge dev-lang/scala
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、しましたが、ビルドに失敗しました。
+ドキュメントまわりでエラーのようなのでちょっと工夫すればビルドできそうですが、諦めてバイナリインストールを試みました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$EPREFIX/etc/partoge/pacakeg.use&lt;/code&gt; に以下を加えました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;=dev-lang/scala-2.9.2 binary
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;はじめてみる:fcc07b011dff7e26a22268b2233c4b02&#34;&gt;はじめてみる&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.scala-lang.org/documentation/getting-started.html&#34;&gt;Getting Started - Scala&lt;/a&gt; を参考にはじめてみました。
+基本のハローワールドです。ようこそ Scala の世界へ。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;scala&lt;/code&gt; コマンドで対話環境が起動できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ scala
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そこに以下のコードを打ち込んでみました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;object HelloWorld {
+  def main(args: Array[String]) {
+    println(&amp;quot;Hello, world!&amp;quot;)
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;僕の Ruby 的な感覚では HelloWorld というオブジェクトを作り特異メソッド main を定義している感じに見えます。
+このあたりは、Java のエントリポイントが static な main メソッドになるのを知っていれば、納得感はあります。&lt;/p&gt;
+
+&lt;p&gt;対話環境には&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;defined module HelloWorld
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と表示されているのが気になります。
+「オブジェクトは別にメソッドが集めるところが用意されてるのかな？」という印象を受けました。&lt;/p&gt;
+
+&lt;p&gt;その後、追加で、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;HelloWorld.main(null)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と入力しますと、&lt;code&gt;Hello, World&lt;/code&gt; と出力されました。&lt;/p&gt;
+
+&lt;p&gt;Haskell を学習してる感覚からいくと 第1引数は null より空のリストを渡したいですね。
+「null が渡せて気持ち悪い。」的な感じがしました。
+オブジェクトは null をはじめから許容していると考えれば、大丈夫そうです。
+リストではなく配列という種類のオブジェクトなのでしょう。&lt;/p&gt;
+
+&lt;p&gt;終了するには &lt;code&gt;:q&lt;/code&gt; を入力するようです。 &lt;code&gt;C-d&lt;/code&gt; も終了できました。&lt;/p&gt;
+
+&lt;h3 id=&#34;コンパイルしてみる:fcc07b011dff7e26a22268b2233c4b02&#34;&gt;コンパイルしてみる&lt;/h3&gt;
+
+&lt;p&gt;さきほどは、対話環境で入力して確認してみましたが、次はコンパイルしてみるようです。
+プログラムのソースコードの拡張子は &lt;code&gt;scala&lt;/code&gt; を使うようです。
+&lt;code&gt;scalac&lt;/code&gt; コマンドでコンパイルできるそうです。&lt;/p&gt;
+
+&lt;p&gt;なので、&lt;code&gt;HelloWorld.scala&lt;/code&gt; というファイルを作成してさきほどのソースコードを貼りつけて、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;scalac HelloWorld.scala
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;としました。&lt;/p&gt;
+
+&lt;p&gt;作成されたファイルは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;HelloWorld$.class&lt;/li&gt;
+&lt;li&gt;HelloWorld.class&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;でした。&lt;/p&gt;
+
+&lt;p&gt;実行には&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;scala HelloWorld
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とするようです。&lt;/p&gt;
+
+&lt;p&gt;試しに、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;java HelloWorld
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とすると &lt;code&gt;scala/ScalaQbject がみつからない&lt;/code&gt; というエラーになりました。
+上手いこと 指定してやれば実行できるそうですね。
+そもそも &lt;code&gt;scala&lt;/code&gt; コマンドはシェルスクリプトで java を上手いこと起動してる感じのようでした。&lt;/p&gt;
+
+&lt;p&gt;あと &lt;code&gt;Hello.scala&lt;/code&gt; でも問題なくコンパイルできるようです。
+こういうことをしていると余計なトラブルに巻き込まれる感がありそうです。
+ついでに、&lt;code&gt;sacala Hello.scala&lt;/code&gt; としても実行できました。しかし、遅い。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:fcc07b011dff7e26a22268b2233c4b02&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;Scala で遊ぶ準備ができました。
+次はエディタ環境を整えたいです。&lt;/p&gt;
+
+&lt;p&gt;sacala と typo しやすい。
+対策を練りたい。&lt;/p&gt;
+
+&lt;p&gt;もうちょっと遊びたい。次は何を読みながら試すのがよいのだろうか。&lt;/p&gt;
+
+&lt;h3 id=&#34;追記:fcc07b011dff7e26a22268b2233c4b02&#34;&gt;追記&lt;/h3&gt;
+
+&lt;p&gt;謎の暗号が飛んできた。&lt;/p&gt;
+
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p&gt;App traitやでひむひむ&lt;/p&gt;&amp;mdash; 航空母艦 (@razon) &lt;a href=&#34;https://twitter.com/razon/statuses/368746540321361922&#34;&gt;August 17, 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
+```scala
+object HelloWorld extends App {
+  println(&#34;Hello, world!&#34;)
+}
+HelloWorld.main(null)
+```
+
+とかいても良いらしい。
+
+Ruby 脳で考えると、クラスコンテキストに書いた部分がまるまる main メソッドの中にはいっている感。
+どういう仕組みになっているのか調べるのには何を見ればいいのだろうか。
+
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p&gt;&lt;a href=&#34;http://t.co/bqr5OaJoIt&#34;&gt;http://t.co/bqr5OaJoIt&lt;/a&gt;&lt;/p&gt;&amp;mdash; 航空母艦 (@razon) &lt;a href=&#34;https://twitter.com/razon/statuses/368747744162086912&#34;&gt;August 17, 2013&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;的確なヒントが飛んでくる。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.scala-lang.org/api/current/index.html#scala.App&#34;&gt;http://www.scala-lang.org/api/current/index.html#scala.App&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/scala/scala/blob/v2.10.2/src/library/scala/App.scala#L59-L61&#34;&gt;https://github.com/scala/scala/blob/v2.10.2/src/library/scala/App.scala#L59-L61&lt;/a&gt;
+&lt;a href=&#34;https://github.com/scala/scala/blob/v2.10.2/src/library/scala/App.scala#L71&#34;&gt;https://github.com/scala/scala/blob/v2.10.2/src/library/scala/App.scala#L71&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;あたりが怪しい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;  override def delayedInit(body: =&amp;gt; Unit) {
+    initCode += (() =&amp;gt; body)
+  }
+
+  def main(args: Array[String]) = {
+    this._args = args
+    for (proc &amp;lt;- initCode) proc()
+    if (util.Properties.propIsSet(&amp;quot;scala.time&amp;quot;)) {
+      val total = currentTime - executionStart
+      Console.println(&amp;quot;[total &amp;quot; + total + &amp;quot;ms]&amp;quot;)
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あらかじめ main メソッドを定義しておいて、処理を追加できる感じがします。&lt;/p&gt;
+
+&lt;p&gt;delayedInit がどうやって hook されるかは DelayedInit を追えばなにか分かる臭がしますね。&lt;/p&gt;
+
+&lt;p&gt;引数は args で取れそう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;object HelloWorld extends App {
+  println(args(0))
+}
+HelloWorld.main(Array(&amp;quot;hoge&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;まだまだ、わからないことがたくさんあるけど、魔法みたいなことができることを知る。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

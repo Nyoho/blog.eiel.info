@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/ltdd/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-01-10 18:52:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>LT駆動開発10で「Rubyistからみたnpm」という話をした。</title>
+          <link>http://blog.eiel.info/blog/2015/01/10/npm-abc-for-rubyist/</link>
+          <pubDate>Sat, 10 Jan 2015 18:52:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/01/10/npm-abc-for-rubyist/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA10&#34;&gt;LT駆動開発10&lt;/a&gt;で「Rubyistからみたnpm」という話をした。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;9961d6c07adc0132c0c22e2d526dbddf&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;このスライドは10月につくったのだけど、使う場面がなかったけど、今日は時間が余ってたので取り出しました。&lt;/p&gt;
+
+&lt;p&gt;なんか微妙だった。まあ。いいや。
+使ってみた上での認識です。&lt;/p&gt;
+
+&lt;p&gt;参考になれば幸いです。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:d8e7875209aacee2cecc6347dacbedc1&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2015/01/10/chef-abc-on-test-kitchen/&#34;&gt;LT駆動開発10でTest KitchenではじめるChef入門という話をした。OSH2015のステマかもしれない。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発で「GitHubのリポジトリで先月のコミット一覧を見たい」という話をした</title>
+          <link>http://blog.eiel.info/blog/2015/01/10/git-month-commits/</link>
+          <pubDate>Sat, 10 Jan 2015 18:27:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/01/10/git-month-commits/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA10&#34;&gt;LT駆動開発10&lt;/a&gt;で最近つくったGemを紹介した。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;50b6d3907ad7013276ef56408e7781f2&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;作業しているGitリポジトリの先月の作業内容を閲覧するためにつくった。
+GitHubのcompareのページをブラウザで開いてくれるGemだ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git month-commits open
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で使える。&lt;/p&gt;
+
+&lt;p&gt;openをけずると git log を実行します。&lt;/p&gt;
+
+&lt;p&gt;インストールは下記の通りである。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gem install git_month_commits
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;毎月やる作業を楽にするどうでも良いスクリプトである。&lt;/p&gt;
+
+&lt;p&gt;コミットを探す簡単なスクリプトを用意してたのだけど、折角なのでrubyで書き直した。&lt;/p&gt;
+
+&lt;p&gt;エコシステムが整備されてこういうのが気軽にインターネットにおけるようになったのは利点なのが問題点なのかわからないけど、楽しいので良いことにしよう。&lt;/p&gt;
+
+&lt;p&gt;ちょっと改造すれば先週とか月指定とかにもできるけど要望があったら考えることにしよう。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:bc475f5b203cea3d52b89b9d45d0246a&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/git_month_commits&#34;&gt;eiel/git_month_commits · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2015/01/10/chef-abc-on-test-kitchen/&#34;&gt;LT駆動開発10でTest KitchenではじめるChef入門という話をした。OSH2015のステマかもしれない。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Lispインタープリタ勉強会に参加したので - LT駆動開発09</title>
+          <link>http://blog.eiel.info/blog/2014/12/08/ltdd-09-mylisp/</link>
+          <pubDate>Mon, 08 Dec 2014 15:49:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/08/ltdd-09-mylisp/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA09&#34;&gt;LT駆動開発09&lt;/a&gt;でLTをした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.doorkeeper.jp/events/16621&#34;&gt;Lispインタープリタ勉強会&lt;/a&gt;に参加したのでLispを実装しなければいけない気がしたので、勉強したことを参考に作成しはじめてみた。
+インタプリタと書くか、インタープリターと書くか、インタープリタと書くかブレまくっていたのは秘密である。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;22a8e5b060470132ec2f1eb00375a1f0&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;書いたコードはGistにあるんだ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/eiel/af120e6f44febc875702&#34;&gt;Gist - Lisp インタープリタ勉強で学んだことを試した。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;勉強会でlesson0として、用意してあったJavaScriptのコードを参考にした。
+これは四則演算がすることができて、
+JavaScriptの配列リテラルを使ってLISPのコードをかく。
+この配列を評価できる評価機をつくる。&lt;/p&gt;
+
+&lt;p&gt;配列リテラルを評価したものが、それ自身がASTなので割と簡単にLISPの評価機が作れる。
+ASTなんだけどLispのプログラムのように見えるからLispをつくった気分になる。
+そのスタート部分を作成しただけである。
+といいつつも、和しか実装していない。&lt;/p&gt;
+
+&lt;p&gt;しかし、Haskellのリストは同じ型の値しかリストには入れなれないので実際リストで書いてみると、値をつくる必要があり、LISP感は下がる。やはりパーサを書かねばならないのである。&lt;/p&gt;
+
+&lt;p&gt;やることはそんなに難しくないし、手を動かしてみると学ぶことはたくさんある。
+勉強会に参加したかどうかはおいておいて、自分だけのLISPを作るべきである。&lt;/p&gt;
+
+&lt;p&gt;HaskellでLISPを作るなら良さ気な文献があるのでそちらをやるのもよい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ja.wikibooks.org/wiki/48%E6%99%82%E9%96%93%E3%81%A7Scheme%E3%82%92%E6%9B%B8%E3%81%93%E3%81%86&#34;&gt;48時間でSchemeを書こう - Wikibooks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発09で「Vagrantを使ったa-blog CMSの環境で思ったことを話した</title>
+          <link>http://blog.eiel.info/blog/2014/12/08/ltdd-09-vagrant-ablog/</link>
+          <pubDate>Mon, 08 Dec 2014 15:26:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/08/ltdd-09-vagrant-ablog/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA09&#34;&gt;LT駆動開発09&lt;/a&gt;でLTをした。&lt;/p&gt;
+
+&lt;p&gt;ちょっと前に&lt;a href=&#34;http://www.a-blogcms.jp/&#34;&gt;a-blog CMS&lt;/a&gt;の作業環境を&lt;a href=&#34;https://www.vagrantup.com/&#34;&gt;Vagrant&lt;/a&gt;で作成したのでその時に思ったことを話しただけである。
+おまけでVagrantについての解説をしたがきっと必要のない情報だろう。中身がない。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;4d02497060470132157b26e128a6f114&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Vagrantは簡単に開発環境を作成するツールらしいです。
+Vagrantfileがあれば環境が何度でも構築できるのがポイントだろう。
+あと設定が楽チンである。&lt;/p&gt;
+
+&lt;p&gt;a-blog CMSをchefでインストールするには&lt;a href=&#34;https://github.com/ogom/cookbook-acms&#34;&gt;ogom/cookbook-acms&lt;/a&gt;をいじったものを使用している。
+いじったものは公開していなくてさーせん。&lt;/p&gt;
+
+&lt;p&gt;どんな問題があったかというとローカルで編集したファイルが全然反映されない問題がおきてつらかった。
+あとは他の人がプロジェクトをクローンして&lt;code&gt;vagrant up&lt;/code&gt;しても実行できない問題がおきた。
+それについて説明しただけである。&lt;/p&gt;
+
+&lt;p&gt;というわけで、作業用のコードとCMSのコードは分離して配置できるといい気がするという話をしただけである。
+a-blog CMS だと &lt;code&gt;config.server.php&lt;/code&gt; でテーマディレクトリ位置は変えられるようなのでうまく使うと良さそうだと気づいが次に使う機会がない限りにそのままである。&lt;/p&gt;
+
+&lt;p&gt;中身がない。&lt;/p&gt;
+
+&lt;p&gt;ついでにVagrantのBOXは&lt;a href=&#34;https://vagrantcloud.com/&#34;&gt;Vagrant Cloud&lt;/a&gt;のものを使いたいけど、&lt;a href=&#34;https://github.com/opscode/bento&#34;&gt;bento&lt;/a&gt;で作成されているBOXを使いたいという話をした。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発というゆるいIT勉強会を紹介する - ゆるい広島 Advent Calendar 2014</title>
+          <link>http://blog.eiel.info/blog/2014/11/26/yurui-ltdd/</link>
+          <pubDate>Wed, 26 Nov 2014 19:46:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/11/26/yurui-ltdd/</guid>
+          <description>
+
+&lt;p&gt;この記事は&lt;a href=&#34;http://www.adventar.org/calendars/334&#34;&gt;ゆるい広島 Advent Calendar 2014&lt;/a&gt;の1日目の記事です。このアドベントカレンダーは広島をテーマに好きなことを書いていいらしいアドベントカレンダーです。&lt;/p&gt;
+
+&lt;p&gt;広島には&lt;a href=&#34;http://ltdd.doorkeeper.jp/&#34;&gt;LT駆動開発&lt;/a&gt;というゆるめのIT勉強会があります。
+IT勉強会の形式には&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;セミナー形式&lt;/li&gt;
+&lt;li&gt;ハンズオン形式&lt;/li&gt;
+&lt;li&gt;アンカンファレンス形式&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などなどがありますが、LT駆動開発はセミナー形式になります。&lt;/p&gt;
+
+&lt;p&gt;LT駆動開発はライトニングトークと呼ばれる5分から10分程度の短いセッションで構成され、10人程度の発表があります。
+LTはライトニングトークの略で、「&lt;strong&gt;LTを毎月やるつもりで普段の開発(仕事)をしよう&lt;/strong&gt;」という勉強会になります。&lt;/p&gt;
+
+&lt;p&gt;セミナー形式は普通は参加対象者をしっかり定めて、スピーカーが参加者に価値のある情報を提供するのが一般的ですが、このLT駆動開発では、スピーカーになることに重点を置いています。
+そのため、参加対象者は曖昧となっています。&lt;/p&gt;
+
+&lt;p&gt;セミナー形式の勉強会で、聴衆はたいていの場合、内容のすべてを理解することはできません。
+そして、聞いたことを実践できる人はほとんどいないと思われます。
+しかし、&lt;strong&gt;スピーカーは喋ることを理解した上で伝える方法を準備してきているのです。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;スピーカーになるということは喋る内容をより理解できるということなのです。
+これを利用して、喋ることで学んだことをより理解を深めるのがLT駆動開発なのです。&lt;/p&gt;
+
+&lt;p&gt;スピーカーは参加対象者は自由に決めることができるし、喋る内容も自由に決めることができるし、発表者する時間ほ長くなければ自由に決めることができるというとても&lt;strong&gt;ゆるい&lt;/strong&gt;IT勉強会なのです。&lt;/p&gt;
+
+&lt;p&gt;ライトニングトークを行うイベントはたいてい時間制限がきっちりしていて、ドラが鳴らされて発表が打ち切りになりますが、このLT駆動開発ではぐだぐだに継続することができます。
+やはり&lt;strong&gt;ゆるい&lt;/strong&gt;ですね。&lt;/p&gt;
+
+&lt;p&gt;これまでのLT駆動開発の8回行われています。
+その中からいくつか公開されているスライドをゆるく紹介したいと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;これまでのlt駆動開発:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;これまでのLT駆動開発&lt;/h3&gt;
+
+&lt;p&gt;これまでのLT駆動開発のは&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki&#34;&gt;Wiki&lt;/a&gt;に整理されています。ここで紹介しないものはそっちからみてください。&lt;/p&gt;
+
+&lt;h4 id=&#34;ワイヤレスディスプレイをつかってみよう:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;ワイヤレスディスプレイをつかってみよう！&lt;/h4&gt;
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/34260183&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/yo.takata/20140405-ltdd02-widi&#34; title=&#34;ワイヤレスディスプレイをつかってみよう！&#34; target=&#34;_blank&#34;&gt;ワイヤレスディスプレイをつかってみよう！&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/yo.takata&#34; target=&#34;_blank&#34;&gt;Yoshitake Takata&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+無線で画面を飛ばせる。最近はおもしろいものがありますね。
+
+
+#### コーチングから学んだこと
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/39881805&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/yurikamimori/ss-39881805&#34; title=&#34;コーチングから学んだこと&#34; target=&#34;_blank&#34;&gt;コーチングから学んだこと&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/yurikamimori&#34; target=&#34;_blank&#34;&gt;Yuri Kamimori&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+おれたちのLT駆動はまだはじまったばかりだ。
+自分がどんなタイプなのか、一緒に仕事する人はどんなタイプなのか。
+
+#### LT駆動開発03　Web制作をカレー作りで例えてみる
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/34252680&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/kawakamihiroko/lt-03&#34; title=&#34;LT駆動開発03　Web制作をカレー作りで例えてみる&#34; target=&#34;_blank&#34;&gt;LT駆動開発03　Web制作をカレー作りで例えてみる&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/kawakamihiroko&#34; target=&#34;_blank&#34;&gt;Kawakami Hiroko&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+すべてはカレー作りに通ずる。
+
+#### 原典にあたったら英語も勉強できた話 〜 Git編 〜
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/39322224&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/YukinoriKitadai/osc-2014-hiroshima-reading-original-git-and-english&#34; title=&#34;原典にあたったら英語も勉強できた話 〜 Git編 〜&#34; target=&#34;_blank&#34;&gt;原典にあたったら英語も勉強できた話 〜 Git編 〜&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/YukinoriKitadai&#34; target=&#34;_blank&#34;&gt;Yukinori Kitadai&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+名作スライド #とは。
+
+#### Twitterのスパムアカウントを考察する
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/31794766&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/nemumu/2-31794766&#34; title=&#34;Twitterのスパムアカウントを考察する [LTDD 01]&#34; target=&#34;_blank&#34;&gt;Twitterのスパムアカウントを考察する [LTDD 01]&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/nemumu&#34; target=&#34;_blank&#34;&gt;nemumu&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+Twitterで大量のアカウントにつくるにはどうすればいいのだろうか。
+**実際にやってみた**
+
+#### 資格は役に立つか
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/35598571&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/tsudaa/ss-35598571&#34; title=&#34;資格は役に立つか &#34; target=&#34;_blank&#34;&gt;資格は役に立つか &lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/tsudaa&#34; target=&#34;_blank&#34;&gt;tsudaa&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+資格は役に立つか…ぶっちゃけてみましょう。
+
+
+#### ジョーク駆動開発2
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/36682978&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/nisyu/itpass-36682978&#34; title=&#34;Itpass&#34; target=&#34;_blank&#34;&gt;Itpass&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/nisyu&#34; target=&#34;_blank&#34;&gt;Takashi Akagi&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+伝説のジョーク駆動開発 第2章
+
+### LT駆動開発 02 一発ネタ
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-slide=&#34;11&#34; data-id=&#34;a473c2f09ef50131ed925eeea3b4da59&#34; data-ratio=&#34;1.6&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+君はこのネタをしっているか。
+
+
+#### 能年玲奈ちゃんのファンとして本気を出してみた
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/33155901&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/masakazuminamiyama/ss-33155901&#34; title=&#34;能年玲奈ちゃんのファンとして本気を出してみた&#34; target=&#34;_blank&#34;&gt;能年玲奈ちゃんのファンとして本気を出してみた&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/masakazuminamiyama&#34; target=&#34;_blank&#34;&gt;真一 北原&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+見せてもらおうか。ファンの本気とやらを。
+
+
+#### ITリテラシーの格差問題を考える
+
+&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/tSk63Sn3ZJU?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;動画で参加することだってできるんだぜ。&lt;/p&gt;
+
+&lt;h4 id=&#34;ひどいサービスの作り方:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;ひどいサービスの作り方&lt;/h4&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/38765905&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/ducky19999/ss-38765905&#34; title=&#34;ひどいサービスの作り方&#34; target=&#34;_blank&#34;&gt;ひどいサービスの作り方&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/ducky19999&#34; target=&#34;_blank&#34;&gt;Minoru Kawaguchi&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;反面教師。&lt;/p&gt;
+
+&lt;h4 id=&#34;5sのはなし:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;5sのはなし&lt;/h4&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/38912911&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/kakimomokuri/5-s-38912911&#34; title=&#34;5 sのはなし&#34; target=&#34;_blank&#34;&gt;5 sのはなし&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/kakimomokuri&#34; target=&#34;_blank&#34;&gt;Kakigi Katuyuki&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;そう。iPhone 5s ならね。&lt;/p&gt;
+
+&lt;h4 id=&#34;踏まれる可能性について:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;踏まれる可能性について&lt;/h4&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/38770495&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/mrtc0/ss-38770495&#34; title=&#34;踏まれる可能性について #LT駆動開発07&#34; target=&#34;_blank&#34;&gt;踏まれる可能性について #LT駆動開発07&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/mrtc0&#34; target=&#34;_blank&#34;&gt;mrtc0&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;別に踏まれたいわけではない。&lt;/p&gt;
+
+&lt;h4 id=&#34;morning-mail:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;morning mail&lt;/h4&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;5b283660fc2e0131c46b52d757e5bc8b&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;朝の習慣をはじめよう。&lt;/p&gt;
+
+&lt;h4 id=&#34;マネジメントという道具-v0-0-1:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;マネジメントという道具(v0.0.1)&lt;/h4&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/37606524&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/uzundk/toolof-management&#34; title=&#34;マネジメントという道具(v0.0.1)&#34; target=&#34;_blank&#34;&gt;マネジメントという道具(v0.0.1)&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/uzundk&#34; target=&#34;_blank&#34;&gt;uzundk&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;ぜんぜんゆるくない。ガチ。&lt;/p&gt;
+
+&lt;h4 id=&#34;オフィスチェアを買いました:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;オフィスチェアを買いました&lt;/h4&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;4ce27df0d07d01310fe546b5cb27a5ae&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;椅子は仕事の相棒です。&lt;/p&gt;
+
+&lt;h3 id=&#34;次回のlt駆動開発:475e74b3cd5073f5681f7a2b877b0dc9&#34;&gt;次回のLT駆動開発&lt;/h3&gt;
+
+&lt;p&gt;どうでしょうか。ゆるい感じがしたでしょうか。&lt;/p&gt;
+
+&lt;p&gt;次回の&lt;a href=&#34;http://ltdd.doorkeeper.jp/events/17506&#34;&gt;LT駆動開発は12月7日9時から12時&lt;/a&gt;です。
+気軽に発表しにいってみてください。&lt;/p&gt;
+
+&lt;p&gt;明日のゆるい広島AdventCalendarは &lt;a href=&#34;https://twitter.com/takatayoshitake&#34;&gt;@takatayoshitake&lt;/a&gt; さんです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発で ruboty の使い方っぽいことを適当に紹介した</title>
+          <link>http://blog.eiel.info/blog/2014/07/07/great-bot-and-ruboty-ltdd/</link>
+          <pubDate>Mon, 07 Jul 2014 17:14:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/07/great-bot-and-ruboty-ltdd/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA05&#34;&gt;LT駆動開発 05&lt;/a&gt; でライトニングトークをした。&lt;/p&gt;
+
+&lt;p&gt;6月は&lt;a href=&#34;https://twitter.com/great_hiroshima&#34;&gt;すごい広島のBOT&lt;/a&gt;を作って遊ぶことをしていた気がしたのでこれを紹介することにした。これは &lt;a href=&#34;https://github.com/r7kamura/ruboty&#34;&gt;Ruboty&lt;/a&gt; で作成した。&lt;/p&gt;
+
+&lt;p&gt;何か毎回やってないネタを挟みたいということで、ふたつスライドを用意して相互参照するというネタをした。
+まずは、BOTの具体例である「すごい広島 BOT」を紹介することでなにがしたいのかをBOTを知らない人に理解してもらう。
+そこから、どうやってそれを作るのか。というところに焦点をおいたというライトニングトークするという流れである。&lt;/p&gt;
+
+&lt;p&gt;しかし、実際、ふたつもライトニングトークをする時間があるかどうかわからないので「Rubotyの使い方」はかなり適当につくってしまった。
+類似性を持たせるために、前半は同じ構成になっている。&lt;/p&gt;
+
+&lt;p&gt;最終的にしたいことは、「すごい広島のTwitterアカウントを誰か運用してくれ」ということかもしれない。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;589b86f0e4c8013160d4220f151a2dd2&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;22966d40e4c90131438f225375d05812&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;すごい広島のBOTは今後もプロキシーBOTとして活躍していただきたいところである。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/r7kamura/ruboty-twitter/&#34;&gt;ruboty-twitter&lt;/a&gt; の fork をみてみると、デバッグ用のコード仕込んでみたりとかしているところがあって、うまくメンションが返ってこなかったからかと思い、その辺を補足してみたという経緯があったりなかったりもします。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:1775b1f910f762fbfac43e9ba225b4f1&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/06/08/ruboty-with-web/&#34;&gt;Rackup で Ruboty&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/05/23/1st-anniversary-for-great-h/&#34;&gt;すごい広島 一周年&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/02/19/start-ltdd/&#34;&gt;LT駆動開発という勉強会をはじめるよ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>hiroshima.5374.jpをつくった話を LT駆動開発 02 でしてきた</title>
+          <link>http://blog.eiel.info/blog/2014/04/06/ltdd-02-5374/</link>
+          <pubDate>Sun, 06 Apr 2014 00:43:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/04/06/ltdd-02-5374/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA02&#34;&gt;LT駆動開発 02&lt;/a&gt;に参加してきました。
+そもそも主催者らしい。&lt;/p&gt;
+
+&lt;p&gt;LT駆動開発は普段の開発する際に「毎月ライトニングトークすることを考えながらやろう」という主旨の勉強会で、「勉強会では発表者が一番勉強になる」という法則を軸にした勉強会です。&lt;/p&gt;
+
+&lt;p&gt;今回は3月頭に &lt;a href=&#34;http://5374.jp/&#34;&gt;5374.jp&lt;/a&gt; の&lt;a href=&#34;http://hiroshima.5374.jp/&#34;&gt;広島市バージョン&lt;/a&gt;を作成したのでその話をしました。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;0fad3ff09efe0131ed915eeea3b4da59&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;世の中には「誰かがやれば便利になるだろう」と思うものがあると思います。
+でも、「誰かがやるだろう」って思う人がたくさんいます。
+だからこそ、積極的に誰かがやるだろうと思うことをやることで、良い流れを作れる人になれるのではないかと最近思ってたりします。&lt;/p&gt;
+
+&lt;p&gt;でもでも、独りのキャパシティには限界にあるので、どうやって周りをまきこむかも大事だと思っています。
+こういう想いを書いたブログ記事を書いたりとかも巻き込もうという意図があるかもしれません。&lt;/p&gt;
+
+&lt;p&gt;以前どこかで書きましたが、私は一般の人より体力が少ないみたいなのです。
+最近はどうやったらそれを補えるか、どうやったら生かせるか、を考えていたりしています。&lt;/p&gt;
+
+&lt;p&gt;その一つの答えは「大きな流れをつくるきっかけを作る」ことかと思っているのですが、その想いは特に語りませんでした。
+みんなが楽しくなる場所とか、みんなが便利暮らせる社会とか、そういう風に考える人が少しでもたくさんいて欲しい。&lt;/p&gt;
+
+&lt;p&gt;あ、でも、まずは、自分のことを大切にしてくださいね。
+自己犠牲なんか誰も喜ばないからね。&lt;/p&gt;
+
+&lt;p&gt;話が逸れた。&lt;/p&gt;
+
+&lt;p&gt;Code For Japan とか Code For X のこと自体、私自身がよくわかってはいないですが簡単に話したりもしました。&lt;/p&gt;
+
+&lt;p&gt;そもそもの目的は GitHub を普通の人に使ってもらえる機会が作れるんじゃないかと思ったのですが、結局自分ひとりでCSVをつくってしまったという話も少ししました。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、LT駆動開発はなるべく毎月やっていきたいと思います。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発で「CI のある生活」という話をするはずだった</title>
+          <link>http://blog.eiel.info/blog/2014/03/03/ci-in-ltdd/</link>
+          <pubDate>Mon, 03 Mar 2014 12:05:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/03/03/ci-in-ltdd/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA01&#34;&gt;LT駆動開発 01&lt;/a&gt;で「CI のある生活 すごい広島の例」という話をするはずでしたが、時間の都合で「すごい広島の例」だけになりました。&lt;/p&gt;
+
+&lt;p&gt;LT駆動開発の参加者には、継続インテグレーション(以下、CI)の知らない普通の人もいるだろうという想定で CI の説明をしてみようという試みでしたが、時間がなかったので30枚ぐらいスライドを省略しました。&lt;/p&gt;
+
+&lt;p&gt;下記のスライドは省いたスライドも追加してあります。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;af93ee90836f0131cf5b265e09c13f13&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;本スライドは「CI を普通の人に有用性を知ってもらうには」や「Web制作の人にも使いどころを考えてもらうにはどうすればいいか」を考えつつ、ウェブで見つかる CI の説明は開発者よりのものばかりなので、他の説明方法はできないかと考えてみたものです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;の中に &lt;a href=&#34;https://travis-ci.org/&#34;&gt;Travis-CI&lt;/a&gt; というサービスが登場するようになりました。
+すごい広島の目的の一つに、プログラマではないITの仕事をしてる人に「GitHubの使い方を学んでもらう」というのがあるというのが発端です。&lt;/p&gt;
+
+&lt;p&gt;CI って、とりあえずテストを自動実行するところから入る使い方から入るパターンが多くて、自動テストかいてなくて使いどころがなくって使ってないなんて話や「何に使うの？」って話が周りでは多い気がします。
+そんな中、「CIサーバってなんだろうなー」と半日考えた結果の答えは「作ることに集中したい」ってことと「継続的デリバリーをするためのツール」ってことだと考えました。&lt;/p&gt;
+
+&lt;p&gt;そこで、そこへ至る道を論理的に進めてみたつもりです。&lt;/p&gt;
+
+&lt;p&gt;ちなみに&lt;a href=&#34;http://www.amazon.co.jp/gp/product/4048707876/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=4048707876&amp;amp;linkCode=as2&amp;amp;tag=eiel-22&#34;&gt;継続的デリバリー&lt;/a&gt;は読んでいない。&lt;/p&gt;
+
+&lt;p&gt;スライドつくってて困ったのは、最初 CI って言葉しか使ってなくて、文脈によっては CIサーバという意味に変化してることがあって、それをどうやってごまかさないのか苦労しました。
+気がついたら CI が継続的デリバリーって意味になっていることに気がついて、「これ CI じゃないじゃん」「CI ってなんなんだ」とか、ぐるぐるしました。
+あと、統合って説明しにくい。&lt;/p&gt;
+
+&lt;p&gt;LT 仕様なのでスライドの枚数の割に内容がないですね。&lt;/p&gt;
+
+&lt;p&gt;そんなわけでLT駆動開発なのですが、私はLTをするために、いろいろ考えたので、当日参加した時点で勉強する目的を達成した感があったりします。
+参加しなくても勉強になったかもしれない。&lt;/p&gt;
+
+&lt;p&gt;他のLTは分野が多岐にわたり、自分が追えてない情報がまとまっていたり、自分にはない発想があったりと、当日は当日で勉強になりました。&lt;/p&gt;
+
+&lt;p&gt;LT駆動開発の主旨を説明するために用意したスライドもアップロードしておいたので興味があれば、確認してみてください。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;0fdaccc0836f0131c82e4ea9b462f4d3&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;ついでに、スライドの .key ファイルをどっかに残しておきたいと思いつつ GitHub だとローカルディスクにコピーがいるし、悩んだ結果 S3 に置いてみたりしました。
+来月にはこのあたりを自動化したりして、この話を整理して話そうかなぁ、と考えていたりします。3月は忙しそうで怖い。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://keynotes.eiel.info/&#34;&gt;keynotes.eiel.info&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;index.html を自動生成したい。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:d620192eeb02a2e24418c588ce4dcf5a&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/02/19/start-ltdd/&#34;&gt;LT駆動開発という勉強会をはじめるよ - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/02/18/github-push-from-travis/&#34;&gt;Travis-CI でコミットして GitHub にプッシュする - 公開鍵認証を利用してみる - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/02/19/change-sitespec-for-great-h/&#34;&gt;すごい広島のサイトを sitespec に変えてみた - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

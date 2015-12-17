@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/grub/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-06-09 17:59:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>funtooメモ grubの設定</title>
+          <link>http://blog.eiel.info/blog/2012/06/09/funtoo-memo-grub/</link>
+          <pubDate>Sat, 09 Jun 2012 17:59:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/06/09/funtoo-memo-grub/</guid>
+          <description>&lt;p&gt;funtooのメモ&lt;/p&gt;
+
+&lt;p&gt;grubの設定は &lt;code&gt;/etc/boot.conf&lt;/code&gt; を雛形に作成される。
+変更後は&lt;code&gt;boot-update&lt;/code&gt;で &lt;code&gt;/boot/grub.cfg&lt;/code&gt; を生成してくれます。&lt;/p&gt;
+
+&lt;p&gt;新しいkernelを &lt;code&gt;/boot&lt;/code&gt; に配置したときも自動的に生成された印象があるんだけど、あれはどうなってんだろう。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

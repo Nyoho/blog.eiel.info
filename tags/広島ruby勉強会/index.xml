@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E5%BA%83%E5%B3%B6ruby%E5%8B%89%E5%BC%B7%E4%BC%9A/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-11-03 01:01:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>広島Ruby勉強会 #035 に参加したり、喋ったりした。</title>
+          <link>http://blog.eiel.info/blog/2013/11/03/hiroshimarb-35/</link>
+          <pubDate>Sun, 03 Nov 2013 01:01:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/11/03/hiroshimarb-35/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://hiroshimarb.github.io/blog/2013/11/02/hiroshimarb-35/&#34;&gt;広島Ruby勉強会 #035&lt;/a&gt;に参加してきました。&lt;/p&gt;
+
+&lt;p&gt;リンク貼っておいてあれですが&lt;a href=&#34;https://github.com/hiroshimarb/hiroshimarb.github.com/wiki/2013年11月の活動&#34;&gt;GitHubのWiki&lt;/a&gt;のほうが情報が多いです。&lt;/p&gt;
+
+&lt;p&gt;さて、今回は3つスライドを作るという暴挙に出ました。ひとつひとつに時間を割けられないので、たくさん作るのはよくないと思いました。&lt;/p&gt;
+
+&lt;h3 id=&#34;hiroshima-rb-について:654ec645fbf39db60b2aae5b3ed35a6f&#34;&gt;Hiroshima.rb について&lt;/h3&gt;
+
+&lt;p&gt;Hiroshima.rb の説明もだんだん何をしていいのか忘れてきそうなので、誰か作れよ。ということで作りました。
+現在の広島Ruby勉強会が大事にしていることも付け足しておきました。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/27836277&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;https://www.slideshare.net/TomohikoHimura/hiroshimarb&#34; title=&#34;Hiroshimarbについて&#34; target=&#34;_blank&#34;&gt;Hiroshimarbについて&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+
+数学文章作法を取り上げていますが、情報発信をする上で **数学の文章でなくても** 参考になる部分があると思います。
+
+または、「数学ガールの誕生」という本があって、これは結城浩さんの講演を本にしたものです。これもたくさん大事なことが書かれていておすすめです。
+その場で結城浩さんがセッションしているかのように感じてしまう丁寧な作りの本です。
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=448009525X&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=4797373253&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;ちなみに、&lt;a href=&#34;https://gist.github.com/eiel/7234071&#34;&gt;スライドにする前の原稿がGistにあります。&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;コンピュータをもっと使おう:654ec645fbf39db60b2aae5b3ed35a6f&#34;&gt;コンピュータをもっと使おう&lt;/h3&gt;
+
+&lt;p&gt;これは広島Ruby勉強会はやや難しいという意見が多いので、プログラミング初心者が気軽に聞ける話をしようと試みてみました。
+何をやろうか悩んでるうちにどんどん対象者のレベルが下がってこんな形になりました。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/27830820&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;https://www.slideshare.net/TomohikoHimura/ss-27830820&#34; title=&#34;コンピュータをもっと使おう&#34; target=&#34;_blank&#34;&gt;コンピュータをもっと使おう&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;個人的には、「どんな人でも簡単なプログラミングをするような世界になると良いなぁ」と、思ってたので、その辺りを伝えてみました。
+Ver 0.1 なのはブラッシュアップしてもうちょっとちゃんとした形にしたいという考えです。毎月バージョンアップしていきたい。&lt;/p&gt;
+
+&lt;p&gt;あまり時間をかけていないので、聞き手のことをしっかりと考えられてない感がまだまだあります。
+もっと修行します。&lt;/p&gt;
+
+&lt;h3 id=&#34;つながりをゆるふわにしよう-activesupprt-nnotifications:654ec645fbf39db60b2aae5b3ed35a6f&#34;&gt;つながりをゆるふわにしよう ActiveSupprt::Nnotifications&lt;/h3&gt;
+
+&lt;p&gt;Rails のソースコードをちょっとづつ読んでいるので、その成果発表を毎月やっています。
+今回は AcitveSupport::Notifications を取り上げました。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/27836483&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;https://www.slideshare.net/TomohikoHimura/active-supprt-notifications&#34; title=&#34;つながりをゆるふわにしよう Active supprt notifications&#34; target=&#34;_blank&#34;&gt;つながりをゆるふわにしよう Active supprt notifications&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;これも&lt;a href=&#34;https://gist.github.com/eiel/7177959&#34;&gt;スライドにした原稿をGistに公開しています。&lt;/a&gt;スライドではかなり修正しているし、typoも結構あってなおさないといけないですが、まだなおしていない。
+喋らなかったこともあるし、そもそもかなり早口で喋ったのでも再確認したい場合にどうぞ。&lt;/p&gt;
+
+&lt;h3 id=&#34;その他のセッション:654ec645fbf39db60b2aae5b3ed35a6f&#34;&gt;その他のセッション&lt;/h3&gt;
+
+&lt;p&gt;今回はいつもより参加者が多くて19人でいつもより盛り上がりを見せていたと思います。
+僕のテンションは暴走しないように低めでした。むしろ、低すぎた感。&lt;/p&gt;
+
+&lt;h4 id=&#34;railsとawsで業務システムを構築してみた:654ec645fbf39db60b2aae5b3ed35a6f&#34;&gt;RailsとAWSで業務システムを構築してみた&lt;/h4&gt;
+
+&lt;p&gt;Rails, AWS, CI モダンな開発手法を試しつつ、毎月どのような感じになっているか報告されてます。ナイスジョブ。
+リリースが近いということで実務的な問題への対処が出てきていました。
+capistrano ではまる人が多いのはそれだけドキュメントがそろってないってことだと、これを書いてる時に思いました。&lt;/p&gt;
+
+&lt;p&gt;気になった点はスライドのどこ部分を話してるか強調すると良いな、と思いました。&lt;/p&gt;
+
+&lt;h4 id=&#34;時代はmiddleman:654ec645fbf39db60b2aae5b3ed35a6f&#34;&gt;時代はMiddleman&lt;/h4&gt;
+
+&lt;p&gt;Jekyll や Octopress を試してそこから Middleman に移行したらすごくよかった。という話でした。
+しかし、あえて厳しいことをいうと、どのあたりが他よりよかったのかよくわからなかった。ちゃんと聞いてなかっただけかもしれないけど。&lt;/p&gt;
+
+&lt;p&gt;jekyll と比べると silm やら sass やらが使いやすいし、自動更新あたりも便利らしいですね。(よくしらない)
+あと「すごい広島」などの固有名詞が唐突に出てきすぎなのでその辺は気をつけたほうがよいと思います。&lt;/p&gt;
+
+&lt;h4 id=&#34;chefについてなんか話そうかな:654ec645fbf39db60b2aae5b3ed35a6f&#34;&gt;Chefについてなんか話そうかな&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/ogatomo&#34;&gt;ogatomo&lt;/a&gt; さんのセッションわかりやすい。
+素晴しい。chef まだつかってないけど、自分の中でモヤっとしてた部分がはっきりしました。お仕事大変な時期なのにありがとうございます。&lt;/p&gt;
+
+&lt;h4 id=&#34;ruby-on-railsで自サバを立ててみた-仮:654ec645fbf39db60b2aae5b3ed35a6f&#34;&gt;Ruby on Railsで自サバを立ててみた。(仮）&lt;/h4&gt;
+
+&lt;p&gt;初心者の見本セッションとしては素晴しいけど、主張したいところが曖昧な感じがするので、そこをうまくやるとなおよくなりそうです。&lt;/p&gt;
+
+&lt;h4 id=&#34;身近で実際に起きているセキュリティの話:654ec645fbf39db60b2aae5b3ed35a6f&#34;&gt;身近で実際に起きているセキュリティの話&lt;/h4&gt;
+
+&lt;p&gt;セキュリティに対する危機感がみんな足りてるのか足りてないのかよくわからない状況を最近おもしろくブログにしています。
+その人とこのセッションはまったく関係ありません。
+ついつい、リテラシーが高くない人には「ああ、うん、それでいいです」となりがちなので注意したいところ。サービスごとにパスワードは変えましょう。&lt;/p&gt;
+
+&lt;h4 id=&#34;12月について:654ec645fbf39db60b2aae5b3ed35a6f&#34;&gt;12月について&lt;/h4&gt;
+
+&lt;p&gt;今年もはじまったぜ Advent Calendar な時期らしいです。
+&lt;a href=&#34;http://www.adventar.org/calendars/74&#34;&gt;今年も広島のAdevent Calendar があるらしいです。&lt;/a&gt;
+個人的にはこういう緩めのセッションばかり聞いていたい。&lt;/p&gt;
+
+&lt;h4 id=&#34;akira345-さん:654ec645fbf39db60b2aae5b3ed35a6f&#34;&gt;@akira345 さん&lt;/h4&gt;
+
+&lt;p&gt;セッションの名前が思い出せない。ここ最近のクラウドまわりのツールの実験報告です。
+ここを押えてる人がまわりに少ないので参考になりますです。
+忙しい中ありがとうございます。
+しかし、みんな日々スキルアップしている。&lt;/p&gt;
+
+&lt;h4 id=&#34;railsのよいところとか:654ec645fbf39db60b2aae5b3ed35a6f&#34;&gt;Railsのよいところとか&lt;/h4&gt;
+
+&lt;p&gt;正式なタイトルは全然違うけど、Railsの良いと思ってるところの話が聞けました。
+スライドの作り込みが安定していたし、次回も挑戦していただけるのでとても楽しみです。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:654ec645fbf39db60b2aae5b3ed35a6f&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;来月も参加しようと思うので、来月も準備をがんばってください。
+いつもありがとうございます。Hiroshima.rbの中の人。&lt;/p&gt;
+
+&lt;p&gt;広島がもう少し盛り上がると良いですね。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/route53/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-02-14 15:55:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Route 53 の特定の Hosted Zone を IAM ユーザで設定できるようにしてみた</title>
+          <link>http://blog.eiel.info/blog/2014/02/14/route53-iam/</link>
+          <pubDate>Fri, 14 Feb 2014 15:55:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/02/14/route53-iam/</guid>
+          <description>
+
+&lt;p&gt;AWSの無料枠のうちにいろいろ遊ぼうと思っていたのに半年ぐらいなにもできてないユーザがこちらになります。こんにちは。&lt;/p&gt;
+
+&lt;p&gt;そんなわけでAWS入門者です。がんばります。&lt;/p&gt;
+
+&lt;p&gt;AWSへの入門するなら &lt;a href=&#34;http://aws.amazon.com/jp/route53/&#34;&gt;Route 53&lt;/a&gt; や &lt;a href=&#34;http://aws.amazon.com/jp/s3/&#34;&gt;S3&lt;/a&gt; あたりが良いと思います。EC2 とか SNS とかなかなかハードル高いです。あれ、そういえば9月ぐらいに試してる形跡が…。&lt;/p&gt;
+
+&lt;p&gt;先日、eiel.info の管理を Route 53 に移してみたら、気持ち表示が速くなった気がします。たぶん、気のせいです。&lt;/p&gt;
+
+&lt;p&gt;他にも代わりに管理してる zone があったので、移行してみました。
+いままでレコードを追加するのは私がしてたのですが、「本人にも自由に編集できるといいなぁ」と試してみたらできました。&lt;a href=&#34;http://aws.amazon.com/jp/iam/&#34;&gt;IAM&lt;/a&gt; を使いました。まー、お金を払うのは自分ですが。+0.5$ 程度なので大したことではないです。&lt;/p&gt;
+
+&lt;p&gt;管理コンソールで操作してもらうことを前提にした場合のやることは、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;管理する Hosted Zone を作成する(Route 53)&lt;/li&gt;
+&lt;li&gt;操作者のためのユーザを作成する(IAM)&lt;/li&gt;
+&lt;li&gt;ユーザに作成した Hosted Zone への編集をできるようにする。(IAM ポリシー設定)&lt;/li&gt;
+&lt;li&gt;ログインページとログイン情報を伝える&lt;/li&gt;
+&lt;li&gt;パスワードを変更して貰う&lt;/li&gt;
+&lt;li&gt;編集ページのURLを伝える&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;といった感じのようです。&lt;/p&gt;
+
+&lt;h3 id=&#34;管理する-hosted-zone-を作成する-route-53:1b93694b147a36d0eb8075b5aafa2550&#34;&gt;管理する Hosted Zone を作成する(Route 53)&lt;/h3&gt;
+
+&lt;p&gt;管理する Hosted Zone がないとはじまらないので、作成します。
+Route 53 の管理コンソールで行えます。&lt;/p&gt;
+
+&lt;p&gt;脱線しますが、Bind の zone ファイルからそのままインポートできるようになっていて、移行はとても簡単でした。&lt;/p&gt;
+
+&lt;p&gt;作成した Zone  &lt;strong&gt;&lt;code&gt;Hosted Zone ID&lt;/code&gt;&lt;/strong&gt; を控えておきましょう。後で使います。&lt;/p&gt;
+
+&lt;h3 id=&#34;操作者のためのユーザを作成する-iam:1b93694b147a36d0eb8075b5aafa2550&#34;&gt;操作者のためのユーザを作成する(IAM)&lt;/h3&gt;
+
+&lt;p&gt;ログインしてもらうためのユーザが必要です。
+IAMで作りましょう。&lt;/p&gt;
+
+&lt;p&gt;管理コンソールへのログインはパスワードが必要になります。
+デフォルトでは設定されてないので、パスワードを設定したいユーザを選択して、Security Credentials で Password の設定をしましょう。&lt;/p&gt;
+
+&lt;p&gt;パスワードはあとで使用者に変更してもらえばよいです。
+忘れたら作りなしましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;ユーザに作成した-hosted-zone-への編集をできるようにする:1b93694b147a36d0eb8075b5aafa2550&#34;&gt;ユーザに作成した Hosted Zone への編集をできるようにする。&lt;/h3&gt;
+
+&lt;p&gt;作成したユーザは基本的には何もできない状態です。
+特定の zone だけ編集できるようにしてみます。&lt;/p&gt;
+
+&lt;p&gt;zone の編集をする行動を許可する作業をします。&lt;/p&gt;
+
+&lt;p&gt;IAM でユーザを選択して &lt;code&gt;permission&lt;/code&gt; &amp;gt; &lt;code&gt;Attach User Policy&lt;/code&gt; で設定できます。
+JSONで指定できるのですが、ジェネレータがあるとでポチポチすれば作成できます。&lt;/p&gt;
+
+&lt;p&gt;Policy Generator を選択して Select をするとフォームがでてきます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Effect - Allow&lt;/li&gt;
+&lt;li&gt;AWS Service - Route 53&lt;/li&gt;
+&lt;li&gt;Actions - All Actions&lt;/li&gt;
+&lt;li&gt;Amazon Resource Name (ARN) - 後述&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;と指定しました。&lt;/p&gt;
+
+&lt;p&gt;ARN には Hosted Zone Id を使用して&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;arn:aws:route53:::hostedzone/[Hosted Zone ID]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;となります。&lt;/p&gt;
+
+&lt;p&gt;このへんの情報は &lt;a href=&#34;http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/UsingWithIAM.html&#34;&gt;Using IAM to Control Access to Amazon Route 53 Resources - Amazon Route 53&lt;/a&gt; に記載されてます。Policy のサンプル JSON なんかものっています。&lt;/p&gt;
+
+&lt;h3 id=&#34;ログインページとログイン情報を伝える:1b93694b147a36d0eb8075b5aafa2550&#34;&gt;ログインページとログイン情報を伝える&lt;/h3&gt;
+
+&lt;p&gt;準備ができたら相手にユーザ情報を伝えましょう。
+ログインするための URL を伝える必要もあります。&lt;/p&gt;
+
+&lt;p&gt;ログインするための URL は IAM の Dashboard に IAM User sign-in URL が記載されてます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;https://[Account ID].signin.aws.amazon.com/console&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;少々長く覚えにくいAccount ID が使用されています。
+Alias を作成すると短いものを利用できます。&lt;/p&gt;
+
+&lt;h3 id=&#34;パスワードを変更して貰う:1b93694b147a36d0eb8075b5aafa2550&#34;&gt;パスワードを変更して貰う&lt;/h3&gt;
+
+&lt;p&gt;ログインしてもらったらパスワードを変えてもらいましょう。
+暗号化された通信路を使用したのであれば気にしなくていいかもしれません。&lt;/p&gt;
+
+&lt;h3 id=&#34;編集ページのurlを伝える:1b93694b147a36d0eb8075b5aafa2550&#34;&gt;編集ページのURLを伝える&lt;/h3&gt;
+
+&lt;p&gt;早速、ログインして Route 53 のページにいっても何も表示されません。
+&lt;strong&gt;Hosted Zone の一覧を取得する権限がないからです。&lt;/strong&gt;
+直接アクセスすれば表示できるので気にしなくてもいいでしょう。&lt;/p&gt;
+
+&lt;p&gt;Hosted Zone ID を使用して&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;https://console.aws.amazon.com/route53/home#resource-record-sets:[Hosted Zone ID]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;にアクセスすれば編集できました。&lt;/p&gt;
+
+&lt;h3 id=&#34;その他雑多なこと:1b93694b147a36d0eb8075b5aafa2550&#34;&gt;その他雑多なこと&lt;/h3&gt;
+
+&lt;p&gt;Hosted Zone の一覧が表示されて構わないのであれば、 ListHostedZones Action に Resource &lt;code&gt;*&lt;/code&gt; でポリシーを追加してやれば表示できます。&lt;/p&gt;
+
+&lt;p&gt;ListHostedZones には個別のリソースを許可することで表示内容を制限する機能はないようです。&lt;/p&gt;
+
+&lt;p&gt;Zoneの設定するのに便利そうな &lt;a href=&#34;https://bitbucket.org/winebarrel/roadworker&#34;&gt;Roadworker&lt;/a&gt; などなど使う場合も設定しなきゃいけないんだろうか?
+パッと見た感じでは Hosted Zone ID を指定する部分がないので入るのでしょうか。&lt;/p&gt;
+
+&lt;p&gt;必要な部分だけ編集権限を他人に委譲できるので IAM の使いどころはそこそこありそうですね。
+AWS はAPI経由の操作が前提設計な感じになってて最終的には自動化もさせやすくて楽しいですね。&lt;/p&gt;
+
+&lt;p&gt;次は &lt;a href=&#34;http://aws.amazon.com/jp/sqs/&#34;&gt;SQS&lt;/a&gt; を試してみようかと思っていたりします。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

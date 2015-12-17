@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/review/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-08-14 18:47:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>ReVIEW を試してみる</title>
+          <link>http://blog.eiel.info/blog/2013/08/14/review-setup/</link>
+          <pubDate>Wed, 14 Aug 2013 18:47:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/08/14/review-setup/</guid>
+          <description>
+
+&lt;p&gt;毎週のアレ、&lt;a href=&#34;http://great-h.github.io/events/event-013.html&#34;&gt;すごい広島 #013&lt;/a&gt;で試したこと。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/kmuto/review&#34;&gt;ReVIEW&lt;/a&gt; という軽量マークアップ言語に属すると思われる電子書籍を作成するのを主眼に置いてるものみたいです。先週TLでやたらみかけました。&lt;/p&gt;
+
+&lt;p&gt;というわけで、&lt;a href=&#34;https://github.com/kmuto/review/blob/master/doc/quickstart.rdoc&#34;&gt;QuicqStart&lt;/a&gt; を参考に試してみました。&lt;/p&gt;
+
+&lt;h3 id=&#34;インストール:ffabb28e726b63b18f52a144113bf1d5&#34;&gt;インストール&lt;/h3&gt;
+
+&lt;p&gt;まずは、gem でインストールしました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gem install review
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ruby使いにはとても簡単。&lt;/p&gt;
+
+&lt;h3 id=&#34;とりあえず-epub-をつくってみる:ffabb28e726b63b18f52a144113bf1d5&#34;&gt;とりあえず epub をつくってみる&lt;/h3&gt;
+
+&lt;p&gt;epub 作るのに作成したファイルは以下の通り。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;sample.re&lt;/li&gt;
+&lt;li&gt;sample.yaml&lt;/li&gt;
+&lt;li&gt;CHAPS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最後に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;review-epubmaker sample.yaml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、epub が作成されました。&lt;/p&gt;
+
+&lt;p&gt;それぞれのファイルの中身ですが、&lt;code&gt;sample.re&lt;/code&gt; が、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;= はじめてのReVIEW
+
+//lead{
+「Hello, ReVIEW.」
+//}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;sample.yml&lt;/code&gt; は &lt;a href=&#34;https://raw.github.com/kmuto/review/master/doc/sample.yaml&#34;&gt;https://raw.github.com/kmuto/review/master/doc/sample.yaml&lt;/a&gt; からダウンロードしました。&lt;/p&gt;
+
+&lt;p&gt;最後に &lt;code&gt;CHAPS&lt;/code&gt; が、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sample.re
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;です。&lt;/p&gt;
+
+&lt;p&gt;そして、iPhone で動作確認してみました。
+iPhone に送るには iTuens からの同期するのが良さそうですが、メールで送信しました。
+Message で送るとなぜだか認識しませんでした。Dropbox もありだと思います。&lt;/p&gt;
+
+&lt;p&gt;PDF作成するためには TeX環境がいるのでまた別の機会にします。&lt;/p&gt;
+
+&lt;h3 id=&#34;reファイル:ffabb28e726b63b18f52a144113bf1d5&#34;&gt;reファイル&lt;/h3&gt;
+
+&lt;p&gt;内容を書くファイルみたいです。RDに近い文法です。&lt;/p&gt;
+
+&lt;p&gt;詳しい文法は &lt;a href=&#34;https://github.com/kmuto/review/blob/master/doc/format.rdoc&#34;&gt;ReVIEW フォーット&lt;/a&gt; を参考にしてください。&lt;/p&gt;
+
+&lt;p&gt;ちらっとみてみるると、コラム専用のものがあって、書籍用って感じがして良いですね。RDに近いと書きましたが、むしろ LaTeX に近いようにも思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;chaps:ffabb28e726b63b18f52a144113bf1d5&#34;&gt;CHAPS&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;CHAPS&lt;/code&gt; ファイルは章を記述するファイルで、1章につき1ファイルになるようです。似たようなファイル&lt;code&gt;PREDEF&lt;/code&gt;、 &lt;code&gt;POSTDEF&lt;/code&gt; があってこれは、本文ではない前書きの部分や後書きの部分を定義するようです。
+前付け、後付けというものに該当するようですが、専門家でないのでよくわかりません。&lt;/p&gt;
+
+&lt;h3 id=&#34;sample-yml:ffabb28e726b63b18f52a144113bf1d5&#34;&gt;sample.yml&lt;/h3&gt;
+
+&lt;p&gt;書籍の情報を記述するものみたいです。
+コマンドの引数に渡すので好きなファイル名にできます。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:ffabb28e726b63b18f52a144113bf1d5&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/kmuto/review/wiki&#34;&gt;Wiki&lt;/a&gt; にもいろいろ情報があります。
+ReVIEWの&lt;a href=&#34;https://github.com/kmuto/review-el&#34;&gt;Emacsのメジャーモード&lt;/a&gt;もあるみたいです。
+折角なので、&lt;a href=&#34;https://gist.github.com/eiel/6230068&#34;&gt;el-get の レシピ&lt;/a&gt; を適当に書いてみました。
+el-get-recipe-path にディレクトリを追加して &lt;code&gt;reiview-mode.rcp&lt;/code&gt; とい名前で保存して、&lt;code&gt;(el-get &#39;sync &#39;review-mode)&lt;/code&gt; を評価すれば設定できます。デフォルトのカラー設定が背景が暗い場合つらいので、 face を変更しないと使いづらそうでした。&lt;/p&gt;
+
+&lt;p&gt;せっかく設定したのでなにか電子書籍を書いてみたいですね。何かないかなー。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

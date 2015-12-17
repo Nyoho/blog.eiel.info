@@ -1,0 +1,4010 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-12-14 00:00:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>アウトプットしていたら結婚できた</title>
+          <link>http://blog.eiel.info/blog/2015/12/14/output-1214/</link>
+          <pubDate>Mon, 14 Dec 2015 00:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/12/14/output-1214/</guid>
+          <description>
+
+&lt;p&gt;この記事は「アウトプットしていたら Advent Calendar 2015」14日目の記事です。前の記事は特にありません。&lt;/p&gt;
+
+&lt;p&gt;というか、&lt;a href=&#34;http://nocono.net/post/2015/freelance/&#34;&gt;アウトプットしていたら仕事がたくさんやってきた！ | nocono&lt;/a&gt;を&lt;del&gt;パクって&lt;/del&gt;リスペクトしています。&lt;/p&gt;
+
+&lt;h1 id=&#34;自己紹介:06f9c3819e6cb8a4cb72e0add76f3ab5&#34;&gt;自己紹介&lt;/h1&gt;
+
+&lt;p&gt;広島でフリーランスエンジニアしてます。フリーランスAdvent Calendarはまだ参加していません。&lt;/p&gt;
+
+&lt;h1 id=&#34;今日のテーマ:06f9c3819e6cb8a4cb72e0add76f3ab5&#34;&gt;今日のテーマ&lt;/h1&gt;
+
+&lt;p&gt;特にネタもないです。タイトルどおりです。&lt;/p&gt;
+
+&lt;p&gt;結果的にみると、「積極的に勉強会を開催・登壇(=アウトプット)するようにしていてよかったな」と思ったのでそのことを書きます。
+アウトプットAdvent Calendarだし。&lt;/p&gt;
+
+&lt;h1 id=&#34;今年1年やった仕事:06f9c3819e6cb8a4cb72e0add76f3ab5&#34;&gt;今年1年やった仕事&lt;/h1&gt;
+
+&lt;h2 id=&#34;iosアプリケーションの改修:06f9c3819e6cb8a4cb72e0add76f3ab5&#34;&gt;iOSアプリケーションの改修&lt;/h2&gt;
+
+&lt;p&gt;定期的にとあるiOSアプリケーションのバグ修正や機能追加を行なっています。
+こういった仕事の金額は高くはありませんが、継続的なので安定した収入が得られてとても助かっています。&lt;/p&gt;
+
+&lt;p&gt;元々iOSアプリケーションをはじめたのは、iPhoneを購入してしまいLinuxデスクトップでは扱いにくかったためメインマシンをMacに変えたのが起因すると思います。
+そんなわけで普段使う道具をよりよく使うためCocoaアプリケーションのちまちま勉強していたところ、勉強会でお会いした人たちに書籍をいただいたり、iOS勉強会に混ぜていただいていたりで、気がついたらiOSアプリケーションを作る仕事がやってくるようになっていました。&lt;/p&gt;
+
+&lt;h2 id=&#34;railsアプリケーションの改修:06f9c3819e6cb8a4cb72e0add76f3ab5&#34;&gt;Railsアプリケーションの改修&lt;/h2&gt;
+
+&lt;p&gt;Ruyb on Rails で開発されたウェブアプリケーションのバグ修正やメンテナンスを行う仕事もしています。&lt;/p&gt;
+
+&lt;p&gt;元々Rubyをはじめたのは、前職の仕事を自動化するのにひっそり使っていました。JavaやC++、Perlより扱いやすく、&lt;strong&gt;関数型&lt;/strong&gt;の思想を受け継いでいてとても気に入っていました。
+また、Rubyに関しては勉強会を主催したりしていました。
+こういった経緯もありWeb APIを作成する仕事や、Railsを扱う仕事させていただく機会がたくさんありました。
+こういった仕事は、勉強会を主催したり、登壇したりすることをしていたことから繋りができたのを強く感じています。&lt;/p&gt;
+
+&lt;p&gt;また今年からScalaを扱うようになりしたがRubyで学んだことはとても役に立っています。&lt;/p&gt;
+
+&lt;h2 id=&#34;scalaによる開発案件:06f9c3819e6cb8a4cb72e0add76f3ab5&#34;&gt;Scalaによる開発案件&lt;/h2&gt;
+
+&lt;p&gt;勉強会の繋りから、Scalaによる開発に興味はないかと声をかけられ、特にScalaでも関数型積極的に扱っていくとのことでした。
+Haskellを趣味で勉強していたので、&lt;strong&gt;関数型&lt;/strong&gt;に興味がありました。
+これもさまざまな勉強会に参加したり、ブログを書いたり、登壇したりしていなければ声をかけていただくこともなかったと思います。&lt;/p&gt;
+
+&lt;p&gt;いままで本格的なチーム開発はしていなく、とても貴重な経験をしています。(継続中)&lt;/p&gt;
+
+&lt;h2 id=&#34;javaの新人研修の講師:06f9c3819e6cb8a4cb72e0add76f3ab5&#34;&gt;Javaの新人研修の講師&lt;/h2&gt;
+
+&lt;p&gt;あまり大きなものでハイレベルなものではありませんが、さまざまなプログラミングを扱っている部分を買われて、「様々な言語とも比較しながらJavaを説明して欲しい」といった依頼もありました。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;関数型&lt;/strong&gt;の話もちらほらしながら講師をしました。&lt;/p&gt;
+
+&lt;h1 id=&#34;まとめ:06f9c3819e6cb8a4cb72e0add76f3ab5&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;p&gt;アウトプットしていたら自分のスキルが伸びているのをふりかえり実感することもできるし、なにより収入が安定してきました。
+また、いろんな人と出会うことができ、普通にエンジニアをしているだけだったころに比べて、毎日がとても楽しくなりました。&lt;/p&gt;
+
+&lt;p&gt;僕の場合は、&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Emacsに出会い&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;関数型&lt;/strong&gt;に出会い&lt;/li&gt;
+&lt;li&gt;Lisp勉強会などで勉強会をしり&lt;/li&gt;
+&lt;li&gt;Lispより一般的なRuby勉強会を主催し&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki&#34;&gt;&lt;strong&gt;関数型&lt;/strong&gt;を勉強して学んだことを発表したり&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://cssnite.webtouchmeeting.com&#34;&gt;Webの勉強会&lt;/a&gt;に参加したりすることで出会いがあり&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;関数型&lt;/strong&gt;の仕事ができるようになり&lt;/li&gt;
+&lt;li&gt;結婚しても大丈夫な収入を得ることができるように&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;なったと思います。&lt;/p&gt;
+
+&lt;p&gt;Scalaにしろ講師業にしろ、こういった実績のない仕事を頂けると自分のスキル幅が大きく広げることができ、本当にありがたいです。 こいつに任せて大丈夫だろうかという不安がある中、それでも任せていただけて感謝しております。 いい経験ができて本当によかったです。関係者のみなさまありがとうございました。(引用)&lt;/p&gt;
+
+&lt;p&gt;やはり&lt;strong&gt;関数型&lt;/strong&gt;は重要だったのだ。(知らんけど)&lt;/p&gt;
+
+&lt;h1 id=&#34;おまけ:06f9c3819e6cb8a4cb72e0add76f3ab5&#34;&gt;おまけ&lt;/h1&gt;
+
+&lt;p&gt;私は元々はあがり症で、昔は人前で話す時めちゃくちゃ緊張して失敗することも多かったのですが、勉強会で登壇を重ねるうちに緊張することも減りました。トークスキルも上がっているようです。嬉しい。 「登壇なんて自分には無理」と思う人もいるかもしれませんが、何事も経験なので機会があれば手を挙げてやってみるといいと思うよ！(引用)&lt;/p&gt;
+
+&lt;p&gt;(でも正直いまだに人前で話すのは苦手なのであんまりしたくない)&lt;/p&gt;
+
+&lt;h1 id=&#34;質問の回答:06f9c3819e6cb8a4cb72e0add76f3ab5&#34;&gt;質問の回答&lt;/h1&gt;
+
+&lt;p&gt;このアドベントカレンダーには質問が用意されていますので、そのうち何個かに答えてみます。&lt;/p&gt;
+
+&lt;h2 id=&#34;q-机やイスにこだわりありますか:06f9c3819e6cb8a4cb72e0add76f3ab5&#34;&gt;Q. 机やイスにこだわりありますか？&lt;/h2&gt;
+
+&lt;p&gt;特にはないですが、オカモトのシルフィーをつかっています。
+バロンが人気ですが、実際にすわってみてシルフィーにしました。&lt;/p&gt;
+
+&lt;p&gt;関連: &lt;a href=&#34;http://blog.eiel.info/blog/2014/06/08/office-chair/&#34;&gt;オフィスチェアを買いました。- LT駆動開発04 | そんなこと覚えてない&lt;/a&gt;&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=B00IP2Y5CY&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&#34;q-これがないと-というお気に入りツール-環境はありますか:06f9c3819e6cb8a4cb72e0add76f3ab5&#34;&gt;Q. これがないと！というお気に入りツール・環境はありますか？&lt;/h2&gt;
+
+&lt;p&gt;お気に入りというわけではないですが、キーボードをカスタマイズしているので、&lt;a href=&#34;https://pqrs.org/osx/karabiner/index.html.ja&#34;&gt;Karabiner&lt;/a&gt;がないと戦えません。&lt;/p&gt;
+
+&lt;h2 id=&#34;q-フリーランスになりたい-と相談されることありますか-また答えは:06f9c3819e6cb8a4cb72e0add76f3ab5&#34;&gt;Q. 「フリーランスになりたい」と相談されることありますか？また答えは？&lt;/h2&gt;
+
+&lt;p&gt;ない。&lt;/p&gt;
+
+&lt;p&gt;会社員が楽だと思う。ただ、能力が偏っている人はうまく就職しないとつらいので、アウトプットをして自分の生活やスキルにあった就職をしたりしたほうがよいと思います。
+起業まではいかない、フリーランスの場合は、お客さんの都合にふりまわされないようにしておけば、負担がなく仕事ができると思います。&lt;/p&gt;
+
+&lt;p&gt;経営がしたい。理想の会社をつくりたい。などなど思う方はやってみてもよいと思います。&lt;/p&gt;
+
+&lt;p&gt;要介護がついてしまうような病気があっても戦えます。&lt;/p&gt;
+
+&lt;p&gt;さて、15日目の記事は……きの子さんの&lt;a href=&#34;http://nocono.net/post/2015/freelance/&#34;&gt;【2015年振り返り】アウトプットしていたら仕事がたくさんやってきた！&lt;/a&gt;です。この記事を参考のこの記事を書きました。というか、まるまるコピーしているところもあります。&lt;/p&gt;
+
+&lt;p&gt;(あれ…本題をちゃんと書いてない気がする)&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>HMCN Vol.2 でその他の広島のコミュニティについて話をした。</title>
+          <link>http://blog.eiel.info/blog/2015/12/13/hmcn2-etc-community/</link>
+          <pubDate>Sun, 13 Dec 2015 19:57:49 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/12/13/hmcn2-etc-community/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://hmcn.doorkeeper.jp/events/34823&#34;&gt;HMCN(Hiroshima MotionControl Network)&lt;/a&gt;でライトニングトークをしました。&lt;/p&gt;
+
+&lt;p&gt;タイトルは「「Code for Hiroshima」「HMCN」「その他大勢」というタイトルです。
+うたわれるものです。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;36dbed7af79d4f6bb24ea31530670def&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;タイトルのとおり&lt;a href=&#34;http://code4hiroshima.org/&#34;&gt;Code for Hiroshima&lt;/a&gt;を紹介する話とみせかけて、広島のITコミュニティはもっと横連携をしたい、という話をしました。
+例に岡山をとっていますが、岡山はとても横の繋りが強いですね。岡山県を飛び越えての集客ができてるのがなによりもすごいところです。&lt;/p&gt;
+
+&lt;p&gt;さて、モーションコントロールのITコミュニティなので、それっぽい話もしなきゃいけないと思って、iPhoneのセンサーをつかって遊びでつくったプロダクトがあったので、これも紹介しておきました。&lt;/p&gt;
+
+&lt;p&gt;まずは、去年つくったデジタル万華鏡です。&lt;/p&gt;
+
+&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/sMJtJsOGcPg&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/GXqg2EEn-d4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;これはこれで、進化させてみようかなとちょっとおもってたりもします。&lt;/p&gt;
+
+&lt;p&gt;今年つくったやつもありますが、これはまた別に紹介したいと思います。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、&lt;a href=&#34;https://osh-web.doorkeeper.jp/events/35060&#34;&gt;オープンセミナー広島&lt;/a&gt;と&lt;a href=&#34;http://connpass.com/event/23038/&#34;&gt;広島の合同忘年会&lt;/a&gt;をよろしくお願いします。&lt;/p&gt;
+
+&lt;p&gt;そういえば、スライド内でつかったてきとうな広島のITコミュニティの関連図も別途アップしてみました。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;4ffad3197f584b8cb5b47e4b0b7d494d&#34; data-ratio=&#34;2.52216748768473&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>GAE/GoでChatWorkボットつくって遊んだ話 - #LT駆動 21</title>
+          <link>http://blog.eiel.info/blog/2015/12/06/ltdd-21-gae-go-chatwork/</link>
+          <pubDate>Sun, 06 Dec 2015 21:58:04 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/12/06/ltdd-21-gae-go-chatwork/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA21&#34;&gt;LT駆動開発21&lt;/a&gt;でLTしてきました。
+タイトル「GAE/GoでChatWorkボットつくって遊んだ話」です。&lt;/p&gt;
+
+&lt;p&gt;最近ちょっとしたアプリで頻繁に起動するものはGAE/Goで走らせています。
+そうでないものはHaskellやScalaでherokuにおくことが多いです。&lt;/p&gt;
+
+&lt;p&gt;今回は&lt;a href=&#34;https://github.com/griffin-stewie/go-chatwork&#34;&gt;go-chatwork&lt;/a&gt;で遊びました。
+正確にはChatWorkで動く、チャットボットをつくって遊びました。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;349b6dcd53784f82b23d86b1d1e2ff25&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;LT駆動はゆるふわに個々が学んだことを発表していてとても楽しいです。気軽に参加してみてください。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>内包表記とPythonと… - #LT駆動 21</title>
+          <link>http://blog.eiel.info/blog/2015/12/06/ltdd-21-python-option/</link>
+          <pubDate>Sun, 06 Dec 2015 21:50:42 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/12/06/ltdd-21-python-option/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA21&#34;&gt;LT駆動開発21&lt;/a&gt;でLTしてきました。
+タイトル「内包表記とPythonと…Option」です。
+PyCon Mini Hiroshima用に用意してたネタですが、参加できなかったので放出しました。
+Pythonの内包表記でScalaのOptionのようなものをつくってみました。&lt;/p&gt;
+
+&lt;p&gt;Pythonの内包表記はScalaではfor式で表現ができます。
+Scalaではリスト以外のものでもfor式が使えます。
+代表格として&lt;code&gt;Option&lt;/code&gt;が上げられます。
+ということで、PythonにもOptionクラスをつくり内包表記で利用できるようにしてみました。
+スライドに登場するように内包表記に対応するために、&lt;code&gt;__iter__&lt;/code&gt;と&lt;code&gt;next&lt;/code&gt;メソッドを実装をしています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Option:
+    def __init__(self, value):
+        self.value = value
+    def __iter__(self):
+        return self
+    def next(self):
+        if self.value == None:
+            raise StopIteration
+        else:
+            ret = self.value
+        self.value = None
+            return ret
+    def __str__(self):
+          if self.value == None:
+               return &amp;quot;Nothing&amp;quot;
+          else:
+               return &amp;quot;Some(%d)&amp;quot; % self.value
+
+def add(x, y):
+  return [ x_+ y_ 
+    for x_ in x 
+    for y_ in y
+  ]
+
+add(Option(1), Option(2))    # =&amp;gt; [3]
+add(Option(1), Option(None))  # =&amp;gt; []
+add(Option(None), Option(2))  # =&amp;gt; []
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;LT駆動はゆるふわに個々が学んだことを発表していてとても楽しいです。気軽に参加してみてください。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;c891be7c13ac4b8b8076e321e11b352d&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>普通の右上をゆこう - ふつうの広島 Advent Calendar 2015</title>
+          <link>http://blog.eiel.info/blog/2015/12/01/standard-2016/</link>
+          <pubDate>Tue, 01 Dec 2015 00:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/12/01/standard-2016/</guid>
+          <description>
+
+&lt;p&gt;本記事は&lt;a href=&#34;http://www.adventar.org/calendars/995&#34;&gt;ふつうの広島 Advent Calendar 2015&lt;/a&gt;の1日目の記事です。&lt;/p&gt;
+
+&lt;p&gt;ふつうの広島 Advent Calendarは広島の「ふつう」なところとこを書いたりするらしいです。
+自分にとってあたりまえなことは、意外と誰かにとって「すごい」かもしれません。&lt;/p&gt;
+
+&lt;p&gt;この記事では広島はさておいて、そんな、「ふつう」について考えてみます。&lt;/p&gt;
+
+&lt;p&gt;私が言う「ふつう」とは「普通の積み重ね」による当たり前や、習慣から生み出されるチカラと考えています。
+「ふつう」はある種の理想や、最強の自分自身かもしれません。もしかすると、当たり前すぎて気づかない空気のようなものかもしれません。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、「普通の右上をゆくのがふつう」です。ちょっとだけ普通よりすごい「ふつう」になりましょう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;「ふつう」とはなんだろう&lt;/li&gt;
+&lt;li&gt;楽しい方向へずれてみよう&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;ふつうとはなんだろう:deebb48eedf3a9dca9eb9dc7cf97b1aa&#34;&gt;ふつうとはなんだろう&lt;/h1&gt;
+
+&lt;p&gt;まず「ふつう」とは、なんなのかを考えてみましょう。&lt;/p&gt;
+
+&lt;p&gt;「ふつう」とは、&lt;a href=&#34;http://www.loveruby.net/ja/&#34;&gt;青木峰郎&lt;/a&gt;の著書のシリーズである「ふつうシリーズ」をリスペクトしたものです。&lt;/p&gt;
+
+&lt;p&gt;「ふつうシリーズ」は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4797328355?tag=eiel-22&amp;amp;camp=1027&amp;amp;creative=7407&amp;amp;linkCode=as4&amp;amp;creativeASIN=4797328355&amp;amp;adid=10VYQSGPFZSTTNHNV8ZM&amp;amp;&#34;&gt;ふつうのLinuxプログラミング&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4797373970?tag=eiel-22&amp;amp;camp=1027&amp;amp;creative=7407&amp;amp;linkCode=as4&amp;amp;creativeASIN=4797373970&amp;amp;adid=1ZFBG64ZG0HC7JMPTCQQ&amp;amp;&#34;&gt;ふつうのHaskellプログラミング&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4797337958?tag=eiel-22&amp;amp;camp=1027&amp;amp;creative=7407&amp;amp;linkCode=as4&amp;amp;creativeASIN=4797337958&amp;amp;adid=1Y82ZT8H412G5C3J8ZZE&amp;amp;&#34;&gt;ふつうのコンパイラをつくろう&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;の3つが刊行されています。&lt;/p&gt;
+
+&lt;p&gt;どれも良書で、ふつうのLinuxプログラミングは駆け出しのプログラマの頃に読んでとても勉強になりました。
+ふつうのHaskellプログラミングはHaskellの入門書としては、今はあまりおすすめしませんが、関数型の入門としては出版当時は数少ない良書だったと思います。&lt;/p&gt;
+
+&lt;p&gt;プログラマにしかわからない説明になりますが、ふつうのプログラマはLinuxのプログラミングをするし、Haskellのプログラミングをするし、コンパイルをつくるのです。
+普通というにはちょっとすごく思えるはずです。
+だから、そんな普通を目指す人を「ふつう」と呼びたいと思います。&lt;/p&gt;
+
+&lt;p&gt;「ふつう ≧ 普通」なのです。ふつうは普通よりちょっとすごいです。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、僕は&lt;strong&gt;普通よりちょっとだけすごい「ふつうのプログラマ」を目指す旅の途中&lt;/strong&gt;です&lt;/p&gt;
+
+&lt;p&gt;そんな思いを基に2015年5月に行われた&lt;a href=&#34;http://blog.eiel.info/blog/2015/05/16/oso-2015/&#34;&gt;岡山のイベントで&lt;/a&gt;「ふつうのプログラマ」についてお話しました。&lt;/p&gt;
+
+&lt;h1 id=&#34;楽しい方向へずれてみよう:deebb48eedf3a9dca9eb9dc7cf97b1aa&#34;&gt;楽しい方向へずれてみよう&lt;/h1&gt;
+
+&lt;p&gt;さて、「ふつう」を目指すことにしました。なにをすればいいでしょうか。&lt;/p&gt;
+
+&lt;p&gt;なりたい自分を想像して、なりたい自分になれるような習慣をつくりましょう。
+2週間など短いタイムボックスを設定して、効果を計測するのがイマドキらしいです。&lt;/p&gt;
+
+&lt;p&gt;良い習慣が思いつかないときは、すごい人たちの習慣を真似することが良いです。
+すごい人たちの習慣には、すごい理由が隠されているはずです。
+しかし、毎日続けるのは難しいかもしれません。というか、だいたい難しいです。
+自分ができるようにアレンジしていきましょう。&lt;/p&gt;
+
+&lt;p&gt;アレンジしていく時に大切なことは、「自分が楽しい方向」であることです。
+習慣なので、続けられなければ意味がありません。
+続けられるように、目標を誤らないように、変化できてこそのイマドキです。
+楽しいなら続けられますよね。&lt;/p&gt;
+
+&lt;p&gt;上を目指すのも疲れるので、すごいを目指すわけでない、「普通」の私達なので右(楽しい方向)にずれるのです。
+そのズレがやがて、あなただけの色になることでしょう。(たぶん)&lt;/p&gt;
+
+&lt;p&gt;ちなみに、私は毎日GitHubを更新するという継続や、毎月1回みんなの前で何かをするという継続をしています。
+たいしたことではないですが、ふりかえると大きな成果がのこるのを感じています。&lt;/p&gt;
+
+&lt;h1 id=&#34;まとめ:deebb48eedf3a9dca9eb9dc7cf97b1aa&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;p&gt;「すごい」になるのは大変なので「ふつう」をめざします。
+普通なんだけど、ちょっとすごい。&lt;/p&gt;
+
+&lt;p&gt;そんな「ふつう」をめざすときに、毎日が楽しくなるようにアレンジすると毎日が楽しくなります。
+楽しく続けることができれば「ふつう」がやがて誰かの「すごい」になると思います。&lt;/p&gt;
+
+&lt;p&gt;ふつうの広島AdventCalendar1日目でした。明日は&lt;a href=&#34;http://twitter.com/tsuchim/&#34;&gt;tsuchim&lt;/a&gt;さんの&lt;a href=&#34;http://eikai.co.jp/2015/12/681/&#34;&gt;ふつうの人生をおくりたい&lt;/a&gt;です。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>WebアプリをつくるならGAEは勉強になる気がするという話をした - #LT駆動 20</title>
+          <link>http://blog.eiel.info/blog/2015/11/08/ltdd-20-gae-go/</link>
+          <pubDate>Sun, 08 Nov 2015 00:00:25 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/11/08/ltdd-20-gae-go/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA20&#34;&gt;LT駆動開発20&lt;/a&gt;でWebアプリをつくるならGAEは勉強になる気がするという話をした。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;0b5bd19c823846ab963ae44531e35988&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;このスライドはすごく雑につくった。
+中身の整理とかほとんどしていない。
+ただ、Google App Engineに載せるアプリケーションを無料枠内でという制限を設けて作るのは、スケールアウトできるウェブアプリをつくる上で学べることがたくさんあると感じている。
+それをだらだらかいたスライドを使いながら話した。&lt;/p&gt;
+
+&lt;p&gt;GAEにある制限の多くはスケールアウトするための制限なはずで、GAEがもってる様々な機能をうまく使うことで制限内でがんばることができる。
+また、早い段階で制限にひっかかるため、学べることも多いと感じた。&lt;/p&gt;
+
+&lt;p&gt;なので、ある程度ウェブアプリの作り方になれたらGAEで遊んでみることをちょっとおすすめしたい。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>HaskellのWebApplicationFrameworkを試してみるという話をした - #LT駆動 20</title>
+          <link>http://blog.eiel.info/blog/2015/11/07/ltdd-20-haskell-web-application-framework/</link>
+          <pubDate>Sat, 07 Nov 2015 23:27:49 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/11/07/ltdd-20-haskell-web-application-framework/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA20&#34;&gt;LT駆動開発20&lt;/a&gt;で「HaskellのWeb Application Frameworkを試してみる」という話をした。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;88440dd1822743159eed085c25fe1850&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;試したのはいわゆるController的な部分になる。最近Webというのはヘキサゴナルアーキテクチャのアダプタにみえてしまう病にかかっています。&lt;/p&gt;
+
+&lt;p&gt;話しが逸れました。
+前々からHaskellでWeb APIをかきたかったのですが、&lt;a href=&#34;https://twitter.com/uadachi&#34;&gt;小噺マスターさん&lt;/a&gt;と小噺をしている際に「Haskellのフレームワークってなんですかねー？」という話が出たのを機会にちょっと調べた。
+気軽にデプロイできることもわかったし、これを機会にざくっと試してみたという感じです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/scotty-web/scotty&#34;&gt;scotty&lt;/a&gt;に改良を加えたのが&lt;a href=&#34;https://www.spock.li/&#34;&gt;Spock&lt;/a&gt;って感じの印象をうけました。ふたつとも手軽に使えました。
+&lt;a href=&#34;http://www.yesodweb.com/&#34;&gt;Yesod&lt;/a&gt;は別格で難しく感じましたが、機能的にはすごいなーって思いました。
+3つともコードはシンプル。&lt;/p&gt;
+
+&lt;p&gt;しばらくは、Spockで遊びつつYesodを勉強しようかと思っております。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/haskell-webframework-sample&#34;&gt;ソースコード&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;関連:707e45d28c7b6700e76d66b6d7c8ecb5&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/eielh/items/09b9f1c21f7d16e09ede&#34;&gt;stackを使ってhaskellで最小のWeb Applicationしてみる - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/eielh/items/e52aeee1419ba611a84d&#34;&gt;herokuにhaskellのウェブアプリをdocker:releaseをつかってデプロイしてみる - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Dockerコンテナの中からDockerコンテナを動かす話をした - LT駆動19</title>
+          <link>http://blog.eiel.info/blog/2015/10/04/ltdd-19-docker-bind-docker/</link>
+          <pubDate>Sun, 04 Oct 2015 11:44:54 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/10/04/ltdd-19-docker-bind-docker/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT駆動開発19&#34;&gt;LT駆動開発19&lt;/a&gt;で「Docker &amp;gt;&amp;gt;= Docker」という話した。
+「どっかーばいんどどっかー」と読む。
+cronの中でDockerコマンドがつかいたかった。そのcrondはDockerホストでは当然動かしたくない。Dockerコンテナ内におきたい。
+Remote APIでたたいてもいいけど、ちょっとしたものならコマンドが楽でよい。&lt;/p&gt;
+
+&lt;p&gt;dockerが使えるイメージはdockerがある。docker run サブコマンドは&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker run イメージ コマンド
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なので、イメージを節約して、dockerイメージをつかいまわすと、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker run docker docker run docker ls`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;という不思議な呪文になった。
+実際はDockerfileでRUNで指定したりするので、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker run docker docker run hoge
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とかですんだり、そもそも&lt;code&gt;docker run hoge&lt;/code&gt;で済むようにつくることになるだろう。&lt;/p&gt;
+
+&lt;p&gt;ちなみに&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker run docker &amp;quot;docker run docker ls&amp;quot;`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;だとうまくうごかない。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker run docker bin/sh -c &amp;quot;docker run docker ls&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とすると良い。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sh -c&lt;/code&gt; の中でdockerコマンドで複数のプログラムをうごかしてパイプで処理をつないだりもできる。
+そういう話をしました。&lt;/p&gt;
+
+&lt;p&gt;あと一番大事なことだけど、Docker Hostが動いているコンピュータ上のdockerコマンドは&lt;code&gt;/var/run/docker.sock&lt;/code&gt;をつかって通信しているようなので、&lt;code&gt;-v /var/run/docker.sock:/var/run/docker.sock&lt;/code&gt;を共有してやると、コンテナ内からHostと簡単に通信できる。
+これって安全なのかはよくしらない。&lt;/p&gt;
+
+&lt;p&gt;Dockerの中でDockerを起動すると Docker Docker A になりそうだけど、Docker A になるので、 「Docker &amp;gt;&amp;gt;= Docker」というタイトルにしてみました。いま気づいたけど、型が不一致である。「Docker &amp;gt;&amp;gt;= _ -&amp;gt; Docker」 とすべきだったのでは…。
+もうそれなら「Docker &amp;gt;&amp;gt; Docker」じゃん…。&lt;/p&gt;
+
+&lt;p&gt;スライドは即興でつくったので雑です。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;c9b2baf5752447559ac85dd46a1555ef&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>haskellとpython - #LT駆動 開発19</title>
+          <link>http://blog.eiel.info/blog/2015/10/03/ltdd-19-haskell-and-python/</link>
+          <pubDate>Sat, 03 Oct 2015 13:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/10/03/ltdd-19-haskell-and-python/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT駆動開発19&#34;&gt;LT駆動開発19&lt;/a&gt;で「HaskellとPython」というLTをしました。&lt;/p&gt;
+
+&lt;p&gt;2015年11月22日(日)に&lt;a href=&#34;http://hiroshima.pycon.jp&#34;&gt;Pycon mini Hiroshima&lt;/a&gt;が開催されますが、参加できないのが濃厚なので、お詫びために告知をすることにしました。&lt;/p&gt;
+
+&lt;p&gt;Pycon miniのテーマが「○○とPython」なので、「HaskellとPython」というアプローチにしました。
+Pythonが影響を受けた言語の中にHaskellがあり、Haskellを書いてるとPythonとHaskellは結構近いという印象をもっていて、思いついた似てるところを書きだしました。
+本当は11月のLT駆動のネタにするつもりだった1ヶ月じっくり考えようとおもっていたのですが、ほどよいネタにしやすい&lt;a href=&#34;https://twitter.com/mrtc0&#34;&gt;@mrtc0&lt;/a&gt;ツイートがあったので、今月にまわしました。&lt;/p&gt;
+
+&lt;p&gt;Haskell自体を学ぶことはいろんなプログラミング言語を使う上で活きると僕は感じているので、興味があれば勉強してみてください。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;cac0a67896ca44bcb1ad447dee832116&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;最近のLT駆動は、僕が関数型系の話をして、@tsuda_ahrさんがMS系の話をして、@nemumupoyoがネットワークノ話をして、@mrtc0氏がネットワーク便利ツールを照会してくれて、@akira345さんがハードウェア系の話をしてくれて、@k2worksさんがソフトウェア開発のノウハウを生活に活かす話をするのが定番になってます。とても楽しいです。&lt;/p&gt;
+
+&lt;p&gt;今月は大学生が二人、初LT駆動で、若いのにナイスなLTをしていました。&lt;/p&gt;
+
+&lt;p&gt;毎月第一土曜日に開催されるので気軽に参加してみてください。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連リンク:2819d196eaaf442f1066e3efa4751243&#34;&gt;関連リンク&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://hiroshima.pycon.jp&#34;&gt;PyCon mini Hiroshima&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/Python&#34;&gt;Python - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.python.org/2/howto/functional.html&#34;&gt;Functional Programming HOWTO — Python 2.7.10 documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://postd.cc/becoming-productive-in-haskell/&#34;&gt;Haskellで生産性を高める-Pythonからの移行 | プログラミング | POSTD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/yutaadachi/scala-kansai-summit-2015&#34;&gt;チャットワークScala化プロジェクトの一年 / Scala Kansai Summit 2015 // Speaker Deck&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>OSC2015 HiroshimaでLT駆動のふりかえりの発表をした</title>
+          <link>http://blog.eiel.info/blog/2015/09/19/osc-2015/</link>
+          <pubDate>Sat, 19 Sep 2015 18:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/09/19/osc-2015/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://www.ospn.jp/osc2015-hiroshima/&#34;&gt;OSC2015 Hiroshima&lt;/a&gt;がありました。&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT駆動開発-ベストセッションズ2-–-LIGHTBAKO&#34;&gt;LT駆動開発&lt;/a&gt;のセミナーがあり、そこで合作LTをしました。&lt;/p&gt;
+
+&lt;p&gt;僕がスライドをつくって、&lt;a href=&#34;https://twitter.com/kakenavi&#34;&gt;@kakenavi&lt;/a&gt;さんがスピーカを担当したらしいです。
+らしいというのは、僕が風邪で休んだからです。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;d91b2987db744fcf9ec421fec567feb6&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;技術ネタとしては、qコマンドを使いました。CSVをSQLでごにょれます。便利です。
+&lt;a href=&#34;https://github.com/harelba/q&#34;&gt;https://github.com/harelba/q&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;勉強会で発表しなきゃいけない…っておいこむと勉強できるので、毎月追い込みをかけるのがLT駆動開発です。(やや誇張あり)&lt;/p&gt;
+
+&lt;p&gt;これまでLT駆動開発は18回行われていてトータルで180個以上のLTが行われています。壮絶です。
+一回あたり10回のLTがあるようです。
+現在、ユニーク参加者は31名います。1回しか発表者していない人は3人しかいません。90%近くのリピート率です。高いです。&lt;/p&gt;
+
+&lt;p&gt;蛇足ですが、よく調べるとトータルで31回LTしている人がいますね。頭がおかしいですね。&lt;/p&gt;
+
+&lt;p&gt;発表者内容は技術ポエムを除くと開発に関したものが多かったです。
+ついで、プログラミング言語、セキュリティの話題でした。
+これは開発している人が参加している多いのと、セキュリティに興味のある学生が多いため、この傾向になっています。ポエムは気軽に話せますから必然的に増えます。というかジャンルがうまくわけられなかったものは全部ポエムに分類させてしまっからなのもあります。&lt;/p&gt;
+
+&lt;p&gt;関連するプログラミング言語も調査してみました。
+Ruby JavaScript Python Haskell という順序でした。Haskellが広島で高い人気があることがうかがえます。
+Rubyが多いのは、LT駆動の前進がRubyの勉強会だった影響です。JavaScriptは今いけいけなので必然的におおくなってきている気がします。&lt;/p&gt;
+
+&lt;p&gt;発表者のスライドも結構ネットで拡散しており、はてなブックマークが800を越えているものがありました。すごいです。(僕のものではありません)&lt;/p&gt;
+
+&lt;p&gt;というわけで、LT駆動したことの世の中の影響は微々たるものですが、あるような気がします。
+LTをすると世界の真実に近づけますよ。たぶん。&lt;/p&gt;
+
+&lt;p&gt;あと、ロマシング佐賀はスクウェア、エニックスの著作物です。
+&lt;a href=&#34;http://romasaga.jp&#34;&gt;http://romasaga.jp&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>モナドがくれたものという話をした - #LT駆動</title>
+          <link>http://blog.eiel.info/blog/2015/09/05/ltdd-18/</link>
+          <pubDate>Sat, 05 Sep 2015 23:37:56 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/09/05/ltdd-18/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA18&#34;&gt;LT駆動開発18 - 秋(not 安芸)の宮島&lt;/a&gt;で「モナドがくれたもの」というタイトルでLTしてきました。雑なLTです。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;3a6147ab3edb43948faee24621302505&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;モナドの利点を問われたので、似ているパティーン(パターン)が除去できるんだぜ。みじかくかけるんだぜ。
+「裏で毎回同じことやってくれてるんすよ。これはコンピュータの得意なことだよな。だけど、その内容はモナドの種類によって違うんだぜ」&lt;/p&gt;
+
+&lt;p&gt;的な話をしておきました。&lt;/p&gt;
+
+&lt;p&gt;動作確認につかったコードはここに投げておきます。&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/eiel/1c96044764224ed91e32.js&#34;&gt;&lt;/script&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>HaskellでGitHub APIライブラリをつかってみた - #LT駆動</title>
+          <link>http://blog.eiel.info/blog/2015/08/02/ltdd-17/</link>
+          <pubDate>Sun, 02 Aug 2015 13:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/08/02/ltdd-17/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA17&#34;&gt;LT駆動開発17&lt;/a&gt;でHaskellの&lt;a href=&#34;https://hackage.haskell.org/package/github&#34;&gt;github&lt;/a&gt;ライブラリをつかった話をした。
+ついでにstackを試したので、その話をした。&lt;/p&gt;
+
+&lt;p&gt;Haskellは簡単な具体例がすくないってことで、ちょっとしたコードもどんどんかいていこう。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;520343609652432e88d69ae2b51e2063&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;正直、雑なLTだった。&lt;/p&gt;
+
+&lt;p&gt;Haskellでコードかくの楽だなぁ。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:56fe9c74b2d5936aa42a3d83aa746126&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/Spep/blob/master/app/Main.hs&#34;&gt;ソースコード&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2015/08/01/scala-kansai-summit-2015/&#34;&gt;突然Scalaプロジェクトに参加することになったことを話した - #scala_ks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>突然Scalaプロジェクトに参加することになったことを話した - #scala_ks</title>
+          <link>http://blog.eiel.info/blog/2015/08/01/scala-kansai-summit-2015/</link>
+          <pubDate>Sat, 01 Aug 2015 17:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/08/01/scala-kansai-summit-2015/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://summit.scala-kansai.org&#34;&gt;Scala関西Summit 2015&lt;/a&gt;でLTをした。
+上からの重圧を感じて申し込みしておいた。
+関西のイベントだし、たくさん申し込みがあるだろう。
+概要からして期待値が低いから落ちるはずだ。&lt;/p&gt;
+
+&lt;p&gt;そんなことを思っていたら発表することになった。&lt;/p&gt;
+
+&lt;p&gt;最近、Scalaなプロジェクトで仕事をしている。
+完全にScala初心者だけど、なんとかやれているし、とても楽しい。
+「&lt;strong&gt;Scala初心者だけどScalaな仕事をしたいと思う人の背中を押したい&lt;/strong&gt;」とおもって準備をしたが、Haskellを勉強してるが故のすんなり入れた疑惑があるので説得力が低い。&lt;/p&gt;
+
+&lt;p&gt;Haskellという視点はなるべく捨てて話をしたつもりだ。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;5977d94225a34724aaee80a43fc3d722&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;先にあだちさんにネタバレをかるくされた…つらくはない。&lt;/p&gt;
+
+&lt;p&gt;Scala初心者であることをアピールするためにGitHubにおいてるリポジトリの言語を集計した。
+これをScalaで書いてネタにしようとおもったらScalaが難しくて失敗におわった。
+しかし、APIを自分で叩いてやれば、なんとかなったとも思うが、Haskellでかいてみたらすんなりかけてしまった。
+その話は&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT駆動開発17&#34;&gt;#LT駆動&lt;/a&gt;17で使うことにした。&lt;/p&gt;
+
+&lt;p&gt;プロジェクトのチームメンバーは面白い人たちばかりでテレワークという奴なのに日々楽しく過ごさせていただいている。
+とても感謝している。&lt;/p&gt;
+
+&lt;p&gt;Scalaについてだけど、最初はたくさんの焦りを感じたけど4日目ぐらいから、しばらくはやれそうな感じはした。
+知識不足はあきらかだけど、なんとなくのコードをかいてプルリクエストをすれば手厚いフォローがいただけて、とても勉強になった。&lt;/p&gt;
+
+&lt;p&gt;「こんなの書ける気がしない」から「書いたらこんなのになった」って感じの数日間だった。&lt;/p&gt;
+
+&lt;p&gt;Scalaのコードになれるのに、&lt;a href=&#34;https://www.amazon.co.jp/dp/4798125415?tag=eiel-22&amp;amp;camp=1027&amp;amp;creative=7407&amp;amp;linkCode=as4&amp;amp;creativeASIN=4798125415&amp;amp;adid=0DRHA1E5K6EHG41CBAY2&amp;amp;&#34;&gt;Scala逆引きレシピ&lt;/a&gt;には大変お世話になった。
+通勤時間でプロジェクトに参加するまでに3回流すことができたが、コードは1行も書く時間は確保できなかった。
+ちなみにゴールデンウィークは熱を出してそれどころではなかった。
+IntelliJ IDEAも実質、プロジェクト参加してから使い方を学ぶことになってしまった。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=4798125415&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Scalaを積極的に採用しようとしている人たちは、技術的に挑戦している人たちが多くて「大変楽しい」と思うことを最後に伝えたいと残しておきます。&lt;/p&gt;
+
+&lt;p&gt;というわけで、HaskellもScalaも楽しいです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>自治体との対話を考えていきたい - ヒロハタ中間発表会を終えて</title>
+          <link>http://blog.eiel.info/blog/2015/07/26/intercept-presentanion-in-hirohata/</link>
+          <pubDate>Sun, 26 Jul 2015 22:35:51 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/07/26/intercept-presentanion-in-hirohata/</guid>
+          <description>
+
+&lt;p&gt;この記事は&lt;a href=&#34;http://www.pref.hiroshima.lg.jp/soshiki/231/hirohataproject.html&#34;&gt;ヒロハタ&lt;/a&gt;というプロジェクトに関わった人がみんなが「参加してよかった」って思えるようになって欲しいから書いている。
+そして、広島県に限らず市民が自治体に振り回されないようになって欲しい。&lt;/p&gt;
+
+&lt;p&gt;ひろしま発人材集積促進プロジェクトというプロジェクトが広島県によって実施されている。
+現在、「ウェブ分野」と「デザイン分野」が実施されており、ウェブ分野の通称が「ヒロハタ」である。(たぶん)&lt;/p&gt;
+
+&lt;p&gt;脱線するが、デザイン分野はあまりウェブに情報がない。ウェブ分野はウェブ分野だけあって、ウェブにそこそこ情報がある。素晴らしい。&lt;/p&gt;
+
+&lt;p&gt;話を戻す。ヒロハタがスタートして1年経過した。そこで今回、中間発表が行なわれた。
+中間発表の肝は中間にも関わらず、現時点で優秀なプランがあれば奨励金として100万円が提供されるそうです。&lt;/p&gt;
+
+&lt;p&gt;その中で感じたのは、ヒロハタの現場と県の審査基準のズレである。&lt;/p&gt;
+
+&lt;p&gt;この記事では、その話と私が発表した内容についての話をする。&lt;/p&gt;
+
+&lt;p&gt;本記事の概要は次の通り。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ヒロハタは「広島の鷹野雅弘」を育てるのが目的ではないのか&lt;/li&gt;
+&lt;li&gt;スタートアップに必要なのはウェブデザイナーではなくてエンジニアだよね&lt;/li&gt;
+&lt;li&gt;そんなわけで私が話したこと&lt;/li&gt;
+&lt;li&gt;ヒロハタはどう進むが良いのだろうか&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;ヒロハタは-広島の鷹野雅弘-を育てるのが目的ではないのか:c711aaada0102d43a8eae906c798c3db&#34;&gt;ヒロハタは「広島の鷹野雅弘」を育てるのが目的ではないのか&lt;/h1&gt;
+
+&lt;p&gt;このウェブ分野は、&lt;strong&gt;「Web等の活用による事業化を目指す！」&lt;/strong&gt;というのがテーマである。
+なので、中間発表の審査基準は、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;新規性・独創性&lt;/li&gt;
+&lt;li&gt;市場性・成長性&lt;/li&gt;
+&lt;li&gt;実現性・収益性&lt;/li&gt;
+&lt;li&gt;熱意・表現力&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;なるほど。スタートアップを評価する基準としては一般的だ。&lt;/p&gt;
+
+&lt;p&gt;ところで、このヒロハタの指導者をみてみよう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://swwwitch.com/takano/&#34;&gt;鷹野 雅弘（たかの・まさひろ）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;プロフィールをみてみよう。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;株式会社スイッチを1996年から経営（現在、19期目）。コアスキルは、グラフィックデザイン、DTP（プリントメディア）やWebの制作。 デザインだけでなく、ビジネスドキュメントの制作などにも精通。これらに関して講演や教室でのトレーニング業務などを20年以上にわたり行っている。 Web制作者向けのセミナーイベントCSS Niteを主宰。400回を超える関連イベントを通して、参加者はのべ50,000人弱。 都内での開催を中心に、全国23の都道府県、および韓国にて展開。 年間200万ビューのDTPに関するブログ「DTP Transit」を運営。 テクニカルライターとして20冊以上の著書を持つ。1万部を超えるヒット作を連発し、総販売数は14万部超。 そのほか、書籍の企画編集、スクールのカリキュラム開発などを企画する。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;審査基準は良いスタートアップかどうかである。指導者のコアスキルはグラフィックデザイン、ウェブ制作である。
+さて、&lt;strong&gt;指導者の指示に従って行動することで、素晴しいビジネスプランできるのだろうか&lt;/strong&gt;。とても疑問である。実際、指導者が進む方向と、審査基準がズレていたと思う。&lt;/p&gt;
+
+&lt;p&gt;その結果、今回の審査結果は、ビジネスプランとしてはどれも弱いため、「優秀なプランはない」という結果になったようだ。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;当たり前だ&lt;/strong&gt;。はじめからわかってたよ!&lt;/p&gt;
+
+&lt;p&gt;ここで知事の記者会見を見てみよう。&lt;/p&gt;
+
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/ADuMQ7aBSAM&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;一定の分野で人を惹きつけるチカラのある人材を核として、磁石にくっつくような形で人材を集積を拡大してくれぇ、というのがいろんなところで見られまして(中略)この人材集積の効果を狙って、人を惹きつけられる人を来てもらって、いろんな活動をすることによって高度人材の定着を狙ってすすめるものであります。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;本来の目的を考えると、「&lt;strong&gt;広島の鷹野雅弘&lt;/strong&gt;」を育てるのが目的だと思うのだけど、違うのだろうか。&lt;/p&gt;
+
+&lt;h3 id=&#34;指導者の立場-カタリスト:c711aaada0102d43a8eae906c798c3db&#34;&gt;指導者の立場。カタリスト。&lt;/h3&gt;
+
+&lt;p&gt;指導者として設定された、鷹野さんは事業化を目指すという観点では自身が指導者としては的確でないのは理解されている。
+この記事をみればわかる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://swwwitch.com/hirohata/&#34;&gt;ヒロハタ（ひろしま発人材集積促進プロジェクト）について - 鷹野雅弘（スイッチ）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最初にかいてある。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;ヒロハタ（ひろしま発人材集積促進プロジェクト）は、創業支援ではありません。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;現実のカタリストと広島県の思う指導者のズレをまず解消して欲しいところである。&lt;/p&gt;
+
+&lt;p&gt;言わば、これはちゃぶ台返しである。&lt;/p&gt;
+
+&lt;h1 id=&#34;スタートアップに必要なのはウェブデザイナーよりもまずエンジニアだよね:c711aaada0102d43a8eae906c798c3db&#34;&gt;スタートアップに必要なのはウェブデザイナーよりもまずエンジニアだよね&lt;/h1&gt;
+
+&lt;p&gt;このヒロハタはリーンスタートアップで進めるという方針が打ち出されている。
+さて、みなさんは&lt;a href=&#34;http://www.amazon.co.jp/リーン・スタートアップ-エリック・リース/dp/4822248976&#34;&gt;リーンスタートアップ&lt;/a&gt;や&lt;a href=&#34;http://www.amazon.co.jp/dp/4873115914/ref=pd_lpo_sbs_dp_ss_1?pf_rd_p=187205609&amp;amp;pf_rd_s=lpo-top-stripe&amp;amp;pf_rd_t=201&amp;amp;pf_rd_i=4822248976&amp;amp;pf_rd_m=AN1VRQENFRJN5&amp;amp;pf_rd_r=1DA0MH1KVVS40TJE2468&#34;&gt;Running Lean&lt;/a&gt;を読まれただろうか。
+これらを読んでみると、明らかにエンジニア向けの本である。
+しかし、ヒロハタが募集したのは、アイディアをもった人である。
+Running leanを読めば、エンジニアでなくても取り組めることがあることはわかる。
+しかし、アイディアを実現するためにエンジニアをマッチングしてあげるべきなのではないだろうか。&lt;/p&gt;
+
+&lt;p&gt;全く無視である。
+カタリスト、アシスタント、自治体の人はまずみんな読んでおくべきなのではないのでしょうか。&lt;/p&gt;
+
+&lt;p&gt;スタートアップができるのはIT技術の発展でITエンジニアがひとりでもサービスが提供できるようになったことや、3Dプリンタでプロトタイプが簡単に作れるようになったからだと最近思ってるんだけど違うんだろうか。&lt;/p&gt;
+
+&lt;p&gt;実際、こういうことがしたいのであればスタートアップウィークエンドやハッカソンをやるべきだろう。
+広島県はすでにハッカソンをやっているじゃないか。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.pref.hiroshima.lg.jp/site/innovation/hackathon1206.html&#34;&gt;第2回 レッドハッカソンひろしま&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そっちの優秀賞に奨励金を出せばいいと思う。&lt;/p&gt;
+
+&lt;p&gt;これは「広島県商工労働局 産業政策課」という譌がやっていて、ヒロハタは「広島県地域政策局 都市圏魅力づくり推進課」であるため、まったく連携しないようだ。とてももったいない。&lt;/p&gt;
+
+&lt;h1 id=&#34;そんなわけで私が話したこと:c711aaada0102d43a8eae906c798c3db&#34;&gt;そんなわけで私が話したこと&lt;/h1&gt;
+
+&lt;p&gt;そんなわけで私が伝えたかったこと&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;プログラマが魅力的な職業であること&lt;/li&gt;
+&lt;li&gt;自治体と市民が協力すべきであること&lt;/li&gt;
+&lt;li&gt;ソーシャルのチカラを使うためにみんなが同じ目的をもって進むこと&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;発表スライドはこちらである。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;45ce5a435d34456e9861a3b9ad39b755&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;伝えたいことを伝えるのに、ぎりぎり事業というキーワードを擦り、もっとも適していると思ったのが&lt;a href=&#34;http://code4japan.org&#34;&gt;Code for Japan&lt;/a&gt;のBrigate支援業務である。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://code4japan.org/brigade&#34;&gt;Code for Japan Brigadeとは？&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そんなわけで、ヒロハタがソーシャルのチカラを借りるために、僕が放った言葉は以下のとおりである。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;ja&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;ひとりひとりのチカラは小さいけれど、小さな積み上げが広島をもっと楽しくする！ &lt;a href=&#34;https://twitter.com/hashtag/hirohata?src=hash&#34;&gt;#hirohata&lt;/a&gt;&lt;/p&gt;&amp;mdash; ヒロハタ (@HiroHataP) &lt;a href=&#34;https://twitter.com/HiroHataP/status/624813407586246656&#34;&gt;2015, 7月 25&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;ヒロハタはどう進むが良いのだろうか:c711aaada0102d43a8eae906c798c3db&#34;&gt;ヒロハタはどう進むが良いのだろうか&lt;/h1&gt;
+
+&lt;p&gt;ヒロハタはこれからどうすすむと良いのだろうか。僕が思うに二つある。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;「事業化を目指す!」をもっと本格的に&lt;/li&gt;
+&lt;li&gt;たくさんの人を巻き込める魅力的な人材を育てる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;事業化というテーマを崩さないのであれば、ちゃんと事業化を目指すために必要な講師を呼ぶべきだと思う。
+この場合は鷹野さんが指導者という立場で講師を選定したり、現状のプロジェクトについて講師にフォローをしていくという流れになるのが良い気がする。
+しかし、前述したが、それは広島県はハッカソンやってるんだからそっちを活かして欲しい。&lt;/p&gt;
+
+&lt;p&gt;となると、「たくさんの人を巻き込める魅力的な人材を育てる」である。&lt;/p&gt;
+
+&lt;p&gt;これはそこそこはうまくいっている。「&lt;a href=&#34;https://www.facebook.com/h100parson?fref=ts&#34;&gt;楽しい広島100人&lt;/a&gt;」である。これは「&lt;a href=&#34;http://100person.jp&#34;&gt;北海道の楽しい100人&lt;/a&gt;」の広島版である。
+これは&lt;a href=&#34;http://hiro-hata.com/kickoff&#34;&gt;ヒロハタのキックオフイベント&lt;/a&gt;のスピーカーとして、「北海道の楽しい100人」の佐藤 みつひろさんが登場し、結果いろいろあって誕生した。&lt;/p&gt;
+
+&lt;p&gt;勝手な想像だが、この広島の楽しい100人はヒロハタの目玉プロジェクトとされ、中間発表会で優秀賞をとり、他の参加ユニットを牽引する立場になるシナリオだったんじゃないかと思う。
+しかし、結果は「ビジネスプランとしては弱い」である。&lt;/p&gt;
+
+&lt;p&gt;そんわけで最終的な発表会では、「たくさんの人を巻き込めた」という審査基準が入ると良いのではないだろうか。(知らんけど&lt;/p&gt;
+
+&lt;h1 id=&#34;まとめ:c711aaada0102d43a8eae906c798c3db&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;p&gt;このプロジェクトの本質からいうと「広島の鷹野雅弘」を育てるべきな気がする。&lt;/p&gt;
+
+&lt;p&gt;実は「広島の鷹野雅弘」もういるんだよ。そうアシスタントの三人である。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://hiro-hata.com/post/95882443993&#34;&gt;藤本 勝己&lt;/a&gt; - &lt;a href=&#34;http://www.webtouchmeeting.com/&#34;&gt;WEB TOUCH MEETING&lt;/a&gt; 主催 - &lt;a href=&#34;http://cssnite.webtouchmeeting.com&#34;&gt;CSS Nite in HIROSHIMA&lt;/a&gt; 実行委員長&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://hiro-hata.com/post/95415284495&#34;&gt;薬師神 裕樹&lt;/a&gt; - &lt;a href=&#34;https://www.facebook.com/uxhiroshimajp?fref=ts&#34;&gt;UX HIROSHIMA&lt;/a&gt; 代表&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://hiro-hata.com/post/98684361745&#34;&gt;神守　由理子&lt;/a&gt; - &lt;a href=&#34;https://www.facebook.com/groups/concrete5hiroshima/?fref=ts&#34;&gt;広島でコンクリ&lt;/a&gt; 代表&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;こういった人たちと協力して広島を盛り上げるイベントを用意するのが県の仕事なんじゃないだろうか。&lt;/p&gt;
+
+&lt;p&gt;最後に的確なツイートがあったので紹介しておこう。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;ja&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;広島県は種を蒔いて育てるんじゃなくて、木を植えようとしてる気がする。 &lt;a href=&#34;https://twitter.com/hashtag/hirohata?src=hash&#34;&gt;#hirohata&lt;/a&gt;&lt;/p&gt;&amp;mdash; takanashi66 (@takanashi66) &lt;a href=&#34;https://twitter.com/takanashi66/status/624849590789894144&#34;&gt;2015, 7月 25&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;さて、どうすれば自治体との良い連携ができるのか。道はまだまだ厳しそうだ。&lt;/p&gt;
+
+&lt;p&gt;僕はどうしたいっかって？広島がエンジニアにとって楽しい街であり、普通の人も住むのにとても便利な街になればいいと思う。そのために、生活に負担のない範囲で活動することである。&lt;/p&gt;
+
+&lt;p&gt;追伸: そういえば、ヒロハタへの参加者はまだ募集しているそうです。審査基準が変わらない場合は、すでに素晴しいビジネスモデルで活動中のスタートアップはとても有利だと思いますので、ぜひ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.pref.hiroshima.lg.jp/soshiki/231/hirohataproject.html&#34;&gt;「ヒロハタ」ひろしま発人材集積促進プロジェクト（ウェブ分野）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>AtlasでPackerが実行できるようになってて感動した</title>
+          <link>http://blog.eiel.info/blog/2015/07/16/atlas-packer-vagrant/</link>
+          <pubDate>Thu, 16 Jul 2015 23:14:57 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/07/16/atlas-packer-vagrant/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/events/event-113.html&#34;&gt;すごい広島113&lt;/a&gt;で遊んでたこと。&lt;/p&gt;
+
+&lt;p&gt;テスト環境を提供しないといけなくて、Dockerつかいたかったけど、今回はVagrantのBoxでベースを提供することにした。
+Packerつかうと時間がかかるのでvagrant packageでつくって、Vagrant Cloudにおいたりしてました。&lt;/p&gt;
+
+&lt;p&gt;ちょっと久しぶりにPackerでboxをつくるかーって&lt;a href=&#34;https://atlas.hashicorp.com/&#34;&gt;Atlas&lt;/a&gt;にいってみたら、Web上に表示されたチュートリアルにそってコマンドラインで作業するだけでBoxがつくれるようになってました。
+しかも、Packerの実行をAtlasがやってくれます。しかも、VirtualboxとVMwareのイメージ両方つくってくれます。
+しかも、勝手にBoxesに登録されます。
+素敵です。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Atlasにサインインする&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Build Vagrant Boxes with Packer and Atlas&lt;/code&gt;というメニューがあってクリックする&lt;/li&gt;
+&lt;li&gt;packerのバージョンの確認をさせられる。0.8.0より最新かどうか。&lt;/li&gt;
+&lt;li&gt;PackeのTemplaterをもってるかきかれます。もってなかったら &lt;a href=&#34;https://github.com/hashicorp/atlas-packer-vagrant-tutorial&#34;&gt;atlas-packer-vagrant-tutorial&lt;/a&gt;が使えると教えてくれます。&lt;/li&gt;
+&lt;li&gt;API TOKENが生成されるので、環境変数に登録します&lt;/li&gt;
+&lt;li&gt;packer push をつかって template.jsonとscriptをAtlasに送信します&lt;/li&gt;
+&lt;li&gt;進行状況をAtlasで閲覧できます。だいたい30分ぐらいかかります。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;そうすると、boxができて、Atlasから取得できるようになります。
+ここから配布していると vagrant box update でboxが更新できたりとなかなか嬉しいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;他に遊んだこと:1247e1560615377b9ea7b5177fc320aa&#34;&gt;他に遊んだこと&lt;/h3&gt;
+
+&lt;p&gt;tutorialのものはUbuntu12.04だったので&lt;a href=&#34;https://github.com/eiel/atlas-packer-vagrant-rails/commit/03d5c05b48ec02bae24bbf58d8ebd4f7c380762d&#34;&gt;14.04&lt;/a&gt;にかえたりしました。&lt;/p&gt;
+
+&lt;p&gt;railsが実行できる環境つくって遊びました。
+&lt;a href=&#34;https://github.com/eiel/atlas-packer-vagrant-rails/commit/054deb74f7d6ab4a034304f3f78deee1df386bd5&#34;&gt;mysqlとrubyをいれてるだけです&lt;/a&gt;。2.1.6なのは大人の事情です。&lt;/p&gt;
+
+&lt;p&gt;公開するboxは一度公開したバージョンの場合、最終的なPackerの実行が失敗します。
+成果物が登録できないからです。
+メタデータを修正して、新しいバージョンに変えるようにしてください。&lt;/p&gt;
+
+&lt;p&gt;具体的には&lt;a href=&#34;https://github.com/eiel/atlas-packer-vagrant-rails/commit/683741aa9f6055e70c0822bf2520d4b59ecaca4f&#34;&gt;この辺を参考にしてください&lt;/a&gt;。versionを0.0.4にしています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://atlas.hashicorp.com/eiel/boxes/rails-mysql&#34;&gt;実際につくったVagarantのBoxはこちらにあります。&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vagrant init eiel/rails-ymqsl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とかすると使えます。&lt;/p&gt;
+
+&lt;p&gt;Vagrantのboxをつくるのに、Packerをつかうとローカルマシンが占有されてつらかったのですが、Atlas上でビルドできるようになってたいへん幸せです。&lt;/p&gt;
+
+&lt;p&gt;継続的デリバリー感がします。とても楽しいので一度遊んでみてください。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>「Material Designなサイトをつくってみる」という話をした - #LT駆動 16</title>
+          <link>http://blog.eiel.info/blog/2015/07/05/ltdd-16-material-design/</link>
+          <pubDate>Sun, 05 Jul 2015 00:27:31 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/07/05/ltdd-16-material-design/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA16&#34;&gt;LT駆動開発16&lt;/a&gt;で「Material Designなサイトをつくってみる」をというLTをした。&lt;/p&gt;
+
+&lt;p&gt;ちょっと前に&lt;a href=&#34;https://developers.google.com/web/tools/polymer-starter-kit/&#34;&gt;Polymer Starter Kit&lt;/a&gt;に遊んだので紹介した。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;76fa9dfe42db4d32be3e851225565d6f&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;h3 id=&#34;戯言:cf8a86e923a1d302b50311fa6530d48d&#34;&gt;戯言&lt;/h3&gt;
+
+&lt;p&gt;ライブコーディングでカバー画像の設定とボタンの設置をやった。
+エレメントを使うのにimportをしないといけないことに気づかないでハマったのでその話をした。
+Starter Kitで使われているエレメントは&lt;code&gt;app/elements/elements.html&lt;/code&gt;でインポートされてる。インポートされてないものはインポートする必要がある。paper-buttonやiron-imageやら。
+それだけわかれば結構楽しめるPolymerさん。&lt;/p&gt;
+
+&lt;p&gt;カスタムエレメントのHTMLも眺めてみるとどんなことができるのかも結構想像できるんじゃないかと思う。
+あまり情報がないので、どんどんみんな試して欲しい。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:cf8a86e923a1d302b50311fa6530d48d&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.google.com/design/icons/&#34;&gt;icon-iconで使えるアイコン&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://elements.polymer-project.org/&#34;&gt;Polymer Catalog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>「戻り値の型によって処理を変える」という話をした。 - #LT駆動 16</title>
+          <link>http://blog.eiel.info/blog/2015/07/04/ltdd-16-type-class/</link>
+          <pubDate>Sat, 04 Jul 2015 23:57:04 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/07/04/ltdd-16-type-class/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA16&#34;&gt;LT駆動開発16&lt;/a&gt;で「戻り値の型によって処理を変える」をというLTをした。&lt;/p&gt;
+
+&lt;p&gt;要するに自分の中で型クラスのことがそこそこすっきりしたので喋ってみた。
+完全な準備不足でもっと丁寧につくりたい部分があったけど雑に説明してしまってるところがある。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;9cc235d693da405191f4a5376ad45941&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;h3 id=&#34;戯言:daad3f06627dcec1727dfc3e414ec918&#34;&gt;戯言&lt;/h3&gt;
+
+&lt;p&gt;いまだにアドホックという言葉がよくわかっておらず、つらい。
+型クラスを使うとアドホック多相というのが実現できるらしい。&lt;/p&gt;
+
+&lt;p&gt;アドホック多相というのは、分岐処理の自動生成ができる機能とも言えさうだ。
+また、クラスがメソッドをグルーピングする機能と見なした場合、型クラスをつかうとより柔軟にグルーピングできる機能とも言えそうだ。&lt;/p&gt;
+
+&lt;p&gt;その辺の話をうまく図示したいけど、考える時間が足りなかったので、また今度考えてみたい。&lt;/p&gt;
+
+&lt;p&gt;型推論や型を指定することで関数の戻り値の型が決定すると実行される関数が決まる。
+戻り値だけでなく、引数の型なんかでも決めることができる。
+オプジェクト指向では、レシーバで決まったり、オーバロードで呼び出しする処理を変えたりできる。&lt;/p&gt;
+
+&lt;p&gt;オブジェクト指向だとか、関数型だとかではなく、言語がもってる機能の違いなんだよなぁ、と思ったりしなくもないけど真面目に考えてない。&lt;/p&gt;
+
+&lt;p&gt;LT中に登場した言語がHaskell, Ruby, Python, Perl, ScalaだったけどOCamlのことをあまり知らないので、もっと勉強しようと思った。&lt;/p&gt;
+
+&lt;p&gt;スライド中のコードはGistにアップしておきます。(実行例かきわすれてる…)&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/eiel/3674c713e34eaac67cf8.js&#34;&gt;&lt;/script&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>プログラマは地域のヒーローになれるんだろうか - Code for Japan Brigadeに関わることについて少し考えた</title>
+          <link>http://blog.eiel.info/blog/2015/07/01/code-for-hiroshima/</link>
+          <pubDate>Wed, 01 Jul 2015 23:23:35 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/07/01/code-for-hiroshima/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://www.facebook.com/CodeForHiroshima&#34;&gt;Code for Hiroshima&lt;/a&gt;というコミュニティができたらしい。
+広島の市民や自治体と連携して、テクノロジーを活用することで地域課題を解決することを目指す団体だ。広島以外にもこのような団体はあって「Code for なにがし」がいろんな地域にある。&lt;/p&gt;
+
+&lt;p&gt;このような活動は普段の生活ににおいて&lt;strong&gt;IT業界にいるプログラマやデザイナの価値を高める&lt;/strong&gt;んじゃないかと思っていたりする。&lt;/p&gt;
+
+&lt;p&gt;少し前までは、コンピュータのチカラを有効に使えるという能力は地域課題の課題解決には役に立たなかったんじゃないかと思う。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;市民の多くの人がテクノロジーを活用できるデジタルデバイスを所有するようになった&lt;/li&gt;
+&lt;li&gt;プログラマが活用できるコンピュータ資源が豊富になった&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という背景ができて、身近なまわりの人の問題にプログラマの活躍できるようになったんじゃないかと思う。
+IT関係のスタートアップが豊富なのもきっと同じ理由だろう。&lt;/p&gt;
+
+&lt;p&gt;今や僕らプログラマは大きなチカラをもっているのかもしれない。&lt;/p&gt;
+
+&lt;h1 id=&#34;プログラマは地域のヒーローになれるのか:0e9265a47e4cc711e1b03b075314ef6c&#34;&gt;プログラマは地域のヒーローになれるのか&lt;/h1&gt;
+
+&lt;p&gt;プログラマといえば、少し前までは、一部の物好きが使うおもちゃみたいなものだったみたいです。
+黒い画面に向かい、指だけを動かしている人たちです。
+とても不健康そうです。オタクなんて言われていたりした気がする。&lt;/p&gt;
+
+&lt;p&gt;コンピュータは軍事活用のために研究は進められたかもしれません。
+ビジネスの世界では効率化のために活用されていったかもしれません。
+しかし、今は誰でも持ち歩けるところまで発展しました。
+プログラミングができるというのは、車を運転ができるような生活に役に立つようなものではなかったのですが、誰もが持ちあるくものになることで状況は変わってきているのです。
+これまでもパソコンが普及したことで、パソコンで困ったことがあれば、質問されるようなこともありました。
+大抵の質問はプログラマとしてのスキルが活かせるようなものはなく、特定のソフトウェアの利用方法に関するものでした。
+でも、状況は変わってきたのです。&lt;/p&gt;
+
+&lt;p&gt;地域課題を解決するオープンソースプロジェクトやオープンデータが登場することで、プログラマは地域課題に活躍できる立場になったのです。&lt;/p&gt;
+
+&lt;p&gt;ソースコードが公開されていれば、他の地域の問題を解決するサービスを自分達の地域でも使えるように修正ができるのです。
+ソフトウェアの根本的な問題を追うことができるのです。
+データがないのであれば、データをつくる場所を提供することができるのです。
+さらに、公開されている情報を組み合わせたり、情報を公開する場を提供したりできるのです。&lt;/p&gt;
+
+&lt;p&gt;そして実際に問題を解決していくことで、プログラマはよくわからない不健康そうな人たちから、「もしかしたらなんとかしてくれる」という、子供たちの憧れになっていくのではないかと思うのです。&lt;/p&gt;
+
+&lt;h1 id=&#34;code-for-hiroshimaについてもう少し:0e9265a47e4cc711e1b03b075314ef6c&#34;&gt;Code for Hiroshimaについてもう少し&lt;/h1&gt;
+
+&lt;p&gt;Code for Hiroshimaは&lt;a href=&#34;http://code4japan.org/&#34;&gt;Code for Japan&lt;/a&gt;が提供する支援プログラムに参加するCode for Japan Brigade(ブリゲード)という立場になります。
+個々のブリゲードは独立して活動しているようですがCode for Japanを通して関節的に連携することになります。繋りをつかってお互いにサポートしあうことができます。&lt;/p&gt;
+
+&lt;p&gt;コミュニティを構成するメンバーはテクノロジーの提供するプログラマやデザイナだけでなく、地域課題を抱えている市民も対象となります。&lt;/p&gt;
+
+&lt;p&gt;市民のためのコミュニティであるため、非プログラマの市民のメンバーがいることは重要なことです。
+活用をするのは市民だからです。活用されないテクノロジーに価値はありません。&lt;/p&gt;
+
+&lt;p&gt;そのため、市民が本当に必要なものを提供するために開発段階から一緒に活動し、問題の共有とテクノロジーの活用する能力を一緒に向上していくことになります。
+l
+そんなわけでCode for Hiroshimaのオープンなミーティングが7月からはじまるそうです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;7月5日 日曜日 10時 &lt;a href=&#34;https://www.facebook.com/events/1589552057985627/&#34;&gt;Code for Hiroshima 井戸端会議&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Code for Hiroshimaは「&lt;a href=&#34;https://readyfor.jp/projects/peaceweek-hironaga&#34;&gt;被爆70年の広島・長崎での平和イベントを可視化するサービス&lt;/a&gt;」の開発や、&lt;a href=&#34;http://hiroshima.5374.jp/&#34;&gt;いつ、どのゴミが収集されているのか？をわかるサービス&lt;/a&gt;のメンテナンスをしていたり、&lt;a href=&#34;http://parkmap.eiel.info/&#34;&gt;広島の駐車場の料金を調べることのできるサービス&lt;/a&gt;の開発を支援していたりするそうです。&lt;/p&gt;
+
+&lt;p&gt;作成中のサービスに意見をしたかったり、自分の困っている問題をテクノロジーで解決してみたかったりするような人をみかけたら紹介してあげてください。
+もちろんテクロノジーを提供する能力をもった人はヒーローになるために参加してみてもいいと思います。&lt;/p&gt;
+
+&lt;h1 id=&#34;まとめ:0e9265a47e4cc711e1b03b075314ef6c&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Code for Hiroshimaができた。&lt;/li&gt;
+&lt;li&gt;プログラマはみんなの憧れになれるかもしれない。わからない。&lt;/li&gt;
+&lt;li&gt;参加自体はオープンだ。気軽に参加してみよう。&lt;/li&gt;
+&lt;li&gt;普通の人の視点が重要だ。みんなを巻き込んでいこう。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;関連リンク:0e9265a47e4cc711e1b03b075314ef6c&#34;&gt;関連リンク&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/04/06/ltdd-02-5374/&#34;&gt;hiroshima.5374.jpをつくった話を LT駆動開発 02 でしてきた&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Scalaをはじめる α &amp; β - #LT駆動 15</title>
+          <link>http://blog.eiel.info/blog/2015/06/06/ltdd-2015-06-scala/</link>
+          <pubDate>Sat, 06 Jun 2015 13:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/06/06/ltdd-2015-06-scala/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA15&#34;&gt;LT駆動開発15&lt;/a&gt;に参加してきました。&lt;/p&gt;
+
+&lt;p&gt;最近、Scalaを触っているので、仕事していると放置しがちな基本的な使い方を調べたりしています。&lt;/p&gt;
+
+&lt;p&gt;今回はα世界線とβ世界線の二本でお送りいたします。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;αはsbtを使わずにJARを使う方法を調べました&lt;/li&gt;
+&lt;li&gt;βはAppトレイトについて調べました&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;なんのJARを使うのか非常に悩んだのですがScalazにしておきました。
+Scalazを選ぶまでは早かったのですが、Scalazをつかった良いサンプルがつくれずに苦戦しました。&lt;/p&gt;
+
+&lt;p&gt;Appトレイトのほうは、&lt;a href=&#34;http://summit.scala-kansai.org/&#34;&gt;Scala関西 Summit 2015&lt;/a&gt;のLTに応募しようかと一瞬思ったのですが、まだ2ヶ月あるので止めておきました。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;6c59ed6f79234ddd96c99375a9947125&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;15aa34c211ee43268a0767d0ef29d13d&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;まあ、一番苦戦したのは scala HogeZ -cp &amp;lsquo;*.jar:.&amp;rsquo; とかいて、動かなかったことである。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ1:f7e5e48604ab3de1abbeb3a15a99706c&#34;&gt;まとめ1&lt;/h3&gt;
+
+&lt;p&gt;JARを使うときは classpath を指定すればよい。
+sbt使うと楽チン。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ2:f7e5e48604ab3de1abbeb3a15a99706c&#34;&gt;まとめ2&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;object Hoge {
+  //コード
+  def hoge() = //コード
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;みたいなのはJavaでいうと&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Hoge {
+  static {
+   // コード
+  }
+  public staic void hoge() { /* コード */ }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;みたいな感じになるらしい。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/scala/scala/blob/540b18fb68a0210b187e595622c31f20b2c6f581/src/compiler/scala/tools/nsc/transform/Constructors.scala#L474&#34;&gt;https://github.com/scala/scala/blob/540b18fb68a0210b187e595622c31f20b2c6f581/src/compiler/scala/tools/nsc/transform/Constructors.scala#L474&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;こういった特殊なものがあるならもっとしりたい&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:f7e5e48604ab3de1abbeb3a15a99706c&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/takahiro/hazimetefalseguan-shu-xing-puroguramingujiao-shi&#34;&gt;はじめての関数型プログラミング教室 // Speaker Deck&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://d.hatena.ne.jp/Kazuhira/20130320/1363791795&#34;&gt;sbtで、プロジェクト内のライブラリ依存関係を調べる - CLOVER&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.scala-lang.org/api/current/index.html#scala.App&#34;&gt;App - Scala Standard Library 2.11.6&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.scala-lang.org/api/current/index.html#scala.DelayedInit&#34;&gt;DelayedInit - Scala Standard Library 2.11.6&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/scala/scala/blob/v2.11.6/src/library/scala/DelayedInit.scala&#34;&gt;scala/DelayedInit.scala at v2.11.6 · scala/scala · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/scala/scala/blob/v2.11.6/src/library/scala/App.scala&#34;&gt;scala/App.scala at v2.11.6 · scala/scala · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;コード:f7e5e48604ab3de1abbeb3a15a99706c&#34;&gt;コード&lt;/h3&gt;
+
+&lt;script src=&#34;https://gist.github.com/eiel/77ffba73998ababb06b7.js&#34;&gt;&lt;/script&gt;
+
+&lt;h3 id=&#34;関連:f7e5e48604ab3de1abbeb3a15a99706c&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2015/05/13/scala-map/&#34;&gt;ScalaのMapの使い方がよくわからないので遊んだときのメモ | そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/08/17/scala-hello-world/&#34;&gt;Scala 入門しとく | そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://recruit.chatwork.com/ja/developer.html&#34;&gt;エンジニアの採用情報 | チャットワーク（ChatWork）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=gk02WpyN_Qo&#34;&gt;syrup16g - 冷たい掌 (MV) - YouTube&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>セルフブランディングがテーマのオープンセミナー岡山でセッションをした - とあるふつうの命令書</title>
+          <link>http://blog.eiel.info/blog/2015/05/16/oso-2015/</link>
+          <pubDate>Sat, 16 May 2015 18:00:01 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/05/16/oso-2015/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://okayama.open-seminar.org/&#34;&gt;オープンセミナー岡山&lt;/a&gt;という大きな技術者向けの無料のイベントで講師参加をした。&lt;/p&gt;
+
+&lt;p&gt;テーマが「IT業界におけるセルフブランディング」だったので、自分はセルフブランディングはしていないけど、セルフブランディングみたいになっているだろうことについて話すことにした。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;85b4524a99ad40f7896d09b1bf4d4ac1&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;とても有名なライトノベル「とある魔術の禁書目録」を文字ったタイトルをつけた。
+せかっくなので何かにルビを振りたくなったので、「みんな」というキーワードを「モナド」と読むことにした。&lt;/p&gt;
+
+&lt;p&gt;そういえばちょうど5月にモナドの話をしていて、うまく伏線が貼れている。
+偶然というのは恐しい。&lt;/p&gt;
+
+&lt;p&gt;平たくいうと、わたしの目の前でおきた「拡散される仕組み」の話をした気がする。
+結果、迫ってくる未来が期待に近いほうへと進んでいるような気がする。&lt;/p&gt;
+
+&lt;p&gt;全体でみると、どこかにもうちょっとしぼった話をしたほうがよかった気もする。&lt;/p&gt;
+
+&lt;p&gt;独りの「ちから」はわずかなので、みんなの力をわずかに借りられるようにしておきたいと思う日々です。&lt;/p&gt;
+
+&lt;p&gt;変えられない未来はない = 自分のちから x みんなのちから&lt;/p&gt;
+
+&lt;p&gt;そうか、モナドか。(ゼノブレイド的な意味で)&lt;/p&gt;
+
+&lt;p&gt;利用したラーメン画像は我馬という&lt;a href=&#34;http://www.gaba-2000.com/&#34;&gt;ラーメン屋&lt;/a&gt;のものです。&lt;/p&gt;
+
+&lt;p&gt;なんかセッションがお互いに相補していた気がしていて、とても良い一日だった。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:60b03b03c74a35709c36ddd4bc84ef60&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://togetter.com/li/821858&#34;&gt;当日のツイートまとめ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2015/05/02/want-staring-monad-only-ltdd-14/&#34;&gt;モナド則だけ見つめていたい - LT駆動開発14&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.nintendo.co.jp/3ds/cafj/&#34;&gt;Newニンテンドー3DS専用 Xenoblade ゼノブレイド&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;ふつうのシリーズの著者である &lt;a href=&#34;http://www.amazon.co.jp/%E9%9D%92%E6%9C%A8-%E5%B3%B0%E9%83%8E/e/B004LT6XC0/ref=dp_byline_cont_book_1&#34;&gt;青木 峰郎:作品一覧、著者略歴&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/kazoo04/&#34;&gt;かずー氏さん&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/Grabacr07&#34;&gt;ぐらばくさん&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/941&#34;&gt;⑨④①さん&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.kushii.net/archives/1965162.html&#34;&gt;岡山のオープンセミナーで「行ってきたの裏側」を話してきた #oso2015 - 941::blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://hunter-girl.jp/&#34;&gt;狩猟女子&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://t.co/oZKbwZeoW5&#34;&gt;わたしのつくりかた&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/opiyo_taku&#34;&gt;オピヨさん&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://soudai1025.blogspot.jp/2015/05/oso2015.html?spref=tw&#34;&gt;そーだいなるらくがき帳: オープンセミナー岡山＠2015に今年も参加してきた #oso2015&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ScalaのMapの使い方がよくわからないので遊んだときのメモ</title>
+          <link>http://blog.eiel.info/blog/2015/05/13/scala-map/</link>
+          <pubDate>Wed, 13 May 2015 19:44:21 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/05/13/scala-map/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/events/event-104.html&#34;&gt;すごい広島 #104&lt;/a&gt;で遊んだときのメモ。&lt;/p&gt;
+
+&lt;p&gt;最近&lt;a href=&#34;http://www.scala-lang.org/&#34;&gt;Scala&lt;/a&gt;勉強している。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.scala-lang.org/api/2.11.5/index.html#scala.collection.Map&#34;&gt;Map&lt;/a&gt;を使いなれていなかったので少し遊んだ。&lt;/p&gt;
+
+&lt;p&gt;参考になりそうなのは下記のサイト&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.scala-lang.org/api/2.11.5/index.html#scala.collection.Map&#34;&gt;Scala Standard Library 2.11.5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.ne.jp/asahi/hishidama/home/tech/scala/collection/map.html&#34;&gt;Scala Mapメモ(Hishidama&amp;rsquo;s Scala Map Memo)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;さて遊ぶ:4c320875311fbaf75c8cdfd0efe6300e&#34;&gt;さて遊ぶ&lt;/h3&gt;
+
+&lt;p&gt;Mapを作ってみる。emptyでも作れるけど。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;Map(&amp;quot;hoge&amp;quot; -&amp;gt; 1)
+// scala.collection.immutable.Map[String,Int] = Map(hoge -&amp;gt; 1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;値を取り出してみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;Map(&amp;quot;hoge&amp;quot; -&amp;gt; 1).get(&amp;quot;hoge&amp;quot;)
+// Option[Int] = Some(1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ImmutableなMapに要素をつけたしてみる。新しいMapができる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;Map(&amp;quot;hoge&amp;quot; -&amp;gt; 1) + (&amp;quot;mogu&amp;quot; -&amp;gt; 2)
+// scala.collection.immutable.Map[String,Int] = Map(hoge -&amp;gt; 1, mogu -&amp;gt; 2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;+でくっつけることができた。&lt;code&gt;(&amp;quot;mogu&amp;quot; -&amp;gt; 2)&lt;/code&gt;ってなんだろう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;(&amp;quot;mogu&amp;quot; -&amp;gt; 2)
+// (String, Int) = (mogu,2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;どうやらタプルらしい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;Map((&amp;quot;hoge&amp;quot;, 1))
+// scala.collection.immutable.Map[String,Int] = Map(hoge -&amp;gt; 1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;タプルをつかってつくるには括弧がふたついるようだ。なぜなのかよくわからない。
+たぶん、&lt;code&gt;&amp;quot;hoge&amp;quot; -&amp;gt; 1&lt;/code&gt;と&lt;code&gt;(&amp;quot;hoge&amp;quot;, 1)&lt;/code&gt;が等価だからだろう。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、&lt;code&gt;(+) :: Map[String,Int] -&amp;gt; (String,Int) -&amp;gt; Map[String,Int]&lt;/code&gt; みたいな感じのようだ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;Map(&amp;quot;hoge&amp;quot; -&amp;gt; 1) + ((&amp;quot;mogu&amp;quot;, 2))
+// scala.collection.immutable.Map[String,Int] = Map(hoge -&amp;gt; 1, mogu -&amp;gt; 2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;うまくいく。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;Map(&amp;quot;hoge&amp;quot; -&amp;gt; 1) + (&amp;quot;hoge&amp;quot; -&amp;gt; 2)
+// scala.collection.immutable.Map[String,Int] = Map(hoge -&amp;gt; 2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;-&amp;gt; は演算子で , は違うようだ。他のタプルの生成方法を今度調べよう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;&amp;quot;hoge&amp;quot;.-&amp;gt;(1)
+// (String, Int) = (hoge,1)
+// &amp;quot;hoge&amp;quot;.,(1) はできなかった
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;foldで処理できそうな程度に理解した気がする。&lt;/p&gt;
+
+&lt;h3 id=&#34;もうちょっと遊ぶ:4c320875311fbaf75c8cdfd0efe6300e&#34;&gt;もうちょっと遊ぶ&lt;/h3&gt;
+
+&lt;p&gt;inheritedにFunction1がいるのでapplyできるようだ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;Map(&amp;quot;hoge&amp;quot; -&amp;gt; 1)(&amp;quot;hoge&amp;quot;)
+// Int = 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;関数合成だってできる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;val one = Map(&amp;quot;hoge&amp;quot; -&amp;gt; 1).compose({x:Any =&amp;gt; &amp;quot;hoge&amp;quot;})
+// Int = 1
+one(1)
+// Int = 1
+one(2)
+// Int = 1
+one(&amp;quot;hoge&amp;quot;)
+// Int = 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とても楽しめた。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:4c320875311fbaf75c8cdfd0efe6300e&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chatwork/scala-quiz/blob/master/quiz/01_WordCount.md&#34;&gt;scala-quiz/01_WordCount - GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>モナド則だけ見つめていたい - LT駆動開発14</title>
+          <link>http://blog.eiel.info/blog/2015/05/02/want-staring-monad-only-ltdd-14/</link>
+          <pubDate>Sat, 02 May 2015 13:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/05/02/want-staring-monad-only-ltdd-14/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA14&#34;&gt;LT駆動開発14&lt;/a&gt;に参加した。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://xenobladex.jp/&#34;&gt;ゼノブレイドクロス&lt;/a&gt;発売記念でモナドの話をしといた。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;b016eb833b804fca903db71dc869bae0&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Stateモナドを簡約して、Stateモナドを説明しようとおもったけどうまくいかなくてボツになりました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/eielh/items/3612e4233c9c4a2d80a0&#34;&gt;Haskell - Stateモナドを手で簡約してみたりしていた - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そんなわけで&lt;a href=&#34;http://ja.wikibooks.org/wiki/Haskell/%E5%9C%8F%E8%AB%96&#34;&gt;Haskell/圏論 - Wikibooks&lt;/a&gt;を元ネタにモナド則を辿ってみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;a -&amp;gt; M b&lt;/code&gt;って型の関数を並べるにはfmapしてjoinしてを間にはさむことがポイントな気がしたことがあったのでその話です。
+&lt;code&gt;a -&amp;gt; M b&lt;/code&gt;な関数を組み合わせると &lt;code&gt;M b -&amp;gt; M (M c)&lt;/code&gt; になって &lt;code&gt;M (M c) -&amp;gt; M (M (M d))&lt;/code&gt; とどんどんMが増えていってしまうのですが、モナドであれば&lt;code&gt;M d&lt;/code&gt;にできるわけです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;a -&amp;gt; M b&lt;/code&gt;ってなんなんだって話になってきますが&lt;code&gt;M a -&amp;gt; M b&lt;/code&gt;でも良いけど、&lt;code&gt;a -&amp;gt; M b&lt;/code&gt; のほうがあつかいやすいよね。だって&lt;code&gt;M&lt;/code&gt;は外せないんだから外れているものが受け取れたら便利じゃないですか。
+結果的に残ったものは &lt;strong&gt;何度も同じことをしないといけない部分&lt;/strong&gt;を隠すことができます。
+その内容を自由に取り替えできちゃうのがモナドの魅力なのだと思う。&lt;/p&gt;
+
+&lt;p&gt;そしてMに関する操作は裏でひそかに行われて、命令書を構築したり、失敗していたら何もしなかったり、可能性すべてを記録したり、単に設定した値をおけるだけだったり、するだけだと思われます。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:b742772047f9f19a088e8c7ef8bf510f&#34;&gt;関連&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/eielh/items/3612e4233c9c4a2d80a0&#34;&gt;Haskell - Stateモナドを手で簡約してみたりしていた - Qiita&lt;/a&gt;&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=B00T73HQHQ&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>AppleWatchを1日使ってみての所感</title>
+          <link>http://blog.eiel.info/blog/2015/04/26/first-impression-for-apple-watch/</link>
+          <pubDate>Sun, 26 Apr 2015 09:44:53 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/04/26/first-impression-for-apple-watch/</guid>
+          <description>
+
+&lt;p&gt;AppleWatchを購入した。ちょうどでかける日だったので、1日外で使った感想。&lt;/p&gt;
+
+&lt;p&gt;率直に述べると、便利になるとは思うけど、値段が高いので費用に対する効果はなんとも言えない、と思った。&lt;/p&gt;
+
+&lt;p&gt;購入したのは&lt;a href=&#34;http://store.apple.com/jp/buy-watch/apple-watch?product=MJ322J/A&amp;amp;step=detail#&#34;&gt;38mmステンレススチールケースとミラネーゼループ&lt;/a&gt;。
+アプリ開発する際にどんなものか知らないと提案できないので、購入した。&lt;/p&gt;
+
+&lt;p&gt;箱から取り出してちょっとさわった感想&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;思ったより重い&lt;/li&gt;
+&lt;li&gt;すぐには使い方がわからなかった&lt;/li&gt;
+&lt;li&gt;起動めっちゃ長い&lt;/li&gt;
+&lt;li&gt;省電力モードからの戻り方がわからない&lt;/li&gt;
+&lt;li&gt;通知ばんばん飛ぶので見せと言われても見せづらい&lt;/li&gt;
+&lt;li&gt;磁石強くて付けるの難しい&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;1日つけてみて感想&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;重さは気にならなかった&lt;/li&gt;
+&lt;li&gt;歩いてても通知に気づけて良い&lt;/li&gt;
+&lt;li&gt;1日で電池は50%程度なくなった&lt;/li&gt;
+&lt;li&gt;つけ心地は良いと思う&lt;/li&gt;
+&lt;li&gt;心拍数を測定してくれるの楽しい&lt;/li&gt;
+&lt;li&gt;iPhoneの操作が少しできるちょっと嬉しい&lt;/li&gt;
+&lt;li&gt;force touch 楽しい&lt;/li&gt;
+&lt;li&gt;腕を回すと自動でディスプレイがオンになるの使いこなせないのでオフにした&lt;/li&gt;
+&lt;li&gt;付けたままPC作業は難しい&lt;/li&gt;
+&lt;li&gt;あんまりかっこよくない&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2万以内なら悩まず買うと思う。&lt;/p&gt;
+
+&lt;h3 id=&#34;重量について:00b178ed1cc1d3a5c869e78fd52fc19d&#34;&gt;重量について&lt;/h3&gt;
+
+&lt;p&gt;重量についてはかなり気にしてモデルを選んだ。
+とにかくつけてて疲れるのは防ぎたかった。&lt;/p&gt;
+
+&lt;p&gt;スポーツの黒が有力候補だったけど、ミラネーゼループを選んだ。
+スポーツバンドは色によって重さが違うので注意。&lt;/p&gt;
+
+&lt;p&gt;実機に触ってないのに選ぶ必要があったので下記の記事はとても参考になった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://itstrike.biz/apple/iwatch/23820/&#34;&gt;Apple Watchのケースとバンドの重さを比較！モデルによって2倍の重量差！ | IT Strike&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;つけ心地:00b178ed1cc1d3a5c869e78fd52fc19d&#34;&gt;つけ心地&lt;/h3&gt;
+
+&lt;p&gt;腕時計は普段していません。つけ心地は良いと思う。毎日つけていられると思います。
+PC作業はちょっとしづらいですが。つける位置を調整しています。&lt;/p&gt;
+
+&lt;h3 id=&#34;通知:00b178ed1cc1d3a5c869e78fd52fc19d&#34;&gt;通知&lt;/h3&gt;
+
+&lt;p&gt;iPhoneをズボンのポケットにいれて歩いてると通知にまったく気づかない。
+Apple Watchを装備することによって、通知に気づかないことがすごく防げるようになりそう。&lt;/p&gt;
+
+&lt;p&gt;といっても、メールすべて通知しているので、たいへんめんどくさくなることもあります。
+そろそろ通知を細かく調整しようと思いました。&lt;/p&gt;
+
+&lt;h3 id=&#34;心拍数:00b178ed1cc1d3a5c869e78fd52fc19d&#34;&gt;心拍数&lt;/h3&gt;
+
+&lt;p&gt;定期的に自動で計ってくれてHealthアプリで確認できる。
+とても楽しい。不整脈を検知するのは難しそうである。&lt;/p&gt;
+
+&lt;p&gt;ついでにアクティビティですが、運動時間30分の設定を変えたい。
+30分も運動できない人だっているんです。&lt;/p&gt;
+
+&lt;h3 id=&#34;電池:00b178ed1cc1d3a5c869e78fd52fc19d&#34;&gt;電池&lt;/h3&gt;
+
+&lt;p&gt;半分なくなってました。
+毎日充電する必要がありそうな気配が漂っています。&lt;/p&gt;
+
+&lt;h3 id=&#34;音楽:00b178ed1cc1d3a5c869e78fd52fc19d&#34;&gt;音楽&lt;/h3&gt;
+
+&lt;p&gt;iPhoneの音楽アプリを制御できるのは地味に嬉しい。
+曲名の確認が地味に嬉しい。シャッフルで流してると曲名が覚えられないんだ。&lt;/p&gt;
+
+&lt;h3 id=&#34;force-touch:00b178ed1cc1d3a5c869e78fd52fc19d&#34;&gt;force touch&lt;/h3&gt;
+
+&lt;p&gt;強く押すと、押した感じがする。違和感はあるけど楽しい。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:00b178ed1cc1d3a5c869e78fd52fc19d&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;Apple Watchを持つか、持たないでは、ライフスタイルが変わる可能性は非常に高い。
+しかし、金額に見合ったリターンがあるかどうかは保証できない。
+iPhoneの拡張パーツなのにiPhoneと同等のお値段…。&lt;/p&gt;
+
+&lt;p&gt;現在すでにお気に入りの腕時計がある人は購入しづらいと思うし、いままで腕時計している人には新しく腕になにかつけるのは抵抗がある気がする。
+なかなか誰にでもおすすめはできないけど、おもしろいと思います。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>私の強み - ストレングスファインダをしたのでメモ</title>
+          <link>http://blog.eiel.info/blog/2015/04/09/stringthsfinder/</link>
+          <pubDate>Thu, 09 Apr 2015 18:47:58 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/04/09/stringthsfinder/</guid>
+          <description>
+
+&lt;p&gt;少し前に&lt;a href=&#34;http://sf1.strengthsfinder.com/ja-jp/homepage.aspx&#34;&gt;ストリングスファインダ&lt;/a&gt;ってのをした。&lt;/p&gt;
+
+&lt;p&gt;自分がふりかえりをするためだけにつくった記事である。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;着想&lt;/li&gt;
+&lt;li&gt;学習欲&lt;/li&gt;
+&lt;li&gt;最上志向&lt;/li&gt;
+&lt;li&gt;内省&lt;/li&gt;
+&lt;li&gt;収集心&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;参考 &lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/&#34;&gt;ストレングスファインダーまとめサイト&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;特徴:c601311661980063785e7c6c04624cae&#34;&gt;特徴&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;【着想】複雑に見える物事の裏側に存在する、的確で簡潔な表現方法を発見すると嬉しくなる&lt;/li&gt;
+&lt;li&gt;【着想】見た目には共通点の存在しない現象に、なんらかの共通点を見出すと創造力をかき立てられる&lt;/li&gt;
+&lt;li&gt;【着想】多くの人が中々解決出来ない日常的な問題に対し、新たな視点をもたらす人物である&lt;/li&gt;
+&lt;li&gt;【着想】世の中の既知の事実をひっくり返すことに無上の喜びを感じる&lt;/li&gt;
+&lt;li&gt;【着想】目新しい考えや、逆説的な考え、奇抜な考えを好む傾向にある&lt;/li&gt;
+&lt;li&gt;【着想】新しい着想が生まれるたびに、エネルギーが電流のように身体を駆け巡る体験をすることが多い&lt;/li&gt;
+&lt;li&gt;【着想】他の人たちからは、「創造的」「独創的」などと評される傾向にある&lt;/li&gt;
+&lt;li&gt;【着想】着想のある人生にスリルを感じ、そんな生活を送れていると幸福を感じる&lt;/li&gt;
+&lt;li&gt;【学習欲】あなたの才能に突き動かされ、更なる知識を獲得することや新しいスキルを得ることに重きを置く&lt;/li&gt;
+&lt;li&gt;【学習欲】「教育」を常に進行中の活動として捉えている&lt;/li&gt;
+&lt;li&gt;【学習欲】他人とアイデアや概念、理論について話す過程で、あなたはより容易く知識を獲得することができる&lt;/li&gt;
+&lt;li&gt;【学習欲】あなたの思考は、何らかの質問が提示され、それに対する回答の中で生じるものである&lt;/li&gt;
+&lt;li&gt;【学習欲】あなたは、考えていることがそのまま口から出たり、知的な人々が彼らの考えを述べるのを聞く時間を素晴らしいと感じる&lt;/li&gt;
+&lt;li&gt;【学習欲】あなたは議論した内容の一部を自然と書類化したり記憶したりする&lt;/li&gt;
+&lt;li&gt;【学習欲】機会が提示されたときにはいつでも、あなたは洞察や事実に差し戻しをしたいと感じる&lt;/li&gt;
+&lt;li&gt;【学習欲】生まれつき、仕事によって発奮させられたいと感じている&lt;/li&gt;
+&lt;li&gt;【学習欲】あなたはあなたの仕事や学習から情熱を感じることを必要とする&lt;/li&gt;
+&lt;li&gt;【学習欲】あなたは常に知識やスキルを獲得する&lt;/li&gt;
+&lt;li&gt;【学習欲】事実を学び、概念について思案し、理論を試し、スキルを磨いているときはいつでもあなたは最も「生きている」と感じる&lt;/li&gt;
+&lt;li&gt;【学習欲】あなたはあなたの精神の拡大を妨げる人や状況を避けたいと感じる&lt;/li&gt;
+&lt;li&gt;【学習欲】恐らくあなたは継続的に知識やスキルを獲得することに意欲づけられる&lt;/li&gt;
+&lt;li&gt;【学習欲】あなたの才能を使うための新たな方法を発見すると、あなたは精力を得る&lt;/li&gt;
+&lt;li&gt;【学習欲】「どうやったら上手く出来るのか」をすでに知っていることをやり続けさせるような人々や状況をあなたは避けようとする&lt;/li&gt;
+&lt;li&gt;【学習欲】あなたは、知性を「現状維持」することを受け入れがたいと感じる&lt;/li&gt;
+&lt;li&gt;【学習欲】本能的に、あなたは一つの事柄に対して長時間集中力を保つことができる&lt;/li&gt;
+&lt;li&gt;【学習欲】恐らく、あなたが獲得した知識によって、あなたはなぜ特定の事象が正確に動くのか、もしくは動かないのかを理解することができる&lt;/li&gt;
+&lt;li&gt;【最上志向】自身の”強み”を活用した場合の成長と利益の大きさを本能的に理解している。&lt;/li&gt;
+&lt;li&gt;【最上志向】あなたの才能を評価してくれる人々を常に探している。&lt;/li&gt;
+&lt;li&gt;【最上志向】身体的、精神的なエネルギーを「自分がより上手くやるための方法を知ること」に使う。&lt;/li&gt;
+&lt;li&gt;【最上志向】正しい取捨選択が成功の鍵となることが多い。&lt;/li&gt;
+&lt;li&gt;【最上志向】明確な労働観をもつことで、目的を達成に近づく。&lt;/li&gt;
+&lt;li&gt;【最上志向】他人があなたの強みを認めてくれた場合に、最大の力を発揮する。&lt;/li&gt;
+&lt;li&gt;【最上志向】生まれながらの才能や獲得したスキル・知識を人に賞賛されたいと感じる。&lt;/li&gt;
+&lt;li&gt;【最上志向】自身の才能をパーソナリティや専門性の更なる向上に使う傾向がある。&lt;/li&gt;
+&lt;li&gt;【最上志向】すでに高いレベルに達した事柄を更に向上させることを好む。&lt;/li&gt;
+&lt;li&gt;【最上志向】繰り返し「より上手くできないか？これが自身のマックスか？」と自問する傾向がある。&lt;/li&gt;
+&lt;li&gt;【最上志向】過去の成果や生まれながらの才能に満足してしまうことを「平凡に流れること」だと感じ、危機感を覚え、そうならないために一生懸命になる。&lt;/li&gt;
+&lt;li&gt;【最上志向】モチベーションの在処を見つけることに長け、それを伝えることで他人を鼓舞できる。&lt;/li&gt;
+&lt;li&gt;【最上志向】個人個人のユニークさを認め、賞賛する。&lt;/li&gt;
+&lt;li&gt;【最上志向】あなたの知識や賛辞は、とりわけ他人に活力を与える。&lt;/li&gt;
+&lt;li&gt;【内省】頭脳活動が好きで、考えることを好む。&lt;/li&gt;
+&lt;li&gt;【内省】問題を解くにせよ、アイデアを出すにせよ、他人の感情を理解するにせよ、脳を刺激して縦横無尽に働かせる活動をやりたいと感じる。&lt;/li&gt;
+&lt;li&gt;【内省】何に思考を集中するかは、あなたの自身の「ほかの強み」によることが多い。&lt;/li&gt;
+&lt;li&gt;【内省】一人での時間を大切にし、楽しむ傾向がある。&lt;/li&gt;
+&lt;li&gt;【内省】内省という資質により、実際の行動と頭の中で検討したこととのギャップに不満を感じることがあるかもしれない。&lt;/li&gt;
+&lt;li&gt;【収集】生来の性質として、あなたは【収集】それ自体に純粋に楽しみを見出す。&lt;/li&gt;
+&lt;li&gt;【収集】おそらく、あなたは本や新聞や雑誌等を行列に並んだときのため、一人で食事をするときのため、見知らぬ人の隣に座ったときのために持ち歩いているだろう。&lt;/li&gt;
+&lt;li&gt;【収集】多くの場合、活字があなたの精神に対して栄養を与える。その結果、あなたは、他の人にとって独創的だと感じるような特定の種類の計画やプログラムやデザインや活動を生み出しうる。&lt;/li&gt;
+&lt;li&gt;【収集】あなたは時折、大きな戦争について学ぶ傾向がある。何人かの人がこのようなトピックに対して退屈さやイライラを感じる一方で、あなたはそれを魅力的に感じることがあるだろう。&lt;/li&gt;
+&lt;li&gt;【収集】もしあなたが特定の地球的な争いについて学んだならば、多分あなたはそれについて更なる情報を集めたいという衝動に駆られるだろう。&lt;/li&gt;
+&lt;li&gt;【収集】一つの本や記事が、あなたを別の本や記事へといざなうことが多い。&lt;/li&gt;
+&lt;li&gt;【収集】あなたは、時々、あなたの目の前の印刷されたページ上で展開される人間の物語を疑似体験することがある。&lt;/li&gt;
+&lt;li&gt;【収集】本能的に、あなたはあなたに対して「達成したいこと」を話してくれるような特定のタイプの人々と友達になりやすいと感じるだろう。また、その人たちをより良く知るために、あなたはいくつかの本や、雑誌や、新聞や書状や、インターネットのサイトを彼らの関心ごとに関する知識を広めるために読むかもしれない。&lt;/li&gt;
+&lt;li&gt;【収集】人々をゴールに近づくのを補助するような知識を分け与えることができるようになったとき、あなたはお互いをよりよく理解出来るようになるだろう。&lt;/li&gt;
+&lt;li&gt;【収集】あなたの強みにより、あなたは示唆に富む刺激的な会話の中心に入り込める。&lt;/li&gt;
+&lt;li&gt;【収集】あなたは理論的に話す。それは、あなたがまだ発明や証明、製造や実行の前段階にある事柄について話すことができることを意味する。&lt;/li&gt;
+&lt;li&gt;【収集】あなたの語彙は、あなたの思考と同じくらい複雑なものである。このことは、あなたがずらりと並んだ洞察や概念、哲学について詳細に考えられることを説明する。&lt;/li&gt;
+&lt;li&gt;【収集】あなたは、即座にあなたの洗練された言葉の意味を把握出来る人と会話をすることを好む。&lt;/li&gt;
+&lt;li&gt;【収集】あなたの才能に突き動かされ、あなたは時にグループでの集会で議論されるべきトピックスについて読み、多くの情報を収集する。&lt;/li&gt;
+&lt;li&gt;【収集】あなたが、準備的な読書やリサーチなどの宿題を全てやってくれるだろうと頼る人たちが居るだろう。そのお陰で、その人達はそれについて全く心配する必要がない。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category32/entry94.html&#34;&gt;【着想】の特徴 | ストレングスファインダー&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category3/entry10.html&#34;&gt;【学習欲】の特徴 | ストレングスファインダー&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category1/entry1.html&#34;&gt;【最上志向】の特徴 | ストレングスファインダー&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category13/entry40.html&#34;&gt;【内省】の特徴 | ストレングスファインダー&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category6/entry18.html&#34;&gt;【収集】の特徴 | ストレングスファインダー&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;使われ方:c601311661980063785e7c6c04624cae&#34;&gt;使われ方&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;【着想】イノベーションを生み出す部署に配置せよ&lt;/li&gt;
+&lt;li&gt;【着想】もっとも大切な顧客と共有できるアイデアを生み出すよう促せ&lt;/li&gt;
+&lt;li&gt;【着想】一貫性のある説明を心がけよ&lt;/li&gt;
+&lt;li&gt;【学習欲】状況の変化に対応する職務を与えよ&lt;/li&gt;
+&lt;li&gt;【学習欲】学習環境を与えよ&lt;/li&gt;
+&lt;li&gt;【学習欲】専門家を目指させよ&lt;/li&gt;
+&lt;li&gt;【学習欲】人に教えさせよ&lt;/li&gt;
+&lt;li&gt;【最上志向】強みについて話し合うべし&lt;/li&gt;
+&lt;li&gt;【最上志向】強みが活かせるようなキャリアパスを用意すること&lt;/li&gt;
+&lt;li&gt;【最上志向】優れた業績を評価させる仕事につかせよ&lt;/li&gt;
+&lt;li&gt;【内省】静かにじっくり考えるように勧めよ&lt;/li&gt;
+&lt;li&gt;【内省】強みについて深く話し合うこと&lt;/li&gt;
+&lt;li&gt;【内省】思考をアウトプットさせよ&lt;/li&gt;
+&lt;li&gt;【内省】活発性を強みとする人と一緒に仕事をさせよ&lt;/li&gt;
+&lt;li&gt;【収集】調査をさせよ&lt;/li&gt;
+&lt;li&gt;【収集】ほかの「強み」にも着目するほかの「強み」にも着目する調査をさせよ&lt;/li&gt;
+&lt;li&gt;【収集】集めた情報を蓄積するシステムをつくる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category32/entry96.html&#34;&gt;【着想】を強みとする人を率いる | ストレングスファインダー＆リーダーシップ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category3/entry13.html&#34;&gt;【学習欲】を強みとする人を率いる | ストレングスファインダー＆リーダーシップ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category1/entry4.html&#34;&gt;【最上志向】を強みとする人を率いる | ストレングスファインダー＆リーダーシップ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category13/entry42.html&#34;&gt;【内省】を強みとする人を率いる | ストレングスファインダー＆リーダーシップ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category6/entry21.html&#34;&gt;【収集】を強みとする人を率いる | ストレングスファインダー＆リーダーシップ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;人を率いる:c601311661980063785e7c6c04624cae&#34;&gt;人を率いる&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category32/entry95.html&#34;&gt;【着想】で人を率いる | ストレングスファインダー＆リーダーシップ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category3/entry12.html&#34;&gt;【学習欲】で人を率いる | ストレングスファインダー＆リーダーシップ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category1/entry3.html&#34;&gt;【最上志向】で人を率いる | ストレングスファインダー＆リーダーシップ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category13/entry41.html&#34;&gt;【内省】で人を率いる | ストレングスファインダー＆リーダーシップ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category6/entry20.html&#34;&gt;【収集】で人を率いる | ストレングスファインダー＆リーダーシップ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;気になった強み:c601311661980063785e7c6c04624cae&#34;&gt;気になった強み&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category26/&#34;&gt;慎重さ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category21/&#34;&gt;原点思考&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category12/&#34;&gt;公平性&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://xn--bckg8a9ab8bxc5fpjscf3i.com/category27/&#34;&gt;親密性&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;関連:c601311661980063785e7c6c04624cae&#34;&gt;関連&lt;/h3&gt;
+
+&lt;p&gt;ストリングスファインダーを試してみたくなったか下記の書籍の新品を買いましょう。&lt;/p&gt;
+
+&lt;p&gt;強みの説明が書かれていてとストリングスファインダを受けるためのコードがついています。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=4532149479&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>リーントーク駆動開発 - LT駆動開発13</title>
+          <link>http://blog.eiel.info/blog/2015/04/04/lean-talk-driven-development-lt13/</link>
+          <pubDate>Sat, 04 Apr 2015 22:24:18 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/04/04/lean-talk-driven-development-lt13/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA13&#34;&gt;LT駆動開発13&lt;/a&gt;でLTをした。&lt;/p&gt;
+
+&lt;p&gt;ちょっと前にリーンスタートアップ系の本を読んだので、それを元にリーントーク駆動開発ってなんだろうと考えていたので、それを垂れ流した。&lt;/p&gt;
+
+&lt;p&gt;しかし、実際には内容が発散しすぎて収集がつかなかった。&lt;/p&gt;
+
+&lt;p&gt;なんにおいてもバランスは大切だというのが結論。
+無駄なものに力を注ぎすぎないように全体を見ながらバランスよく攻める。
+そして、効果があるところをみつけるところから始めたほうが良いと思う。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;9254c42d3fd340d2b11b6d7102f483e1&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;このスライドが誰かの役に立てば嬉しいなぁ。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=4873115914&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=4822248976&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;h1 id=&#34;関連:6d7d65611e59dbe57b92ec67e5f5368b&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2015/04/04/jsx-react-dom-lt-13/&#34;&gt;JSXとReactとDOMと。 - LT駆動開発13&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>JSXとReactとDOMと。 - LT駆動開発13</title>
+          <link>http://blog.eiel.info/blog/2015/04/04/jsx-react-dom-lt-13/</link>
+          <pubDate>Sat, 04 Apr 2015 22:15:49 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/04/04/jsx-react-dom-lt-13/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA13&#34;&gt;LT駆動開発13&lt;/a&gt;でLTをしてきた。&lt;/p&gt;
+
+&lt;p&gt;最近JavaScriptを他の人に教える機会があって、&lt;a href=&#34;https://facebook.github.io/react/&#34;&gt;React&lt;/a&gt;への導入を踏まえながらコードをかいた。
+JSXのないReactはDOM地道にJavaScriptで構築するわけだけど、これに比べて生のDOMを構築はすごく大変だなとおもった。&lt;/p&gt;
+
+&lt;p&gt;こうなってくるとReactのVirtualDOMって部分って割と気軽に感じたのでそういった話をした。
+あんまり下調べをちゃんとしてないのでてきとうなことを喋ったかもしれない。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;8c6da14d998d4bff96f220542c8537a7&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://ltdd.doorkeeper.jp&#34;&gt;LT駆動開発&lt;/a&gt;は毎月やってるので喋る人へのフィードバックをする人が増えたら嬉しいので、参加してどんどんまさかりを投げあって欲しいです。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=4873117194&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&#34;関連:85d3c5ce72e1240062c0b1400fb92582&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2015/04/04/lean-talk-driven-development-lt13/&#34;&gt;リーントーク駆動開発 - LT駆動開発13&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>記事のタイトルを大切にするように内容も大切にして欲しい</title>
+          <link>http://blog.eiel.info/blog/2015/03/26/blog-title/</link>
+          <pubDate>Thu, 26 Mar 2015 10:36:17 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/03/26/blog-title/</guid>
+          <description>
+
+&lt;p&gt;みんな記事のタイトルの付け方がうまくなった。
+思わずクリックしたくなるタイトルが増えた。
+でも、見慣れてしまって、なんだか見る気がしないものが増えた。&lt;/p&gt;
+
+&lt;p&gt;たぶん、タイトルに対して内容が伴わないな記事が増えたんだと思う。
+タイトルを付けるのに時間を使うように、内容が「&lt;strong&gt;読者のことを考えて書かれている&lt;/strong&gt;」かを考えたら良いと思う。&lt;/p&gt;
+
+&lt;p&gt;メールにしろ、ブログ記事にしろ忙しい人はタイトルしかみない。
+だからこそ、タイトルで目を引くのが大切だ。
+そういった目を引くタイトルは本来見るべき人にすばやく届いて、SNSでの拡散力だって高まる。&lt;/p&gt;
+
+&lt;p&gt;でも、内容の良いブログは検索エンジン経由でどちらにしろアクセスがくる。
+インターネットで調べものをしているとどうしても見つからない情報がある。
+あなたがそれを記事にすれば、たくさんのアクセスがくるだろう。&lt;/p&gt;
+
+&lt;p&gt;思わずクリックしたくなるよりも記事の内容を適切に表現するタイトルをつけよう。&lt;/p&gt;
+
+&lt;p&gt;誰かがWeb上書いているような記事に時間をかけるのはやめよう。
+なにか付加価値をつけよう。
+対象読者を変えてみるのも付加価値だろう。&lt;/p&gt;
+
+&lt;p&gt;もっと知りたい人のために、参考にした記事へリンクを貼ろう。
+あなたのリンクが情報源の価値を高める。
+結果、あなたの記事の信頼性も高まり、あなた自身の信頼も高まるだろう。&lt;/p&gt;
+
+&lt;p&gt;「〇〇するときに大切なN個のこと」そんなタイトルの記事の大切なことを合わせるといったい何個あるんだろう。
+「あなたが書いた」という価値がその大切さを伝えるようになるときが来るだろう。
+そんな時に使って欲しい。&lt;/p&gt;
+
+&lt;p&gt;あなたが記事を書いて本当にしたいことはなんだろう。
+アクセスアップだろうか。きっと、それは目の前の目的だと思う。
+本当は、世の中を良くしたり、経済を回すことなんじゃないかと思う。&lt;/p&gt;
+
+&lt;p&gt;本当にアクセスアップがしたいのなら何が大切なのか考えてバランスよく時間を使うことだ。
+時間を無駄に使ったり、誰かの時間を無駄にさせたりはしたくない。&lt;/p&gt;
+
+&lt;p&gt;もっと読者のことを考えて文章を書けるようになりたい。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=4480095268&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=448009525X&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&#34;関連記事:cd278ee827284361e5485c5bf7ea6614&#34;&gt;関連記事&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/04/16/writing-math-text-basic/&#34;&gt;「数学文章作法 基礎編」 が心に残り過ぎて、しばらく持ち歩きたい。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>リーンキャンバスは仮説検証をすることができる製品</title>
+          <link>http://blog.eiel.info/blog/2015/03/17/lean-canvas-is-minimum-product/</link>
+          <pubDate>Tue, 17 Mar 2015 17:32:25 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/03/17/lean-canvas-is-minimum-product/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/dp/4873115914/ref=as_sl_pc_tf_lc?tag=eiel-22&amp;amp;camp=1027&amp;amp;creative=7407&amp;amp;linkCode=as4&amp;amp;creativeASIN=4873115914&amp;amp;adid=14RJ43QJHGBB6B932WW4&amp;amp;&amp;amp;ref-refURL=http%3A%2F%2Fblog.eiel.info%2Fblog%2F2015%2F03%2F03%2Fafter-get-a-idea%2F&#34;&gt;実践リーンスタートアップ&lt;/a&gt;を読んだ。&lt;/p&gt;
+
+&lt;p&gt;リーンキャンバスは仮説検証をすることができる製品です。
+しかも、作りなれていると5分で作成することができます&lt;/p&gt;
+
+&lt;h1 id=&#34;製品:98da796131ab8ac58745b27f076d3001&#34;&gt;製品&lt;/h1&gt;
+
+&lt;p&gt;製品は、顧客に提供することができてフィードバックを得ることができます。&lt;/p&gt;
+
+&lt;p&gt;リーンスタートアップでは、アイディアをなるべくコストをかけずに製品を構築して、顧客に提供して、顧客のことを学習して、本当に必要なものをつくっていきます。&lt;/p&gt;
+
+&lt;p&gt;その最初につくる製品として、候補のひとつとして上がるのがリーンキャンバスになるようです。&lt;/p&gt;
+
+&lt;p&gt;他に製品になりえるものは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;スライド&lt;/li&gt;
+&lt;li&gt;ランディングページ&lt;/li&gt;
+&lt;li&gt;A4サイズ1枚程度の説明書&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などなどがありそうです。&lt;/p&gt;
+
+&lt;p&gt;ランディングページをつくったりするのは大変です。&lt;/p&gt;
+
+&lt;p&gt;スライドもリーンキャンバスをつくるよりは大変です。&lt;/p&gt;
+
+&lt;p&gt;A4サイズ1枚程度の説明書はスニペットがあれば、比較的簡単につくれそうです。&lt;/p&gt;
+
+&lt;h1 id=&#34;まとめ:98da796131ab8ac58745b27f076d3001&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;p&gt;ということで、アジャイルサムライで紹介されていた、エレベータビッチみたいなもののようです。
+リーンキャンバスは重要なものほど広い面積がとってあるため、重要な場所がわかりやすいということみたいです。&lt;/p&gt;
+
+&lt;p&gt;顧客が欲しいものやビジネスがうまくいきそうなものがわかったら、リーンキャンバスより大きな製品をつくって検証をしていけばよさそうです。&lt;/p&gt;
+
+&lt;h1 id=&#34;次に学べばよさそうなこと:98da796131ab8ac58745b27f076d3001&#34;&gt;次に学べばよさそうなこと&lt;/h1&gt;
+
+&lt;p&gt;製品をつかって顧客から学習する方法&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:98da796131ab8ac58745b27f076d3001&#34;&gt;関連&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2015/03/03/after-get-a-idea/&#34;&gt;アイディアを思いついたらリーンキャンバスを書くと良いらしい | そんなこと覚えてない&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/4873115914/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=4873115914&amp;linkCode=as2&amp;tag=eiel-22&#34;&gt;Running Lean ―実践リーンスタートアップ (THE LEAN SERIES)&lt;/a&gt;&lt;img src=&#34;http://ir-jp.amazon-adsystem.com/e/ir?t=eiel-22&amp;l=as2&amp;o=9&amp;a=4873115914&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=4822248976&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>もっと地域を活性化したいのでセミナーイベントの後の交流会を盛り上げたい - WEB TOUCH MEETING 76に参加した</title>
+          <link>http://blog.eiel.info/blog/2015/03/15/networking-event-after-seminar/</link>
+          <pubDate>Sun, 15 Mar 2015 01:20:12 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/03/15/networking-event-after-seminar/</guid>
+          <description>
+
+&lt;p&gt;広島のWeb系のハブになるイベントである&lt;a href=&#34;http://www.webtouchmeeting.com/meeting/2015/02/76web-touch-meeting.html&#34;&gt;WEB TOUCH MEETING の76回目&lt;/a&gt;に参加した。&lt;/p&gt;
+
+&lt;p&gt;セミナー内容はとてもおもしろかったですが、割愛します。&lt;/p&gt;
+
+&lt;p&gt;おもしろいかったのですが、イベント後にある「カフェベローチェで井戸端会議（自由参加）」の参加者が固定化されていて、参加者が少なくてもったいないと思った。&lt;/p&gt;
+
+&lt;p&gt;セミナーを聞く目的で参加するのも良いのですが、情報の交換が一番のおいしいところだと思う。
+Webというキーワードでいろんな人たちが集まっているから。
+人が集り、交流するといろんな楽しいことが起きる。&lt;/p&gt;
+
+&lt;p&gt;だから、もっとイベント後の交流会に参加者を誘導できたら良いのにと思っている。&lt;/p&gt;
+
+&lt;h1 id=&#34;感じたこと:c8d88006b5ffa65c878356be8d85f420&#34;&gt;感じたこと&lt;/h1&gt;
+
+&lt;p&gt;たぶん、はじめましての人がたくさんいた。&lt;/p&gt;
+
+&lt;p&gt;だからこそもっと交流したい。&lt;/p&gt;
+
+&lt;h1 id=&#34;良いとおもったこと:c8d88006b5ffa65c878356be8d85f420&#34;&gt;良いとおもったこと&lt;/h1&gt;
+
+&lt;p&gt;デザイナーよりのセッションが多めだったにも関わらず、
+そこそこプログラム系の人がいた。&lt;/p&gt;
+
+&lt;h2 id=&#34;より期待すること:c8d88006b5ffa65c878356be8d85f420&#34;&gt;より期待すること&lt;/h2&gt;
+
+&lt;p&gt;プログラマよりのときはもっとデザイナが来ると良いと思う。&lt;/p&gt;
+
+&lt;p&gt;デザイナよりのときはもっとプログラマが来ると良いと思う。&lt;/p&gt;
+
+&lt;p&gt;WEB TOUCH MEETINGの主旨に立ち返ってみる。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;WEB TOUCH MEETINGとは主に広島県、中国地方の方を対象にウェブ周りの技術や知識に関して自分は知ってる当たり前のことをまずはさわりの部分からでもお互いにしあいましょうという会です。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;さわりの部分を共有したいから、興味がないかなぁって思う時こそ参加すると良いと思う。&lt;/p&gt;
+
+&lt;h1 id=&#34;問題点:c8d88006b5ffa65c878356be8d85f420&#34;&gt;問題点&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;さわりを共有したからこそ、交流したいのに、交流会の参加者が固定化されている&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;なぜ交流会に参加者が少ないのか:c8d88006b5ffa65c878356be8d85f420&#34;&gt;なぜ交流会に参加者が少ないのか&lt;/h2&gt;
+
+&lt;p&gt;仮説を立ててみる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;イベントの時間が遅いため交流会に参加できない&lt;/li&gt;
+&lt;li&gt;交流会への誘導に失敗している&lt;/li&gt;
+&lt;li&gt;交流会があることを知らない&lt;/li&gt;
+&lt;li&gt;交流会にメリットが感じていない&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;イベントの時間が遅いため交流会に参加できない:c8d88006b5ffa65c878356be8d85f420&#34;&gt;イベントの時間が遅いため交流会に参加できない&lt;/h3&gt;
+
+&lt;p&gt;イベントが19時から22時。
+土曜日なのでバスの最終が22時50分だったりで充分な時間がないのではないか。&lt;/p&gt;
+
+&lt;p&gt;解決案&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;主催者に終了が22時になりそうなときは21時終了にできないか交渉してみる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;交流会への誘導に失敗している:c8d88006b5ffa65c878356be8d85f420&#34;&gt;交流会への誘導に失敗している&lt;/h3&gt;
+
+&lt;p&gt;イベントが終了後、運営は片付けているので、いきましょうって引っ張る人がいない。
+行くか迷っている人をしっかり引っ張る。&lt;/p&gt;
+
+&lt;p&gt;解決案&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;自分が誘導係をやる&lt;/li&gt;
+&lt;li&gt;イベントの終わりに充分な交流時間を入れてもらう&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;交流会があることを知らない:c8d88006b5ffa65c878356be8d85f420&#34;&gt;交流会があることを知らない&lt;/h3&gt;
+
+&lt;p&gt;アピールが足りず、存在に気付いていない。&lt;/p&gt;
+
+&lt;p&gt;解決案&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;自分がピエロになって終了後にしっかりアピールする&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;交流会にメリットが少ない:c8d88006b5ffa65c878356be8d85f420&#34;&gt;交流会にメリットが少ない&lt;/h3&gt;
+
+&lt;p&gt;交流会にメリットを感じていない人が多い可能性。
+そもそもイベント自体の参加がはじめてで参加しづらい可能性。&lt;/p&gt;
+
+&lt;p&gt;解決案&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;メリットを強調する&lt;/li&gt;
+&lt;li&gt;講師にはなるべく参加してもらう&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;次回挑戦したいこと:c8d88006b5ffa65c878356be8d85f420&#34;&gt;次回挑戦したいこと&lt;/h1&gt;
+
+&lt;p&gt;みんなにもっと参加して欲しいということを伝えるような行動してみる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;名刺交換を積極的にしにいく&lt;/li&gt;
+&lt;li&gt;誘導係をする&lt;/li&gt;
+&lt;li&gt;交流会の告知係をする&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;まとめ:c8d88006b5ffa65c878356be8d85f420&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;p&gt;交流会のメリットは固定化メンバーがいることから推測すると、
+勉強会のメリットをよく知っている人たちであり、そこそこ忙しくない人のような気がする。
+(注: みんな忙しい中で参加していると思います)&lt;/p&gt;
+
+&lt;p&gt;交流が増えると新しいコラボが生まれて、盛り上がるし、講師をする人も増える気がする。&lt;/p&gt;
+
+&lt;p&gt;そういえば最初のころは「興味がなくても参加する」ことを大切にしていた気がする。
+一緒に仕事する可能性も高い人たちだし、何より喋るのが苦手だからだ。&lt;/p&gt;
+
+&lt;p&gt;喋ることが苦手なら何度も顔をみせることで話すきかっけをつくればいい。&lt;/p&gt;
+
+&lt;p&gt;そんなことを思い出した。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>「ふりかえり」の仕方をときどき振り返りしたほうが良いと思った - すくすくスクラム広島第10回　スタッフによる「ふりかえり」</title>
+          <link>http://blog.eiel.info/blog/2015/03/14/scrum-furikaeri/</link>
+          <pubDate>Sat, 14 Mar 2015 23:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/03/14/scrum-furikaeri/</guid>
+          <description>
+
+&lt;p&gt;『「ふりかえり」の仕方をちゃんとおさらいしたい』と思う出来事があった。
+「ふりかえり」に限らず、よく行うことはときどきやり方の見直しが必要だと思った。&lt;/p&gt;
+
+&lt;h1 id=&#34;いきさつ:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;いきさつ&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sukusuku-scrum-hiroshima.doorkeeper.jp/events/21061&#34;&gt;すくすくスクラム広島第10回　スタッフによる「ふりかえり」&lt;/a&gt;に参加しました。
+すくすくスクラム広島では3回に1回「ふりかえり」を行います。前回やりわすれたらしくて、約1年ぶりのふりかえりをしました。&lt;/p&gt;
+
+&lt;h1 id=&#34;どのようなふりかえりをしたか:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;どのようなふりかえりをしたか&lt;/h1&gt;
+
+&lt;p&gt;去年のふりかえり時にしたKPTを確認して、Tryに着目して、継続するかどうか検討した。&lt;/p&gt;
+
+&lt;h2 id=&#34;ふりかえり:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;ふりかえり&lt;/h2&gt;
+
+&lt;p&gt;スクラムのふりかえりのことで、英語ではsprint retrospective(スプリントレトロスペクティブ)と言うらしい。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;h1 id=&#34;振り返り:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;振り返り&lt;/h1&gt;
+
+&lt;p&gt;スプリントゴールの達成具合や、スプリントで発生した問題とその改善について話し合う。次回のスプリントゴール目標についての取りまとめも含まれる場合がある&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ja.wikipedia.org/wiki/%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%A0_%28%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E9%96%8B%E7%99%BA%29#.E6.8C.AF.E3.82.8A.E8.BF.94.E3.82.8A&#34;&gt;スクラム (ソフトウェア開発) - Wikipedia&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;kpt:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;KPT&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Keep(続けたいこと)&lt;/li&gt;
+&lt;li&gt;Problem(問題点)&lt;/li&gt;
+&lt;li&gt;Try(挑戦したいこと)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;3つにわけてふりかえります。&lt;/p&gt;
+
+&lt;p&gt;参考: &lt;a href=&#34;http://enterprisezine.jp/iti/detail/788&#34;&gt;今日からできる！全員参加型の建設的フィードバック「ふりかえり」～実践編（KPT・タイムライン） (&lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt;)：テクノロジーでビジネスを加速するための実践Webメディア EnterpriseZine (EZ)&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;起きた問題点:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;起きた問題点&lt;/h1&gt;
+
+&lt;p&gt;ふりかえりのやり方はあれでよかったのか&lt;/p&gt;
+
+&lt;h2 id=&#34;どんなことをしたか:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;どんなことをしたか&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;前回出たTryができたかどうかを判断した&lt;/li&gt;
+&lt;li&gt;続けるべきだどうかを考えた&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;何が問題か:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;何が問題か&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;前回のトライにしか着目していない&lt;/li&gt;
+&lt;li&gt;新たなトライがあまり登場してない&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そもそも正しいKPTはどうするのだろう。
+よくよく考えると私はしらない。&lt;/p&gt;
+
+&lt;h1 id=&#34;ふたたびkpt:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;ふたたびKPT&lt;/h1&gt;
+
+&lt;p&gt;さきほど参考にはった記事のやり方をみてみる&lt;/p&gt;
+
+&lt;p&gt;参考: &lt;a href=&#34;http://enterprisezine.jp/iti/detail/788&#34;&gt;今日からできる！全員参加型の建設的フィードバック「ふりかえり」～実践編（KPT・タイムライン） (&lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt;)：テクノロジーでビジネスを加速するための実践Webメディア EnterpriseZine (EZ)&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Try実施確認&lt;/li&gt;
+&lt;li&gt;Keep/Problem抽出&lt;/li&gt;
+&lt;li&gt;Keep/Problem確認&lt;/li&gt;
+&lt;li&gt;Problem深掘り&lt;/li&gt;
+&lt;li&gt;Try項目抽出&lt;/li&gt;
+&lt;li&gt;Who、When決定&lt;/li&gt;
+&lt;li&gt;クロージング&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;今回、2の「Keep/Problem抽出」がとても弱く、6の「Who、When決定」は自然とやっていたけど、強制力が弱かった気がする。&lt;/p&gt;
+
+&lt;p&gt;2については&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;今回のKeep/Problemについての項目を書き出します。時間を決めて全員で一斉に書き出します。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;と書かれています。
+今回のKeepとProblemに着目する時間がとれていなかったと思います。&lt;/p&gt;
+
+&lt;h1 id=&#34;改善案:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;改善案&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ちゃんと各イベントごとふりかえる&lt;/li&gt;
+&lt;li&gt;時間ととって付箋で個別にKPTをする時間をとるべきだった&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;やはり付箋をつかったKeepとProblemの抽出をやるべきだと思いました。&lt;/p&gt;
+
+&lt;h1 id=&#34;その他:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;その他&lt;/h1&gt;
+
+&lt;p&gt;ふりかえりの手法としてYWTという手法の紹介がありました。&lt;/p&gt;
+
+&lt;p&gt;参考 &lt;a href=&#34;http://kuranuki.sonicgarden.jp/2013/06/ywt.html&#34;&gt;ビジョンを叶えるために。個人でも出来る戦略を考える第１歩 〜 YWTを使った戦略の立てかたとは | Social Change!&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;やったこと(Y)&lt;/li&gt;
+&lt;li&gt;わかったこと(W)&lt;/li&gt;
+&lt;li&gt;次にやること(T)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;の3つでYWTだそうです。&lt;/p&gt;
+
+&lt;p&gt;これは、書きやすそうだと思いました。&lt;/p&gt;
+
+&lt;h1 id=&#34;まとめ:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;p&gt;ふりかえりに限らないですが、やり方は知らぬうちにオレオレルールになっていないか確認したほうが良いと思いました。
+本来のルールに問題があって、改善している場合はもちろん変えてよいと思います。&lt;/p&gt;
+
+&lt;p&gt;スクラムに限らず、毎日のようにするようなことは「ふりかえり」ことが大切だと改めて思いました。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:5bd9a64b9e7bbf9e1949dcf9a8fbf3ae&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.facebook.com/Sukusuku.Scrum.Hiroshima&#34;&gt;すくすくスクラム広島 | Facebook&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>「GeoJSONをGistに貼る」という話をLT駆動開発12でした</title>
+          <link>http://blog.eiel.info/blog/2015/03/07/geojson-in-gist/</link>
+          <pubDate>Sat, 07 Mar 2015 13:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/03/07/geojson-in-gist/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA12&#34;&gt;LT駆動開発12&lt;/a&gt;で「GeoJSONをGistに貼る」という話をした。&lt;/p&gt;
+
+&lt;p&gt;遊びでつくってたAPIのJSON形式を&lt;a href=&#34;http://geojson.org/&#34;&gt;GeoJSON&lt;/a&gt;にしたので、GeoJSONの話をした。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;fd6714bb624e415bb8861c008dfd1d6c&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://s.kitazaki.name/docs/geojson-spec-ja.html&#34;&gt;仕様の日本語訳もある&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;位置情報系は疎いので、積極的にアウトプットして、情報を集めていきたい所存。
+&lt;a href=&#34;https://openstreetmap.jp/&#34;&gt;オープンストリートマップ&lt;/a&gt;のことももうちょっと調べておくべきな気がしつつ全く調べてない。&lt;/p&gt;
+
+&lt;p&gt;D3.jsもだけど。
+他にも最近地理系はなにかあった気がする。&lt;/p&gt;
+
+&lt;p&gt;LT駆動を1年やった結果いろいろな資産(スライド)が蓄積された。
+はてぶもされた。&lt;/p&gt;
+
+&lt;p&gt;2年目も毎月LTできるだろうか。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>OctopressからHugoに移行した マルチコアをもっと使いTai - LT駆動開発12</title>
+          <link>http://blog.eiel.info/blog/2015/03/07/octopress-to-hugo/</link>
+          <pubDate>Sat, 07 Mar 2015 12:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/03/07/octopress-to-hugo/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA12&#34;&gt;LT駆動開発12&lt;/a&gt;の発表者資料です。テーマ 「祝一周年&amp;amp;ハーレム」です。&lt;/p&gt;
+
+&lt;p&gt;ブログをOctopressからHugoに移行したのでその再に感じたことを発表しました。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;37a5d766667749f8861476cae2daf0cf&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Goはバランスがとれているなぁ、と最近感じていたりはします。&lt;/p&gt;
+
+&lt;p&gt;どちらにしろ、最近CPUは速くなってはいるだろうけど体感できないのは感じていたりしてました。
+バッテリーの持ちはよくなってるけど。&lt;/p&gt;
+
+&lt;p&gt;前置きはさておき、普段ローカルで実行してるようなプログラムがマルチコアは生かせてないというのは非常に体感する出来事でした。
+とはいえ、ウェブサービスをつくっていたりすると並列化なんてする必要はないだろうし、スマホアプリなら複雑な処理はAPIサーバにやらせればいいだろうし、
+並列化が必要な場面は特定分野にはなるんだろうとは思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;hugo移行の歳にしたこと:b5f717dad1677b7508f5552a316e1cc7&#34;&gt;Hugo移行の歳にしたこと&lt;/h3&gt;
+
+&lt;p&gt;移行の際にしたことを記録しておきます。&lt;/p&gt;
+
+&lt;p&gt;日付のフォーマットの修正。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;find . -type f -exec sed -i &amp;quot;&amp;quot; -e &#39;s/date: \([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\) \([0-9]\{2\}:[0-9]\{2\}\).*$/date: \1T\2:00+09:00/g&#39; {} \;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;layoutパラメータは指定しないので削除。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;find . -type f -exec sed -i &amp;quot;&amp;quot; -e &#39;s/layout: .*//g&#39; {} \;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;カテゴリではなくてタグに変更&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;find . -type f -exec sed -i &amp;quot;&amp;quot; -e &#39;s/categories/tags/g&#39; {} \;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとは、パーマリンクがずれないようにパーマリンクを指定しています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;permalinks:
+  post: /blog/:year/:month/:day/:filename/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ただし、ファイル名にも日付を含んでたので、あきらめて削除しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/blog.eiel.info/tree/master/content/post&#34;&gt;日付でソートできなくてつらい。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;あとは rss が atom.xml だったのが index.xmlになってしまったので、デプロイする前にcpして対処しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/blog.eiel.info/commit/baeea3fca8ee6a4cf987c42e4ab29da6831cb6b1&#34;&gt;https://github.com/eiel/blog.eiel.info/commit/baeea3fca8ee6a4cf987c42e4ab29da6831cb6b1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Werckerをつかってデプロイしていますが、ステップがすでにあってとても楽チンでした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/blog.eiel.info/blob/baeea3fca8ee6a4cf987c42e4ab29da6831cb6b1/wercker.yml&#34;&gt;https://github.com/eiel/blog.eiel.info/blob/baeea3fca8ee6a4cf987c42e4ab29da6831cb6b1/wercker.yml&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;box: wercker/default
+build:
+  steps:
+    - arjen/hugo-build:
+        version: 0.13
+    - script:
+        name: create atom.xml
+        code: cp public/index.xml public/atom.xml
+deploy:
+  steps:
+    - lukevivier/gh-pages@0.2.1:
+        token: $GIT_TOKEN
+        domain: blog.eiel.info
+        basedir: public
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;おまけでHugoのテーマでそのまま使えたのは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;hyde&lt;/li&gt;
+&lt;li&gt;purehugo&lt;/li&gt;
+&lt;li&gt;redlounge&lt;/li&gt;
+&lt;li&gt;simple-a&lt;/li&gt;
+&lt;li&gt;tinyce&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;でした。手軽に移行したいなら参考にどうぞ。&lt;/p&gt;
+
+&lt;p&gt;記事が増えて、生成速度が問題にならないように今後JekyllやOctopressでも対処されていくことだと思いますので、無理して移行する必要はないと思います。&lt;/p&gt;
+
+&lt;p&gt;つらい場合は検討してみてはどうでしょうか。&lt;/p&gt;
+
+&lt;p&gt;個人的には下書きだけ生成してくれるオプション欲しいです。(自分でつくれ)&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=4873116899&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&#34;参考文献:b5f717dad1677b7508f5552a316e1cc7&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://deeeet.com/writing/2014/12/25/hugo/&#34;&gt;OctopressからHugoへ移行した | SOTA&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>アイディアを思いついたらリーンキャンバスを書くと良いらしい</title>
+          <link>http://blog.eiel.info/blog/2015/03/03/after-get-a-idea/</link>
+          <pubDate>Tue, 03 Mar 2015 17:45:01 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/03/03/after-get-a-idea/</guid>
+          <description>
+
+&lt;p&gt;アイディアを思いついたらリーンキャンバスを書くと良いらしい。&lt;/p&gt;
+
+&lt;p&gt;リーンキャンバス的なものを書く必要があったので、&lt;a href=&#34;https://ltdd.doorkeeper.jp&#34;&gt;LT駆動開発&lt;/a&gt;1周年ということで、リーンスタートアップの段階的にしている&lt;a href=&#34;https://twitter.com/k2works&#34;&gt;@k2works&lt;/a&gt;先生のスライドを見直しながら自分なりに整理しただけである。&lt;/p&gt;
+
+&lt;p&gt;Q. アイディアを思いついたらどうするか。&lt;/p&gt;
+
+&lt;p&gt;A. &lt;strong&gt;実現させる&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;アイディアを実現するための、おすすめの方法論が&lt;strong&gt;リーンスタートアップ&lt;/strong&gt;らしい。&lt;/p&gt;
+
+&lt;p&gt;個人的なざっくりなイメージ&lt;/p&gt;
+
+&lt;p&gt;「仮説検証を繰り返して方向を修正しながら、顧客と製品を育てる」&lt;/p&gt;
+
+&lt;p&gt;その最初のステップがリーンキャンバスの書きながら検証する。
+書きながら、専門家に相談したり、潜在顧客にインタビューする。&lt;/p&gt;
+
+&lt;h1 id=&#34;リーンスタートアップ:601090340ed0c46c2ee56dfbb3604495&#34;&gt;リーンスタートアップ&lt;/h1&gt;
+
+&lt;h2 id=&#34;リーン:601090340ed0c46c2ee56dfbb3604495&#34;&gt;リーン&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;ムダがなく効率的&lt;/strong&gt;という意味。&lt;/p&gt;
+
+&lt;h2 id=&#34;スタートアップ:601090340ed0c46c2ee56dfbb3604495&#34;&gt;スタートアップ&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;不確実な状態で新しい製品やサービスを創り出さなければならない組織&lt;/strong&gt;のこと。&lt;/p&gt;
+
+&lt;p&gt;「アイディアを実現するためのチーム」と言える。&lt;/p&gt;
+
+&lt;h2 id=&#34;リーンスタートアップとは:601090340ed0c46c2ee56dfbb3604495&#34;&gt;リーンスタートアップとは&lt;/h2&gt;
+
+&lt;p&gt;新しい製品やサービスを開発する際に、顧客にとって価値のないものを作ってしまうことを防ぎつつ、より早くサービスを生みだしつづける方法論。&lt;/p&gt;
+
+&lt;p&gt;どうやってやるか。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;構築-計測-学習&lt;/strong&gt;を繰り返して行い最適なプランをみつける。&lt;/p&gt;
+
+&lt;p&gt;仮説をたてて、検証して、学んだことを反映させて、次の仮説を立てる。そして、検証する。&lt;/p&gt;
+
+&lt;p&gt;「プロトタイプを提供して、顧客にフィードバックをもらう」はコストが高い。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;プロトタイプの作成はコストが高い。&lt;/li&gt;
+&lt;li&gt;そもそも顧客がまだいない。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;リーンキャンバスを作成して、潜在顧客にフィードバックをもらう。&lt;/p&gt;
+
+&lt;h1 id=&#34;リーンキャンバス:601090340ed0c46c2ee56dfbb3604495&#34;&gt;リーンキャンバス&lt;/h1&gt;
+
+&lt;p&gt;リーンキャンバスを書いていくことそれ自体が、アイディアを実現するための整理でこれからのプランの構築をすることになる。
+リーンキャンバスでやることを並べると以下のようになる。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;対象とする顧客が明確にする&lt;/li&gt;
+&lt;li&gt;何を課題としているのか明確にする&lt;/li&gt;
+&lt;li&gt;顧客に伝えるコンセプトを明確にする&lt;/li&gt;
+&lt;li&gt;どうやって解決するかを明確にする&lt;/li&gt;
+&lt;li&gt;このサービスをどうやって宣伝するか決める&lt;/li&gt;
+&lt;li&gt;収益源を想像する&lt;/li&gt;
+&lt;li&gt;かかるコストを計算する&lt;/li&gt;
+&lt;li&gt;成長していることを計測するための指標を決める&lt;/li&gt;
+&lt;li&gt;他者より優れている点を整理する&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;アイディアを思いついたらすべきことが整理されている。&lt;/p&gt;
+
+&lt;p&gt;ここからリスクを洗い出して、プランを検証していくことになり、
+配置に意味があるので、わかりやすくなることらしい。(たぶん)&lt;/p&gt;
+
+&lt;h1 id=&#34;まとめ:601090340ed0c46c2ee56dfbb3604495&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;アイディアを思いついたらリーンキャンバスを作成する&lt;/li&gt;
+&lt;li&gt;リーンキャンバスをつかって検証して、プランの固める&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;ここからどうするのか:601090340ed0c46c2ee56dfbb3604495&#34;&gt;ここからどうするのか&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;リーンキャンバスの書き方を学ぶ&lt;/li&gt;
+&lt;li&gt;リーンキャンバスを使った検証方法を学ぶ&lt;/li&gt;
+&lt;li&gt;リーンキャンバスに書いたソリューションのプロトタイプを作成する&lt;/li&gt;
+&lt;li&gt;リーンスタートアップのことを学ぶ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;とりあえず、ウェブ上の情報では表面的なことしかわからないので&lt;a href=&#34;https://www.amazon.co.jp/dp/4873115914?tag=eiel-22&amp;amp;camp=1027&amp;amp;creative=7407&amp;amp;linkCode=as4&amp;amp;creativeASIN=4873115914&amp;amp;adid=0Z805ZPCC6J63421JQYA&amp;amp;&#34;&gt;実践リーンスタートアップ&lt;/a&gt;を注文した。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=4873115914&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;h1 id=&#34;追記:601090340ed0c46c2ee56dfbb3604495&#34;&gt;追記&lt;/h1&gt;
+
+&lt;p&gt;ウェブ上でリーンキャンバスを作成できる&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tinycanvas.grasphy.com/&#34;&gt;TinyCanvas&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;参考文献:601090340ed0c46c2ee56dfbb3604495&#34;&gt;参考文献&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/kakimomokuri/lt-03-34275687&#34;&gt;実践リーンスタートアップ…その前に&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/kakimomokuri/ss-35629403&#34;&gt;実践リーンスタートアップ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/meganehara/lean-for-social-startup&#34;&gt;NPO / ソーシャルビジネスのためのリーン・スタートアップ入門&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/kdmsnr/running-lean-17917258&#34;&gt;【Running Lean入門】リーンキャンバス作成ワークショップ（簡易版）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/leanstartupjp/ss-8602991?related=1&#34;&gt;はじめてのリーンスタートアップ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>ChefDKハンズオンをして思ったこと</title>
+          <link>http://blog.eiel.info/blog/2015/02/26/chefdk-hands-on/</link>
+          <pubDate>Thu, 26 Feb 2015 23:04:36 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/02/26/chefdk-hands-on/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://hiroshimarb.doorkeeper.jp/events/20979&#34;&gt;ChefDKハンズオン&lt;/a&gt;をしました。
+&lt;a href=&#34;http://great-h.github.io/events/event-093.html&#34;&gt;すごい広島93&lt;/a&gt;の脇で行いました。&lt;/p&gt;
+
+&lt;p&gt;ハンズオンをするととても勉強になります。自分が。&lt;/p&gt;
+
+&lt;p&gt;当日のトラブルを避けるための入念な準備をしたり、それでも想定しないことが起きたり、自分では簡単だと思っていることが他の人には意外と難しかったり、なんとなく理解の部分を発見したりできました。&lt;/p&gt;
+
+&lt;p&gt;参加者にとってハンズオンの良いところは、本来一人で新しいことをはじめるとつまづいた時に一人で解決しないといけませんが、講師がいて一緒に解決できるところがとても大きいと思いました。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、&lt;a href=&#34;http://qiita.com/eielh/items/adb173ffcd6389c12e36&#34;&gt;ChefDKハンズオン with すごい広島の資料&lt;/a&gt;はここにあるので、気が向いたら遊んでみてください。
+反省点なんかを反映したいですが、間に合っていません。
+作るのもそれなりに大変だったので、しっかり直したいです。&lt;/p&gt;
+
+&lt;p&gt;今度から月1回程度、他の人の作成したハンズオン資料でハンズオンしたり、ときどき自作したりしてもいいかなと思いはじめています。&lt;/p&gt;
+
+&lt;p&gt;そういえば、Boot2dockerの準備の仕方を書いてなかったらみんなハマってました。
+使ったことなければ、それはそうですね、本当にすみません。&lt;/p&gt;
+
+&lt;p&gt;再演希望とかあれば言ってください。研修に使いたい場合、講師で呼んでくれても良いです。
+生活費稼がなきゃ。&lt;/p&gt;
+
+&lt;p&gt;もっとみんなに使って欲しいと思った技術をみつけたら、新しいハンズオンを考えてみたいです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>「外資系エリートのシンプルな伝え方」を読んだ</title>
+          <link>http://blog.eiel.info/blog/2015/02/22/simple-through-ms/</link>
+          <pubDate>Sun, 22 Feb 2015 13:01:08 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/02/22/simple-through-ms/</guid>
+          <description>&lt;p&gt;読んだというか、ジャンケン大会で勝った。&lt;/p&gt;
+
+&lt;p&gt;あれはたしか1月31日に行われた「&lt;a href=&#34;http://heroshima.jp/EventInfo/20150131&#34;&gt;2015 MVP Community Camp～広島～&lt;/a&gt;」だった。
+「澤 円さんという世界に何人か存在するプレゼンの神の一人がいらっしゃる」ということで足を運んだ。&lt;/p&gt;
+
+&lt;p&gt;でも、たぶん澤円かさんが来なくても足を運んだと思う。&lt;/p&gt;
+
+&lt;p&gt;なんだか珍しくジャンケン大会で勝つことができた。
+そこで得たのは &lt;strong&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/4046010711/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=4046010711&amp;amp;linkCode=as2&amp;amp;tag=eiel-22&#34;&gt;澤円さん著 「外資系エリートのシンプルな伝え方」&lt;/a&gt;&lt;/strong&gt; である。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2015-02-22-simple-a.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;当然だがサインをいただいた。(ありがとうございます)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2015-02-22-simple-b.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ひっそり、りんごマークが映るように撮るべきだった。(やめろ)&lt;/p&gt;
+
+&lt;p&gt;本書は意外と厚いのだけど、文字が大きめなので、そんなに内容は多くない。
+そこら辺にいっぱいある自己啓発に書かれていることばかり書かれているかもしれない。&lt;/p&gt;
+
+&lt;p&gt;だけど、冒頭で説明したように、神と評される人がどんなことを実践しているかと思って読んでみると驚くべき本である。
+以前どこかにかいたけど、&lt;strong&gt;すごいと思う人の習慣を真似すること&lt;/strong&gt;はとても効果がある。
+もし澤さんのように、心を動かす伝え方をしたいのであれば、この本はシンプルでとても良い本だ。&lt;/p&gt;
+
+&lt;p&gt;本書は、自己啓発から始まり、コミュニケーション術を経由して、本題の澤さんがプレゼンで大切していることに向かう。
+最後のプレゼンで大切にしていることはたくさん刺さる。&lt;/p&gt;
+
+&lt;p&gt;「相手の未来を拓く核を持て」とあるが、これができている人のプレゼンは終わった後はワクワクする。実践してみたいものです。&lt;/p&gt;
+
+&lt;p&gt;自分が得意なことを誰かに伝えたい人は、一度澤さんのプレゼンを見て、本書を読んでみると良い。
+一度以上人前でプレゼンをしたことがあるとなお良い。&lt;/p&gt;
+
+&lt;p&gt;とても心動かされることだろう。&lt;/p&gt;
+
+&lt;p&gt;僕は誰かの心を動かすような話をすることが今後できるだろうか。&lt;/p&gt;
+
+&lt;p&gt;勝手に宣伝しておくと、今週も広島に澤円かさんが広島にやってくるらしい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://connpass.com/event/11852/&#34;&gt;ヒーロー島 バレンタイン スペシャル 2015 with Windows女子部&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;宣伝する間もなく定員いっぱいみたいですが。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=4046010711&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;ところで、&lt;a href=&#34;https://www.google.com/webhp?sourceid=chrome-instant&amp;amp;ion=1&amp;amp;espv=2&amp;amp;ie=UTF-8#q=%E3%83%AD%E3%83%B3%E6%AF%9B%E3%81%8A%E3%81%98%E3%81%95%E3%82%93&#34;&gt;ロン毛おじさん&lt;/a&gt;でググると澤 円さんがヒットするらしい。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>GitHubに馴れると何ができるのか</title>
+          <link>http://blog.eiel.info/blog/2015/02/19/github-for-commons/</link>
+          <pubDate>Thu, 19 Feb 2015 19:09:59 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/02/19/github-for-commons/</guid>
+          <description>
+
+&lt;p&gt;コンピュータに疎い人にGitHubに馴れると何ができるのか聞かれたので、その時に書いた文章を残しておく。&lt;/p&gt;
+
+&lt;h1 id=&#34;githubに馴れると何ができるのか:5b9bfe18631d84be041a37c3d50e7329&#34;&gt;GitHubに馴れると何ができるのか&lt;/h1&gt;
+
+&lt;p&gt;GitHubの操作になれると、他の人の協力して「ものづくり」しやすくなります。&lt;/p&gt;
+
+&lt;p&gt;「ものづくり」と書きましたが、なんにでも使えるわけではないです。&lt;/p&gt;
+
+&lt;p&gt;基本的にはコンピュータ上で動くものを作るときでであり、作るものは、文字で表現できるものが主となります。
+文字で表現できるものは、例えば、コンピュータ言語を記述して作るものがあります。&lt;/p&gt;
+
+&lt;p&gt;コンピュータ言語を使って作成できるものは、アプリケーションやウェブページなどなどがあります。&lt;/p&gt;
+
+&lt;p&gt;コンピュータに疎いということであれば、GitHubに慣れることよりもまず、コンピュータを使って何かを作ることになれる必要があるかもしれません。
+もし、コンピュータを使って、アプリケーションやウェブページを作成しているのであれば、GitHubに馴れることで、他の人と協力しやすくなります。
+HTMLというものやCSS、JavaScriptなどを利用して、なにかを作成している場合、今の時代であれば、どこかでGitHubというものに出会うと思います。&lt;/p&gt;
+
+&lt;h1 id=&#34;蛇足:5b9bfe18631d84be041a37c3d50e7329&#34;&gt;蛇足&lt;/h1&gt;
+
+&lt;p&gt;書いてて、思い出したのは「&lt;a href=&#34;http://yanorin.blogspot.jp/2015/01/git.html&#34;&gt;ものづくりにっぽん: Gitとかわかんなくても死なないです&lt;/a&gt;」だけど、Gitとかわかんなくても死なないのは事実だな、と思いながら書いた記憶があります。&lt;/p&gt;
+
+&lt;p&gt;ただ協力して作業する場合に、便利なサービスとしてGitHubをたくさんの人が使うようになると、Gitが使えない人は協力して作業するのが難しくなると思います。
+そのコストを誰かが払ってでも一緒にものをつくれるのであれば、Gitとかわかんなくても生きていけると思うのでした。&lt;/p&gt;
+
+&lt;p&gt;何を学ぶかは、誰と作りたいのか、何を作りたいのか、それをどうやって作るのか。&lt;/p&gt;
+
+&lt;p&gt;僕はGitがないと仕事できないので、一緒につくりたい人のためにはGitの使い方なんていくらでも教える。&lt;/p&gt;
+
+&lt;p&gt;マイノリティーが生きるのはどこへいっても辛いものです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>「プログラマのためのGulp入門」というLTをするはずだった</title>
+          <link>http://blog.eiel.info/blog/2015/02/16/ltdd-11-gulp/</link>
+          <pubDate>Mon, 16 Feb 2015 00:04:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/02/16/ltdd-11-gulp/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT駆動開発11&#34;&gt;LT駆動開発11&lt;/a&gt;で「プログラマのためのGulp入門」というLTをするはずだったんだけど、
+思っていたより発表者がいたためお蔵入りしました。&lt;/p&gt;
+
+&lt;p&gt;次回に回してもよかったんだけど、正直まとまっていないし、そもそもLTに収まらないのが明らかだったので、今回はさっさとスライドを公開することにした。&lt;/p&gt;
+
+&lt;p&gt;そして内容をいそいそと現在Qiitaに書き下しております。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/eielh/items/0ed141c0bda3663872b7&#34;&gt;プログラマのためのGulp入門 - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;796230c2638345ca97398e5a42c70919&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;今回、用意したLTがDockerとGulpって僕はいったいどこへ向かっているのかさっぱりわからない。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発11で「 dockerをどこかで使う」という話をした</title>
+          <link>http://blog.eiel.info/blog/2015/02/14/ltdd-11/</link>
+          <pubDate>Sat, 14 Feb 2015 23:38:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/02/14/ltdd-11/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA11&#34;&gt;LT駆動開発11&lt;/a&gt;でライトニングトークをしました。&lt;/p&gt;
+
+&lt;p&gt;LT駆動開発11は&lt;a href=&#34;http://osh-web.github.io/2015/&#34;&gt;オープンセミナー2015@広島&lt;/a&gt;の懇親会内で行われました。&lt;/p&gt;
+
+&lt;p&gt;そういえば、「タイトルがつまらないと」言われましたが、Dockerなんていますごく盛り上がってるのにキャッチーなタイトルつけたら死んでしまいます。
+まさかり怖い。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;150b79fe25574978b0642df9aa2ba30c&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Dockerいろいろつかってますが、すごく楽しいです。
+Dockerつかってやりたいことも結構あります。&lt;/p&gt;
+
+&lt;p&gt;Docker自体はまだ使わないだろうとおもってたんですが、ちょっとDocker使いたくなってどっぷり使っています。&lt;/p&gt;
+
+&lt;p&gt;「Railsのアプリを開発するのにRubyをインストールする必要がなかったり、production環境でRailsアプリを動かすのにRubyやnodejsをインストールする必要がなかったり」
+その辺すごく良いとおもったので、そのあたりを強調した話をしました。&lt;/p&gt;
+
+&lt;p&gt;CI環境で使えないミドルウェアがあっても安心っすね。Werckerがあるけど。&lt;/p&gt;
+
+&lt;p&gt;僕自身そんなに頭は良くないので、シンプルに考えることができるようになるプロダクトは好きです。
+そのひとつはDockerでしょう。「Gitのコミットしてブランチが切っていれば良い」みたいな安心感があります。&lt;/p&gt;
+
+&lt;p&gt;そういえば、このスライドの内容は遊びでつくってるサービスでもやってるのでご自由に閲覧ください。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/parkmap-h/parkmap&#34;&gt;Github Parkmap-h/parkmap&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そういえば、時間があまらなかったので、もう一個スライドがあまってるのでどう消化するか悩み中です。(どうでもいい)&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>再・オープンセミナー広島は広島のITエンジニアが集う場所</title>
+          <link>http://blog.eiel.info/blog/2015/02/06/osh-2015/</link>
+          <pubDate>Fri, 06 Feb 2015 12:08:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/02/06/osh-2015/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://osh-web.doorkeeper.jp/events/7534&#34;&gt;昨年のオープンセミナー広島&lt;/a&gt;の実行委員長です。今年は雑務担当です。こんにちは。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://osh-web.github.io/2015/&#34;&gt;2015年2月14日(土)オープンセミナー2015@広島&lt;/a&gt;が開催されます。&lt;/p&gt;
+
+&lt;p&gt;そういえば前振りとして&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2015/01/10/chef-abc-on-test-kitchen/&#34;&gt;LT駆動開発10でTest KitchenではじめるChef入門という話をした。OSH2015のステマかもしれない。 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という記事も書いていた。&lt;/p&gt;
+
+&lt;p&gt;しかーし、イベントを来週に控えた2015年2月6日現在の&lt;strong&gt;申し込み人数は28名&lt;/strong&gt;だ。&lt;/p&gt;
+
+&lt;p&gt;ちなみに去年の参加者は93名だったらしい。
+ついでに、懇親会は41名の参加があったらしい。&lt;/p&gt;
+
+&lt;p&gt;それはさておいて、去年こんなタイトルの記事を書いていた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/01/04/lets-take-part-in-osh/&#34;&gt;オープンセミナー広島は広島のITエンジニアが集う場所 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;すこしだけ抜粋しよう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;テーマに興味なくても参加しようぜ&lt;/li&gt;
+&lt;li&gt;本番は懇親会らしい&lt;/li&gt;
+&lt;li&gt;将来の委員長が会いたい人を呼べるイベントになればいいのに&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;同じことを書いても仕方ないので少し遊ぶ。&lt;/p&gt;
+
+&lt;h3 id=&#34;テーマに興味なくても参加しようぜ:5057ad463aea1f8e7b47970ddd09171e&#34;&gt;テーマに興味なくても参加しようぜ&lt;/h3&gt;
+
+&lt;p&gt;テーマってコミュニティに参加している人の好みへ流れるので、参加して「俺好みにしようぜ」という話を書いた。
+特に大きいイベントに。&lt;/p&gt;
+
+&lt;p&gt;結果、自分が好むテーマのイベントが増えていくと思う。
+それ以前にコミュニティの人たちが興味をもってることだから何かしら役には立つとは思いたい。&lt;/p&gt;
+
+&lt;p&gt;どうやらイベントがバレンタインデーなのがまずくて、参加したくても参加ができないのではないかと思う。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&amp;gt; ITエンジニアはなんてリア充なんだ!! &amp;lt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;本番は懇親会らしい:5057ad463aea1f8e7b47970ddd09171e&#34;&gt;本番は懇親会らしい&lt;/h3&gt;
+
+&lt;p&gt;セミナーで講師の話を聞くのが目的にしないで、刺激をうけた上で情報交換しようってのが裏の理由だろう。&lt;/p&gt;
+
+&lt;p&gt;そんなことはおいておいて面白いライトニングトークをして欲しいのが建前だ。
+面白ければどうでもいいのが本音である。(?)&lt;/p&gt;
+
+&lt;p&gt;ということで、懇親会でLT駆動開発を行うことになった。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&amp;gt; テーマは「打倒オープンセミナー」&amp;lt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ltdd.doorkeeper.jp/events/19716&#34;&gt;LT駆動開発 11 - 打倒オープンセミナー - LT駆動開発 | Doorkeeper&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;DockerかGulpの話をする予定だけど、時間が足りなくて別の話をするかもしれない。&lt;/p&gt;
+
+&lt;h3 id=&#34;将来の委員長が会いたい人を呼べるイベントになればいいのに:5057ad463aea1f8e7b47970ddd09171e&#34;&gt;将来の委員長が会いたい人を呼べるイベントになればいいのに&lt;/h3&gt;
+
+&lt;p&gt;スタッフもボランティアなのでなにかメリットがあって欲しい。
+そういう話である。&lt;/p&gt;
+
+&lt;p&gt;しかし、参加者が少ないイベントに協賛してもらうのも心苦しいので、そういった意味ではたくさん人が来て欲しい。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&amp;gt; ボランティアメリットにはまずは協賛メリットとかつらい! &amp;lt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:5057ad463aea1f8e7b47970ddd09171e&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;別に島根から来てもいいんだぜ(ちらちら&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;岡山の人は何も言わなくても来るだろう。
+もちろん鳥取、山口、福岡、香川、徳島、高知、愛媛もね。&lt;/p&gt;
+
+&lt;p&gt;私もちょろちょろ遊びにいきます。&lt;/p&gt;
+
+&lt;p&gt;仕事が楽しいセミナー旅行で、ITエンジニアは魔法使いで、子供の憧れるような職業になればいいと思う。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.adventar.org/calendars/619&#34;&gt;打倒デスマ。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;この想いはどの辺りまで届くんだろうか。えいやっ!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&amp;gt; オチが同じ!! &amp;lt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://osh-web.doorkeeper.jp/events/18561&#34;&gt;オープンセミナー2015@広島 - オープンセミナー広島 | Doorkeeper&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>DockerでCMSの会 Vol.2に挑む - 準備編</title>
+          <link>http://blog.eiel.info/blog/2015/01/26/cms-hands-on-2-with-docker/</link>
+          <pubDate>Mon, 26 Jan 2015 18:01:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/01/26/cms-hands-on-2-with-docker/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://kawa-tani.com/cms-hands-on/&#34;&gt;CMSの会 Vol.2&lt;/a&gt;というイベントが2月7日(土)に広島で行われるらしい。
+&lt;a href=&#34;http://www.a-blogcms.jp/&#34;&gt;a-blog CMS&lt;/a&gt;,&lt;a href=&#34;http://concrete5-japan.org/&#34;&gt;concrete5&lt;/a&gt;,&lt;a href=&#34;https://ja.wordpress.org/&#34;&gt;Wordpress&lt;/a&gt;の3つのCMSを使って、同一のウェブサイトを作成して、個々の長所短所を学べるらしい。&lt;/p&gt;
+
+&lt;p&gt;こっちも確認しておくとよいだろう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://kawa-tani.com/blog/?p=447&#34;&gt;川谷制作所 » CMSの会Vol.2をやります&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;さて、参加するかどうかは不明だが、参加条件に環境を準備をしてくる必要がある。
+どうやって環境を用意するかと考えた結果。「&lt;strong&gt;ここはDockerしかない&lt;/strong&gt;」と思い、環境を整えてみた。&lt;/p&gt;
+
+&lt;p&gt;実際に参加してみるとどんな問題にぶつかるかわからないので、参加する場合に参考にする場合は注意しておいたほうが良いでしょう。
+事前にテキスト的なものがいただけたら確認はできるかもしれないが。&lt;/p&gt;
+
+&lt;p&gt;さて本題。&lt;/p&gt;
+
+&lt;p&gt;dockerがインストールされていれば以下のコマンドで環境を構築できる。
+Windowsは想定していない。(そろそろOSが欲しいが空いてる64bitマシンもない)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -d --name my-mysql -e MYSQL_ROOT_PASSWORD=&amp;quot;secret&amp;quot; eiel/mysql:concrete5
+docker run -d --name my-wordpress --link my-mysql:mysql  -p 8001:80 -v `pwd`/wordpress:/var/www/html eiel/wordpress
+docker run -d --name my-concrete5 --link my-mysql:mysql -p 8002:80 -v `pwd`/concrete5:/var/www/html eiel/concrete5
+docker run -d --name my-acms --link my-mysql:mysql  -p 8003:80 -v `pwd`/acms:/var/www/html eiel/acms
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;イメージをダウンロードするので時間がかかります。
+二度目からはダウンロードの必要がないのでだいぶはやくなります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;wordpress&lt;/li&gt;
+&lt;li&gt;concrete5&lt;/li&gt;
+&lt;li&gt;acms&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;の3つのディレクトリが作成されます。
+それぞれのCMSの作業ディレクトリとなっていて必要なものが準備されています。&lt;/p&gt;
+
+&lt;p&gt;CMSの動作を見るにはdockerの動いているホストのそれぞれのポートにアクセスすればOKです。&lt;/p&gt;
+
+&lt;p&gt;boot2dockerを使っている場合はまずIPを確認します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ boot2docker config | grep LowerIP
+LowerIP = &amp;quot;192.168.59.103&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;IPが192.168.59.109だったと仮定すると&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Wordpress &lt;a href=&#34;http://192.168.59.103:8001&#34;&gt;http://192.168.59.103:8001&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;concrete5 &lt;a href=&#34;http://192.168.59.103:8002&#34;&gt;http://192.168.59.103:8002&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;a-blog cMS &lt;a href=&#34;http://192.168.59.103:8003&#34;&gt;http://192.168.59.103:8003&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;でそれぞれ動作確認ができます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/2015-01-27/cms2.png&#34; alt=&#34;cms2&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;動作を停止するには&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker stop my-wordpress my-concrete5 my-acms my-mysql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;です。&lt;/p&gt;
+
+&lt;p&gt;再度、起動するには&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker start my-wordpress my-concrete5 my-acms my-mysql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となります。&lt;/p&gt;
+
+&lt;p&gt;concrete5とa-blog CMSはデータベースの指定をしないといけません。
+以下の情報を使ってください。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ホスト名: mysql&lt;/li&gt;
+&lt;li&gt;ユーザ名: root&lt;/li&gt;
+&lt;li&gt;パスワード: secret&lt;/li&gt;
+&lt;li&gt;データベース: concrete5 (ablogの場合は acms)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;を指定してください。&lt;/p&gt;
+
+&lt;p&gt;a-blog CMSのインストール後に&lt;code&gt;setup&lt;/code&gt;ディレクトリの移動をしますが、&lt;code&gt;_setup&lt;/code&gt;にしてください。
+&lt;code&gt;_setup&lt;/code&gt;以外のものにすると&lt;code&gt;docker run&lt;/code&gt;をするときに&lt;code&gt;setup&lt;/code&gt;ディレクトリを作ってしまってまた移動させる必要があります。&lt;/p&gt;
+
+&lt;h3 id=&#34;やりなおす:bec45c93b06e5dd3cadbcaaa13d1d387&#34;&gt;やりなおす&lt;/h3&gt;
+
+&lt;p&gt;Dockerのイメージを取得したところからやりなおしたくなったら、以下でなおせます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker stop  my-wordpress my-concrete5 my-acms my-mysql | xargs docker rm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;もう一度起動する場合は代わりありません。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -d --name my-mysql -e MYSQL_ROOT_PASSWORD=&amp;quot;secret&amp;quot; eiel/mysql:concrete5
+docker run -d --name my-wordpress --link my-mysql:mysql  -p 8001:80 -v `pwd`/wordpress:/var/www/html eiel/wordpress
+docker run -d --name my-concrete5 --link my-mysql:mysql -p 8002:80 -v `pwd`/concrete5:/var/www/html eiel/concrete5
+docker run -d --name my-acms --link my-mysql:mysql  -p 8003:80 -v `pwd`/acms:/var/www/html eiel/acms
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;確実に10秒以上待つことになるのでのんびりお待ちください。&lt;/p&gt;
+
+&lt;h3 id=&#34;もっと詳しく:bec45c93b06e5dd3cadbcaaa13d1d387&#34;&gt;もっと詳しく&lt;/h3&gt;
+
+&lt;p&gt;それぞれのDockerfileは下記にあります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/docker-mysql&#34;&gt;https://github.com/eiel/docker-mysql&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/docker-wordpress-ja&#34;&gt;https://github.com/eiel/docker-wordpress-ja&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/docker-concrete5&#34;&gt;https://github.com/eiel/docker-concrete5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/docker-acms&#34;&gt;https://github.com/eiel/docker-acms&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;eiel/mysqlは5.6を利用した場合concrete5のインストールに失敗したので少しカスタマイズしてあります。
+sql-modeが&lt;code&gt;STRICT_TRANS_TABLES&lt;/code&gt;にならないように変更しています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考文献 &lt;a href=&#34;http://www.ah-2.com/2014/05/13/mysql56_mysql_install_db.html&#34;&gt;http://www.ah-2.com/2014/05/13/mysql56_mysql_install_db.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;wordpressは公式のものを流用していますが、 日本語版をインストールするように変更しています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考文献 &lt;a href=&#34;https://github.com/docker-library/wordpress&#34;&gt;https://github.com/docker-library/wordpress&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;concrete5はWordpressのものを参考に作成しています。
+-v をつけたときのパーミッションではまったのでapacheの起動ユーザを変更して対処しています。&lt;/p&gt;
+
+&lt;p&gt;基本的にはDocker公式のWordpressのDockerfileを参考にして作成しています。&lt;/p&gt;
+
+&lt;p&gt;eiel/wordpressは日本語版をインストールするように改造しています。
+eiel/cnocrete5とeiel/acmsはそれを参考にちょろちょろいじっています。&lt;/p&gt;
+
+&lt;p&gt;仮想マシンで何度も実行するのは大変だけどDockerはだいぶ楽ですね。
+そろそろ何か本番でつかっていきたいところです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発10で「Rubyistからみたnpm」という話をした。</title>
+          <link>http://blog.eiel.info/blog/2015/01/10/npm-abc-for-rubyist/</link>
+          <pubDate>Sat, 10 Jan 2015 18:52:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/01/10/npm-abc-for-rubyist/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA10&#34;&gt;LT駆動開発10&lt;/a&gt;で「Rubyistからみたnpm」という話をした。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;9961d6c07adc0132c0c22e2d526dbddf&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;このスライドは10月につくったのだけど、使う場面がなかったけど、今日は時間が余ってたので取り出しました。&lt;/p&gt;
+
+&lt;p&gt;なんか微妙だった。まあ。いいや。
+使ってみた上での認識です。&lt;/p&gt;
+
+&lt;p&gt;参考になれば幸いです。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:d8e7875209aacee2cecc6347dacbedc1&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2015/01/10/chef-abc-on-test-kitchen/&#34;&gt;LT駆動開発10でTest KitchenではじめるChef入門という話をした。OSH2015のステマかもしれない。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発で「GitHubのリポジトリで先月のコミット一覧を見たい」という話をした</title>
+          <link>http://blog.eiel.info/blog/2015/01/10/git-month-commits/</link>
+          <pubDate>Sat, 10 Jan 2015 18:27:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/01/10/git-month-commits/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA10&#34;&gt;LT駆動開発10&lt;/a&gt;で最近つくったGemを紹介した。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;50b6d3907ad7013276ef56408e7781f2&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;作業しているGitリポジトリの先月の作業内容を閲覧するためにつくった。
+GitHubのcompareのページをブラウザで開いてくれるGemだ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git month-commits open
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で使える。&lt;/p&gt;
+
+&lt;p&gt;openをけずると git log を実行します。&lt;/p&gt;
+
+&lt;p&gt;インストールは下記の通りである。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gem install git_month_commits
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;毎月やる作業を楽にするどうでも良いスクリプトである。&lt;/p&gt;
+
+&lt;p&gt;コミットを探す簡単なスクリプトを用意してたのだけど、折角なのでrubyで書き直した。&lt;/p&gt;
+
+&lt;p&gt;エコシステムが整備されてこういうのが気軽にインターネットにおけるようになったのは利点なのが問題点なのかわからないけど、楽しいので良いことにしよう。&lt;/p&gt;
+
+&lt;p&gt;ちょっと改造すれば先週とか月指定とかにもできるけど要望があったら考えることにしよう。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:bc475f5b203cea3d52b89b9d45d0246a&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/git_month_commits&#34;&gt;eiel/git_month_commits · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2015/01/10/chef-abc-on-test-kitchen/&#34;&gt;LT駆動開発10でTest KitchenではじめるChef入門という話をした。OSH2015のステマかもしれない。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>LT駆動開発10でTest KitchenではじめるChef入門という話をした。OSH2015のステマかもしれない。</title>
+          <link>http://blog.eiel.info/blog/2015/01/10/chef-abc-on-test-kitchen/</link>
+          <pubDate>Sat, 10 Jan 2015 12:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/01/10/chef-abc-on-test-kitchen/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA10&#34;&gt;LT駆動開発10&lt;/a&gt;で「Test KitchenではじめるChef入門」という話をした。&lt;/p&gt;
+
+&lt;p&gt;ちなみにこの記事は&lt;a href=&#34;http://osh-web.github.io/2015/&#34;&gt;オープンセミナー2015@広島&lt;/a&gt;のステマ記事でもある。&lt;/p&gt;
+
+&lt;p&gt;また、&lt;a href=&#34;http://qiita.com/eielh/items/64e197f4f1eaf5ff6097&#34;&gt;「Test KitchenではじめるChef入門」はQiitaに投稿した記事である&lt;/a&gt;。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;ba236a70755b0132ffbd4aca611a7ac2&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Chefはちょいちょい使っていて、使いこなせてはいません。&lt;/p&gt;
+
+&lt;p&gt;Cookbookを作成するときの環境で、Vagrantfileでやるのがよいのか、knife-zeroを使うのがいいのかいろいろ悩んでいた。
+やっぱりテストコードを書きたいし、ますは&lt;a href=&#34;https://github.com/test-kitchen/test-kitchen&#34;&gt;Test Kitchen&lt;/a&gt;をいじっておこうと至るのは自然な道だと思う。&lt;/p&gt;
+
+&lt;p&gt;Test Kitchenをいじっていると、そのままの環境でCookbookを書くのが良さそうだということに気づいた。
+ならば、はじめからTest Kitchenを使いつつChefを学ぶのも良さそうだということで「Test KitchenではじめるChef入門」というネタを考えた。&lt;/p&gt;
+
+&lt;p&gt;詳細はQiitaの記事を参照して欲しい。&lt;/p&gt;
+
+&lt;p&gt;広島のみんなは&lt;a href=&#34;http://osh-2014.github.io/&#34;&gt;オープンセミナー2014@広島&lt;/a&gt;で&lt;a href=&#34;https://twitter.com/t_wada&#34;&gt;@t_wada&lt;/a&gt;さんに来てもらったことだし、何をはじめるにしてもテストコードをかく環境から導入したいはずだ。
+きっと、Chefのテスト環境にみんな興味があるはずだ。(確信)(そんなわけはない)&lt;/p&gt;
+
+&lt;p&gt;そういえば、&lt;a href=&#34;http://osh-web.github.io/2015/&#34;&gt;オープンセミナー2015@広島&lt;/a&gt;は2月14日が行なわれる。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://osh-web.doorkeeper.jp/events/18561&#34;&gt;事前申し込みはこちらからできる&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;そして、みんなすごいChefを試していると思うんだけど、Chefの調べものをしていると、きっと&lt;a href=&#34;https://twitter.com/sawanoboly&#34;&gt;@sawanoboly&lt;/a&gt;さんを何度もみかけるはずだ。
+代表的な記事をピックアップしてみよう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/sawanoboly/items/4f363909615d8a76e9e5&#34;&gt;Ruby - Chefのローカルモードチュートリアル + knife-zero + knife-sakura - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/sawanoboly/items/9f560bd63ad0712b17ba&#34;&gt;test-kitchenのつかいかた - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/sawanoboly/items/218a7b03ddec6be45e34&#34;&gt;Chefのローカルモードだけでリモートサーバを運用してみようと、Knife-Zeroを作った。Nodeの構成情報もとれるよ。 - Qiita&lt;/a&gt;
+ところで、オープンセミナー2015@広島の講師に&lt;a href=&#34;https://twitter.com/sawanoboly&#34;&gt;@sawanoboly&lt;/a&gt;さんがいるように見えるのは僕の気のせいだろか。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Chefに限らず構成管理ツールの利用箇所は幅が広がりつつある。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Packerをつかって各仮想環境のbox作成&lt;/li&gt;
+&lt;li&gt;Vagrantのプロビション&lt;/li&gt;
+&lt;li&gt;Dockerなどコンテナのプロビジョン&lt;/li&gt;
+&lt;li&gt;WerkerのBox作成&lt;/li&gt;
+&lt;li&gt;GitLabのインストーラ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あまり知らないけど、僕が知る限りでも、そこそこある。
+もっとあるんじゃないかと思う。
+構成管理ツールは運用する人たちののツールから開発をする人たちでも使われていくツールなるだろう。&lt;/p&gt;
+
+&lt;p&gt;せっかく&lt;a href=&#34;https://twitter.com/sawanoboly&#34;&gt;@sawanoboly&lt;/a&gt;さんがいらいしゃるので、いまのうちにChefをしっかりいじっておきたいよね。&lt;/p&gt;
+
+&lt;p&gt;他にも広島でChefをいじっている人いえば、&lt;a href=&#34;https://twitter.com/akira345&#34;&gt;@akira345&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/k2works&#34;&gt;@k2works&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/ogatomo&#34;&gt;@ogatomo&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/moobay&#34;&gt;@moobay9&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/pecosantoyobe&#34;&gt;@pecosantoyobe&lt;/a&gt;さんとかがいる。
+Ansibleなら&lt;a href=&#34;https://twitter.com/soudai1025&#34;&gt;@soudai&lt;/a&gt;さんとか&lt;a href=&#34;https://twitter.com/24motz&#34;&gt;@24motz&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/yukilab&#34;&gt;@yukilab&lt;/a&gt;さんとか、&lt;a href=&#34;https://twitter.com/NeXTSTEP2OSX&#34;&gt;@NeXTSTEP2OSX&lt;/a&gt;さんとかがいじっていると聞いている。&lt;/p&gt;
+
+&lt;p&gt;たぶんTwitter IDを上げた人はほとんど参加するはずだ。間違いない。
+名前を上げなかった人でもきっと何かしらの構成管理ツールを使っている人がたくさんいて遊びに来るはずだ。
+&lt;a href=&#34;https://twitter.com/sawanoboly&#34;&gt;@sawanoboly&lt;/a&gt;さんが来るんだし、きっと間違いない。(自信なし)&lt;/p&gt;
+
+&lt;p&gt;さあ、みんなでオープンセミナー2015@広島に集まって情報交換しよう。
+構成管理に入門するタイミングとしては、この上はないはずだ。&lt;/p&gt;
+
+&lt;p&gt;そういえば以前こんな記事を書いている人がいましたね。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/01/04/lets-take-part-in-osh/&#34;&gt;オープンセミナー広島は広島のITエンジニアが集う場所 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;くりかえす。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://osh-web.github.io/2015/&#34;&gt;オープンセミナー2015@広島&lt;/a&gt;は2月14日だ。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://osh-web.doorkeeper.jp/events/18561&#34;&gt;事前申し込みはこちらからできる&lt;/a&gt;ぞい。&lt;/p&gt;
+
+&lt;p&gt;全く関係ないし、公式に受理されていないが、オープンセミナー2015@広島の懇親会の裏の名前はLT駆動開発11なる予定だ。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:3c166a901741b69349f74cc2dabda17c&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://akira-junkbox.blogspot.jp/2014/12/2015.html&#34;&gt;JunkBox～主に個人的防備録～: オープンセミナー2015@広島を開催します！&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>2014年を振り返る - まとめ編</title>
+          <link>http://blog.eiel.info/blog/2014/12/31/2014-monthy/</link>
+          <pubDate>Wed, 31 Dec 2014 18:42:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/31/2014-monthy/</guid>
+          <description>
+
+&lt;p&gt;2014年をふりかえりしようと思っていたら31日なっていた。&lt;/p&gt;
+
+&lt;p&gt;今年は去年に引続きアウトプットは意識してやっているので分量が多い。
+というわけで、分割しながらすすめた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/12/31/2014-slides/&#34;&gt;2014年を振り返る - スライド編 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/12/31/2014-github/&#34;&gt;2014年を振り返る - GitHub編 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/12/31/2014-blog/&#34;&gt;2014年を振り返る - ブログ編 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;他にも軸を絞ってふりかえりしたいところである。&lt;/p&gt;
+
+&lt;p&gt;2014年はコミュニティ活動が忙しかった印象が強いです。
+来年は実を結んでいきたいところです。&lt;/p&gt;
+
+&lt;p&gt;以下はじっくり1月からふりかえってみる&lt;/p&gt;
+
+&lt;h3 id=&#34;1月:adc6a630db256bc7421163247f9e26e6&#34;&gt;1月&lt;/h3&gt;
+
+&lt;p&gt;オープンセミナーの準備を進めながらiOSアプリの作成をがんばってた気がする。
+忙しいから仕事を控えめにしようと思ったのに3つが同時進行する悪夢だった。
+見積りしたら負けなんです。&lt;/p&gt;
+
+&lt;p&gt;大学生にiOSアプリを教える会を見にいった。
+そういったところにもうちょっとノウハウを提供したいとは思うけどなかなかうまくいかない。&lt;/p&gt;
+
+&lt;h3 id=&#34;2月:adc6a630db256bc7421163247f9e26e6&#34;&gt;2月&lt;/h3&gt;
+
+&lt;p&gt;実行委員長を務めた&lt;a href=&#34;http://osh-2014.github.io/&#34;&gt;オープンセミナー2014@広島&lt;/a&gt;が行なわれた。
+期待した程度に参加者が集まってよかった。本当によかった。
+来年も同じぐらい人が来ると素敵である。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://osh-web.github.io/2015/&#34;&gt;オープンセミナー2015@広島&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;オープンセミナーがうまくいったので、ちょっとがんばろうと思ったことを思い出した。&lt;/p&gt;
+
+&lt;h3 id=&#34;3月:adc6a630db256bc7421163247f9e26e6&#34;&gt;3月&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ltdd.doorkeeper.jp/&#34;&gt;LT駆動開発&lt;/a&gt;がスタートした。
+カレンダーにはIT勉強会駆動と書いてあるのは秘密である。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://hiroshima.5374.jp/&#34;&gt;5374(ｺﾞﾐﾅｼ).jp for Hiroshima&lt;/a&gt;を作った。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://twiliomeetup.doorkeeper.jp/events/9078&#34;&gt;Twilio API 勉強会 @広島&lt;/a&gt;なんかのサポートもしていたようだ。&lt;/p&gt;
+
+&lt;p&gt;月末はとにかく仕事をしていたくせに、&lt;a href=&#34;http://hirosimaokayamarb.doorkeeper.jp/events/8993&#34;&gt;広島・岡山Ruby勉強会&lt;/a&gt;に参加したりしてとにかくバタバタしていた。&lt;/p&gt;
+
+&lt;h3 id=&#34;4月:adc6a630db256bc7421163247f9e26e6&#34;&gt;4月&lt;/h3&gt;
+
+&lt;p&gt;前半は土日も仕事していて納期が多重に重なる罠にはまる。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://cssnite.webtouchmeeting.com/vol8/&#34;&gt;CSS Nite in Hiroshima Vol.8&lt;/a&gt;の準備なんかがはじまる。&lt;/p&gt;
+
+&lt;h3 id=&#34;5月:adc6a630db256bc7421163247f9e26e6&#34;&gt;5月&lt;/h3&gt;
+
+&lt;p&gt;割と楽しくのんびり過ごした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://oso.shibangawa.net/&#34;&gt;オープンセミナー2014@岡山&lt;/a&gt;に参加したり、&lt;a href=&#34;http://sukusuku-scrum-hiroshima.doorkeeper.jp/events/10366&#34;&gt;すくすくスクラム広島で長めのイベントがあったり&lt;/a&gt;、&lt;a href=&#34;http://jczero.doorkeeper.jp/&#34;&gt;JSer&amp;rsquo;s Cafe ZERO&lt;/a&gt;がスタートしたりした。&lt;/p&gt;
+
+&lt;h3 id=&#34;6月:adc6a630db256bc7421163247f9e26e6&#34;&gt;6月&lt;/h3&gt;
+
+&lt;p&gt;Rubotyで&lt;a href=&#34;https://twitter.com/great_hiroshima&#34;&gt;すごい広島BOT&lt;/a&gt;をつくった。&lt;/p&gt;
+
+&lt;p&gt;仕事がくるくると聞いていたので空けていたのだけど、こなくてswiftで遊んでいた気がする。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://lab.kxds.net/&#34;&gt;Sketch 3勉強会&lt;/a&gt;とか手伝ったりした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://devlove-hiroshima.doorkeeper.jp/events/11247&#34;&gt;DevLOVE広島　第一回（夏の陣）&lt;/a&gt;が開催されて登壇したりもした。&lt;/p&gt;
+
+&lt;h3 id=&#34;7月:adc6a630db256bc7421163247f9e26e6&#34;&gt;7月&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gaba.eiel.info/&#34;&gt;とある我馬の非公式(ファンサイト)&lt;/a&gt;を作成した。&lt;/p&gt;
+
+&lt;p&gt;dockerで遊んでいた時期でもある。&lt;/p&gt;
+
+&lt;p&gt;Atom Editoへの引っ越しを検討したが失敗に終わった。&lt;/p&gt;
+
+&lt;h3 id=&#34;8月:adc6a630db256bc7421163247f9e26e6&#34;&gt;8月&lt;/h3&gt;
+
+&lt;p&gt;A8D:2というイベントがあって万華鏡をつくったりした。&lt;/p&gt;
+
+&lt;p&gt;広島市立大学のプログラミング同好会と交流もした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/hirohata/&#34;&gt;ヒロハタを勝手に応援するサイト&lt;/a&gt;をはじめた。&lt;/p&gt;
+
+&lt;h3 id=&#34;9月:adc6a630db256bc7421163247f9e26e6&#34;&gt;9月&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gbdaitokai.doorkeeper.jp/events/12940&#34;&gt;座駆動LT大会&lt;/a&gt;に参加した。
+GitHub APIで遊んでいた時期である。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ospn.jp/osc2014-hiroshima/&#34;&gt;オープンソースカンファレンス2014 Hiroshima&lt;/a&gt;があり、&lt;a href=&#34;http://great-h-book.eiel.info/&#34;&gt;すごいHiroshimaの本&lt;/a&gt;を作成した。&lt;/p&gt;
+
+&lt;p&gt;その夜には&lt;a href=&#34;http://www.webtouchmeeting.com/meeting/2014/09/71web-touch-meeting.html&#34;&gt;WEB TOUCH MEETING #71&lt;/a&gt;が行われて登壇した。
+翌日には&lt;a href=&#34;http://dbstudychugoku.github.io/events/event-005.html&#34;&gt;第五回　中国地方DB勉強会&lt;/a&gt;が行われてわけがわからない。&lt;/p&gt;
+
+&lt;p&gt;このあたりで精神力が尽きていたと思われる。&lt;/p&gt;
+
+&lt;h3 id=&#34;10月:adc6a630db256bc7421163247f9e26e6&#34;&gt;10月&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.pasonatech.co.jp/search/features_plan/RHhiroshima.jsp&#34;&gt;Red Hackthon Hiroshima&lt;/a&gt;に参加した。
+さくっとアプリを作るにはどうしたらいいのか考えるようにもなった気がする。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://coworking-hiroshima.com/%E3%80%9010%E6%9C%8819%E6%97%A5%E3%80%91-%E5%BA%83%E5%B3%B6%EF%BD%89%EF%BD%94%E6%9C%AA%E6%9D%A5%E4%BC%9A%E8%AD%B0/&#34;&gt;広島IT未来会議&lt;/a&gt;が行なわれて、パネリストとして登場させてもらった。&lt;/p&gt;
+
+&lt;p&gt;カメラを少しはじめた。&lt;/p&gt;
+
+&lt;h3 id=&#34;11月:adc6a630db256bc7421163247f9e26e6&#34;&gt;11月&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/%E3%81%99%E3%81%94%E3%81%84%E5%90%88%E5%90%8C%E5%8B%89%E5%BC%B7%E4%BC%9A2014&#34;&gt;すごい合同勉強会&lt;/a&gt;を開催した。
+たいへん盛り上がった。
+来年もできると良いと思う。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://cssnite.webtouchmeeting.com/vol8/&#34;&gt;CSS Nite in HIROSHIMA, Vol.8&lt;/a&gt;を開催した。
+イベントは最悪全部一人でもできるように準備するべきだと思った。
+ボランティアベースで必須な項目を誰かに依存するととても困ったことになると感じた。&lt;/p&gt;
+
+&lt;p&gt;ここで僕の2014年が終わった気がする。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.facebook.com/events/473514299457307/?ref_dashboard_filter=past&#34;&gt;広島のサークルを盛り上げよう！！第1回サークル交流勉強会&lt;/a&gt;に参加した。
+若い子ががんばっていたので、応援していかなければならない使命感を感じた。&lt;/p&gt;
+
+&lt;h3 id=&#34;12月:adc6a630db256bc7421163247f9e26e6&#34;&gt;12月&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.pref.hiroshima.lg.jp/soshiki/70/hiroshimabusinessideathon.html&#34;&gt;広島ビジネスアイデアソン&lt;/a&gt;に参加した。
+オープンデータを活用するアイデアを考えるイベントでゲストがとても豪華だったと思う。
+ちょっとスーツなイベントでもったいなかった。&lt;/p&gt;
+
+&lt;p&gt;第２回の&lt;a href=&#34;http://www.pasonatech.co.jp/search/features_plan/201412RHhiroshima.jsp&#34;&gt;Red Hackathon Hiroshima&lt;/a&gt;に参加した。
+ハッカソンというよりアイデアソンな結果だった気がする。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gbdaitokai.doorkeeper.jp/events/15289&#34;&gt;合同勉強会 in 大都会岡山 -2014 Winter-&lt;/a&gt;に参加して登壇した。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:adc6a630db256bc7421163247f9e26e6&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;そこそこの数のイベントに参加したり登壇したりして、つながりがさらに広がった一年だったと思う。
+来年も大きな流れを作るきっかけになれたいいと思う。&lt;/p&gt;
+
+&lt;p&gt;もうちょっと県外にいってみてもいいかなと思う。
+九州とか関西にもアンテナを伸ばしていこうと思う。&lt;/p&gt;
+
+&lt;p&gt;しかし、なんだか漏れているものがたくさんありそうだ…。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>2014年を振り返る - ブログ編</title>
+          <link>http://blog.eiel.info/blog/2014/12/31/2014-blog/</link>
+          <pubDate>Wed, 31 Dec 2014 17:47:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/31/2014-blog/</guid>
+          <description>
+
+&lt;p&gt;2014年をふりかえりしようと思っていたら31日なっていた。&lt;/p&gt;
+
+&lt;p&gt;今年は去年に引続きアウトプットは意識してやっているので分量が多い。
+というわけで、分割しながらいきます。&lt;/p&gt;
+
+&lt;p&gt;というわけで本ブログをふりかえる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;記事数 84&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2013のほうが多い気がする。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;年間PV 12万&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;去年は8万PVで大きくは伸びてない。増加率としては落ちている。&lt;/p&gt;
+
+&lt;h2 id=&#34;pvランキング:6269c3baddafb4f87c8340dfc2c6649c&#34;&gt;PVランキング&lt;/h2&gt;
+
+&lt;p&gt;せっかくなのでPVランキングをつくっておこう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;10位 &lt;a href=&#34;http://blog.eiel.info/blog/2013/02/12/gherkin/&#34;&gt;Cucumber のフィーチャの文法 - Gherkin - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2013年の記事。個人的にはがんばった記憶がある。
+これをかいてCucumberはだいぶ怖くなくなった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;9位 &lt;a href=&#34;http://blog.eiel.info/blog/2014/07/07/emoji-for-git-commit-message/&#34;&gt;コミットメッセージの先頭に絵文字いれるのが流行ってんだろうか&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;結局覚えられないのであんまりつかってない。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;8位 &lt;a href=&#34;http://blog.eiel.info/blog/2013/10/03/billing-github/&#34;&gt;GitHub に課金した&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;課金するだけの話なのに…英語だと怖い人がたくさんいるのかな。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;7位 &lt;a href=&#34;http://blog.eiel.info/blog/2013/01/13/ios-autolayout-2/&#34;&gt;今後のiOSアプリケーションのために Auto Layout を学んだ - 内容編&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2013年の記事。AutoLayoutはまだまだ勉強不足です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;6位 &lt;a href=&#34;http://blog.eiel.info/blog/2013/02/06/how-to-use-github/&#34;&gt;Git がわからなくても Github を利用しよう&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2013年の1位の記事。まだまだ見てくれる人がいる模様。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;5位 &lt;a href=&#34;http://blog.eiel.info/blog/2013/09/07/autoload-rails/&#34;&gt;Rails の自動読み込みの話&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2013年の記事。結構リンクしてもらったりしているので伸びている。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;4位 &lt;a href=&#34;http://blog.eiel.info/blog/2013/07/31/gpg/&#34;&gt;GnuPG で遊ぶ - 暗号化してみる&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;GnuPGはもっとみんな使えばいいのにって思う。これも2013年の記事。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;3位 &lt;a href=&#34;http://blog.eiel.info/blog/2013/07/20/not-in-on-rails/&#34;&gt;Ruby on Rails で NOT IN な SQL をかく。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最近Rails4に以降した人が多いのかそこそこ伸びている。これも2013年だと…。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;2位 &lt;a href=&#34;http://blog.eiel.info/blog/2013/05/13/how-to-enjoy-github/&#34;&gt;Github の楽しみ方&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2013年の2位記事。まだまだいける。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1位 &lt;a href=&#34;http://blog.eiel.info/blog/2013/02/17/github-pages/&#34;&gt;Github Pages について整理しておきます&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;1位も2013年かよ!ってことで、実用性があるものはじわじわ伸びるみたいです。&lt;/p&gt;
+
+&lt;p&gt;というわけで2014年の記事はとても影が薄い展開となりました。
+検索からの流入が多いのでどうしても過去の記事が強い。&lt;/p&gt;
+
+&lt;h2 id=&#34;はてぶランキング:6269c3baddafb4f87c8340dfc2c6649c&#34;&gt;はてぶランキング&lt;/h2&gt;
+
+&lt;p&gt;こっちは2014年のものに限る。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;9位 11はてぶ &lt;a href=&#34;http://blog.eiel.info/blog/2014/02/20/confirmation-token-error-indevise/&#34;&gt;Devise で登録時にConfirmation Token が不正な値というエラー&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;gemのアップデートを更新した時の対策をかいただけのやつ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;9位 11はてぶ &lt;a href=&#34;http://blog.eiel.info/blog/2014/09/06/ltdd-07/&#34;&gt;LT駆動開発で hubot をつかったオフィスに誰がいるかわかるコマンドを作成した話をした&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;とても便利な「おるか」コマンド。チャットが促進されます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;8位 14はてぶ &lt;a href=&#34;http://blog.eiel.info/blog/2014/02/14/hawk/&#34;&gt;手軽にHaskell できる hawk が楽しい&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;haskellネタは情報が少ないので当たりやすいのか。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;7位 15はてぶ &lt;a href=&#34;http://blog.eiel.info/blog/2014/07/10/abc-docker-hub/&#34;&gt;Docker Hub を少し試してきた&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;GitHubからDockerHubの流れを確認したくて試したやつ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;5位 25はてぶ &lt;a href=&#34;http://blog.eiel.info/blog/2014/07/07/great-bot-and-ruboty-ltdd/&#34;&gt;LT駆動開発で ruboty の使い方っぽいことを適当に紹介した&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;hubotクローンなruboty。あんまり記事をみなかったけど最近もりあがってる気がする。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;5位 25はてぶ &lt;a href=&#34;http://blog.eiel.info/blog/2014/07/18/action-view/&#34;&gt;ActionView を単体で使ってみる&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ソースコードリーディングの成果物。
+知っていると役に立つこともあるかもしれない。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;4位 28はてぶ &lt;a href=&#34;http://blog.eiel.info/blog/2014/08/01/hatebu-kurashi/&#34;&gt;はてぶの暮らしで新着にのると闇が見れますね&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;なんというか怖い世界が見えました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;3位 60はてぶ &lt;a href=&#34;http://blog.eiel.info/blog/2014/09/13/github-scouter/&#34;&gt;GitHub戦闘力を提案してみた - 座駆動LT大会&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一発ネタはやはり伸びない。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;2位 81はてぶ &lt;a href=&#34;http://blog.eiel.info/blog/2014/11/02/internal-definitia-great-study/&#34;&gt;内包表記について、すごい合同勉強会で話した&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;大きめの舞台にもってきたネタが伸びてよかった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1位 98はてぶ &lt;a href=&#34;http://blog.eiel.info/blog/2014/07/07/emoji-for-git-commit-message/&#34;&gt;コミットメッセージの先頭に絵文字いれるのが流行ってんだろうか - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;AdventCalendarか何かで同じこと書いてるのを最近みかけたのでつらい。&lt;/p&gt;
+
+&lt;h3 id=&#34;せっかくなのでピックアップ:6269c3baddafb4f87c8340dfc2c6649c&#34;&gt;せっかくなのでピックアップ&lt;/h3&gt;
+
+&lt;p&gt;個人的にふりかえってピックアップする。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/02/03/global-variable-with-option/&#34;&gt;Rubyのオプション変数というグローバル変数&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;タイトルみてもまったく記憶になくてみなおした甲斐があった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/02/14/route53-iam/&#34;&gt;Route 53 の特定の Hosted Zone を IAM ユーザで設定できるようにしてみた&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ちょっと前に権限を制約したもので&lt;a href=&#34;https://github.com/winebarrel/roadworker&#34;&gt;roadworker&lt;/a&gt;を使おうとしたら使えなくてなんとかしたいと思っていたりする。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/05/01/cucumber-turnip-spinach/&#34;&gt;CucumberとTurnipとSpinachと。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;SpinachをしってからCucumberでいいかなとおもっていたりする。Turnipでやりたいならリクエストスペックかこうかなぁと。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/05/28/cotains-commit-in-tags/&#34;&gt;Git で特定のコミットがどのタグに含まれているか確認する&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;よくわすれる。マージ業するなら便利。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/12/14/gbdaitokai2014-winter-color/&#34;&gt;黒背景に青文字はやめろという話を合同勉強会in大都会で話をした&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;伸びなすぎたので宣伝。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/12/24/reason-for-written-qiita/&#34;&gt;Oiitaと技術系ブログを書き分けることにした理由&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;割りとどうでもいいけど伸びなかったので宣伝。&lt;/p&gt;
+
+&lt;h1 id=&#34;まとめ:6269c3baddafb4f87c8340dfc2c6649c&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;p&gt;ふりかえってみた結果。スライドが増えた分内容が減った印象があります。
+来年はもっと減るんじゃないかなと思います。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:6269c3baddafb4f87c8340dfc2c6649c&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/12/31/2014-github/&#34;&gt;2014年を振り返る - GitHub編 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/12/31/2014-slides/&#34;&gt;2014年を振り返る - スライド編 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>2014年を振り返る - GitHub編</title>
+          <link>http://blog.eiel.info/blog/2014/12/31/2014-github/</link>
+          <pubDate>Wed, 31 Dec 2014 16:08:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/31/2014-github/</guid>
+          <description>
+
+&lt;p&gt;2014年をふりかえりしようと思っていたら31日なっていた。&lt;/p&gt;
+
+&lt;p&gt;今年は去年に引続きアウトプットは意識してやっているので分量が多い。
+というわけで、分割しながらいきます。&lt;/p&gt;
+
+&lt;p&gt;今回はGitHubのリポジトリを辿ってみた。
+いっぱいしょうもないリポジトリをつくっていた。&lt;/p&gt;
+
+&lt;p&gt;40個近く新しいリポジトリを作成していたようです。&lt;/p&gt;
+
+&lt;h3 id=&#34;cpphiroshima-1:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;CppHiroshima-1&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/CppHiroshima-1&#34;&gt;https://github.com/eiel/CppHiroshima-1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://partake.in/events/5ddde1fe-88b7-4541-9f37-02cf4fa0284c&#34;&gt;C++勉強会in広島&lt;/a&gt;でスライドをつくるのに試したコードを置いている。
+CppUTestというのを試した。&lt;/p&gt;
+
+&lt;h3 id=&#34;cookbook-munin-example:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;cookbook-munin-example&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/cookbook-munin-example&#34;&gt;https://github.com/eiel/cookbook-munin-example&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Chefを試すのにまずはリソースチェックかなということでmuninをインストールしてみて遊んでみたやつだ。&lt;/p&gt;
+
+&lt;h3 id=&#34;ios-camerasample:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;iOS-CameraSample&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/iOS-CameraSample&#34;&gt;https://github.com/eiel/iOS-CameraSample&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;iOSプログラミングを大学生に教えるイベントに参加して、その時に学生と一緒につくったプログラムのソースコード&lt;/p&gt;
+
+&lt;h3 id=&#34;actiontemplate:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;ActionTemplate&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/ActionTemplate&#34;&gt;https://github.com/eiel/ActionTemplate&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;RailsのAbstractControllerを単体で使ってみたくて試した時のソースコードです。&lt;/p&gt;
+
+&lt;h3 id=&#34;5374-csv-generator-in-hiroshima:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;5374-csv-generator-in-hiroshima&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/great-h/5374-csv-generator-in-hiroshima&#34;&gt;https://github.com/great-h/5374-csv-generator-in-hiroshima&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://hiroshima.5374.jp/&#34;&gt;hiroshima.5374.jp&lt;/a&gt;をつくるのにHTMLをスクレイピングしてCSVをつくるのに使ったスクリプトです。&lt;/p&gt;
+
+&lt;h3 id=&#34;chef-porxy:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;chef-porxy&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/chef-proxy&#34;&gt;https://github.com/eiel/chef-proxy&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;squidの動作確認をするのにつかったchefのcookbookです。&lt;/p&gt;
+
+&lt;h3 id=&#34;keynotes-eiel:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;keynotes-eiel&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/keynotes-eiel&#34;&gt;https://github.com/eiel/keynotes-eiel&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://keynotes.eiel.info/&#34;&gt;http://keynotes.eiel.info/&lt;/a&gt; のindex.htmlを作成してS3にアップロードするスクリプトです。
+Haskellでかきました。&lt;/p&gt;
+
+&lt;h3 id=&#34;jekyll-ention-test:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;jekyll-ention-test&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/jekyll-mention-test&#34;&gt;https://github.com/eiel/jekyll-mention-test&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub Pages で jekyll-mentionが使えるようになっていたので動作確認に使ったものです。&lt;/p&gt;
+
+&lt;h3 id=&#34;uidynamicssample:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;UIDynamicsSample&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/UIDynamicsSample&#34;&gt;https://github.com/eiel/UIDynamicsSample&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;iOS6あたりで追加されたUIDynamicsをつかったサンプルコードです。&lt;/p&gt;
+
+&lt;h2 id=&#34;my-hubot:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;my-hubot&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/my-hubot&#34;&gt;https://github.com/eiel/my-hubot&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;idobataにつかってるhubotのソースコードです。&lt;/p&gt;
+
+&lt;h3 id=&#34;wpho-30-typescript:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;wpho-30-typescript&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/wpho-30-typescript&#34;&gt;https://github.com/eiel/wpho-30-typescript&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;WindowsPhoneハンズオンでtypescriptのハンズオンをしたときのソースコードです。&lt;/p&gt;
+
+&lt;h3 id=&#34;great-bot:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;great-bot&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/great-h/great-bot&#34;&gt;https://github.com/great-h/great-bot&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/great_hiroshima&#34;&gt;すごい広島のTwitterアカウント&lt;/a&gt;の中の人です。
+&lt;a href=&#34;https://github.com/r7kamura/ruboty&#34;&gt;Ruboty&lt;/a&gt;でつくっています。&lt;/p&gt;
+
+&lt;h3 id=&#34;vagrant-up-with-wordpress:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;vagrant-up-with-wordpress&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/vagrant-up-with-wordpress&#34;&gt;https://github.com/eiel/vagrant-up-with-wordpress&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;vagrant up したら wordpressの環境が整って欲しかったのでつくったVagrantfileです。&lt;/p&gt;
+
+&lt;h3 id=&#34;kaleidoscope:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;kaleidoscope&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Augment8/kaleidoscope&#34;&gt;https://github.com/Augment8/kaleidoscope&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Swiftがベータの時につくった万華鏡です。
+A8D:2というイベントのために作りました。&lt;/p&gt;
+
+&lt;h3 id=&#34;docker:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;docker&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/docker-bannar&#34;&gt;https://github.com/eiel/docker-bannar&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;dockerがはやっていたのでdockerで遊んだときのサンプルです。&lt;/p&gt;
+
+&lt;h3 id=&#34;docker-development-environment:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;docker-development_environment&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/docker-development_environment&#34;&gt;https://github.com/eiel/docker-development_environment&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;dockerで開発環境が作れないか試行錯誤した時のものです。&lt;/p&gt;
+
+&lt;h3 id=&#34;docker-portage:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;docker-portage&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/docker-portage&#34;&gt;https://github.com/eiel/docker-portage&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;最新のportageをいれたdocckerイメージがつくれるようにしたdockerfileです。&lt;/p&gt;
+
+&lt;h3 id=&#34;use-actionview:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;use-actionview&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/use-actionview&#34;&gt;https://github.com/eiel/use-actionview&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;勉強のためにRailsのActionViewを単体でつかってみたくて試したときのサンプルコードです。&lt;/p&gt;
+
+&lt;h3 id=&#34;gaba:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;gaba&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/gaba&#34;&gt;https://github.com/eiel/gaba&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.gaba-2000.com/&#34;&gt;ラーメン屋我馬の公式サイト&lt;/a&gt;の更新情報を取得できるgabaコマンドを提供するgaba-gemの中身です。&lt;/p&gt;
+
+&lt;h3 id=&#34;gaba-eiel-info:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;gaba.eiel.info&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/gaba.eiel.info&#34;&gt;https://github.com/eiel/gaba.eiel.info&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gaba.eiel.info/&#34;&gt;とある我馬の非公式&lt;/a&gt;のソースコードです。&lt;/p&gt;
+
+&lt;h3 id=&#34;wpho-31-typescript2:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;wpho-31-typescript2&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/wpho-31-typescript2&#34;&gt;https://github.com/eiel/wpho-31-typescript2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;WindowsPhoneハンズオン31回でかいたサンプルコードです。
+今回もtypescriptでした。&lt;/p&gt;
+
+&lt;h3 id=&#34;rails-template-eiel:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;rails_template-eiel&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/rails_template-eiel&#34;&gt;https://github.com/eiel/rails_template-eiel&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;自分がつかっているRails Application Templateです。&lt;/p&gt;
+
+&lt;h3 id=&#34;eiel-info:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;eiel.info&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/eiel.info&#34;&gt;https://github.com/eiel/eiel.info&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://eiel.info&#34;&gt;eiel.info&lt;/a&gt;の中身です。
+自分のウェブサイトです。&lt;/p&gt;
+
+&lt;h3 id=&#34;itunes-information-slack:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;itunes_information_slack&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/itunes_information_slack&#34;&gt;https://github.com/eiel/itunes_information_slack&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;現在itunesで再生している曲をslackにおくりつけるスクリプトです。&lt;/p&gt;
+
+&lt;h3 id=&#34;hirohata-reporter:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;hirohata-reporter&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/great-h/hirohata-reporter&#34;&gt;https://github.com/great-h/hirohata-reporter&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.facebook.com/hirohatap&#34;&gt;ヒロハタ&lt;/a&gt;の参加者の情報を収集するためのスクリプトです。&lt;/p&gt;
+
+&lt;h3 id=&#34;hirohata:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;hirohata&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/great-h/hirohata&#34;&gt;https://github.com/great-h/hirohata&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;hirohata-reporterをつかって収集した情報を公開している&lt;a href=&#34;http://great-h.github.io/hirohata/&#34;&gt;ヒロハタを勝手に応援するサイト&lt;/a&gt;の中身です。&lt;/p&gt;
+
+&lt;h3 id=&#34;wercker-box-review:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;wercker-box-review&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/wercker-box-review&#34;&gt;https://github.com/eiel/wercker-box-review&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://wercker.com/&#34;&gt;Wercker&lt;/a&gt;でRe:viewをつかった電子書籍をコンパイルするのにつくったboxです。&lt;/p&gt;
+
+&lt;h3 id=&#34;github-scouter:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;github_scouter&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/github_scouter&#34;&gt;https://github.com/eiel/github_scouter&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/09/13/github-scouter/&#34;&gt;GitHub戦闘力&lt;/a&gt;を計測できるスクリプトです。&lt;/p&gt;
+
+&lt;h3 id=&#34;ltdd-shuffler:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;ltdd_shuffler&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/ltdd_shuffler&#34;&gt;https://github.com/LTDD/ltdd_shuffler&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;LT駆動で喋る順番を決めるのがめんどくさくなってシャッフルするために書いたスクリプトです。&lt;/p&gt;
+
+&lt;h3 id=&#34;modified-update-rails-sample:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;modified-update-rails-sample&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/modified-update-rails-sample&#34;&gt;https://github.com/eiel/modified-update-rails-sample&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;友人にActiveRecord(ActiveModel)のbefore_updateについて説明するのに書いたサンプルコードです。&lt;/p&gt;
+
+&lt;h3 id=&#34;quim:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;quim&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/quim&#34;&gt;https://github.com/eiel/quim&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Eメールを管理するためのウェブアプリケーション。タグをつけて、特定の人にだけメールを送れたりする。
+絞り込みをウェブインターフェースとして提供できなくて&lt;code&gt;rails c&lt;/code&gt;をつかって調整して使っているのは秘密だ。&lt;/p&gt;
+
+&lt;h3 id=&#34;eiel-logo:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;eiel-logo&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/eiel-logo&#34;&gt;https://github.com/eiel/eiel-logo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;自分の名刺につかっているロゴです。
+作ってもらった。感謝感激。&lt;/p&gt;
+
+&lt;h3 id=&#34;circleci-notify:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;circleci_notify&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/circleci_notify&#34;&gt;https://github.com/eiel/circleci_notify&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;CircleCIから通知しやすくすろに書いたGemなんだけど、アダプターがチャットワークしかつくってない。&lt;/p&gt;
+
+&lt;h3 id=&#34;browserify-sample:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;browserify-sample&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/browserify-sample&#34;&gt;https://github.com/eiel/browserify-sample&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;browserifyというクライアントサイドでnodeモジュールが使えるようになるライブラリを試した時のサンプルコード。&lt;/p&gt;
+
+&lt;h3 id=&#34;gulp-assemble-abc:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;gulp-assemble-abc&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/gulp-assemble-abc&#34;&gt;https://github.com/eiel/gulp-assemble-abc&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;gulp で静的サイトジェネレータするのにassembleをつかってみたというサンプルコード。&lt;/p&gt;
+
+&lt;h3 id=&#34;gulp-assemble-template:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;gulp-assemble-template&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/gulp-assemble-template&#34;&gt;https://github.com/eiel/gulp-assemble-template&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;gulp で静的サイトジェレートするためのGulpfileがおいてある。&lt;/p&gt;
+
+&lt;h3 id=&#34;color-schemes:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;color-schemes&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/color-schemes&#34;&gt;https://github.com/eiel/color-schemes&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;自分のつかっている配色データをおいておこうかとおもってつくったリポジトリ。&lt;/p&gt;
+
+&lt;h3 id=&#34;great-mile:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;great-mile&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/great-h/great-mile&#34;&gt;https://github.com/great-h/great-mile&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;すごい広島のやること宣言を俯瞰するためにつくっているサービス。&lt;/p&gt;
+
+&lt;h1 id=&#34;まとめ:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;p&gt;みんなGitHubはゴミ箱じゃないぞ!&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:8f1c59f23b2db8e18a32f29b95558e7a&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/12/31/2014-slides/&#34;&gt;2014年を振り返る - スライド編 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/12/31/2014-blog/&#34;&gt;2014年を振り返る - ブログ編 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>2014年を振り返る - スライド編</title>
+          <link>http://blog.eiel.info/blog/2014/12/31/2014-slides/</link>
+          <pubDate>Wed, 31 Dec 2014 14:47:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/31/2014-slides/</guid>
+          <description>
+
+&lt;p&gt;2014年をふりかえりしようと思っていたら31日なっていた。&lt;/p&gt;
+
+&lt;p&gt;今年は去年に引続きアウトプットは意識してやっているので分量が多い。
+というわけで、分割しながらいきます。&lt;/p&gt;
+
+&lt;p&gt;まずは公開したスライドから。&lt;/p&gt;
+
+&lt;p&gt;今年はspeakerdeckにしかスライドをアップロードしていない。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://speakerdeck.com/eiel&#34;&gt;https://speakerdeck.com/eiel&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ざっと確認したところ34個のスライドを公開したようです。&lt;/p&gt;
+
+&lt;p&gt;途中からkeynoteのファイルも以下で全て公開しています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://keynotes.eiel.info/&#34;&gt;http://keynotes.eiel.info/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;ざっくり:abc927439e085197f773489d22910400&#34;&gt;ざっくり&lt;/h3&gt;
+
+&lt;p&gt;主に2014年3月からはじまった&lt;a href=&#34;http://ltdd.doorkeeper.jp/&#34;&gt;LT駆動開発&lt;/a&gt;のせいで毎月スライドを二つ作ったりしたせいで30越えになった。
+分割したのに、とても振り返ることのできる分量ではない気がする。&lt;/p&gt;
+
+&lt;p&gt;仕事が忙しかった4月が一番少なく、一番仕事を避けていた9月が一番多い結果になった。
+9月だけで8個あってわけがわからない。そういえば9月なんも仕事をした記憶がなかったのはこのせいだろう。&lt;/p&gt;
+
+&lt;h1 id=&#34;いくつか紹介する:abc927439e085197f773489d22910400&#34;&gt;いくつか紹介する&lt;/h1&gt;
+
+&lt;h3 id=&#34;オープンセミナー2014-広島の実行委員長になったので-完全版:abc927439e085197f773489d22910400&#34;&gt;オープンセミナー2014@広島の実行委員長になったので…完全版&lt;/h3&gt;
+
+&lt;p&gt;主に2013年のふりかえりの結果を整理したスライド。
+2013年はスライドを23個つくっていたことがわかった。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;d04a296071f801316b633e3e0c4ab66b&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;そいや今回のオープンセミナーの申し込みに事前アンケートをつくり忘れていることにも気づいた。
+今回は私はただの下っ端ですが、目標は120人ぐらいなので、みんな申し込みしてください。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://osh-web.doorkeeper.jp/events/18561&#34;&gt;オープンセミナー2015@広島 - オープンセミナー広島 | Doorkeeper&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;ciのある生活:abc927439e085197f773489d22910400&#34;&gt;CIのある生活&lt;/h3&gt;
+
+&lt;p&gt;第1回のLT駆動開発用に対象者をウェブをやっている人まで引き下げたつもりでつくったスライド。
+しかし、イベントの時間があまらなかったので大幅縮小で実質お蔵入りである。&lt;/p&gt;
+
+&lt;p&gt;今みなおすと、長い。長いよ…。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;af93ee90836f0131cf5b265e09c13f13&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/03/03/ci-in-ltdd/&#34;&gt;LT駆動開発で「CI のある生活」という話をするはずだった - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;actiondispatch-ってなんだろう:abc927439e085197f773489d22910400&#34;&gt;ActionDispatch ってなんだろう？&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://hirosimaokayamarb.doorkeeper.jp/events/8993&#34;&gt;広島岡山Ruby交流会 01&lt;/a&gt;のためにつくったスライド。
+RailsのActionDispatchがどういうものが自分でイメージできるようになっていたので整理した。&lt;/p&gt;
+
+&lt;p&gt;Railsのアーキテクチャは無駄にがんばったがあっているか謎だ。
+コアにはrackがいて、小さなラックアプリケーションへ橋渡しをする大きなラックアプリケーションがActionDIspatchである。
+ルーティングをしているだけともいえる。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;97426d70998c013115765a48c3b99610&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/eiel/actiondispatch-tutenandarou&#34;&gt;ActionDispatch ってなんだろう？ // Speaker Deck&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;s3にスライドを保存することにした:abc927439e085197f773489d22910400&#34;&gt;S3にスライドを保存することにした&lt;/h3&gt;
+
+&lt;p&gt;スライドって一度つくったらなおすことないしS3に保存するかーってことではじめてAWSのAPIを叩いて感動したので、HaskellでS3のAPIを叩いて遊んだ話である。
+PVはあまり伸びなかった。(あたり前)&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;0917d000b4c40131d8ee7625813d8974&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/05/03/ltdd-03-s3/&#34;&gt;LT駆動開発03で「S3にスライドを保存することにした」という発表者をしてきた。 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;継続は力になるのか:abc927439e085197f773489d22910400&#34;&gt;継続は力になるのか&lt;/h3&gt;
+
+&lt;p&gt;結構反響があったスライドだけど、当日はあんまみんな話を聞いてなかった気がする記憶。&lt;/p&gt;
+
+&lt;p&gt;日々続けることで身につく力はすごいと思う。&lt;/p&gt;
+
+&lt;p&gt;途中にいれたツイートがおもったより伸びない。(仕方ない)&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;3f7575c0c1940131c12706a532522dbf&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/05/19/open-seminar-2014-at-okayama/&#34;&gt;オープンセミナー2014@岡山に参加した。ついでに懇親会で継続することについてLTした。 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;愛無双-エンジニアリングの楽しさ:abc927439e085197f773489d22910400&#34;&gt;愛無双 - エンジニアリングの楽しさ&lt;/h3&gt;
+
+&lt;p&gt;DevLOVE広島 第一回でエンジニアリングの楽しさを語るという使命の元に作成したもの。
+実はかなり悩んだので作るのにつかった時間はかなりかかっている。
+しかし、全然伸びなかった子なので見てない人はみて欲しいところ。&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re so Happyをめざしたい。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;0c4650b0dca20131b4bb7abe6293b58c&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/06/23/devlove-in-hiroshima-01/&#34;&gt;DevLOVE広島　第一回（夏の陣） でエンジニアリングの楽しさについて喋らされた - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;誰がおるんか:abc927439e085197f773489d22910400&#34;&gt;誰がおるんか&lt;/h3&gt;
+
+&lt;p&gt;オフィスに誰がいるのかチャットツールでわかったら便利だよなーってことでそういうコマンドをつくった。
+それを話した内容。
+今も便利に活用している。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;78832e3017df013292f406657be3bf12&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/09/06/ltdd-07/&#34;&gt;LT駆動開発で hubot をつかったオフィスに誰がいるかわかるコマンドを作成した話をした - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;戦闘力:abc927439e085197f773489d22910400&#34;&gt;戦闘力&lt;/h3&gt;
+
+&lt;p&gt;GitHub戦闘力を提案してみた。
+今年もっともPVが多いスライド。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;9f557cd01d560132ff4612198c64cd5d&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/09/13/github-scouter/&#34;&gt;GitHub戦闘力を提案してみた - 座駆動LT大会 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;電子書籍に挑戦した-その時に利用した技術のさわりを紹介:abc927439e085197f773489d22910400&#34;&gt;電子書籍に挑戦した。その時に利用した技術のさわりを紹介&lt;/h3&gt;
+
+&lt;p&gt;対象者設定に失敗したあのスライド。
+OSC広島に展示するのに電子書籍を作成した時の話をした。
+こういうのが流行してるよ感でキーワードを伝えるだけの目的だったけど速すぎた思い出が残っています。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;5010f1e023630132a9090a763f010e40&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/09/21/great-h-book-osc-2014-and-wtm71/&#34;&gt;すごいHirohsimaの本について、OSC2014とWTM71で紹介した - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;内包表記-仮:abc927439e085197f773489d22910400&#34;&gt;内包表記(仮)&lt;/h3&gt;
+
+&lt;p&gt;モナドの内包表記をしってからやろうと思ってたネタを放出した。
+広島のITコミュニティの合同勉強会という立ち位置のイベントだったけど、もっといろんなコミュニティと協力したかった。
+これも結構伸びた子である。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;7cb24810446c0132e04e4e24d1028d6d&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/eiel/nei-bao-biao-ji-jia&#34;&gt;内包表記(仮) // Speaker Deck&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;黒背景に青文字はやめろ:abc927439e085197f773489d22910400&#34;&gt;黒背景に青文字はやめろ&lt;/h3&gt;
+
+&lt;p&gt;出オチと言われたアレ。
+インターネット上にはあまり拡散されなかった子。
+まあ中身があんまりないしね。&lt;/p&gt;
+
+&lt;p&gt;個人的にはまあまあ気に入っている。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;6bc3a81065840132d6705e4dc25c732c&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/12/14/gbdaitokai2014-winter-color/&#34;&gt;黒背景に青文字はやめろという話を合同勉強会in大都会で話をした。 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;まとめ:abc927439e085197f773489d22910400&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;p&gt;いっぱいセッションした。
+しかし、やっぱり喋るのは苦手なのはあまり治らない。&lt;/p&gt;
+
+&lt;p&gt;ダメな部分は意識して挑戦していきたいと思う。&lt;/p&gt;
+
+&lt;p&gt;来年は控えめになると思います。たぶん。&lt;/p&gt;
+
+&lt;h1 id=&#34;関連:abc927439e085197f773489d22910400&#34;&gt;関連&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/12/31/2014-github/&#34;&gt;2014年を振り返る - GitHub編 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/12/31/2014-blog/&#34;&gt;2014年を振り返る - ブログ編 - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Oiitaと技術系ブログを書き分けることにした理由</title>
+          <link>http://blog.eiel.info/blog/2014/12/24/reason-for-written-qiita/</link>
+          <pubDate>Wed, 24 Dec 2014 18:35:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/24/reason-for-written-qiita/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/&#34;&gt;Qiita&lt;/a&gt;をどのように使うのか迷っていたのだけど、答えが出たのでQiitaも使うことにした。
+結論から書くと「&lt;strong&gt;読者のことを考えた上で書き分ける&lt;/strong&gt;」ことにした。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、昨日はじめてQiitaに投稿した。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/eielh/items/8b9f86a980b08125eb93&#34;&gt;oh-my-fishではじめるfish - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;読者にとって、書いた内容がQiitaのほうが読みやすいのであればQiitaに書くことにした。
+そうではなく、そこから漏れてしまったことはこのブログに書くことにする。&lt;/p&gt;
+
+&lt;p&gt;「読者のことを考える」は文章を書く上でとても大切なことです。
+数学文書作法で、&lt;a href=&#34;http://twitter.com/hyuki&#34;&gt;結城先生&lt;/a&gt;がとても大切なこととして説明されています。&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=448009525X&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=4480095268&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;この記事の目次。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Qiitaに書いたほうが良いこと&lt;/li&gt;
+&lt;li&gt;Qiitaに書いても広告収入は増えないけど&lt;/li&gt;
+&lt;li&gt;その他雑多なこと&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;qiitaに書いたほうが良いこと:0d118b3fff807f1aa2e968604181be64&#34;&gt;Qiitaに書いたほうが良いこと&lt;/h3&gt;
+
+&lt;p&gt;Qiitaに書いたほうが良いものはなんだろうか。&lt;/p&gt;
+
+&lt;p&gt;Oiitaはプログラミングに関する知識を記録、共有するサービスです。
+ということは、プログラミングに関する知識を閲覧するのに、私が何もしなくても、日々読みやすくなっていくと考えることができます。
+自分のブログをもっと読みやすくしていくこともできますが、この労力を捻出することはなかなか難しいです。&lt;/p&gt;
+
+&lt;p&gt;しかし、このブログにいつも書いていたことが、Qiitaでも書けるかというと、そうでもない記事もいくつかあることに気づきました。
+本記事もそうだし、どこそこでLTしたなんかもそうだし、あれを作った、というのもQiitaには書ける気がしない。&lt;/p&gt;
+
+&lt;p&gt;書きたいことが浮かんだ時に、何を伝えたいのか明確だったらQiita書くと思う。&lt;/p&gt;
+
+&lt;p&gt;Qiitaでタグをフォロしている人はどんな情報を読みたいだろうか。
+そのタグに関する有益な情報を読みたいはずです。&lt;/p&gt;
+
+&lt;p&gt;少し話はずれるけど、&lt;a href=&#34;note.mu/eiel&#34;&gt;note&lt;/a&gt;に文章を投稿する場合も同様で、何か伝えたいことがあってすごく強い時でジャンルが技術系ではない場合に使っています。&lt;/p&gt;
+
+&lt;p&gt;書く場所を変えることで、文章を書く時の気持ちを切り換えもできます。&lt;/p&gt;
+
+&lt;h3 id=&#34;qiitaに書いても広告収入は増えないけど:0d118b3fff807f1aa2e968604181be64&#34;&gt;Qiitaに書いても広告収入は増えないけど&lt;/h3&gt;
+
+&lt;p&gt;そもそもなぜQiitaに書かないのかを考えると、どっちでもいいならこのブログに書けば広告収入が増える可能性があるからだろう。&lt;/p&gt;
+
+&lt;p&gt;これからQiitaに書くだろう記事をこのブログに書けば、このブログからの広告収入は増えるだろう。
+しかし、技術系の広告収入なんて雀の涙で、せいぜいサーバの運用費ぐらいにしかならない。&lt;/p&gt;
+
+&lt;p&gt;あまり気にすることではない。&lt;/p&gt;
+
+&lt;p&gt;読者のことを考えて良いと思う選択をするほうが、いつかもっと大きな利益になって還元されるんじゃないだろうか。
+目先のメリットに囚われるな。&lt;/p&gt;
+
+&lt;p&gt;そもそも広告収入で生活したいならもっと別のことをすべきだし、そっちのほうが効率が良いはずだ。&lt;/p&gt;
+
+&lt;h3 id=&#34;その他雑多なこと:0d118b3fff807f1aa2e968604181be64&#34;&gt;その他雑多なこと&lt;/h3&gt;
+
+&lt;p&gt;過去に書いた記事を整理してQiitaに書きなおしたりすることもあると思う。
+その際には自分のブログから引用にしたり参考文献にはったりすることもできる。
+ハイパーメディアの特徴を生かせたら良いと思う。&lt;/p&gt;
+
+&lt;p&gt;Qiitaだけでなくて他のサービスも使い方にも悩む。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ja.stackoverflow.com/&#34;&gt;スタックオーバーフロー&lt;/a&gt;を今から調べたいことを質問しておいて、作業をすすめるとアドバイスしてくれる人がいて捗りそうな気がしている。
+「アドバイスがくる前に解決したら自分で回答する」みたいな使い方もありなのか検討していたりする。&lt;/p&gt;
+
+&lt;p&gt;ますますブログにかくことがなくなりそうではある。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:0d118b3fff807f1aa2e968604181be64&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;整理されたドキュメントや何か伝えたいことがあればQiitaも使っていこうと思う。
+そこから漏れてしまう書いておきたい技術メモはこのブログにかいていく。&lt;/p&gt;
+
+&lt;p&gt;現時点でQiitaに書かないこと。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;どこかのイベントでセッションをしたこと&lt;/li&gt;
+&lt;li&gt;バグをみつけた、一時的な回避方法&lt;/li&gt;
+&lt;li&gt;ライブラリやウェブサービスやウェブアプリケーションを作成した&lt;/li&gt;
+&lt;li&gt;ちょっと確認しただけの書き捨てたメモ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ということで、Qiitaさんには読み手も書き手も便利なサービスになっていくことを期待したいと思います。&lt;/p&gt;
+
+&lt;p&gt;何をするにしても「読者のことを考える」ことを大切にしたいですね。&lt;/p&gt;
+
+&lt;p&gt;もちろん文章を書く以外では「相手のことを考える」ことを大切にしたい。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>gitで公開されてるクックブックに依存している時のmetadata</title>
+          <link>http://blog.eiel.info/blog/2014/12/24/test-kitchen-depends/</link>
+          <pubDate>Wed, 24 Dec 2014 12:32:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/24/test-kitchen-depends/</guid>
+          <description>&lt;p&gt;ふつうに書くしかない。&lt;/p&gt;
+
+&lt;p&gt;利用する際にはcookbooksディレクトリにあればよい。
+test-kitchenをする際には、Berksfileにかいとけばよい。
+以下のようになる。例はrbenv。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;metadata
+cookbook &#39;rbenv&#39;, git: &#39;git://github.com/fnichol/chef-rbenv.git&#39;, branch: &#39;v0.7.2&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;このクックブックに依存したクックブックを書くとつらい目にあうような気がするので、READMEにしっかりかいておいたほうが良さそう。&lt;/p&gt;
+
+&lt;p&gt;どうしてこんな話が出てくるかというと、rbenvは系統が違うものがふたつある。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/fnichol/chef-rbenv&#34;&gt;chef-rbenv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/RiotGames/rbenv-cookbook&#34;&gt;rbenv-cookbook&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;chef-rbenvのほうは&lt;a href=&#34;https://supermarket.chef.io/&#34;&gt;supermacket&lt;/a&gt;にあるのだけどrbenv-cookbookのほうはない。お互いに関連はなさそう。&lt;/p&gt;
+
+&lt;p&gt;「&lt;a href=&#34;http://qiita.com/zaru/items/1436a383c3d41483c371&#34;&gt;VagrantにRuby/Rails開発環境を整えるChef+Berkshelf構築メモ - Qiita&lt;/a&gt;」ではgitで指定していたのでそんな話がでてきただけである。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>黒背景に青文字はやめろという話を合同勉強会in大都会で話をした。</title>
+          <link>http://blog.eiel.info/blog/2014/12/14/gbdaitokai2014-winter-color/</link>
+          <pubDate>Sun, 14 Dec 2014 15:03:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/12/14/gbdaitokai2014-winter-color/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://gbdaitokai.doorkeeper.jp/events/15289&#34;&gt;合同勉強会 in 大都会岡山 -2014 Winter-&lt;/a&gt;に参加して、「黒背景に青文字はやめろ」という話をした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://togetter.com/li/757033&#34;&gt;その様子をみたいならTogetterがある&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;なんか色の勉強する機会が欲しいと思って出オチなタイトルを設定してみた。
+しかし、あんまり調べたことがそんなに反映されていない。
+ちゃんと咀嚼できなかったのとそんなに時間をとれなかったのが原因である。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;6bc3a81065840132d6705e4dc25c732c&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;終わる終わる詐欺です。どうもありがとうございます。&lt;/p&gt;
+
+&lt;p&gt;後半は完全に「&lt;a href=&#34;http://blog.eiel.info/blog/2013/03/13/cielch/&#34;&gt;エディタの文字色に悩む日々 - CIELCH&lt;/a&gt;」の使いまわしではあるが、書いてないことも喋ったりしたし、気にしないことにしよう。&lt;/p&gt;
+
+&lt;p&gt;まあ、HSBの明度は人間の感覚には合わされてないので、感覚で調整するには使えるけどプログラムで処理するにはあまりつかいやすくない。
+知っていると若干色づくりに役に立つかもしれない。&lt;/p&gt;
+
+&lt;p&gt;そういえばPCメガネは青色をカットするけど、青色が文字の読みやすさには影響を与えずに光を弱くできるという機能があるのかと言えるのかもしれないと思ったけど、根拠がないので言わなかった。
+そのあたりはディスプレイの設定でカバーできる気もしなくもない。
+しかし、画面ってだいたい白いしな。まぶしいぜ。&lt;/p&gt;
+
+&lt;p&gt;というわけで、中身があったのかなかったのか自分ではよくわからない始末である。&lt;/p&gt;
+
+&lt;p&gt;まとめると、黒と青の組み合わせ、白と黄の組み合わせが読みにくいという話でした。&lt;/p&gt;
+
+&lt;p&gt;そういえば、今回作成したiTermのカラースキームは&lt;a href=&#34;https://github.com/eiel/color-schemes&#34;&gt;eiel/color-schemes · GitHub&lt;/a&gt;においている。
+ハイライト色を暗めにとっていて、場合によっては使いにくいかもしれない。
+世の中にはいろんなカラースキームが公開されているので、そっちを使うほうがいいかもしれない。&lt;/p&gt;
+
+&lt;p&gt;今年はたくさんセッションをしたけど、これが最後だと思われる。
+来年も考えたことはてきとうにまとめていこう。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:1822aa27a6afcb00d837c683b3b04087&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.jsa.or.jp/stdz/instac/commitee-acc/WG2/Docs/web-tech-repo/technical-report.html&#34;&gt;X 8341-3:2004 「高齢者・障害者等配慮設計指針－情報通信における機器，ソフトウェア及びサービス－ 第３部：ウェブコンテンツ」技術解説　第1.1版　委員会ワーキングドラフト（7月22日版）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.zspc.com/documents/wcag10/&#34;&gt;ウェブコンテンツ・アクセシビリティ・ガイドライン 1.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.kanzaki.com/docs/html/color-check&#34;&gt;色の組み合わせチェック - 読みやすい前景色と背景色&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.xrite.com/documents/literature/ja/L10-001_Understand_Color_ja.pdf&#34;&gt;カラーコミュニケーションガイド 色を正しく伝えるために&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.konicaminolta.jp/instruments/knowledge/color/index.html&#34;&gt;色色雑学-楽しく学べる知恵袋 | コニカミノルタ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://w3.kcua.ac.jp/~fujiwara/infosci/&#34;&gt;情報科学講義資料 - グラフィックス&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://hackage.haskell.org/package/colour&#34;&gt;colour: A model for human colour/color perception | Hackage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2013/03/13/cielch/&#34;&gt;エディタの文字色に悩む日々 - CIELCH - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/gmail/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-05-02 16:58:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>gmailで未読メールの探し方</title>
+          <link>http://blog.eiel.info/blog/2012/05/02/unread-gmail/</link>
+          <pubDate>Wed, 02 May 2012 16:58:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/05/02/unread-gmail/</guid>
+          <description>&lt;p&gt;gmailで未読メールをさがすには、検索ボックスで、&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;is:unread&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;と入力すれば未読メールだけを検索できます。
+ラベルにずっと未読マークの(1)がついてて邪魔だなーっておもってたんですが、消すことができました。
+検索ボックスの仕様ももうちょっと把握したいですね。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/magit/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-05-30 17:55:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>magit-brame-modeの表示がみやすかった件</title>
+          <link>http://blog.eiel.info/blog/2012/05/30/magit-blame-mode/</link>
+          <pubDate>Wed, 30 May 2012 17:55:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/05/30/magit-blame-mode/</guid>
+          <description>&lt;p&gt;共同作業ないし、自分が書いたコードでも&lt;strong&gt;ここ変更したのいつだっけ&lt;/strong&gt;ってことあると&lt;code&gt;git blame&lt;/code&gt;を利用するんですが、emacs の magit についてる magit-brame-mode がみやすくて感動しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git blame&lt;/code&gt;がどのようなことをしてくれるのかは github でも特定のファイルを選択したときにもみることができます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.tumblr.com/tumblr_m4th98QljM1qk2e7q.jpg&#34; alt=&#34;github blame&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;押すとこんな感じ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.tumblr.com/tumblr_m4thgjx4eq1qk2e7q.jpg&#34; alt=&#34;github de blame&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;すっきりみやすい。&lt;/p&gt;
+
+&lt;p&gt;端末で &lt;code&gt;$ git blame conf/50-ruby.el&lt;/code&gt; するとこんな感じ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.tumblr.com/tumblr_m4thlzshOW1qk2e7q.jpg&#34; alt=&#34;端末&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;文字ばっかり。&lt;/p&gt;
+
+&lt;p&gt;git-emacsの &lt;code&gt;M-x git-blame-mode&lt;/code&gt; だとこんな感じ&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.tumblr.com/tumblr_m4throQoHf1qk2e7q.jpg&#34; alt=&#34;git-emacs&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;カラフル。細かい情報はミニバファにでます。そのまま編集できるのはナイスなのかもしれない。(重いですけど&lt;/p&gt;
+
+&lt;p&gt;magitの &lt;code&gt;M-x magit-blame-mode&lt;/code&gt; だとこんな感じ&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.tumblr.com/tumblr_m4thwdwoK61qk2e7q.jpg&#34; alt=&#34;magit&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;あれ、なんかみやすさが伝わない…。
+80列におさまるのは嬉しいですね。&lt;/p&gt;
+
+&lt;p&gt;ゆっくりみる分には github が一番いんじゃないかということいわれてしまいそうです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

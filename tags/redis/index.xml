@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/redis/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-08-26 17:54:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Redis に保存されてる値を見ようと思った時に覚えておきたい redis コマンド</title>
+          <link>http://blog.eiel.info/blog/2014/08/26/remember-redis/</link>
+          <pubDate>Tue, 26 Aug 2014 17:54:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/08/26/remember-redis/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://redis.io/&#34;&gt;redis&lt;/a&gt; なんか使ったことないけど redis を使うアプリケーションを使う場合に、デバッグや動作確認をするのに、データベースの中身が知りたい場合がある。&lt;/p&gt;
+
+&lt;p&gt;そんな時に覚えておきたいことを整理してみた。&lt;/p&gt;
+
+&lt;p&gt;自分が hubot や sensu の動きを確認するのに必要だったことを書いてるだけで、 redis のことはよく知らない。&lt;/p&gt;
+
+&lt;p&gt;コマンドラインで redis にアクセスするには redis-cli コマンドを使用する。&lt;/p&gt;
+
+&lt;p&gt;redis-cli を実行して、対話環境を利用してもいいし、引数を追加して実行することもできる。&lt;/p&gt;
+
+&lt;p&gt;最初に紹介する keys コマンドを例にすると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ redis-cli
+&amp;gt; keys *
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$ redis-cli keys &amp;quot;*&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;といったアクセス方法がある。&lt;/p&gt;
+
+&lt;p&gt;ここで紹介するコマンドの一覧&lt;/p&gt;
+
+&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;コマンド&lt;/th&gt;&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;keys *&lt;/td&gt;&lt;td&gt;redisに登録されているキーの一覧を取得する key のパターンを指定する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;type [key]&lt;/td&gt;&lt;td&gt;value の種類を返す。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;get [key]&lt;/td&gt;&lt;td&gt;type が string だった場合の値をみる方法&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lrange [key] 0 -1&lt;/td&gt;&lt;td&gt;type が list だった場合の値をみる方法&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;smembers [key]&lt;/td&gt;&lt;td&gt;type が set だった場合の値をみる方法&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;zrange [key] 0 -1&lt;/td&gt;&lt;td&gt;type が zsetだった場合の値をみる方法&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;hgetall [key]&lt;/td&gt;&lt;td&gt;type が hash だった場合の値をみる方法&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;hkeys [key]&lt;/td&gt;&lt;td&gt;type が hash だった場合に field の一覧をみる方法&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;hvals [key]&lt;/td&gt;&lt;td&gt;type が hash だった場合に value の一覧をみる方法&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;monitor&lt;/td&gt;&lt;td&gt;redisサーバが受けとったコマンドを表示する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;設定したりもっと細かい作業をしたい場合は help コマンドを使う。
+種類ごとのヘルプをみたい場合は &lt;code&gt;@&lt;/code&gt; をつけるとよい&lt;/p&gt;
+
+&lt;p&gt;例えばリスト関連のコマンドを知りたいなら&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; help @list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;といった感じ。&lt;/p&gt;
+
+&lt;p&gt;以下は解説&lt;/p&gt;
+
+&lt;h3 id=&#34;keys:3918f65df03d8c723f59e27787291cdf&#34;&gt;keys&lt;/h3&gt;
+
+&lt;p&gt;登録されている key がわからないと何もできないので、keyの一覧をみる方法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; keys *
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;引数にはパターンを入力する hogeではじまるものに絞りこみしたい場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; key hoge*
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とかする。shell の場合はアスタリスクはエスケープする必要があるのに注意&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ redis-cli keys \*
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;type:3918f65df03d8c723f59e27787291cdf&#34;&gt;type&lt;/h3&gt;
+
+&lt;p&gt;redis は key に格納された値の種類によって取得コマンドが違うらしい。
+値をみるために種類の確認が必要。&lt;/p&gt;
+
+&lt;p&gt;hoge というキーがあった場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; type hoge
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とする。&lt;/p&gt;
+
+&lt;p&gt;返す値としては&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;string&lt;/li&gt;
+&lt;li&gt;list&lt;/li&gt;
+&lt;li&gt;set&lt;/li&gt;
+&lt;li&gt;zset&lt;/li&gt;
+&lt;li&gt;hash&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;があるっぱい。&lt;/p&gt;
+
+&lt;h3 id=&#34;string-だった場合:3918f65df03d8c723f59e27787291cdf&#34;&gt;string だった場合&lt;/h3&gt;
+
+&lt;p&gt;キーとキーの種類が別れば値を見ることができる。&lt;/p&gt;
+
+&lt;p&gt;キーhoge の値の種類が string だったら get を使う&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; get hoge
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ちなみに設定する場合は set。hubot は json が string で保存してあった。&lt;/p&gt;
+
+&lt;h3 id=&#34;list-だった場合:3918f65df03d8c723f59e27787291cdf&#34;&gt;list だった場合&lt;/h3&gt;
+
+&lt;p&gt;キーhoge の値の種類が list だった lrange を使う。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; lrange hoge 0 -1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;先頭 から 最後から1番目までの値を返せという感じになる。
+必要な範囲を指定したい場合は微調整するとよい。&lt;/p&gt;
+
+&lt;h3 id=&#34;set-だった場合:3918f65df03d8c723f59e27787291cdf&#34;&gt;set だった場合&lt;/h3&gt;
+
+&lt;p&gt;キーhoge の値の種類が set だった場合は smembers を使う。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; smembers hoge
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;zset-だった場合:3918f65df03d8c723f59e27787291cdf&#34;&gt;zset だった場合&lt;/h3&gt;
+
+&lt;p&gt;キーhoge の値の種類が zset だった場合は zrange を使う。
+zset 順序のある集合&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; zrange hoge 0 -1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;list の時と同じ。&lt;/p&gt;
+
+&lt;h3 id=&#34;hash-だった場合:3918f65df03d8c723f59e27787291cdf&#34;&gt;hash だった場合&lt;/h3&gt;
+
+&lt;p&gt;キーhoge の値の種類が hash だった場合は hgetall を使う。
+ただし、field と value が交互に表示されてよみやすくはない。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; hgetall hoge
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;field だけや value だけの一覧をみたい場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; hkeys hoge
+&amp;gt; hvals hoge
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;がある。&lt;/p&gt;
+
+&lt;p&gt;なぜ hfields ではないのか。&lt;/p&gt;
+
+&lt;h3 id=&#34;アクセスされてるのか確認したい時:3918f65df03d8c723f59e27787291cdf&#34;&gt;アクセスされてるのか確認したい時&lt;/h3&gt;
+
+&lt;p&gt;ログをみてもいいのかしれないけど &lt;code&gt;monitor&lt;/code&gt; コマンドが便利。
+データベース内で何が起きているかを理解するのに良いらしい。&lt;/p&gt;
+
+&lt;p&gt;tail -f みたいな感じ。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:3918f65df03d8c723f59e27787291cdf&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;これだけ知っていれば十分に redis の中身を見ることができる気がする。&lt;/p&gt;
+
+&lt;p&gt;詳しいことは help コマンドとか redis のサイトを見よう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://redis.shibu.jp/&#34;&gt;日本語訳もある&lt;/a&gt;&lt;/p&gt;
+
+&lt;iframe src=&#34;http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=eiel-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=B00HSC64P8&#34; style=&#34;width:120px;height:240px;&#34; scrolling=&#34;no&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

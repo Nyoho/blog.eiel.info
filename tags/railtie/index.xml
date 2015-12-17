@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/railtie/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-08-01 18:00:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>rails new した時の追加処理をかく</title>
+          <link>http://blog.eiel.info/blog/2013/08/01/rails-new-template/</link>
+          <pubDate>Thu, 01 Aug 2013 18:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/08/01/rails-new-template/</guid>
+          <description>
+
+&lt;p&gt;この記事はメモです。
+&lt;a href=&#34;http://hiroshimarb.github.io/blog/2013/08/03/hiroshimarb-33/&#34;&gt;広島Ruby勉強会 #33&lt;/a&gt; で LT するのに下調べしたことを書いてるだけです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;rails new&lt;/code&gt; した時に &lt;code&gt;--template file_or_url&lt;/code&gt; というオプションがあります。省略形は &lt;code&gt;-m&lt;/code&gt;。
+これを使うと、&lt;code&gt;rails new&lt;/code&gt; した時に追加処理ができます。
+「テンプレート機能」と呼びたいと思います。&lt;/p&gt;
+
+&lt;p&gt;何がしたいかというと rails new した時点で &lt;code&gt;pry&lt;/code&gt; とか &lt;code&gt;rspec&lt;/code&gt; とか &lt;code&gt;cucumber&lt;/code&gt; とかいつも使うのを設定した状態にしたいのです。
+ウェブサービスが思いついたら直ちに開発をしたいのです。&lt;/p&gt;
+
+&lt;p&gt;このテンプレート機能を使うものとしては &lt;a href=&#34;https://github.com/RailsApps/rails-composer&#34;&gt;Rails Composer&lt;/a&gt; というものがあります。
+これを使うと、どのライブラリを利用するか質問されるので、回答していくと、雛形ができます。&lt;/p&gt;
+
+&lt;p&gt;これを自分でカスタマイズしたいので、いろいろ調べました。&lt;/p&gt;
+
+&lt;p&gt;役に立つかもしれないウェブページ&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://guides.rubyonrails.org/rails_application_templates.html&#34;&gt;Rails Application Templates - Rails Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guides.rubyonrails.org/generators.html&#34;&gt;Creating and Customizing Rails Generators &amp;amp; Templates - Rails Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/tachiba@github/items/26b2e9dc271bd8e6907d&#34;&gt;RailsのApplication templateを使って開発の初速をあげよう！&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ひとつめの「Rails Application Templates」は Rails Guide ですが、Rails Guide のトップにリンクがありません。
+だいぶ調べた後に気づきました。泣きたい。&lt;/p&gt;
+
+&lt;p&gt;ふたつめも Rails Guide ですが、機能的には Generator と同じなので参考になります。&lt;/p&gt;
+
+&lt;p&gt;みっつめは日本語記事。面白くまとめてあります。このメモを書いてLTをつくった後にみつけた。&lt;/p&gt;
+
+&lt;p&gt;つづいて、関係してきそうなクラスやモジュールを整理します。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Rails::AppBuilder&lt;/li&gt;
+&lt;li&gt;Rails::Generators::AppGenerator&lt;/li&gt;
+&lt;li&gt;Rails::Generators::AppBase&lt;/li&gt;
+&lt;li&gt;Rails::Generators::Base&lt;/li&gt;
+&lt;li&gt;Rails::Generators::Actions&lt;/li&gt;
+&lt;li&gt;Thor::Actions&lt;/li&gt;
+&lt;li&gt;Thor::Group&lt;/li&gt;
+&lt;li&gt;Thor::Shell&lt;/li&gt;
+&lt;li&gt;Thor::Invocation&lt;/li&gt;
+&lt;li&gt;Thor::Base&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;--template&lt;/code&gt; に指定したファイルは &lt;code&gt;Rails::Generators::AppGenerator&lt;/code&gt; インスタンスのコンテキストで実行されます。
+Rails::Generators::AppGenerator が継承してるクラスやミックスインしているモジュールのメソッドが使えると考えてください。
+「&lt;code&gt;instance_eval&lt;/code&gt; される」と書いたほうがわかりやすい人もいるとかもしれません。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;rails new&lt;/code&gt; や &lt;code&gt;rails generator&lt;/code&gt; には、&lt;a href=&#34;http://whatisthor.com/&#34;&gt;Thor&lt;/a&gt; というライブリが使用されています。
+bundler や Vagrant でも利用されているそうです。
+もっと詳しいことを知りたいのであれば、
+&lt;a href=&#34;https://github.com/erikhuda/thor&#34;&gt;Github のリボジトリ&lt;/a&gt;や&lt;a href=&#34;https://github.com/erikhuda/thor/wiki&#34;&gt;Wiki&lt;/a&gt;をみるとよさそうです。
+Thor についてはまだ勉強中でまだよくわかりませんが、コマンドラインから実行するプログラムを作成するのを支援するようです。&lt;/p&gt;
+
+&lt;p&gt;継承関係は、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Rails::Generators::AppGenerator
+  &amp;lt; Rails::Generators::AppBase
+    &amp;lt; Rails::Generators::Base - [Thor::Actions, Rails::Generators::Actions]
+      &amp;lt; Thor::Group - [Thor::Base, Thor::Shell, Thor::Invocation]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となっていて、 &lt;code&gt;&amp;lt;&lt;/code&gt; は継承しているところで &lt;code&gt;-&lt;/code&gt; はミックスインしているところです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Rails::AppBuilder&lt;/code&gt; には &lt;code&gt;Rails::Generators::AppGenerator&lt;/code&gt; で使用するレシピが書いてある感じになっています。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Rails::Generators::AppGenerator&lt;/code&gt;に定義されているメソッドは &lt;code&gt;Thor::Group&lt;/code&gt; の規約により、定義された順番に実行されるようになっています。
+&lt;code&gt;--template&lt;/code&gt;に指定したファイルが実行されるのは最後から二番目になります。
+最後は&lt;code&gt;run_bundle&lt;/code&gt; が実行されます。これは &lt;code&gt;bundle install&lt;/code&gt; が実行されます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;rails generator&lt;/code&gt; に対応したクラスのを多くは &lt;code&gt;Rails::Generators::NamedBase&lt;/code&gt; を継承しています。
+継承関係は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Rails::Generators::NamedBase &amp;lt; Rails::Generators::Base
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;となっているので、両者に共通するものが &lt;code&gt;Rails::Generators::Base&lt;/code&gt; になることがわかりました。
+&lt;code&gt;rails new&lt;/code&gt; する時の処理をまるまる変更したいのであれば &lt;code&gt;Rails::AppBuilder&lt;/code&gt; を継承して&lt;code&gt;::AppBuilder&lt;/code&gt; を作成すればできそうな感じでした。&lt;/p&gt;
+
+&lt;p&gt;ベースになるクラスは &lt;code&gt;railties/lib/rails/generators&lt;/code&gt; にあります。
+generatorとして利用できるものは、ここに配置されているディレクトリに配置されています。
+ないものもありますが、&lt;code&gt;rails g --help&lt;/code&gt; に表示されるものと概ね対応しています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;find -maxdepth 2 -type d
+.
+./css
+./css/assets
+./css/scaffold
+./erb
+./erb/controller
+./erb/mailer
+./erb/scaffold
+./js
+./js/assets
+./rails
+./rails/app
+./rails/assets
+./rails/controller
+./rails/generator
+./rails/helper
+./rails/integration_test
+./rails/migration
+./rails/model
+./rails/plugin_new
+./rails/resource
+./rails/resource_route
+./rails/scaffold
+./rails/scaffold_controller
+./rails/task
+./test_unit
+./test_unit/controller
+./test_unit/helper
+./test_unit/integration
+./test_unit/mailer
+./test_unit/model
+./test_unit/plugin
+./test_unit/scaffold
+./testing
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rails g --help
+(中略)
+Rails:
+  assets
+  controller
+  generator
+  helper
+  integration_test
+  jbuilder
+  mailer
+  migration
+  model
+  resource
+  scaffold
+  scaffold_controller
+  task
+
+Coffee:
+  coffee:assets
+
+Jquery:
+  jquery:install
+
+Js:
+  js:assets
+
+TestUnit:
+  test_unit:controller
+  test_unit:helper
+  test_unit:integration
+  test_unit:mailer
+  test_unit:model
+  test_unit:plugin
+  test_unit:scaffold
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;試してみる:6e7e0eab36b2e5b334925a8641b4649e&#34;&gt;試してみる&lt;/h3&gt;
+
+&lt;p&gt;あまり面白い例ではないですが &lt;code&gt;rspec&lt;/code&gt; と &lt;code&gt;pry-byebug&lt;/code&gt; がインストールされた状態になるように挑戦してみました。
+折角なので、`rails g scaffold user name:string\ も実行してみました。&lt;/p&gt;
+
+&lt;p&gt;スクリプトはこんな感じになりました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;gem_group :development, :test do
+  gem &#39;rspec-rails&#39;, &#39;~&amp;gt; 2.0&#39;
+  gem &#39;pry-rails&#39;
+  gem &#39;pry-byebug&#39;
+end
+
+run_bundle
+
+git :init
+git add: &#39;.&#39;
+git commit: &amp;quot;-m &#39;initial commit&#39;&amp;quot;
+
+generate &#39;rspec:install&#39;
+
+git add: &#39;.&#39;
+git commit: &amp;quot;-m &#39;rspec install&#39;&amp;quot;
+
+generate :scaffold, &#39;user name:string&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;手順としては、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;rspec-rails の gem 追加&lt;/li&gt;
+&lt;li&gt;pry-byebug の gem 追加&lt;/li&gt;
+&lt;li&gt;bundle install&lt;/li&gt;
+&lt;li&gt;コミット&lt;/li&gt;
+&lt;li&gt;rspec の設定&lt;/li&gt;
+&lt;li&gt;コミット&lt;/li&gt;
+&lt;li&gt;scaffold&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;となります。&lt;/p&gt;
+
+&lt;p&gt;動作確認は &lt;code&gt;rake db:migrate&lt;/code&gt; 後に&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;rake spec&lt;/li&gt;
+&lt;li&gt;rails c&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;など確認してみてください。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;bundle install&lt;/code&gt; は時間がかかりそうなので、できるだけ回数を減らしたいのです。
+なので、gem を設定してから &lt;code&gt;bundle install&lt;/code&gt; することで2回に抑えました。
+コミットの部分はメソッドを用意しても良さそうですね。&lt;/p&gt;
+
+&lt;p&gt;これをうまく使っていくと初期設定が楽できそうです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/linux/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-07-01 17:58:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>さくらVPSでGentoo をインストールした時のはまったことのメモ</title>
+          <link>http://blog.eiel.info/blog/2014/07/01/gentoo-linux-in-sakura-vps/</link>
+          <pubDate>Tue, 01 Jul 2014 17:58:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/01/gentoo-linux-in-sakura-vps/</guid>
+          <description>
+
+&lt;p&gt;つかってた VPS がサービス終了してしまったので、さくら VPS に移行してみた。
+折角なので OS は &lt;a href=&#34;https://www.gentoo.org/&#34;&gt;Gentoo Linux&lt;/a&gt; を選択した。&lt;/p&gt;
+
+&lt;p&gt;前の VPS では Debian をつかってた。
+なんか、ウェブサーバの応答がよくなった気がする。&lt;/p&gt;
+
+&lt;p&gt;一応はまったことを書いておくけど大したことは書いていない。&lt;/p&gt;
+
+&lt;p&gt;iso アップロードして、普通にインストールした。&lt;/p&gt;
+
+&lt;h3 id=&#34;デバイス-eth0-がみつからない:e34c3ccdd1c68d0a41c9b85aa59ae074&#34;&gt;デバイス eth0 がみつからない&lt;/h3&gt;
+
+&lt;p&gt;なんか enp0s3 として認識してた。
+おかげで、ネットワークつながらなくて苦労した。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考 &lt;a href=&#34;http://gakutarou.hatenablog.com/entry/2013/05/22/204507&#34;&gt;さくらのVPS（2G）でのハマリポイント(enp0s3) - /dev/curiosity&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;ディスク-が-vda-だった:e34c3ccdd1c68d0a41c9b85aa59ae074&#34;&gt;ディスク が vda だった&lt;/h3&gt;
+
+&lt;p&gt;「ディスクがねぇぇええ」って、デフォのCentOS起動してよくみたら &lt;code&gt;sda&lt;/code&gt; じゃなくて &lt;code&gt;vda&lt;/code&gt; だった。&lt;/p&gt;
+
+&lt;h3 id=&#34;gpt-に挑戦したら-grub-が入らなかった:e34c3ccdd1c68d0a41c9b85aa59ae074&#34;&gt;GPT に挑戦したら GRUB が入らなかった&lt;/h3&gt;
+
+&lt;p&gt;最近Linuxインストールしてなかった。GPTとやらにしてみることにした。
+なにも考えずにデフォのCentOSのパーティションをそのまま利用して構築していた。
+さあ、GRUBをインスールするぞ。というところで気づいたのだけど、&lt;a href=&#34;http://www.gnu.org/software/grub/manual/html_node/BIOS-installation.html&#34;&gt;BIOS boot partition&lt;/a&gt;とやらなく、GRUBのインストールに失敗するので、対処を迫られた。&lt;/p&gt;
+
+&lt;p&gt;すでにカーネル配置済みの &lt;code&gt;/boot&lt;/code&gt; の中身を一旦退避して、パーティションを書き換えてごまかした。&lt;/p&gt;
+
+&lt;h3 id=&#34;ブートcd-がある方法で-ディスクブートする方法がわからない:e34c3ccdd1c68d0a41c9b85aa59ae074&#34;&gt;ブートCD がある方法で、ディスクブートする方法がわからない&lt;/h3&gt;
+
+&lt;p&gt;15秒放置するだけでした。&lt;/p&gt;
+
+&lt;h3 id=&#34;virtio-いれわすれてディスクがみつけられない:e34c3ccdd1c68d0a41c9b85aa59ae074&#34;&gt;virtio いれわすれてディスクがみつけられない&lt;/h3&gt;
+
+&lt;p&gt;とりあえず、 genkernel したからなにもいらないかとおもったけどダメだったらしい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ genkernel --virtio all
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とか genkernel にいろいろオプションがあるのを学んだ。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:e34c3ccdd1c68d0a41c9b85aa59ae074&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;Gentoo力上がってるので、あんまりハマってない。
+最初のネットワークが繋がらないで挫折しそうだったのは秘密である。&lt;/p&gt;
+
+&lt;h3 id=&#34;他に参考したものとか:e34c3ccdd1c68d0a41c9b85aa59ae074&#34;&gt;他に参考したものとか&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ruby.agile.esm.co.jp/pages/HowToInstallGentooForSakuraVps&#34;&gt;Ruby x Agile version:β - Rubyとアジャイルでふつうのシステム開発を実現する永和システムマネジメントのWebサイト&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;コンパネにもかいってあったけどシリアルコンソール用の設定とかみないと忘れていたであろう。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

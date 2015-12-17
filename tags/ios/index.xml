@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/ios/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-08-02 12:00:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>LT駆動開発で UIDynamics を利用した万華鏡アプリを紹介した</title>
+          <link>http://blog.eiel.info/blog/2014/08/02/a8d2-kaeidscope/</link>
+          <pubDate>Sat, 02 Aug 2014 12:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/08/02/a8d2-kaeidscope/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;https://www.facebook.com/events/321060364724219/&#34;&gt;A8D:2&lt;/a&gt; というイベントが2014年8月3日に行なわれます。明日じゃねーか。&lt;/p&gt;
+
+&lt;p&gt;そんなことはさておいて、&lt;a href=&#34;http://augment8.org/&#34;&gt;Augment8&lt;/a&gt;というグループがあります。
+このグループは年に1回、普段作っているものをみんなに体験してもらう場をつくろうというイベントがあるらしく、Augment8 Day を省略して A8D というイベントをしているそうです。&lt;/p&gt;
+
+&lt;p&gt;デジタルなガジェットを一般の人に体験していただくイベントだ。&lt;/p&gt;
+
+&lt;p&gt;そのイベントに参加することになったので、このために作成したアプリを告知を兼ねて&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA06&#34;&gt;LT駆動開発06&lt;/a&gt;で紹介をしました。&lt;/p&gt;
+
+&lt;p&gt;というわけでまずスライド。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;4e0e1b60fb610131b3ca3a8923229263&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;つづいて、スライド内で利用している動画。&lt;/p&gt;
+
+&lt;p&gt;万華鏡のサンプル1&lt;/p&gt;
+
+&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/sMJtJsOGcPg&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;万華鏡のサンプル2&lt;/p&gt;
+
+&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/GXqg2EEn-d4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;UIDynamicsのサンプル&lt;/p&gt;
+
+&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/4AIo5x1DoZo&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;iOS7 からUIKitで物理エンジンが搭載されていて気軽に使えるようになったらしい。
+まだ試してなかったのだけど、普通の人にも楽しめそうなものとして万華鏡をつくってみた。
+iOSのCoreMotionを使いiOS端末を操作して画面に映る万華鏡が変化するという寸法です。&lt;/p&gt;
+
+&lt;p&gt;普段、iOSアプリをつくってるわけではないのでそんなに凝ったことはしていません。
+万華鏡といえば三角なのですが四角のものもあるそうで、手抜きで四角の万華鏡になっています。&lt;/p&gt;
+
+&lt;p&gt;Apple Swift で作成しているためアプリとして申請するのもできないし、体験できるようにソースコードを公開しておきますね。まだ勉強中でソースコードが汚いですね、わかります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Augment8/kaleidoscope&#34;&gt;Augment8/kaleidoscope · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;サブディスプレイに対応しているので、プロジェクタに写したり Apple TV で画面に写したりできます。&lt;/p&gt;
+
+&lt;p&gt;当日は丸いものにプロジェクトションマップもどきをしたりする予定です。
+操作用のiOS端末のために&lt;strong&gt;拡張パーツ&lt;/strong&gt;を用意しています。デザイン担当の&lt;a href=&#34;https://twitter.com/akigonn&#34;&gt;あきさん&lt;/a&gt;が作成しています。これを装着すると…つづきは当日のA8D:2にて体験してください。&lt;/p&gt;
+
+&lt;p&gt;デジタルならではなところは動的に反射している数が増えたり、中身が変化したり、マスクが変化したりと用意してみました。
+それなりに面白くなったでしょうか。
+魅せるためのスキル不足なため、本当に楽しめるものになったのかよくわからないので、みんなの反応が気になります。&lt;/p&gt;
+
+&lt;p&gt;今回のLT駆動における初挑戦は「動画をつかってみる」でした。
+スライドを公開する際に動画は別のところにアップロードしないといけないのがすこしつらい。&lt;/p&gt;
+
+&lt;p&gt;Swiftのコードを書いていて思ったことは、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ブロック構文がなかなか書きなれない&lt;/li&gt;
+&lt;li&gt;変数宣言で型から書きそうになる&lt;/li&gt;
+&lt;li&gt;なぜか&lt;code&gt;［&lt;/code&gt;を入力してしまう&lt;/li&gt;
+&lt;li&gt;なるべつ let で済ませたい病&lt;/li&gt;
+&lt;li&gt;selector 補完効かない。つらい。(文字列で渡すから当たり前)&lt;/li&gt;
+&lt;li&gt;ヘッダファイルいらないヒャッハー&lt;/li&gt;
+&lt;li&gt;CGFloat が絡む数値計算なんかよくわからない(すぐ型エラーに阻まれる)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などなどでしょうか。(咄嗟に思いついたものだけ書いた)&lt;/p&gt;
+
+&lt;p&gt;UIDynamics で ビヘイビアのインスタンスを節約しようとするとランタイムエラーではまったりしたのも良い思い出です。アニメータごとにインスタンスをつくりましょう。&lt;/p&gt;
+
+&lt;p&gt;Viewを触れるようにしてみたけど、移動したViewは元の位置にもどるという残念な結果にもなりました。&lt;/p&gt;
+
+&lt;p&gt;最後になりますが、調整するのに&lt;a href=&#34;https://bauhaus-web.jp/&#34;&gt;BAUHAUS&lt;/a&gt;の&lt;a href=&#34;https://twitter.com/uehaso&#34;&gt;上原さん&lt;/a&gt;や&lt;a href=&#34;http://funaffect.jp/&#34;&gt;ファナフェクト&lt;/a&gt;の方々にアドバイスをちょろっともらったりしました。さんきゅーです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>iOSアプリでスリープしないようにしても、ホーム画面にもどったらスリープするよね</title>
+          <link>http://blog.eiel.info/blog/2014/07/28/ios-application-no-sleep/</link>
+          <pubDate>Mon, 28 Jul 2014 18:19:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/28/ios-application-no-sleep/</guid>
+          <description>&lt;p&gt;「iOS スリープしないように」で検索した結果、上位のいくつかの記事に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[UIApplication sharedApplication].idleTimerDisabled = YES;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とあり、これでうまく動作する。&lt;/p&gt;
+
+&lt;p&gt;注意事項として以下のこともかいてある。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;上記の処理をするとアプリが終了してもスリープが起こらなくなってしまうため，アプリの終了時には必ず戻すようにします．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.objectivec-iphone.com/UIKit/UIApplication/idleTimerDisabled.html&#34;&gt;逆引きObjective-C for iPhoneアプリ - スリープモード（自動ロック）に移行しないようにする&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ただし、このまま放っておくとアプリを終わらせてもスリープが起こらなくなるので、アプリの終了時には必ず戻すこと！&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://d.hatena.ne.jp/uosoft/20100809/1281283605&#34;&gt;iPhoneSDKでスリープさせない方法 - 電子ガジェットいろいろ 開発メモ&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;などなど書かれていて、事実なのか気になった。
+UIApplication のインスタンスの設定を変えているのに OS の設定が変わるとは思えない。
+というわけで、実際に試した。&lt;/p&gt;
+
+&lt;p&gt;普通にスリープしました。&lt;/p&gt;
+
+&lt;p&gt;記事自体も古いのでOSのバージョンによって違うのかもしれません。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>iOS でmtimeを設定する</title>
+          <link>http://blog.eiel.info/blog/2014/02/10/set-mtime-in-ios/</link>
+          <pubDate>Mon, 10 Feb 2014 19:05:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/02/10/set-mtime-in-ios/</guid>
+          <description>
+
+&lt;p&gt;iOS で ファイルの mtime を設定したい事態が発生した。
+utimes(2) を利用してもよいのだけど、なるべく Cocoa の領域でコードは書いておきたい。&lt;/p&gt;
+
+&lt;p&gt;書き込む前に取得。取得したいファイルパスはわかっているとします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;NSString* path = @&amp;quot;hoge.txt&amp;quot;;
+NSFileManager* filemngr = [NSFileManager defaultManager];
+
+NSDictionary* attributes = [filemngr attributesOfItemAtPath:path error:nil];
+
+if (attributes) {
+    NSDate *date = [attributes fileModificationDate]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;NSFileManager-attributesOfItemAtPath:error&lt;/code&gt; で 辞書型でファイルの情報を取得できます。
+&lt;code&gt;NSDictionary-fileModificationDate&lt;/code&gt; は NSFileManager.h で拡張されたメソッドです。これを使えば取得できます。&lt;/p&gt;
+
+&lt;p&gt;書き込みする際は拡張メソッドはないですが、取得した辞書型に値を設定してに書き込みすればできました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NSString* path = @&amp;quot;hoge.txt&amp;quot;;
+NSFileManager* filemngr = [NSFileManager defaultManager];
+
+NSDictionary* attributes = [filemngr attributesOfItemAtPath:path error:nil];
+
+if (attributes) {
+    NSMutableDictionary* mattributes = [NSMutableDictionary dictionaryWithDictionary:attributes];
+    NSDate *date = [NSDate new];
+    [mattributes setObject:mtime forKey:NSFileModificationDate];
+    [fileManager setAttributes:mattributes ofItemAtPath:path error:nil];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;NSFileManager-setAttributes:mattributes ofItemAtPath:error:&lt;/code&gt; に作成した attributes を使うだけでした。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:2f7246ea5a7975a206bc40763904b381&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/13854993/get-document-directory-files-date-modified-time-in-iphone&#34;&gt;ios - Get document directory files date modified time in iphone - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>UIImage#initWithCGImage:scale:orientation で回転させる話</title>
+          <link>http://blog.eiel.info/blog/2014/01/22/uiimage-orientation/</link>
+          <pubDate>Wed, 22 Jan 2014 02:11:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/01/22/uiimage-orientation/</guid>
+          <description>&lt;p&gt;iOS な作業をしていた。&lt;/p&gt;
+
+&lt;p&gt;UImage な画像をてっとり早く回転する方法として、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;image = [[UIImage alloc] initWithCGImage:image.CGImage scale:image.scale orientation:UIImageOrientationRight];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;というのがある。&lt;/p&gt;
+
+&lt;p&gt;みたいなのがあるのですが、2度回転させようとして、下記のように2度呼んで回転しないなぁ、というハマり方をした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;image = [[UIImage alloc] initWithCGImage:image.CGImage scale:image.scale orientation:UIImageOrientationRight];
+image = [[UIImage alloc] initWithCGImage:image.CGImage scale:image.scale orientation:UIImageOrientationRight];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;実際に並んでいれば気づくのだけど、違う場所で呼んでる場合は注意。&lt;/p&gt;
+
+&lt;p&gt;CIImage の使う向きを変えてCGImageは使いまわしてるだけなので、右に回転させたものを使うだけになる。「右に方向にして使う」という機能なので当たり前なのだけど。&lt;/p&gt;
+
+&lt;p&gt;どう対処したかというと、1回目の回転はちゃんと新しい画像をつくって対処した。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;CGContextRef context = UIGraphicsGetCurrentContext();
+CGContextRotateCTM(context,M_PI);
+CGContextTranslateCTM(context, -image.size.width, -image.size.height);
+[image.layer renderInContext:context];
+image = UIGraphicsGetImageFromCurrentImageContext();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ちょっと無理矢理感。
+移動させてるのは、(0,0) を中心に回転するので、画像が実際にかきこまれる位置が負の領域にいってしまってるから。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>設定画面で表示する値をアプリ側で設定する - iOS Second Stage Advent Calendar 2013</title>
+          <link>http://blog.eiel.info/blog/2013/12/19/ios-second-stage-advent-calendar-2013/</link>
+          <pubDate>Thu, 19 Dec 2013 00:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/12/19/ios-second-stage-advent-calendar-2013/</guid>
+          <description>&lt;p&gt;この記事は&lt;a href=&#34;http://qiita.com/advent-calendar/2013/ios-2&#34;&gt;iOS Second Stage Advent Calendar 2013&lt;/a&gt;の19日目の記事です。
+Advent Calendar に参加したのはギャングである&lt;a href=&#34;http://qiita.com/aguuu&#34;&gt;aguuu&lt;/a&gt; の中の人に脅されたわけではありません。&lt;/p&gt;
+
+&lt;p&gt;iOS のアプリケーションを iOS自体の設定画面で設定を行えるアプリケーション
+があります。その画面内に稀にバージョン番号が表示されているようなものがあると思います。
+これを行うには方法として紹介されているのはビルドする際に値を差し替える方法があります。
+ググるとこればっかりでてきます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://d.hatena.ne.jp/MasatoKONDO/20120410/1334045339&#34;&gt;参考: アプリのバージョン、ビルドを「設定」の初期値として設定する&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今回はそれをせずに、アプリ内で設定できたので紹介しておこうと思います。
+動的設定とでも言えばいいのでしょうか。&lt;/p&gt;
+
+&lt;p&gt;この設定画面を用意する方法は Settings.bundle を追加し Root.plist を作成することで作ることができます。&lt;/p&gt;
+
+&lt;p&gt;今回のゴール&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/ios-second-stage-advent-calendar/setting.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;バージョンってタイトルには書いてますが、最終起動時刻のほうがわかりやすいので、最終起動時刻に焦点を当てます。
+、設定画面に値を表示するには、Setting Bundle を追加します。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/ios-second-stage-advent-calendar/SettingsBundle.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;root.plist に type を table のアイテムを追加し、DefaultValue を設定します。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DefaultValue を設定します。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;大事なことなので強調しておきます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/ios-second-stage-advent-calendar/root-plist.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;あとは &lt;code&gt;[NSUserDefaults standardUserDefaults]&lt;/code&gt; に値を書き込めばよいです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-obj-c&#34;&gt;NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+NSDate* now = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
+[userDefaults setObject:[now descriptionWithLocale:[NSLocale currentLocale]]
+                 forKey:@&amp;quot;lastLaunched&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とっても簡単ですね。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/iOSAdventCal2013&#34;&gt;プロジェクトファイルはこちらにおいておきます&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;たまたま最初に思いつく方法を試したらうまくいきました。(最初は
+Documents や Cache ディレクトリの中身を確認して plist を直接書き換えたなんて言えない…。しかも、何か勘違いをして UserDefaults を経由せずに書き換えたとか言えない…。)&lt;/p&gt;
+
+&lt;p&gt;ざっくりと公式のドキュメントをみましたが、記述をみつけられなかったので、裏技的なテクニックなのかもしれません。&lt;/p&gt;
+
+&lt;p&gt;明日はみんなのハーレムである &lt;a href=&#34;http://qiita.com/mako_wis&#34;&gt;makowis&lt;/a&gt; さんです。楽しみですね。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>UIWebView の UserAgent を変更した時に気をつけたいたった1つのこと</title>
+          <link>http://blog.eiel.info/blog/2013/12/10/change-user-agent-in-uiwebview/</link>
+          <pubDate>Tue, 10 Dec 2013 02:04:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/12/10/change-user-agent-in-uiwebview/</guid>
+          <description>&lt;p&gt;iOS SDK のUIWebView は UserAgent を変更することができます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.yoheim.net/blog.php?q=20121001&#34;&gt;[XCODE] UIWebViewを用いる際にUserAgentを独自に設定する方法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;UserAgent を変更したときに気をつけておきたいことを書きたいと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;UserAgent によって条件分岐する JavaScript ライブラリがあることを忘れないようにしましょう。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;3時間以上たたかって、Google検索しても、なんにも情報ないし、「もうわからんわー」って投げ出したくなったところ JavaScript のライブラリのソースコード読み始めて、ようやく気付きました。
+なるべくもとの UserAgent を尊重するほうが生きやすい世の中かもしれません。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>AutoLayout TIPS - 真ん中に固定幅のスペース</title>
+          <link>http://blog.eiel.info/blog/2013/05/19/auto-layout-tips-1/</link>
+          <pubDate>Sun, 19 May 2013 12:04:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/05/19/auto-layout-tips-1/</guid>
+          <description>
+
+&lt;p&gt;AutoLayout になかなか慣れません。
+そうは言っても使わなければ、身につかない。
+&lt;del&gt;というか久しぶにりiOSのコード書いてるだけな気がする&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;今回挑戦したのはふたつのViewの間に固定幅をスペースをつくりたい。
+具体的には以下の感じ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/autolayout-fixed-center.png&#34; alt=&#34;autolayout&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;書いた VisualFormatLanguage はこんな感じ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;|-[_leftView]-40-[_rightView]-|
+[_leftView(==_rightView)]
+
+V:|-[_leftView]-|
+V:|-[_rightView]-|
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以下のように書いてもよい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;|-[_leftView(==_rightView)]-40-[_rightView]-|
+
+V:|-[_leftView]-|
+V:|-[_rightView]-|
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;やってみると簡単。&lt;/p&gt;
+
+&lt;p&gt;プログラムで気軽にレイアウトできる。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/AutoLayoutTip1&#34;&gt;具体的なソースコードは Github に アップしています。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/AutoLayoutTip1/blob/master/AutolayoutTip1/ALViewController.m#L44-L66&#34;&gt;主な処理はこの辺にあります。&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;簡単に解説:6b592a74ab34617953b7b70fed14874c&#34;&gt;簡単に解説&lt;/h3&gt;
+
+&lt;p&gt;頭に &lt;code&gt;V:&lt;/code&gt; がついているのは 縦方向に対する設定です。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;|-&lt;/code&gt; の部分は OS 標準の幅になります。ぴったりつけたいなら、&lt;code&gt;|-0-&lt;/code&gt; とします。&lt;/p&gt;
+
+&lt;p&gt;縦方向の左側 だけやってみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;V:|-0-[_leftView]-0-|
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;まとめ:6b592a74ab34617953b7b70fed14874c&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;なれるまで発想のセンスがいる気がします。&lt;/p&gt;
+
+&lt;p&gt;論理的な手順で、作りたいレイアウトをするのはまだまだまだ説明できそうにないです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>iOS で Digest認証してみる。 - AFNetworking</title>
+          <link>http://blog.eiel.info/blog/2013/03/20/digest-authencation-for-ios/</link>
+          <pubDate>Wed, 20 Mar 2013 02:20:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/03/20/digest-authencation-for-ios/</guid>
+          <description>
+
+&lt;p&gt;iOS で Digest認証するコードを書きました。&lt;/p&gt;
+
+&lt;p&gt;サンプルコードの作成は頼まれて作成しただけです。
+折角なので、簡単な説明を 記事にしておきます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/Digest_Sample&#34;&gt;サンプルコードはこちら&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;テストサーバ構築:d404f6f128ea77c478a4255b45512e01&#34;&gt;テストサーバ構築&lt;/h2&gt;
+
+&lt;p&gt;まずは動作確認をできるようにしないといけないので Digest認証 をするためのウェブサーバがないと困ります。Ruby の rack を使いました。&lt;/p&gt;
+
+&lt;p&gt;Digest認証をするには Rack のミドルウェア &lt;code&gt;Rack::Auth::Digest::MD5&lt;/code&gt; を使用しました。
+Digest認証は ハッシュ化アルゴリズムの選択できるようになっているので、ミドルウェアはこのような名前になっているようです。
+Rackのソースコードみにいったら、最初気づかなくて困りました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;config.ru&lt;/code&gt; は以下のように書きました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;use Rack::Auth::Digest::MD5, &amp;quot;auth&amp;quot;, &#39;&#39; do |username|
+  &amp;quot;password&amp;quot;
+end
+
+run proc { [200, {&#39;Content-Type&#39; =&amp;gt; &#39;text/html&#39;}, [&#39;hoge&#39;]] }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;use の第三引数は opaque となります。デフォルトでは &lt;code&gt;nil&lt;/code&gt; で、設定しないと動きません。はまりました。&lt;/p&gt;
+
+&lt;p&gt;蛇足ですが、 &lt;code&gt;use&lt;/code&gt; の仕組みをよくしらなかったので&lt;a href=&#34;https://github.com/rack/rack/blob/1.5.2/lib/rack/builder.rb#L81-L87&#34;&gt;ソースコード&lt;/a&gt;をちら見しました。
+&lt;code&gt;lib/builder.rb&lt;/code&gt; に実装があります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;    def use(middleware, *args, &amp;amp;block)
+      if @map
+        mapping, @map = @map, nil
+        @use &amp;lt;&amp;lt; proc { |app| generate_map app, mapping }
+      end
+      @use &amp;lt;&amp;lt; proc { |app| middleware.new(app, *args, &amp;amp;block) }
+    end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;@map が &lt;code&gt;nil&lt;/code&gt; の場合は middleware.new する処理が割り込むだけですね。引数はまるまる渡しています。&lt;/p&gt;
+
+&lt;p&gt;use する時の引数は 使用するミドルウェア の initialize メソッドをみればよいことがわかります。
+Digest認証の場合は (&lt;a href=&#34;https://github.com/rack/rack/blob/rack-1.5/lib/rack/auth/digest/md5.rb#L24-L31&#34;&gt;ソースコード&lt;/a&gt;)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;        def initialize(app, realm=nil, opaque=nil, &amp;amp;authenticator)
+          @passwords_hashed = nil
+          if opaque.nil? and realm.respond_to? :values_at
+            realm, opaque, @passwords_hashed = realm.values_at :realm, :opaque, :passwords_hashed
+          end
+          super(app, realm, &amp;amp;authenticator)
+          @opaque = opaque
+        end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第2引数、第3引数、ブロックを用意すればよさそうです。rdoc にも書いてありますが、block は username を引数にうけとります。
+確認しないと心配なら &lt;a href=&#34;https://github.com/rack/rack/blob/rack-1.5/lib/rack/auth/digest/md5.rb#L97-L100&#34;&gt;valid_digest?&lt;/a&gt; で利用されています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;        def valid_digest?(auth)
+          pw = @authenticator.call(auth.username)
+          pw &amp;amp;&amp;amp; digest(auth, pw) == auth.response
+        end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ios側:d404f6f128ea77c478a4255b45512e01&#34;&gt;iOS側&lt;/h2&gt;
+
+&lt;p&gt;使い方は サンプルコードの &lt;a href=&#34;https://github.com/eiel/Digest_Sample&#34;&gt;README.md&lt;/a&gt; にかいています。&lt;/p&gt;
+
+&lt;p&gt;AFNetworking は iOS と Mac OS X で利用できるライブラリで block や NSOperation を利用して ネットワークの処理がかけるライブラリみたいです。&lt;/p&gt;
+
+&lt;p&gt;Digjest 認証をしたい場合は `AFHTTPRequestOperation#setAuthenticationChallengeBlock に認証が必要なときに呼び出される処理を block で登録しておけばよいようです。&lt;/p&gt;
+
+&lt;p&gt;なので、あらかじめ登録しておいた username と password を利用して、
+認証する処理を登録した状態の AFHTTPRequestOperation を返すようなファクトリを用意してやりました。&lt;/p&gt;
+
+&lt;p&gt;あと雑談ですが、&lt;/p&gt;
+
+&lt;p&gt;block 内で &lt;code&gt;self&lt;/code&gt; を利用したい場合は JavaScript の影響で &lt;code&gt;that&lt;/code&gt; にして使っています。
+一般的な変数名はなんなのでしょうか。&lt;/p&gt;
+
+&lt;h2 id=&#34;参考リンク:d404f6f128ea77c478a4255b45512e01&#34;&gt;参考リンク&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://d.hatena.ne.jp/dayflower/20120711/1342058487&#34;&gt;Rack::Auth::Digest::MD5 のつかいかた&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rack/rack&#34;&gt;rack&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/AFNetworking/AFNetworking&#34;&gt;AFNetworking&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ch3cooh.hatenablog.jp/entry/20110513/1305264939&#34;&gt;NSURLConnectionクラスを使用したダイジェスト認証処理&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>今後のiOSアプリケーションのために Auto Layout を学んだ - 内容編</title>
+          <link>http://blog.eiel.info/blog/2013/01/13/ios-autolayout-2/</link>
+          <pubDate>Sun, 13 Jan 2013 01:17:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/13/ios-autolayout-2/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;blog/2013/01/13/ios-autolayout/&#34;&gt;今後のiOSアプリケーションのために Auto Layout を学んだ - 準備編&lt;/a&gt; につづき勉強した内容をまとめていきたいと思います。&lt;/p&gt;
+
+&lt;p&gt;まずは Auto Layoutについて。概ね WWDC 2012 の session 202 のまとめだったり、使ってみた感じでのまとめです。仮説もいっぱい混ざってるので注意してください。&lt;/p&gt;
+
+&lt;h2 id=&#34;auto-layout-は制約ベースのレイアウトシステム:97ae7d72a595466c2285f09917dc50a4&#34;&gt;Auto Layout は制約ベースのレイアウトシステム&lt;/h2&gt;
+
+&lt;p&gt;Auto Layout は ふたつのViewの関係を設定していくことでレイアウトを構築します。
+例えば &lt;em&gt;ある特定のViewは親のView左から 自分の左端を 20pt あける&lt;/em&gt; のような制約をつくります。これらの制約を追加していくことで期待するレイアウトを構築します。&lt;/p&gt;
+
+&lt;p&gt;制約が無い場合はそれぞれデフォルトの振舞いがあります。
+動きをみつつ上書きしていくような形になります。&lt;/p&gt;
+
+&lt;p&gt;制約のでViewのサイズなのが自動的に決定していくのでコードで記述する場合は frame の設定が不要になる書き方ができます。&lt;/p&gt;
+
+&lt;h2 id=&#34;auto-resizing-maskの機能を再現することもできる:97ae7d72a595466c2285f09917dc50a4&#34;&gt;Auto Resizing Maskの機能を再現することもできる&lt;/h2&gt;
+
+&lt;p&gt;Auto Layout は 以前のレイアウトシステム(?)である Auto Resizing Mask の表現範囲より大きなもので、エミュレートすることができます。Auto Resizing Mask でできることはすべてできますし、コードから利用する場合は今までどおりの挙動をします。&lt;/p&gt;
+
+&lt;p&gt;また、デフォルトでは Auto Resizing Mask をエミュレートしています。エミュレートさせたくない場合は translatesAutoresizingMaskIntoConstraints プロパティを NO に設定します。&lt;/p&gt;
+
+&lt;h2 id=&#34;作成できる制約:97ae7d72a595466c2285f09917dc50a4&#34;&gt;作成できる制約&lt;/h2&gt;
+
+&lt;p&gt;制約はふたつのviewに対して &lt;code&gt;item1.attribute1 = multiplier x item2.attribute2 + constant&lt;/code&gt; という式を満たすように attribute1 を設定するようです。(たぶん) 等号の部分は不等号を指定することができます。制約はNSLayoutConstraint クラスの &lt;code&gt;constraintWithItem:attribute: relatedBy: toItem: attribute: multiplier: constant:&lt;/code&gt;メソッドで作成することができます。 VisualFormatという言語を使用するともう少し簡単に制約を生成することもできます。&lt;/p&gt;
+
+&lt;h3 id=&#34;visual-format-language:97ae7d72a595466c2285f09917dc50a4&#34;&gt;Visual Format Language&lt;/h3&gt;
+
+&lt;p&gt;この言語は アスキーアート的な書き方で制約を生成することができます。&lt;/p&gt;
+
+&lt;p&gt;例えば&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;|-20-[theView(200)]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;theView という名前のviewを
+- 親Viewの左端から 20 右に離す
+- theViewの width を 200
+という制約を作成することができます。&lt;/p&gt;
+
+&lt;p&gt;Visual Foramt を利用して制約を作成するには
+NSLayoutConstraintクラスの &lt;code&gt;constraintsWithVisualFormat:options:metrics:views&lt;/code&gt; メソッドを使用します。 metrics: の引数には Visual Format内で使用したい変数の NSDictionaryを。viewsにはVisual Foram内で使用したいViewの NSDictinaryを渡します。&lt;/p&gt;
+
+&lt;p&gt;先の例の 20 の部分を padding に変更したものであれば&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NSString* format = @&amp;quot;|-pading-[theView(200)]&amp;quot;;
+
+NSNumber* padding = @20;
+NSDictionary* metrics = NSDictionaryOfVariableBindings(padding);
+
+UIView* theView = [[UIView alloc] init];
+NSDictionary* views = NSDictionaryOfVariableBindings(theView);
+
+NSArray* constraints = [NSLayoutConstraint constraintsWithVisualFormat:format
+                                                               options:0
+                                                               metrics:metrics
+                                                               views:views]];
+[self.view addConstraints:constraints];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のような風になります。&lt;/p&gt;
+
+&lt;p&gt;Visual Formatの表現力には限界があるので設定できない制約もあります。&lt;/p&gt;
+
+&lt;h2 id=&#34;満たせない制約があった場合:97ae7d72a595466c2285f09917dc50a4&#34;&gt;満たせない制約があった場合&lt;/h2&gt;
+
+&lt;p&gt;レイアウトする際に登録された制約する際に、満たせないものがでてくるとデバッグ出力として制約の一覧が出力され、非常にすばやく問題があることを検知できます。&lt;/p&gt;
+
+&lt;h2 id=&#34;interfacebuilder-での-auto-layout:97ae7d72a595466c2285f09917dc50a4&#34;&gt;InterfaceBuilder での Auto Layout&lt;/h2&gt;
+
+&lt;p&gt;InterfaceBuilderを利用して画面を作成していくと 磁石のように吸いつく場所におくと強制的に制約が生成されます。基本的にはその上に新な制約を付与していく形になります。この制約はInterfaceBuilder上で設定できますが、Outletにしてコード上で参照することもできます。&lt;/p&gt;
+
+&lt;p&gt;なので、InterfaceBuilder上でもかなりのことができますが、すべてではありません。&lt;/p&gt;
+
+&lt;p&gt;注意点としては
+* Viewを移動すると制約が消えることがあります。というか、よく消えます。
+* pin で制約を追加すると思わぬ制約がついていて削除していくことになる場合があります。
+* Viewを移動したりサイズを変更したりが制約の影響を受けて変更できない場合があります。この場合は基準を変えたりするなど配置の仕方を工夫する必要があります。&lt;/p&gt;
+
+&lt;h2 id=&#34;制約の優先順位:97ae7d72a595466c2285f09917dc50a4&#34;&gt;制約の優先順位&lt;/h2&gt;
+
+&lt;p&gt;制約には priority が設定できますが、初期は高い値が設定されています。
+評価する順序に影響があるのではないかと予測しています。
+不等号などを含む制約を後回しにすると 制約がコンフリクトしない場合がでてくるので下げるだけで済むようになっているんじゃないかなぁ。と、ふと思いましたが定かではありません。&lt;/p&gt;
+
+&lt;h2 id=&#34;勉強会中に作成したコードの一部:97ae7d72a595466c2285f09917dc50a4&#34;&gt;勉強会中に作成したコードの一部&lt;/h2&gt;
+
+&lt;p&gt;VisualFormatを試すのに作成したプロジェクトを&lt;a href=&#34;https://github.com/eiel/AutoLayout-Visual-Format-Language-Sample&#34;&gt;github上に&lt;/a&gt;置いているので興味がある方はどうぞ。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:97ae7d72a595466c2285f09917dc50a4&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;最初はわけがわかりませんでしたが、使用してみると思っていたほど難しくありません。うまく使えば Universal アプリも作れなくもありません。大きく表現を変えたい場合は別々に画面を作成したほうがよいです。プログラムは書いたとおりに動いてくれますが、制約も書いたとおりにレイアウトしてくれることでしょう。&lt;/p&gt;
+
+&lt;p&gt;図とか書きたかったですが、WWDCの動画などを参照してみてください。InterfaceBuilder上での作業はとても参考になります。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>UITabBarControllerのMoreに表示される edit を消したいなー。</title>
+          <link>http://blog.eiel.info/blog/2013/01/09/remove-uinavigation-edit-button/</link>
+          <pubDate>Wed, 09 Jan 2013 22:30:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/09/remove-uinavigation-edit-button/</guid>
+          <description>&lt;p&gt;&lt;strong&gt;「UITabBarControllerのMoreに表示される edit を消したいなー。」&lt;/strong&gt;と思いながら、なんてググればいいんだろーと思いつつも、ヘッダファイルをみていたら customizableViewControllers ってプロパティがあった。
+迷わずに nil に設定した。うまくいった。&lt;/p&gt;
+
+&lt;p&gt;もし、UITabBarControllerを継承してるクラスがあるなら -viewDidLoad で処理してしまうのが早いです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;self.customizableViewControllers = nil;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ない場合、用意しましょう。といってもいいんですが、タブ内の UIViewController の viedDidLoadで&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;self.tabBarController.customizableViewControllers = nil;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;でも、いけました。
+&lt;strong&gt;「継承してるコントローラあるのにわざわざ試したんだからねっ!」&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;ちなみに、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;このプロパティは nil じゃない場合 &amp;quot;Edit&amp;quot; で表示されるコントローラをカスタマイズできてデフォルトはすべてのコントローラだよ。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;的なことが書かれていました。なので空の配列を渡してもOKです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>raptureXML でXMLのparse</title>
+          <link>http://blog.eiel.info/blog/2012/12/06/rapturexml/</link>
+          <pubDate>Thu, 06 Dec 2012 14:33:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/12/06/rapturexml/</guid>
+          <description>&lt;p&gt;XMLのパースしなきゃいけなくて、libxmlで処理するのめんどくさいなー。ということで、&lt;a href=&#34;http://ios.eiel.info/CocoaPods&#34;&gt;CocoaPod&lt;/a&gt;を探った結果、&lt;a href=&#34;https://github.com/ZaBlanc/RaptureXML&#34;&gt;RaptureXML&lt;/a&gt;を試してみることにしました。&lt;/p&gt;
+
+&lt;p&gt;URLから直接XMLを取得するイニシャライザがついていて、とても簡単に利用することができました。&lt;/p&gt;
+
+&lt;p&gt;CocoaPodsを使わない場合は libz と libxml2 をリンクしてやるようにして、RXMLElement.hとRXMLElement.mをプロジェクトに追加するだけで使えます。&lt;/p&gt;
+
+&lt;p&gt;だいたい以下のように利用してます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;NSURL* url = [NSURL URLWithString:@&amp;quot;http://eiel.info/hoge.xml&amp;quot;];
+RXMLElement* root = [RXMLElement elementFromURL:url];
+NSMutableArray* schedule = [NSMutableArray array];
+[root iterate:@&amp;quot;item&amp;quot; usingBlock: ^(RXMLElement *item) {
+    [schedule addObject:[[ALScheduleItem alloc] initWithRXMLElement:item]];
+}];
+i_schedule = [NSArray arrayWithArray:schedule];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;RXMLElementオブジェクトを配列に格納しておいて利用しようとしたら、失敗したのでモデルオブジェクトを用意してやりました。&lt;/p&gt;
+
+&lt;p&gt;値を取り出すには&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[element child:@&amp;quot;day&amp;quot;].text;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とやって取り出せます。DOMのインターフェイスになってますね。XPathも利用できるようです。
+ソースコードも500行程度でコンパクトでした。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Xcodeのテンプレート</title>
+          <link>http://blog.eiel.info/blog/2012/06/18/xcode-template/</link>
+          <pubDate>Mon, 18 Jun 2012 18:03:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/06/18/xcode-template/</guid>
+          <description>&lt;p&gt;Xcodeが genarate する templateですが、
+いつもかきかえる部分があるのでなんとかしたいなーっておもっててしらべたら&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://akisute.com/2009/06/xcode.html&#34;&gt;http://akisute.com/2009/06/xcode.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;にかかれているんですが、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;というディレクトリはすでにありません。&lt;/p&gt;
+
+&lt;p&gt;現在は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あたりにあるようです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>iOS24h Vol.1でCocoaPodsの紹介をした</title>
+          <link>http://blog.eiel.info/blog/2012/06/17/ios24h-vol1/</link>
+          <pubDate>Sun, 17 Jun 2012 18:01:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/06/17/ios24h-vol1/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://ios24h.net/&#34;&gt;iOS24h&lt;/a&gt;という ustream番組で午前3時にCocoaPodsについてしゃべりました。&lt;/p&gt;
+
+&lt;p&gt;CocoaPodsはObjective-C用のBunlderみたいなものです。&lt;/p&gt;
+
+&lt;p&gt;スライドを下記にあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/iOS24h-vol1&#34;&gt;http://eiel.github.com/iOS24h-vol1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;impress.jsを使用してみたけどたいへん時間をつかったので次も使うか悩む…。
+気合をいれて臨んだ割に人がいなかったかなー。&lt;/p&gt;
+
+&lt;p&gt;その他の資料は&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/iOS24h-vol1&#34;&gt;https://github.com/eiel/iOS24h-vol1&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>iOSでFacebookAPIへのアクセス</title>
+          <link>http://blog.eiel.info/blog/2012/05/11/ios-for-facebook/</link>
+          <pubDate>Fri, 11 May 2012 17:30:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/05/11/ios-for-facebook/</guid>
+          <description>&lt;p&gt;最小限のサンプルを作成してみました。&lt;/p&gt;
+
+&lt;p&gt;FacebookのSDKいたれりつくせりでそれなりに簡単。
+&lt;a href=&#34;https://github.com/eiel/iOS-FacebookAPISapmle&#34;&gt;https://github.com/eiel/iOS-FacebookAPISapmle&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

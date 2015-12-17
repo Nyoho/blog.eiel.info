@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E5%BA%83%E5%B3%B6/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-07-28 17:39:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>ヒロハタ 第1回レギュラー・ミーティング に潜入してきた</title>
+          <link>http://blog.eiel.info/blog/2014/07/28/hirohata-1st-meeting/</link>
+          <pubDate>Mon, 28 Jul 2014 17:39:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/28/hirohata-1st-meeting/</guid>
+          <description>
+
+&lt;p&gt;ひろしま発人材集積促進プロジェクトというのが行われていて、通称「ヒロハタ」というらしいのですが、その&lt;a href=&#34;http://hiro-hata.com/post/91065991460/1-7-26&#34;&gt;第1回 レギュラー・ミーティング&lt;/a&gt;があったので&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt; をネタに潜入してきました。&lt;/p&gt;
+
+&lt;p&gt;「ヒロハタ」というのは一言からいうと、広島にクリエイティブな人材を集めようというプロジェクトだと思われます。&lt;/p&gt;
+
+&lt;p&gt;第１回のミーティングはプロジェクトに応募したアイディアのプレゼンテーションをするというもので一部のプレゼンが Ustream で配信されていました。&lt;/p&gt;
+
+&lt;p&gt;もうすでに動いているプロジェクトでさらなるブラッシュアップを計る人たちや、準備中で動いてはいるけど表に出るようなアウトプットはない人たちだったり、構想だけのものだったり、いろんな立場の人たちがいました。&lt;/p&gt;
+
+&lt;p&gt;参加してみると、こういった人たちがつながり相互に良い影響を与えようというのがプロジェクトの目的のように感じました。&lt;/p&gt;
+
+&lt;p&gt;「すごい広島」の立ち位置自体は協力できそうなプロジェクトをみつけて、Webアプリケーションのプロトタイプを作成してみたり、良いと感じたものを広めるお手伝いをしようという目論みです。
+「すごい広島」は結果的にすごいエンジニアをみつけることができればメリットになります。または、作成したプロトタイプのつづきの作成するエンジニアをみつけることができればメリットになるかなぁ、というそんな感じです。&lt;/p&gt;
+
+&lt;p&gt;個人的には、参加者同士が交流する方法が少ないので、他の参加者の現状を見える化やコミュニケーションをとる何かがあるといいなぁ、と思っているところです。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:5e4a6f614546f542b488b29b39f0b346&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://hiro-hata.com/&#34;&gt;ヒロハタ～Web・ITを活用してアイデアの事業化を目指そう～&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>オープンセミナー広島は広島のITエンジニアが集う場所</title>
+          <link>http://blog.eiel.info/blog/2014/01/04/lets-take-part-in-osh/</link>
+          <pubDate>Sat, 04 Jan 2014 13:24:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/01/04/lets-take-part-in-osh/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://osh-2014.github.io/&#34;&gt;オープンセミナー2014@広島&lt;/a&gt;の実行委員長です。こんにちは。&lt;/p&gt;
+
+&lt;p&gt;2014年2月1日(土)に&lt;a href=&#34;http://osh-2014.github.io/&#34;&gt;オープンセミナー2014@広島&lt;/a&gt;という参加費が無料のセミナーがあります。&lt;/p&gt;
+
+&lt;p&gt;この記事の目的を平たく言うと、公式サイトとは違うアプローチでイベントの告知をすることです。&lt;/p&gt;
+
+&lt;p&gt;ここに書いてあることは私個人の考えで、他のスタッフがどう考えているかも別ですし、イベントの主旨とも関係ない部分もあります。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、アジェンダです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;テーマに興味なくても参加しようぜ&lt;/li&gt;
+&lt;li&gt;やっぱり企業に協賛して欲しい&lt;/li&gt;
+&lt;li&gt;行くのが怖いなら小さなイベントからどうだろう&lt;/li&gt;
+&lt;li&gt;本番は懇親会らしい&lt;/li&gt;
+&lt;li&gt;将来の委員長が会いたい人を呼べるイベントになればいいのに&lt;/li&gt;
+&lt;li&gt;ほんの少しだけ主観での講師紹介&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;どんなイベントなのかをもっと知りたい場合は&lt;a href=&#34;http://osh-2014.github.io/&#34;&gt;ウェブサイト&lt;/a&gt;のほうをご覧ください。
+そちらのほうが効率が良いでしょう。&lt;/p&gt;
+
+&lt;p&gt;サイトのダメだし助かります。
+&lt;a href=&#34;https://github.com/osh-2014/osh-2014.github.com&#34;&gt;Pull Request だともっと助かります。&lt;/a&gt;(まて&lt;/p&gt;
+
+&lt;h3 id=&#34;テーマに興味なくても参加しようぜ:1f323e9607cddc6340c703f55b64dc70&#34;&gt;テーマに興味なくても参加しようぜ&lt;/h3&gt;
+
+&lt;p&gt;もし、参加しない理由が「行ってもいいんだけどテーマとかセッションに興味がないんだよなぁ」という人に伝えたいことを書きます。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;イベントに参加して周りに影響与えることが自分の興味のあるイベントを作ることになると思う&lt;/strong&gt;のだけど、どうだろうか。&lt;/p&gt;
+
+&lt;p&gt;興味のあることに需要があることがわからないと大きなイベントで扱われるのは難しいです。
+知られてないものであればあるほど、知ってもらわなければ興味を持つ人は増えないです。
+ぜひ、参加者と話をしたり、懇親会でライトニングトークをしたりして興味のある人を増やしたり、詳しい人をみつけに来てください。
+参加者の多いイベントで目立ってください。小さなことがはじめてよう。&lt;/p&gt;
+
+&lt;p&gt;今回はTDDやアジャイルというテーマですが、それとは別にたくさんの興味をもった人が来ることで「面白い出会いがあるといいな」と期待して来る人が多いと嬉しいです。
+テーマはセミナーを作る骨組みですが、この先オープンセミナーで継続していくだろうことを考えてみると大事な部分は出会いだと思います。
+これは、懇親会が本番という話にも繋ると思います。&lt;/p&gt;
+
+&lt;p&gt;「投票に行くか行かないか」みたいな話に似ている気がする。&lt;/p&gt;
+
+&lt;p&gt;もちろんセッションも楽しめるほうが良いと思うので、その辺はがんばりたいです。事前アンケートも講師にも見てもらってできる範囲で内容を調整してもらったりしています。&lt;/p&gt;
+
+&lt;h3 id=&#34;やっぱり企業に協賛して欲しい:1f323e9607cddc6340c703f55b64dc70&#34;&gt;やっぱり企業に協賛して欲しい&lt;/h3&gt;
+
+&lt;p&gt;赤字になりそうであれば、個人協賛枠も考えているのだけど、私自身は企業協賛だけでなんとかしたい。&lt;/p&gt;
+
+&lt;p&gt;無料のセミナーという性質上、予算がありません。
+スポンサーを募ることになります。
+スポンサーにとって価値のあるイベントにしなければなりません。
+そうすると、自分達のやりたいことから妥協せざるを得ない点が出てきます。
+スポンサーのメリットの中心は広告効果です。
+集客効果がある選択をせざるを得ないのです。&lt;/p&gt;
+
+&lt;p&gt;イベントの参加予定の人が個人協賛をしたいという声はいくつかあるのですが、なるべく企業協賛のみでなんとか黒字になるのが個人的には理想的です。&lt;/p&gt;
+
+&lt;p&gt;個人協賛をやりたくない理由は、参加者がいろいろ学んだり、学ぶことを効率化することによってメリットを得るのが最終的には企業であって欲しいからです。
+&lt;strong&gt;企業が技術者に投資することに価値があるようになって欲しいのです。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;技術者がお金を出して、技術者がメリットを得るような世界に先が見えないのです。
+だって、お金を産み出しているのは経営者なのですから。
+どんどん広島のIT企業を巻き込んでいきたい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;経営者にとって技術者が自ら進んで学ぶことが価値あることにしたいんだ。&lt;/li&gt;
+&lt;li&gt;技術者が昇進していくために、技術者を辞めてくのも嫌なんだよなぁ。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://osh-web.doorkeeper.jp/contact/new&#34;&gt;そういうわけで、「広島のIT技術者を盛り上げる手伝いをしたいなぁ」って経営者さんからの連絡お待ちしてます!&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;現時点での協賛を決めてくださった&lt;a href=&#34;http://www.orange.co.jp/&#34;&gt;オレンジシステム&lt;/a&gt;さんや&lt;a href=&#34;http://www.ate-mahoroba.jp/&#34;&gt;まほろば工房&lt;/a&gt;さんは本当に感謝しきれません。
+この時点でもっとたくさんの企業を紹介したかった。ぐぬぬぬ。&lt;/p&gt;
+
+&lt;h3 id=&#34;行くのが怖いなら小さなイベントからどうだろう:1f323e9607cddc6340c703f55b64dc70&#34;&gt;行くのが怖いなら小さなイベントからどうだろう&lt;/h3&gt;
+
+&lt;p&gt;知らない人ばかりのところに行くのは怖くないですか？
+怖くない人もいるでしょう。
+ちなみに、私は怖いし、知り合いが少ないところへいくとたいていポツーンとしてます。
+自慢ですが、ぼっちスキル高いです。かなりの孤立率です。&lt;/p&gt;
+
+&lt;p&gt;話が逸れた。&lt;/p&gt;
+
+&lt;p&gt;行ってみたいけど、ちょっと怖いなぁ、という方は、まずは小さなイベントから行ってみるのはどうでしょうか。
+参加者が少ないイベントではお互い名前を覚えやすいですし、よくいろんなイベントへ顔を出す人が多かったりでアットホームです。
+ゆるいです。
+広島界隈では、&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;が毎週やっていて、人数も少なくて気軽です。
+事前に Twitter なんかで絡んでおくと少し楽だと思います。&lt;/p&gt;
+
+&lt;p&gt;これで準備体操もしたので怖いものはないですね。
+オープンセミナー2014@広島に行きましょう。(ちょっと無理矢理感ある)&lt;/p&gt;
+
+&lt;h3 id=&#34;本番は懇親会らしい:1f323e9607cddc6340c703f55b64dc70&#34;&gt;本番は懇親会らしい&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;あれ?勉強会って懇親会が本番じゃないの?&lt;/p&gt;
+
+&lt;p&gt;つくばに来てから，何度か勉強会に参加することがありました．&lt;/p&gt;
+
+&lt;p&gt;そこでカルチャーショックだったのが「懇親会が地味」ということです．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tokikane-tec.blogspot.jp/2013/12/9-etc.html&#34;&gt;時羽金也の技術帳: 岡山から離れて9ヶ月 〜岡山を離れて変わったこと，変わらなかったこと，etc〜&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;岡山の勉強会は懇親会が本番らしいです。
+「ライトニングトークは5分間にどれだけ笑いをとるのかが大事」と言う人もいました。&lt;/p&gt;
+
+&lt;p&gt;小さい勉強会は懇親会が本番じゃなくてもいいのですが、年に数回ある大きいイベントは&lt;strong&gt;懇親会も本番&lt;/strong&gt;だといいな、と思います。&lt;/p&gt;
+
+&lt;p&gt;ちゃんと技術ネタで笑いを取れるLTをする人が何人もいるととても楽しいです。
+楽しいと仲良くなるきっかけにも増えます。
+秘蔵のネタをひっさげて遊びにきてください。
+ヤジるだけでもきっと良いでしょう。&lt;/p&gt;
+
+&lt;p&gt;今回の懇親会は40名までとなってますが、参加したい人が多い場合は立食に変更して増員も可能です。
+開催ギリギリなると変更は難しいと思うので早めに&lt;a href=&#34;http://osh-web.doorkeeper.jp/events/7544&#34;&gt;登録お願いします&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;将来的には懇親会の中でもいろんな企画を用意できたらいいのにな。&lt;/p&gt;
+
+&lt;h3 id=&#34;将来の委員長が会いたい人を呼べるイベントになればいいのに:1f323e9607cddc6340c703f55b64dc70&#34;&gt;将来の委員長が会いたい人を呼べるイベントになればいいのに&lt;/h3&gt;
+
+&lt;p&gt;委員長は毎年交代するのがオープンセミナーの伝統となってるみたいです。
+あまりその辺の伝統を私自身理解してないし、やりたいようにやってみていますが、
+将来、委員長になった人がその時に広島で輝いてるエンジニアになってるといいと思います。
+それだけじゃなくて「輝いたご褒美みたいになるといいな」って思っています。&lt;/p&gt;
+
+&lt;p&gt;そのひとつが、「会ってみたいけどなかなか会えない人を呼ぶ機会を作れる」かなと思います。
+他にもメリットを作れたらいいのですが、まずはここから。&lt;/p&gt;
+
+&lt;h3 id=&#34;ほんの少しだけ主観での講師紹介:1f323e9607cddc6340c703f55b64dc70&#34;&gt;ほんの少しだけ主観での講師紹介&lt;/h3&gt;
+
+&lt;p&gt;少しだけ私の主観で講師を紹介したいと思います。&lt;/p&gt;
+
+&lt;p&gt;今回の目玉講師とも言える&lt;a href=&#34;https://twitter.com/t_wada&#34;&gt;和田さん&lt;/a&gt;です。&lt;/p&gt;
+
+&lt;p&gt;私が和田さんのことを知る機会となったのは以下の記事です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://d.hatena.ne.jp/t-wada/20100228/p1&#34;&gt;RSpec の入門とその一歩先へ - t-wadaの日記&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;RSpec というテスト駆動開発を行うために利用されるテスティングフレームワークを試している時に上記の記事に出会い、たいへん参考になりました。
+基本的な使い方は抑えていましたが、実際の流れが見えて感動した記憶があります。&lt;/p&gt;
+
+&lt;p&gt;はてなブックマークが647もついてるだけでのこの記事の素晴しさを物語っていると思います。&lt;/p&gt;
+
+&lt;p&gt;テスト駆動開発という手動自体まだ模索する部分もたくさんあります。
+ぜひそのエッセンスに触れてください。&lt;/p&gt;
+
+&lt;p&gt;あと折角なので、この方も紹介しておきたいと思います。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://favstar.fm/users/kakenavi&#34;&gt;@kakenavi’s (かけなび) Best Tweets&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最高 1582 fav とか想像を絶する数字ですね。
+ハードルあげてマジごめんなさい。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:1f323e9607cddc6340c703f55b64dc70&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;年の一度のお祭りみたいになって、内容問わずITエンジニアが集まる場所になれば良いと思っています。
+そのために、2014年度は2015年、2016年に繋るような下地づくりに挑戦してみたつもりです。&lt;/p&gt;
+
+&lt;p&gt;次年度の規模が小さくならないように下記の二つが達成できたらいいなぁ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;イベントの参加者を90人以上を達成したい&lt;/li&gt;
+&lt;li&gt;懇親会を盛り上がる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;勉強会という観点でみると都会のほうがいろんな人がいて楽しいと思います。
+(not 大都会)
+でも、さまざまな理由で地方でがんばっている人たちがいます。
+地方には地方で良いところがあり、距離があることによって違う文化が育って、都会の人たちが「遊びにいこうかなー」と思うようにしていきたいですね。異文化交流すてき。&lt;/p&gt;
+
+&lt;p&gt;「都会に負けたくないなー、地方に負けたくないなー」って競争心がもっともっと楽しい世の中をつくることになると思います。
+たぶん。いや知らんけど。でも、そう信じとく。&lt;/p&gt;
+
+&lt;p&gt;この想いはどの辺りまで届くんだろうか。えいやっ!&lt;/p&gt;
+
+&lt;h3 id=&#34;関連リンク:1f323e9607cddc6340c703f55b64dc70&#34;&gt;関連リンク&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://osh-2014.github.io/&#34;&gt;オープンセミナー2014@広島&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://osh-web.doorkeeper.jp/events/7534&#34;&gt;オープンセミナー2014@広島 - オープンセミナー広島 | Doorkeeper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://osh-web.doorkeeper.jp/events/7544&#34;&gt;オープンセミナー2014@広島 懇親会 - オープンセミナー広島 | Doorkeeper&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>今すぐフォローしたい!?広島のすごいTwitterユーザを紹介</title>
+          <link>http://blog.eiel.info/blog/2013/12/01/recommend-twitter-users/</link>
+          <pubDate>Sun, 01 Dec 2013 00:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/12/01/recommend-twitter-users/</guid>
+          <description>
+
+&lt;p&gt;本記事は&lt;a href=&#34;http://www.adventar.org/calendars/74&#34;&gt;すごい広島 Advent Calendar 2013&lt;/a&gt;の1日目の記事となります。&lt;/p&gt;
+
+&lt;p&gt;タイトルは釣りです。
+個人的に紹介したい広島の人を紹介したいと思います。
+紹介したい人はいっぱいいるのですが Twitter ユーザに限らせていただきます。&lt;/p&gt;
+
+&lt;p&gt;基本的にITエンジニアの人ですが、一部例外があります。
+また、すごい人なんだけど、ツイートがあまりない方も対象外にしてます。
+明確な基準はありません。
+といっても、フォローしている人を上から順に眺めて選んだだけという説もあります。
+そして、すごい人なのにうっかり漏れた人もいるかもしれないですが、そこは本当にごめんなさい。(ガクガクブルブル)&lt;/p&gt;
+
+&lt;p&gt;順番は意味がありそうで適当です。&lt;/p&gt;
+
+&lt;h3 id=&#34;kakenavi-https-twitter-com-kakenavi:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/kakenavi&#34;&gt;kakenavi&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;外したくても外せない。
+伝説の「デスマ神」と言われているがその真相は不明。
+Twitter界でも普通に有名人。
+リアルでは「おもったほどおもしろくないですね」と、言われることがあるそうな。
+しかし、彼の本質はそこではない。
+でも、これ以上語ると私がデスマになってしまうので、これ以上語ることができない。
+噂によると彼のツイートのまとめたサイトがあるらしい。
+その破壊力はあまり知られていない。&lt;/p&gt;
+
+&lt;h3 id=&#34;nextstep2osx-https-twitter-com-nextstep2osx:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/NeXTSTEP2OSX&#34;&gt;NeXTSTEP2OSX&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;ITエンジニアではない。
+どちらかというと広島弁で有名。
+しかし、プログラミングスキルを有し、その辺のプログラマよりプログラムが書けるかもしれない。
+Emacsユーザ。
+あまり知られてないがキーボードも変態度もなかなか高い。
+Cocoaの勉強会の主催もしている。&lt;/p&gt;
+
+&lt;h3 id=&#34;24motz-https-twitter-com-24motz:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/24motz&#34;&gt;24motz&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sourceforge.jp/projects/nvdajp/&#34;&gt;NVDAというスクリーンリーダの日本語版&lt;/a&gt;の開発者。
+私の中で有識者という立ち位置を確立している。
+いつも自分にない視点からの素敵なアドバイスが飛んでくる。
+Git ネタをよくふぁぼられる。
+バージョン管理システムに思い入れを感じる。&lt;/p&gt;
+
+&lt;h3 id=&#34;moobay9-https-twitter-com-moobay9:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/moobay9&#34;&gt;moobay9&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;今、広島でもっとも売り出し中のインフラエンジニア。
+広島の救世主として知られている。
+ちょっと持ち上げすぎると怒られる。
+すばらしいほどの広島愛を「広島のアニキ」といえばこの人！になるように仕向けているがあんまりうまくいってない。&lt;/p&gt;
+
+&lt;h3 id=&#34;pecosantoyobe-https-twitter-com-pecosantoyobe:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/pecosantoyobe&#34;&gt;pecosantoyobe&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;次期エースと勝手に言ってて、いつも迷惑をかけている。
+ネタ力が高い。
+しかし、ネタ力が高すぎる故に理解されていない感がある。
+たぶん、先を行きすぎているのだとおもう。
+私より GitHub の Star がアクティブで参考になる。&lt;/p&gt;
+
+&lt;h3 id=&#34;keiso-https-twitter-com-keiso:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/keiso&#34;&gt;keiso&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;広島のコミュニティを支えている人達の中でひとり。
+かなりの存在感。
+広島MacUGやAUGM広島の代表者。
+「調べれば keiso」という異名があって、ブログの更新量が多く、質も高い。
+それだけ引き出しもすごく多い。勉強になる。&lt;/p&gt;
+
+&lt;h3 id=&#34;akira345-https-twitter-com-akira345:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/akira345&#34;&gt;akira345&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;今回紹介している人の中で明らかに違う方向に Geek。
+ハードに強いのに、ハードっぽい仕事あまりしていない。
+自分とは違う方向に知識の幅が広いので、参考になる話をたくさん聞ける。&lt;/p&gt;
+
+&lt;h3 id=&#34;soudai1025-https-twitter-com-soudai1025:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/soudai1025&#34;&gt;soudai1025&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;「#た」 の人と言うと伝わるから不思議。
+紹介してる人の中でも県外でもなかなか知名度が高いイメージ。(実際はよくわからない)
+広島に入れていいのか謎の福山在中。
+なぜか「残念」と言われている。
+その真偽は自分で確かめて欲しい。
+&lt;a href=&#34;NPO法人 日本PostgreSQLユーザ会&#34;&gt;日本PostgreSQLユーザ会&lt;/a&gt;の中国支部長。&lt;/p&gt;
+
+&lt;h3 id=&#34;tsuda-ahr-https-twitter-com-tsuda-ahr:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/tsuda_ahr&#34;&gt;tsuda_ahr&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;広島の勉強会に参加していれば、だれでも知る人ランキング第２位にランクインする。(当社比)
+Microsoft系のコミュニティへの出現率が高いけど、他のコミュニティにも出現する。
+議論すると盛り上がるので、議論する時に必須です。
+素朴な疑問を素朴にぶつかってくる。&lt;/p&gt;
+
+&lt;h3 id=&#34;coelacanth-https-twitter-com-coelacanth:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/coelacanth&#34;&gt;coelacanth&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;きっと全国的にも知名度のある深海魚さん。
+広島の代名詞にしたい。
+もはや語る必要もなく Winodws Phone の人でありながら Windows 8の人でもあり、Flashの人のイメージはすでにない。
+つまり、何をやらせてもすごい人なのである。たぶん。&lt;/p&gt;
+
+&lt;h3 id=&#34;toro-kun-https-twitter-com-toro-kun:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/Toro_kun&#34;&gt;Toro_kun&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt;発起人のひとりのはず。
+現状、日本Androidの会 中国支部における広島の実質的なリーダーとも言えそう
+ハードからWeb系まで幅広くカバーしていて、広島で node.js やってると公言している数少ないエンジニア。
+音ゲークラスタ。&lt;/p&gt;
+
+&lt;h3 id=&#34;hanapage-https-twitter-com-hanapage:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/hanapage&#34;&gt;hanapage&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;コミュニティ活動という点においては、時間さえあれば何かを起こしそうな雰囲気がある。
+3Dプログラミングに詳しい。
+iOSの開発がメインのエンジニア。
+きっとそのうち何か大きいことをしてくれるはず。&lt;/p&gt;
+
+&lt;h3 id=&#34;wotani-https-twitter-com-wotani:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/woTani&#34;&gt;woTani&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;広島の勉強会に参加している人に、「Macに詳しい人教えて？iOSに詳しい人教えて？」と聞いて返ってくる名前ランキングなら間違いなく1位にランクインする。
+&lt;a href=&#34;http://ja.wikipedia.org/wiki/WebObjects&#34;&gt;Web Objects&lt;/a&gt; に詳しい。
+iOS SDK 開発勉強会の運営もしている。&lt;/p&gt;
+
+&lt;h3 id=&#34;yampuu-https-twitter-com-yampuu:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/yampuu&#34;&gt;yampuu&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;デザイナー。デザイナーというにはプログラムが書け過ぎる。というわけで、例外的に紹介する。
+彼のファンは多数存在し、利用者の視点で面白いものをいつも構築している。
+たくさんの人が一目置いていて、間違いなく広島の代表。&lt;/p&gt;
+
+&lt;h3 id=&#34;ogatomo-https-twitter-com-ogatomo:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/ogatomo&#34;&gt;ogatomo&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;私の知る限りでは、NeXTSTEP2OSX に次ぐ変態。
+彼の説明はいつも丁寧で非常にわかりやすい。
+いつもどこかで練習しているような風景がないので天賦の才を持ってるのかもしれない。&lt;/p&gt;
+
+&lt;h3 id=&#34;souitirou-https-twitter-com-souitirou:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/souitirou&#34;&gt;souitirou&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;デザイナーだけど例外的に紹介する。
+広島のデザイナーとエンジニアの中心点にいるのは間違いない。
+最近ネタツイートが減ってしまっていて、惜しまれている姿をときどきみかける。
+&lt;a href=&#34;http://webtouchmeeting.com/&#34;&gt;WEB TOUCH MEETING&lt;/a&gt; 代表にして、&lt;a href=&#34;http://cssnite.webtouchmeeting.com/&#34;&gt;CSS Nite in HIROSHIMA&lt;/a&gt; の実行委員長。&lt;/p&gt;
+
+&lt;h3 id=&#34;yukilab-https-twitter-com-yukilab:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/yukilab&#34;&gt;yukilab&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Windows Phone ハンズオンのエースらしい。
+その正体は不明ということにしておく。
+つまり、広島のエースといってしまってもいいのではないか。
+最近デスマ気味のようであまり見かけなくて残念。
+広島のエース決定戦をするころには復活していて欲しい。&lt;/p&gt;
+
+&lt;h3 id=&#34;ykumano-https-twitter-com-ykumano:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/ykumano&#34;&gt;ykumano&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;最近は mruby をいじっていた印象。
+組み込みエンジニアで、Haskellにも手を出したり(出させたが正しいかもしれない)幅広い見識を持つ。
+ゲーム作るのが趣味と聞いてる。&lt;/p&gt;
+
+&lt;h3 id=&#34;jmettraux-https-twitter-com-jmettraux:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/jmettraux&#34;&gt;jmettraux&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;プロのRuby使い。
+けど仕事都合で最近はMS系をいじっているらしい。
+とあるコワーキングスペースで最近よく会う。
+たくさんの成果物があり、&lt;a href=&#34;http://ruote.rubyforge.org/&#34;&gt;ruote&lt;/a&gt;が有名。
+実はスイス人。&lt;/p&gt;
+
+&lt;h3 id=&#34;takatayoshitake-https-twitter-com-takatayoshitake:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/takatayoshitake&#34;&gt;takatayoshitake&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;広島で勉強会に参加していれば知らない人はいないっといっても過言ではない。
+勉強会に行くと会える人ランキング第一位にランクイン。
+広島の支える技術&amp;lt;ヒト&amp;gt;。
+いろんなコミュニティが彼によって支えられています。&lt;/p&gt;
+
+&lt;h3 id=&#34;eielh-https-twitter-com-eielh:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;&lt;a href=&#34;https://twitter.com/eielh&#34;&gt;eielh&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;{ この部分はあなたが埋めてください }&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:001820ec75feeaa012aaf20c94eb98e6&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;ややネタも盛り込んで、ふざけた書き方をしているところもあるかもしれませんが、みんな素晴しい人です。
+あと勝手に紹介しているので、「この紹介はちょっと…」とかあれば、石を投げてください。
+甘んじて血だらけになります。ごめんなさい。(痛い痛い)&lt;/p&gt;
+
+&lt;p&gt;学生も何人か書いてたのだけど、やっぱり削りました。
+奴らは優秀なのでここで紹介しなくても勝手に有名になることでしょう。&lt;/p&gt;
+
+&lt;p&gt;ざっと見直すと傾向として40代以下が多いです。
+つまり、私の交流範囲がそうなっているからです。
+もっともっと昔からいる&lt;strong&gt;すごい人&lt;/strong&gt;が広島には存在しているはずです。
+なので、ぜひあなたの「今すぐフォローしたい！？すごい Twitter のユーザ」にチャレンジして、紹介してください。
+結果、広島のコミュニティがもっと活発になると嬉しいよね。
+楽しみにしてます。&lt;/p&gt;
+
+&lt;p&gt;ちなみにこの Twitter ユーザを紹介するというのは安易に決めたわけですが、書いてみるとやめたくなります。
+公開で人を評価するというのは怖いですね。
+勇気と度胸がいります。&lt;/p&gt;
+
+&lt;p&gt;明日のすごい広島 Advent Calendar の担当者は &lt;a href=&#34;http://www.adventar.org/users/327?year=2013&#34;&gt;Tama Eguchi&lt;/a&gt; さんです。
+楽しみですね。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>OSC 2013 HIROSHIMA に参加した。</title>
+          <link>http://blog.eiel.info/blog/2013/10/06/osc-2013-hiroshima/</link>
+          <pubDate>Sun, 06 Oct 2013 23:53:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/10/06/osc-2013-hiroshima/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.ospn.jp/osc2013-hiroshima/&#34;&gt;OSC 2013 HIROSHIMA&lt;/a&gt; に参加しました。
+200名以上の参加があったらしいです。正確な情報が待ちどおしいです。&lt;/p&gt;
+
+&lt;p&gt;私も実行委員会に所属したり(あんまり手伝えてなくてごめんなさい)、&lt;a href=&#34;https://www.ospn.jp/osc2013-hiroshima/modules/eguide/event.php?eid=10&#34;&gt;Hiroshima.rb の枠でライトリングトーク&lt;/a&gt;をしたり、&lt;a href=&#34;http://great-h.github.io/&#34;&gt;すごい広島&lt;/a&gt; と &lt;a href=&#34;http://hiroshimarb.github.io/&#34;&gt;Hiroshima.rb&lt;/a&gt; の展示ブースで説明をしたりしました。あと、&lt;a href=&#34;https://www.ospn.jp/osc2013-hiroshima/modules/eguide/event.php?eid=21&#34;&gt;ライトニングトーク&amp;amp;じゃんけん大会&lt;/a&gt; でライトニングトークをしてきました。&lt;a href=&#34;http://blog.eiel.info/blog/2013/10/05/chugokudb-02/&#34;&gt;前日の DB 勉強会&lt;/a&gt; を含めると計3セッションをするという状況になりました。&lt;/p&gt;
+
+&lt;h3 id=&#34;hiroshima-rb-広島でrubyが流行らないのはどう考えても俺たちが悪い:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;Hiroshima.rb 広島でRubyが流行らないのはどう考えても俺たちが悪い&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/hiroshimarb/hiroshimarb.github.com/wiki/2013%E5%B9%B410%E6%9C%88%E3%81%AE%E6%B4%BB%E5%8B%95&#34;&gt;Hiroshima.rbの発表については wiki に整理してあります。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;というわけで、僕は毎年前座を務めているので、「Hiroshima.rb の紹介」と「広島でRubyが流行しているか調べた」のでその話をしました。
+本当は僕も成果発表したかったのですが、時間が足りそうにないので諦めました。
+&lt;a href=&#34;https://github.com/hiroshimarb/hiroshimarb.github.com/wiki&#34;&gt;その他のHiroshima.rb の活動は wiki にもまとめています。&lt;/a&gt;興味があれば覗いてみてください。
+スライドは以下の感じなのですが、実際に使ったものとは違う完全版になっています。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/26900494&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;https://www.slideshare.net/TomohikoHimura/ruby-26900494&#34; title=&#34;広島で Ruby が流行らないのはどう考えても俺たちが悪い&#34; target=&#34;_blank&#34;&gt;広島で Ruby が流行らないのはどう考えても俺たちが悪い&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;セッションを見にきてくれた方は20人以上いたと思うのですが数えてないのでわかりません。
+セッションの元ネタは&lt;a href=&#34;http://www.ganganonline.com/comic/watashiga/&#34;&gt;私がモテないのはどう考えてもお前らが悪い!&lt;/a&gt;でした。
+セッションにはどこにもこのネタは入れてないので注意してください。&lt;/p&gt;
+
+&lt;p&gt;勝手にみんなのセッションをざっくり感想書いてしまいます。&lt;/p&gt;
+
+&lt;h4 id=&#34;岡山のruby勉強会:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;岡山のRuby勉強会&lt;/h4&gt;
+
+&lt;p&gt;岡山勢 &lt;a href=&#34;http://twitter.com/mako_wis&#34;&gt;まこぴー&lt;/a&gt; の LT です。&lt;/p&gt;
+
+&lt;p&gt;僕が「広島」と「岡山」の比較をしたので岡山の状況について喋ってくれました。
+本人はもっとネタをいれればよかったといってましたが、もちろんいれるとよかったですが、岡山勢の牽制としては充分なトークだったと思います。&lt;/p&gt;
+
+&lt;h4 id=&#34;youtube動画の再生回数がわし-気になります-きゅふぃーん:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;YouTube動画の再生回数がわし…気になります!! (きゅふぃーん&lt;/h4&gt;
+
+&lt;p&gt;うちの OSC でしか使えない秘密兵器 &lt;a href=&#34;https://twitter.com/NeXTSTEP2OSX/&#34;&gt;にょほう&lt;/a&gt;(にょ砲) の LT です。&lt;/p&gt;
+
+&lt;p&gt;4分超過の打ち切り御免のLTなら死んでいた。
+息子さんの支援により笑いだけでなく、癒しも追加されたため、圧倒的に一番人気な LT になりました。
+しかし、一番アニメ色があるセッションになっていた気がするのは言ってはいけない。&lt;/p&gt;
+
+&lt;h4 id=&#34;paasで簡単-railsアプリを公開しよう-もあぐれっしぶ-rubyを体験しよう:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;PaaSで簡単 Railsアプリを公開しよう！ ～もあぐれっしぶ～ ＆ Rubyを体験しよう！&lt;/h4&gt;
+
+&lt;p&gt;広島の基盤 &lt;a href=&#34;https://twitter.com/takatayoshitake&#34;&gt;たかた&lt;/a&gt; さんの LT です。&lt;/p&gt;
+
+&lt;p&gt;タイトル的にはもっともアニメ色の強いセッションですが、去年にひきつづきPaaSの紹介になりました。
+ぶっちゃけると、僕も知らない PaaS の話でおもしろかったです。
+Gitの説明を求められたけど 「clone するだけだよ!」 (それがわからんと言われる罠)&lt;/p&gt;
+
+&lt;h3 id=&#34;repostar:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;RepoStar&lt;/h3&gt;
+
+&lt;p&gt;うちの裏エース &lt;a href=&#34;https://twitter.com/pecosantoyobe&#34;&gt;ふる&lt;/a&gt; の LT です。&lt;/p&gt;
+
+&lt;p&gt;JavaScript をつかったスライドをつっこんできたのでこのあたりの解説もそのうち聞きたいですね。彼はもっと評価されるべき。
+「GitHubのスターがコンテンツになる!」なかなかの目の付け所です。&lt;/p&gt;
+
+&lt;h3 id=&#34;raspberry-piでlチカしてみた:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;Raspberry PiでLチカしてみた&lt;/h3&gt;
+
+&lt;p&gt;うちの期待の新人にして、はやくも関東行きが確定している &lt;a href=&#34;https://twitter.com/CentBoss&#34;&gt;もりしー&lt;/a&gt; の LT です。&lt;/p&gt;
+
+&lt;p&gt;最近レイヤー下位に落ちている彼です。もりしーは評価されすぎなので、残念にならないようにみんなマサカリを投げて血だらけにしましょう。(冗談です)
+事前にスライドみたときにフォントは変更することをおすすめすればよかった。&lt;/p&gt;
+
+&lt;p&gt;やってることは面白いのけど、身内ネタになりすぎないように注意しましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;電光掲示板を作ってみた:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;電光掲示板を作ってみた&lt;/h3&gt;
+
+&lt;p&gt;うちの常連 かつ 遊撃兵(何それ)の &lt;a href=&#34;https://twitter.com/akira345&#34;&gt;あきら&lt;/a&gt; さんのLTです。&lt;/p&gt;
+
+&lt;p&gt;電光掲示板とガチ組み込み系という mruby かと見せかけて処理はPCでやっているという技術的にもたくさん挑戦している制作発表です。
+展示にはこの子に助けられまくりの掲示板くんです。
+たぶん、いっぱい脱線したい部分があったはずなので、展示で話を聞けた人はラッキーです。&lt;/p&gt;
+
+&lt;h1 id=&#34;すごい広島-展示ブース:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;すごい広島 展示ブース&lt;/h1&gt;
+
+&lt;p&gt;もうひとつの活動ですごい広島というグループの展示をやっていました。
+カンバンという手法をパクッて来場者に OSC の時間内にやることを宣言してもらいました。どう考えても終わるわけがない「プラモを作成する」とかありました。
+二次元からやってきた&lt;a href=&#34;http://sakuraha-blog.jp/&#34;&gt;桜葉愛&lt;/a&gt; と握手したり、記念撮影したりなどもありました。
+非常にたくさんの人にやること宣言してもらいました。ありがとうございます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://great-h.github.io/events/event-osc-2013.html&#34;&gt;すごい広島 in OSC 2013 HIROSHIMA&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;ライトニングトーク-じゃんけん大会-閉会式:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;ライトニングトーク＆じゃんけん大会＆閉会式&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://osh-2014.github.io/&#34;&gt;OSH2014@広島&lt;/a&gt;の告知とすごい広島の話をしてきました。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/26941852&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;https://www.slideshare.net/TomohikoHimura/osc-26941852&#34; title=&#34;OSC2013 HIROSHIMA ライトニングトーク すごい広島&#34; target=&#34;_blank&#34;&gt;OSC2013 HIROSHIMA ライトニングトーク すごい広島&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;もっとネタをつっこめばよかった。少しは笑いをとれたのでよかった点はよかったです。最初のほう緊張してたり、最後のほうは冷静さが欠けてたりしたので、もうちょっと冷静にネタをやればよかった。&lt;/p&gt;
+
+&lt;p&gt;他の方のライトニングトークも感銘を受けるレベルの高いものでした。&lt;/p&gt;
+
+&lt;p&gt;特に &lt;a href=&#34;http://takashi-yokoyama.blogspot.jp/2013/10/osc2013.html&#34;&gt;よこやまさん&lt;/a&gt;はOSCや広島を盛り上げるために岡山からこの10分のためにやってきてくれました。感謝の言葉では足りないです。&lt;/p&gt;
+
+&lt;p&gt;他のLT職人のセッションはとてもすごかったです。
+今年参加できなかった人は来年ぜひ参加して欲しい。
+できれば若い子にはライトニングトークして欲しいですね。&lt;/p&gt;
+
+&lt;p&gt;あ、ライトニングトークの練習をしたくなったら広島Ruby勉強会へ行きましょう。大歓迎です。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:a60ceb5425a2c3f1eea18613d003dc07&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;OSC 2013 HIROSHIMA は懸念していた参加者数をゆうゆうと目標人数を達成しました。コミュニティ同士の横の繋りが深まったという話もちらほら聞きました。とてもよかったです。
+来年がもっともっと盛り上がるように積極的に参加してくれる人が増えると嬉しいですね。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;あなたの一票が日本を変える&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p&gt;昨日はOSCから帰ったら息子が「ひむひむ (&lt;a href=&#34;https://twitter.com/eielh&#34;&gt;@eielh&lt;/a&gt;) いなくなっちゃったー」などとひむひむを連呼していた。今朝は起きて開口一番「ひむひむどこにいるの?」であった。&lt;/p&gt;&amp;mdash; Nyoho (@NeXTSTEP2OSX) &lt;a href=&#34;https://twitter.com/NeXTSTEP2OSX/statuses/386996764147843072&#34;&gt;October 6, 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

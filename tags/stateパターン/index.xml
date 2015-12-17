@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/state%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-02-11 01:52:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>「状態管理用の変数をインスタンスに持たせるなこのタコって話」という記事のStateパターンを適用したときのリファクタリングのステップが気になって。</title>
+          <link>http://blog.eiel.info/blog/2013/02/11/state-pattern-refactring/</link>
+          <pubDate>Mon, 11 Feb 2013 01:52:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/11/state-pattern-refactring/</guid>
+          <description>
+
+&lt;p&gt;内容の批判とかではなくて、自分が気になったことで、記事にするのもどうかなって思ってたのですが、サンプルコードを書いちゃったので、折角なので書きおきします。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://nekogata.hatenablog.com/entry/2013/02/09/233540&#34;&gt;状態管理用の変数をインスタンスに持たせるなこのタコって話 - life.should be_happy # =&amp;gt; 1 examples, ? failures&lt;/a&gt; という記事がホットエントリに出ていて、すごく面白いです。&lt;/p&gt;
+
+&lt;p&gt;その中で 「Stateパターンを使おう」というところでリファクタリングのステップが大きいなーって感じて、30分ぐらい考えてしまったんです。
+Stateパターンってのをよく知っていれば、書き換えることは難しくないのですが、丁寧にコミットすることを考えたとき、どういうリファクタリングのステップにすればいいのかな、と。&lt;/p&gt;
+
+&lt;p&gt;リファクタリングは極力小さなステップで行うほうが良いです。いきなりがっつりやるためにはテストコードがほぼ必須になります。
+あったとしても小さいほうがうごかなくなって悩む時間が減ります。&lt;/p&gt;
+
+&lt;p&gt;ということで、&lt;strong&gt;「リファクタリング飛躍」&lt;/strong&gt; に該当する部分は、&lt;a href=&#34;https://gist.github.com/Shinpeim/4745444&#34;&gt;player_02.rb&lt;/a&gt; から &lt;a href=&#34;https://gist.github.com/Shinpeim/4745446&#34;&gt;player_03.rb&lt;/a&gt; への変化する部分になります。&lt;/p&gt;
+
+&lt;p&gt;リファクタリングのステップが大きすぎることを&lt;strong&gt;「リファクタリング飛躍」&lt;/strong&gt;と個人的に呼びたいです。&lt;/p&gt;
+
+&lt;h2 id=&#34;例-1-クラスごとに分かれる処理を-case-でまとめておく:ec833f0aba6fc142f22351914955de72&#34;&gt;例 1 クラスごとに分かれる処理を case でまとめておく&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gist.github.com/eiel/4748209&#34;&gt;https://gist.github.com/eiel/4748209&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ポイントだけ、抜粋します。&lt;/p&gt;
+
+&lt;p&gt;元のコードは:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;  def move(direction)
+    case @moving_mode
+    when MOVING_MODE::NORMAL
+      x_speed = 10 # かにモードとの整合性のために
+      y_speed = 10 # 無駄な変更が加えられている
+    when MOVING_MODE::FAST
+      x_speed = 20 # FASTモードにも！
+      y_speed = 20
+    when MOVING_MODE::KANI
+      x_speed = 40
+      y_speed = 5
+    end
+ 
+    case direction
+    when :up
+      @position[:y] -= y_speed #ここも書き換えないといけない
+    when :down
+      @position[:y] += y_speed # ここも
+    when :left
+      @position[:x] -= x_speed # こk
+    when :right
+      @position[:x] += x_speed # k
+    end
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;  def move(direction)
+    case @moving_mode
+    when MOVING_MODE::NORMAL
+      case direction
+      when :up
+        @position[:y] -= 10
+      when :down
+        @position[:y] += 10
+      when :left
+        @position[:x] -= 10
+      when :right
+        @position[:x] += 10
+      end
+    when MOVING_MODE::FAST
+      case direction
+      when :up
+        @position[:y] -= 20
+      when :down
+        @position[:y] += 20
+      when :left
+        @position[:x] -= 20
+      when :right
+        @position[:x] += 20
+      end
+    when MOVING_MODE::KANI
+      case direction
+      when :up
+        @position[:y] -= 40
+      when :down
+        @position[:y] += 40
+      when :left
+        @position[:x] -= 5
+      when :right
+        @position[:x] += 5
+      end
+    end
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;コード量は増えます。&lt;/p&gt;
+
+&lt;p&gt;Player03.rb へとリファクタリングするには、それぞれのクラスと同じコードになってないとクラスへの分離は難しいです。
+ポリモーフィズムってのは 自動でwhenが増える case と見なせる(と個人的に思っている)ので、ここからクラスへ分けるのは常套句になります。&lt;/p&gt;
+
+&lt;p&gt;外側のwhenブロックごとにクラスへと分離していくことになります。&lt;/p&gt;
+
+&lt;p&gt;case がネストしていて、少し異臭がするので、はじめからこういうコードを書けるのは State パターンを見据えてるか、かなりの熟練プログラマーな気がします。
+実際には移動量はデータにできるので、もっとシンプルにかけるよーな気がしますが、本題からずれるので考えません。&lt;/p&gt;
+
+&lt;h2 id=&#34;例2-いきなりクラスに分離してみる:ec833f0aba6fc142f22351914955de72&#34;&gt;例2 いきなりクラスに分離してみる。&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gist.github.com/Shinpeim/4745444&#34;&gt;https://gist.github.com/Shinpeim/4745444&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;実際にはひとつづやれば良いと思います。&lt;/p&gt;
+
+&lt;p&gt;ポイントだけ抜粋。&lt;/p&gt;
+
+&lt;p&gt;元コードも再び:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;  def move(direction)
+    case @moving_mode
+    when MOVING_MODE::NORMAL
+      x_speed = 10 # かにモードとの整合性のために
+      y_speed = 10 # 無駄な変更が加えられている
+    when MOVING_MODE::FAST
+      x_speed = 20 # FASTモードにも！
+      y_speed = 20
+    when MOVING_MODE::KANI
+      x_speed = 40
+      y_speed = 5
+    end
+ 
+    case direction
+    when :up
+      @position[:y] -= y_speed #ここも書き換えないといけない
+    when :down
+      @position[:y] += y_speed # ここも
+    when :left
+      @position[:x] -= x_speed # こk
+    when :right
+      @position[:x] += x_speed # k
+    end
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;    def move(direction, position)
+      x_speed = 10
+      y_speed = 10
+ 
+      case direction
+      when :up
+        position[:y] -= y_speed
+      when :down
+        position[:y] += y_speed
+      when :left
+        position[:x] -= x_speed
+      when :right
+        position[:x] += x_speed
+      end
+      return position
+    end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;MOVING_MODE::NORMAL のときの処理だけ抜粋してクラスにわけます。 &lt;code&gt;x_speed&lt;/code&gt; と &lt;code&gt;y_speed&lt;/code&gt;を展開すれば、Ruby03.rbのコードへと向います。&lt;/p&gt;
+
+&lt;p&gt;これはこれでこのまま放置しても良い気がします。
+他と並べたときに整理したくなるかもしねません。&lt;/p&gt;
+
+&lt;p&gt;これも、Stateパターンが見えてないと難しいかもしれません。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:ec833f0aba6fc142f22351914955de72&#34;&gt;まとめ。&lt;/h2&gt;
+
+&lt;p&gt;これらは単純に僕がコードを並べて検討したかっただけです。
+どちらの例もゴールが見えてないと難しいと実感したのが結論です。&lt;/p&gt;
+
+&lt;p&gt;あと、リファクタリングにはテストコード大事だと感じました。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで先人の知恵たるデザインパターンを学ぶにはとても価値あることです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

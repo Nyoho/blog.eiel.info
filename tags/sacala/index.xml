@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/sacala/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-05-13 19:44:21 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>ScalaのMapの使い方がよくわからないので遊んだときのメモ</title>
+          <link>http://blog.eiel.info/blog/2015/05/13/scala-map/</link>
+          <pubDate>Wed, 13 May 2015 19:44:21 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/05/13/scala-map/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://great-h.github.io/events/event-104.html&#34;&gt;すごい広島 #104&lt;/a&gt;で遊んだときのメモ。&lt;/p&gt;
+
+&lt;p&gt;最近&lt;a href=&#34;http://www.scala-lang.org/&#34;&gt;Scala&lt;/a&gt;勉強している。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.scala-lang.org/api/2.11.5/index.html#scala.collection.Map&#34;&gt;Map&lt;/a&gt;を使いなれていなかったので少し遊んだ。&lt;/p&gt;
+
+&lt;p&gt;参考になりそうなのは下記のサイト&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.scala-lang.org/api/2.11.5/index.html#scala.collection.Map&#34;&gt;Scala Standard Library 2.11.5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.ne.jp/asahi/hishidama/home/tech/scala/collection/map.html&#34;&gt;Scala Mapメモ(Hishidama&amp;rsquo;s Scala Map Memo)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;さて遊ぶ:4c320875311fbaf75c8cdfd0efe6300e&#34;&gt;さて遊ぶ&lt;/h3&gt;
+
+&lt;p&gt;Mapを作ってみる。emptyでも作れるけど。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;Map(&amp;quot;hoge&amp;quot; -&amp;gt; 1)
+// scala.collection.immutable.Map[String,Int] = Map(hoge -&amp;gt; 1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;値を取り出してみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;Map(&amp;quot;hoge&amp;quot; -&amp;gt; 1).get(&amp;quot;hoge&amp;quot;)
+// Option[Int] = Some(1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ImmutableなMapに要素をつけたしてみる。新しいMapができる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;Map(&amp;quot;hoge&amp;quot; -&amp;gt; 1) + (&amp;quot;mogu&amp;quot; -&amp;gt; 2)
+// scala.collection.immutable.Map[String,Int] = Map(hoge -&amp;gt; 1, mogu -&amp;gt; 2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;+でくっつけることができた。&lt;code&gt;(&amp;quot;mogu&amp;quot; -&amp;gt; 2)&lt;/code&gt;ってなんだろう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;(&amp;quot;mogu&amp;quot; -&amp;gt; 2)
+// (String, Int) = (mogu,2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;どうやらタプルらしい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;Map((&amp;quot;hoge&amp;quot;, 1))
+// scala.collection.immutable.Map[String,Int] = Map(hoge -&amp;gt; 1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;タプルをつかってつくるには括弧がふたついるようだ。なぜなのかよくわからない。
+たぶん、&lt;code&gt;&amp;quot;hoge&amp;quot; -&amp;gt; 1&lt;/code&gt;と&lt;code&gt;(&amp;quot;hoge&amp;quot;, 1)&lt;/code&gt;が等価だからだろう。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、&lt;code&gt;(+) :: Map[String,Int] -&amp;gt; (String,Int) -&amp;gt; Map[String,Int]&lt;/code&gt; みたいな感じのようだ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;Map(&amp;quot;hoge&amp;quot; -&amp;gt; 1) + ((&amp;quot;mogu&amp;quot;, 2))
+// scala.collection.immutable.Map[String,Int] = Map(hoge -&amp;gt; 1, mogu -&amp;gt; 2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;うまくいく。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;Map(&amp;quot;hoge&amp;quot; -&amp;gt; 1) + (&amp;quot;hoge&amp;quot; -&amp;gt; 2)
+// scala.collection.immutable.Map[String,Int] = Map(hoge -&amp;gt; 2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;-&amp;gt; は演算子で , は違うようだ。他のタプルの生成方法を今度調べよう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;&amp;quot;hoge&amp;quot;.-&amp;gt;(1)
+// (String, Int) = (hoge,1)
+// &amp;quot;hoge&amp;quot;.,(1) はできなかった
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;foldで処理できそうな程度に理解した気がする。&lt;/p&gt;
+
+&lt;h3 id=&#34;もうちょっと遊ぶ:4c320875311fbaf75c8cdfd0efe6300e&#34;&gt;もうちょっと遊ぶ&lt;/h3&gt;
+
+&lt;p&gt;inheritedにFunction1がいるのでapplyできるようだ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;Map(&amp;quot;hoge&amp;quot; -&amp;gt; 1)(&amp;quot;hoge&amp;quot;)
+// Int = 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;関数合成だってできる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;val one = Map(&amp;quot;hoge&amp;quot; -&amp;gt; 1).compose({x:Any =&amp;gt; &amp;quot;hoge&amp;quot;})
+// Int = 1
+one(1)
+// Int = 1
+one(2)
+// Int = 1
+one(&amp;quot;hoge&amp;quot;)
+// Int = 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とても楽しめた。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:4c320875311fbaf75c8cdfd0efe6300e&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chatwork/scala-quiz/blob/master/quiz/01_WordCount.md&#34;&gt;scala-quiz/01_WordCount - GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

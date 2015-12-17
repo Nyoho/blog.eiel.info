@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E5%8B%89%E5%BC%B7%E4%BC%9A/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-01-13 00:50:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>今後のiOSアプリケーションのために Auto Layout を学んだ - 方法編</title>
+          <link>http://blog.eiel.info/blog/2013/01/13/ios-autolayout/</link>
+          <pubDate>Sun, 13 Jan 2013 00:50:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/01/13/ios-autolayout/</guid>
+          <description>
+
+&lt;p&gt;12月29日に &lt;a href=&#34;https://twitter.com/mako_wis&#34;&gt;@mako_wis&lt;/a&gt; と &lt;a href=&#34;https://twitter.com/NeXTSTEP2OSX&#34;&gt;@NeXtSTTEP2OSX&lt;/a&gt; の中の人の Auto Layoutの勉強会をした。
+そこでのメモをここに記す。まずは勉強会のやり方について書いておきます。&lt;/p&gt;
+
+&lt;h2 id=&#34;どんなやりかたで勉強したの:ae4e754285a0c60406fdcac1aa9f1779&#34;&gt;どんなやりかたで勉強したの？&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参加者が 岡山 広島北部 広島西部と集まるのがめんどくさい
+
+&lt;ul&gt;
+&lt;li&gt;Skype と 画面共有を駆使した&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;事前に WWDC の動画をみてくることにした&lt;/li&gt;
+&lt;li&gt;動画の内容を手を動かして挑戦する&lt;/li&gt;
+&lt;li&gt;そこからやってみたいことをやってみる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;気をつけた点:ae4e754285a0c60406fdcac1aa9f1779&#34;&gt;気をつけた点&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;操作する人を交代するようにした&lt;/li&gt;
+&lt;li&gt;同じような内容のちょい難しいバージョンを交代してやることで理解の共有を図った&lt;/li&gt;
+&lt;li&gt;操作する場合は、先に見てる側の意見を中心に作業するようにした&lt;/li&gt;
+&lt;li&gt;自薦予習することだけはあらかじめ念をした&lt;/li&gt;
+&lt;li&gt;前日に skype、 画面共有の動作確認をした&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;気になる点:ae4e754285a0c60406fdcac1aa9f1779&#34;&gt;気になる点&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;聞いてるだけの人はグダグダになりそう。&lt;/li&gt;
+&lt;li&gt;わからないことで詰まるともくもくタイムになりそう&lt;/li&gt;
+&lt;li&gt;みんながまとめを記事にしてない&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;画面共有の方法:ae4e754285a0c60406fdcac1aa9f1779&#34;&gt;画面共有の方法&lt;/h2&gt;
+
+&lt;p&gt;画面共有には &lt;a href=&#34;http://www.mikogo.com/&#34;&gt;Mikogo&lt;/a&gt; というツールを使用した。&lt;/p&gt;
+
+&lt;p&gt;フリーだと3人までは共有可能。人数を増やす場合、もっと良いツールがないか検討したい。&lt;/p&gt;
+
+&lt;p&gt;あまり問題は起きなかったのですが、 MBP Retina の人が画面を共有できずにはまりました。外部ディスプレイをつけて、外部をメインディスプレイにすることで強制的に Retina モードから脱出するという無理矢理な方法で解決。(今回は関係ないけど, ユーストするときにも応用できました)&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:ae4e754285a0c60406fdcac1aa9f1779&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;オンラインで勉強会を行うと集まるコストを低減できてよいです。相手のPCを操作することが難しいので、ある程度PCの操作になれている人たちであれば、IT勉強会以外にも応用できるかもしれません。&lt;/p&gt;
+
+&lt;p&gt;当日の最初に様々なトラブルが起きる可能性が高いので、前日に動作確認してグダグダになるのを防ぐことができました。&lt;/p&gt;
+
+&lt;p&gt;参加者との画面の切り替えがオフラインより楽なので、ペアプロっぽいことを複数人で行うことができてよいです。&lt;/p&gt;
+
+&lt;p&gt;また新な高い壁があるときにやりたいです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

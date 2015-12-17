@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/polymer/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2015-07-05 00:27:31 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>「Material Designなサイトをつくってみる」という話をした - #LT駆動 16</title>
+          <link>http://blog.eiel.info/blog/2015/07/05/ltdd-16-material-design/</link>
+          <pubDate>Sun, 05 Jul 2015 00:27:31 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2015/07/05/ltdd-16-material-design/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA16&#34;&gt;LT駆動開発16&lt;/a&gt;で「Material Designなサイトをつくってみる」をというLTをした。&lt;/p&gt;
+
+&lt;p&gt;ちょっと前に&lt;a href=&#34;https://developers.google.com/web/tools/polymer-starter-kit/&#34;&gt;Polymer Starter Kit&lt;/a&gt;に遊んだので紹介した。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;76fa9dfe42db4d32be3e851225565d6f&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;h3 id=&#34;戯言:cf8a86e923a1d302b50311fa6530d48d&#34;&gt;戯言&lt;/h3&gt;
+
+&lt;p&gt;ライブコーディングでカバー画像の設定とボタンの設置をやった。
+エレメントを使うのにimportをしないといけないことに気づかないでハマったのでその話をした。
+Starter Kitで使われているエレメントは&lt;code&gt;app/elements/elements.html&lt;/code&gt;でインポートされてる。インポートされてないものはインポートする必要がある。paper-buttonやiron-imageやら。
+それだけわかれば結構楽しめるPolymerさん。&lt;/p&gt;
+
+&lt;p&gt;カスタムエレメントのHTMLも眺めてみるとどんなことができるのかも結構想像できるんじゃないかと思う。
+あまり情報がないので、どんどんみんな試して欲しい。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:cf8a86e923a1d302b50311fa6530d48d&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.google.com/design/icons/&#34;&gt;icon-iconで使えるアイコン&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://elements.polymer-project.org/&#34;&gt;Polymer Catalog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Polymer という Web Componets のラッパーを試した</title>
+          <link>http://blog.eiel.info/blog/2013/05/31/polymer/</link>
+          <pubDate>Fri, 31 May 2013 19:33:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/05/31/polymer/</guid>
+          <description>&lt;p&gt;Google I/O で紹介されていた &lt;a href=&#34;http://www.polymer-project.org/&#34;&gt;Polymer&lt;/a&gt; という JavaScript で少し遊びました。&lt;/p&gt;
+
+&lt;p&gt;Web Components という Web の UI を コンポーネント化するための仕組みがあります。
+これをラップして 使いやすくしてくれる Polymer です。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/eiel/polymer_experiment&#34;&gt;遊んだ結果はこの辺&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;rake preview&lt;/code&gt; でウェブサーバが起動するので &lt;code&gt;http://localhost:4000&lt;/code&gt; でアクセスできるようにしています。&lt;/p&gt;
+
+&lt;p&gt;ポイントは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;カスタムタグが作れる&lt;/li&gt;
+&lt;li&gt;属性でコンポーネントに情報を渡せる&lt;/li&gt;
+&lt;li&gt;コンポーネントは独立した HTML ファイル&lt;/li&gt;
+&lt;li&gt;linkタグ で読み込む コンポーネントを指定できる&lt;/li&gt;
+&lt;li&gt;Web Components に比べて記述良が少ない&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;といっところでしょうか。&lt;/p&gt;
+
+&lt;p&gt;index.html は下記のようになっています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;script src=&amp;quot;polymer.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;link rel=&amp;quot;import&amp;quot; href=&amp;quot;my-element.html&amp;quot;&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;my-element hoge=&amp;quot;goro&amp;quot;&amp;gt;&amp;lt;/my-element&amp;gt;
+    &amp;lt;my-element hoge=&amp;quot;mogu&amp;quot;&amp;gt;&amp;lt;/my-element&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Polymer を読み込んで&lt;/li&gt;
+&lt;li&gt;my-element という コンポーネントを読み込んで&lt;/li&gt;
+&lt;li&gt;my-element タグ で利用している&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という流れです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;hoge属性で my-element コンポーネントのボタンのラベルを変更しています。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;my-element.html は下記のようになっています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;element name=&amp;quot;my-element&amp;quot; attributes=&amp;quot;hoge&amp;quot;&amp;gt;
+  &amp;lt;template&amp;gt;
+    &amp;lt;div&amp;gt;
+      &amp;lt;span&amp;gt;I&#39;m &amp;lt;b&amp;gt;tk-element&amp;lt;/b&amp;gt;. This is my Shadow DOM.&amp;lt;/span&amp;gt;
+      &amp;lt;button on-click=&amp;quot;delete&amp;quot;&amp;gt;{{ hoge }}&amp;lt;/button&amp;gt;
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/template&amp;gt;
+  &amp;lt;script&amp;gt;
+    Polymer.register(this,
+    {
+    &amp;quot;delete&amp;quot;: function () { alert(this.hoge) },
+    }
+    );
+  &amp;lt;/script&amp;gt;
+&amp;lt;/element&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;いくつか特殊なタグがあります。&lt;/p&gt;
+
+&lt;p&gt;element, template です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;element の name属性に 作成するタグの名前を書く&lt;/li&gt;
+&lt;li&gt;element の attributes属性に 外部から受け取る情報を登録する
+
+&lt;ul&gt;
+&lt;li&gt;hoge という属性でやりとりすることを書いています&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;template の中にHTMLをかきます。
+
+&lt;ul&gt;
+&lt;li&gt;波括弧を使うことで 変数の中身を取り出せます&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ロジック は Polymer.register を利用して登録します&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;非常にモジュラリティが高いので、HTMLが見やすくなりそうです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/postgresql/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2012-10-04 22:20:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Mac でPostgreSQL</title>
+          <link>http://blog.eiel.info/blog/2012/10/04/postgres/</link>
+          <pubDate>Thu, 04 Oct 2012 22:20:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2012/10/04/postgres/</guid>
+          <description>&lt;p&gt;railsアプリの一部を heroku にもっていこうとおもったので、「開発環境もPostgreSQLにすべきよね」と、思ったので 最初は Gentoo Prefix でインストールしたのですが起動方法がわからず。時間をかけたくなかったので、&lt;a href=&#34;http://www.postgresql.org/download/macosx/&#34;&gt;One Click Installer&lt;/a&gt;を使用したら Mac が起動できなくなりました。&lt;/p&gt;
+
+&lt;p&gt;というわけで、困っていたら&lt;a href=&#34;http://postgresapp.com/&#34;&gt;Postgres.app&lt;/a&gt;というのがありました。9.1.3ですが heroku が提供してるものなので、herokuにデプロイする目的には最適なような気がしております。&lt;/p&gt;
+
+&lt;p&gt;はい、それだけです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

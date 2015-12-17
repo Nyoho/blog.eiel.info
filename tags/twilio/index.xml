@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/twilio/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-03-15 02:54:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Twilio を使って、着信でモールス信号してみた。</title>
+          <link>http://blog.eiel.info/blog/2014/03/15/twilio-abc/</link>
+          <pubDate>Sat, 15 Mar 2014 02:54:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/03/15/twilio-abc/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://twiliomeetup.doorkeeper.jp/events/9078&#34;&gt;Twilio API 勉強会&lt;/a&gt;に遊びにいった。&lt;/p&gt;
+
+&lt;p&gt;勉強会では基本的なことを学んだ。
+電話をかけたときの動作を登録したり、電話をかけたりしました。&lt;/p&gt;
+
+&lt;p&gt;せっかくなので、なにか作ってみることにした。&lt;/p&gt;
+
+&lt;p&gt;以下、完全にネタです。実用性皆無です。
+あとサービスにどれくらい負荷がかかるのかよくわからないので、試す場合はほどほどにしましょう。
+たぶん、もう二度と試さない。&lt;/p&gt;
+
+&lt;p&gt;着信する長さが一応調整できるのでモールス信号してみました。&lt;/p&gt;
+
+&lt;p&gt;コードは以下の感じ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;twilio-ruby&#39;
+require &#39;morse&#39;
+
+account_sid = &#39;account_sid を設定する&#39;
+auth_token = &#39;auth_tokenを設定する&#39;
+@client ||= Twilio::REST::Client.new account_sid, auth_token
+
+TWILIO_NUMBER = &#39;Twilio で作成した電話番号を登録する&#39;
+MY_NUMBER = &#39;自分の電話番号を設定する&#39;
+
+def call(n)
+  call = @client.account.calls.create(
+    from: TWILIO_NUMBER,
+    to: MY_NUMBER,
+    url: &#39;http://example.com/&#39;,
+    timeout: n,
+  )
+  puts &amp;quot;create call #{call.sid}&amp;quot;
+  loop do
+    call = @client.account.calls.get(call.sid)
+    puts &amp;quot;call status #{call.status}&amp;quot;
+    case call.status
+    when &#39;no-answer&#39;, &#39;completed&#39;
+      sleep(1)
+      break
+    when &#39;failed&#39;,&#39;canceled&#39;
+      break
+    when &#39;queued&#39;,&#39;ringing&#39;,&#39;in-progress&#39;,&#39;busy&#39;
+      sleep(0.5)
+    end
+  end
+end
+
+morse = Morse.encode(ARGV[0])
+puts &amp;quot;word: #{ARGV[0]}&amp;quot;
+puts &amp;quot;morse: #{morse}&amp;quot;
+morse.each_char do |c|
+  case c
+  when &#39;.&#39;
+    call(1)
+  when &#39;-&#39;
+    call(3)
+  when &#39; &#39;
+    sleep(1)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;使い方&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ruby 作成したファイル hello
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;実行例&lt;/p&gt;
+
+&lt;p&gt;動画とりたいけど、とってない。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ruby twilio-sample.rb a
+word: a
+morse: .-
+create call CA9ec2867270b920fcebbe47583ee0b9d2
+call status ringing
+call status ringing
+call status ringing
+call status ringing
+call status no-answer
+create call CAdf11adbe89a3d995369e97531f4b22f9
+call status ringing
+call status ringing
+call status ringing
+call status ringing
+call status ringing
+call status no-answer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;簡単に解説。&lt;/p&gt;
+
+&lt;p&gt;まず、call メソッド。引数 n でn秒間着信する電話をかけます。&lt;/p&gt;
+
+&lt;p&gt;仕組みは電話をかけると sid が振られます。
+sid をつかって twilio に問い合せると状態が取得できます。
+コールが終わっているか確認し、終わっていたら処理が戻るようにしています。こうすることで call メソッドを並べていけるようにしました。
+キューに入れることができればこんなことしなくていいのに…。
+よくわからなかった。&lt;/p&gt;
+
+&lt;p&gt;あとは好きな文字をモールス符号に変換して、あとは短いところを 1秒、長いところを3秒になるようにしてみました。&lt;/p&gt;
+
+&lt;p&gt;そんなに応答速度がいいわけではないので、時間かかるし、コール時間も安定しない。サービスにどれくらい負荷がかかるのかわからないので、良い子は何度も何度も実行しないほうがいいと思う。&lt;/p&gt;
+
+&lt;h3 id=&#34;蛇足:317e528a0b0afc2ff38b76f842a94944&#34;&gt;蛇足&lt;/h3&gt;
+
+&lt;p&gt;終わった後、おうちに帰ってなんか少しだけネタなことしてみようと思い、電話をかける部分で遊ぶことにした。&lt;/p&gt;
+
+&lt;p&gt;通話してしまうと、電話代かかりますしね。(トライアル期間なので大丈夫ですが)&lt;/p&gt;
+
+&lt;p&gt;しかし、ローカルで遊ぼうと思うとできることが限界があります。
+Twilio からローカルマシンにコールバックする方法が基本的にないからです。
+コールバックを受けるには公開サーバを用意する必要があります。&lt;/p&gt;
+
+&lt;p&gt;静的ファイルだけでも繰り返しや分岐はできます。
+しかし、状態が保存できないため、表現力に限界が。&lt;/p&gt;
+
+&lt;p&gt;電話をかけた情報などはローカルでも取得可能なので、電話をかけることで遊ぶことにしました。&lt;/p&gt;
+
+&lt;p&gt;本来の使い方とは違うし無駄に負荷がかかるような気がするので、こういった遊びはほどほどにしましょう。&lt;/p&gt;
+
+&lt;p&gt;一応、規約には目を通してみたけど、極端に負荷をかけなければ大丈夫そう。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考文献:317e528a0b0afc2ff38b76f842a94944&#34;&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://jp.twilio.com/docs/api/rest/call&#34;&gt;Twilio Docs - API REST Call&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://jp.twilio.com/docs/api/rest/making-calls&#34;&gt;Twilio Docs - API REST Making Calls&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

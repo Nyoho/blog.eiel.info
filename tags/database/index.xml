@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/database/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-10-05 18:00:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>第２回 中国地方DB勉強会に参加したり、喋ったり。</title>
+          <link>http://blog.eiel.info/blog/2013/10/05/chugokudb-02/</link>
+          <pubDate>Sat, 05 Oct 2013 18:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/10/05/chugokudb-02/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://local.aguuu.com/events/21550&#34;&gt;第２回 中国地方DB勉強会&lt;/a&gt; に参加しました。&lt;/p&gt;
+
+&lt;h3 id=&#34;o-r-mapping-の話をするよ-特にactiverecordの話をしたかった:c6e38ba68398cfb85b49db71f6fea302&#34;&gt;O/R Mapping の話をするよ。特にActiveRecordの話をしたかった。&lt;/h3&gt;
+
+&lt;p&gt;セッションしました。準備不足はいいわけにはできないけど、ぶっちゃけ準備不足で、対象者が詰め切れていませんでした。&lt;/p&gt;
+
+&lt;p&gt;とはいえ、スライドはアップロードしておきます。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/26883805&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;https://www.slideshare.net/TomohikoHimura/or-mapping-activerecord&#34; title=&#34;O/R Mapping の話をするよ。ActiveRecord の話をしたかった。&#34; target=&#34;_blank&#34;&gt;O/R Mapping の話をするよ。ActiveRecord の話をしたかった。&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;よろしい-ならばmicro-ormだ:c6e38ba68398cfb85b49db71f6fea302&#34;&gt;よろしい、ならばMicro-ORMだ&lt;/h3&gt;
+
+&lt;p&gt;ORM の利点を長所もわかったんだけど、 ORM が使えない場面で ORM がもつ機能の一部を使いたい。そんなときに Micro-ORM が便利だよ。という話がつづきました。&lt;/p&gt;
+
+&lt;p&gt;特にデータのマッピングを操作する部分の機能を持っているようでした。
+たしかに、普段のプログラミング生活では表現力の高いクエリビルダと値のマッピングができれば充分な感じは最近していたりもします。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/kiyokura/microorm&#34;&gt;スライド&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;mysql-cluster-解説-mysql-cluster-7-3-最新情報:c6e38ba68398cfb85b49db71f6fea302&#34;&gt;MySQL Cluster 解説 ＆ MySQL Cluster 7.3 最新情報&lt;/h3&gt;
+
+&lt;p&gt;MySQL と MySQL Cluster 異なる製品で、MySQLのストレージとして MySQL Clusterを利用したりできるようです。
+単体でも使えるっぽいですが、よくわかっていません。
+安価なマシンを並べて性能を出しつつ、高い可用性を実現します。&lt;/p&gt;
+
+&lt;p&gt;使われてる箇所としては、「艦コレ」で使われていたのが最近の話題っぽいです。&lt;/p&gt;
+
+&lt;p&gt;MySQLのストレージとして使えるので、InnoDBの互換性向上とかもやってるそうです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/yoyamasaki/mysql-cluster-mysql-cluster-73&#34;&gt;スライド&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;awsで始めるpostgresql-mysql:c6e38ba68398cfb85b49db71f6fea302&#34;&gt;AWSで始めるPostgreSQL/MySQL&lt;/h3&gt;
+
+&lt;p&gt;AWS で MySQL や PostgreSQL をいれる話でした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://myhome.munetika.mydns.jp/ossdbwiki/index.php/%E5%88%9D%E5%BF%83%E8%80%85%E5%90%91%E3%81%91DB%E5%85%A5%E9%96%80&#34;&gt;Wiki に内容がまとめられてます。&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;さくらインターネットにおけるデータベース提供の実際:c6e38ba68398cfb85b49db71f6fea302&#34;&gt;さくらインターネットにおけるデータベース提供の実際&lt;/h3&gt;
+
+&lt;p&gt;特にレンタルサーバの話が印象的でした。&lt;/p&gt;
+
+&lt;p&gt;データベース不慣れな人が多く、そういった一部の人が共用サーバに不可をかけてしまったりするということは予想通り多いみたいです。
+コントロールパネルが書籍との違いが出てしまうので、なかなかUIを変更できなっかたりもするそうです。&lt;/p&gt;
+
+&lt;p&gt;DBはIOがボトルネックになるので仮想化は向いてないのかなあ。なんて話もしてでていました。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Rails で外部キー制約</title>
+          <link>http://blog.eiel.info/blog/2013/04/08/foreign-key-constrait-on-rails/</link>
+          <pubDate>Mon, 08 Apr 2013 01:51:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/04/08/foreign-key-constrait-on-rails/</guid>
+          <description>&lt;p&gt;外部キー制約は好きですか？&lt;/p&gt;
+
+&lt;p&gt;O/RマッパーしててもなるべくDBの力は借りたいです。
+ということで、&lt;a href=&#34;https://www.ruby-toolbox.com/&#34;&gt;Ruby Toolbox&lt;/a&gt;で foreign を検索して、ちらちら見て一番人気の&lt;a href=&#34;https://github.com/matthuhiggins/foreigner&#34;&gt;foreigner&lt;/a&gt;を選びました。基本的にはデータベースに丸投げなので Rails4 でもいまのとこ問題なく使えております。&lt;/p&gt;
+
+&lt;p&gt;インストールは &lt;code&gt;Gemfile&lt;/code&gt; に:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;gem &#39;foreigner&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と追加して &lt;code&gt;bundle install&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;あとはマイグレーションで:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;create_table :comments do |t|
+  t.references :post, null: false, index: true
+  t.foreign_key :posts, dependent: :delete
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;としておきました。&lt;/p&gt;
+
+&lt;p&gt;ついでに確認。&lt;/p&gt;
+
+&lt;p&gt;存在しない 外部キーを指定すると保存を失敗する確認。postgresの例:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Comment.create(post_id: 1)
+# =&amp;gt; PG::Error: ERROR:  insert or update on table &amp;quot;comments&amp;quot; violates foreign key constraint &amp;quot;comments_post_id_fk&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;キーを指定して、親になるオブジェクトを削除すると消える確認:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Comment.create(post_id: Post.create)
+Comment.count
+# =&amp;gt; 1
+Post.count
+# =&amp;gt; 1
+Post.first.destroy
+Post.count
+# =&amp;gt; 0
+Comment.count
+# =&amp;gt; 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ほむ。良い感じですね。&lt;/p&gt;
+
+&lt;p&gt;しかし、Rails4 からは scheme.rb の hash形式が変わってるけどそこには対応してませんでした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;add_foreign_key &amp;quot;comments&amp;quot;, &amp;quot;posts&amp;quot;, :name =&amp;gt; &amp;quot;comments_post_id_fk&amp;quot;, :dependent =&amp;gt; :delete
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;パッチがきてなかったら プルリクエストしてみようかな。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

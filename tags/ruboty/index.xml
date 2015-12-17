@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/ruboty/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-07-07 17:14:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>LT駆動開発で ruboty の使い方っぽいことを適当に紹介した</title>
+          <link>http://blog.eiel.info/blog/2014/07/07/great-bot-and-ruboty-ltdd/</link>
+          <pubDate>Mon, 07 Jul 2014 17:14:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/07/07/great-bot-and-ruboty-ltdd/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA05&#34;&gt;LT駆動開発 05&lt;/a&gt; でライトニングトークをした。&lt;/p&gt;
+
+&lt;p&gt;6月は&lt;a href=&#34;https://twitter.com/great_hiroshima&#34;&gt;すごい広島のBOT&lt;/a&gt;を作って遊ぶことをしていた気がしたのでこれを紹介することにした。これは &lt;a href=&#34;https://github.com/r7kamura/ruboty&#34;&gt;Ruboty&lt;/a&gt; で作成した。&lt;/p&gt;
+
+&lt;p&gt;何か毎回やってないネタを挟みたいということで、ふたつスライドを用意して相互参照するというネタをした。
+まずは、BOTの具体例である「すごい広島 BOT」を紹介することでなにがしたいのかをBOTを知らない人に理解してもらう。
+そこから、どうやってそれを作るのか。というところに焦点をおいたというライトニングトークするという流れである。&lt;/p&gt;
+
+&lt;p&gt;しかし、実際、ふたつもライトニングトークをする時間があるかどうかわからないので「Rubotyの使い方」はかなり適当につくってしまった。
+類似性を持たせるために、前半は同じ構成になっている。&lt;/p&gt;
+
+&lt;p&gt;最終的にしたいことは、「すごい広島のTwitterアカウントを誰か運用してくれ」ということかもしれない。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;589b86f0e4c8013160d4220f151a2dd2&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;22966d40e4c90131438f225375d05812&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;すごい広島のBOTは今後もプロキシーBOTとして活躍していただきたいところである。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/r7kamura/ruboty-twitter/&#34;&gt;ruboty-twitter&lt;/a&gt; の fork をみてみると、デバッグ用のコード仕込んでみたりとかしているところがあって、うまくメンションが返ってこなかったからかと思い、その辺を補足してみたという経緯があったりなかったりもします。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:1775b1f910f762fbfac43e9ba225b4f1&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/06/08/ruboty-with-web/&#34;&gt;Rackup で Ruboty&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/05/23/1st-anniversary-for-great-h/&#34;&gt;すごい広島 一周年&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/02/19/start-ltdd/&#34;&gt;LT駆動開発という勉強会をはじめるよ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>rackup で ruboty</title>
+          <link>http://blog.eiel.info/blog/2014/06/08/ruboty-with-web/</link>
+          <pubDate>Sun, 08 Jun 2014 10:31:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/06/08/ruboty-with-web/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;http://r7kamura.hatenablog.com/entry/2014/05/31/190240&#34;&gt;ruboty&lt;/a&gt; を heroku で動かすついでに web アプリケーションとして扱いたい。
+その場しのぎで書いたコードを紹介する。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;config.ru&lt;/code&gt; の中で別スレッドを起動して Ruboty#run を走らせた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;# Rackアプリになるように call メソッドを実装
+module Ruboty::Web
+  def call(env)
+    [200, {&#39;Content-type&#39; =&amp;gt; &#39;text/html&#39;}, [&#39;hello, world&#39;]]
+  end
+end
+Ruboty::Robot.include(Ruboty::Web)
+
+Thread.new do
+  robot.run   # bot起動
+end
+
+run robot  # rack アプリを構築
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;heroku では 1X dynos でもスレッドが 256 個ぐらい起動できるっぽいしきっと大丈夫だろう。いや、わからんけど。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考: &lt;a href=&#34;https://devcenter.heroku.com/articles/limits&#34;&gt;Limits | Heroku Dev Center&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;シグナル処理も追加したほうが良い気がするけど、とりあえず気にしない。&lt;/p&gt;
+
+&lt;p&gt;そのうちウェブアプリを構築しやすくする方法を考えたい。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連:a71c96431c9f899855c73bf2ad2244ca&#34;&gt;関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/05/27/message-send-from-hubot-httpd-to-idobata/&#34;&gt;hubot で起動しているウェブサーバを経由して idobata へ投稿してみる&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

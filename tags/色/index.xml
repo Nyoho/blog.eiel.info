@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/%E8%89%B2/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-03-13 11:38:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>エディタの文字色に悩む日々 - CIELCH</title>
+          <link>http://blog.eiel.info/blog/2013/03/13/cielch/</link>
+          <pubDate>Wed, 13 Mar 2013 11:38:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/03/13/cielch/</guid>
+          <description>
+
+&lt;p&gt;色について少し話しをしたいと思う。
+プログラマたるものエディタの配色はこだわりたいものです。&lt;/p&gt;
+
+&lt;p&gt;目が疲れにくく、かつ、文字が読みやすい配色が欲しいのです。&lt;/p&gt;
+
+&lt;p&gt;特に私は視力がそんなによくないので、この点を気にしています。
+既存のテーマのもので文字が読めなかったりして、色を変えたりしても上手いこと調和が取れない。
+上手いこといかないので過去に何度か模索して、いまも模索しています。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで今回は &lt;a href=&#34;http://ja.wikipedia.org/wiki/L*a*b*%E8%A1%A8%E8%89%B2%E7%B3%BB&#34;&gt;CIELAB&lt;/a&gt; について調べていたのですが、その変種な CIELCH について紹介したいと思います。&lt;/p&gt;
+
+&lt;p&gt;先にまとめておくと CIELCH を利用して配色を行います。
+背景色と文字色で &lt;code&gt;L(明度)&lt;/code&gt; がある程度の差をもつようにすると文字の読みやすさを確保することができます。
+明度の差が大きいとチカチカするので差をつけすぎないのも大事です。
+あとは C(彩度) や H(色相) のパラメータを調整しています。&lt;/p&gt;
+
+&lt;h2 id=&#34;cielab:1159d8534aa12db900aa9cc731cacc3a&#34;&gt;CIELAB&lt;/h2&gt;
+
+&lt;p&gt;CIELAB は L a b というパラメータで色を指定します。CIEというのは 国際照明委員会だそうで、Lab とかいても通じそうです。
+L は明度を示し 0だと黒で 100だと黒です。
+a は正の値が大きいと マゼンダ(赤紫)っぽい色になり、負の値が大きいと緑っぽい色になります。
+b は正の値が大きいと 黄色っぽい色になり、負の値が大きいと青っぽい色になります。&lt;/p&gt;
+
+&lt;p&gt;a と b がなんでそんな色なのかっていうと、色相を考えたとき、それぞれの正負が補色関係にあり、かつ a と b 直交するからでしょう。&lt;/p&gt;
+
+&lt;p&gt;この色空間の良いところは L です。
+Lの明度は &lt;a href=&#34;http://ja.wikipedia.org/wiki/HSV%E8%89%B2%E7%A9%BA%E9%96%93&#34;&gt;HSV&lt;/a&gt;  の明度と違う明度で、人間の視覚に比較的近いのです。&lt;/p&gt;
+
+&lt;p&gt;HSV は 色相、彩度、明度を色で決める方法で、よくみかけると思います。この明度には人間の視覚においては非常にあてになりません。
+例を出します。&lt;/p&gt;
+
+&lt;p&gt;黒が明るさ 0 なんだから 明るさ 100% の色を使えばうまくいくような勘違いを一度はしたことはないでしょうか。&lt;/p&gt;
+
+&lt;p&gt;rgb (0, 0, 255) の青を考えます。HSVでいうと 色相 240° 明度 100% 彩度 100% になります。 &lt;strong&gt;明度 100%&lt;/strong&gt; です。&lt;/p&gt;
+
+&lt;div style=&#34;background-color: black; color: #0000FF&#34;&gt;
+明度 100% です。
+&lt;/div&gt;
+
+&lt;p&gt;大事なことなので3回言いました。3回目は読みにくいですね。
+HSV の明度は人間の視覚に対応していません。&lt;/p&gt;
+
+&lt;p&gt;同じ明度の黄色でやってみましょう。&lt;/p&gt;
+
+&lt;div style=&#34;background-color: black; color: #FFFF00&#34;&gt;
+明度 100% です。
+&lt;/div&gt;
+
+&lt;p&gt;青のときに比べて文字がはっきりしますね。&lt;/p&gt;
+
+&lt;p&gt;というわけで、ほかの色空間が欲しくなります。&lt;/p&gt;
+
+&lt;p&gt;他に使えるものとしては&lt;a href=&#34;http://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%B3%E3%82%BB%E3%83%AB%E3%83%BB%E3%82%AB%E3%83%A9%E3%83%BC%E3%83%BB%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0&#34;&gt;マンセルカラー&lt;/a&gt;とかありますが、RGB値が厳密には定義されてないようです。
+色見本から測定して変換しているものはあるようです。&lt;/p&gt;
+
+&lt;p&gt;実世界の色とモニターの色を比較する場合、モニター自体の明るさを変更できてしまうし、一致させることができない。と、認識しました。&lt;/p&gt;
+
+&lt;p&gt;Haskell で CIELAB から RGB に変換する場合 ホワイトバランス というパラメータが必要でしたし。&lt;/p&gt;
+
+&lt;p&gt;いろんな文献をあたると RGB をマンセルカラーに変換する場合は XYZ という色空間を経由して、CIELAB にもっていくことがわかりました。
+そこで CIELAB を利用するのですが、HSV のように 色相 明度 彩度で指定できると都合がよいので aとb を極座標にして 色相、彩度にしたのが CIELCH になります。&lt;/p&gt;
+
+&lt;p&gt;ようやく本題ですが、CIELCH の色立体が見たかったのです。
+Y 方向に明度 X 方向に彩度 で 色相を18°づつずらしてみました。
+また、RGB値に変換するときに どんな値でも変換できるのですが、負の値になるものやら,255を越えてしまうものやらでてしまいます。
+若干丸めて、そのような色の場合は表示しないようにしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/cielch0.png&#34; alt=&#34;異常っぽい値を省いた色見本&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.dic-color.com/knowledge/080926.html&#34;&gt;マンセルカラー&lt;/a&gt;と比べてみても似たような雰囲気はでてますね。
+明い色になると青色がでてないのがわかります。&lt;/p&gt;
+
+&lt;p&gt;今度は彩度200 まで。
+異常と判断した値も表示してみます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/cielch1.png&#34; alt=&#34;異常っぽい値を省かず色見本 彩度200&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;彩度をあげると徐々に明るくなっちゃってますね。&lt;/p&gt;
+
+&lt;p&gt;もっと起きてることをわかりやすくするには彩度をもっと引っ張ります。
+彩度500 とかいってみましょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/cielch2.png&#34; alt=&#34;異常っぽい値を省かず色見本 彩度500&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ほんとは三次元に出したかった。&lt;/p&gt;
+
+&lt;h2 id=&#34;使用したコード:1159d8534aa12db900aa9cc731cacc3a&#34;&gt;使用したコード&lt;/h2&gt;
+
+&lt;p&gt;作成したコードも貼っておきます。Haskell のサンプルコードとしてお使いください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;import Data.Colour.CIE
+import Data.Colour.SRGB
+import Data.Colour.CIE.Illuminant
+import Data.Colour.SRGB.Linear
+
+cieLCH :: (Ord a, Floating a) =&amp;gt; Chromaticity a -&amp;gt; a -&amp;gt; a -&amp;gt; a -&amp;gt; Colour a
+cieLCH white_ch l c h = cieLAB white_ch l a b
+  where
+    radius = pi * h / 180
+    a = cos radius * c
+    b = sin radius * c
+
+validRGB :: (Fractional a, Ord a) =&amp;gt; RGB a -&amp;gt; Bool
+validRGB (RGB r g b) = if sum &amp;gt;= 0 &amp;amp;&amp;amp; sum &amp;lt;= 3.1 &amp;amp;&amp;amp;
+                          r &amp;gt; low &amp;amp;&amp;amp; r &amp;lt; high &amp;amp;&amp;amp;
+                          g &amp;gt; low &amp;amp;&amp;amp; g &amp;lt; high &amp;amp;&amp;amp;
+                          b &amp;gt; low &amp;amp;&amp;amp; b &amp;lt; high
+                       then True
+                       else True
+  where
+    sum = r + g + b
+    low = -0.1
+    high = 1.2
+
+toRGBColor :: (Fractional a, Ord a) =&amp;gt; Colour a -&amp;gt; Maybe (Colour a)
+toRGBColor colour = if validRGB rgb
+                    then Just colour
+                    else Nothing
+  where
+    rgb = Data.Colour.SRGB.Linear.toRGB colour
+
+type ColorName = (Maybe (Colour Double), Double, Double)
+type ColorTable = [[ColorName]]
+
+colorTabletoHTML :: ColorTable -&amp;gt; String
+colorTabletoHTML table = &amp;quot;&amp;lt;table style=\&amp;quot;display: inline;\&amp;quot;&amp;gt;&amp;quot;
+                         ++ (unlines $ map makeRow table) ++ &amp;quot;&amp;lt;/table&amp;gt;&amp;quot;
+  where
+    makeRow :: [ColorName] -&amp;gt; String
+    makeRow cols = &amp;quot;&amp;lt;tr&amp;gt;&amp;quot; ++ (unlines $ map makeCol cols) ++ &amp;quot;&amp;lt;/tr&amp;gt;&amp;quot;
+    makeCol :: ColorName -&amp;gt; String
+    makeCol (color, l, c) = &amp;quot;&amp;lt;td style=\&amp;quot;background-color: &amp;quot; ++
+                          rgbString color ++ &amp;quot;; \&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;&amp;quot;
+    rgbString Nothing = &amp;quot;&amp;quot;
+    rgbString (Just color) = sRGB24show color
+
+colorTable lightnesses chromas h =
+  [[(makeColor l c h, l,c) | c &amp;lt;- chromas]
+    | l &amp;lt;- lightnesses]
+  where
+    makeColor l c h = Main.toRGBColor $ cieLCH d65 l c h
+
+hues = [0,18..342]
+chromas = [200,160..0]
+lightnesses = [100,80..0]
+
+main = do
+  putStrLn &amp;quot;&amp;lt;body style=\&amp;quot;background-color: #2c2c2c\&amp;quot;&amp;gt;&amp;quot;
+  mapM_ putStrLn $ map (colorTabletoHTML . colorTable lightnesses chromas) hues
+  putStrLn &amp;quot;&amp;lt;/body&amp;gt;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gist.github.com/eiel/5148886&#34;&gt;gist&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;実際、私達が普段目にするものは彩度が高いものはなくて、RGBの彩度100 の値は不自然です。
+かといって彩度を下げすぎると味けなくなるのでバランスが大事です。
+明度を統一しつつ彩度をどこまであげるか、という線型計画問題的な感じになります。これに色の調和の計算式を盛り込めば、機械的に配色を計算できるようになりそうですね。&lt;/p&gt;
+
+&lt;h2 id=&#34;実際に配色してみた:1159d8534aa12db900aa9cc731cacc3a&#34;&gt;実際に配色してみた&lt;/h2&gt;
+
+&lt;p&gt;そんなわけでこれらを参考にして配色してみました。
+明度 70 彩度 60 あたりで 色相は均等にはしていません。
+彩度がでにくい色は少しだけ高い彩度が表現できる方向にずらしたりしています。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.eiel.info/images/color.png&#34; alt=&#34;配色例&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;抜粋したら以下の感じでした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(gray &amp;quot;#c6c6c6&amp;quot;)
+(red &amp;quot;#ff91a7&amp;quot;)
+(orange &amp;quot;#ffa667&amp;quot;)
+(yellow &amp;quot;#f2e582&amp;quot;)
+(green &amp;quot;#87d46f&amp;quot;)
+(aqua &amp;quot;#6cd0dc&amp;quot;)
+(blue &amp;quot;#80c1ff&amp;quot;)
+(purple &amp;quot;#e9a7ff&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;背景色は &lt;code&gt;#2c2c2c&lt;/code&gt; を使用しています。こうしておくと黒が使えるし、黒は色として尖りがあるので、落ちついた雰囲気になります。&lt;/p&gt;
+
+&lt;p&gt;Haskell のコードについては別途解説したいと思います。&lt;/p&gt;
+
+&lt;h2 id=&#34;参考文献:1159d8534aa12db900aa9cc731cacc3a&#34;&gt;参考文献&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ja.wikipedia.org/wiki/L*a*b*%E8%A1%A8%E8%89%B2%E7%B3%BB&#34;&gt;Wikipedia: Lab色空間&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.xrite.com/documents/literature/ja/L10-001_Understand_Color_ja.pdf&#34;&gt;PDF カラーコミュニケーションガイド —色を正しく伝えるために&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.nanisama.com/color/system/Ostwalt/index.html&#34;&gt;色彩理論：表色系：オストワルト表色系&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://hackage.haskell.org/package/colour&#34;&gt;HaskellDB colour&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://jfly.iam.u-tokyo.ac.jp/lab/colorresearch.html&#34;&gt;分子細胞生物学研究所・脳神経回路研究分野&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/active_support/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-10-31 16:45:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>Rubyで次の水曜日の18時を取得する</title>
+          <link>http://blog.eiel.info/blog/2013/10/31/next-wednesday-at-18-hour/</link>
+          <pubDate>Thu, 31 Oct 2013 16:45:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/10/31/next-wednesday-at-18-hour/</guid>
+          <description>&lt;p&gt;日付処理って意外と面倒である。次の水曜日の18時を取りたい。&lt;/p&gt;
+
+&lt;p&gt;ActiveSupport を使っていいのであれば、このように書けた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;active_support/core_ext&#39;
+Date.today.beginning_of_week(:wednesday) + 1.week + 18.hours
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;3.0.0 だと &lt;code&gt;beginning_of_week&lt;/code&gt; は引数が取れないので注意。3.0 と 4.0 でしか確認してない。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>広島Ruby勉強会 #031 で 「Hakyllで遊んだ」のでざくっと紹介した。</title>
+          <link>http://blog.eiel.info/blog/2013/04/07/hiroshimarb-31/</link>
+          <pubDate>Sun, 07 Apr 2013 01:00:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/04/07/hiroshimarb-31/</guid>
+          <description>&lt;p&gt;&lt;a href=&#34;http://hiroshimarb.github.io/blog/2013/04/06/hiroshimarb-31/&#34;&gt;広島Ruby勉強会 #031&lt;/a&gt; で かるくLT しました。&lt;/p&gt;
+
+&lt;p&gt;内容は &lt;a href=&#34;http://jaspervdj.be/hakyll/&#34;&gt;Hakyll&lt;/a&gt; についてです。&lt;/p&gt;
+
+&lt;p&gt;なのですが、Rubyのリファレンスからメソッドの紹介をしているのですが、今回は ActiveSupport で追加される メソッド。Array 編をしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://railsdoc.eiel.info/&#34;&gt;その資料はこちらに。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;この資料をどこにどうやって置こうかな？と思っていたので、ついでにHakyllを試してみました。そこで学んだこととかを紹介しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/18303056&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;http://www.slideshare.net/TomohikoHimura/hakyll-18303056&#34; title=&#34;Hakyllで遊んでみた。&#34; target=&#34;_blank&#34;&gt;Hakyllで遊んでみた。&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/TomohikoHimura&#34; target=&#34;_blank&#34;&gt;Tomohiko Himura&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;このサイトのソースコードは &lt;a href=&#34;https://github.com/eiel/railsdoc.eiel.info&#34;&gt;Github&lt;/a&gt; に丸投げしていたりします。&lt;/p&gt;
+
+&lt;p&gt;このスライドに書いてないことでは、コンパイルを毎回するのがめんどくさかったので、ghci から 引数付きで main 関数を実行する方法を調べました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;System.Environment&lt;/code&gt; に定義されてる &lt;code&gt;withArgs&lt;/code&gt; を使えばできました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;withArgs :: [String] -&amp;gt; IO a -&amp;gt; IO a&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;利用例:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;withArgs [&amp;quot;build&amp;quot;] main
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第1引数にコマンド引数をリストで渡してしまえば、良いようです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Active Supportの日付演算ってなかなか不思議。</title>
+          <link>http://blog.eiel.info/blog/2013/02/07/date-magick-on-active-support/</link>
+          <pubDate>Thu, 07 Feb 2013 12:40:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/02/07/date-magick-on-active-support/</guid>
+          <description>
+
+&lt;p&gt;昨日の記事がかなり反響がありまして、みなさまありがとうございます。
+関連のある記事を書きたくなりますが、とりあえず、変わらず淡々とメモも残していきたいと思います。ゆるりとGithub入門記事も書きたいです。&lt;/p&gt;
+
+&lt;p&gt;ActiveSupportが拡張する日付操作はとても便利です。よく使います。でも、ちょっと黒魔術だなぁって思ったことがあったので紹介します。&lt;/p&gt;
+
+&lt;p&gt;Rubyでは日付や時刻クラスのインスタンスと数値が演算できます。&lt;/p&gt;
+
+&lt;p&gt;今から1ヶ月後の日付が知りたいのであれば、以下のように書けます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;1.month.since                   # =&amp;gt; 2013-03-07 12:51:18 +0900
+1.months.since                  # =&amp;gt; 2013-03-07 12:51:18 +0900
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;複数形でも単数形でも。&lt;/p&gt;
+
+&lt;p&gt;特定の日付からでも同様のことがしたい場合は以下のようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;DateTime.new(2013).months_since 1   # =&amp;gt; Fri, 01 Feb 2013 00:00:00 +0000
+DateTime.new(2013) + 1.month        # =&amp;gt; Fri, 01 Feb 2013 00:00:00 +0000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;有名な機能なので、ご存知の方も多いと思います。&lt;/p&gt;
+
+&lt;p&gt;別に、一日単位なら &lt;code&gt;month&lt;/code&gt; メソッドとか使わなくてもできます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;DateTime.new(2013) + 1              # =&amp;gt; Wed, 02 Jan 2013 00:00:00 +0000
+DateTime.new(2013) + 1.day          # =&amp;gt; Wed, 02 Jan 2013 00:00:00 +0000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;さて、本題。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;month&lt;/code&gt;だけでなく&lt;code&gt;hour&lt;/code&gt;や&lt;code&gt;day&lt;/code&gt;,&lt;code&gt;second&lt;/code&gt;などもありますが、戻り値の型はすべて&lt;code&gt;Fixnum&lt;/code&gt;になっています。
+&lt;code&gt;1&lt;/code&gt; などの数値も&lt;code&gt;Fixnum&lt;/code&gt;です。&lt;/p&gt;
+
+&lt;p&gt;Rubyで日付や時刻を表わすクラスは &lt;code&gt;DateTime&lt;/code&gt;, &lt;code&gt;Date&lt;/code&gt;, &lt;code&gt;Time&lt;/code&gt; などありますが、演算をした場合は、&lt;strong&gt;レシーバによって変化します。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;でも、&lt;code&gt;month&lt;/code&gt;や&lt;code&gt;second&lt;/code&gt; メソッドを利用してから演算すると引数によって動作が変化します。&lt;strong&gt;どれも足すのは&lt;code&gt;Fixnum&lt;/code&gt;なのに。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;というわけで、サンプルコード。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &#39;active_support/all&#39;
+
+datetime = DateTime.new 2013, 2, 7
+date     = Date.new     2013, 2, 7
+time     = Time.new     2013, 2, 7
+
+datetime                        # =&amp;gt; Thu, 07 Feb 2013 00:00:00 +0000
+date                            # =&amp;gt; Thu, 07 Feb 2013
+time                            # =&amp;gt; 2013-02-07 00:00:00 +0900
+
+# レシーバによって動作が変わる          (1)
+# 1日先に
+datetime + 1                    # =&amp;gt; Fri, 08 Feb 2013 00:00:00 +0000
+# 1日先に
+date     + 1                    # =&amp;gt; Fri, 08 Feb 2013
+# 1秒先に
+time     + 1                    # =&amp;gt; 2013-02-07 00:00:01 +0900
+
+# これを防ぐには和をとるものを明示する (2)
+datetime + 1.days               # =&amp;gt; Fri, 08 Feb 2013 00:00:00 +0000
+date     + 1.days               # =&amp;gt; Fri, 08 Feb 2013
+time     + 1.days               # =&amp;gt; 2013-02-08 00:00:00 +0900
+
+# 秒の場合                                (3)
+datetime + 1.second             # =&amp;gt; Thu, 07 Feb 2013 00:00:01 +0000
+date     + 1.second             # =&amp;gt; 2013-02-07 00:00:01 +0900
+time     + 1.second             # =&amp;gt; 2013-02-07 00:00:01 +0900
+
+# Class は どれも Fixnum なのです
+1                               # =&amp;gt; 1
+1.class                         # =&amp;gt; Fixnum
+1.days                          # =&amp;gt; 1 day
+1.days.class                    # =&amp;gt; Fixnum
+1.second                        # =&amp;gt; 1 second
+1.second.class                  # =&amp;gt; Fixnum
+
+# (1) の場合のみレシーバによって動作が変化。動作的には自然だと思う。
+# (2), (3) の場合は 引数に応じた動作に。 Dateは演算の結果、型が変化する。
+# 使う分には使いやすい。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;いいたいことはソースコードにもかいた!
+なかなか、黒魔術。&lt;/p&gt;
+
+&lt;h2 id=&#34;以下-雑談:49561c36c85aa35434d5b6465140a727&#34;&gt;以下、雑談&lt;/h2&gt;
+
+&lt;p&gt;なんでこんなことが気になったかというと、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;n = 100000                  # n にはなんらかの秒数がはいってると仮定
+date = DateTime.new         # date には日付っぽいなにかが入る
+date.to_date + (n.to_f / 1.days).to_i      # &amp;lt;- 何がやりたかったんだろう
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;的なコードをみつけたからです。日付単位で演算したかったのだと思いますが、カオスです。&lt;/p&gt;
+
+&lt;p&gt;表示するための文字列を作る前準備だったので、以下で良い気がします。
+もちろん状況によりますけども。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;n = 100000                  # n にはなんらかの秒数がはいってると仮定
+date = DateTime.new         # date には日付っぽいなにかが入る。
+date + n.second
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;せっかくなので:49561c36c85aa35434d5b6465140a727&#34;&gt;せっかくなので&lt;/h2&gt;
+
+&lt;p&gt;せっかくなので Github と絡めておこう。&lt;/p&gt;
+
+&lt;p&gt;サンプルコードを&lt;a href=&#34;https://gist.github.com/&#34;&gt;Gist&lt;/a&gt;にも置いてみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gist.github.com/eiel/4728435&#34;&gt;https://gist.github.com/eiel/4728435&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;もしかすると、Githubでフォローしてくださった方には News Feedに 私が Gist に投稿したのが流れているかもしれません。&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;&lt;del&gt;だって、仕様ってコロコロ変わるし、サブアカでも作らないと自分で確認できないんだもの…&lt;/del&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;もうちょっと掘り下げてみる:49561c36c85aa35434d5b6465140a727&#34;&gt;もうちょっと掘り下げてみる&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;months&lt;/code&gt;メソッドなんかは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/numeric/time.rb&#34;&gt;https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/numeric/time.rb&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/integer/time.rb&#34;&gt;https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/integer/time.rb&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;に定義されてます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Fixnum&lt;/code&gt; とか自称しながら、実体は &lt;code&gt;ActiveSupport::Duration&lt;/code&gt; でした。裏切られた気分だ。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

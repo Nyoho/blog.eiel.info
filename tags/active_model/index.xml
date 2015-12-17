@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/active_model/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2013-04-29 13:53:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>i18n で ActiveModelを使ったモデルの日本語化</title>
+          <link>http://blog.eiel.info/blog/2013/04/29/i18n-active-model/</link>
+          <pubDate>Mon, 29 Apr 2013 13:53:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2013/04/29/i18n-active-model/</guid>
+          <description>&lt;p&gt;&lt;code&gt;ActiveModel&lt;/code&gt; を利用したモデルで i18n を利用しようとして以下のようなyamlを書いたら日本語にならなかった。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;activerecord:
+  models:
+    page: &amp;quot;ページ&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ソースコードを読んでみた結果、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;activemodel:
+  models:
+    page: &amp;quot;ページ&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と、書けばいいことがわかりました。&lt;/p&gt;
+
+&lt;p&gt;「それはそうですね。」という結果でなんとも言い難いです。&lt;/p&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>

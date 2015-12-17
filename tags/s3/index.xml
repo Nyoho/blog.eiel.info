@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>そんなこと覚えてない </title>
+    <link>http://blog.eiel.info/tags/s3/</link>
+    <language>en-us</language>
+    <author>Tomohiko Himura</author>
+    <rights>(C) 2015</rights>
+    <updated>2014-05-03 23:29:00 &#43;0900 &#43;0900</updated>
+
+    
+      
+        <item>
+          <title>LT駆動開発03で「S3にスライドを保存することにした」という発表者をしてきた。</title>
+          <link>http://blog.eiel.info/blog/2014/05/03/ltdd-03-s3/</link>
+          <pubDate>Sat, 03 May 2014 23:29:00 &#43;0900</pubDate>
+          <author>Tomohiko Himura</author>
+          <guid>http://blog.eiel.info/blog/2014/05/03/ltdd-03-s3/</guid>
+          <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/LTDD/Sessions/wiki/LT%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA03&#34;&gt;LT駆動開発03&lt;/a&gt; でLTをしてきました。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;0917d000b4c40131d8ee7625813d8974&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;最近、本当にSSDの容量不足が深刻で仮想マシンなんて作った日にはさっさと用事を済ませて消さないとやばい状態が続いています。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、滅多に使うことのないけど、残しておいたら役に立ちそうなファイルはS3に保存してみることにしました。
+それだけだとつまらないので、ついでに一般公開しました。&lt;/p&gt;
+
+&lt;p&gt;index.html を作るのに手動で作るのはめんどくさいので、
+S3のバケットに保存しているオブジェクトの一覧をAPI経由で取得して、この情報を元に index.html を作成して、アップロードして、静的サイトとして公開しています。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;一覧の取得&lt;/li&gt;
+&lt;li&gt;index.html の作成&lt;/li&gt;
+&lt;li&gt;index.html のアップロード&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;を自動化しています。&lt;/p&gt;
+
+&lt;p&gt;実際のページとソースコードはこちらに。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://keynotes.eiel.info/&#34;&gt;http://keynotes.eiel.info/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eiel/keynotes-eiel&#34;&gt;GitHub - eiel/keynotes-eiel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;S3を使った静的サイトの運用もちょっと試してみたかったので良い機会でした。まだ、調査が必要そうですけども。&lt;/p&gt;
+
+&lt;p&gt;自動化はしていない部分であるスライドのアップロードには &lt;a href=&#34;http://s3tools.org/s3cmd&#34;&gt;s3cmd&lt;/a&gt; を利用しています。&lt;/p&gt;
+
+&lt;p&gt;後半はHaskellの話です。
+HaskellのAWSのAPIを叩くには &lt;a href=&#34;https://hackage.haskell.org/package/aws&#34;&gt;aws&lt;/a&gt; ライブラリを使用しました。他にも &lt;a href=&#34;https://hackage.haskell.org/package/aws-sdk&#34;&gt;aws-sdk&lt;/a&gt; というライブラリもあるようですが、対応しているサービスが違っているようでした。&lt;/p&gt;
+
+&lt;p&gt;元々 Ruby を使ってつくってたのですが、なんとなく理由もなく Haskell でやりたくなってHaskellでやってみましたが、意外と簡単にできました。
+Haskell 良いですね。&lt;/p&gt;
+
+&lt;p&gt;あとレコード型が実に使いこなせてないことに気づいたので勉強してこようと思いました。&lt;/p&gt;
+
+&lt;p&gt;まだ、 keynotes.eiel.info に特化しているのでそのうち汎用性を上げたいと思います。&lt;/p&gt;
+
+&lt;p&gt;スライドですが、&lt;a href=&#34;http://memo.sanographix.net/post/82160791768&#34;&gt;azusa テンプレート&lt;/a&gt;をかなり参考にさせていただきました。
+というか、色は少し自分好みに変えただけですね。
+赤はもうちょっと明るい色を使うほうがいいなって思う反省点がありました。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、今日はこの辺で。&lt;/p&gt;
+
+&lt;h3 id=&#34;関連リンク:b3783079e786d24bd78477f1a8b31e09&#34;&gt;関連リンク&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.eiel.info/blog/2014/02/19/start-ltdd/&#34;&gt;LT駆動開発という勉強会をはじめるよ - そんなこと覚えてない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+
+  </channel>
+</rss>
